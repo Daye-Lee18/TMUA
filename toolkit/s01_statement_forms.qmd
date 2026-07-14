@@ -1,0 +1,404 @@
+---
+title: "Paper 2 Toolkit · S1 — Statement Forms: if, only if, if and only if"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+## Where this fits
+
+**Specification: Arg1** — *the terms true and false; the terms and, or (inclusive), not; statements of
+the form* **if A then B**, **A if B**, **A only if B**, **A if and only if B**.
+
+This is the first page of Paper 2 and the foundation of everything after it. Converse, contrapositive,
+necessary and sufficient, negation, proof by contradiction — every one of them is built out of the four
+statement forms on this page. If these are shaky, nothing later stands up.
+
+Official source: **Notes on Logic and Proof**, *Statements with "if"* (pp. 24–34).
+
+## Why this matters
+
+Here is an uncomfortable fact. You have been doing mathematics for ten years, and in all that time
+nobody has ever told you what the word **"only if"** means.
+
+You have used it. You have read it in questions. You almost certainly think it means the same as "if".
+It does not — it means the **opposite direction**. And the TMUA knows that, which is why *"only if"*
+appears in every recent Paper 2, and why it is one of the most reliable sources of wrong answers on the
+whole test.
+
+The good news: this is not hard mathematics. There is no algebra here. It is a small number of precise
+distinctions, and once you have them, a whole category of Paper 2 questions becomes almost free.
+
+---
+
+## 1. Statements, and the three ways to combine them
+
+::: {.callout-tip}
+## Concept — a statement is a sentence that is either true or false
+
+Not "sometimes true", not "true if you think about it a certain way" — **definitely one or the other**.
+
+- *"21 is divisible by 3"* is a statement. It is true.
+- *"21 is divisible by 6"* is a statement. It is false.
+- *"$x$ is divisible by 3"* is **not** a statement — it has no truth value until you say what $x$ is.
+- *"Is 21 prime?"* is not a statement. Questions have no truth value.
+
+Everything on Paper 2 is built by gluing statements together. There are exactly three glues.
+:::
+
+::: {.callout-note}
+## Method — the three ways to build a new statement
+
+1. **not $A$** — true exactly when $A$ is false.
+2. **$A$ and $B$** — true exactly when **both** are true.
+3. **$A$ or $B$** — true when **at least one** is true. *This includes the case where both are true.*
+:::
+
+The third one is worth stopping on, because ordinary English lies to you about it.
+
+::: {.callout-warning}
+## Common mistakes
+
+| ✗ Mistake | ✓ Correct |
+|---|---|
+| "Or" means **one or the other, but not both** | In mathematics **or is inclusive**. "$x > 0$ or $x$ is an integer" is true for $x = 5$ — both hold, and that is fine. When a waiter says "tea or coffee" they mean *exclusive* or; mathematics never does |
+| "not ($A$ and $B$)" is the same as "(not $A$) and (not $B$)" | It is not. If $A$ is true and $B$ is false, then "$A$ and $B$" is false, so "not($A$ and $B$)" is **true** — but "(not $A$)" is false. (Negating "and"/"or" properly is Session 4) |
+
+:::
+
+---
+
+## 2. "If A then B" — and what it does *not* tell you
+
+Everything about implication is contained in one honest observation: **an if-statement makes a promise
+in one direction only, and says absolutely nothing in the other.**
+
+The official notes make the point with church bells, and it is such a good example that we will keep it.
+
+> **If it is Sunday, then the church bells ring.**
+
+Assume that is true, and ask four questions.
+
+::: {.callout-tip}
+## Concept — the four questions (this table *is* the topic)
+
+| What you know | What you can conclude |
+|---|---|
+| It **is** Sunday | The bells ring |
+| It is **not** Sunday | **Nothing.** The bells may ring on a Tuesday — the statement never promised they wouldn't |
+| The bells **do** ring | **Nothing.** They might be ringing for a wedding |
+| The bells do **not** ring | It is **not** Sunday |
+
+Read the two "Nothing" rows again. They are the entire lesson.
+
+An if-statement is a **one-way promise**. Knowing the *front* half is true tells you the back half is
+true. Knowing the *back* half is true tells you **nothing at all**.
+
+And notice the fourth row — the one that *does* give you something. If the bells are silent, it cannot
+be Sunday, because Sunday would have forced them to ring. **Denying the back half denies the front
+half.** That is the contrapositive, and it is Session 2.
+:::
+
+### A picture of the same thing
+
+Think of "if $A$ then $B$" as a statement about **regions**: every $A$-thing is a $B$-thing. The $A$
+circle sits *inside* the $B$ circle.
+
+```{python}
+import matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+fig, axes = plt.subplots(2, 1, figsize=(6.4, 9.6))
+
+# ---- panel 1: if A then B  ->  A sits inside B
+ax = axes[0]
+ax.add_patch(plt.Circle((0, 0), 2.6, fc=YINT_CLR, alpha=0.10, ec=YINT_CLR, lw=2))
+ax.add_patch(plt.Circle((-0.7, -0.2), 1.3, fc=ROOT_CLR, alpha=0.18, ec=ROOT_CLR, lw=2))
+ax.text(-0.7, -0.25, '$A$', ha='center', va='center', fontsize=15, color=ROOT_CLR)
+ax.text(1.35, 1.55, '$B$', ha='center', va='center', fontsize=15, color=YINT_CLR)
+ax.plot([1.4], [-0.9], 'o', color=ASYM_CLR, ms=9, zorder=5)
+ax.annotate('here $B$ is true\nbut $A$ is false —\nand that is allowed',
+            (1.4, -0.9), textcoords='offset points', xytext=(20, -34),
+            fontsize=9, color=ASYM_CLR,
+            arrowprops=dict(arrowstyle='->', color=ASYM_CLR, lw=1.2))
+ax.set_title('“if $A$ then $B$”:  every $A$ is a $B$', fontsize=12)
+
+# ---- panel 2: the concrete one
+ax = axes[1]
+ax.add_patch(plt.Circle((0, 0), 2.6, fc=YINT_CLR, alpha=0.10, ec=YINT_CLR, lw=2))
+ax.add_patch(plt.Circle((-0.7, -0.2), 1.3, fc=ROOT_CLR, alpha=0.18, ec=ROOT_CLR, lw=2))
+ax.text(-0.7, -0.25, '$x=3$', ha='center', va='center', fontsize=12, color=ROOT_CLR)
+ax.text(1.45, 1.5, '$x^2=9$', ha='center', va='center', fontsize=12, color=YINT_CLR)
+ax.plot([1.25], [-0.9], 'o', color=ASYM_CLR, ms=9, zorder=5)
+ax.annotate('$x=-3$\nsquares to 9,\nbut is not 3', (1.25, -0.9), textcoords='offset points',
+            xytext=(22, -30), fontsize=9, color=ASYM_CLR,
+            arrowprops=dict(arrowstyle='->', color=ASYM_CLR, lw=1.2))
+ax.set_title('“if $x=3$ then $x^2=9$”  is true.\nThe reverse is not: $x^2=9$ does not force $x=3$.',
+             fontsize=12)
+
+for ax in axes:
+    ax.set_xlim(-3.4, 4.6); ax.set_ylim(-3.6, 3.2)
+    ax.set_aspect('equal'); ax.axis('off')
+plt.tight_layout(); plt.show()
+```
+
+The red dot is the whole point. It lives inside $B$ but outside $A$ — so knowing you are in $B$ does
+**not** tell you that you are in $A$. That single dot is the reason implication runs one way.
+
+---
+
+## 3. The four forms
+
+Here is the table to learn. Everything on this page reduces to it.
+
+::: {.callout-tip}
+## Concept — the four forms, and which way each arrow points
+
+| The English | Means | In words |
+|---|---|---|
+| **if $A$ then $B$** | $A \Rightarrow B$ | $A$ forces $B$ |
+| **$A$ if $B$** | $B \Rightarrow A$ | $B$ forces $A$ — the arrow points **backwards** |
+| **$A$ only if $B$** | $A \Rightarrow B$ | $A$ forces $B$ — **the same as "if $A$ then $B$"** |
+| **$A$ if and only if $B$** | $A \Leftrightarrow B$ | Both directions at once |
+
+Two facts do all the work:
+
+1. **"if" introduces the thing that does the forcing.** Whatever follows the bare word *if* is the
+   front of the arrow. So in "$A$ **if** $B$", it is $B$ that forces $A$.
+2. **"only if" introduces the thing that gets forced.** So in "$A$ **only if** $B$", it is $A$ that
+   forces $B$.
+
+Which means **"$A$ if $B$" and "$A$ only if $B$" are opposite statements** — and they differ by two
+letters.
+:::
+
+Why does "only if" work that way? Read it as the notes do: *"the church bells ring **only if** it is
+Sunday"* is saying *"Sunday is the only circumstance in which the bells ring"*. So if you hear the
+bells, it must be Sunday. Bells $\Rightarrow$ Sunday.
+
+And notice what it does *not* say: it does not promise that the bells ring *every* Sunday. They might
+be broken. "Only if" gives you a **restriction**, not a guarantee.
+
+::: {.callout-note}
+## Method — decoding any if-statement
+
+Whenever you meet an unfamiliar "if" sentence, do not think about it. **Rewrite it in the "if … then …"
+form**, then read the arrow off.
+
+1. Find the bare **"if"** or the **"only if"**.
+2. Apply the rule: **"only if" $\to$ rewrite as "if [front] then [back]"** — the sentence keeps its order.
+   Bare **"if"** $\to$ rewrite by **swapping**: "$A$ if $B$" becomes "if $B$ then $A$".
+3. Now that it is in "if … then …" form, apply the four-question table: the front forces the back, and
+   the back forces nothing.
+4. If the sentence says **"if and only if"**, you have *both* arrows — and only then may you argue in
+   both directions.
+
+*(The official notes give exactly this tip: "A [very] useful tip is to replace the statement A only if B
+by if A then B whenever you meet it.")*
+:::
+
+### Quick practice — one form at a time
+
+Take $n$ to be a positive integer throughout. Decide whether each statement is **true** or **false**.
+
+&nbsp;&nbsp;(a)&nbsp; $n$ is divisible by 6 **only if** $n$ is divisible by 3
+&nbsp;&nbsp;(b)&nbsp; $n$ is divisible by 6 **if** $n$ is divisible by 3
+&nbsp;&nbsp;(c)&nbsp; $n$ is divisible by 3 **only if** $n$ is divisible by 6
+&nbsp;&nbsp;(d)&nbsp; $n$ is divisible by 6 **if and only if** $n$ is divisible by 2 and by 3
+&nbsp;&nbsp;(e)&nbsp; $x = 3$ **only if** $x^2 = 9$
+&nbsp;&nbsp;(f)&nbsp; $x = 3$ **if** $x^2 = 9$
+
+*Answer form: true or false, and for each false one, a counterexample.*
+
+::: {.callout-note collapse="true"}
+## Answers
+
+&nbsp;&nbsp;**(a) True.** Rewrite: *if $n$ is divisible by 6, then $n$ is divisible by 3.* Yes — every
+multiple of 6 is a multiple of 3.
+
+&nbsp;&nbsp;**(b) False.** Bare "if", so **swap**: *if $n$ is divisible by 3, then $n$ is divisible by 6.*
+Counterexample: $n = 9$.
+
+&nbsp;&nbsp;**(c) False.** Rewrite: *if $n$ is divisible by 3, then $n$ is divisible by 6.* Same
+statement as (b), same counterexample $n=9$. **Compare (a) and (c):** identical words, "only if" moved,
+and the truth value flips.
+
+&nbsp;&nbsp;**(d) True.** Both directions hold, so "if and only if" is justified. *(This is the rare case
+where you are allowed to argue both ways — and you must check both.)*
+
+&nbsp;&nbsp;**(e) True.** Rewrite: *if $x = 3$ then $x^2 = 9$.* Yes.
+
+&nbsp;&nbsp;**(f) False.** Swap: *if $x^2 = 9$ then $x = 3$.* Counterexample: $x = -3$. *This is the red
+dot in the picture above, and it is the single most common error in all of Paper 2.*
+:::
+
+---
+
+## 4. "If and only if" — and why it is a promise you must earn
+
+::: {.callout-tip}
+## Concept — "iff" is two statements wearing one coat
+
+$$A \text{ if and only if } B \quad\equiv\quad (A \text{ if } B) \;\textbf{ and }\; (A \text{ only if } B)$$
+$$\equiv\quad (B \Rightarrow A) \;\textbf{ and }\; (A \Rightarrow B)$$
+
+So an "if and only if" claim is **two claims**, and you have to earn both. Proving one direction and
+declaring victory is the classic way to lose a Paper 2 question.
+
+When $A \Leftrightarrow B$ holds, $A$ and $B$ are **true in exactly the same circumstances** — the two
+regions in the picture coincide. That is why a chain of "if and only if" steps is safe to run
+*backwards*, and a chain of one-way implications is not.
+:::
+
+This matters enormously in practice, because **the standard Paper 2 question is a chain of algebraic
+steps, each claimed to be an "if and only if", and your job is to find the first step where the claim
+is false.**
+
+::: {.callout-warning}
+## Common mistakes
+
+| ✗ Mistake | ✓ Correct |
+|---|---|
+| Squaring both sides is reversible | $x = -2 \Rightarrow x^2 = 4$, but $x^2 = 4 \not\Rightarrow x = -2$. **Squaring is one-way**, and it is the most common broken link in a false "iff" chain |
+| Multiplying both sides by something is reversible | Only if that something is **known to be non-zero**. From $ab = ac$ you may **not** conclude $b = c$ — this is Err2, on the specification by name |
+| Taking a square root gives one answer | $\sqrt{x^2} = \lvert x\rvert$, not $x$. So "$x^2 < 4$ iff $x < 2$" is **false** — it is $\lvert x \rvert < 2$ |
+| Proving "$A \Rightarrow B$" proves "$A \Leftrightarrow B$" | You have done half the work. Say out loud which half |
+:::
+
+---
+
+## 5. What this looks like in the exam
+
+This is not a warm-up topic. Search the recent Paper 2s for the words *only if*, *necessary* and
+*sufficient*: they appear **8 times in 2018, 9 in 2019, 11 in 2020, 10 in 2021, 8 in 2022, and 20 times
+in 2023.** They are on every paper, and they are increasing.
+
+Two question types account for nearly all of it.
+
+**Type 1 — the chain of "if and only if"s.** You are shown an argument in numbered lines, each line
+claimed to be equivalent to the last, and asked where the **first error** occurs. This is
+**2023 Paper 2, Question 10**, exactly as printed:
+
+> Here is an attempt to solve the inequality $x^4 - 2x^2 - 3 < 0$ by completing the square:
+>
+> $x^4 - 2x^2 - 3 < 0$
+> **I** &nbsp; if and only if &nbsp; $x^4 - 2x^2 + 1 < 4$
+> **II** &nbsp; if and only if &nbsp; $(x^2-1)^2 < 4$
+> **III** &nbsp; if and only if &nbsp; $-2 < x^2 - 1 < 2$
+> **IV** &nbsp; if and only if &nbsp; $x^2 - 1 < 2$
+> **V** &nbsp; if and only if &nbsp; $x^2 < 3$
+> **VI** &nbsp; if and only if &nbsp; $-\sqrt3 < x < \sqrt3$
+>
+> Which of the following statements is true?
+> **A** The argument is completely correct. &nbsp; **B** The first error occurs in line I. &nbsp;
+> **C** … line II. &nbsp; **D** … line III. &nbsp; **E** … line IV. &nbsp; **F** … line V. &nbsp;
+> **G** … line VI.
+
+::: {.callout-note}
+## Method — attacking a chain
+
+1. Go **line by line**, and at each line ask exactly one question: **does this step run both ways?**
+2. Watch for the one-way moves: **squaring**, **square-rooting**, **multiplying by something that might
+   be zero or negative**, and **dropping half of a two-sided inequality**.
+3. The moment a line fails in one direction, **stop** — you were asked for the *first* error, so the
+   rest does not matter.
+4. If every line survives, then "the argument is completely correct" really is the answer. **That option
+   is not a decoy.**
+:::
+
+::: {.callout-note collapse="true"}
+## Work through it — the answer is A, and *why* is the lesson
+
+**I.** Add 4 to both sides of $x^4 - 2x^2 - 3 < 0$. *Adding the same number to both sides is reversible —
+you can always subtract it again.* ✓
+
+**II.** $x^4 - 2x^2 + 1 = (x^2-1)^2$. *An algebraic identity: the two sides are the same number, not
+merely equal in this case.* ✓
+
+**III.** $u^2 < 4 \iff -2 < u < 2$, with $u = x^2-1$. *This is the correct two-sided reading of a squared
+inequality — note the argument did **not** fall for "$u^2 < 4 \Rightarrow u < 2$".* ✓
+
+**IV.** Here is the line that is *designed* to look wrong. It throws away the left half of the
+inequality, keeping only $x^2 - 1 < 2$. Surely that loses information?
+
+*It does not — and this is the whole question.* $x^2 \ge 0$ for every real $x$, so
+$$x^2 - 1 \ge -1 > -2$$
+**The condition $-2 < x^2-1$ is automatically true.** It was never doing any work, so dropping it
+removes nothing, and lines III and IV really are equivalent. ✓
+
+**V.** Add 1 to both sides. ✓ &nbsp;&nbsp; **VI.** $x^2 < 3 \iff -\sqrt3 < x < \sqrt3$ — the two-sided
+reading again, done correctly. ✓
+
+**Answer: A — the argument is completely correct.**
+:::
+
+That question is worth more than any drill, because of what it punishes. A student who has just learned
+"dropping half an inequality is an error" pattern-matches line IV and answers E. They are **wrong for a
+right-sounding reason** — they applied a rule instead of checking a claim. The only way to get this
+question is to ask, of each line, *is this actually true?* — and to be willing to answer "yes, all of
+them".
+
+**Type 2 — "which of these is equivalent to (∗)?"** You are given a statement and three rephrasings
+using *if*, *only if*, *necessary*, *sufficient*, and asked which say the same thing. This is the
+four-form table, applied under time pressure. This is **2023 Paper 2, Question 11**:
+
+> $k$ is a positive integer. Consider the theorem:
+> $$\text{If } 2^k+1 \text{ is a prime, then } k \text{ is a power of } 2. \tag{$*$}$$
+> Which of the following, taken individually, is/are **equivalent to (∗)**?
+>
+> **I** &nbsp; If $k$ is a power of 2, then $2^k + 1$ is prime.
+> **II** &nbsp; $2^k + 1$ is not prime **only if** $k$ is not a power of 2.
+> **III** &nbsp; A **sufficient** condition for $k$ to be a power of 2 is that $2^k+1$ is prime.
+
+::: {.callout-note collapse="true"}
+## Work through it — the answer is G: No, No, Yes
+
+*Name the two halves first. This is the single most valuable thing you can do on a question like this,
+and it takes ten seconds.*
+
+Let $P$ = "$2^k+1$ is prime" and $Q$ = "$k$ is a power of 2". Then
+$$(*) \;=\; P \Rightarrow Q$$
+
+**I.** "If $k$ is a power of 2, then $2^k+1$ is prime" is $Q \Rightarrow P$. *That is the arrow pointing
+the wrong way — the **converse**. A statement and its converse are not equivalent.* → **No**
+
+**II.** Apply the rule: **"$A$ only if $B$" means $A \Rightarrow B$.** Here $A$ = "$2^k+1$ is not prime"
+$= \text{not } P$, and $B$ = "$k$ is not a power of 2" $= \text{not } Q$. So statement II is
+$$\text{not } P \Rightarrow \text{not } Q$$
+*Now: reversing **and** negating both halves gives you the contrapositive, which is equivalent. Here both
+halves are negated but the arrow was **not** reversed — so this is the contrapositive of $Q \Rightarrow P$,
+which is statement I, which is the converse of (∗).* II says the same thing as I, and neither says (∗). → **No**
+
+**III.** "A sufficient condition for $Q$ is $P$" means **$P$ is enough to force $Q$** — that is
+$P \Rightarrow Q$, which is (∗) itself, word for word. → **Yes**
+
+**Answer: G (No, No, Yes).**
+:::
+
+Notice what just happened. Statement II *feels* like it must be equivalent — it has negations on both
+sides, it smells like a contrapositive, and a student in a hurry will tick it. The only defence is the
+mechanical one: **name $P$ and $Q$, rewrite every "only if" as an arrow, and compare arrows.** Do not
+reason about primes; reason about the shape.
+
+*(Necessary and sufficient are Session 3, and the contrapositive is Session 2. That one exam question
+needs all three sessions — which is a fair warning about how tightly this material interlocks.)*
+
+---
+
+## Summary — the whole session on one line
+
+> **"if" introduces the forcer. "only if" introduces the forced.**
+> And when in doubt, **rewrite everything as "if … then …"** before you think.
+
+::: {.callout-tip}
+## Before the next session
+
+1. Read **Notes on Logic and Proof**, pp. 24–34 (*Statements with "if"*). Work the church-bells tables
+   yourself before you look at theirs.
+2. Redo the six quick-practice statements above from blank. If any took more than ten seconds, the
+   rewriting rule has not stuck yet.
+3. Session 2 is the **converse and the contrapositive** — which are just the two ways of turning an
+   arrow around, one of which is safe and one of which is a trap.
+:::

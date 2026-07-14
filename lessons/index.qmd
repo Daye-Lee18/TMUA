@@ -1,0 +1,31 @@
+---
+title: "Lessons"
+---
+
+One solution booklet per paper. A TMUA paper is 20 questions in 75 minutes, which fits a two-hour
+session with room to teach, so **"2019 Paper 1" is one lesson** — and Paper 1 and Paper 2 are never
+mixed into the same session, because they test genuinely different things.
+
+| Paper | Booklet |
+|---|---|
+| **2019 Paper 1** | **[Class material](2019_paper1/class_material.qmd)** — all 20 questions, with working space (prints one question per page) |
+
+## What the class material is
+
+Not a mark scheme. A mark scheme tells you the answer; this tells you **how the question was meant to be
+read**. Each question has three parts:
+
+- **The topic**, named in a line — what the question is testing, before you see any working.
+- **Commentary**, in prose, *before* the solution and readable without spoiling it: what the question is
+  really asking, which of the given facts is doing the work, and where the short route is.
+- **The solution**, in a collapsible toggle, written as continuous mathematical argument rather than a
+  column of algebra — with the reasoning behind each step said out loud.
+
+Each question then closes with **where the wrong options come from**. The four distractors in a TMUA
+question are not random: each is the answer produced by a specific, common, entirely reasonable
+mistake. A student who understands *which* slip produces option C has learned more than one who merely
+knows the answer is B.
+
+The booklet is written to be read aloud — the tutor teaches straight from it. The things that repeat
+every session (session shape, phrases, pronunciation, prompts) live once in `TEACHING_GUIDE.md` at the
+repository root.

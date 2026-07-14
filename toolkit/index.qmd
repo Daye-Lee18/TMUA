@@ -1,0 +1,56 @@
+---
+title: "Paper 2 Toolkit — Logic and Proof"
+---
+
+Paper 2 assumes everything in Paper 1, and then adds **Section 2** of the specification: the logic of
+arguments, mathematical proof, and finding errors in proofs.
+
+Almost none of this is taught in an A-Level course. A student can be excellent at A-Level Maths and
+still score badly on Paper 2, not because the questions are hard but because nobody ever told them
+what *"A only if B"* means, or that a proof can be wrong in a way that has nothing to do with
+arithmetic. **So Paper 2 needs content teaching before it needs practice**, and attempting Paper 2
+papers cold is mostly a way to lose confidence.
+
+The official [Notes on Logic and Proof](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2025/06/25160507/Notes_on_Logic_and_Proof_June2025.pdf)
+(74 pages, written by the people who set the test) is the only real textbook for this material, and
+these pages follow its structure.
+
+## What Section 2 actually contains
+
+| Code | Requirement |
+|---|---|
+| **Arg1** | *true* and *false*; *and*, *or* (inclusive), *not*; the four statement forms **if A then B**, **A if B**, **A only if B**, **A if and only if B**; the **converse**; the **contrapositive**; how the truth of a statement relates to the truth of its converse and its contrapositive |
+| **Arg2** | **necessary** and **sufficient** |
+| **Arg3** | **for all**, **for some** (meaning *for at least one*), **there exists** |
+| **Arg4** | **Negating** statements that use any of the above |
+| **Prf1** | Follow, and in simple cases construct: **direct deductive proof**, **proof by cases**, **proof by contradiction**, **disproof by counterexample** |
+| **Prf2** | Deduce implications from given statements |
+| **Prf3** | Make conjectures from small cases, then justify them |
+| **Prf4** | **Rearrange a scrambled sequence of statements** into a correct proof |
+| **Prf5** | Problems needing a long chain of reasoning |
+| **Err1** | **Identify the error** in a purported proof |
+| **Err2** | Know the classic invalid deductions — e.g. "if $ab = ac$ then $b = c$" (false when $a = 0$), or "if $\sin A = \sin B$ then $A = B$" |
+
+::: {.callout-note}
+## Two things the specification explicitly says you do *not* need
+
+You are **not** expected to recognise or use symbolic notation ($\Rightarrow$, $\forall$, $\land$, …),
+and you are **not** expected to complete formal truth tables. The reasoning is tested in English
+sentences. This is reassuring — but it also means you cannot hide behind notation, and the ambiguity
+of ordinary English (*"only if"*, *"some"*) is exactly where the marks are won and lost.
+:::
+
+## Sessions
+
+| | Session | Spec |
+|---|---|---|
+| **S1** | **[Statement forms — if, only if, if and only if](s01_statement_forms.qmd)** — why *A only if B* means $A \Rightarrow B$, not $B \Rightarrow A$ | Arg1 |
+| S2 | Converse and contrapositive — the contrapositive is always equivalent, the converse almost never is | Arg1 |
+| S3 | Necessary and sufficient — the most-tested pair of words on Paper 2 | Arg2 |
+| S4 | Quantifiers and negation — *for all*, *there exists*, and why the negation of "all X are Y" is not "no X is Y" | Arg3, Arg4 |
+| S5 | Proof methods — direct, by cases, by contradiction, by counterexample | Prf1 |
+| S6 | Scrambled proofs — the Prf4 question type, and how to order statements fast | Prf4 |
+| S7 | Spot the error — the catalogue of classic false steps | Err1, Err2 |
+
+Sessions 2–7 are not written yet. Work through them in order: each one is built on the one before, and
+S1 in particular is load-bearing for everything else.

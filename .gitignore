@@ -1,0 +1,14 @@
+# Official PDFs — not redistributed. Re-fetch with: bash scripts/fetch_resources.sh
+_resources/**/*.pdf
+
+# Quarto build
+_output/
+.quarto/
+/.luarc.json
+
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
+
+/.quarto/
+**/*.quarto_ipynb

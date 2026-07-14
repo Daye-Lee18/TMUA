@@ -1,0 +1,180 @@
+/* Solution booklets: quiet, black-on-white, academic. */
+
+body {
+  color: #000;
+}
+
+/* Solution pages read like a printed article, not a webpage. */
+.solutions {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  max-width: 46rem;
+  color: #000;
+}
+
+/* Force full-strength black everywhere inside the booklet: Bootstrap/cosmo
+   otherwise renders callout bodies, table cells and small text in grey. */
+.solutions,
+.solutions p,
+.solutions li,
+.solutions td,
+.solutions th,
+.solutions .callout,
+.solutions .callout-body,
+.solutions .callout-body-container,
+.solutions .callout-header,
+.solutions .callout-title-container,
+.solutions blockquote {
+  color: #000 !important;
+}
+
+.solutions h2 {
+  color: #000;
+  border-top: 1px solid #bbb;
+  padding-top: 1.4rem;
+  margin-top: 2.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* The question statement itself, set apart from the commentary. */
+.question {
+  border-left: 3px solid #000;
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin: 1rem 0 1.2rem 0;
+}
+
+.topic {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.6rem;
+}
+
+/* The only highlight in the document. Two or three times a page, no more. */
+.hl {
+  background: linear-gradient(transparent 58%, #ffe066 58%);
+  padding: 0 0.1em;
+}
+
+/* Collapsible solution: no colour, no icon — just rules and a label. */
+.solutions .callout {
+  border: none;
+  border-top: 1.5px solid #000;
+  border-bottom: 1.5px solid #000;
+  border-radius: 0;
+  background: #fff;
+  margin: 1.6rem 0;
+}
+.solutions .callout .callout-header {
+  background: transparent !important;
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+.solutions .callout .callout-body {
+  background: transparent;
+}
+
+/* Option lists and the distractor table: compact and plain. */
+.solutions table {
+  font-size: 0.97rem;
+}
+.solutions th {
+  border-bottom: 1.5px solid #000;
+  font-weight: 700;
+}
+.solutions td {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Maths should be as black as the prose. */
+.solutions mjx-container,
+.solutions .math {
+  color: #000 !important;
+}
+
+/* No dark-mode block here on purpose. The site is served with Quarto's light
+   (cosmo) theme, so the page background is always white; a
+   prefers-color-scheme:dark rule would turn the text white on that white
+   background and make the page unreadable on any Mac set to dark mode. */
+
+/* ---------- Working space under each question ---------- */
+
+.workspace {
+  margin: 1.6rem 0 0.5rem 0;
+  min-height: 11cm;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  padding: 0.4rem 0.8rem 0 0.8rem;
+  /* faint ruled lines to write on */
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 0.79cm, #e6e6e6 0.79cm, #e6e6e6 0.8cm
+  );
+  background-position: 0 1.4rem;
+  color: #999;
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Print: one question per page ---------- */
+
+@media print {
+  /* Each question starts a fresh page, and never splits across one. */
+  .solutions h2 {
+    break-before: page;
+    page-break-before: always;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .solutions h2:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+  .question, .topic, .workspace {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Give the student the whole rest of the page to work in. */
+  .workspace {
+    min-height: 13cm;
+    border-color: #999;
+  }
+
+  /* Collapsed solutions stay collapsed on paper — this is a worksheet, not an answer key.
+     Quarto puts the collapse class on .callout-collapse, and Bootstrap only adds .show
+     when the toggle is open. Anything still shut is hidden from the printout. */
+  .solutions .callout-collapse.collapse:not(.show) {
+    display: none !important;
+  }
+  /* ...but if the tutor opens a solution before printing, print it — that gives an answer key. */
+  .solutions .callout-collapse.collapse.show {
+    display: block !important;
+  }
+
+  /* Strip the site furniture. */
+  nav, .navbar, #quarto-sidebar, #quarto-margin-sidebar, .toc, #TOC,
+  .nav-footer, footer {
+    display: none !important;
+  }
+  body, .solutions {
+    max-width: 100%;
+    font-size: 11pt;
+  }
+  a { text-decoration: none; color: #000; }
+}
+
+/* Belt and braces: the page is white, so the text is black. */
+html, body, .solutions, .solutions * {
+  background-color: inherit;
+}
+body, .solutions, .solutions p, .solutions li, .solutions td, .solutions th,
+.solutions h1, .solutions h2, .solutions h3, .solutions .callout,
+.solutions .callout-header, .solutions .callout-body, .solutions .topic,
+.solutions mjx-container {
+  color: #000 !important;
+}

@@ -1,0 +1,66 @@
+---
+title: "The Test"
+---
+
+## Format
+
+| | Paper 1 | Paper 2 |
+|---|---|---|
+| Name | Applications of Mathematical Knowledge | Mathematical Reasoning |
+| Time | 75 minutes | 75 minutes |
+| Questions | 20 multiple choice | 20 multiple choice |
+| Content | Section 1 of the specification | Sections 1 **and** 2 |
+
+The two papers are sat one after the other. Questions carry equal weight, there is **no penalty for a
+wrong answer**, there is **no formulae booklet**, and **calculators are not allowed**.
+
+That works out at **3 minutes 45 seconds per question**. This is the single most important number on
+this page: the questions are not individually hard for a strong A-Level student, but the direct,
+grind-it-out method is almost always too slow. Paper 1 rewards spotting the shortcut — symmetry, a
+substitution, a sketch, eliminating options — over correct-but-lengthy algebra.
+
+## Scoring
+
+One overall score on a scale from **1.0 to 9.0**, reported to one decimal place. The scale is designed
+so that a typical candidate scores around **4.5**, and roughly **10% of candidates score above 7.0**.
+Results come out about four weeks after the sitting.
+
+Because there is no negative marking, **every question must be answered** — a guess on the last
+question is free expected value. Budget the final minute for filling in anything left blank.
+
+## What changed in 2024
+
+The TMUA moved from Cambridge Assessment to **UAT-UK**, and is now taken **on screen at Pearson VUE
+test centres**, with sittings in **October and January**.
+
+The practical consequence for preparation: **question papers are no longer published.** Because the
+on-screen tests reuse questions between sittings, no paper has been released since 2023. The archive
+of specimen + 2016–2023 papers on this site is therefore the *complete* set of public TMUA questions,
+and it is not going to grow.
+
+The specification and the question style did not change, so the old papers remain the right practice
+material. What replaced new papers is a pair of **official study guides written by the people who set
+the test** — see below.
+
+## Official resources
+
+| Resource | What it is |
+|---|---|
+| [Content Specification](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/03165619/TMUA_Content_Specification.pdf) | The syllabus. Section 1 = maths content (both papers), Section 2 = logic and proof (Paper 2 only) |
+| [Notes on Mathematics](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2026/06/30103537/Notes_on_Mathematics_-for_TMUA_and_ESAT_M2.pdf) | 159 pages, MM1–MM8, mapped one-to-one onto Section 1. The setters' own commentary on what each spec line means |
+| [Notes on Logic and Proof](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2025/06/25160507/Notes_on_Logic_and_Proof_June2025.pdf) | 74 pages on Section 2. Effectively the *only* textbook for Paper 2 |
+| [Past papers](https://esat-tmua.ac.uk/tmua-preparation-materials/) | Specimen + 2016–2023, each with worked answers and an answer key |
+| [Pearson VUE practice tests](https://www.pearsonvue.com/us/en/uatuk.html) | The on-screen interface. Sit at least one so the format is not a surprise on the day |
+
+## How to prepare
+
+1. **Read the specification first**, not last. It is short, and it is the contract — anything outside
+   it cannot be asked.
+2. **Paper 2 content before Paper 2 papers.** Logic and proof is not in the A-Level syllabus, so
+   attempting Paper 2 questions cold mostly teaches frustration. Work through the
+   [Paper 2 Toolkit](../toolkit/index.qmd) and the official Notes on Logic and Proof first.
+3. **Papers under timed conditions.** 75 minutes, no calculator, no interruptions. An untimed TMUA
+   paper measures something the real test does not.
+4. **Review the questions you got right but slowly.** On this test, a two-minute overrun is as
+   expensive as a wrong answer, and the worked answers usually show a faster route than the one you took.
+5. **Sit a Pearson VUE practice test** before the real thing, for the interface rather than the maths.

@@ -1,0 +1,95 @@
+---
+title: "Curriculum — TMUA, October 2026 sitting"
+subtitle: "15 sessions · 14 July – 5 September 2026"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Two dates that matter more than any lesson
+
+**Test booking opens Monday 20 July 2026** (3pm BST) and **closes 28 September**. The test itself runs
+**12–16 October 2026**; results come out on 16 November. UAT-UK's own advice is to **book early** —
+seats at Pearson VUE centres are limited, and the good dates and locations go first.
+
+**The course ends on 5 September, but the test is 37 days later.** Those five weeks are not spare time;
+they are the mock-exam phase, and they only work if the papers are saved for them. That is why
+2021, 2022 and 2023 are **not** used in any session below.
+:::
+
+## The shape of the plan
+
+Paper 2 is half the score, and it is the half nobody has ever taught. So the logic and proof material
+comes **first and early** — it needs weeks to settle, not a fortnight of cramming. Paper 1 runs
+alongside it, because Paper 2 assumes all of the Paper 1 content anyway.
+
+From 5 August the sessions are 90 minutes, which is not long enough to walk through twenty questions
+from cold. So from then on the model flips: **the paper is the homework, done under timed conditions,
+and the session is the review.** That is a better use of an hour and a half in any case — the marks are
+won in the review, not in the first attempt.
+
+| Phase | Sessions | What |
+|---|---|---|
+| **1. Foundations** | 1–5 | Paper 1 technique + the first three logic sessions |
+| **2. Logic and proof** | 6–9 | The rest of Section 2 — the material that is not in A-Level |
+| **3. Paper 2 papers** | 10–14 | Now that the content is there, real Paper 2s |
+| **4. Handover** | 15 | Full mock review + the five-week self-study plan |
+
+---
+
+## Session plan
+
+*Sessions 1–5: 2 hours. Sessions 6–15: 8:30–10:00 (90 min), Wednesdays and Saturdays.*
+
+| # | Date | Plan | Homework | Comment |
+|---|---|---|---|---|
+| **1** | **Tue 14 Jul** | **2019 Paper 1** — full walkthrough. The four big ideas: the hidden quadratic; separating $k$ and sketching; simplify before you compute; draw the picture. Timing: 3 min 45 s per question, and how to abandon a question. | Redo 2019 Paper 1 cold, timed (75 min). Sort every question into the four boxes: right-and-fast / silly slip / **right-but-slow** / no-idea. | |
+| **2** | **Sun 19 Jul** | **Toolkit S1 — statement forms.** *if / A if B / A only if B / if and only if*. The church-bells table. Why "only if" points the arrow the other way. First look at a real Paper 2 question (2023 Q11). | Notes on Logic and Proof, pp. 24–34. Redo the six true/false statements from blank. | |
+| **3** | **Tue 21 Jul** | **Toolkit S2 — converse and contrapositive.** The contrapositive is always equivalent; the converse almost never is. Why "negate both halves" is not enough — you must also reverse the arrow. | Notes on Logic and Proof, the converse/contrapositive section. Ten statements: write the converse and the contrapositive of each. | |
+| **4** | **Sat 25 Jul** | **Toolkit S3 — necessary and sufficient.** The most-tested pair of words on Paper 2. Translating *"a sufficient condition for $Q$ is $P$"* into an arrow, fast. | Notes on Logic and Proof, necessary/sufficient. Then 2023 Paper 2 Q11 and 2022 Paper 2, the *necessary/sufficient* questions only. | |
+| **5** | **Sat 1 Aug** | **2020 Paper 1** — the paper as homework was not set yet, so this one is walked through in class. Focus on speed: which questions to leave, and the cues for the short route. | **2018 Paper 1, timed (75 min).** Mark it, and bring the four boxes. | |
+| **6** | **Wed 5 Aug** | **Toolkit S4 — quantifiers and negation.** *for all*, *there exists*, *for some*. How to negate them, and why the negation of "all X are Y" is not "no X is Y". | 2018 Paper 1 review notes. Notes on Logic and Proof, quantifiers. | |
+| **7** | **Sat 8 Aug** | **Review: 2018 Paper 1** (from homework) + **Toolkit S5 begins** — proof methods: direct, by cases. | **2017 Paper 1, timed.** Notes on Logic and Proof, proof by contradiction. | |
+| **8** | **Wed 12 Aug** | **Toolkit S5 continued** — proof by contradiction and disproof by counterexample. Constructing a counterexample quickly. | Write out, from memory, a proof by contradiction that $\sqrt2$ is irrational. Three counterexample drills. | |
+| **9** | **Sat 15 Aug** | **Review: 2017 Paper 1** + **Toolkit S6 — scrambled proofs (Prf4).** Putting a jumbled list of statements into a valid order, under time pressure. | **2016 Paper 1, timed.** | |
+| **10** | **Wed 19 Aug** | **Toolkit S7 — spot the error (Err1, Err2).** The catalogue of classic false steps: dividing by something that might be zero; squaring both sides; $\sin A = \sin B \not\Rightarrow A = B$; dropping half an inequality. | **2019 Paper 2, timed (75 min).** First full Paper 2 — and the first one that should feel *possible*. | |
+| **11** | **Sat 22 Aug** | **Review: 2019 Paper 2.** Every question mapped back to its toolkit session (Arg1–4, Prf1–5, Err1–2), so the gaps are named, not just felt. | **2018 Paper 2, timed.** | |
+| **12** | **Wed 26 Aug** | **Review: 2018 Paper 2.** Whichever of the seven toolkit topics the paper exposed as weakest gets re-taught here. | **2017 Paper 2, timed.** | |
+| **13** | **Sat 29 Aug** | **Review: 2017 Paper 2** + the "chain of *if and only if*" question type, which appears on every recent paper and is worth drilling on its own. | **2020 Paper 2, timed.** | |
+| **14** | **Wed 2 Sep** | **Review: 2020 Paper 2.** Then the exam-day plan: the order to attempt questions in, when to guess and move on, the last-minute sweep for blanks. | **Full mock at home: 2021 Paper 1 + Paper 2, back to back, 75 + 75 minutes, no calculator.** Mark it. | |
+| **15** | **Sat 5 Sep** | **Review the 2021 mock, both papers.** Then hand over the five-week plan below. This is the last session, so the plan has to be able to run without me. | See the self-study plan below. | |
+
+---
+
+## After the course: 5 September → 12 October
+
+Five weeks, no lessons, and the test at the end of it. This is why 2022 and 2023 have been kept back.
+
+| Week | What |
+|---|---|
+| **Wk 1** (8–13 Sep) | Re-read the Toolkit, S1 → S7, and redo every exercise from blank. Logic decays faster than algebra. |
+| **Wk 2** (14–20 Sep) | **Full mock: 2022 Paper 1 + Paper 2**, back to back, timed. Mark it, and spend more time on the review than on the paper. **Book the test if it isn't booked** — booking closes 28 September. |
+| **Wk 3** (21–27 Sep) | Redo, from blank, every question that was wrong or slow in the 2021 and 2022 mocks. Not new papers — the same questions, again. |
+| **Wk 4** (28 Sep–4 Oct) | **Full mock: 2023 Paper 1 + Paper 2**, timed. This is the closest thing to the real test that exists. Also: sit a **Pearson VUE practice test** — for the on-screen interface, not the maths. |
+| **Wk 5** (5–11 Oct) | No new papers. Re-read the four big Paper 1 ideas and the seven Toolkit sessions. Sleep. |
+
+::: {.callout-note}
+## The one rule for the mock phase
+
+Do not do a paper twice as *practice*. A paper you have seen tells you nothing about your timing, and
+timing is what the TMUA measures. There are exactly three unseen sittings left — 2021, 2022, 2023 —
+and each one can be spent only once.
+:::
+
+---
+
+## Materials
+
+| | |
+|---|---|
+| Paper 1 booklets | [Lessons](lessons/index.qmd) — 2019 written; 2020, 2018, 2017, 2016 to follow |
+| Paper 2 content | [Paper 2 Toolkit](toolkit/index.qmd) — S1 written; S2–S7 to follow |
+| Past papers | [Home](index.qmd) — all nine sittings, with official worked answers |
+| English for teaching | [Phrasebook](phrasebook.qmd) |

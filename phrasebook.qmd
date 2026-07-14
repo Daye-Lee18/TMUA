@@ -1,0 +1,198 @@
+---
+title: "Teaching Phrasebook"
+subtitle: "The English you actually say while teaching TMUA — with pronunciation"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Vocabulary and phrases that keep coming back in the class material, with pronunciation and a sentence
+showing how the phrase is really used at the board. Stress is marked with **CAPITALS** in the plain
+respelling; the IPA is there when you want to be exact.
+
+The rule of thumb for stress in English mathematical words: the noun usually takes the stress early
+(**CO**-efficient is wrong — it is coefficient, koh-uh-**FISH**-ent), and *-ion*, *-ic*, *-ity* endings
+pull the stress onto the syllable immediately before them (asymp-**TOT**-ic, quad-**RAT**-ic,
+in-e-**QUAL**-ity).
+
+---
+
+## 1 · Words that appear in almost every question
+
+| Word | IPA | Say it | Korean | In class |
+|---|---|---|---|---|
+| **quadratic** | /kwɒˈdrætɪk/ | kwod-**RAT**-ik | 이차식 | "This is a **quadratic** in $k$, not in $x$." |
+| **coefficient** | /ˌkəʊɪˈfɪʃənt/ | koh-uh-**FISH**-ent | 계수 | "The **coefficient** of $x$ is $k+2$, not $k$." |
+| **discriminant** | /dɪˈskrɪmɪnənt/ | dis-**KRIM**-in-ant | 판별식 | "So the **discriminant** has to be negative." |
+| **expression** | /ɪkˈspreʃən/ | ik-**SPRESH**-un | 식 | "The **expression** is positive for all real $x$." |
+| **substitute** | /ˈsʌbstɪtjuːt/ | **SUB**-stit-yoot | 대입하다 | "**Substitute** $x=1$ into that." |
+| **rearrange** | /ˌriːəˈreɪndʒ/ | ree-uh-**RAYNJ** | 정리하다 | "**Rearrange** it so that $k$ is on its own." |
+| **factorise** | /ˈfæktəraɪz/ | **FAK**-tuh-rize | 인수분해하다 | "**Factorise**, and you get $k(k+12)$." |
+| **cancel** | /ˈkænsəl/ | **KAN**-sul | 약분하다 | "The $a$ **cancels** from both sides." |
+| **expand** | /ɪkˈspænd/ | ik-**SPAND** | 전개하다 | "Now **expand** the brackets." |
+| **eliminate** | /ɪˈlɪmɪneɪt/ | ee-**LIM**-in-ate | 소거하다 | "That **eliminates** four of the options." |
+| **evaluate** | /ɪˈvæljueɪt/ | ee-**VAL**-yoo-ate | 계산하다 | "**Evaluate** the integral between $-1$ and $3$." |
+
+::: {.callout-note appearance="simple"}
+**Careful with *substitute*.** The natural phrasing is *substitute $x = 1$ **into** the equation*, never
+"substitute in the equation with $x=1$". And the noun is **substitution** (sub-stit-**YOO**-shun).
+:::
+
+---
+
+## 2 · Quadratics and graphs
+
+| Word / phrase | IPA | Say it | Korean | In class |
+|---|---|---|---|---|
+| **parabola** | /pəˈræbələ/ | puh-**RAB**-uh-luh | 포물선 | "The **parabola** opens upwards." |
+| **turning point** | — | **TURN**-ing point | 극점, 꼭짓점 | "It has a **turning point** at $(-1,3)$." |
+| **vertex** → **vertices** | /ˈvɜːteks/ → /ˈvɜːtɪsiːz/ | **VER**-teks → **VER**-tih-seez | 꼭짓점 | "The **vertex** is the turning point." |
+| **opens upwards / downwards** | — | — | 위로/아래로 볼록 | "A negative $a$ means it **opens downwards**." |
+| **maximum** → **maxima** | /ˈmæksɪməm/ | **MAX**-im-um | 최댓값 | "So the turning point is a **maximum**." |
+| **root** | /ruːt/ | ROOT *(rhymes with boot)* | 근, 해 | "It has no real **roots**." |
+| **cross the $x$-axis** | — | — | x축과 만나다 | "It never **crosses the $x$-axis**." |
+| **touch the axis** | — | — | 축에 접하다 | "A zero discriminant means it just **touches** the axis." |
+| **axis** → **axes** | /ˈæksɪs/ → /ˈæksiːz/ | **AK**-sis → **AK**-seez | 축 | "Label your **axes**." |
+| **sketch** | /sketʃ/ | SKETCH *(one syllable)* | 개형을 그리다 | "**Sketch** it — don't solve it." |
+| **intersect** | /ˌɪntəˈsekt/ | in-tuh-**SEKT** | 교차하다 | "The curves **intersect** at three points." |
+| **asymptote** | /ˈæsɪmptəʊt/ | **ASS**-im-tote | 점근선 | "The **asymptote** is drawn dashed." |
+| **tangent** | /ˈtændʒənt/ | **TAN**-jent | 접선 | "Where the **tangent** is parallel to the line." |
+
+::: {.callout-note appearance="simple"}
+**The *p* in asymptote is silent** — ASS-im-tote, never "a-symp-tote". And **tangent** has a soft *g*
+(TAN-jent), not a hard one.
+:::
+
+---
+
+## 3 · Sequences and series
+
+| Word | IPA | Say it | Korean | In class |
+|---|---|---|---|---|
+| **sequence** | /ˈsiːkwəns/ | **SEE**-kwuns | 수열 | "$S$ is a geometric **sequence**." |
+| **series** | /ˈsɪəriːz/ | **SEER**-eez | 급수 | "The sum of a geometric **series**." |
+| **geometric** | /ˌdʒiːəˈmetrɪk/ | jee-uh-**MET**-rik | 등비의 | "**Geometric**, so each term is multiplied by $r$." |
+| **common ratio** | — | **COMM**-on **RAY**-shee-oh | 공비 | "The **common ratio** is $2$." |
+| **term** | /tɜːm/ | TERM | 항 | "The 7th **term** is $ar^6$." |
+| **recurrence relation** | /rɪˈkʌrəns/ | ri-**KURR**-uns | 점화식 | "It's given by a **recurrence relation**." |
+| **index** → **indices** | /ˈɪndeks/ → /ˈɪndɪsiːz/ | **IN**-deks → **IN**-dih-seez | 지수 | "Add the **indices** when you multiply." |
+| **power** / **exponent** | /ˈeksˈpəʊnənt/ | ek-**SPOH**-nent | 지수 | "Keep your eye on the **power** of $10$." |
+| **halve** | /hɑːv/ | HAHV *(the l is silent)* | 반으로 줄이다 | "Every square root **halves** the power." |
+| **off by one** | — | — | 하나 어긋남 | "That's an **off-by-one** error." |
+
+---
+
+## 4 · Calculus and integration
+
+| Word | IPA | Say it | Korean | In class |
+|---|---|---|---|---|
+| **differentiate** | /ˌdɪfəˈrenʃieɪt/ | dif-uh-**REN**-shee-ate | 미분하다 | "**Differentiate** with respect to $x$." |
+| **with respect to** | — | — | ~에 대하여 | "Differentiate **with respect to** $q$, not $x$." |
+| **gradient** | /ˈɡreɪdiənt/ | **GRAY**-dee-unt | 기울기 | "The **gradient** at $x=-1$." |
+| **integrate** | /ˈɪntɪɡreɪt/ | **IN**-tuh-grate | 적분하다 | "**Integrate** both sides." |
+| **integral** | /ˈɪntɪɡrəl/ | **IN**-tuh-grul *(not in-TEG-ral)* | 적분 | "Split the **integral** at zero." |
+| **definite integral** | — | **DEF**-in-it | 정적분 | "This is a **definite integral**." |
+| **limits** | /ˈlɪmɪts/ | **LIM**-its | 적분구간 | "Don't forget the lower **limit**." |
+| **the constant of integration** | — | — | 적분상수 | "Add **the constant of integration**." |
+| **trapezium** | /trəˈpiːziəm/ | truh-**PEE**-zee-um | 사다리꼴 | "The **trapezium** rule." |
+| **underestimate / overestimate** | /ˌʌndərˈestɪmət/ | un-der-**ES**-tim-ut | 과소/과대추정 | "It gives an **underestimate**." |
+| **modulus** | /ˈmɒdjʊləs/ | **MOD**-yoo-lus | 절댓값 | "You can't integrate the **modulus** in one go." |
+
+::: {.callout-note appearance="simple"}
+**Noun vs verb stress.** The noun is **IN**-tuh-grul (*integral*), the verb is **IN**-tuh-grate
+(*integrate*). Many learners say "in-TEG-ral", which sounds wrong to an English ear.
+:::
+
+---
+
+## 5 · Logic and proof — Paper 2
+
+Almost none of this vocabulary appears in a Korean A-Level classroom, so it is worth over-practising.
+
+| Word | IPA | Say it | Korean | In class |
+|---|---|---|---|---|
+| **statement** | /ˈsteɪtmənt/ | **STATE**-munt | 명제 | "A **statement** is either true or false." |
+| **implies** | /ɪmˈplaɪz/ | im-**PLIES** | 함의하다 | "$A$ **implies** $B$." |
+| **implication** | /ˌɪmplɪˈkeɪʃən/ | im-pli-**KAY**-shun | 함의 | "The **implication** only runs one way." |
+| **converse** | /ˈkɒnvɜːs/ | **KON**-verse *(noun: stress first)* | 역 | "That's the **converse**, and it isn't equivalent." |
+| **contrapositive** | /ˌkɒntrəˈpɒzɪtɪv/ | kon-truh-**POZ**-i-tiv | 대우 | "The **contrapositive** is always equivalent." |
+| **necessary** | /ˈnesəsəri/ | **NESS**-uh-ser-ee | 필요조건의 | "$B$ is **necessary** for $A$." |
+| **sufficient** | /səˈfɪʃənt/ | suh-**FISH**-ent | 충분조건의 | "A **sufficient** condition for $Q$ is $P$." |
+| **if and only if** | — | say it in full | 필요충분 | "Read *iff* aloud as **if and only if**." |
+| **equivalent** | /ɪˈkwɪvələnt/ | ee-**KWIV**-uh-lent | 동치인 | "These two are **equivalent**." |
+| **negation** | /nɪˈɡeɪʃən/ | ni-**GAY**-shun | 부정 | "What's the **negation** of that?" |
+| **counterexample** | /ˈkaʊntərɪɡzɑːmpəl/ | **COUNT**-er-ig-zam-pul | 반례 | "One **counterexample** kills it." |
+| **contradiction** | /ˌkɒntrəˈdɪkʃən/ | kon-truh-**DIK**-shun | 모순 | "Proof by **contradiction**." |
+| **conjecture** | /kənˈdʒektʃə/ | kun-**JEK**-cher | 추측 | "Make a **conjecture** from small cases." |
+| **hypothesis** → **hypotheses** | /haɪˈpɒθəsɪs/ | hy-**POTH**-uh-sis → hy-**POTH**-uh-seez | 가정 | "Assume the **hypothesis** is true." |
+| **valid / invalid** | /ˈvælɪd/ | **VAL**-id / in-**VAL**-id | 타당한 | "That deduction is **invalid**." |
+
+---
+
+## 6 · Sentences you will say every lesson
+
+These are the ones worth having on the tip of your tongue. Say them out loud a few times before class.
+
+**Setting a question up**
+
+- "Let's **start from** the vertex form."
+- "**We're told that** the curve passes through $(1,-1)$."
+- "**Have a look at** the options before you start."
+- "**Notice that** the coefficient of $x$ is $k+2$, not $k$."
+
+**Working through it**
+
+- "**Collect like terms**."
+- "**Cancel** the $a$ **from both sides**."
+- "**Let** $u = r^3$." &nbsp; *(not "we put $u$ as $r^3$")*
+- "**Substitute** that **into** the second equation."
+- "**Sketch it** — don't solve it."
+- "**That gives us** $k(k+12) < 0$."
+- "**So it follows that** $r = 2$."
+
+**Checking and warning**
+
+- "**Be careful here** — don't just cancel the $(1-u)$."
+- "**Watch out for** options D and F."
+- "**A common mistake here is** to forget the modulus."
+- "**Does that make sense?** A negative $a$ means it opens downwards — and it has to."
+- "**Count the powers carefully.**"
+
+**Finishing**
+
+- "**Which gives** $a = \tfrac{45}{8}$, **so the answer is E**."
+- "**That rules out** E, F, G and H **straight away**."
+- "**Read the option you are about to choose**, not the one you expect to see."
+
+::: {.callout-note appearance="simple"}
+**Three phrases to avoid**, because they are not natural English:
+
+- ✗ "get yourself familiarized with" → ✓ "**get the hang of it**" / "**get comfortable with it**"
+- ✗ "we put $u$ as $r^3$" → ✓ "**let** $u = r^3$" / "**set** $u$ **equal to** $r^3$"
+- ✗ "substitute in the equation with $x=1$" → ✓ "**substitute** $x=1$ **into** the equation"
+:::
+
+---
+
+## 7 · Plural traps
+
+English mathematical plurals are mostly Latin, and getting them wrong is the fastest way to sound
+uncertain in front of a class.
+
+| Singular | Plural | Say the plural |
+|---|---|---|
+| vertex | **vertices** | **VER**-tih-seez *(never "vertexes")* |
+| axis | **axes** | **AK**-seez |
+| radius | **radii** | **RAY**-dee-eye |
+| index | **indices** | **IN**-dih-seez |
+| matrix | **matrices** | **MAY**-trih-seez |
+| formula | **formulae** *(or formulas)* | **FOR**-myoo-lee |
+| maximum | **maxima** | **MAX**-im-uh |
+| minimum | **minima** | **MIN**-im-uh |
+| hypothesis | **hypotheses** | hy-**POTH**-uh-seez |
+| locus | **loci** | **LOH**-sigh |
+
+:::

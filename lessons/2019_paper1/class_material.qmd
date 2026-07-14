@@ -1,0 +1,1497 @@
+---
+title: "TMUA 2019 · Paper 1 — Class Material"
+subtitle: "Twenty questions, seventy-five minutes, no calculator"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Each question is worth one mark, and there are seventy-five minutes for twenty of them — three minutes
+and forty-five seconds each. Almost every question on this paper can also be done the long way, and the
+long way takes six or seven minutes. So the paper is not really asking whether you can do the
+mathematics. It is asking whether you can find the short route.
+
+---
+
+## Question 1
+
+::: {.topic}
+Topic — completing the square; the vertex form of a quadratic
+:::
+
+::: {.question}
+$\mathrm f(x)$ is a quadratic function in $x$. The graph of $y = \mathrm f(x)$ passes through the point
+$(1, -1)$ and has a turning point at $(-1, 3)$. Find an expression for $\mathrm f(x)$.
+
+&nbsp;&nbsp;**A** $-x^2-2x+2$ &nbsp;&nbsp; **B** $-x^2+2x+3$ &nbsp;&nbsp; **C** $x^2-2x$ &nbsp;&nbsp;
+**D** $x^2+2x-4$ &nbsp;&nbsp; **E** $2x^2+4x+1$ &nbsp;&nbsp; **F** $-2x^2-4x+5$
+:::
+
+To pin down a quadratic you need two things: [a point the curve passes through]{.hl}, and [the turning
+point]{.hl}. The turning point is the more useful of the two, because it is [the place where the
+parabola folds back on itself]{.hl} — so it tells you about the shape, not just the position. This
+question hands you both, so use both.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+We are told the turning point, so [let's start from the vertex form]{.hl}
+
+$$\mathrm f(x) = a(x-h)^2 + k , \qquad \text{where the turning point is } (h,k) .$$
+
+Here $(h,k) = (-1,3)$, so
+
+$$\mathrm f(x) = a(x+1)^2 + 3 .$$
+
+That uses up one of the two facts, and we have one unknown left — the number $a$ out at the front. So
+[the other fact should be just enough to finish the job]{.hl}. The curve goes through $(1,-1)$, so
+[substitute $x=1$ and $\mathrm f(x) = -1$]{.hl}:
+
+$$-1 = a(1+1)^2 + 3 = 4a + 3 , \qquad \text{so} \qquad 4a = -4 \qquad \text{and} \qquad a = -1 .$$
+
+Before we expand, check the sign makes sense. We got $a = -1$, and [a negative $a$ means the parabola
+opens downwards]{.hl} — which it has to, because the curve turns at a height of $3$ and later comes down
+to $-1$. So [the turning point is a maximum]{.hl}, and the picture agrees with the algebra.
+
+Now just expand:
+
+$$\mathrm f(x) = -(x+1)^2 + 3 = -x^2 - 2x + 2 ,$$
+
+which is **option A**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **B** | $-(x-1)^2+4$ — this turns at $(1,4)$. A sign slip: $(x-1)$ was written when the turning point is at $x=-1$. |
+| **C** | $(x-1)^2-1$ — this turns at $(1,-1)$. The two given facts have been swapped, using the point *on* the curve as the turning point. |
+| **D** | $(x+1)^2-5$ — goes through $(1,-1)$, but turns at $(-1,-5)$. Here $a=1$ was assumed instead of worked out. |
+| **E** | $2(x+1)^2-1$ — right $x$ for the vertex, wrong $y$: the $-1$ has been taken from the other point. |
+| **F** | $-2(x+1)^2+7$ — goes through $(1,-1)$, but $a$ is wrong. |
+
+Watch out for D and F. They really do go through $(1,-1)$, so if you check your answer by substituting
+that point, you will happily confirm a wrong option. [Checking one condition is not checking]{.hl} — a
+quadratic needs both facts.
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.topic}
+Topic — the discriminant as a condition; quadratic inequalities
+:::
+
+::: {.question}
+Find the complete set of values of the real constant $k$ for which the expression
+$$x^2 + kx + 2x + 1 - 2k$$
+is positive for all real values of $x$.
+
+&nbsp;&nbsp;**A** $-12<k<0$ &nbsp;&nbsp; **B** $k<-12$ or $k>0$ &nbsp;&nbsp; **C** $-\sqrt6-3<k<\sqrt6-3$ &nbsp;&nbsp;
+**D** $k<-\sqrt6-3$ or $k>\sqrt6-3$ &nbsp;&nbsp; **E** $-2<k<\tfrac12$ &nbsp;&nbsp; **F** $k<-2$ or $k>\tfrac12$ &nbsp;&nbsp;
+**G** $0<k<4$ &nbsp;&nbsp; **H** $k<0$ or $k>4$
+:::
+
+*Positive for all real values of $x$* is really a statement about the graph. The coefficient of $x^2$ is
+positive, so [the parabola opens upwards]{.hl}; if it is to stay above the axis everywhere, then [it
+must never cross the $x$-axis]{.hl}. In other words [it has no real roots, so the discriminant is
+negative]{.hl}.
+
+Two things to watch. The coefficient of $x$ is $k+2$, not $k$ — the $x$ terms have been split up on
+purpose. And what you end up with is *another* quadratic inequality, this time in $k$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+First [collect like terms]{.hl}:
+
+$$x^2 + (k+2)x + (1-2k) .$$
+
+So $a = 1$, $b = k+2$, $c = 1-2k$.
+
+For the expression to be positive everywhere, we need no real roots, so we need [the discriminant to be
+less than zero]{.hl}. It has to be *strictly* less than zero: if it were equal to zero the parabola
+would [just touch the $x$-axis]{.hl}, and at that point the expression would equal zero — and zero is
+not positive.
+
+$$b^2 - 4ac = (k+2)^2 - 4(1-2k) = k^2 + 4k + 4 - 4 + 8k = k^2 + 12k < 0 .$$
+
+Factorising,
+
+$$k(k+12) < 0 .$$
+
+Now be careful, because this is a quadratic in $k$ and you cannot just read the answer off. Sketch it:
+it is a parabola in $k$, opening upwards, crossing at $k=0$ and $k=-12$. [The curve is below the axis
+between the roots]{.hl}, so
+
+$$-12 < k < 0 ,$$
+
+which is **option A**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **B** | The other way round — $k(k+12)<0$ has been read as true *outside* the roots. This is the classic mistake with quadratic inequalities, and it is exactly why you sketch. |
+| **G** | Used $c = 1+2k$ instead of $1-2k$. That gives $k^2 - 4k < 0$, so $0<k<4$. One sign. |
+| **H** | The same sign slip, plus the same "outside the roots" mistake as B. |
+| **E**, **F** | Made out of the numbers $-2$ and $12$, which both appear in the working — in $k+2$, and in $k^2+12k$ — but neither of which is a root. |
+| **C**, **D** | The roots of $k^2+6k+3=0$. No natural slip gives these; they are just decoys. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 3
+
+::: {.topic}
+Topic — binomial coefficients; the sum of the first $n$ integers
+:::
+
+::: {.question}
+Find the coefficient of $x$ in the expression
+$$(1+x)^0 + (1+x)^1 + (1+x)^2 + (1+x)^3 + \cdots + (1+x)^{79} + (1+x)^{80} .$$
+
+&nbsp;&nbsp;**A** $80$ &nbsp;&nbsp; **B** $81$ &nbsp;&nbsp; **C** $324$ &nbsp;&nbsp; **D** $628$ &nbsp;&nbsp;
+**E** $3240$ &nbsp;&nbsp; **F** $3321$ &nbsp;&nbsp; **G** $6480$ &nbsp;&nbsp; **H** $6642$
+:::
+
+Eighty-one brackets looks like a lot of work, but [we only want the coefficient of $x$]{.hl}, so we can
+ignore every other term. And [the coefficient of $x$ in $(1+x)^n$ is just $n$]{.hl} — to get an $x$ term
+you [pick the $x$ from exactly one bracket]{.hl} and a $1$ from all the others, and there are $n$
+brackets you could pick it from. So the whole thing turns into a sum you already know.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The coefficient of $x$ in $(1+x)^n$ is $\dbinom{n}{1} = n$. So we just [add up the $n$ values]{.hl} from
+each bracket:
+
+$$0 + 1 + 2 + \cdots + 80 = \frac{80 \times 81}{2} = 3240 ,$$
+
+which is **option E**. $\blacksquare$
+
+Notice that [we never expanded anything]{.hl}. All the work was in spotting which single term could
+contribute, and then recognising the sum that was left.
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **A** | $80$ — only the last bracket's contribution. |
+| **B** | $81$ — counted *how many* brackets there are, instead of adding them. |
+| **G** | $6480 = 80 \times 81$ — forgot to divide by 2. |
+| **F** | $3321 = 3240 + 81$ — one bracket too many. |
+| **H** | $6642 = 2 \times 3321$ — both slips together. |
+| **C**, **D** | $324$ and $628$ — no clear origin. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.topic}
+Topic — recurrence relations; laws of indices
+:::
+
+::: {.question}
+The sequence $x_n$ is given by $x_1 = 10$ and $x_{n+1} = \sqrt{x_n}$ for $n \ge 1$. What is the value of
+$x_{100}$? *(Here $a^{b^c}$ means $a^{(b^c)}$.)*
+
+&nbsp;&nbsp;**A** $10^{2^{99}}$ &nbsp;&nbsp; **B** $10^{2^{100}}$ &nbsp;&nbsp; **C** $10^{2^{-99}}$ &nbsp;&nbsp;
+**D** $10^{2^{-100}}$ &nbsp;&nbsp; **E** $10^{-2^{99}}$ &nbsp;&nbsp; **F** $10^{-2^{100}}$ &nbsp;&nbsp;
+**G** $10^{-2^{-99}}$ &nbsp;&nbsp; **H** $10^{-2^{-100}}$
+:::
+
+[Have a look at the options before you start.]{.hl} They are all $10$ to a power of $2$, and the only
+differences are [where the minus sign goes]{.hl} and whether the number is $99$ or $100$. So this is not
+really a calculation. It is two questions: is $x_{100}$ bigger or smaller than $1$, and [how many square
+roots have you taken by the time you get to the 100th term?]{.hl}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[Write out the first few terms]{.hl} and keep your eye on the power of $10$:
+
+$$x_1 = 10^{1}, \qquad x_2 = 10^{1/2}, \qquad x_3 = 10^{1/4}, \qquad x_4 = 10^{1/8}, \qquad \dots$$
+
+[Every square root halves the power]{.hl}. Going from $x_1$ to $x_n$ we halve it $n-1$ times, so
+
+$$x_n = 10^{\left(\frac12\right)^{n-1}} = 10^{\,2^{-(n-1)}} , \qquad \text{giving} \qquad x_{100} = 10^{\,2^{-99}} ,$$
+
+which is **option C**. $\blacksquare$
+
+Now do the two checks. If you square-root a number bigger than $1$, you get something smaller — but
+still bigger than $1$. So every term stays above $1$, which means [the power of $10$ has to be
+positive]{.hl}, and that [rules out E, F, G and H straight away]{.hl}. And going from term 1 to term 100
+is **ninety-nine** square roots, not a hundred, which rules out B and D.
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $2^{-100}$ — off by one: a hundred halvings counted instead of ninety-nine. The most tempting wrong answer on the paper. |
+| **A**, **B** | A positive power, $2^{99}$ or $2^{100}$ — as if the terms were being *squared* rather than square-rooted. |
+| **E**, **F**, **G**, **H** | A minus sign in front of the $2$ — mixing up *halving* the power with *negating* it. All of these are less than $1$, but every term of this sequence is bigger than $1$. |
+
+That last row is the easiest mark on the page to throw away. You can do the whole question perfectly,
+get $10^{2^{-99}}$, and then pick option E, $10^{-2^{99}}$, because at a glance they look the same. The
+minus sign goes *inside*, on the $99$. [Read the option you are about to choose, not the one you expect
+to see.]{.hl}
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 5
+
+::: {.topic}
+Topic — geometric series; a hidden quadratic under the substitution $u = r^3$
+:::
+
+::: {.question}
+$S$ is a geometric sequence. The sum of the first $6$ terms of $S$ is equal to $9$ times the sum of the
+first $3$ terms. The $7$th term of $S$ is $360$. Find the $1$st term of $S$.
+
+&nbsp;&nbsp;**A** $\tfrac{40}{27}$ &nbsp;&nbsp; **B** $\tfrac{40}{9}$ &nbsp;&nbsp; **C** $\tfrac{40}{3}$ &nbsp;&nbsp;
+**D** $\tfrac{45}{16}$ &nbsp;&nbsp; **E** $\tfrac{45}{8}$ &nbsp;&nbsp; **F** $\tfrac{45}{4}$
+:::
+
+The first condition looks like it involves both $a$ and $r$, but it doesn't. When you write out the two
+sums, [the $a$ cancels from both sides]{.hl}, and so does the $1-r$ — so [the first condition only tells
+you about $r$]{.hl}, and the second one then gives you $a$. What's left has $r^6$ and $r^3$ in it, and
+since $r^6 = (r^3)^2$, [it's a quadratic in disguise]{.hl}: let $u = r^3$ and it becomes an ordinary one.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Using $S_n = \dfrac{a(1-r^n)}{1-r}$, the condition $S_6 = 9S_3$ says
+
+$$\frac{a(1-r^6)}{1-r} = 9 \cdot \frac{a(1-r^3)}{1-r} .$$
+
+[Cancel the $a$ and the $1-r$ from both sides]{.hl}:
+
+$$1 - r^6 = 9\left(1 - r^3\right) .$$
+
+Now [let $u = r^3$]{.hl}, so that $r^6 = u^2$:
+
+$$1 - u^2 = 9(1-u) , \qquad \text{that is} \qquad (1-u)(1+u) = 9(1-u) .$$
+
+[Be careful here — don't just cancel the $(1-u)$]{.hl}. If you do, you throw away the case $u=1$ without
+checking it. So deal with it first: $u=1$ means $r=1$, and if $r=1$ the sequence is just $a,a,a,\dots$,
+so $S_6 = 6a$ and $S_3 = 3a$. That gives $S_6 = 2S_3$, not $9S_3$, so $r=1$ doesn't work and we can
+safely divide:
+
+$$1 + u = 9 \quad\Longrightarrow\quad u = 8 \quad\Longrightarrow\quad r^3 = 8 \quad\Longrightarrow\quad r = 2 .$$
+
+The 7th term is $ar^6$ — [count the powers carefully]{.hl}, it's $r^6$, not $r^7$ — so
+
+$$64a = 360 \quad\Longrightarrow\quad a = \frac{360}{64} = \frac{45}{8} ,$$
+
+which is **option E**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **F** | $\tfrac{45}{4} = \tfrac{360}{32}$ — used $ar^5$ for the 7th term. Off by one. |
+| **D** | $\tfrac{45}{16} = \tfrac{360}{128}$ — used $ar^7$. Off by one the other way. |
+| **A**, **B**, **C** | All of the form $\tfrac{360}{3^k}$, so they come from getting $r=3$ plus an index slip. No clean route gives $r=3$; these are just decoys. |
+
+Look at the option list: three of them are $\tfrac{45}{2^k}$ and three are $\tfrac{40}{3^k}$. That is
+the examiner telling you the question is *find $r$, then get the index right* — and that plenty of
+people will do the first part and fall over on the second.
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 6
+
+::: {.topic}
+Topic — circles; the distance between two centres
+:::
+
+::: {.question}
+The circles with equations
+$$(x+4)^2 + (y+1)^2 = 64 \qquad\text{and}\qquad (x-8)^2 + (y-4)^2 = r^2 \quad (r>0)$$
+have exactly one point in common. Find the difference between the two possible values of $r$.
+
+&nbsp;&nbsp;**A** $4$ &nbsp;&nbsp; **B** $10$ &nbsp;&nbsp; **C** $16$ &nbsp;&nbsp; **D** $26$ &nbsp;&nbsp; **E** $50$
+:::
+
+Don't touch the algebra — [draw the picture]{.hl}. Two circles meet at exactly one point when they
+**touch**, and [there are two ways for circles to touch]{.hl}: side by side, or one sitting inside the
+other. The question says *"the two possible values of $r$"*, which is telling you that both happen here.
+Everything then comes from [the distance between the two centres]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Read the centres and the radius straight off the equations: the first circle has centre $(-4,-1)$ and
+radius $\sqrt{64} = 8$; the second has centre $(8,4)$ and radius $r$.
+
+The distance between the centres is
+
+$$d = \sqrt{\big(8-(-4)\big)^2 + \big(4-(-1)\big)^2} = \sqrt{12^2 + 5^2} = \sqrt{169} = 13 .$$
+
+[Watch the signs on those coordinates]{.hl} — it's $4 - (-1) = 5$, not $4 - 1 = 3$. And notice you get
+$5, 12, 13$: a Pythagorean triple. [TMUA questions are built on triples on purpose]{.hl}, because you
+have no calculator. If a root is coming out ugly, you have made a mistake.
+
+Now the two ways of touching:
+
+- **Touching on the outside.** The centres are $8 + r$ apart, so $8 + r = 13$ and $r = 5$.
+- **One circle inside the other.** Now the big radius minus the small one is the gap between the
+  centres: $r - 8 = 13$, so $r = 21$.
+
+The difference is $21 - 5 = 16$, which is **option C**. $\blacksquare$
+
+Here is the neat part. [The difference is $(d+8)-(d-8) = 16$, so the distance cancels]{.hl} — you never
+needed to work out $d$ at all. The answer is always twice the radius you were *given*.
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $26 = 2\times 13$ — the right idea (*double it*) applied to the **distance** instead of the radius. |
+| **B** | $10 = 2\times 5$ — doubled the radius they found rather than the one they were given. |
+| **A**, **E** | No clear origin. |
+
+```{python}
+import matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+fig, axes = plt.subplots(2, 1, figsize=(6.4, 10.6))
+C1, C2, R1 = (-4, -1), (8, 4), 8
+for ax, r, lim, title in [
+        (axes[0], 5,  15, 'Touching on the outside:   $d = 8 + r$,   $r = 13 - 8 = 5$'),
+        (axes[1], 21, 31, 'One inside the other:   $d = r - 8$,   $r = 13 + 8 = 21$')]:
+    ax.add_patch(plt.Circle(C1, R1, fill=False, color=ROOT_CLR, lw=2))
+    ax.add_patch(plt.Circle(C2, r,  fill=False, color=ASYM_CLR, lw=2))
+    ax.plot(*zip(C1, C2), 'k--', lw=1.2)
+    ax.plot(*C1, 'o', color=ROOT_CLR, ms=5); ax.plot(*C2, 'o', color=ASYM_CLR, ms=5)
+    if r == 5:
+        tx, ty = C1[0] + 12*R1/13, C1[1] + 5*R1/13
+    else:
+        tx, ty = C2[0] - 12*r/13, C2[1] - 5*r/13
+    box = dict(boxstyle='round,pad=0.25', fc='white', ec='none', alpha=0.92)
+    ax.plot([tx], [ty], '*', color='k', ms=16, zorder=6)
+    ax.annotate('the one\ncommon point', (tx, ty), textcoords='offset points', xytext=(14, -40),
+                fontsize=9, bbox=box, zorder=7, arrowprops=dict(arrowstyle='-', lw=0.8))
+    ax.annotate('$(-4,-1)$,  $r_1=8$', C1, textcoords='offset points', xytext=(-18, -22),
+                fontsize=9, color=ROOT_CLR, bbox=box, zorder=7)
+    ax.annotate('$(8,4)$', C2, textcoords='offset points', xytext=(9, 6), fontsize=9,
+                color=ASYM_CLR, bbox=box, zorder=7)
+    ax.annotate('$d=13$', (2, 1.5), textcoords='offset points', xytext=(-4, 14), fontsize=9,
+                bbox=box, zorder=7)
+    ax.set_aspect('equal'); ax.grid(alpha=0.25); ax.set_title(title, fontsize=10)
+    ax.set_xlim(-lim-6, lim+6); ax.set_ylim(-lim-4, lim+4)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 7
+
+::: {.topic}
+Topic — the product rule; minimising with respect to a second variable
+:::
+
+::: {.question}
+A curve has equation $y = (2q - x^2)(2qx + 3)$. The gradient of the curve at $x = -1$ is a function of
+$q$. Find the value of $q$ which minimises the gradient of the curve at $x=-1$.
+
+&nbsp;&nbsp;**A** $-1$ &nbsp;&nbsp; **B** $-\tfrac34$ &nbsp;&nbsp; **C** $-\tfrac12$ &nbsp;&nbsp;
+**D** $0$ &nbsp;&nbsp; **E** $\tfrac12$ &nbsp;&nbsp; **F** $\tfrac34$ &nbsp;&nbsp; **G** $1$
+:::
+
+There are two letters here and [you differentiate with respect to a different one each time]{.hl}. First
+differentiate with respect to $x$ to get the gradient, treating $q$ as a constant. Then put $x=-1$ in,
+which leaves you with an expression in $q$ alone. Only *then* do you differentiate with respect to $q$,
+to make that expression as small as possible. [Say the three stages out loud before you start]{.hl} —
+the mistake this question is fishing for is doing stage one and stopping.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Stage 1 — differentiate with respect to $x$**, holding $q$ constant. Use the product rule:
+
+$$\frac{\mathrm dy}{\mathrm dx} = (-2x)(2qx+3) + (2q - x^2)(2q) .$$
+
+**Stage 2 — put $x = -1$ in**:
+
+$$\left.\frac{\mathrm dy}{\mathrm dx}\right|_{x=-1} = (2)(-2q+3) + (2q-1)(2q) = -4q + 6 + 4q^2 - 2q = 4q^2 - 6q + 6 .$$
+
+[Now stop and look at what you've got]{.hl}: a quadratic in $q$, with a positive coefficient of $q^2$.
+So it opens upwards, which means it really does have a minimum, and the minimum is at the vertex.
+
+**Stage 3 — differentiate with respect to $q$** and set it to zero:
+
+$$\frac{\mathrm d}{\mathrm dq}\left(4q^2 - 6q + 6\right) = 8q - 6 = 0 \qquad\Longrightarrow\qquad q = \frac{3}{4} ,$$
+
+which is **option F**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $q=0$ — this is what you get if you set the *gradient* equal to zero instead of **minimising** it. You have answered a different question, and it is a very easy one to drift into. |
+| **B** | $-\tfrac34$ — a sign slip in the product rule, giving $4q^2 + 6q + 6$. |
+| **E** | $\tfrac12$ — consistent with an arithmetic slip leaving $8q-4=0$. |
+| **A**, **C**, **G** | No single clear slip. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.topic}
+Topic — the trapezium rule; graph transformations
+:::
+
+::: {.question}
+The function $\mathrm f$ is such that $0 < \mathrm f(x) < 1$ for $0 \le x \le 1$. The trapezium rule with
+$n$ equal intervals is used to estimate $\int_0^1 \mathrm f(x)\,\mathrm dx$ and produces an
+**underestimate**. Using the same number of equal intervals, for which one of the following does the
+trapezium rule produce an **overestimate**?
+
+&nbsp;&nbsp;**A** $\displaystyle\int_0^1 (\mathrm f(x)+1)\,\mathrm dx$ &nbsp;&nbsp;
+**B** $\displaystyle\int_0^1 2\mathrm f(x)\,\mathrm dx$ &nbsp;&nbsp;
+**C** $\displaystyle\int_{-1}^0 \mathrm f(x+1)\,\mathrm dx$ &nbsp;&nbsp;
+**D** $\displaystyle\int_{-1}^0 \mathrm f(-x)\,\mathrm dx$ &nbsp;&nbsp;
+**E** $\displaystyle\int_0^1 (1 - \mathrm f(x))\,\mathrm dx$
+:::
+
+[Don't try to picture five different graphs.]{.hl} Ask one question about each option instead: *does this
+transformation change the **sign** of the error?* The trapezium rule underestimates when the curve is
+concave (bending downwards) and overestimates when it is convex — so [you are looking for the option
+that turns the curve upside down]{.hl}. Shifting, stretching, translating and reflecting all leave the
+bend the same way up. [Only one of the five flips it]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Call the trapezium estimate of $\int_0^1 \mathrm f$ by the name $T$, and the true value $I$. We are told
+$T < I$: an underestimate.
+
+- **A.** Adding $1$ lifts the curve and the trapezia by exactly the same amount. The new estimate is
+  $T+1$ and the new true value is $I+1$, so $T+1 < I+1$ — [still an underestimate]{.hl}.
+- **B.** Doubling doubles both: $2T < 2I$. The error gets bigger, but [doubling a negative error keeps
+  it negative]{.hl}.
+- **C.** Substituting $u = x+1$ turns this into $\int_0^1 \mathrm f(u)\,\mathrm du$ — the same graph,
+  just [slid sideways]{.hl}. The trapezia slide with it, so the error is identical.
+- **D.** Substituting $u = -x$ also gives $\int_0^1 \mathrm f(u)\,\mathrm du$ — the graph reflected in
+  the $y$-axis. The trapezia reflect too, so again the error is identical.
+- **E.** Here the estimate is $1 - T$ and the true value is $1 - I$. Subtracting **flips the
+  inequality**: since $T < I$, we get $1 - T > 1 - I$. So the estimate is now bigger than the true
+  value — an **overestimate**.
+
+**Option E.** $\blacksquare$
+
+The idea underneath is simple: $1 - \mathrm f$ is the only one of the five that [turns the curve upside
+down]{.hl}. A concave curve becomes convex, and the trapezium rule swaps from under to over.
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **A** | "The graph moved up, so the estimate must go up" — true, but the *true value* went up by exactly the same amount. |
+| **B** | "The error doubled" — yes, and twice a negative number is still negative. |
+| **C**, **D** | Believing that sliding or reflecting a graph changes how the trapezia sit against it. One picture kills both. |
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+x = np.linspace(0, 1, 300)
+f = 0.15 + 0.8*np.sqrt(x)          # concave, and 0 < f < 1
+nodes = np.linspace(0, 1, 5)
+
+fig, axes = plt.subplots(2, 1, figsize=(7.0, 8.4))
+
+axes[0].plot(x, f, color=ROOT_CLR, lw=2, label=r'$y=\mathrm{f}(x)$  (concave)')
+axes[0].fill_between(nodes, 0.15 + 0.8*np.sqrt(nodes), color=ASYM_CLR, alpha=0.18,
+                     label='trapezia — they fall SHORT')
+axes[0].plot(nodes, 0.15 + 0.8*np.sqrt(nodes), color=ASYM_CLR, lw=1.5, marker='o', ms=4)
+axes[0].set_title('The curve bends downwards: the chords lie below it → UNDERestimate', fontsize=11)
+
+g = 1 - f                           # convex
+axes[1].plot(x, g, color=ROOT_CLR, lw=2, label=r'$y=1-\mathrm{f}(x)$  (convex)')
+axes[1].fill_between(nodes, 1 - (0.15 + 0.8*np.sqrt(nodes)), color=ASYM_CLR, alpha=0.18,
+                     label='trapezia — they OVERshoot')
+axes[1].plot(nodes, 1 - (0.15 + 0.8*np.sqrt(nodes)), color=ASYM_CLR, lw=1.5, marker='o', ms=4)
+axes[1].set_title('Subtracting from 1 turns it upside down: chords above → OVERestimate', fontsize=11)
+
+for ax in axes:
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1.05)
+    ax.set_xlabel('$x$'); ax.legend(fontsize=9, loc='lower right'); ax.grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 9
+
+::: {.topic}
+Topic — the area between two curves
+:::
+
+::: {.question}
+$p$ is a positive constant. Find the area enclosed between the curves $y = p\sqrt{x}$ and $x = p\sqrt{y}$.
+
+&nbsp;&nbsp;**A** $\tfrac23 p^{5/2} - \tfrac12 p^2$ &nbsp;&nbsp; **B** $\tfrac43 p^{5/2} - p^2$ &nbsp;&nbsp;
+**C** $\tfrac{p^4}{6}$ &nbsp;&nbsp; **D** $\tfrac{p^4}{3}$ &nbsp;&nbsp;
+**E** $\tfrac23 p^3 - \tfrac12 p^4$ &nbsp;&nbsp; **F** $\tfrac43 p^3 - p^4$ &nbsp;&nbsp; **G** $2p^4$
+:::
+
+The two curves are [mirror images of each other in the line $y=x$]{.hl} — swap $x$ and $y$ in one and
+you get the other. Before you integrate anything, look at the options: [every term in the answer must
+have the same power of $p$]{.hl}, because scaling $p$ just scales the whole picture. Four of the seven
+options mix $p^{5/2}$ with $p^2$, or $p^3$ with $p^4$, so [they are impossible without any working at
+all]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+First [make both curves functions of $x$]{.hl}. Square both sides of $x = p\sqrt y$:
+
+$$x^2 = p^2 y \qquad\Longrightarrow\qquad y = \frac{x^2}{p^2} .$$
+
+(Squaring is safe here because $\sqrt y \ge 0$ and $p > 0$, so both sides are positive to begin with.)
+
+Now find where they meet:
+
+$$p\sqrt x = \frac{x^2}{p^2} \qquad\Longrightarrow\qquad p^3 \sqrt x = x^2 \qquad\Longrightarrow\qquad p^3 = x^{3/2} \qquad\Longrightarrow\qquad x = p^2 ,$$
+
+together with $x=0$. Between them, [the square root curve is the one on top]{.hl} — check a small value
+of $x$ if you're not sure.
+
+$$A = \int_0^{p^2}\left(p\sqrt x - \frac{x^2}{p^2}\right)\mathrm dx
+   = \left[\frac{2p}{3}x^{3/2} - \frac{x^3}{3p^2}\right]_0^{p^2}
+   = \frac{2p}{3}\cdot p^3 - \frac{p^6}{3p^2}
+   = \frac{2p^4}{3} - \frac{p^4}{3} = \frac{p^4}{3} ,$$
+
+which is **option D**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **C** | $\tfrac{p^4}{6}$ — halved once too often, or only one of the two curves integrated. |
+| **G** | $2p^4$ — a factor-of-six slip on the same integral. |
+| **A**, **B**, **E**, **F** | **Impossible on sight** — they mix powers of $p$. They come from squaring or rooting one term but not the other. |
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+p = 2.0
+xs = np.linspace(0, p**2, 400)
+upper, lower = p*np.sqrt(xs), xs**2/p**2
+
+fig, ax = plt.subplots(figsize=(6.6, 5.6))
+ax.plot(xs, upper, color=ROOT_CLR, lw=2, label=r'$y=p\sqrt{x}$')
+ax.plot(xs, lower, color=ASYM_CLR, lw=2, label=r'$x=p\sqrt{y}\;\Leftrightarrow\;y=x^2/p^2$')
+ax.fill_between(xs, lower, upper, color=ROOT_CLR, alpha=0.15)
+ax.plot(xs, xs, 'k:', lw=1, label='$y=x$  — the curves are mirror images in this line')
+for X, Y in [(0, 0), (p**2, p**2)]:
+    ax.plot([X], [Y], 'o', color=YINT_CLR, ms=7, zorder=5)
+ax.annotate(r'they meet at $(p^2,\,p^2)$', (p**2, p**2), textcoords='offset points',
+            xytext=(-104, 8), color=YINT_CLR, fontsize=10)
+ax.set_aspect('equal'); ax.grid(alpha=0.25)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+ax.set_title(r'Shaded area $= p^4/3$   (drawn with $p=2$)')
+ax.legend(loc='upper left', fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 10
+
+::: {.topic}
+Topic — integrating a function containing a modulus
+:::
+
+::: {.question}
+Evaluate $\displaystyle\int_{-1}^{3} |x|(1-x)\,\mathrm dx$.
+
+&nbsp;&nbsp;**A** $\tfrac{17}{3}$ &nbsp;&nbsp; **B** $-\tfrac{17}{3}$ &nbsp;&nbsp; **C** $\tfrac{16}{3}$ &nbsp;&nbsp;
+**D** $-\tfrac{16}{3}$ &nbsp;&nbsp; **E** $\tfrac{11}{3}$ &nbsp;&nbsp; **F** $-\tfrac{11}{3}$
+:::
+
+[You can't integrate $|x|$ in one go]{.hl}, because it isn't one function — it's two, glued together at
+$x=0$. On the left of zero it is $-x$; on the right it is $x$. So [split the integral where the modulus
+changes]{.hl}, and do two integrals. One more thing before you start: the region from $0$ to $3$ is wide
+and mostly *below* the axis, so [you should expect a negative answer]{.hl} — which already kills three of
+the six options.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Split at $x = 0$.
+
+On $-1 \le x \le 0$ we have $|x| = -x$, so the integrand is $-x(1-x) = -x + x^2$:
+
+$$\int_{-1}^{0}\left(-x + x^2\right)\mathrm dx = \left[-\frac{x^2}{2} + \frac{x^3}{3}\right]_{-1}^{0}
+= 0 - \left(-\frac12 - \frac13\right) = \frac56 .$$
+
+On $0 \le x \le 3$ we have $|x| = x$, so the integrand is $x - x^2$:
+
+$$\int_{0}^{3}\left(x - x^2\right)\mathrm dx = \left[\frac{x^2}{2} - \frac{x^3}{3}\right]_{0}^{3}
+= \frac92 - 9 = -\frac92 .$$
+
+[Add the two pieces together]{.hl}:
+
+$$\frac56 - \frac92 = \frac{5}{6} - \frac{27}{6} = -\frac{22}{6} = -\frac{11}{3} ,$$
+
+which is **option F**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $-\tfrac{16}{3}$ — this is exactly what you get if you **ignore the modulus completely** and integrate $x(1-x)$ from $-1$ to $3$ in one go. That is why it is on the list. |
+| **C** | $+\tfrac{16}{3}$ — the same omission, plus a sign error. |
+| **E** | $+\tfrac{11}{3}$ — all the work correct, then the sign dropped at the last line. |
+| **A**, **B** | $\pm\tfrac{17}{3}$ — no clear origin. |
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+x1 = np.linspace(-1, 0, 200); y1 = -x1*(1 - x1)
+x2 = np.linspace(0, 3, 300);  y2 =  x2*(1 - x2)
+
+fig, ax = plt.subplots(figsize=(7.0, 4.8))
+ax.plot(x1, y1, color=ROOT_CLR, lw=2)
+ax.plot(x2, y2, color=ROOT_CLR, lw=2, label=r'$y=|x|(1-x)$')
+ax.fill_between(x1, y1, color=YINT_CLR, alpha=0.25, label=r'$x<0$:  area $=+\frac{5}{6}$')
+ax.fill_between(x2, y2, color=ASYM_CLR, alpha=0.20, label=r'$x>0$:  area $=-\frac{9}{2}$')
+ax.axvline(0, color='k', ls='--', lw=1.2)
+ax.text(0.06, -3.6, 'split here —\nthe modulus\nchanges at $x=0$', fontsize=9)
+ax.axhline(0, color='k', lw=0.9)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.grid(alpha=0.25)
+ax.set_title('The negative region is much bigger, so the answer must be negative')
+ax.legend(fontsize=9, loc='lower left')
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 11
+
+::: {.topic}
+Topic — laws of logarithms; simultaneous equations; a hidden quadratic
+:::
+
+::: {.question}
+Find the sum of the real values of $x$ that satisfy the simultaneous equations
+$$\log_3(xy^2) = 1 , \qquad (\log_3 x)(\log_3 y) = -3 .$$
+
+&nbsp;&nbsp;**A** $\tfrac13$ &nbsp;&nbsp; **B** $1$ &nbsp;&nbsp; **C** $3$ &nbsp;&nbsp; **D** $3\tfrac19$ &nbsp;&nbsp;
+**E** $9\tfrac1{27}$ &nbsp;&nbsp; **F** $9\tfrac13$ &nbsp;&nbsp; **G** $27$ &nbsp;&nbsp; **H** $27\tfrac19$
+:::
+
+These equations are not really about $x$ and $y$ — [they are about $\log_3 x$ and $\log_3 y$]{.hl}. So
+[give those two things names]{.hl}, say $a$ and $b$, split the first log using the log laws, and you are
+left with two ordinary simultaneous equations. Two warnings. The question asks for the sum of the values
+of **$x$**, not of $a$ — so [remember to convert back at the end]{.hl}. And look at the options: five of
+them are *a power of 3 plus a smaller power of 3*, which tells you what shape the answer will take.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Let $a = \log_3 x$ and $b = \log_3 y$.
+
+Split the first equation using the log laws — [a product becomes a sum, and a power comes down to the
+front]{.hl}:
+
+$$\log_3(xy^2) = \log_3 x + 2\log_3 y = a + 2b = 1 .$$
+
+The second equation is simply $ab = -3$. So we have
+
+$$a + 2b = 1 , \qquad ab = -3 .$$
+
+[Substitute $a = 1 - 2b$ into the second one]{.hl}:
+
+$$(1-2b)b = -3 \qquad\Longrightarrow\qquad 2b^2 - b - 3 = 0 \qquad\Longrightarrow\qquad (2b-3)(b+1) = 0 ,$$
+
+so $b = \tfrac32$ or $b = -1$.
+
+Now convert back. Since $a = \log_3 x$, we have $x = 3^a$:
+
+- $b = \tfrac32 \;\Rightarrow\; a = 1 - 3 = -2 \;\Rightarrow\; x = 3^{-2} = \tfrac19$
+- $b = -1 \;\Rightarrow\; a = 1 + 2 = 3 \;\Rightarrow\; x = 3^{3} = 27$
+
+Both are fine — $x$ and $y$ both come out positive, which they have to for the logs to exist in the
+first place. The sum is
+
+$$27 + \tfrac19 = 27\tfrac19 ,$$
+
+which is **option H**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **G** | $27$ — found both roots, then gave **only one $x$** instead of the sum. Read the first line of the question again. |
+| **D**, **E**, **F** | The right shape ($3^{a_1} + 3^{a_2}$), the wrong pair of roots — a slip in solving the quadratic. |
+| **A**, **B**, **C** | Small values — consistent with solving for $y$, or with quoting $a$ and $b$ instead of $x$. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 12
+
+::: {.topic}
+Topic — integration after simplifying; the difference of two squares
+:::
+
+::: {.question}
+It is given that
+$$\frac{\mathrm dV}{\mathrm dt} = \frac{24\pi(t-1)}{1+\sqrt t} \quad \text{for } t \ge 1 ,$$
+and $V = 7$ when $t = 1$. Find the value of $V$ when $t = 9$.
+
+&nbsp;&nbsp;**A** $208\pi+7$ &nbsp;&nbsp; **B** $216\pi+7$ &nbsp;&nbsp; **C** $224\pi+7$ &nbsp;&nbsp;
+**D** $416\pi+7$ &nbsp;&nbsp; **E** $608\pi+7$ &nbsp;&nbsp; **F** $744\pi+7$
+:::
+
+Your instinct will be to reach for a substitution — [don't]{.hl}. Look at the fraction for five seconds
+first. The top is $t-1$, and $t$ is $(\sqrt t)^2$, so [$t-1$ is a difference of two squares in
+disguise]{.hl}. Factorise it and the bottom cancels straight out, leaving an integral you can do in your
+head. That cancellation is not luck: [when something in a TMUA question looks ugly, the ugliness is
+usually about to disappear]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Write $t = \left(\sqrt t\right)^2$, so that
+
+$$t - 1 = \left(\sqrt t\right)^2 - 1^2 = \left(\sqrt t - 1\right)\left(\sqrt t + 1\right) .$$
+
+The $\left(\sqrt t + 1\right)$ [cancels with the denominator]{.hl}, leaving
+
+$$\frac{\mathrm dV}{\mathrm dt} = 24\pi\left(\sqrt t - 1\right) = 24\pi\left(t^{1/2} - 1\right) .$$
+
+Now integrate:
+
+$$V = 24\pi\left(\frac{2}{3}t^{3/2} - t\right) + C .$$
+
+Use the condition $V = 7$ at $t=1$ to find $C$:
+
+$$7 = 24\pi\left(\tfrac23 - 1\right) + C = -8\pi + C \qquad\Longrightarrow\qquad C = 7 + 8\pi .$$
+
+[Don't lose that $8\pi$]{.hl} — it is the whole difference between the right answer and option B. Finally,
+at $t=9$ we have $t^{3/2} = 27$, so
+
+$$V = 24\pi\left(\tfrac23 \times 27 - 9\right) + 7 + 8\pi = 24\pi(18-9) + 7 + 8\pi = 216\pi + 8\pi + 7 = 224\pi + 7 ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **B** | $216\pi + 7$ — evaluated the antiderivative at $t=9$ and **forgot the lower limit**, dropping the $8\pi$ that came from $t=1$. |
+| **A** | $208\pi + 7$ — the $8\pi$ included, but subtracted instead of added. |
+| **D**, **E**, **F** | No clear origin; consistent with failing to cancel and then mis-integrating the fraction. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 13
+
+::: {.topic}
+Topic — a hidden quadratic; the range of the substituted variable
+:::
+
+::: {.question}
+Find the maximum value of $\;4^{\sin x} - 4 \times 2^{\sin x} + \dfrac{17}{4}\;$ for real $x$.
+
+&nbsp;&nbsp;**A** $\tfrac14$ &nbsp;&nbsp; **B** $\tfrac52$ &nbsp;&nbsp; **C** $\tfrac{13}{2}$ &nbsp;&nbsp;
+**D** $\tfrac{21}{2}$ &nbsp;&nbsp; **E** $\tfrac{65}{4}$ &nbsp;&nbsp; **F** There is no maximum value.
+:::
+
+There isn't a single $x^2$ in sight, but [$4^{\sin x} = \left(2^{\sin x}\right)^2$]{.hl} — so the
+expression is built out of $2^{\sin x}$ and its square, and it is a quadratic after all. Let $u =
+2^{\sin x}$. Then comes the step that decides this question: [$u$ is not free to be anything]{.hl}.
+Since $\sin x$ can only run between $-1$ and $1$, [$u$ is trapped in a closed interval]{.hl} — and
+option F is sitting there waiting for anyone who forgets it.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Let $u = 2^{\sin x}$. Then $4^{\sin x} = \left(2^2\right)^{\sin x} = \left(2^{\sin x}\right)^2 = u^2$,
+so the expression becomes
+
+$$u^2 - 4u + \tfrac{17}{4} .$$
+
+Now [work out the range of $u$]{.hl}. Since $-1 \le \sin x \le 1$,
+
+$$2^{-1} \le u \le 2^{1} , \qquad\text{that is}\qquad \tfrac12 \le u \le 2 .$$
+
+Complete the square:
+
+$$u^2 - 4u + \tfrac{17}{4} = (u-2)^2 + \tfrac14 .$$
+
+[Be careful — the vertex is a MINIMUM here]{.hl}, not a maximum, because the parabola opens upwards.
+On a closed interval, [the maximum of an upward parabola is at one of the endpoints]{.hl}, and it is the
+endpoint furthest from the vertex that wins. Test them:
+
+$$u = 2: \quad (2-2)^2 + \tfrac14 = \tfrac14 \qquad\text{(the minimum)}$$
+$$u = \tfrac12: \quad \left(\tfrac12 - 2\right)^2 + \tfrac14 = \tfrac94 + \tfrac14 = \tfrac{10}{4} = \tfrac52 \qquad\checkmark$$
+
+So the maximum is $\tfrac52$, reached when $2^{\sin x} = \tfrac12$, i.e. when $\sin x = -1$. That is
+**option B**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **F** | "There is no maximum" — exactly what you conclude if you **forget that $u$ is bounded**. Let $u$ run free and $u^2 - 4u + \tfrac{17}{4} \to \infty$. This is the most instructive wrong answer on the paper. |
+| **A** | $\tfrac14$ — found the vertex and quoted it: gave the **minimum** when asked for the maximum. |
+| **C**, **D**, **E** | Endpoint values from a wrong range for $u$ — for instance taking $u \in [-1,1]$, or substituting $u = 4^{\sin x}$. |
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+u = np.linspace(-0.4, 3.4, 400)
+y = u**2 - 4*u + 17/4
+
+fig, ax = plt.subplots(figsize=(7.0, 5.0))
+ax.plot(u, y, color='#999', lw=1.6, ls='--', label=r'$u^2-4u+\frac{17}{4}$  (if $u$ were free)')
+uu = np.linspace(0.5, 2, 200)
+ax.plot(uu, uu**2 - 4*uu + 17/4, color=ROOT_CLR, lw=3,
+        label=r'the part that actually exists:  $\frac{1}{2}\leq u\leq 2$')
+ax.axvspan(0.5, 2, color=ROOT_CLR, alpha=0.07)
+
+ax.plot([0.5], [0.5**2 - 4*0.5 + 17/4], 'o', color=YINT_CLR, ms=10, zorder=5)
+ax.annotate(r'MAXIMUM $=\frac{5}{2}$' '\n' r'at the endpoint $u=\frac{1}{2}$',
+            (0.5, 2.5), textcoords='offset points', xytext=(16, 6), fontsize=10, color=YINT_CLR)
+ax.plot([2], [0.25], 'o', color=ASYM_CLR, ms=9, zorder=5)
+ax.annotate(r'vertex is the MINIMUM $=\frac{1}{4}$', (2, 0.25), textcoords='offset points',
+            xytext=(10, -6), fontsize=10, color=ASYM_CLR)
+
+for c in (0.5, 2):
+    ax.axvline(c, color=ROOT_CLR, ls=':', lw=1.2)
+ax.set_xlabel(r'$u = 2^{\sin x}$'); ax.set_ylabel('value')
+ax.set_title(r'$u$ is trapped in $[\frac{1}{2},\,2]$ — so the maximum is at an endpoint, not at the vertex')
+ax.grid(alpha=0.25); ax.legend(fontsize=9, loc='upper center')
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 14
+
+::: {.topic}
+Topic — solving two linear equations in $\sin 2x$ and $\cos 2x$; the doubled range
+:::
+
+::: {.question}
+$x$ satisfies the simultaneous equations
+$$\sin 2x + \sqrt3 \cos 2x = -1 , \qquad \sqrt3 \sin 2x - \cos 2x = \sqrt3 ,$$
+where $0^\circ \le x \le 360^\circ$. Find the sum of the possible values of $x$.
+
+&nbsp;&nbsp;**A** $210^\circ$ &nbsp;&nbsp; **B** $330^\circ$ &nbsp;&nbsp; **C** $390^\circ$ &nbsp;&nbsp;
+**D** $660^\circ$ &nbsp;&nbsp; **E** $780^\circ$ &nbsp;&nbsp; **F** $930^\circ$
+:::
+
+[These are not two trig equations — they are two *linear* equations]{.hl}, in the two unknowns
+$\sin 2x$ and $\cos 2x$. So call them $s$ and $c$ and solve the pair like any other simultaneous
+equations; only afterwards do you think about angles. Then the trap: the range is on $x$, but you are
+solving for $2x$, so [write down the range for $2x$ before you go looking]{.hl} — it runs from $0^\circ$
+to $720^\circ$, which is **two** full turns.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Put $s = \sin 2x$ and $c = \cos 2x$:
+
+$$s + \sqrt3\,c = -1 , \qquad \sqrt3\,s - c = \sqrt3 .$$
+
+From the second equation, $c = \sqrt3 s - \sqrt3$. [Substitute that into the first]{.hl}:
+
+$$s + \sqrt3\left(\sqrt3 s - \sqrt3\right) = -1 \qquad\Longrightarrow\qquad s + 3s - 3 = -1 \qquad\Longrightarrow\qquad 4s = 2 ,$$
+
+so $s = \tfrac12$, and then $c = \sqrt3 \cdot \tfrac12 - \sqrt3 = -\tfrac{\sqrt3}{2}$.
+
+[Sanity check: $s^2 + c^2 = \tfrac14 + \tfrac34 = 1$]{.hl}, as it must be. If it doesn't come to $1$, you
+have made an arithmetic mistake and there is no point going on.
+
+So we need $\sin 2x = \tfrac12$ and $\cos 2x = -\tfrac{\sqrt3}{2}$ **at the same time**. Sine positive,
+cosine negative puts $2x$ in the second quadrant, and the angle is
+
+$$2x = 150^\circ \quad (+\, 360^\circ k) .$$
+
+Now use the range. Since $0^\circ \le x \le 360^\circ$, we have $0^\circ \le 2x \le 720^\circ$, so there
+are **two** solutions, not one:
+
+$$2x = 150^\circ \text{ or } 510^\circ \qquad\Longrightarrow\qquad x = 75^\circ \text{ or } 255^\circ .$$
+
+The sum is $75 + 255 = 330^\circ$, which is **option B**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $660^\circ = 150 + 510$ — added up the values of **$2x$** and forgot to halve. Far and away the most likely slip. |
+| **A**, **C**, **E**, **F** | No clear origin; consistent with solving only one of the two equations and picking up extra solutions. |
+
+The reason the question uses $\sin 2x$ rather than $\sin x$ is precisely to create the $720^\circ$ trap.
+[Whenever you see $\sin 2x$ with a range given on $x$, write the range for $2x$ on your paper first]{.hl}.
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 15
+
+::: {.topic}
+Topic — indices with the same base; a hidden quadratic
+:::
+
+::: {.question}
+Find the real **non-zero** solution to the equation
+$$\frac{2^{(9^x)}}{8^{(3^x)}} = \frac14 .$$
+
+&nbsp;&nbsp;**A** $\log_3 2$ &nbsp;&nbsp; **B** $2\log_3 2$ &nbsp;&nbsp; **C** $1$ &nbsp;&nbsp;
+**D** $2$ &nbsp;&nbsp; **E** $\log_2 3$ &nbsp;&nbsp; **F** $2\log_2 3$
+:::
+
+Everything in sight is a power of $2$ or a power of $3$, so [get every base the same and then compare the
+exponents]{.hl}. Once you do, what is left has $9^x$ and $3^x$ in it — and $9^x = \left(3^x\right)^2$, so
+[it's another hidden quadratic]{.hl}. One more thing: the question says *non-zero*, and [a question only
+says that when zero is a solution]{.hl}. That is a free hint about what is coming.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Write $8$ and $\tfrac14$ as powers of $2$:
+
+$$8^{\left(3^x\right)} = \left(2^3\right)^{\left(3^x\right)} = 2^{\,3\cdot 3^x} , \qquad \frac14 = 2^{-2} .$$
+
+So the equation becomes
+
+$$\frac{2^{\left(9^x\right)}}{2^{\,3\cdot 3^x}} = 2^{-2} \qquad\Longrightarrow\qquad 2^{\,9^x - 3\cdot 3^x} = 2^{-2} .$$
+
+[Same base, so we can compare the powers]{.hl}:
+
+$$9^x - 3\cdot 3^x = -2 .$$
+
+Now [let $y = 3^x$]{.hl}, so that $9^x = \left(3^x\right)^2 = y^2$:
+
+$$y^2 - 3y + 2 = 0 \qquad\Longrightarrow\qquad (y-1)(y-2) = 0 \qquad\Longrightarrow\qquad y = 1 \text{ or } y = 2 .$$
+
+[Substitute back — $y$ was our invention, not the answer]{.hl}:
+
+- $y = 1 \;\Rightarrow\; 3^x = 1 \;\Rightarrow\; x = 0$. But the question asked for the **non-zero**
+  solution, so this one is ruled out — and now you see why the word was there.
+- $y = 2 \;\Rightarrow\; 3^x = 2 \;\Rightarrow\; x = \log_3 2$. ✓
+
+So the answer is $\log_3 2$, which is **option A**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $2$ — solved the quadratic and gave **$y$** instead of $x$. Forgot to substitute back. |
+| **E**, **F** | $\log_2 3$ and $2\log_2 3$ — the **base is upside down**. From $3^x = 2$ you get $x = \log_3 2$, not $\log_2 3$. Quick check: $\log_3 2 < 1$ because $2 < 3$, whereas $\log_2 3 > 1$. |
+| **C** | $1$ — from mis-solving $3^x = 1$. |
+| **B** | $2\log_3 2 = \log_3 4$ — from $y=4$, or from doubling the right answer. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 16
+
+::: {.topic}
+Topic — definite integrals; a translation does not change the area
+:::
+
+::: {.question}
+Given that
+$$2\int_0^1 \mathrm f(x)\,\mathrm dx + 5\int_1^2 \mathrm f(x)\,\mathrm dx = 14 \qquad\text{and}\qquad \int_0^1 \mathrm f(x+1)\,\mathrm dx = 6 ,$$
+find the value of $\displaystyle\int_0^2 \mathrm f(x)\,\mathrm dx$.
+
+&nbsp;&nbsp;**A** $-8$ &nbsp;&nbsp; **B** $-4$ &nbsp;&nbsp; **C** $-2$ &nbsp;&nbsp; **D** $2$ &nbsp;&nbsp;
+**E** $4$ &nbsp;&nbsp; **F** $\tfrac{29}{5}$ &nbsp;&nbsp; **G** $\tfrac{32}{5}$ &nbsp;&nbsp; **H** $14$
+:::
+
+The whole question turns on one thing, and it is hiding in the second piece of information.
+[$\int_0^1 \mathrm f(x+1)\,\mathrm dx$ is **not** $\int_0^1 \mathrm f(x)\,\mathrm dx$]{.hl} — the $x+1$
+shifts the graph sideways. Substitute $u = x+1$ and the limits move with it. In plain English: [sliding a
+graph sideways doesn't change the area underneath it]{.hl}; it only changes the labels on the axis. Miss
+that, and you will get a perfectly clean wrong answer that is sitting on the option list.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Deal with the second equation first. [Let $u = x + 1$]{.hl}. When $x = 0$, $u = 1$; when $x=1$, $u=2$;
+and $\mathrm du = \mathrm dx$. So
+
+$$\int_0^1 \mathrm f(x+1)\,\mathrm dx = \int_1^2 \mathrm f(u)\,\mathrm du = 6 .$$
+
+So we have actually been told the value of $\int_1^2 \mathrm f$, not $\int_0^1 \mathrm f$.
+
+Now write $P = \int_0^1 \mathrm f$ and $Q = \int_1^2 \mathrm f$. We know $Q = 6$, so from the first
+equation
+
+$$2P + 5(6) = 14 \qquad\Longrightarrow\qquad 2P = -16 \qquad\Longrightarrow\qquad P = -8 .$$
+
+[$P$ comes out negative, and that is perfectly fine]{.hl} — nobody said $\mathrm f$ was positive, and a
+definite integral is a *signed* area. Finally,
+
+$$\int_0^2 \mathrm f = P + Q = -8 + 6 = -2 ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **G** | $\tfrac{32}{5}$ — read $\int_0^1 \mathrm f(x+1)\,\mathrm dx$ as $\int_0^1 \mathrm f(x)\,\mathrm dx$, i.e. **missed the translation**. Then $P = 6$, $Q = \tfrac25$, and $P + Q = \tfrac{32}{5}$ exactly. This is the trap the question was built around. |
+| **A** | $-8$ — that is $P$: **stopped one step early** and gave $\int_0^1$ instead of $\int_0^2$. |
+| **H** | $14$ — a number copied straight from the question. |
+| **B**, **D**, **E**, **F** | No clear origin. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 17
+
+::: {.topic}
+Topic — a product of two factors; sign tables
+:::
+
+::: {.question}
+Find the fraction of the interval $0 \le \theta \le \pi$ for which
+$$\Big(\sin 2\theta - \tfrac12\Big)\Big(\sin\theta - \cos\theta\Big) \ge 0 .$$
+
+&nbsp;&nbsp;**A** $\tfrac1{12}$ &nbsp;&nbsp; **B** $\tfrac16$ &nbsp;&nbsp; **C** $\tfrac14$ &nbsp;&nbsp;
+**D** $\tfrac5{12}$ &nbsp;&nbsp; **E** $\tfrac7{12}$ &nbsp;&nbsp; **F** $\tfrac34$ &nbsp;&nbsp;
+**G** $\tfrac56$ &nbsp;&nbsp; **H** $\tfrac{11}{12}$
+:::
+
+Whatever you do, [don't expand the brackets]{.hl}. A product of two things is $\ge 0$ exactly when [the
+two factors have the same sign]{.hl} (or one of them is zero). So find where each factor is zero, mark
+those points on the interval, and [build a sign table]{.hl}. One hint from the examiner: every option is
+a number of twelfths, which is telling you how the interval is going to be cut up.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**First factor.** $\sin 2\theta - \tfrac12 = 0$ means $\sin 2\theta = \tfrac12$, so
+$2\theta = \tfrac{\pi}{6}$ or $\tfrac{5\pi}{6}$, giving
+
+$$\theta = \frac{\pi}{12} \quad\text{or}\quad \theta = \frac{5\pi}{12} .$$
+
+[Careful: it's $\tfrac{\pi}{6}$, not $\tfrac{\pi}{3}$]{.hl} — $\sin$ is $\tfrac12$ at $30^\circ$, and
+$\tfrac{\sqrt3}{2}$ at $60^\circ$. From the sine graph, $\sin 2\theta$ is *above* $\tfrac12$ between
+these two values, and below it elsewhere on $[0,\pi]$.
+
+**Second factor.** $\sin\theta = \cos\theta$ means $\tan\theta = 1$, so $\theta = \tfrac{\pi}{4}$. Below
+that, cosine is the bigger of the two, so the factor is negative; above it, positive.
+
+Write all three critical values in twelfths: $\tfrac{\pi}{12}$, $\tfrac{3\pi}{12}$, $\tfrac{5\pi}{12}$.
+Now the sign table:
+
+| $\theta$ | $0 \to \tfrac{\pi}{12}$ | $\tfrac{\pi}{12} \to \tfrac{3\pi}{12}$ | $\tfrac{3\pi}{12} \to \tfrac{5\pi}{12}$ | $\tfrac{5\pi}{12} \to \pi$ |
+|---|---|---|---|---|
+| $\sin 2\theta - \tfrac12$ | $-$ | $+$ | $+$ | $-$ |
+| $\sin\theta - \cos\theta$ | $-$ | $-$ | $+$ | $+$ |
+| **product** | $\mathbf{+}$ | $-$ | $\mathbf{+}$ | $-$ |
+
+The product is $\ge 0$ on $\left[0, \tfrac{\pi}{12}\right]$ and $\left[\tfrac{3\pi}{12}, \tfrac{5\pi}{12}\right]$.
+[Add up the lengths]{.hl}:
+
+$$\frac{\pi}{12} + \frac{2\pi}{12} = \frac{3\pi}{12} = \frac{\pi}{4} .$$
+
+The whole interval has length $\pi$, so the fraction is $\dfrac{\pi/4}{\pi} = \dfrac14$, which is
+**option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **A** | $\tfrac1{12}$ — found only the **first** of the two intervals. |
+| **B** | $\tfrac16 = \tfrac2{12}$ — found only the **second**. |
+| **F** | $\tfrac34$ — the **complement**: solved for where the product is $\le 0$ instead. |
+| **G**, **H** | The complements of B and A — the same two errors, plus the complement error. |
+| **D**, **E** | $\tfrac5{12}$, $\tfrac7{12}$ — a sign error in one row of the table. |
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+th = np.linspace(0, np.pi, 800)
+f1, f2 = np.sin(2*th) - 0.5, np.sin(th) - np.cos(th)
+prod = f1 * f2
+
+fig, axes = plt.subplots(2, 1, figsize=(7.4, 7.8), sharex=True)
+
+axes[0].plot(th, f1, color=ROOT_CLR, lw=2, label=r'$\sin 2\theta - \frac{1}{2}$')
+axes[0].plot(th, f2, color=YINT_CLR, lw=2, label=r'$\sin\theta - \cos\theta$')
+axes[0].axhline(0, color='k', lw=0.9)
+axes[0].set_title('Where does each factor change sign?', fontsize=11)
+axes[0].legend(fontsize=9); axes[0].grid(alpha=0.25)
+
+axes[1].plot(th, prod, color=ASYM_CLR, lw=2, label='the product')
+axes[1].axhline(0, color='k', lw=0.9)
+axes[1].fill_between(th, 0, prod, where=(prod >= 0), color=ASYM_CLR, alpha=0.18,
+                     label=r'product $\geq 0$:  total length $\pi/4$')
+axes[1].set_title(r'The two shaded pieces make $\frac{\pi}{12}+\frac{2\pi}{12}=\frac{\pi}{4}$ — a quarter of the interval',
+                  fontsize=11)
+axes[1].legend(fontsize=9); axes[1].grid(alpha=0.25)
+
+for ax in axes:
+    for c in (np.pi/12, np.pi/4, 5*np.pi/12):
+        ax.axvline(c, color='grey', ls='--', lw=1)
+    ax.set_xticks([0, np.pi/12, np.pi/4, 5*np.pi/12, np.pi/2, np.pi])
+    ax.set_xticklabels(['$0$', r'$\frac{\pi}{12}$', r'$\frac{3\pi}{12}$', r'$\frac{5\pi}{12}$',
+                        r'$\frac{\pi}{2}$', r'$\pi$'])
+axes[1].set_xlabel(r'$\theta$')
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 18
+
+::: {.topic}
+Topic — shortest distance from a curve to a line
+:::
+
+::: {.question}
+Find the shortest distance between the curve $y = x^2 + 4$ and the line $y = 2x - 2$.
+
+&nbsp;&nbsp;**A** $2$ &nbsp;&nbsp; **B** $\sqrt5$ &nbsp;&nbsp; **C** $\tfrac{6\sqrt5}{5}$ &nbsp;&nbsp;
+**D** $3$ &nbsp;&nbsp; **E** $\tfrac{5\sqrt5}{3}$ &nbsp;&nbsp; **F** $5$ &nbsp;&nbsp; **G** $6$
+:::
+
+The closest point on the curve is [the point where the tangent is parallel to the line]{.hl} — anywhere
+else, you could slide along the curve and get a bit closer. So [set the derivative equal to the gradient
+of the line]{.hl}, find that point, and then use the perpendicular distance formula. Two things people
+get wrong: the closest point is *not* the vertex of the parabola, and [the distance is measured
+perpendicular to the line, not vertically]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+First check they don't actually meet: $x^2 + 4 = 2x - 2$ gives $x^2 - 2x + 6 = 0$, whose discriminant is
+$4 - 24 = -20 < 0$. No real roots, so the curve and the line never cross and the shortest distance is a
+genuine positive number.
+
+Now [find where the tangent is parallel to the line]{.hl}. The line has gradient $2$, so
+
+$$\frac{\mathrm dy}{\mathrm dx} = 2x = 2 \qquad\Longrightarrow\qquad x = 1 \qquad\Longrightarrow\qquad \text{the closest point is } (1,\,5) .$$
+
+For the perpendicular distance formula you need the line in the form $ax + by + c = 0$, so [rewrite
+$y = 2x-2$ as $2x - y - 2 = 0$]{.hl}. Then
+
+$$d = \frac{\left|ax_0 + by_0 + c\right|}{\sqrt{a^2+b^2}} = \frac{\left|2(1) - (5) - 2\right|}{\sqrt{2^2 + (-1)^2}} = \frac{\left|-5\right|}{\sqrt5} = \frac{5}{\sqrt5} = \sqrt5 ,$$
+
+which is **option B**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **F** | $5$ — the **vertical** gap between the curve and the line at $x=1$ ($5 - 0 = 5$). Measured straight down instead of perpendicular: the division by $\sqrt5$ was forgotten. |
+| **C** | $\tfrac{6\sqrt5}{5} = \tfrac{6}{\sqrt5}$ — the perpendicular distance from the **vertex** $(0,4)$ instead of from the tangent point. A very natural wrong instinct: *"surely the closest point is the bottom of the curve"*. |
+| **A**, **D**, **E**, **G** | No clear origin. |
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+xs = np.linspace(-1.0, 3.6, 400)
+fig, ax = plt.subplots(figsize=(7.0, 5.4))
+ax.plot(xs, xs**2 + 4, color=ROOT_CLR, lw=2, label=r'$y=x^2+4$')
+ax.plot(xs, 2*xs - 2,  color=ASYM_CLR, lw=2, label=r'$y=2x-2$')
+ax.plot(xs, 2*xs + 3, color=YINT_CLR, ls='--', lw=1.5,
+        label=r'tangent at $(1,5)$ — same gradient, $2$')
+
+px, py = 1.0, 5.0
+ax.plot([px], [py], 'o', color=YINT_CLR, ms=9, zorder=5)
+ax.annotate('$(1,5)$', (px, py), textcoords='offset points', xytext=(8, 4),
+            color=YINT_CLR, fontsize=10)
+fx = px - 2*(2*px - py - 2)/5
+fy = py + 1*(2*px - py - 2)/5
+ax.plot([px, fx], [py, fy], color='k', lw=1.8)
+ax.plot([fx], [fy], 'o', color='k', ms=5)
+ax.annotate(r'shortest distance $=\sqrt{5}$', ((px+fx)/2, (py+fy)/2),
+            textcoords='offset points', xytext=(14, -4), fontsize=10)
+ax.plot([0], [4], 'o', color='#999', ms=7)
+ax.annotate('the vertex —\nNOT the closest point', (0, 4), textcoords='offset points',
+            xytext=(-30, 22), fontsize=9, color='#666')
+
+ax.axhline(0, color='k', lw=0.8); ax.axvline(0, color='k', lw=0.8)
+ax.set_aspect('equal'); ax.set_xlim(-1.0, 3.6); ax.set_ylim(-3, 10)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.grid(alpha=0.25)
+ax.set_title('Closest where the tangent is parallel to the line')
+ax.legend(loc='upper left', fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 19
+
+::: {.topic}
+Topic — a long sum whose terms repeat
+:::
+
+::: {.question}
+Find the value of $\displaystyle\sum_{k=0}^{90} \sin(10 + 90k)^\circ$.
+
+&nbsp;&nbsp;**A** $0$ &nbsp;&nbsp; **B** $\sin 10^\circ$ &nbsp;&nbsp; **C** $\sin 100^\circ$ &nbsp;&nbsp;
+**D** $\sin 190^\circ$ &nbsp;&nbsp; **E** $\sin 280^\circ$ &nbsp;&nbsp; **F** $1$
+:::
+
+Nobody is expecting you to add up ninety-one terms. So [ask what the terms *do*]{.hl} instead of what
+they are. Adding $90^\circ$ four times takes you all the way round, so [the terms repeat every four
+steps]{.hl} — and one full cycle adds up to nothing. Then the only real work is counting: [how many
+complete cycles are there, and what is left over?]{.hl} Be careful — $k=0$ to $k=90$ is ninety-**one**
+terms, not ninety.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Write out the first few terms:
+
+$$\sin 10^\circ , \quad \sin 100^\circ , \quad \sin 190^\circ , \quad \sin 280^\circ , \quad \sin 370^\circ = \sin 10^\circ , \quad \dots$$
+
+so the terms [repeat with period 4]{.hl}. And one complete cycle sums to zero, because
+
+$$\sin 190^\circ = \sin(180^\circ + 10^\circ) = -\sin 10^\circ , \qquad \sin 280^\circ = -\sin 100^\circ ,$$
+
+so
+
+$$\sin 10^\circ + \sin 100^\circ + \sin 190^\circ + \sin 280^\circ = \sin 10^\circ + \sin 100^\circ - \sin 10^\circ - \sin 100^\circ = 0 .$$
+
+Now count. From $k=0$ to $k=90$ inclusive there are **91** terms, and
+
+$$91 = 4 \times 22 + 3 .$$
+
+The 22 complete cycles (88 terms) [contribute nothing at all]{.hl}. The three left over are the first
+three of a fresh cycle:
+
+$$\sin 10^\circ + \sin 100^\circ + \sin 190^\circ = \sin 10^\circ + \sin 100^\circ - \sin 10^\circ = \sin 100^\circ .$$
+
+So the answer is $\sin 100^\circ$, which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **A** | $0$ — assumed everything cancels: either miscounted 91 as a multiple of 4, or forgot the leftover terms. |
+| **B** | $\sin 10^\circ$ — kept only **one** leftover term instead of three. |
+| **D**, **E** | Picked the wrong leftover term. |
+| **F** | $1$ — no clear origin. |
+:::
+
+::: {.workspace}
+Working
+:::
+
+---
+
+## Question 20
+
+::: {.topic}
+Topic — separating the constant; reading roots off a cubic
+:::
+
+::: {.question}
+What is the complete range of values of $k$ for which the curves
+$$y = x^3 - 12x \qquad\text{and}\qquad y = k - (x-2)^2$$
+intersect at three distinct points, of which exactly two have positive $x$-coordinates?
+
+&nbsp;&nbsp;**A** $-4<k<0$ &nbsp;&nbsp; **B** $-4<k<4$ &nbsp;&nbsp; **C** $-4<k<16$ &nbsp;&nbsp;
+**D** $-16<k<0$ &nbsp;&nbsp; **E** $-16<k<4$ &nbsp;&nbsp; **F** $-16<k<16$
+:::
+
+Set the two curves equal, and then [get all the $k$ on one side and none on the other]{.hl}. Once you do
+that, the question stops being about two moving curves: it becomes [one fixed cubic and a horizontal line
+$y=k$]{.hl} that you slide up and down. And *that* question is answered by a sketch — [all you need are
+the turning points]{.hl}, because the number of crossings only changes when the line passes through one.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Set them equal and collect the $k$:
+
+$$x^3 - 12x = k - (x-2)^2 \qquad\Longrightarrow\qquad x^3 - 12x + x^2 - 4x + 4 = k ,$$
+
+so with $g(x) = x^3 + x^2 - 16x + 4$ the question becomes: *for which $k$ does $y = k$ cross $y = g(x)$
+three times, with exactly two crossings at positive $x$?*
+
+**Turning points.**
+
+$$g'(x) = 3x^2 + 2x - 16 = 0 \qquad\Longrightarrow\qquad (3x+8)(x-2) = 0 \qquad\Longrightarrow\qquad x = -\tfrac83 \text{ or } x = 2 ,$$
+
+and
+
+$$g\!\left(-\tfrac83\right) = \tfrac{940}{27} \approx 34.8 \quad (\text{local max}) , \qquad g(2) = -16 \quad (\text{local min}) .$$
+
+**Condition 1 — three crossings.** A horizontal line cuts a cubic three times exactly when [it lies
+between the local maximum and the local minimum]{.hl}:
+
+$$-16 < k < \tfrac{940}{27} .$$
+
+**Condition 2 — exactly two positive roots.** Look at the sketch. The left-hand root is always to the
+left of $x = -\tfrac83$, so it is always negative; the right-hand root is always to the right of $x=2$,
+so it is always positive. [So the whole condition is about the MIDDLE root]{.hl}.
+
+On the middle branch $g$ is decreasing, and $g(0) = 4$. So the middle root is positive exactly when the
+line sits **below** the height $g(0)$:
+
+$$k < 4 .$$
+
+Putting the two conditions together — and noting that $4 < \tfrac{940}{27}$, so this is the binding one —
+
+$$-16 < k < 4 ,$$
+
+which is **option E**. $\blacksquare$
+
+Notice how cheap the second condition became once $k$ was on its own: it cost one substitution, $g(0)=4$.
+Anyone who tries to keep both original curves and argue about "positive $x$-coordinates of
+intersections" will not finish this in seventy-five minutes, let alone four.
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **F** | $-16<k<16$ — got the three-root condition, then never really used the second one; the upper bound is invented. |
+| **D** | $-16<k<0$ — assumed "middle root positive means $k<0$", i.e. forgot to work out $g(0)$ and just used the origin. |
+| **A**, **B**, **C** | All use $-4$ as the lower bound — an arithmetic slip evaluating $g(2)$, getting $-4$ instead of $-16$. |
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+g = lambda x: x**3 + x**2 - 16*x + 4
+xs = np.linspace(-5.2, 4.4, 600)
+
+fig, ax = plt.subplots(figsize=(7.4, 5.4))
+ax.plot(xs, g(xs), color=ROOT_CLR, lw=2, label=r'$g(x)=x^3+x^2-16x+4$')
+
+for xt, lab, off in [(-8/3, 'local max\n$g(-8/3)\\approx 34.8$', (8, -36)),
+                     (2, 'local min\n$g(2)=-16$', (10, 4))]:
+    ax.plot([xt], [g(xt)], 'o', color=ROOT_CLR, ms=7)
+    ax.annotate(lab, (xt, g(xt)), textcoords='offset points', xytext=off, fontsize=9)
+
+ax.axhline(-16, color=ASYM_CLR, ls='--', lw=1.5)
+ax.axhline(4,   color=ASYM_CLR, ls='--', lw=1.5)
+ax.text(-5.1, -14.3, r'$k=-16$', color=ASYM_CLR, fontsize=10)
+ax.text(-5.1,   5.4, r'$k=4$',   color=ASYM_CLR, fontsize=10)
+ax.axhspan(-16, 4, color=ASYM_CLR, alpha=0.07)
+
+ax.plot([0], [4], 'o', color=YINT_CLR, ms=8, zorder=5)
+ax.annotate(r'$g(0)=4$ — the middle root is positive' '\n' r'only while the line is below this',
+            (0, 4), textcoords='offset points', xytext=(12, -30), color=YINT_CLR, fontsize=9)
+
+ax.axhline(0, color='k', lw=0.8); ax.axvline(0, color='k', lw=0.8)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+ax.set_title('Slide the line $y=k$: three crossings, exactly two with $x>0$, precisely when $-16<k<4$')
+ax.legend(loc='lower right', fontsize=9); ax.grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace}
+Working
+:::
+
+:::

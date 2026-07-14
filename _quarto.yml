@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: _output
+  render:
+    - "**/*.qmd"
+    - "!_resources/"
+
+website:
+  title: "TMUA Preparation"
+  site-url: https://daye-lee18.github.io/TMUA/
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Curriculum"
+        href: curriculum.qmd
+      - text: "The Test"
+        href: about/format.qmd
+      - text: "Papers"
+        href: papers/index.qmd
+      - text: "Lessons"
+        href: lessons/index.qmd
+      - text: "Paper 2 Toolkit"
+        href: toolkit/index.qmd
+      - text: "Phrasebook"
+        href: phrasebook.qmd
+
+format:
+  html:
+    toc: true
+    theme: cosmo
+    css: styles.css
+    math: mathjax
+
+execute:
+  echo: false
+  warning: false
