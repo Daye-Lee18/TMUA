@@ -84,5 +84,22 @@ purpose-built. See [`PAPER2_TRENDS_2016_2023.md`](../PAPER2_TRENDS_2016_2023.md)
 | **S6** | **Scrambled proofs** — the Prf4 question type, and how to order statements fast | **[Concepts](s06_concepts.qmd)** · **[Material](s06_scrambled_proofs.qmd)** | **[Questions](s06_assignment_student.qmd)** · [MS](s06_assignment_ms.qmd) · **[Extra practice](s06_extra_practice.qmd)** | Prf4 |
 | **S7** | **Spot the error** — the catalogue of classic false steps | **[Concepts](s07_concepts.qmd)** · **[Material](s07_spot_the_error.qmd)** | **[Questions](s07_assignment_student.qmd)** · [MS](s07_assignment_ms.qmd) | Err1, Err2 |
 
+: **Skill sessions — organised by reasoning type.**
+
+## Topic sessions
+
+The S-sessions above cut Paper 2 by **reasoning type**. These two cut it the other way, by the **topic that
+carries the reasoning** — the two subjects the examiners have returned to in every sitting from 2016 to
+2023, and never once as a calculation. Both are **memorising** pages: a fact sheet, quick checks, and a map
+of where each real question is worked.
+
+| | Session | What to memorise | Why it earns a session |
+|---|---|---|---|
+| **T1** | **[Divisors & primes](t01_divisors_primes.qmd)** | Euclid's lemma and why it needs "prime" · $6n\pm1$ · squaring doubles exponents · remainders are bounded · squares mod 3, 4, 8 · the gcd toolkit · irreducible $\neq$ prime-valued | **15+ questions, 2016–2023**, none of them a calculation |
+| **T2** | **[Shapes as logical conditions](t02_shapes_as_logic.qmd)** | the quadrilateral lattice · the diagonal table (the *iff*s) · the three standard counterexamples · congruence criteria and why SSA is not one · $\sin A=\sin B\nRightarrow A=B$ · polygon angles | **eight sittings, eight appearances** |
+
+*Both pages are built from [`PAPER2_TOPIC_MAP.md`](../PAPER2_TOPIC_MAP.md) and
+[`PAPER2_TRENDS_2016_2023.md`](../PAPER2_TRENDS_2016_2023.md).*
+
 All seven sessions are written. Work through them in order: each one is built on the one before, and
 S1 in particular is load-bearing for everything else.

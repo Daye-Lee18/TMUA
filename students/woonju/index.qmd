@@ -39,6 +39,21 @@ sees the question**. The *wrong-questions booklet* is separate: it is her own si
 
 **▶ 앞으로 다룰 것** — not yet taught. The ⭐ ones aim straight at her repeat mistakes.
 
+::: {.callout-tip}
+## ▶ Two new topic sessions — built from the eight-year analysis
+
+Two subjects appear on **every** Paper 2 from 2016 to 2023 and are **never** set as a calculation, so
+they are worth memorising outright rather than re-deriving:
+
+| | Session | Why |
+|---|---|---|
+| **T1** | **[Divisors & primes](../../toolkit/t01_divisors_primes.qmd)** | 15+ questions in eight years — ten facts cover all of them |
+| **T2** | **[Shapes as logical conditions](../../toolkit/t02_shapes_as_logic.qmd)** | eight sittings, eight appearances — the quadrilateral lattice and three counterexamples |
+
+Each page is a fact sheet + eight quick checks, then a map of where each real past-paper question is
+worked. Source: [`PAPER2_TRENDS_2016_2023.md`](../../PAPER2_TRENDS_2016_2023.md).
+:::
+
 | | Clinic | Focus | Class material | Assignment |
 |---|---|---|---|---|
 | **Coord** ⭐ | **Coordinate geometry (MM3)** | **Normal to a curve** (you got this wrong in *both* 2016 Q3 and 2018 Q11) · perpendicular bisector · circle equation & "is it a circle" · two-circle distance / tangency / intersection · common tangents · radical axis · chord properties. **All real TMUA/mock questions.** | **[Class problems](../../lessons/coordinate_geometry_clinic/class_material.qmd)** — 25 | **[Questions](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** — 15 · [MS](../../lessons/coordinate_geometry_clinic/assignment_ms.qmd) |

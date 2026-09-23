@@ -1,0 +1,324 @@
+---
+title: "Toolkit T1 — Divisors & Primes · Facts to Memorise"
+subtitle: "The topic Paper 2 returns to every single year — and never as a calculation"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Why this page exists
+
+Across **2016–2023** the examiners set at least **fifteen** Paper 2 questions on divisors and primes, and
+**not one of them was a calculation**. Every single one was wrapped in a reasoning type — find the
+counterexample, spot the error in the proof, decide which statement is equivalent, say what must be true.
+
+That makes this the one *topic* worth memorising for Paper 2, because the mathematics involved is tiny and
+keeps repeating. **The facts below are the whole syllabus.** Learn them cold and a whole family of
+questions becomes bookwork.
+
+*The S-sessions on this site are organised by **reasoning type**. The T-sessions are the other axis:
+the **topic** that carries the reasoning. See [`PAPER2_TOPIC_MAP.md`](../PAPER2_TOPIC_MAP.md).*
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Topic session T1</div>
+<div class="fs-title">Divisors &amp; Primes — the memorisable core</div>
+<div class="fs-sub">Ten facts and five proof patterns. Every past-paper question in this topic is built from them, so the aim is <strong>instant recall</strong>, not derivation. The cards marked with a <strong>trap</strong> are the ones the examiners actually test — each has a standard counterexample you should be able to name without thinking.</div>
+::::
+
+## The ten facts
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Every prime above 3 has the form $6n\pm1$
+
+Any integer is $6n,\,6n\pm1,\,6n\pm2$ or $6n+3$. All but $6n\pm1$ are divisible by $2$ or $3$, so a prime
+bigger than $3$ must be $6n\pm1$.
+
+**The trap — the converse is false.** $25=6(4)+1$ and $35=6(6)-1$ are not prime.
+
+[2016 Q5 · 2023 Q11 sit on exactly this]{.eg}
+:::
+
+::: {.fs-card}
+### 2 · Euclid's lemma — and why it needs "prime"
+
+$$p\mid ab\ \Longrightarrow\ p\mid a\ \text{ or }\ p\mid b\qquad\textbf{only when }p\textbf{ is prime}$$
+
+**The trap — drop "prime" and it collapses.** $4\mid 2\times2$, yet $4\nmid2$. Smallest counterexample:
+$a=4,\ b=c=2$.
+
+[2016 Q13 and 2021 Q4 are the *same* false statement — this is the missing word]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · Squaring doubles every exponent
+
+If $n=p_1^{e_1}p_2^{e_2}\cdots$ then $n^2=p_1^{2e_1}p_2^{2e_2}\cdots$. So $n^2$ carries **only even powers**
+of each prime.
+
+Consequences: $p\mid n^{2}\Rightarrow p\mid n$ for **prime** $p$; but for a composite divisor you recover
+only the square root of it:
+$$12\mid n^{2}\iff 6\mid n,\qquad\text{not } 12\mid n .$$
+
+[2019 Q5 · 2021 Q4 · 2023 Q3 in S4 · the whole of S5 Q29–Q30]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · A remainder must be smaller than the divisor
+
+"$b$ leaves remainder $r$ on division by $a$" means $b=aq+r$ **with $0\le r<a$**. The size condition is
+half the definition.
+
+**The trap.** If $r,s<a$, the product $rs$ need **not** be $<a$, so $rs$ is not the remainder of $bc$.
+Take $a=4,\ r=s=2$: $rs=4$, and the true remainder is $0$.
+
+[this single point is the answer to 2016 Q13]{.eg}
+:::
+
+::: {.fs-card}
+### 5 · What squares leave behind
+
+$$n^{2}\equiv0\text{ or }1\ (\mathrm{mod}\ 3),\qquad
+n^{2}\equiv0\text{ or }1\ (\mathrm{mod}\ 4),\qquad
+n^{2}\equiv0,1\text{ or }4\ (\mathrm{mod}\ 8)$$
+
+A square is **never** $2\bmod3$ and **never** $3\bmod4$. This is how you kill a claim without factorising
+anything.
+
+[the engine of "$n^2+2$ is divisible by 3 unless $3\mid n$"]{.eg}
+:::
+
+::: {.fs-card}
+### 6 · The gcd toolkit
+
+$$\gcd(a,b)\mid a\pm b,\qquad \gcd(a,\,b+ka)=\gcd(a,b),\qquad \gcd(n,\,n+1)=1$$
+
+If $\gcd(a,b)=d$ then $d$ divides **every** integer combination $xa+yb$ — which is why a common factor
+survives down a whole recurrence.
+
+[2023 Q16: $\gcd(a,b)=7$ forces $7\mid u_n$ for every $n$]{.eg}
+:::
+
+::: {.fs-card}
+### 7 · Irreducible polynomial $\neq$ prime values
+
+A polynomial that cannot be factorised over the integers still takes **composite values**.
+
+$3x^{2}+3x+1$ is irreducible (discriminant $-3$), yet at $x=5$ it is $91=7\times13$.
+
+**No non-constant polynomial takes only prime values** — so any claim of that shape is false before you
+read the proof.
+
+[2022 Q7 exists purely to test this]{.eg}
+:::
+
+::: {.fs-card}
+### 8 · The edge cases that break proofs
+
+- **$1$ is not prime** and not composite.
+- **$2$ is the only even prime** — every "let $p$ be an odd prime" argument silently excludes it.
+- **$3k$ is composite only when $k>1$**: $3\times1=3$ is prime.
+- $0$ is divisible by everything.
+
+[JZ Mock A Q5 dies at $n=1$; 2023 Q4 turns on $p=2$]{.eg}
+:::
+
+::: {.fs-card}
+### 9 · "Factor" means two different things
+
+**A divisor of an integer** ($7$ is a factor of $91$) and **a factor of a polynomial**
+($x-1$ is a factor of $x^{2}-1$).
+
+The examiners deliberately slide between them. *Irreducible as a polynomial says nothing about the
+primality of its values* — see card 7.
+
+[2022 Q7 · 2023 Q18 · 2021 Q4]{.eg}
+:::
+
+::: {.fs-card}
+### 10 · Test $n=1,2,3,4$ before reasoning
+
+For any claim about integers, substitute the first four values **first**. It is faster than thinking and it
+finds most counterexamples.
+
+$n^{3}+5n$ at $n=1,2,3,4$ gives $6,18,42,84$ — one line of arithmetic that eliminates five of seven options.
+
+[JZ Mock B Q11 · 2020 Q4 · 2022 Q3]{.eg}
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 1 — The five proof patterns
+
+Nearly every divisor/prime question on Paper 2 is one of these five arguments, either run correctly or
+sabotaged in one line.
+
+::: {.callout-tip}
+## Pattern A · "Check the residues"
+
+To decide whether $f(n)$ is always divisible by $m$, split $n$ by its remainder mod $m$ and check each case.
+
+**Worked example — the one the examiners reuse.** *Is $n^{2}+2$ divisible by $3$?*
+
+- $n\equiv0$: $n^{2}\equiv0$, so $n^{2}+2\equiv2$. **Not divisible.**
+- $n\equiv1$: $n^{2}\equiv1$, so $n^{2}+2\equiv0$. **Divisible.**
+- $n\equiv2$: $n^{2}\equiv4\equiv1$, so $n^{2}+2\equiv0$. **Divisible.**
+
+So $3\mid n^{2}+2$ exactly when $3\nmid n$ — which is why "$n^{2}+2$ prime $\Rightarrow 3\mid n$" is *almost*
+true, and why the one failure ($n=1$, giving the prime $3$) is where every version of this question is
+decided.
+:::
+
+::: {.callout-tip}
+## Pattern B · "Divisible, therefore composite" — the fallacy
+
+A proof shows $m\mid N$ and concludes $N$ is composite. **That step needs $N\neq m$.**
+
+$$N=mk\ \text{is composite}\iff k>1 .$$
+
+Whenever you see "so $N$ is a multiple of $3$, hence not prime", check whether $N$ could *be* $3$.
+:::
+
+::: {.callout-tip}
+## Pattern C · "Factorise the expression"
+
+To show $f(n)$ is never prime, factorise it algebraically — then check the factors are both $>1$.
+
+$$n^{4}+4=\left(n^{2}-2n+2\right)\left(n^{2}+2n+2\right)$$
+
+is composite for every $n>1$, but at $n=1$ the first factor is $1$ and the value is the prime $5$.
+*Again the argument is right except at the boundary.*
+:::
+
+::: {.callout-tip}
+## Pattern D · "Counting / pigeonhole"
+
+Among any $k+1$ integers chosen from $k$ residue classes, two share a class — so their difference is
+divisible by $k$. Used whenever a question asks for the **smallest $n$ that forces** something.
+
+[2022 Q8 is this exactly]{.eg}
+:::
+
+::: {.callout-tip}
+## Pattern E · "Infinite descent / contradiction"
+
+Assume a counterexample exists, take the **smallest** one, derive a smaller one. Contradiction.
+
+You are never asked to produce this, but you are asked to *judge* it — and the standard sabotage is a step
+that only works for large $n$, leaving the smallest case unchecked.
+
+[2017 Q9 (Fermat, $n=3$) is a flawed descent]{.eg}
+:::
+
+---
+
+# Part 2 — Quick checks
+
+Eight items on the facts that are easy to half-remember. Answer all eight, then open the toggle.
+
+::: {.question}
+**1.** True or false: every integer of the form $6n+1$ is prime.
+
+**2.** Fill in the missing word: "$p\mid ab\Rightarrow p\mid a$ or $p\mid b$" requires $p$ to be
+\_\_\_\_\_\_\_\_.
+
+**3.** $12$ divides $n^{2}$. What is the strongest conclusion you can draw about $n$?
+
+**4.** $r$ and $s$ are remainders on division by $a$, so $0<r<a$ and $0<s<a$. Is $rs$ the remainder of the
+product? Give a reason.
+
+**5.** Which of these can $n^{2}$ be congruent to, mod $4$: $0,1,2,3$?
+
+**6.** A proof shows $3\mid N$ and concludes "$N$ is not prime". When is that wrong?
+
+**7.** $3x^{2}+3x+1$ cannot be factorised over the integers. Does it follow that its values are always
+prime? Give the smallest counterexample.
+
+**8.** $\gcd(a,b)=7$ and $u_{n+2}=u_n+u_{n+1}$ with $u_1=a$, $u_2=b$. Is $u_{100}$ a multiple of $7$? Is
+$\gcd(u_1,u_5)$ necessarily $7$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answers
+
+**1. False.** $25=6(4)+1$ and $35=6(6)-1$. *The implication runs prime $\Rightarrow6n\pm1$, never
+backwards* — and "every prime $>3$" also excludes $2$ and $3$ themselves.
+
+**2. Prime.** Without it the statement fails: $4\mid2\times2$ but $4\nmid2$.
+
+**3. $6\mid n$ — and no more.** Squaring doubles exponents, so $n^{2}$ carrying $2^{2}\cdot3$ forces $n$ to
+carry only $2^{1}\cdot3$. *$12\mid n$ does **not** follow:* $n=6$ gives $n^{2}=36=12\times3$.
+
+**4. No.** A remainder must satisfy $0\le rs<a$, and the product of two numbers each less than $a$ can
+easily exceed $a$. With $a=4,\ r=s=2$ we get $rs=4$, while the true remainder is $0$.
+
+**5. $0$ or $1$ only.** Even $n=2k$ gives $4k^{2}\equiv0$; odd $n=2k+1$ gives $4k(k+1)+1\equiv1$. So a
+square is never $2$ or $3$ mod $4$.
+
+**6. When $N=3$.** $3k$ is composite only for $k>1$. This is the single most examined slip in the topic.
+
+**7. No.** $x=5$ gives $3(25)+15+1=91=7\times13$. *Irreducibility is a statement about the polynomial, not
+about its values.*
+
+**8. Yes to the first, no to the second.** $\gcd(a,b)=7$ makes both $a$ and $b$ multiples of $7$, and a sum
+of multiples of $7$ is one, so every term is — including $u_{100}$. But $u_5=2a+3b$, so
+$\gcd(u_1,u_5)=\gcd(a,3b)$, which can be larger: $a=21,\ b=7$ gives $u_5=63$ and $\gcd(21,63)=21$.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Part 3 — Where the real questions live
+
+Every past-paper question in this topic, and the page that works it. **Nothing is duplicated here** — this
+page is the fact sheet; the questions are worked where their *reasoning type* is taught.
+
+| Sitting | Question | Reasoning type | Worked at |
+|---|---|---|---|
+| **2016** | **Q5** $6n\pm1$ and primality | counterexample | facts 1, 8 above |
+| **2016** | **Q13** $a\mid bc\Rightarrow a\mid b$ or $a\mid c$ | spot the error | **[S7 Q18](s07_spot_the_error.qmd)** |
+| **2017** | **Q5** $91=7\times13$ | counterexample | fact 9 above |
+| **2017** | **Q9** Fermat for $n=3$ | spot the error | pattern E above |
+| **2018** | **Q17** prime factors of $N^{2}$ | which must be true | fact 3 above |
+| **2019** | **Q4** $1\,0\ldots0\,1$ primality | counterexample | facts 1, 10 |
+| **2019** | **Q5** $n\mid ab$ | necessary condition | fact 2 above |
+| **2020** | **Q4** sum of two non-primes | counterexample | **[S5 Q28](s05_proof_methods.qmd)** *(same type, Tyler version)* |
+| **2021** | **Q4** $a\mid bc$ — the counterexample twin of 2016 Q13 | counterexample | fact 2 above |
+| **2021** | **Q10** $n$ prime $\Rightarrow u_n$ multiple of $3$ or $5$ | counterexample | fact 10 above |
+| **2022** | **Q3** $n$ prime $\Rightarrow n^{2}+2$ not prime | counterexample | pattern A above |
+| **2022** | **Q7** consecutive cubes always prime | spot the error | **[S7 Q19](s07_spot_the_error.qmd)** |
+| **2023** | **Q4** consecutive odd primes | spot the error | facts 8, 1 |
+| **2023** | **Q11** $2^{k}+1$ prime $\Rightarrow k$ a power of $2$ | equivalence | **[S2](s02_converse_contrapositive.qmd)** |
+| **2023** | **Q16** $\gcd(a,b)=7$ down a recurrence | which must be true | **[S5 Q34](s05_proof_methods.qmd)** |
+| *mock* | **JZ A Q5** $n^{2}+2$ prime $\Rightarrow3\mid n$ | spot the error | **[S7 Q17](s07_spot_the_error.qmd)** |
+| *mock* | **JZ A Q17** $n\nmid k!$ $\Rightarrow n$ prime | spot the error | **[S7 Q20](s07_spot_the_error.qmd)** |
+| *mock* | **JZ B Q11** $12\mid n^{3}+5n$ | necessary not sufficient | **[S3 Q16](s03_necessary_sufficient.qmd)** |
+| *mock* | **JZ C Q1** $12\mid n^{2}$ | quantifiers | **[S4 Q11](s04_quantifiers_negation.qmd)** |
+
+::: {.callout-tip}
+## The one habit to leave with
+
+**The mathematics in this topic never gets harder than the ten cards above.** What changes is the logical
+wrapper. So when a prime or a divisor appears on Paper 2, do two things in order:
+
+1. **Name the reasoning type** — counterexample? error in a proof? equivalence?
+2. **Test $n=1,2,3,4$** before reasoning about the general case.
+
+Almost every lost mark in this topic comes from a correct general argument that was never checked at its
+smallest case.
+:::

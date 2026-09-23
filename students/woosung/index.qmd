@@ -84,5 +84,18 @@ Q3/Q5/Q17 in S7, Q1/Q11 in S3 and Q16 in S2 — so each session runs on the pape
 | **5** | **Paper 2 — spot the error** *(Err1, Err2)* | 09/04 **Q5⚠** (the proof dies at $n=1$: there $n^2+2=3$, which is prime) · **Q17** (first bad line is 7) · **Q3** ($\sqrt{x-3}<x-2$, first bad step) · 09/16 **Q4** | **[Concepts](../../toolkit/s07_concepts.qmd)** · **[Open](../../toolkit/s07_spot_the_error.qmd)** — 20 | **[Questions](../../toolkit/s07_assignment_student.qmd)** · [MS](../../toolkit/s07_assignment_ms.qmd) |
 | **6** | **Paper 2 — scrambled proofs** *(Prf4)* | *nothing flagged — it has not appeared on any paper he has sat, and it is **rare**: exactly one TMUA question in eight years (**2016 P2 Q7**, answer C — "use some of the lines given to construct a proof" about logs). But it is **real and in the spec**, so cover it last as insurance: putting a jumbled proof back in order is also the fastest way to see how a proof is built.* | **[Concepts](../../toolkit/s06_concepts.qmd)** · **[Open](../../toolkit/s06_scrambled_proofs.qmd)** — 10 · [extra practice](../../toolkit/s06_extra_practice.qmd) — 8 | **[Questions](../../toolkit/s06_assignment_student.qmd)** · [MS](../../toolkit/s06_assignment_ms.qmd) |
 
+::: {.callout-tip}
+## Two topic sessions worth memorising
+
+Built from an eight-year audit of Paper 2 (2016–2023). **Divisors/primes** and **plane shapes asked as
+logical conditions** appear in every sitting and are never set as calculations — so they reward straight
+memorisation, which suits a four-week run-in:
+
+- **[T1 · Divisors & primes](../../toolkit/t01_divisors_primes.qmd)** — ten facts, eight quick checks.
+  Covers his 09/04 **Q5** and **Q17** from the other side.
+- **[T2 · Shapes as logical conditions](../../toolkit/t02_shapes_as_logic.qmd)** — the quadrilateral
+  lattice and the diagonal table. Directly relevant to his flagged **quadrilateral equal-sides** question.
+:::
+
 *(Bigger than any single clinic: his **pace** — last 5 questions in 15 min — and, on Paper 2, **confirming**
 an answer instead of guessing. Drill those alongside every session.)*

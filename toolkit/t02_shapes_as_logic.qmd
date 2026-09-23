@@ -1,0 +1,303 @@
+---
+title: "Toolkit T2 — Shapes as Logical Conditions · Facts to Memorise"
+subtitle: "A plane figure, asked as a necessary-or-sufficient question — every sitting, 2016 to 2023"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Why this page exists
+
+**Eight sittings, eight appearances.** Every TMUA Paper 2 from 2016 to 2023 has contained a question that
+takes a plane figure — a triangle, a quadrilateral, a polygon in a circle — and asks about it in the
+language of **necessary and sufficient**, or **converse and contrapositive**.
+
+The geometry never goes beyond GCSE. What is tested is whether you can say *which property forces which*,
+and produce the **standard counterexample** on demand. That is a memorising job, and this page is the list.
+
+*The S-sessions are organised by **reasoning type**; the T-sessions are the **topic** that carries it.
+See [`PAPER2_TOPIC_MAP.md`](../PAPER2_TOPIC_MAP.md) and its companion
+[T1 — Divisors & Primes](t01_divisors_primes.qmd).*
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Topic session T2</div>
+<div class="fs-title">Shapes as Logical Conditions</div>
+<div class="fs-sub">The quadrilateral lattice, the diagonal table, the congruence criteria and the three counterexamples that answer most of these questions. Learn the <strong>arrows</strong> — which property implies which — because every question here is asking you to read one off.</div>
+::::
+
+## The core cards
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · The quadrilateral lattice
+
+$$\text{square}\Rightarrow\text{rhombus}\Rightarrow\text{parallelogram}\Rightarrow\text{trapezium}$$
+$$\text{square}\Rightarrow\text{rectangle}\Rightarrow\text{parallelogram}$$
+
+A square is **both** a rhombus and a rectangle; nothing else is. A **kite** sits outside this chain — it is
+not a parallelogram unless it is a rhombus.
+
+*Arrows run one way only.* Reading one backwards is what every wrong option in this topic does.
+
+[2019 Q10 · 2020 Q7]{.eg}
+:::
+
+::: {.fs-card}
+### 2 · The three counterexamples to have ready
+
+- **rhombus** — equal sides, diagonals perpendicular, **but not a square**
+- **rectangle** — equal diagonals, all angles $90^\circ$, **but not a square**
+- **isosceles trapezium** — one pair parallel, other pair equal, **but not a parallelogram**
+
+Almost every "is this sufficient?" question in this topic is killed by one of these three.
+
+[2020 Q7's answer is "none of them" — rhombus kills two conditions, rectangle the third]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · The diagonal table — these are the *iff*s
+
+| shape | diagonals |
+|---|---|
+| parallelogram | **bisect** each other |
+| rectangle | bisect **and are equal** |
+| rhombus | bisect **and are perpendicular** |
+| square | bisect, equal **and** perpendicular |
+| kite | one bisects the other, perpendicular |
+
+Each row is **necessary and sufficient** for that shape (given a quadrilateral). *This table is the single
+most useful thing on the page* — most nec/suff options are one of its rows, altered.
+
+[2018 Q5 · 2020 Q7 · 2022 Q11]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · Which conditions force a parallelogram
+
+**Sufficient** — each of these alone:
+
+- both pairs of opposite sides parallel;
+- both pairs of opposite sides equal;
+- **one** pair both equal **and** parallel;
+- diagonals bisect each other.
+
+**Not sufficient — the exam's favourite:** one pair *equal* and the **other** pair *parallel*. That is the
+isosceles trapezium.
+
+[2019 Q10 turns entirely on this distinction]{.eg}
+:::
+
+::: {.fs-card}
+### 5 · Triangle congruence — and the one that is not a criterion
+
+**Criteria:** SSS · SAS · ASA · AAS · RHS.
+
+**SSA is not a criterion.** Two sides and a *non-included* angle can give **two** different triangles — the
+ambiguous case.
+
+*Equal area is also not a criterion:* $\tfrac12ab\sin C$ equal gives only $\sin C_1=\sin C_2$.
+
+[2016 Q9 · 2021 Q18]{.eg}
+:::
+
+::: {.fs-card}
+### 6 · $\sin A=\sin B$ does **not** give $A=B$
+
+$$\sin A=\sin B\iff B=A\ \text{ or }\ B=180^\circ-A$$
+
+In a triangle both branches can be genuine, which is exactly why SSA fails and why "equal areas" never
+closes a congruence argument.
+
+$\sin30^\circ=\sin150^\circ$, $\sin50^\circ=\sin130^\circ$.
+
+[the hinge of 2016 Q9; also S7's checklist item 6]{.eg}
+:::
+
+::: {.fs-card}
+### 7 · Polygon angle facts
+
+$$\text{interior sum}=(n-2)\times180^\circ,\qquad
+\text{regular interior}=180^\circ-\frac{360^\circ}{n}$$
+
+$n=3,4,5,6,8,12\Rightarrow60^\circ,90^\circ,108^\circ,120^\circ,135^\circ,150^\circ$.
+
+**The pentagon consequence:** five angles in arithmetic progression sum to $5a=540^\circ$, so the **middle
+one is forced to be $108^\circ$** whatever the common difference.
+
+[that one line *is* 2023 Q9]{.eg}
+:::
+
+::: {.fs-card}
+### 8 · Equal areas from the centre $\neq$ regular
+
+A polygon inscribed in a circle, centre inside, cut by radii into $n$ triangles of **equal area** has
+$\tfrac12r^{2}\sin\theta_i$ all equal — so each central angle is $\alpha$ **or** $180^\circ-\alpha$.
+
+Only $n=3$ forces all $\theta_i$ equal. For $n=4$, angles $60^\circ,120^\circ,60^\circ,120^\circ$ work and
+the shape is not a square.
+
+[2022 Q19, answer **B** ($n=3$ only)]{.eg}
+:::
+
+::: {.fs-card}
+### 9 · Perpendicular diagonals force very little
+
+A quadrilateral with perpendicular diagonals need **not** have either diagonal as a line of symmetry, and
+need not be a kite or a rhombus.
+
+Draw two perpendicular lines and place the four vertices at **four different distances** from the crossing
+point — the result is a valid counterexample to almost anything.
+
+[2018 Q5, answer **A** (neither statement is necessarily true)]{.eg}
+:::
+
+::: {.fs-card}
+### 10 · Circle facts that get used
+
+- angle in a semicircle is $90^\circ$;
+- a tangent meets the radius at $90^\circ$;
+- opposite angles of a **cyclic** quadrilateral sum to $180^\circ$;
+- equal chords subtend equal angles at the centre.
+
+*The third one is a genuine "iff"* — a quadrilateral is cyclic **exactly when** its opposite angles are
+supplementary.
+
+[the standard raw material for the nec/suff options]{.eg}
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 1 — How these questions are built
+
+::: {.callout-tip}
+## The one routine
+
+**Every question in this topic reduces to the same three steps.**
+
+1. **Write the condition and the target as an arrow.** "Is $X$ sufficient for $Y$?" means: *does $X\Rightarrow Y$?*
+2. **Try to build a counterexample from card 2** — rhombus, rectangle, isosceles trapezium. If one fits,
+   you are done and the answer is "not sufficient".
+3. **If no counterexample exists, find the row of the diagonal table (card 3) that matches.**
+
+*You almost never need a proof.* The examiners construct these questions so that a single named shape
+settles each option.
+:::
+
+::: {.callout-tip}
+## The trap that recurs: "one pair equal, the other pair parallel"
+
+**2019 Q10** offers the condition *"$PQ=SR$ and $PS\parallel QR$"* for $PQRS$ to be a parallelogram. It is
+**necessary but not sufficient**, and the counterexample is an isosceles trapezium:
+
+$$P=(0,0),\quad Q=(5,1),\quad R=(5,2),\quad S=(0,3)$$
+
+Here $|PQ|=|SR|=\sqrt{26}$ ✓ and $SP\parallel QR$ (both vertical) ✓ — but the parallel sides have lengths
+$3$ and $1$, so it is a trapezium, not a parallelogram.
+
+**Change one word and it becomes sufficient.** *"$PQ=SR$ and $PQ\parallel SR$"* — the **same** pair both
+equal and parallel — does force a parallelogram. *Equal-and-parallel must apply to one pair; splitting the
+two properties across different pairs is what breaks it.*
+:::
+
+---
+
+# Part 2 — Quick checks
+
+Eight items, aimed at the distinctions that are easy to blur. Answers in the toggle.
+
+::: {.question}
+**1.** A quadrilateral has perpendicular diagonals. Must it be a kite?
+
+**2.** Name a parallelogram whose diagonals are perpendicular but which is not a square.
+
+**3.** Is "the diagonals are equal" necessary for a parallelogram to be a square? Is it sufficient?
+
+**4.** $PQ=SR$ and $PS\parallel QR$. Is $PQRS$ a parallelogram? If not, sketch the counterexample.
+
+**5.** Two triangles have two pairs of equal sides and equal areas. Are they congruent?
+
+**6.** The five interior angles of a pentagon form an arithmetic sequence. What can you say about them?
+
+**7.** A quadrilateral is inscribed in a circle and the four radii to its vertices cut it into four triangles
+of equal area. Must it be a square?
+
+**8.** "$PQRS$ is a square" and "the diagonals of $PQRS$ bisect each other, are equal and are
+perpendicular" — which implies which?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answers
+
+**1. No.** Perpendicular diagonals alone force nothing — place the four vertices at four *different*
+distances from the crossing point and neither diagonal is a line of symmetry. *(This is 2018 Q5.)*
+
+**2. A rhombus that is not a square.** Its diagonals are perpendicular and bisect each other, but they are
+not equal.
+
+**3. Necessary, not sufficient.** A square does have equal diagonals — but so does any **rectangle**, and a
+non-square rectangle is a parallelogram. *The rectangle is the counterexample to keep ready.*
+
+**4. Not necessarily.** Take $P=(0,0),\ Q=(5,1),\ R=(5,2),\ S=(0,3)$: $|PQ|=|SR|=\sqrt{26}$ and
+$SP\parallel QR$, yet the parallel sides measure $3$ and $1$ — an **isosceles trapezium**. The condition is
+necessary but not sufficient. *(2019 Q10.)*
+
+**5. No.** Equal areas give $\tfrac12ab\sin C_1=\tfrac12ab\sin C_2$, so $\sin C_1=\sin C_2$ — and that
+allows $C_2=180^\circ-C_1$. Two genuinely different triangles. *This is SSA wearing a disguise.* *(2016 Q9.)*
+
+**6. The middle angle is exactly $108^\circ$.** Writing them $a-2d,\dots,a+2d$, the sum is $5a=540^\circ$, so
+$a=108^\circ$ — independent of $d$. *(2023 Q9's converse is true for exactly this reason.)*
+
+**7. No.** Equal areas mean $\sin\theta_i$ are all equal, so each central angle is $\alpha$ or
+$180^\circ-\alpha$. Angles $60^\circ,120^\circ,60^\circ,120^\circ$ sum to $360^\circ$ and give equal areas
+without a square. **Only $n=3$ forces regularity.** *(2022 Q19.)*
+
+**8. Each implies the other** — it is an "if and only if". That is row four of the diagonal table, and
+recognising a table row is usually how these options are meant to be answered.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Part 3 — Where the real questions live
+
+Every appearance of this slot, 2016–2023. As with [T1](t01_divisors_primes.qmd), questions are worked on
+the page that teaches their **reasoning type**; this page holds the geometry.
+
+| Sitting | Question | Reasoning type | Answer | Key fact |
+|---|---|---|---|---|
+| **2016** | **Q9** two triangles, equal areas | which conditions give congruence | **D** | cards 5, 6 |
+| **2018** | **Q5** quadrilateral, perpendicular diagonals | which is necessarily true | **A** | card 9 |
+| **2019** | **Q10** conditions for a parallelogram | necessary / sufficient | **A** | cards 2, 4 |
+| **2020** | **Q7** parallelogram $\to$ square | sufficient | **H** | cards 2, 3 |
+| **2021** | **Q18** triangle with $AB=1$, $\sin A=x$, $\sin B=y$ | how many are possible | **C** | cards 5, 6 |
+| **2022** | **Q11** kite, right angle at $SPQ$ | necessary **and** sufficient | **C** | card 3 |
+| **2022** | **Q19** $n$-gon in a circle, equal areas | sufficient | **B** | card 8 |
+| **2023** | **Q9** pentagon, one angle $108^\circ$ | statement · contrapositive · converse | **D** | card 7 → **[S2 Q11](s02_converse_contrapositive.qmd)** |
+
+::: {.callout-tip}
+## The one habit to leave with
+
+**Do not try to prove these.** Reach for a named shape.
+
+When a question asks whether a condition on a figure is sufficient, run the three counterexamples from card
+2 against it — rhombus, rectangle, isosceles trapezium. If none of them fits, the condition probably *is*
+sufficient, and the reason will be a row of the diagonal table.
+
+And whenever an angle is recovered from a sine, stop: **$\sin A=\sin B$ leaves two possibilities**, and that
+second possibility is where this topic hides almost all of its marks.
+:::
