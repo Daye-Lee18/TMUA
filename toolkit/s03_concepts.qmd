@@ -114,34 +114,34 @@ rule about the words correct?* Memorise the verdict on each; **the *False* ones 
 
 **A. Necessary / sufficient claims**
 
-| Statement | T / F ? |
-|---|:--:|
-| $x>3$ is **sufficient** for $x>0$. | |
-| $x>0$ is **necessary** for $x>3$. | |
-| "$n$ divisible by $4$" is **sufficient** for "$n$ even". | |
-| "$n$ even" is **necessary** for "$n$ divisible by $4$". | |
-| A triangle being equilateral is **sufficient** for it to be isosceles. | |
-| For a differentiable $f$, "$f'(a)=0$" is **necessary** for a local maximum at $a$. | |
-| "$f''(x)\ge0$ for all $x$" is **necessary and sufficient** for $f$ to be convex. | |
-| For a twice-differentiable $f$, "$f''(a)=0$" is **necessary** for a point of inflection at $a$. | |
-| "$f'(a)=0$" is **necessary** for a turning point (maximum or minimum) at $a$. | |
-| $x>3$ is **necessary** for $x>0$. | |
-| "$n$ divisible by $4$" is **necessary** for "$n$ even". | |
-| A triangle being isosceles is **sufficient** for it to be equilateral. | |
-| "$f'(a)=0$" is **sufficient** for a local maximum at $a$. | |
-| "$f'(a)=0$" is **sufficient** for a turning point at $a$. | |
-| "$f''(a)=0$" is **sufficient** for a point of inflection at $a$. | |
-| For "$ax^2+bx+c>0$ for all real $x$", the condition "$b^2-4ac<0$" **alone** is sufficient. | |
+| Statement |
+|---|
+| $x>3$ is **sufficient** for $x>0$. |
+| $x>0$ is **necessary** for $x>3$. |
+| "$n$ divisible by $4$" is **sufficient** for "$n$ even". |
+| "$n$ even" is **necessary** for "$n$ divisible by $4$". |
+| A triangle being equilateral is **sufficient** for it to be isosceles. |
+| For a differentiable $f$, "$f'(a)=0$" is **necessary** for a local maximum at $a$. |
+| "$f''(x)\ge0$ for all $x$" is **necessary and sufficient** for $f$ to be convex. |
+| For a twice-differentiable $f$, "$f''(a)=0$" is **necessary** for a point of inflection at $a$. |
+| "$f'(a)=0$" is **necessary** for a turning point (maximum or minimum) at $a$. |
+| $x>3$ is **necessary** for $x>0$. |
+| "$n$ divisible by $4$" is **necessary** for "$n$ even". |
+| A triangle being isosceles is **sufficient** for it to be equilateral. |
+| "$f'(a)=0$" is **sufficient** for a local maximum at $a$. |
+| "$f'(a)=0$" is **sufficient** for a turning point at $a$. |
+| "$f''(a)=0$" is **sufficient** for a point of inflection at $a$. |
+| For "$ax^2+bx+c>0$ for all real $x$", the condition "$b^2-4ac<0$" **alone** is sufficient. |
 
 **B. Rules about the words**
 
-| Statement | T / F ? |
-|---|:--:|
-| "$P$ is necessary for $Q$" means $Q\Rightarrow P$. | |
-| "$P$ is sufficient for $Q$" means $P\Rightarrow Q$. | |
-| "$P$ only if $Q$" means $Q$ is necessary for $P$. | |
-| "$P$ if $Q$" means $Q$ is sufficient for $P$. | |
-| If $P$ is **sufficient** for $Q$, then $P$ is also **necessary** for $Q$. | |
+| Statement |
+|---|
+| "$P$ is necessary for $Q$" means $Q\Rightarrow P$. |
+| "$P$ is sufficient for $Q$" means $P\Rightarrow Q$. |
+| "$P$ only if $Q$" means $Q$ is necessary for $P$. |
+| "$P$ if $Q$" means $Q$ is sufficient for $P$. |
+| If $P$ is **sufficient** for $Q$, then $P$ is also **necessary** for $Q$. |
 
 ## Proofs of the "true or false?" facts
 
@@ -149,31 +149,37 @@ Decide each verdict above first, then open the key.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## A. Necessary / sufficient claims — answers & proofs
-- $x>3$ **sufficient** for $x>0$ — **True**: $x>3\Rightarrow x>0$.
-- $x>0$ **necessary** for $x>3$ — **True**: $x>3\Rightarrow x>0$, so $x>0$ is required.
-- "$n$ div by $4$" **sufficient** for "$n$ even" — **True**: divisible by $4\Rightarrow$ even.
-- "$n$ even" **necessary** for "$n$ div by $4$" — **True**: divisible by $4\Rightarrow$ even.
-- equilateral **sufficient** for isosceles — **True**: all three sides equal $\Rightarrow$ at least two equal.
-- $f'(a)=0$ **necessary** for a local maximum — **True**: a differentiable max is stationary.
-- $f''(x)\ge0$ everywhere **necessary & sufficient** for convex — **True**: the standard equivalence.
-- $f''(a)=0$ **necessary** for an inflection — **True**: at an inflection $f''$ changes sign, so it passes through $0$.
-- $f'(a)=0$ **necessary** for a turning point — **True**: a turning point is stationary.
-- $x>3$ **necessary** for $x>0$ — **False**: $x=1$ has $x>0$ but not $x>3$.
-- "$n$ div by $4$" **necessary** for "$n$ even" — **False**: $6$ is even but not divisible by $4$.
-- isosceles **sufficient** for equilateral — **False**: an isosceles triangle need not be equilateral.
-- $f'(a)=0$ **sufficient** for a local maximum — **False**: also a minimum ($x^2$) or inflection ($x^3$) at $0$.
-- $f'(a)=0$ **sufficient** for a turning point — **False**: $x^3$ is stationary at $0$ but not a turning point.
-- $f''(a)=0$ **sufficient** for an inflection — **False**: $x^4$ has $f''(0)=0$ but $f''=12x^2$ never changes sign — a minimum.
-- "$b^2-4ac<0$" **alone** sufficient for $ax^2+bx+c>0$ (all $x$) — **False**: also need $a>0$; with $a<0$ it stays entirely below the axis.
+
+| Statement | Answer | Why |
+|---|:---:|---|
+| $x>3$ is sufficient for $x>0$. | **True** | $x>3\Rightarrow x>0$. |
+| $x>0$ is necessary for $x>3$. | **True** | $x>3\Rightarrow x>0$, so it is required. |
+| Divisible by $4$ is sufficient for even. | **True** | Divisible by $4\Rightarrow$ even. |
+| Even is necessary for divisible by $4$. | **True** | Divisible by $4\Rightarrow$ even. |
+| Equilateral is sufficient for isosceles. | **True** | Three equal sides imply at least two equal sides. |
+| $f'(a)=0$ is necessary for a differentiable local maximum. | **True** | A differentiable local maximum is stationary. |
+| $f''(x)\ge0$ everywhere is necessary and sufficient for convexity. | **True** | This is the standard equivalence for twice-differentiable functions. |
+| $f''(a)=0$ is necessary for an inflection point. | **True** | If $f''$ exists and changes sign at $a$, then $f''(a)=0$. |
+| $f'(a)=0$ is necessary for a turning point. | **True** | A differentiable turning point is stationary. |
+| $x>3$ is necessary for $x>0$. | **False** | $x=1$ is a counterexample. |
+| Divisible by $4$ is necessary for even. | **False** | $6$ is even but not divisible by $4$. |
+| Isosceles is sufficient for equilateral. | **False** | An isosceles triangle need not be equilateral. |
+| $f'(a)=0$ is sufficient for a local maximum. | **False** | It may be a minimum ($x^2$) or stationary inflection ($x^3$). |
+| $f'(a)=0$ is sufficient for a turning point. | **False** | $x^3$ is stationary at $0$ but does not turn. |
+| $f''(a)=0$ is sufficient for an inflection point. | **False** | For $x^4$, $f''(0)=0$ but concavity does not change. |
+| $b^2-4ac<0$ alone is sufficient for $ax^2+bx+c>0$ for all real $x$. | **False** | We also need $a>0$; if $a<0$, the quadratic is always negative. |
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## B. Rules about the words — answers & proofs
-- "$P$ necessary for $Q$" means $Q\Rightarrow P$ — **True**: the definition.
-- "$P$ sufficient for $Q$" means $P\Rightarrow Q$ — **True**: the definition.
-- "$P$ only if $Q$" means $Q$ necessary for $P$ — **True**: "$P$ only if $Q$" is $P\Rightarrow Q$.
-- "$P$ if $Q$" means $Q$ sufficient for $P$ — **True**: "$P$ if $Q$" is $Q\Rightarrow P$.
-- If $P$ is sufficient for $Q$, then $P$ is also necessary for $Q$ — **False**: sufficient and necessary are **different directions**; one never implies the other.
+
+| Statement | Answer | Why |
+|---|:---:|---|
+| "$P$ is necessary for $Q$" means $Q\Rightarrow P$. | **True** | This is the definition of necessary. |
+| "$P$ is sufficient for $Q$" means $P\Rightarrow Q$. | **True** | This is the definition of sufficient. |
+| "$P$ only if $Q$" means $Q$ is necessary for $P$. | **True** | “$P$ only if $Q$” means $P\Rightarrow Q$. |
+| "$P$ if $Q$" means $Q$ is sufficient for $P$. | **True** | “$P$ if $Q$” means $Q\Rightarrow P$. |
+| If $P$ is sufficient for $Q$, then $P$ is also necessary for $Q$. | **False** | Sufficiency and necessity are opposite implications. |
 :::
 
 ## Notes
@@ -267,7 +273,7 @@ the single most common Arg2 answer.*
 ### The same trap one derivative up — $f''(a)=0$ and an inflection
 
 The stationary-point idea repeats one derivative higher, and it is exactly what
-[Self-study 2](../../lessons/selfstudy2_paper2_reasoning/practice.qmd) tests. A **point of inflection** is
+[Self-study 2](../lessons/selfstudy2_paper2_reasoning/practice.qmd) tests. A **point of inflection** is
 where the curve changes concavity — where $f''$ **changes sign**. For a twice-differentiable $f$ that forces
 $f''(a)=0$ at the inflection, so "$f''(a)=0$" is *necessary*; but on its own it is not *enough*.
 

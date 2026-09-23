@@ -50,6 +50,27 @@ of ordinary English (*"only if"*, *"some"*) is exactly where the marks are won a
 
 ## Sessions
 
+::: {.callout-tip}
+## Part 4 — the exam banks (added 2026-09-24)
+
+**S1–S5 and S7 now each end with a "Part 4 — Exam bank"**: real questions pulled from the TMUA past papers
+and from the Tyler and JZ Maths mock sets, grouped by *way of thinking* rather than by topic, with every
+answer checked against the official solution.
+
+| Session | Class questions | of which Part 4 |
+|---|---|---|
+| **S1** Statement forms | 11 | 4 |
+| **S2** Converse & contrapositive | 11 | 4 |
+| **S3** Necessary & sufficient | 19 | 13 |
+| **S4** Quantifiers & negation | 13 | 6 |
+| **S5** Proof methods | 33 | 6 |
+| **S7** Spot the error | 20 | 10 |
+
+Questions marked **★** are ones 이우성 flagged on his own mock; **◆** marks questions from 여운주's
+**[self-study sets](../students/woonju/index.qmd)**. **S6** has no Part 4 — no TMUA paper has yet used the
+Prf4 scrambled-proof format, so its material stays purpose-built.
+:::
+
 | | Session | Class material | Assignment | Spec |
 |---|---|---|---|---|
 | **S1** | **Statement forms — if, only if, if and only if** — why *A only if B* means $A \Rightarrow B$, not $B \Rightarrow A$ | **[Concepts](s01_concepts.qmd)** · **[Material](s01_statement_forms.qmd)** | **[Questions](s01_assignment_student.qmd)** · [MS](s01_assignment_ms.qmd) | Arg1 |

@@ -1,7 +1,8 @@
 ---
 title: "Toolkit S5 — Proof Methods · Class Problems"
-subtitle: "27 problems — solve fast, in two batches"
+subtitle: "33 problems — solve fast, in three batches"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -659,6 +660,300 @@ Working
 ---
 
 ::: {.callout-tip}
+# Part 3 — Counterexamples, exam-style
+
+One counterexample kills a "for all" claim, and the exam knows it: every question below hands you a short
+list of candidates and asks **which of them actually work**. The whole skill is checking a candidate against
+**both** halves of the claim — the hypothesis *and* the conclusion — instead of only the part that catches
+the eye.
+
+::: {.callout-important}
+## What makes a counterexample
+
+To disprove *"if $H$ then $C$"*, you need one case where
+$$H \text{ is \textbf{true}}\qquad\text{and}\qquad C\text{ is \textbf{false}} .$$
+
+**Both conditions, every time.** A case where $H$ is false proves nothing — it is simply outside what the
+claim ever said. *That is the single most common wrong answer in this part:* candidates pick the value that
+makes the conclusion fail without noticing it was never covered by the hypothesis.
+:::
+
+---
+
+## Question 28 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q3</span>
+
+::: {.question}
+Consider the statement: *no positive integer $N$ that is less than $20$ can be written as the sum of two
+non-prime integers that are greater than $1$.*
+
+Which of the following is a counterexample to this statement?
+
+&nbsp;&nbsp;**I** $N=8$ &nbsp;&nbsp; **II** $N=13$ &nbsp;&nbsp; **III** $N=24$
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I and II only &nbsp; **C** II and III only &nbsp;
+**D** I and III only &nbsp; **E** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy — but read the range)*]{style="color:#7a5195"}
+**B.** The non-prime integers greater than $1$ start $4,6,8,9,10,12,14,15,16,18,\dots$
+
+- **I, $N=8$:** $8=4+4$, and $4$ is non-prime and $>1$. Also $8<20$. **Counterexample ✓**
+- **II, $N=13$:** $13=4+9$, both non-prime and $>1$. Also $13<20$. **Counterexample ✓**
+- **III, $N=24$:** it can certainly be written that way ($24=4+20=6+18=8+16=\dots$) — **but $24$ is not less
+  than $20$**, so it is not a case the statement ever claimed anything about. **Not a counterexample ✗**
+
+*This is the trap in its purest form.* $N=24$ satisfies the interesting half and fails the boring half. A
+counterexample must satisfy the hypothesis — here "$N<20$" — before anything else matters.
+
+**Note also that $13$ is odd**, which catches people who assume two non-primes must give an even sum.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 29 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q4</span>
+
+::: {.question}
+Consider the following statement: *if a positive integer $N$ has the property that $N^{2}$ is divisible by
+$9$, then $N$ is divisible by $6$.*
+
+Which of the following is a counterexample to this statement?
+
+&nbsp;&nbsp;**I** $N=15$ &nbsp;&nbsp; **II** $N=18$ &nbsp;&nbsp; **III** $N=21$
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** II and III only &nbsp; **G** I and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — tabulate both columns)*]{style="color:#7a5195"}
+**G.** Check each candidate against **both** halves:
+
+| $N$ | $N^{2}$ | $9\mid N^{2}$ ? (hypothesis) | $6\mid N$ ? (conclusion) | counterexample? |
+|---|---|---|---|---|
+| $15$ | $225$ | yes | **no** | **✓** |
+| $18$ | $324$ | yes | yes | ✗ — the claim holds here |
+| $21$ | $441$ | yes | **no** | **✓** |
+
+So I and III only.
+
+*Why the claim is false in general:* $9\mid N^{2}$ forces $3\mid N$, but it says nothing about the factor
+$2$ that "divisible by $6$" also demands. Every odd multiple of $3$ — $3,9,15,21,27,\dots$ — is a
+counterexample, so the two offered are not special.
+
+**Note $N=18$ is included deliberately:** it satisfies the hypothesis *and* the conclusion, so the claim is
+simply **true** for it. A case where a claim holds can never be a counterexample. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 30 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q4</span>
+
+::: {.question}
+Consider the following statement: *if a positive integer $N$ has the property that $N^{2}$ is divisible by
+$12$, then $N$ is divisible by $12$.*
+
+Which of the following are counterexamples to this statement?
+
+&nbsp;&nbsp;**I** $N=6$ &nbsp;&nbsp; **II** $N=8$ &nbsp;&nbsp; **III** $N=18$ &nbsp;&nbsp; **IV** $N=24$
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** I and III only
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — the same table, one step harder)*]{style="color:#7a5195"}
+**D.**
+
+| $N$ | $N^{2}$ | $12\mid N^{2}$ ? | $12\mid N$ ? | counterexample? |
+|---|---|---|---|---|
+| $6$ | $36$ | yes | **no** | **✓** |
+| $8$ | $64$ | **no** ($64=12\times5+4$) | no | ✗ — hypothesis fails |
+| $18$ | $324$ | yes ($324=12\times27$) | **no** | **✓** |
+| $24$ | $576$ | yes | yes | ✗ — claim holds |
+
+*Each wrong option fails for a different reason,* which is why this question separates candidates so well:
+$N=8$ never enters the discussion, and $N=24$ is a case where the claim is true.
+
+**Where the claim goes wrong.** $12=2^{2}\times3$, so $12\mid N^{2}$ needs $N^{2}$ to carry $2^{2}$ and $3$ —
+which only forces $N$ to carry $2$ and $3$, i.e. $6\mid N$. The extra factor of $2$ is not implied.
+*Compare with Q29:* same structure, $9=3^{2}$ in place of $12=2^{2}\cdot3$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 31 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q7</span>
+
+::: {.question}
+Consider the statement &nbsp;$(*)$&nbsp; *every prime number $n$ can be written as the sum of $2$ square
+numbers.*
+
+How many counterexamples to $(*)$ are there in the range $0<n<40$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$ &nbsp; **E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — count, do not just find one)*]{style="color:#7a5195"}
+**E — six.** The squares available are $1,4,9,16,25,36$. Go through every prime below $40$:
+
+| $n$ | as a sum of two squares | | $n$ | as a sum of two squares |
+|---|---|---|---|---|
+| $2$ | $1+1$ ✓ | | $17$ | $1+16$ ✓ |
+| $3$ | — **✗** | | $19$ | — **✗** |
+| $5$ | $1+4$ ✓ | | $23$ | — **✗** |
+| $7$ | — **✗** | | $29$ | $4+25$ ✓ |
+| $11$ | — **✗** | | $31$ | — **✗** |
+| $13$ | $4+9$ ✓ | | $37$ | $1+36$ ✓ |
+
+The failures are $3,7,11,19,23,31$ — **six** of them.
+
+*The pattern behind the answer* (worth seeing, though the exam only wants the count): the primes that **do**
+work are $2$ and those of the form $4k+1$; those that fail are exactly the primes of the form $4k+3$. Check:
+$3,7,11,19,23,31$ all leave remainder $3$ on division by $4$.
+
+**The exam skill here is different from Q28–Q30.** Those asked *is this one a counterexample?*; this asks
+*how many are there?* — so you must be systematic, not lucky. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 32 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q15</span>
+
+::: {.question}
+Consider the following statement: *if $f'(x)>0$ for all real $x$, then $f(x+1)>f(x)$ for all real $x$.*
+
+Which function provides a counterexample?
+
+&nbsp;&nbsp;**A** $f(x)=4^{x}$ &nbsp; **B** $f(x)=4x^{2}+1$ &nbsp; **C** $f(x)=4x^{3}$ &nbsp;
+**D** $f(x)=\dfrac{4-x}{x}$ &nbsp; **E** $f(x)=\dfrac{x-1}{4x}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — the counterexample lives at the asymptote)*]{style="color:#7a5195"}
+**E.** Again both halves must hold: **$f'>0$** *and* **$f(x+1)>f(x)$ fails somewhere**.
+
+| | $f$ | $f'$ | hypothesis $f'>0$? | verdict |
+|---|---|---|---|---|
+| **A** | $4^{x}$ | $4^{x}\ln4$ | yes | increasing everywhere, so the conclusion holds — ✗ |
+| **B** | $4x^{2}+1$ | $8x$ | **no** ($f'<0$ for $x<0$) | hypothesis fails — ✗ |
+| **C** | $4x^{3}$ | $12x^{2}$ | **no** ($f'(0)=0$) | hypothesis fails — ✗ |
+| **D** | $\dfrac{4}{x}-1$ | $-\dfrac{4}{x^{2}}$ | **no** — always *negative* | hypothesis fails — ✗ |
+| **E** | $\dfrac14-\dfrac{1}{4x}$ | $\dfrac{1}{4x^{2}}$ | **yes**, wherever defined | **✓** |
+
+For **E**, take $x=-\tfrac12$:
+$$f\left(-\tfrac12\right)=\tfrac14+\tfrac12=\tfrac34,\qquad
+f\left(\tfrac12\right)=\tfrac14-\tfrac12=-\tfrac14 ,$$
+so $f(x+1)<f(x)$ — the conclusion fails.
+
+*How can a function with a positive gradient everywhere decrease?* Because it is **not defined everywhere**.
+$f$ has a vertical asymptote at $x=0$: it rises on $(-\infty,0)$ and rises again on $(0,\infty)$, but it
+**drops from $+$ to $-$ across the gap**. "Increasing on each piece" is not "increasing", and the step from
+$-\tfrac12$ to $\tfrac12$ jumps that gap.
+
+**The lesson.** Whenever a claim says "for all real $x$", check the *domain* first. Option **D** is placed
+there to catch the opposite slip — it has the asymptote but the wrong sign of gradient, so it never satisfies
+the hypothesis at all. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 33 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q6 &nbsp;◆</span>
+
+::: {.question}
+Which function is a **counterexample** to the claim *"if $f'(x)>0$ for all real $x$, then $f(x)>0$ for all
+real $x$"*?
+
+&nbsp;&nbsp;**A** $x^{2}+1$ &nbsp; **B** $x^{2}-1$ &nbsp; **C** $x^{3}+x+1$ &nbsp; **D** $1-x$ &nbsp;
+**E** $2^{x}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; both halves again)*]{style="color:#7a5195"}
+**C.** You need a function that **is increasing everywhere** (hypothesis true) yet **dips below zero**
+somewhere (conclusion false).
+
+For $f(x)=x^{3}+x+1$: $f'(x)=3x^{2}+1$, which is $\ge1>0$ for every real $x$ — so the hypothesis holds. But
+$f(-2)=-8-2+1=-9<0$, so the conclusion fails. **Counterexample ✓**
+
+| | $f$ | $f'$ | hypothesis? | conclusion? | verdict |
+|---|---|---|---|---|---|
+| **A** | $x^{2}+1$ | $2x$ | **no** — negative for $x<0$ | true anyway | ✗ |
+| **B** | $x^{2}-1$ | $2x$ | **no** — negative for $x<0$ | false | ✗ — *hypothesis fails* |
+| **C** | $x^{3}+x+1$ | $3x^{2}+1$ | **yes** | **false** at $x=-2$ | **✓** |
+| **D** | $1-x$ | $-1$ | **no** — decreasing | false | ✗ |
+| **E** | $2^{x}$ | $2^{x}\ln2$ | **yes** | **true** — always positive | ✗ — *claim holds* |
+
+**B is the trap.** $x^{2}-1$ does go negative, which is the eye-catching half — but its gradient is negative
+for $x<0$, so it was never a case the claim covered. *A counterexample must satisfy the hypothesis first.*
+
+**And E is the other trap**, for the opposite reason: it satisfies the hypothesis but the claim is true for
+it. Only C fails the claim while obeying its hypothesis.
+
+*Why the claim is false in general:* $f'>0$ controls the **direction** a function moves, never its
+**height**. Any increasing function can be slid downwards — $x^{3}+x+1$ is just $x^{3}+x$ shifted, and it
+runs to $-\infty$ as $x\to-\infty$ however it is shifted. $\;\blacksquare$
+:::
+
+```{python}
+#| fig-cap: "Question 33 · y = x³ + x + 1 rises everywhere (f' = 3x² + 1 > 0) yet is negative to the left of x ≈ −0.68 — the hypothesis holds and the conclusion fails."
+import numpy as np, matplotlib.pyplot as plt
+x = np.linspace(-2.2, 1.5, 500); y = x**3 + x + 1
+fig, ax = plt.subplots(figsize=(6.0, 3.6))
+ax.fill_between(x, y, 0, where=(y < 0), color='#d62728', alpha=0.15)
+ax.plot(x, y, color='#1f77b4', lw=2.2, label=r'$y=x^{3}+x+1$')
+ax.axhline(0, color='0.55', lw=0.9); ax.axvline(0, color='0.55', lw=0.9)
+r = -0.682327803
+ax.plot([r], [0], 'o', color='#d62728', zorder=5)
+ax.annotate(r'crosses zero at $x\approx-0.68$', xy=(r, 0), xytext=(-2.1, 2.6),
+            color='#d62728', fontsize=9,
+            arrowprops=dict(arrowstyle='->', color='#d62728', lw=1))
+ax.plot([-2], [-9], 'o', color='#d62728', zorder=5)
+ax.annotate(r'$f(-2)=-9<0$', xy=(-2, -9), xytext=(-1.55, -7.4), color='#d62728', fontsize=9)
+ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title(r"increasing everywhere, but not always positive", fontsize=11)
+ax.legend(fontsize=9, loc='lower right')
+plt.tight_layout(); plt.show()
+```
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## The one habit to leave with
 
 Match the claim to the method on sight, and never prove a "for all" by examples. Contradiction and

@@ -73,6 +73,27 @@ Custom TMUA-format papers, sat timed and marked from the worked solutions. Sit e
 Focused sets built from the exact question **types** she got wrong — attempt each, then check the worked
 solution.
 
+::: {.callout-tip}
+## These questions are now in the toolkit too
+
+The Paper-2 questions from these sets have been written into the **[Paper 2 Toolkit](../../toolkit/index.qmd)**
+as worked examples, so each idea can be practised *alongside questions of the same type* instead of in
+isolation. They carry a **◆** beside the source:
+
+| Self-study question | Now also in |
+|---|---|
+| **2018 P2 Q6** — counterexample to "$f'>0\Rightarrow f>0$" | **[S5 Q33](../../toolkit/s05_proof_methods.qmd)** |
+| **2018 P2 Q18** — necessary condition for the chord to lie above the curve | **[S3 Q19](../../toolkit/s03_necessary_sufficient.qmd)** |
+| **2016 P2 Q13** — the divisibility proof that fails at line 5 | **[S7 Q18](../../toolkit/s07_spot_the_error.qmd)** |
+| **2022 P2 Q7** — "difference of consecutive cubes is prime" | **[S7 Q19](../../toolkit/s07_spot_the_error.qmd)** |
+| **2022 P2 Q10** — the order of quantifiers | **[S4 Q13](../../toolkit/s04_quantifiers_negation.qmd)** |
+| **2023 P2 Q9** — pentagon: statement, contrapositive, converse | **[S2 Q11](../../toolkit/s02_converse_contrapositive.qmd)** |
+
+Each of those toolkit pages now ends with a **Part 4 — Exam bank** of the same question type, drawn from the
+Tyler and JZ Maths mock papers: **13** more necessary/sufficient questions in S3, **10** spot-the-errors in
+S7, **6** quantifier questions in S4, **6** counterexamples in S5, and **4** each in S1 and S2.
+:::
+
 | Set | Focus | Link |
 |---|---|---|
 | **Self-study 1** | Integration-in-a-sum (F/G type) + trig counting & symmetry — *2018 Paper 1 Q6/Q15/Q18 types* | **[10 problems](../../lessons/selfstudy1_integration_trig/practice.qmd)** |

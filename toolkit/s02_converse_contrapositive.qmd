@@ -741,6 +741,242 @@ negation anywhere, they have almost certainly proved the converse instead.
 
 ---
 
+# Part 4 — Exam bank
+
+Three from real exam material, and they are deliberately the **same question** growing harder: a rule of the
+form "if $P$ then $Q$" is given, and you must pick the one statement that genuinely follows. The answer is
+the **contrapositive** every time — what changes is how much work the negation takes. **★** marks the one
+이우성 flagged on his own mock.
+
+::: {.callout-important}
+## The two negations these questions live on
+
+$$\lnot(P\ \textbf{and}\ Q)=\lnot P\ \textbf{or}\ \lnot Q\qquad\qquad
+\lnot(P\ \textbf{or}\ Q)=\lnot P\ \textbf{and}\ \lnot Q$$
+
+**"and" and "or" swap when you negate.** Every wrong option below is built by forgetting that swap, or by
+offering the converse instead. Write the contrapositive out **before** reading the options — otherwise the
+options write it for you, badly.
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q9</span>
+
+::: {.question}
+A locked box has two levers, $A$ and $B$, which can be positioned either left or right at any particular
+time. It is known that **if lever $A$ is left or lever $B$ is right, then the box is unlocked.**
+
+Which of the following statements must be true?
+
+&nbsp;&nbsp;**A** If the box is unlocked then lever $A$ is left or lever $B$ is right.
+&nbsp;&nbsp;**B** If the box is locked then lever $A$ is left and lever $B$ is right.
+&nbsp;&nbsp;**C** If the box is unlocked then lever $A$ is left and lever $B$ is right.
+&nbsp;&nbsp;**D** If the box is locked then lever $A$ is right or lever $B$ is left.
+&nbsp;&nbsp;**E** If the box is unlocked then lever $A$ is right or lever $B$ is left.
+&nbsp;&nbsp;**F** If the box is locked then lever $A$ is right and lever $B$ is left.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — negate the "or")*]{style="color:#7a5195"}
+**F.** Name the parts: $P$ = "$A$ left **or** $B$ right", $Q$ = "unlocked". The given fact is
+$P\Rightarrow Q$, and the only statement guaranteed to follow is the contrapositive
+$\lnot Q\Rightarrow\lnot P$.
+
+**Negate $Q$:** "locked". **Negate $P$:** $\lnot(A\text{ left or }B\text{ right})
+=(A\text{ **not** left})\ \textbf{and}\ (B\text{ **not** right})$, i.e. **$A$ right and $B$ left**. So:
+
+> *If the box is locked, then lever $A$ is right **and** lever $B$ is left.* — option **F**.
+
+**Why each other option fails:**
+
+- **A** is the **converse** $Q\Rightarrow P$ — unlocked tells you nothing, since the box might be unlocked
+  for some other reason entirely.
+- **C** and **E** also start from "unlocked", so they are converse-shaped too.
+- **B** and **D** start correctly from "locked" but botch the negation: **D** keeps the "or" instead of
+  swapping it to "and", and **B** negates neither lever.
+
+*Notice that exactly one option gets **both** halves right.* The exam builds the distractors by breaking one
+thing at a time — the direction, or the "and"/"or" swap. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q16 &nbsp;★</span>
+
+::: {.question}
+A safe has three levers, $A$, $B$ and $C$, each of which can be positioned either left or right at any
+particular time. The state of the safe (open or closed) depends only on the positions of these three levers.
+It is known that:
+
+> **If lever $A$ is right and (lever $B$ is left or lever $C$ is right), then the safe is open.**
+
+Which one of the following statements must be true?
+
+&nbsp;&nbsp;**A** If the safe is open, then lever $A$ is right and either lever $B$ is left or lever $C$ is right.
+&nbsp;&nbsp;**B** If the safe is closed, then lever $A$ is left, and either lever $B$ is right or lever $C$ is left.
+&nbsp;&nbsp;**C** If the safe is closed, then lever $A$ is left, lever $B$ is right and lever $C$ is left.
+&nbsp;&nbsp;**D** If the safe is closed, then either lever $A$ is left, or both lever $B$ is right and lever $C$ is left.
+&nbsp;&nbsp;**E** If lever $A$ is left, or both lever $B$ is right and lever $C$ is left, then the safe is closed.
+&nbsp;&nbsp;**F** If the safe is open, then either lever $A$ is left, or both lever $B$ is right and lever $C$ is left.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — 이우성's own mock question; a nested negation)*]{style="color:#7a5195"}
+**D.** Let $P$ = "$A$ right **and** ($B$ left **or** $C$ right)" and $Q$ = "the safe is open". All we are told
+is $P\Rightarrow Q$ — *nothing more*: we do not know whether $P$ is true, nor whether $Q$ is.
+
+**Build $\lnot P$ in two stages**, outside first:
+$$\lnot P=\lnot\Big(A\text{ right}\ \textbf{and}\ \big(B\text{ left or }C\text{ right}\big)\Big)
+=\underbrace{A\text{ left}}_{\lnot(A\text{ right})}\ \textbf{or}\
+\lnot\big(B\text{ left or }C\text{ right}\big),$$
+and the inner negation swaps its own connective:
+$$\lnot\big(B\text{ left or }C\text{ right}\big)=B\text{ right}\ \textbf{and}\ C\text{ left}.$$
+
+So $\lnot P$ = "**$A$ is left, or both $B$ is right and $C$ is left**", and the contrapositive reads:
+
+> *If the safe is closed, then either lever $A$ is left, or both lever $B$ is right and lever $C$ is left.*
+> — option **D**.
+
+**The other five, and what each one is:**
+
+| | Shape | Why it fails |
+|---|---|---|
+| **A** | $Q\Rightarrow P$ | the **converse** — the safe being open tells you nothing |
+| **B** | $\lnot Q\Rightarrow(\text{something}\neq\lnot P)$ | "$A$ left **and** …" — the outer "or" was not swapped |
+| **C** | $\lnot Q\Rightarrow(\text{something}\neq\lnot P)$ | negates all three levers and joins them with "and" |
+| **E** | $\lnot P\Rightarrow\lnot Q$ | the **inverse** — does not follow from $P\Rightarrow Q$ |
+| **F** | $Q\Rightarrow\lnot P$ | starts from "open", from which nothing can be deduced |
+
+*The whole difficulty is the nesting.* Two connectives means two swaps, and B and C are there precisely for
+candidates who perform one and stop. **Write $\lnot P$ out fully before looking at any option.**
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q12</span>
+
+::: {.question}
+Let $P$ be the set of prime numbers greater than $3$. Consider the following assertion:
+
+> **All members of $P$ can be represented in the form $6n\pm1$.** &nbsp;&nbsp;$(*)$
+
+Which of the following statements, taken individually, is equivalent to $(*)$?
+
+&nbsp;&nbsp;**I** &nbsp; A number is **not** a member of $P$ **only if** it can **not** be written in the form $6n\pm1$.
+&nbsp;&nbsp;**II** &nbsp; A **sufficient** condition for a number to be in $P$ is that it can be written in the form $6n\pm1$.
+&nbsp;&nbsp;**III** &nbsp; **If** a number can **not** be written in the form $6n\pm1$, then it is **not** a member of $P$.
+
+| | I equivalent? | II equivalent? | III equivalent? |
+|---|---|---|---|
+| **A** | Yes | Yes | Yes |
+| **B** | Yes | Yes | No |
+| **C** | Yes | No | Yes |
+| **D** | Yes | No | No |
+| **E** | No | Yes | Yes |
+| **F** | No | Yes | No |
+| **G** | No | No | Yes |
+| **H** | No | No | No |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — three disguises for one implication)*]{style="color:#7a5195"}
+**G — No, No, Yes.** Write $(*)$ as an implication first. "All members of $P$ are of the form $6n\pm1$"
+means
+$$(*)\;:\quad x\in P\;\Rightarrow\;x=6n\pm1 .$$
+Now translate each statement into the same notation — *this is Session 1's skill doing Session 2's job.*
+
+- **I.** "$X$ **only if** $Y$" means $X\Rightarrow Y$. Here $X$ = "not in $P$" and $Y$ = "not of the form
+  $6n\pm1$", so I says
+  $$x\notin P\Rightarrow x\neq6n\pm1,$$
+  which is the **inverse** of $(*)$ — equivalent to the *converse*, not to $(*)$. **Not equivalent.**
+- **II.** "A sufficient condition for $B$ is $A$" means $A\Rightarrow B$, so II says
+  $$x=6n\pm1\Rightarrow x\in P.$$
+  That is the **converse**, and plainly false besides: $25=6(4)+1$ is not prime. **Not equivalent.**
+- **III.** Directly:
+  $$x\neq6n\pm1\Rightarrow x\notin P,$$
+  which is exactly $\lnot(\text{conclusion})\Rightarrow\lnot(\text{hypothesis})$ — the
+  **contrapositive**. **Equivalent ✓**
+
+**Why I and II are the same mistake wearing different clothes.** The inverse and the converse are
+contrapositives *of each other*, so they always stand or fall together. Whenever a question offers you both,
+the answer to both is the same — and here it is "no". $\;\blacksquare$
+
+*(For the record $(*)$ is true: any integer is $6n,6n\pm1,6n\pm2$ or $6n+3$, and all but $6n\pm1$ are
+divisible by $2$ or $3$, so they cannot be prime beyond $3$. But the question never asks whether $(*)$ is
+true — only which statements say the **same thing**.)* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q9 &nbsp;◆</span>
+
+::: {.question}
+Consider the statement about a pentagon $P$:
+
+> $(*)$ &nbsp; *If at least one of the interior angles in $P$ is $108^\circ$, then all the interior angles in
+> $P$ form an arithmetic sequence.*
+
+Which of the following is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; The statement $(*)$.
+&nbsp;&nbsp;**II** &nbsp; The contrapositive of $(*)$.
+&nbsp;&nbsp;**III** &nbsp; The converse of $(*)$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; the one place I and II cannot separate)*]{style="color:#7a5195"}
+**D — III only.**
+
+**Start with the structural fact, before any geometry:** *a statement and its contrapositive are logically
+equivalent*, so **I and II always have the same truth value**. That instantly eliminates every option
+containing exactly one of them — B, C, E and G are gone before you draw a pentagon.
+
+- **I — false.** The interior angles of a pentagon sum to $540^\circ$. Take
+  $100^\circ,102^\circ,108^\circ,110^\circ,120^\circ$: the sum is $540^\circ$ and one angle **is** $108^\circ$,
+  but the differences are $2,6,2,10$ — not an arithmetic sequence. So the hypothesis holds and the
+  conclusion fails.
+- **II — false**, automatically, being equivalent to I.
+- **III — true.** The converse reads *"if all the interior angles form an arithmetic sequence, then at least
+  one is $108^\circ$."* Write the five angles as $a-2d,\;a-d,\;a,\;a+d,\;a+2d$. They sum to $5a$, and that
+  must equal $540^\circ$, so $a=108^\circ$. *The middle term of any arithmetic sequence of five angles is
+  forced to be $108^\circ$* — so at least one angle is $108^\circ$, whatever $d$ is. ✓
+
+**The lesson.** A false statement can have a true converse; the two carry no information about each other.
+But the contrapositive carries **all** of it. *Knowing that pair rule reduced an eight-option question to
+three candidates without any mathematics.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## After this session
 
 ::: {.callout-important}

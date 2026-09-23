@@ -769,6 +769,222 @@ was doing any work.**
 
 ---
 
+# Part 4 — Exam bank
+
+Four from real exam material. Three of them share a format the TMUA loves and nothing else does:
+**"given that exactly one of these statements is true, which one is it?"** You are told almost nothing about
+the mathematics — the answer comes from the *shapes* of the statements alone.
+
+::: {.callout-important}
+## The trick that solves "exactly one is true"
+
+Translate every option into $\Rightarrow$ form. Then use one idea:
+
+> **If option $X$ being true would force option $Y$ to be true as well, then $X$ cannot be the answer** —
+> because then *two* statements would be true, and you were promised exactly one.
+
+So eliminate every option that **implies another option**, or that is **equivalent to another option** (two
+equivalent options stand or fall together, so neither can be the unique one). What survives is the answer.
+*You never need to know what the underlying statement actually says.*
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q13</span>
+
+::: {.question}
+Consider the four options below about a particular statement $S$:
+
+&nbsp;&nbsp;**A** $S$ is true **if** $x^{2}<1$.
+&nbsp;&nbsp;**B** $S$ is true **if and only if** $x^{2}<1$.
+&nbsp;&nbsp;**C** $S$ is true **if** $x^{2}<2$.
+&nbsp;&nbsp;**D** $S$ is true **if and only if** $x^{2}<2$.
+
+Given that **exactly one** of these options is correct, which one is it?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — no mathematics required at all)*]{style="color:#7a5195"}
+**A.** Translate all four, remembering that "$S$ **if** $H$" means $H\Rightarrow S$:
+
+| | Option | In arrows |
+|---|---|---|
+| **A** | true if $x^{2}<1$ | $x^{2}<1\Rightarrow S$ |
+| **B** | true iff $x^{2}<1$ | $x^{2}<1\Leftrightarrow S$ |
+| **C** | true if $x^{2}<2$ | $x^{2}<2\Rightarrow S$ |
+| **D** | true iff $x^{2}<2$ | $x^{2}<2\Leftrightarrow S$ |
+
+Now chase the implications between the *options*:
+
+- **B $\Rightarrow$ A**: an "if and only if" contains the "if". So if B were correct, A would be correct too.
+- **D $\Rightarrow$ C**: same reason.
+- **C $\Rightarrow$ A**: because $x^{2}<1$ is a *stronger* condition than $x^{2}<2$. If every $x$ with
+  $x^{2}<2$ makes $S$ true, then certainly every $x$ with $x^{2}<1$ does.
+
+So $D\Rightarrow C\Rightarrow A$ and $B\Rightarrow A$: **each of B, C, D would drag A along with it**, giving
+two correct options. Only **A** can stand alone. $\;\blacksquare$
+
+*Note what was never needed:* we never asked what $S$ is. The question is pure Session-1 translation plus one
+observation about which conditions are stronger.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q20</span>
+
+::: {.question}
+$f$ is a function and $a$ is a real number. Given that **exactly one** of the following statements is true,
+which one is it?
+
+&nbsp;&nbsp;**A** $a\le0$ **only if** $f(a)\le0$
+&nbsp;&nbsp;**B** $f(a)>0$ **if** $a>0$
+&nbsp;&nbsp;**C** $f(a)>0$ is **sufficient** for $a>0$
+&nbsp;&nbsp;**D** $f(a)\le0$ is **necessary** for $a\le0$
+&nbsp;&nbsp;**E** **If** $f(a)>0$ **then** $a>0$
+&nbsp;&nbsp;**F** $a>0$ **if** $f(a)>0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — five of the six say the same thing)*]{style="color:#7a5195"}
+**B.** Write $P$ for "$a>0$" and $Q$ for "$f(a)>0$". *Note that "$a\le0$" is exactly $\lnot P$ and
+"$f(a)\le0$" is exactly $\lnot Q$* — the question is built on that.
+
+| | Option | Literally | Simplified |
+|---|---|---|---|
+| **A** | $\lnot P$ only if $\lnot Q$ | $\lnot P\Rightarrow\lnot Q$ | $Q\Rightarrow P$ |
+| **B** | $Q$ if $P$ | $P\Rightarrow Q$ | $\mathbf{P\Rightarrow Q}$ |
+| **C** | $Q$ sufficient for $P$ | $Q\Rightarrow P$ | $Q\Rightarrow P$ |
+| **D** | $\lnot Q$ necessary for $\lnot P$ | $\lnot P\Rightarrow\lnot Q$ | $Q\Rightarrow P$ |
+| **E** | if $Q$ then $P$ | $Q\Rightarrow P$ | $Q\Rightarrow P$ |
+| **F** | $P$ if $Q$ | $Q\Rightarrow P$ | $Q\Rightarrow P$ |
+
+**Five options — A, C, D, E, F — are the identical statement $Q\Rightarrow P$**, written five different ways:
+as a contrapositive (A, D), as "sufficient" (C), as "if…then" (E) and as a reversed "if" (F). They are all
+true together or all false together, so **none of them can be the unique true one**.
+
+That leaves **B**, the only option pointing the other way. $\;\blacksquare$
+
+*This question is the entire session compressed into one item.* Every translation rule from Part 1 appears
+once, and the reward for knowing them is that you answer in twenty seconds without touching $f$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q12</span>
+
+::: {.question}
+Let $P$ be a property of a real number $x$. Each of the following is a statement about **all** real values of
+$x$. **Exactly one** of the following statements is true. Which one is it?
+
+&nbsp;&nbsp;**A** If $\lvert x\rvert<1$, then $P$ is true.
+&nbsp;&nbsp;**B** If $\lvert x\rvert<2$, then $P$ is true.
+&nbsp;&nbsp;**C** If $P$ is true, then $\lvert x\rvert<1$.
+&nbsp;&nbsp;**D** If $P$ is true, then $\lvert x\rvert<2$.
+&nbsp;&nbsp;**E** If $P$ is not true, then $x^{2}\ge1$.
+&nbsp;&nbsp;**F** If $P$ is not true, then $x^{2}\ge4$.
+&nbsp;&nbsp;**G** $P$ is true **only if** $x^{2}<1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — pair off the duplicates, then rank what is left)*]{style="color:#7a5195"}
+**D.** First notice that $x^{2}<1\iff\lvert x\rvert<1$ and $x^{2}<4\iff\lvert x\rvert<2$, so options
+**E**, **F** and **G** are not new statements at all:
+
+- **E** is $\lnot P\Rightarrow\lvert x\rvert\ge1$, the **contrapositive of A** — so **A and E are
+  equivalent**, and neither can be the unique one.
+- **F** is the **contrapositive of B** — so **B and F are equivalent**, and neither can be unique.
+- **G** is "$P$ only if $x^{2}<1$", i.e. $P\Rightarrow\lvert x\rvert<1$ — the **same statement as C**, so
+  neither C nor G can be unique.
+
+That removes five options at a stroke and leaves only **B**'s pair and **D**. Now rank the survivors:
+
+- **B $\Rightarrow$ A**: if $P$ holds for every $x$ with $\lvert x\rvert<2$, it certainly holds on the
+  smaller set $\lvert x\rvert<1$. So B would make A true as well — **B is out**.
+- **C $\Rightarrow$ D**: if $P$ forces $\lvert x\rvert<1$, it forces $\lvert x\rvert<2$ too. So C would
+  make D true as well — **C is out**, which we already knew.
+
+**D** implies none of the others, and nothing else survives. $\;\blacksquare$
+
+**The two moves to carry into the exam.** *One:* a statement and its contrapositive are the same statement,
+so an option paired with its own contrapositive is automatically eliminated. *Two:* between two "if $H$ then
+$P$" options, the one with the **wider** $H$ is stronger; between two "if $P$ then $C$" options, the one with
+the **narrower** $C$ is stronger. The unique truth is always the **weakest** surviving statement.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q10</span>
+
+::: {.question}
+The equation $\;\sin x\left(1-\cos^{2}x\right)=k\sin x\;$ has exactly $n$ distinct solutions in
+$[0,2\pi]$, where $k$ is a real constant. Which of the following statements are true?
+
+&nbsp;&nbsp;**I** &nbsp; $0<k<1$ **if** $n=7$.
+&nbsp;&nbsp;**II** &nbsp; $n=3$ **only if** $k<0$ or $k>1$.
+&nbsp;&nbsp;**III** &nbsp; $n=5$ and $k\neq1$ **cannot both** be true.
+
+&nbsp;&nbsp;**A** I only &nbsp; **B** II only &nbsp; **C** III only &nbsp; **D** I and III only &nbsp;
+**E** I and II only &nbsp; **F** II and III only &nbsp; **G** all three &nbsp; **H** none of them
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — do the maths once, then read off three statement forms)*]{style="color:#7a5195"}
+**D.** *Do not divide by $\sin x$* — factorise:
+$$\sin x\left(1-\cos^{2}x\right)-k\sin x=0\;\Longrightarrow\;\sin x\left(\sin^{2}x-k\right)=0 .$$
+
+$\sin x=0$ gives $x=0,\pi,2\pi$ — **three solutions, always**. The rest come from $\sin^{2}x=k$:
+
+| $k$ | extra solutions from $\sin^{2}x=k$ | total $n$ |
+|---|---|---|
+| $k<0$ | none | $3$ |
+| $k=0$ | $x=0,\pi,2\pi$ — **already counted** | $3$ |
+| $0<k<1$ | four ($\sin x=\pm\sqrt k$, two each) | $7$ |
+| $k=1$ | $x=\tfrac\pi2,\tfrac{3\pi}2$ | $5$ |
+| $k>1$ | none | $3$ |
+
+So $\;n=7\iff0<k<1$, $\;n=5\iff k=1$, $\;n=3\iff k\le0$ or $k>1$.
+
+Now translate the three statements:
+
+- **I** — "$0<k<1$ **if** $n=7$" means $n=7\Rightarrow0<k<1$. **True ✓**
+- **II** — "$n=3$ **only if** $k<0$ or $k>1$" means $n=3\Rightarrow(k<0$ or $k>1)$. **False ✗** —
+  *$k=0$ also gives $n=3$*, and $k=0$ satisfies neither $k<0$ nor $k>1$. The condition offered is not
+  necessary.
+- **III** — "$n=5$ and $k\neq1$ cannot both be true" says $n=5\Rightarrow k=1$. **True ✓**
+
+I and III only. $\;\blacksquare$
+
+**Two traps, both from Session 1.** *"$A$ if $B$" is $B\Rightarrow A$* — statement I points backwards from
+the way it reads. And *"cannot both be true" is an implication in disguise*: "not ($X$ and $\lnot Y$)" is
+exactly $X\Rightarrow Y$. The single boundary case $k=0$ decides statement II.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## After this session
 
 ::: {.callout-important}

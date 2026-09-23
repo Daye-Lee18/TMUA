@@ -9,8 +9,12 @@ execute:
 
 ::: {.solutions}
 
-Ten arguments that look convincing. For each, find the **first** line that does not follow — or decide the
+Twenty arguments that look convincing. For each, find the **first** line that does not follow — or decide the
 argument is actually **valid**. These mirror the Paper 2 **Err1/Err2** format.
+
+**Questions 1–10** build the core fallacies from scratch. **Questions 11–20** are the real thing — two genuine
+TMUA past-paper questions and eight from the mock banks, grouped so that each pair shows the *same* fallacy
+from two sides. Three of them are **valid**: the honest answer is sometimes “no error”.
 
 ::: {.callout-note appearance="simple"}
 **Method.** Read line by line. At each step ask *"does this follow, for **every** value the line above
@@ -334,6 +338,455 @@ correctly $\tfrac18<\tfrac14$.
 :::
 
 ::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+**Questions 11–13 · Dividing — when it destroys solutions, and when it is perfectly safe.**
+Cancelling a factor is only legal if that factor can never be $0$. The third question is the control: there
+the factor *is* always positive, so the division is fine.
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q4</span>
+
+::: {.question}
+Consider the following attempt at finding the number of solutions to
+$$6\sin x=7\tan x\qquad\text{for }0\le x\le 360.$$
+
+&nbsp;&nbsp;**I** &nbsp; $6\sin x=7\dfrac{\sin x}{\cos x}$.
+&nbsp;&nbsp;**II** &nbsp; $6=\dfrac{7}{\cos x}$.
+&nbsp;&nbsp;**III** &nbsp; $\cos x=\dfrac67$.
+&nbsp;&nbsp;**IV** &nbsp; There are two real solutions to this equation.
+
+Which statement describes this attempt?
+
+&nbsp;&nbsp;**A** completely correct &nbsp; **B** first mistake on line I &nbsp; **C** first mistake on line II
+&nbsp; **D** first mistake on line III &nbsp; **E** first mistake on line IV
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — cancelling $\sin x$)*]{style="color:#7a5195"}
+**C.** Line I is a correct rewrite of $\tan x$. Line II divides both sides by $\sin x$ — *and $\sin x=0$ is
+allowed here*, so every solution with $\sin x=0$ is thrown away. Those are the **only** solutions: if
+$\sin x\neq0$ then line II forces $\cos x=\tfrac76>1$, which is impossible.
+
+*Line III is wrong too — $6=\tfrac{7}{\cos x}$ gives $\cos x=\tfrac76$, not $\tfrac67$ — but the question asks
+for the **first** mistake, and that is line II.*
+
+**Do it right.** Factorise instead of dividing:
+$$6\sin x\cos x-7\sin x=0\;\Longrightarrow\;\sin x\,(6\cos x-7)=0 .$$
+The bracket never vanishes, so $\sin x=0$, giving $x=0^\circ,\,180^\circ,\,360^\circ$ — **three** solutions,
+not two. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q2</span>
+
+::: {.question}
+Consider the following attempt to solve $(x-2)\sqrt{x+3}=x^{2}-5x+6$:
+
+&nbsp;&nbsp;**(I)** &nbsp; $(x-2)\sqrt{x+3}=x^{2}-5x+6$
+&nbsp;&nbsp;**(II)** &nbsp; $(x-2)\sqrt{x+3}=(x-2)(x-3)$
+&nbsp;&nbsp;**(III)** &nbsp; $\sqrt{x+3}=x-3$
+&nbsp;&nbsp;**(IV)** &nbsp; $x+3=(x-3)^{2}$
+&nbsp;&nbsp;**(V)** &nbsp; $x+3=x^{2}-6x+9$
+&nbsp;&nbsp;**(VI)** &nbsp; $x^{2}-7x+6=0$
+&nbsp;&nbsp;**(VII)** &nbsp; $(x-1)(x-6)=0$
+
+The solutions are concluded to be $x=1$ and $x=6$. Which one of the following is true?
+
+&nbsp;&nbsp;**A** entirely correct &nbsp; **B** first error (I)$\to$(II) &nbsp; **C** first error (II)$\to$(III)
+&nbsp; **D** first error (III)$\to$(IV) &nbsp; **E** first error (IV)$\to$(V) &nbsp; **F** first error (VI)$\to$(VII)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — cancelling a bracket that can vanish)*]{style="color:#7a5195"}
+**C.** Step (I)$\to$(II) is a correct factorisation. Step (II)$\to$(III) **divides by $(x-2)$**, which is $0$
+when $x=2$ — and $x=2$ *is* a solution of the original equation (both sides are $0$). It is lost.
+
+*Two separate faults follow from that one habit.* After (III), squaring at (IV) needs $x-3\ge0$; the root
+$x=1$ fails that test, so it is **spurious**. The true solution set is $x=2$ and $x=6$ — the attempt loses one
+root and invents another.
+
+**Do it right.** Move everything to one side and factor:
+$(x-2)\big(\sqrt{x+3}-(x-3)\big)=0$, then solve the two factors **separately**, checking $x-3\ge0$ on the
+second. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q6</span>
+
+::: {.question}
+Let $x\neq0$ and $f(x)=\tfrac37x^{7/3}+\tfrac34x^{4/3}-6x^{1/3}$. A student finds the values of $x$ for which
+the curve is increasing:
+
+&nbsp;&nbsp;**I** &nbsp; $f'(x)=x^{4/3}+x^{1/3}-2x^{-2/3}$
+&nbsp;&nbsp;**II** &nbsp; $f'(x)=x^{-2/3}\left(x^{2}+x-2\right)$
+&nbsp;&nbsp;**III** &nbsp; $x^{-2/3}\left(x^{2}+x-2\right)\ge0$
+&nbsp;&nbsp;**IV** &nbsp; $x^{2}+x-2\ge0$
+&nbsp;&nbsp;**V** &nbsp; $(x-1)(x+2)\ge0$
+&nbsp;&nbsp;**VI** &nbsp; $x\le-2$ or $x\ge1$
+
+Which of the following is true?
+
+&nbsp;&nbsp;**A** first error step I &nbsp; **B** step II &nbsp; **C** step III &nbsp; **D** step IV &nbsp;
+**E** step V &nbsp; **F** step VI &nbsp; **G** the student's answer is correct
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — the division that **is** allowed)*]{style="color:#7a5195"}
+**G — there is no error.** Run the checklist and every step survives:
+
+- **I.** $\tfrac37\cdot\tfrac73=1$, $\tfrac34\cdot\tfrac43=1$, $6\cdot\tfrac13=2$, so
+  $f'(x)=x^{4/3}+x^{1/3}-2x^{-2/3}$. ✓
+- **II.** $x^{4/3}=x^{-2/3}\!\cdot\!x^{2}$ and $x^{1/3}=x^{-2/3}\!\cdot\!x$, so the factorisation is exact. ✓
+- **III.** Increasing means $f'(x)\ge0$. ✓
+- **IV.** *This is the step the question is really testing.* Dividing by $x^{-2/3}$ is legal precisely because
+  $x^{-2/3}=\dfrac{1}{\left(x^{1/3}\right)^{2}}>0$ **for every** $x\neq0$ — a positive divisor, so the
+  inequality keeps its direction. ✓
+- **V, VI.** $x^{2}+x-2=(x-1)(x+2)$, positive outside the roots. ✓
+
+**Compare with Q11 and Q12.** All three divide by something. Here the divisor is provably positive, so
+nothing is lost; there the divisor could be $0$, so solutions vanished. *The test is never "did they divide?"
+— it is "**can the divisor be zero?**" .* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+**Questions 14–16 · Squaring — roots gained, conditions lost, and one squaring that is fine.**
+Squaring is reversible only when **both sides are known to be non-negative**. Check that before you object
+to it — the last of the three is a trap for students who have learned to distrust squaring on sight.
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q2</span>
+
+::: {.question}
+A student solves $\dfrac{\sqrt{x^{3}+x^{2}-x}+2}{x+2}=1$:
+
+&nbsp;&nbsp;**Step (1)** &nbsp; Multiply both sides by $x+2$: $\;\sqrt{x^{3}+x^{2}-x}+2=x+2$.
+&nbsp;&nbsp;**Step (2)** &nbsp; Subtract $2$ from both sides: $\;\sqrt{x^{3}+x^{2}-x}=x$.
+&nbsp;&nbsp;**Step (3)** &nbsp; Square both sides: $\;x^{3}+x^{2}-x=x^{2}$.
+&nbsp;&nbsp;**Step (4)** &nbsp; Rearrange: $\;x^{3}-x=0$.
+&nbsp;&nbsp;**Step (5)** &nbsp; Factorise: $\;x(x-1)(x+1)=0$.
+&nbsp;&nbsp;**Step (6)** &nbsp; Deduce $x=-1,\,0,\,1$.
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** answers wrong, first error Step (1) &nbsp; **B** Step (2) &nbsp; **C** Step (3) &nbsp;
+**D** Step (4) &nbsp; **E** Step (5) &nbsp; **F** Step (6) &nbsp; **G** the answers are correct, no error
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — squaring invents a root)*]{style="color:#7a5195"}
+**C.** Steps (1) and (2) are both genuine equivalences — the $+2$ sits **outside** the square root, so
+subtracting it is legitimate.
+
+Step (3) squares $\sqrt{x^{3}+x^{2}-x}=x$. A square root is never negative, so this equation silently
+requires $\boxed{x\ge0}$; squaring **drops** that condition, and any negative solution of the squared
+equation is spurious.
+
+*Check the three candidates in the line before squaring, $\sqrt{x^{3}+x^{2}-x}=x$:*
+
+- $x=-1$: LHS $=\sqrt{-1+1+1}=1$, RHS $=-1$. **Fails** — invented by the squaring.
+- $x=0$: $0=0$. ✓
+- $x=1$: $\sqrt{1+1-1}=1=1$. ✓
+
+So the solutions are $x=0$ and $x=1$; the answers **are** wrong and the first error is Step (3).
+
+**Do it right.** Immediately after squaring, write down the condition the squaring destroyed ($x\ge0$ here)
+and use it to sift the roots at the end. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q8</span>
+
+::: {.question}
+The following is an attempted proof of the conjecture *if $\sin\theta>\cos\theta$ then
+$\sin\theta>\tfrac1{\sqrt2}$*. Suppose $\sin\theta>\cos\theta$.
+
+&nbsp;&nbsp;**(I)** &nbsp; Then $\sin\theta-\cos\theta>0$.
+&nbsp;&nbsp;**(II)** &nbsp; Squaring the positive quantity $\sin\theta-\cos\theta$ gives
+$(\sin\theta-\cos\theta)^{2}>0$, i.e. $1-2\sin\theta\cos\theta>0$, so $\sin\theta\cos\theta<\tfrac12$.
+&nbsp;&nbsp;**(III)** &nbsp; Hence $(\sin\theta+\cos\theta)^{2}=1+2\sin\theta\cos\theta<2$, so
+$\lvert\sin\theta+\cos\theta\rvert<\sqrt2$ and in particular $\sin\theta+\cos\theta>-\sqrt2$.
+&nbsp;&nbsp;**(IV)** &nbsp; Adding (I) and (III) gives $2\sin\theta>-\sqrt2$, so
+$\sin\theta>-\tfrac1{\sqrt2}$; squaring this yields $\sin^{2}\theta>\tfrac12$.
+&nbsp;&nbsp;**(V)** &nbsp; Since $\sin^{2}\theta>\tfrac12$ means $\lvert\sin\theta\rvert>\tfrac1{\sqrt2}$, and
+$\sin\theta>-\tfrac1{\sqrt2}$ rules out $\sin\theta<-\tfrac1{\sqrt2}$, we conclude
+$\sin\theta>\tfrac1{\sqrt2}$.
+
+&nbsp;&nbsp;**A** the proof is correct &nbsp; **B** first error line (I) &nbsp; **C** line (II) &nbsp;
+**D** line (III) &nbsp; **E** line (IV) &nbsp; **F** line (V)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — squaring an inequality)*]{style="color:#7a5195"}
+**E.** Lines (I)–(III) are all valid: (I) rearranges the hypothesis; (II) squares a quantity **known to be
+positive**, which is legal, and uses $\sin^{2}+\cos^{2}=1$ correctly; (III) is honest algebra on
+$(\sin\theta+\cos\theta)^{2}$.
+
+Line (IV) adds the two inequalities correctly to reach $\sin\theta>-\tfrac1{\sqrt2}$ — and then **squares an
+inequality whose sides are not both non-negative**. *That is never valid:* $a>b$ gives $a^{2}>b^{2}$ only
+when $a,b\ge0$. Here $\sin\theta=0$ satisfies $\sin\theta>-\tfrac1{\sqrt2}$ but gives
+$\sin^{2}\theta=0<\tfrac12$.
+
+**The conjecture itself is false,** which is the quickest way to know an error must exist somewhere: take
+$\theta=\tfrac{5\pi}{6}$, where $\sin\theta=\tfrac12$ and $\cos\theta=-\tfrac{\sqrt3}{2}$. Then
+$\sin\theta>\cos\theta$ holds, yet $\sin\theta=\tfrac12<\tfrac1{\sqrt2}$. $\;\blacksquare$
+
+**Do it right.** Compare (II) with (IV) on the same page: squaring is fine in (II) because positivity was
+established first, and fatal in (IV) because it was not. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q3 &nbsp;★</span>
+
+::: {.question}
+A student solves the inequality $\sqrt{x-3}<x-2$:
+
+&nbsp;&nbsp;**(I)** &nbsp; Can only square-root a non-negative number, therefore $x-3\ge0\iff x\ge3$.
+&nbsp;&nbsp;**(II)** &nbsp; Squaring both sides gives $x-3<(x-2)^{2}$.
+&nbsp;&nbsp;**(III)** &nbsp; Simplifies to $0<x^{2}-5x+7$.
+&nbsp;&nbsp;**(IV)** &nbsp; The discriminant of $x^{2}-5x+7$ is $25-28=-3<0$.
+&nbsp;&nbsp;**(V)** &nbsp; Since the leading coefficient is positive, $x^{2}-5x+7>0$ for all real $x\ge3$.
+&nbsp;&nbsp;**(VI)** &nbsp; Therefore the solution is $x\ge3$.
+
+&nbsp;&nbsp;**A** invalid, first problematic step (I) &nbsp; **B** (II) &nbsp; **C** (III) &nbsp; **D** (IV)
+&nbsp; **E** (V) &nbsp; **F** (VI) &nbsp; **G** the attempt is valid and the solution is correct
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — the squaring that **is** legal)*]{style="color:#7a5195"}
+**G — the attempt is valid.** The trap is step (II): students who have been told "you cannot square an
+inequality" reject it on sight and pick **B**.
+
+*The real rule is conditional, not absolute.* Squaring preserves an inequality exactly when **both sides are
+non-negative**, and here step (I) has already established that:
+
+- $\sqrt{x-3}\ge0$ always, and
+- $x\ge3\Rightarrow x-2\ge1>0$.
+
+So on the domain $x\ge3$,
+$$\sqrt{x-3}<x-2\iff x-3<(x-2)^{2},$$
+a genuine equivalence. Steps (III)–(V) are routine, and since $x^{2}-5x+7>0$ for **every** real $x$, the
+inequality holds throughout the domain: the answer $x\ge3$ is right.
+
+**Compare with Q15.** Same operation, opposite verdict — because there the sign of the sides was never
+checked, and here it was checked **first**. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+**Questions 17–20 · Proofs about integers.** Here the algebra is usually flawless and the error is a
+*logical* leap: a property of a polynomial mistaken for a property of its values, a remainder that is not
+really a remainder, a "$\ge$" that should be "$>$". Two of these are real TMUA past-paper questions.
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q5 &nbsp;★</span>
+
+::: {.question}
+A student proves: *for every positive integer $n$, if $n^{2}+2$ is prime then $n$ is a multiple of $3$.*
+
+&nbsp;&nbsp;**I.** Suppose $n$ is a positive integer with $n^{2}+2$ prime, but $n$ not a multiple of $3$.
+&nbsp;&nbsp;**II.** Then the remainder of $n$ on division by $3$ is $1$ or $2$.
+&nbsp;&nbsp;**III.** In either case $n^{2}$ leaves remainder $1$ when divided by $3$.
+&nbsp;&nbsp;**IV.** Therefore $n^{2}+2$ leaves remainder $0$ when divided by $3$.
+&nbsp;&nbsp;**V.** So $3$ divides $n^{2}+2$.
+&nbsp;&nbsp;**VI.** Hence $n^{2}+2=3k$ for some integer $k$.
+&nbsp;&nbsp;**VII.** It follows that $n^{2}+2$ is composite and not prime.
+&nbsp;&nbsp;**VIII.** This contradicts the assumption in (I) that $n^{2}+2$ is prime.
+&nbsp;&nbsp;**IX.** Therefore $n$ is a multiple of $3$.
+
+&nbsp;&nbsp;**A** completely correct &nbsp; **B** line I &nbsp; **C** line II &nbsp; **D** line III &nbsp;
+**E** line IV &nbsp; **F** line V &nbsp; **G** line VI &nbsp; **H** line VII &nbsp; **I** line VIII &nbsp;
+**J** line IX
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — "a multiple of 3" is not "composite")*]{style="color:#7a5195"}
+**H.** Lines I–VI are all correct. *Check III explicitly, since it carries the argument:* if $n=3m+1$ then
+$n^{2}=9m^{2}+6m+1$, remainder $1$; if $n=3m+2$ then $n^{2}=9m^{2}+12m+4=3(3m^{2}+4m+1)+1$, remainder $1$
+again. Adding $2$ gives remainder $0$, so $3\mid n^{2}+2$ and $n^{2}+2=3k$.
+
+Line **VII** is the break: $3k$ is composite *only when $k>1$*. If $k=1$ then $3k=3$, which is **prime**.
+And that case really occurs — at $n=1$, $n^{2}+2=3$ is prime while $n=1$ is not a multiple of $3$.
+
+*So the single value $n=1$ both falsifies the claim and kills the proof.* The claim is true for every
+$n\ge2$, and the proof is valid for every $n\ge2$ — which is exactly why the flaw is easy to miss.
+
+**The habit.** Before accepting a line like "so it is composite", ask what the **smallest** allowed value
+does. $n=1$, $k=1$, the empty case: that is where these proofs die. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q13</span>
+
+::: {.question}
+In this question $a,b,c$ are positive integers. The following is an attempted proof of the **false** statement
+*if $a$ divides $bc$, then $a$ divides $b$ or $a$ divides $c$*. Which line contains the error?
+
+&nbsp;&nbsp;**1.** The statement is equivalent to "if $a$ does not divide $b$ and $a$ does not divide $c$, then $a$ does not divide $bc$".
+&nbsp;&nbsp;**2.** Suppose $a$ does not divide $b$ and $a$ does not divide $c$. Then the remainder when dividing $b$ by $a$ is $r$, where $0<r<a$, and the remainder when dividing $c$ by $a$ is $s$, where $0<s<a$.
+&nbsp;&nbsp;**3.** So $b=ax+r$ and $c=ay+s$ for some integers $x$ and $y$.
+&nbsp;&nbsp;**4.** Thus $bc=a(axy+xs+yr)+rs$.
+&nbsp;&nbsp;**5.** So the remainder when dividing $bc$ by $a$ is $rs$.
+&nbsp;&nbsp;**6.** Since $r>0$ and $s>0$, it follows that $rs>0$.
+&nbsp;&nbsp;**7.** Hence $a$ does not divide $bc$.
+
+&nbsp;&nbsp;**A** Line 1 &nbsp; **B** Line 2 &nbsp; **C** Line 3 &nbsp; **D** Line 4 &nbsp; **E** Line 5
+&nbsp; **F** Line 6 &nbsp; **G** Line 7
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a remainder must be smaller than the divisor)*]{style="color:#7a5195"}
+**E.** Lines 1–4 are sound: line 1 is a correct contrapositive, and the expansion
+$bc=(ax+r)(ay+s)=a(axy+xs+yr)+rs$ is exact.
+
+Line 5 calls $rs$ *the remainder*. *A remainder is not just "what is left over" — it must satisfy
+$0\le rs<a$.* All we know is $r<a$ and $s<a$ separately, so the **product can exceed $a$**; the true remainder
+is $rs$ reduced mod $a$, which may well be $0$.
+
+**Concretely:** $a=4$, $b=2$ ($r=2$), $c=2$ ($s=2$). Then $rs=4$, but $bc=4$ and $4\div4$ leaves remainder
+$\mathbf0$ — so $a$ **does** divide $bc$, exactly the opposite of line 7.
+
+*(And the statement really is false: $a=6,\ b=2,\ c=3$ gives $bc=6$, which $6$ divides, though $6$ divides
+neither $2$ nor $3$. This is why some line **must** be wrong — find the first one.)* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q7</span>
+
+::: {.question}
+Consider the claim *the difference between two consecutive positive cube numbers is always prime*, with this
+attempted proof:
+
+&nbsp;&nbsp;**I** &nbsp; $(x+1)^{3}=x^{3}+3x^{2}+3x+1$.
+&nbsp;&nbsp;**II** &nbsp; Taking $x$ a positive integer, the difference of consecutive cubes is $(x+1)^{3}-x^{3}=3x^{2}+3x+1$.
+&nbsp;&nbsp;**III** &nbsp; It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer coefficients, because its discriminant is negative.
+&nbsp;&nbsp;**IV** &nbsp; Therefore for every positive integer value of $x$, the integer $3x^{2}+3x+1$ cannot be factorised.
+&nbsp;&nbsp;**V** &nbsp; Hence the difference between two consecutive cube numbers will always be prime.
+
+Which best describes this proof? &nbsp; **A** correct, claim true &nbsp; **B** correct, but counterexamples
+exist &nbsp; **C** first error line I &nbsp; **D** line II &nbsp; **E** line III &nbsp; **F** line IV &nbsp;
+**G** line V
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — irreducible polynomial $\neq$ prime values)*]{style="color:#7a5195"}
+**F.** Line III is **true**: the *polynomial* $3x^{2}+3x+1$ has discriminant $9-12=-3<0$, so it does not split
+into integer linear factors.
+
+Line IV converts that into a claim about the **integers** $3x^{2}+3x+1$, and those are different things.
+*A polynomial being irreducible says nothing about whether its values are prime.* **Counterexample:** $x=5$
+gives $3(25)+15+1=91=7\times13$, i.e. $6^{3}-5^{3}=91$, which is composite.
+
+**Why not G?** Line V follows *correctly* from line IV — if the value genuinely could never be factorised it
+would indeed always be prime. The conclusion is false only because IV is, and the question asks for the
+**first** bad line. *The most tempting wrong answer on this question is G, chosen by reading the conclusion
+first.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q17 &nbsp;★</span>
+
+::: {.question}
+Here $n$ is an integer greater than $1$.
+**Statement:** *if $n$ does not divide $k!$ for any positive integer $k$ with $k<n$, then $n$ is prime.*
+
+&nbsp;&nbsp;**(1)** Assume $n$ does not divide $k!$ for any positive integer $k<n$.
+&nbsp;&nbsp;**(2)** Suppose for contradiction $n$ is composite, so $n=ab$ with $1<a\le b<n$.
+&nbsp;&nbsp;**(3)** *Case 1:* $a<b$. Then $a$ and $b$ are distinct integers in $\{2,3,\dots,n-1\}$.
+&nbsp;&nbsp;**(4)** So $a$ and $b$ both appear as factors of $(n-1)!=1\cdot2\cdots(n-1)$, hence $ab=n$ divides $(n-1)!$.
+&nbsp;&nbsp;**(5)** *Case 2:* $a=b$, so $n=a^{2}$.
+&nbsp;&nbsp;**(6)** Since $a\ge2$, the integers $a$ and $2a$ satisfy $a\ge2$ and $2a\ge4$, so they are positive integers.
+&nbsp;&nbsp;**(7)** Since $a\ge2$ we have $a<a^{2}=n$ and $2a<a^{2}=n$, so $a$ and $2a$ are distinct integers in $\{2,3,\dots,n-1\}$.
+&nbsp;&nbsp;**(8)** So $a$ and $2a$ both appear as factors of $(n-1)!$, hence $2a^{2}=2n$ divides $(n-1)!$, and in particular $n$ divides $(n-1)!$.
+&nbsp;&nbsp;**(9)** In both cases $n$ divides $(n-1)!$, contradicting line (1). Hence $n$ is prime.
+
+&nbsp;&nbsp;**A** first mistake line 1 &nbsp; **B** line 2 &nbsp; **C** line 3 &nbsp; **D** line 4 &nbsp;
+**E** line 5 &nbsp; **F** line 6 &nbsp; **G** line 7 &nbsp; **H** the proof is valid and the statement is true
+&nbsp; *(options A–G each also assert that the statement is false)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — "$\ge$" where the argument needs "$>$")*]{style="color:#7a5195"}
+**G.** Line (7) claims that $a\ge2$ gives $2a<a^{2}$. *But $2a<a^{2}$ is equivalent to $a>2$, not $a\ge2$.*
+At the boundary $a=2$ the claim reads $4<4$, which is false.
+
+**The counterexample is exactly that boundary.** Take $n=4$ (so $a=b=2$, Case 2): $1!=1$, $2!=2$, $3!=6$, and
+$4$ divides none of them — the hypothesis of the statement holds — yet $4$ is not prime. **So the statement
+is false**, and the proof must fail somewhere; tracing $n=4$ through it, lines (1)–(6) all hold and (7) is the
+first to break.
+
+*Note how Case 1 is genuinely fine:* when $a<b$ the two factors really are distinct and both below $n$, so
+$ab=n$ divides $(n-1)!$. Only the repeated-factor case needs the extra room, and only $a=2$ fails to have it.
+
+**The habit.** When a proof splits into cases, test the **boundary of each case** — the smallest $a$, the
+equality $a=b$. That is where a case-split proof breaks. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
 Working
 :::
 

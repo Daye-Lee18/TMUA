@@ -14,7 +14,9 @@ He is at **14 + 14 = 28 / 40**. The goal is **32 / 40** — that is **four more 
 
 Look at where his Paper-2 marks actually leak: almost every question he flagged is one of **three** ideas —
 **spotting the error in a proof**, **necessary vs sufficient**, and **the contrapositive**. There are more than
-four marks sitting in that list. Nothing new has to be learned; the toolkit pages for all three already exist.
+four marks sitting in that list. Nothing new has to be learned; the toolkit pages for all three already exist — and each now ends with an
+**exam bank (Part 4)** built from the mock papers he has actually sat, with his own flagged questions among
+them: **JZ Mock A Q3, Q5 and Q17** in S7, **Q1 and Q11** in S3, and **Q16** — the three-lever safe — in S2.
 :::
 
 ## Where to work
@@ -79,9 +81,9 @@ lines are also wrong.
 | | Block | What to do |
 |---|---|---|
 | **1** | *Warm-up* — 10 min | The two sentences on card 1. Then re-do **09/04 Q1** cold, saying out loud which condition is the exact one. |
-| **2** | **S3 — Necessary & sufficient** — 30 min | [Concepts](../../toolkit/s03_concepts.qmd), then the [class problems](../../toolkit/s03_necessary_sufficient.qmd) (6 worked questions). Finish by re-doing **Q11** and **09/16 Q13**. |
+| **2** | **S3 — Necessary & sufficient** — 30 min | [Concepts](../../toolkit/s03_concepts.qmd), then the [class problems](../../toolkit/s03_necessary_sufficient.qmd) (19 questions — Part 4 is the exam bank). Finish by re-doing **Q11** and **09/16 Q13**. |
 | **3** | **S2 — Contrapositive** — 15 min | [Concepts](../../toolkit/s02_concepts.qmd) + [class problems](../../toolkit/s02_converse_contrapositive.qmd). Anchor on **Q16**; make him state the converse each time and say why it is *not* implied. |
-| **4** | **S7 — Spot the error** — 35 min | [Concepts](../../toolkit/s07_concepts.qmd) (the common fallacies), then the [class problems](../../toolkit/s07_spot_the_error.qmd) (10 questions). Re-do **Q5** and **Q17** with the checklist visible. |
+| **4** | **S7 — Spot the error** — 35 min | [Concepts](../../toolkit/s07_concepts.qmd) (the common fallacies), then the [class problems](../../toolkit/s07_spot_the_error.qmd) (20 questions — Part 4 is the exam bank). Re-do **Q5** and **Q17** with the checklist visible. |
 
 ::: {.callout-note appearance="simple"}
 **Run it as a confirm-don't-guess drill.** His audits show the same habit on every flagged question — he reaches

@@ -673,6 +673,563 @@ plt.tight_layout(); plt.show()
 
 ---
 
+# Part 4 — Exam bank
+
+Twelve more, all from real exam material: **★** marks the two that 이우성 flagged on his own mock. They are
+grouped so that each group drills one *way of thinking*, not one topic. Work the group, not the question.
+
+::: {.callout-note appearance="simple"}
+**The routine that answers every one of these.** Write down the **exact** set of values (or cases) that
+makes each statement true. Then the verdict is just set inclusion:
+
+$$P\subseteq Q\ \Rightarrow\ P \text{ sufficient}\qquad Q\subseteq P\ \Rightarrow\ P \text{ necessary}
+\qquad P=Q\ \Rightarrow\ \text{both}$$
+
+Never argue about the words. **Find the two sets, then look at the picture.**
+:::
+
+---
+
+**Questions 7–9 · Read the verdict off two sets.** Each gives you two conditions; solve both exactly, then
+compare.
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q20</span>
+
+::: {.question}
+Let $x$ be a real number, and consider the inequality $x^{2}+1\ge10$. Which of the following conditions on
+$x$ is **necessary but not sufficient** for this to be true?
+
+&nbsp;&nbsp;**A** $x\le-3$ or $x\ge3$ &nbsp; **B** $x\neq0$ &nbsp; **C** $x>10$ &nbsp; **D** $x=3$ &nbsp;
+**E** $x>0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy — the whole session in one question)*]{style="color:#7a5195"}
+**B.** The exact condition is $x^{2}\ge9$, i.e. $x\le-3$ or $x\ge3$. Call that set $T$. Now test each option
+against $T$:
+
+| | Condition | Set | Verdict |
+|---|---|---|---|
+| **A** | $x\le-3$ or $x\ge3$ | $=T$ | necessary **and** sufficient |
+| **B** | $x\neq0$ | $\supset T$ | **necessary, not sufficient** ✓ |
+| **C** | $x>10$ | $\subset T$ | sufficient, not necessary |
+| **D** | $x=3$ | $\subset T$ | sufficient, not necessary |
+| **E** | $x>0$ | neither | neither |
+
+*The pattern is worth memorising:* a condition **strictly larger** than the exact one is **necessary but
+not sufficient**; a condition **strictly smaller** is **sufficient but not necessary**. Every question in
+this part is that one picture in disguise. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q13</span>
+
+::: {.question}
+Consider the following statements for real values of $x$.
+
+&nbsp;&nbsp;**P:** $\sqrt{x+12}\ \ge\ x$
+&nbsp;&nbsp;**Q:** $-3\le x\le4$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** P is necessary and sufficient for Q &nbsp; **B** P is not necessary and not sufficient for Q
+&nbsp; **C** P is sufficient but not necessary for Q &nbsp; **D** P is necessary but not sufficient for Q
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — solve P properly first)*]{style="color:#7a5195"}
+**D.** Solve **P** exactly. The square root needs $x\ge-12$, and then:
+
+- for $-12\le x<0$ the left side is $\ge0$ and the right side is negative, so **P holds automatically**;
+- for $x\ge0$ both sides are non-negative, so squaring is legal: $x+12\ge x^{2}\iff x^{2}-x-12\le0
+  \iff(x-4)(x+3)\le0\iff-3\le x\le4$, which here means $0\le x\le4$.
+
+So **P** is true exactly on $[-12,4]$, and $Q=[-3,4]$.
+
+*Now read the picture:* $Q\subset P$ **strictly** — so Q $\Rightarrow$ P, i.e. **P is necessary**; and
+$x=-6$ satisfies P ($\sqrt6\ge-6$) but not Q, so **P is not sufficient**.
+
+**The trap** is answering from the $(x-4)(x+3)\le0$ line, which looks exactly like Q and tempts "necessary
+and sufficient". That line is only valid on the branch $x\ge0$ — the negative branch is where the two sets
+come apart. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q6</span>
+
+::: {.question}
+Consider the following two statements about the polynomial $p(x)$.
+
+&nbsp;&nbsp;**P:** $p(x)$ has at least one real root.
+&nbsp;&nbsp;**Q:** $p(x)$ is a polynomial of order $n$, where $n$ is an odd integer.
+
+Which of the following is correct?
+
+&nbsp;&nbsp;**A** P is necessary and sufficient for Q &nbsp; **B** P is not necessary and not sufficient for Q
+&nbsp; **C** P is necessary but not sufficient for Q &nbsp; **D** P is sufficient but not necessary for Q
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — mind which way round the question asks)*]{style="color:#7a5195"}
+**C.** Two separate checks, and the order of the words decides which is which.
+
+- **Is P necessary for Q?** That asks $Q\Rightarrow P$. Every odd-degree real polynomial **does** have a real
+  root — as $x\to\pm\infty$ it runs to $+\infty$ and $-\infty$, so it must cross the axis. **Yes.**
+- **Is P sufficient for Q?** That asks $P\Rightarrow Q$. Take $p(x)=x^{2}-1$: it has real roots, but its
+  order is $2$, which is even. **No.**
+
+So P is necessary but not sufficient for Q.
+
+*The deliberate difficulty here is direction.* "P is necessary for Q" means $Q\Rightarrow P$ — the arrow
+points **backwards**, from Q to P. Students who read it forwards get **D**, the answer designed for them.
+Write the arrow down before you test anything. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+**Questions 10–12 · Calculus statements.** Same routine, but now "the exact set" is a statement about
+stationary points or monotonicity. The usual trap: a condition from the A-level textbook that is only
+*sufficient* for a maximum, not equivalent to one.
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q13</span>
+
+::: {.question}
+Consider the following two statements about the polynomial $p(x)$, which has **exactly two** stationary
+points, at $x=a$ and $x=b$, where $a<b$.
+
+&nbsp;&nbsp;**P:** $p(x)$ has a maximum at $x=a$.
+&nbsp;&nbsp;**Q:** $p'(x)<0$ for $a<x<b$.
+
+Which of the following is correct?
+
+&nbsp;&nbsp;**A** P is necessary and sufficient for Q &nbsp; **B** P is not necessary and not sufficient for Q
+&nbsp; **C** P is necessary but not sufficient for Q &nbsp; **D** P is sufficient but not necessary for Q
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — the stationary point of inflection)*]{style="color:#7a5195"}
+**D.**
+
+- **P $\Rightarrow$ Q.** If $p$ has a maximum at $a$ then $p$ decreases immediately after $a$, so $p'<0$ just
+  to the right of $a$. Between $a$ and $b$ there is **no** stationary point, so $p'$ cannot change sign there
+  — it stays negative all the way to $b$. **P is sufficient.**
+- **Q $\not\Rightarrow$ P.** Take $p'(x)=-(x-a)^{2}(x-b)^{2}$. Its only zeros are $a$ and $b$, as required,
+  and $p'<0$ strictly between them, so **Q holds**. But $p'\le0$ on **both** sides of $a$, so $a$ is a
+  *stationary point of inflection*, **not** a maximum. **P is not necessary.**
+
+*The counterexample is the whole question.* "Stationary and decreasing afterwards" does not make a maximum
+— you also need $p$ to be **increasing before**. A repeated factor in $p'$ is how a stationary point avoids
+being a turning point; the same idea drives the
+**[min/max supplement](../lessons/differentiation_clinic/supplementary_minmax.qmd)**. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q5</span>
+
+::: {.question}
+Let $y(x)$ be a polynomial defined for all real values of $x$.
+
+&nbsp;&nbsp;**Statement P:** the function $y$ has a local maximum at $x=0$.
+&nbsp;&nbsp;**Statement Q:** $y'(0)=0$ and $y''(0)<-1$.
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** P is neither necessary nor sufficient for Q &nbsp; **B** P is necessary but not sufficient
+for Q &nbsp; **C** P is sufficient but not necessary for Q &nbsp; **D** P is necessary and sufficient for Q
+&nbsp; **E** whether P is necessary or sufficient for Q depends on the degree of $y$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — the second-derivative test only points one way)*]{style="color:#7a5195"}
+**B.**
+
+- **Q $\Rightarrow$ P.** $y''(0)<-1$ certainly gives $y''(0)<0$, and with $y'(0)=0$ the second-derivative
+  test then **guarantees** a local maximum. So P is **necessary** for Q.
+- **P $\not\Rightarrow$ Q.** Take $y=-x^{4}$: it has a local maximum at $0$, yet $y''(0)=0$, which is not
+  $<-1$. So P is **not sufficient**.
+
+*Read the direction carefully.* Q is the *strong* statement and P the *weak* one, so the arrow runs
+Q $\Rightarrow$ P — and a weak consequence of a strong hypothesis is exactly what "necessary" means.
+
+**The underlying maths point:** $y'(a)=0$ with $y''(a)<0$ is only a **sufficient** condition for a local
+maximum. When $y''(a)=0$ the test is silent and the point may still be a maximum ($-x^4$), a minimum
+($x^4$) or neither ($x^3$). $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q1</span>
+
+::: {.question}
+Let $t$ be a real number and define $f(x)=x^{3}-3tx+1$.
+
+&nbsp;&nbsp;**P:** $f$ is increasing on the interval $[-1,1]$.
+&nbsp;&nbsp;**Q:** the equation $f(x)=1$ has exactly one solution in the interval $[-1,1]$.
+
+&nbsp;&nbsp;**A** P is sufficient but not necessary for Q &nbsp; **B** P is necessary but not sufficient for Q
+&nbsp; **C** P is necessary and sufficient for Q &nbsp; **D** P is neither sufficient nor necessary for Q
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — turn both statements into conditions on $t$)*]{style="color:#7a5195"}
+**A.** *Neither statement is about $x$ in the end — both become conditions on the parameter $t$, and once
+they are, the comparison is trivial.*
+
+**P as a condition on $t$.** $f'(x)=3x^{2}-3t=3(x^{2}-t)$. For $f'\ge0$ on all of $[-1,1]$ we need
+$t\le x^{2}$ for every such $x$, and the smallest value of $x^{2}$ there is $0$. So
+$$P\iff t\le0 .$$
+
+**Q as a condition on $t$.** $f(x)=1\iff x^{3}-3tx=0\iff x\left(x^{2}-3t\right)=0$. The root $x=0$ is always
+there and always in range. Extra roots $x=\pm\sqrt{3t}$ exist only for $t>0$, and lie in $[-1,1]$ only when
+$3t\le1$. So the solution is unique exactly when $t\le0$ or $t>\tfrac13$:
+$$Q\iff t\le0\ \text{ or }\ t>\tfrac13 .$$
+
+**Compare the sets.** $\{t\le0\}\subset\{t\le0\}\cup\{t>\tfrac13\}$, strictly — so P $\Rightarrow$ Q but not
+conversely. *Witness:* $t=1$ makes Q true (only $x=0$ lies in range, since $\sqrt3>1$) while P is false.
+Hence **P is sufficient but not necessary**. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+**Questions 13–15 · Parameter questions — find the exact condition first.** These give a family of
+equations and ask which interval of the parameter is necessary-not-sufficient, or sufficient-not-necessary.
+**Always compute the exact interval before you look at the options.** Then it is one glance.
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q1 &nbsp;★</span>
+
+::: {.question}
+Consider the equation $x^{3}-3px^{2}+4=0$, where $p$ is a real parameter. Which of the following is a
+**sufficient but not necessary** condition on $p$ for this equation to have exactly one real root?
+
+&nbsp;&nbsp;**A** $p>1$ &nbsp; **B** $p>-1$ &nbsp; **C** $0<p<2$ &nbsp; **D** $-2<p<2$ &nbsp;
+**E** $\lvert p\rvert<1$ &nbsp; **F** $p^{2}<2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — 이우성's own mock question)*]{style="color:#7a5195"}
+**E.** Find the **exact** condition first, exactly as the routine says.
+
+$f'(x)=3x^{2}-6px=3x(x-2p)$, so the stationary points are $x=0$ and $x=2p$, with values
+$$f(0)=4,\qquad f(2p)=8p^{3}-12p^{3}+4=4-4p^{3}.$$
+
+*A cubic with positive leading coefficient has exactly one real root precisely when its two stationary
+values have the **same sign*** — otherwise the curve crosses the axis three times. Since $f(0)=4>0$, we need
+$f(2p)>0$:
+$$4-4p^{3}>0\iff p^{3}<1\iff \boxed{p<1}.$$
+
+Now compare the options with $\{p<1\}$. Only $\lvert p\rvert<1$, i.e. $-1<p<1$, lies **strictly inside** it:
+it guarantees one real root (**sufficient**) but misses every $p\le-1$ that also works (**not necessary**).
+Every other option contains values $\ge1$: $p>1$, $p>-1$, $0<p<2$, $-2<p<2$ and $p^{2}<2$ all admit e.g.
+$p=1.2$, where the equation has three real roots — so none of them is even sufficient.
+
+**Why this one was missed in the mock.** The hard part is not the calculus, it is stopping at $p<1$ and
+*then* asking "which option is a proper subset?" Jumping straight to the options invites picking $p>1$,
+which is the exact **complement** of the answer. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q14</span>
+
+::: {.question}
+For which of the following is it a **necessary but not sufficient** condition that
+$$2x^{3}-3px^{2}+p=0$$
+has exactly one real root?
+
+&nbsp;&nbsp;**A** $-1<p<1$ &nbsp; **B** $-1\le p\le1$ &nbsp; **C** $0<p<1$ &nbsp; **D** $p=0$ &nbsp;
+**E** $p\le0$ &nbsp; **F** $p\ge0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — the mirror image of Question 13)*]{style="color:#7a5195"}
+**B.** Same method, opposite verdict asked for.
+
+$f'(x)=6x^{2}-6px=6x(x-p)$, stationary at $x=0$ and $x=p$, with values
+$$f(0)=p,\qquad f(p)=2p^{3}-3p^{3}+p=p\left(1-p^{2}\right).$$
+
+For $p\neq0$, exactly one real root requires the stationary values to share a sign:
+$$f(0)f(p)=p^{2}\left(1-p^{2}\right)>0\iff 1-p^{2}>0\iff-1<p<1 .$$
+And $p=0$ gives $2x^{3}=0$, whose only real root is $x=0$ — one root, so $p=0$ works too. The exact
+condition is therefore $-1<p<1$.
+
+*Now read off the verdicts.* **A** is the exact condition, so it is necessary **and** sufficient — not what
+was asked. **B** $=[-1,1]$ contains $(-1,1)$ **strictly**, so it is **necessary but not sufficient**: at
+$p=1$ the cubic is $2x^{3}-3x^{2}+1=(x-1)^{2}(2x+1)$, which has **two** distinct real roots. **C**, **D**
+and **E** each miss part of $(-1,1)$, so they are not necessary; **F** misses $(-1,0)$ likewise.
+
+**Put Q13 and Q14 side by side.** Both are "cubic with one real root", both solved by the same
+same-sign-stationary-values rule. Q13 wanted the option **inside** the exact set, Q14 the option
+**containing** it. *That single word — sufficient or necessary — is the entire difference.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q7</span>
+
+::: {.question}
+Which of the following is a **necessary but not sufficient** condition for
+$$x^{4}-4x^{2}+c=0$$
+to have exactly $4$ distinct real roots?
+
+&nbsp;&nbsp;**A** $-2<c<3$ &nbsp; **B** $-1<c<5$ &nbsp; **C** $1<c<6$ &nbsp; **D** $-3<c<2$ &nbsp;
+**E** $2<c<7$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a hidden quadratic)*]{style="color:#7a5195"}
+**B.** Substitute $y=x^{2}$, giving $y^{2}-4y+c=0$, so $y=2\pm\sqrt{4-c}$.
+
+*Each **positive** value of $y$ gives **two** values of $x$, namely $\pm\sqrt y$ — so four distinct real
+roots in $x$ need two **distinct, strictly positive** roots in $y$.*
+
+- Distinct and real: discriminant $16-4c>0\iff c<4$.
+- Both positive: the smaller root $2-\sqrt{4-c}>0\iff\sqrt{4-c}<2\iff c>0$.
+
+So exactly four distinct real roots $\iff 0<c<4$.
+
+A **necessary** condition must contain **all** of $(0,4)$; **not sufficient** means it must also contain
+something outside. Only $\mathbf{-1<c<5}$ does: $(0,4)\subset(-1,5)$, and $c=4.5$ lies in the option but
+gives no real roots at all. Each of A, C, D, E omits part of $(0,4)$ — A misses $c=3.5$, C misses $c=0.5$,
+D misses $c=3$, E misses $c=1$ — so none of them is even necessary. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+**Questions 16–18 · Beyond the four verdicts.** The last three drop the P/Q template: one hides the
+condition inside a divisibility fact, one asks which statement implies *all* the others, and one is a
+genuine "necessary **and** sufficient" — the verdict students pick least often and should sometimes pick.
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q11</span>
+
+::: {.question}
+Let $n$ be an integer. Which of the following is a **necessary but not sufficient** condition for
+$n^{3}+5n$ to be divisible by $12$?
+
+&nbsp;&nbsp;**A** $n$ is $1$ more than a multiple of $4$ &nbsp; **B** $n$ is odd &nbsp; **C** $n$ is even
+&nbsp; **D** $n$ is a multiple of $3$ &nbsp; **E** $n$ is a multiple of $4$ &nbsp; **F** $n$ is a multiple
+of $6$ &nbsp; **G** $n$ is $2$ more than a multiple of $4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — small cases do most of the work)*]{style="color:#7a5195"}
+**C.** *You do not need the full theory — four small values settle it.* For $n=1,2,3,4$ the values of
+$n^{3}+5n$ are
+$$6,\qquad 18,\qquad 42,\qquad 84 .$$
+Only $n=4$ gives a multiple of $12$. A **necessary** condition must be satisfied by $n=4$, and that alone
+kills **A** ($4$ is not $1$ more than a multiple of $4$), **B** ($4$ is even), **D** ($3\nmid4$),
+**F** ($6\nmid4$) and **G** ($4$ is not $2$ more than a multiple of $4$).
+
+That leaves **C** and **E**, and $n=2$ separates them: $2$ is even but $2^{3}+10=18$ is not divisible by
+$12$, so **C is not sufficient** — which is exactly what the question asked for. (It is necessary, since
+every multiple of $4$ is even.)
+
+*For completeness:* $n^{3}+5n=n\left(n^{2}+5\right)$ is divisible by $12$ **exactly** when $4\mid n$, so
+**E** is the necessary-**and**-sufficient condition — the right answer to a different question.
+
+**The exam habit here:** when a condition is about integers, test $n=1,2,3,4$ **before** reasoning. One line
+of arithmetic eliminated five of the seven options. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q15</span>
+
+::: {.question}
+Let $x$ be a real number. Which **one** of the following statements is a **sufficient** condition for
+**all** of the other four statements?
+
+&nbsp;&nbsp;**A** $x=-1$ or $x=1$
+&nbsp;&nbsp;**B** $x\ge-1$ and $x\le1$
+&nbsp;&nbsp;**C** $x\ge-1$ or $x\le1$
+&nbsp;&nbsp;**D** $x\le1$
+&nbsp;&nbsp;**E** $x^{2}\le1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — draw the five sets on one number line)*]{style="color:#7a5195"}
+**A.** Turn each statement into a set and the question answers itself — *"$X$ is sufficient for all the
+others" just means "$X$ is contained in all the others", i.e. $X$ is the **smallest** set.*
+
+| | Statement | Set |
+|---|---|---|
+| **A** | $x=-1$ or $x=1$ | $\{-1,1\}$ |
+| **B** | $x\ge-1$ **and** $x\le1$ | $[-1,1]$ |
+| **C** | $x\ge-1$ **or** $x\le1$ | all of $\mathbb R$ |
+| **D** | $x\le1$ | $(-\infty,1]$ |
+| **E** | $x^{2}\le1$ | $[-1,1]$ |
+
+$\{-1,1\}$ sits inside every other set, so **A** implies all four.
+
+**Two traps in the options.** *C looks like a restriction but is none:* every real number satisfies at least
+one of $x\ge-1$, $x\le1$, so C is the whole line — swapping "and" for "or" turned a small set into
+everything. And *B and E are the same set written two ways*, so neither can be contained in the other
+strictly; that alone rules both out as the unique answer. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q11 &nbsp;★</span>
+
+::: {.question}
+&nbsp;&nbsp;**P:** $k$ is an integer multiple of $\pi$.
+&nbsp;&nbsp;**Q:** $\displaystyle\int_{0}^{k}\left(\cos x+\cos^{3}(2x)\right)\,dx=0$.
+
+Which of the following best describes the logical relationship between P and Q?
+
+&nbsp;&nbsp;**A** P is necessary and sufficient for Q &nbsp; **B** P is necessary but not sufficient for Q
+&nbsp; **C** P is sufficient but not necessary for Q &nbsp; **D** P is neither necessary nor sufficient for Q
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — 이우성's own mock question)*]{style="color:#7a5195"}
+**A — necessary and sufficient.** Integrate once and the question becomes a statement about a single
+function of $k$:
+$$F(k)=\int_{0}^{k}\left(\cos x+\cos^{3}2x\right)dx=\sin k+\frac{\sin 2k}{2}-\frac{\sin^{3}2k}{6},$$
+using $\cos^{3}\theta=\tfrac34\cos\theta+\tfrac14\cos3\theta$ (or simply
+$\int\cos^{3}2x\,dx=\tfrac12\sin2x-\tfrac16\sin^{3}2x$).
+
+**If $k=n\pi$** then $\sin k=0$ and $\sin2k=0$, so every term vanishes: $F(n\pi)=0$. **P is sufficient.**
+
+**Conversely,** if $F(k)=0$ then $\sin k=0$ too. *Here is why:* writing $s=\sin k$ and using
+$\sin2k=2s\cos k$,
+$$F(k)=s\left(1+\cos k-\tfrac43 s^{2}\cos^{3}k\right),$$
+and the bracket is never $0$ when $s\ne0$ — the largest $\tfrac43 s^{2}\cos^{3}k$ can be is $\tfrac43$ at
+$\cos k=1$, where $s=0$ anyway, and $1+\cos k\ge0$ always. So $F(k)=0$ forces $\sin k=0$, i.e. $k=n\pi$.
+**P is necessary.**
+
+**Sanity check** — the answer must survive spot values: $F\left(\tfrac\pi2\right)=1\neq0$ and
+$F\left(\tfrac\pi4\right)=\tfrac13+\tfrac{\sqrt2}{2}\neq0$, while $F(\pi)=F(2\pi)=F(3\pi)=0$. ✓
+
+*Why "both" is the answer students reach for last.* The four verdicts are not equally likely on the paper,
+but candidates under time pressure treat "necessary and sufficient" as too strong to risk. **If your two
+sets came out equal, say so.** $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+**One more, already on another page.** *Tyler TMUA Set A · P2 Q17* asks for the necessary **and** sufficient
+condition for $y=mx+c$ to be a tangent to $x^{2}+y^{2}=a^{2}$ (answer: $c^{2}=a^{2}\left(m^{2}+1\right)$).
+It is worked in full in the
+**[coordinate geometry clinic](../lessons/coordinate_geometry_clinic/class_material.qmd)** — a reminder that
+this wording turns up on Paper **1** topics too.
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q18 &nbsp;◆</span>
+
+::: {.question}
+$f$ is a polynomial defined for all real $x$. Which of the following is a **necessary** condition for
+$$\frac{f(a)+f(b)}{2}\;\ge\;f\!\left(\frac{a+b}{2}\right)\qquad\text{for all real }a<b\,?$$
+
+&nbsp;&nbsp;**A** $f(x)\ge0$ &nbsp; **B** $f'(x)\ge0$ &nbsp; **C** $f''(x)\ge0$ &nbsp;
+**D** $f(x)\le0$ &nbsp; **E** $f'(x)\le0$ &nbsp; **F** $f''(x)\le0$ &nbsp; *(all "for all real $x$")*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; recognise the geometry)*]{style="color:#7a5195"}
+**C.** Read the two sides as heights above the midpoint $\tfrac{a+b}{2}$:
+
+- $\dfrac{f(a)+f(b)}{2}$ is the height of the **chord** joining $(a,f(a))$ and $(b,f(b))$;
+- $f\!\left(\dfrac{a+b}{2}\right)$ is the height of the **curve**.
+
+So the condition says *the chord lies on or above the curve, for every pair $a<b$* — which is precisely the
+definition of a **convex** function. For a twice-differentiable function, convex $\iff f''(x)\ge0$ for all
+$x$.
+
+**Why each other option is not necessary.** Convexity is about **curvature**, not about sign or slope:
+$f(x)=x^{2}-5$ is convex yet negative near $0$ (killing **A**) and decreasing for $x<0$ (killing **B**);
+**D** and **E** fail on $f(x)=x^{2}$, which is convex, non-negative and increasing for $x>0$. **F** is the
+right quantity with the wrong sign — $f''\le0$ is **concave**, the opposite condition.
+
+*The word "necessary" is doing real work here.* The question is not "which condition guarantees the
+inequality" but "which must hold whenever it does" — and since convexity and $f''\ge0$ are **equivalent**
+for polynomials, C is in fact necessary *and* sufficient, which is why it is the only defensible answer.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## After this session
 
 ::: {.callout-important}

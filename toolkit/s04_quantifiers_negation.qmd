@@ -615,6 +615,303 @@ that counterexample, then read the truth of the original off whether you found o
 
 ---
 
+# Part 4 — Exam bank
+
+Five from real exam material, in the order the skill is built: **negate one statement**, then **judge
+whether $\forall\exists$ statements are true**, then **negate a chain three quantifiers deep**.
+
+::: {.callout-important}
+## The two rules everything below uses
+
+**Negating flips every quantifier, in order, and then negates the inside.**
+$$\lnot\big(\forall x,\ P(x)\big)=\exists x,\ \lnot P(x)\qquad\qquad
+\lnot\big(\exists x,\ P(x)\big)=\forall x,\ \lnot P(x)$$
+
+**Order matters, and this is the difference the exam tests.**
+
+- $\forall x\,\exists y$ — *$y$ is allowed to depend on $x$*: pick $x$ first, then find a $y$ to suit it.
+- $\exists y\,\forall x$ — *one single $y$ must work for every $x$ at once.* Far stronger.
+
+Swapping the two is the single most common error in this part of the paper.
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q11</span>
+
+::: {.question}
+Consider the statement: &nbsp;*$f(x)>g(x)$ for all real values of $x>a$.*
+
+Which one of the following is a **negation** of this statement?
+
+&nbsp;&nbsp;**A** $f(x)\le g(x)$ for at least one real value of $x>a$
+&nbsp;&nbsp;**B** $f(x)\le g(x)$ for all real values of $x>a$
+&nbsp;&nbsp;**C** $f(x)\le g(x)$ for at least one real value of $x\le a$
+&nbsp;&nbsp;**D** $f(x)\le g(x)$ for no real values of $x>a$
+&nbsp;&nbsp;**E** $f(x)>g(x)$ for at least one real value of $x\le a$
+&nbsp;&nbsp;**F** $f(x)>g(x)$ for at least one real value of $x>a$
+&nbsp;&nbsp;**G** $f(x)>g(x)$ for all real values of $x\le a$
+&nbsp;&nbsp;**H** $f(x)>g(x)$ for no real values of $x>a$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy — the rule applied once)*]{style="color:#7a5195"}
+**A.** The statement is $\;\forall x>a,\ f(x)>g(x)$. Negating does exactly two things:
+
+1. $\forall$ becomes $\exists$: "for all $x>a$" $\to$ "for **at least one** $x>a$";
+2. the inside is negated: $f(x)>g(x)$ $\to$ $f(x)\le g(x)$.
+
+Giving *"$f(x)\le g(x)$ for at least one real value of $x>a$"* — option **A**.
+
+**What the distractors change, and why each is wrong:**
+
+- **The range stays $x>a$.** Options **C**, **E** and **G** switch to $x\le a$. *The negation of "for all
+  $x$ in a range" never changes the range* — it changes how many of them you need.
+- **B** negates the inside but keeps $\forall$: "$f\le g$ **everywhere**" is far stronger than the negation.
+  The opposite of "always above" is "not always above", not "always below".
+- **D** and **H** say "for no values", which is another $\forall$ in disguise ("for all $x>a$, *not* …").
+
+*If you take one thing from this question:* **"not always" means "at least once", never "never".**
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q18</span>
+
+::: {.question}
+Which of the following statements, taken independently, is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; **For all** real $x$, **there exists** a real $y$ such that $y^{2}=x$.
+&nbsp;&nbsp;**II** &nbsp; **There exists** a real $y$ such that **for all** positive real $x$, $y^{2}=x$.
+&nbsp;&nbsp;**III** &nbsp; **For all** real $y$, **there exists** a non-negative real $x$ such that $y^{2}=x$.
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** II and III only &nbsp; **G** I and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — one equation, three different questions)*]{style="color:#7a5195"}
+**D — III only.** All three statements use the same equation $y^{2}=x$. *What changes is which letter is
+chosen first, and what it is allowed to depend on.*
+
+- **I — false.** "For all real $x$" includes **negative** $x$, and $y^{2}=x$ has no real solution when
+  $x<0$. One value, $x=-1$, kills it.
+- **II — false.** Here a **single** $y$ must satisfy $y^{2}=x$ for **every** positive $x$ at once — so $y^2$
+  would have to equal $1$ and $2$ simultaneously. *This is the $\exists\forall$ trap:* the statement looks
+  like I with the words shuffled, but it is enormously stronger.
+- **III — true.** Now $y$ is given first and $x$ is chosen afterwards, so simply **take $x=y^{2}$**. It is
+  non-negative, as required, for every real $y$. ✓
+
+*Compare I and III carefully — they are near-mirror images.* I asks "is every real number a square?"
+(**no**); III asks "does every real number have a square?" (**yes**). The mathematics is trivial; reading
+the quantifier order correctly is the whole question. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q19</span>
+
+::: {.question}
+Which of the following statements are true?
+
+&nbsp;&nbsp;**I** &nbsp; **There exists** a real $y$ such that **for all** real $x$, $y>x$.
+&nbsp;&nbsp;**II** &nbsp; **There exists** a real $x$ such that **for all** real $y$, $x+y>xy$.
+&nbsp;&nbsp;**III** &nbsp; **For all** real $x$, **there exists** a real $y$ such that $x-y=xy^{2}+1$.
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** II and III only &nbsp; **G** I and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — to prove $\exists$, produce the witness)*]{style="color:#7a5195"}
+**F — II and III.**
+
+- **I — false.** It claims there is a **largest real number**: a single $y$ beating every $x$. But $y+1$ is
+  real and $y+1>y$, so no such $y$ exists.
+- **II — true.** *To prove an $\exists$ statement, you only have to exhibit one value.* Take $x=1$: then
+  $x+y=1+y$ and $xy=y$, so the claim becomes $1+y>y$ — true for every real $y$. ✓
+- **III — true**, and the same way. Rearrange to $xy^{2}+y+1-x=0$ and look for a $y$ that works for **every**
+  $x$. Try $y=-1$:
+  $$x(-1)^{2}+(-1)+1-x=x-1+1-x=0\quad\text{✓ for all }x .$$
+  So $y=-1$ is a witness for every $x$ at once — III holds.
+
+*(If the witness is not spotted, the discriminant route also works: for $x\neq0$ the quadratic in $y$ has
+discriminant $1-4x(1-x)=4x^{2}-4x+1=(2x-1)^{2}\ge0$, so a real $y$ always exists; and $x=0$ gives
+$y=-1$ directly.)*
+
+**The exam habit.** $\exists$ statements are **cheap to prove and expensive to disprove** — find one value.
+$\forall$ statements are the reverse — find one counterexample. Statement I is a $\exists\forall$, so
+disproving it needed an argument, not an example; II and III only needed $x=1$ and $y=-1$.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q1</span>
+
+::: {.question}
+Let $n$ denote a positive integer. Consider the following three statements.
+
+&nbsp;&nbsp;**I** &nbsp; **For every** $n$, if $n^{2}$ is divisible by $12$, then $n$ is divisible by $6$.
+&nbsp;&nbsp;**II** &nbsp; **For every** $n$, if $n^{2}$ is divisible by $12$, then $n$ is divisible by $12$.
+&nbsp;&nbsp;**III** &nbsp; **There exists** an $n$ such that $n^{2}$ is divisible by $12$ but $n$ is not
+divisible by $12$.
+
+Which of the statements are true?
+
+&nbsp;&nbsp;**A** I only &nbsp; **B** II only &nbsp; **C** III only &nbsp; **D** I and II only &nbsp;
+**E** II and III only &nbsp; **F** I and III only &nbsp; **G** all of them
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — II and III are exact opposites)*]{style="color:#7a5195"}
+**F — I and III.**
+
+**Notice the structure before doing any arithmetic:** III is precisely the **negation of II**
+($\lnot\forall n(H\Rightarrow C)=\exists n(H\text{ and }\lnot C)$). So exactly one of II and III is
+true — which immediately rules out options **B**, **C**, **D** and **G** *(they either keep both or drop
+both)*.
+
+- **I — true.** $12=2^{2}\times3$, so $12\mid n^{2}$ gives $3\mid n^{2}$ and $4\mid n^{2}$. Since $3$ is
+  **prime**, $3\mid n^{2}$ forces $3\mid n$; and $4\mid n^{2}$ forces $n$ to be even, so $2\mid n$. Having
+  both factors, $6\mid n$. ✓
+- **II — false**, and **III — true**, on the same single example: $n=6$ gives $n^{2}=36=12\times3$, so
+  $12\mid n^{2}$, yet $12\nmid6$.
+
+*Why I works but II does not:* squaring **doubles** every exponent, so $n^{2}$ carrying $2^{2}$ only forces
+$n$ to carry $2^{1}$. You recover $6=2\times3$, never the second factor of $2$ needed for $12$.
+
+**This is the same fact as [S5 Question 30](s05_proof_methods.qmd)**, where $n=6$ and $n=18$ appear as the
+counterexamples to exactly statement II. Here it is dressed as a quantifier question instead.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q11</span>
+
+::: {.question}
+Let $f$ be a real function and let $a$ be a real number. We say that $f$ is **smoothly joined** at $x=a$ if
+and only if
+
+> for every real number $h>0$, there exists a real number $d>0$ such that, for every real number $x$, if
+> $\lvert x-a\rvert<d$ then $\lvert f(x)-f(a)\rvert<h$.
+
+Which of the following means that $f$ is **not** smoothly joined at $x=a$?
+
+&nbsp;&nbsp;**A** For every $h>0$, for every $d>0$, there exists $x$ such that $\lvert x-a\rvert<d$ and $\lvert f(x)-f(a)\rvert\ge h$.
+&nbsp;&nbsp;**B** There exists $h>0$ such that there exists $d>0$ such that, for every $x$, if $\lvert x-a\rvert<d$ then $\lvert f(x)-f(a)\rvert\ge h$.
+&nbsp;&nbsp;**C** There exists $h>0$ such that, for every $d>0$, there exists $x$ such that $\lvert x-a\rvert<d$ and $\lvert f(x)-f(a)\rvert\ge h$.
+&nbsp;&nbsp;**D** There exists $h>0$ such that, for every $d>0$, for every $x$, if $\lvert x-a\rvert<d$ then $\lvert f(x)-f(a)\rvert\ge h$.
+&nbsp;&nbsp;**E** For every $h>0$, there exists $d>0$ such that, for every $x$, if $\lvert x-a\rvert<d$ then $\lvert f(x)-f(a)\rvert\ge h$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — three quantifiers and an implication)*]{style="color:#7a5195"}
+**C.** The definition, stripped to symbols, is
+$$\forall h>0\ \ \exists d>0\ \ \forall x\ \ \big(\lvert x-a\rvert<d\Rightarrow\lvert f(x)-f(a)\rvert<h\big).$$
+
+**Negate from the outside in, one layer at a time.** Each quantifier flips, and only at the very end do you
+touch the mathematics:
+
+| Layer | Before | After |
+|---|---|---|
+| 1 | $\forall h>0$ | $\exists h>0$ |
+| 2 | $\exists d>0$ | $\forall d>0$ |
+| 3 | $\forall x$ | $\exists x$ |
+| 4 | $\lvert x-a\rvert<d\Rightarrow\lvert f(x)-f(a)\rvert<h$ | $\lvert x-a\rvert<d$ **and** $\lvert f(x)-f(a)\rvert\ge h$ |
+
+Layer 4 is the step most often dropped: *the negation of "if $P$ then $Q$" is "$P$ **and** $\lnot Q$"* —
+**not** "if $P$ then $\lnot Q$". An implication is only false when its hypothesis holds and its conclusion
+fails.
+
+Reading the result off: **there exists $h>0$ such that for every $d>0$ there exists $x$ with
+$\lvert x-a\rvert<d$ and $\lvert f(x)-f(a)\rvert\ge h$** — option **C**.
+
+**How the wrong options are built:** **A** forgets to flip the first quantifier; **B** flips $\exists d$ the
+wrong way *and* keeps the implication; **D** and **E** both keep the implication instead of turning it into
+an "and" (**E** additionally leaves the first two quantifiers untouched). *Only C flips all three and
+converts the implication.*
+
+*(This is the $\varepsilon$–$\delta$ definition of continuity, with $h$ for $\varepsilon$ and $d$ for
+$\delta$. You are not expected to know it — and the question is solvable entirely mechanically, which is the
+point.)* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q10 &nbsp;◆</span>
+
+::: {.question}
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; For **all** real numbers $x$ and for **all** positive integers $n$, $\;x<n$.
+&nbsp;&nbsp;**II** &nbsp; For **all** real numbers $x$, **there exists** a positive integer $n$ such that $\;x<n$.
+&nbsp;&nbsp;**III** &nbsp; **There exists** a real number $x$ such that for **all** positive integers $n$, $\;x<n$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; three orderings of one inequality)*]{style="color:#7a5195"}
+**G — II and III.** The inequality $x<n$ never changes; only **who is chosen first** does.
+
+- **I — false.** It claims every real is below every positive integer simultaneously. $x=100$, $n=1$ ends it.
+- **II — true.** For each real $x$ you choose $n$ **afterwards**, so $n$ may depend on $x$: take
+  $n=\lfloor x\rfloor+1$ (or $n=1$ when $x<1$). There is always a positive integer above any given real.
+- **III — true.** Now you need **one** real that beats every positive integer at once — and $x=0$ does it,
+  since $0<n$ for every positive integer $n$. *(Any $x\le0$ works.)*
+
+**The pairing to notice.** II and III are $\forall\exists$ and $\exists\forall$ of the same inequality, and
+here **both** happen to be true — which is why this question is harder than the usual "one of them fails".
+$\exists\forall$ is normally the stronger claim, but the inequality points the convenient way: it asks the
+real number to be **small**, and $0$ is small enough for all $n$ at once.
+
+*The common slip is doubting **II**.* "$\forall x\,\exists n$" allows a **different $n$ for each $x$** —
+that is exactly the Archimedean property of the reals, and it is what separates II from the blanket claim
+in I. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## After this session
 
 ::: {.callout-important}
