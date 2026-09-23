@@ -17,15 +17,9 @@ Look at where his Paper-2 marks actually leak: almost every question he flagged 
 four marks sitting in that list. Nothing new has to be learned; the toolkit pages for all three already exist.
 :::
 
-## His own questions, sorted by idea
+## Where to work
 
-Everything below is a question **he actually sat**. The right-hand column is the page to work it through on.
-
-| Idea | His questions | Work it on |
-|---|---|---|
-| **Spot the error in a proof** *(Err1, Err2)* | 09/04 **Q5 ⚠** ("$n^2+2$ prime $\Rightarrow n$ a multiple of 3" — the proof breaks at $n=1$) · 09/04 **Q17** (first mistake on line 7) · 09/04 **Q3** ($\sqrt{x-3}<x-2$, first bad step) · 09/16 **Q4** | **[S7 — Spot the Error](../../toolkit/s07_spot_the_error.qmd)** · [concepts](../../toolkit/s07_concepts.qmd) |
-| **Necessary & sufficient** *(Arg2)* | 09/04 **Q1 ⚠** (sufficient **but not** necessary) · 09/04 **Q11 ⚠** · 09/04 **Q7** (which are *necessarily* true) · 09/16 **Q5**, **Q13** | **[S3 — Necessary and Sufficient](../../toolkit/s03_necessary_sufficient.qmd)** · [concepts](../../toolkit/s03_concepts.qmd) |
-| **Converse & contrapositive** *(Arg1)* | 09/04 **Q16** (the three-lever safe — "which **must** be true") | **[S2 — Converse and Contrapositive](../../toolkit/s02_converse_contrapositive.qmd)** · [concepts](../../toolkit/s02_concepts.qmd) |
+The three parts of this session — **spot the error**, **necessary & sufficient**, **converse & contrapositive** — are the **▶ rows in the clinic library on his [hub](index.qmd)**, each row listing the questions of his that it covers and linking straight to the concepts, class problems and assignment. Run them in that order.
 
 ---
 
