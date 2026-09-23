@@ -10,124 +10,88 @@ execute:
 
 ::: {.solutions}
 
-The favourite TMUA/MAT triangle question is the **ambiguous (SSA) case**: one **angle**, the side **next to**
-it, and the side **opposite** it — *how many* triangles, or for which sizes is it **unique**? That is §1–§3.
-But the same papers also test the **cosine-rule sign test** (is a triangle acute, right, or obtuse?), **area
-and the sine rule** (including the circumradius), and **triangles on the coordinate grid**. This clinic drills
-all of them, from the TMUA papers, the MAT, and the mocks.
-
-::: {.callout-important}
-## Summary — read the question first, then pick the tool
-
-| If the question asks… | Use this |
-|---|---|
-| **How many triangles?** (none / one / two) — or "for which sizes is it unique / are there two?" | the **hypotenuse–perpendicular** count. Known angle $A$, adjacent side $c$ (the **"hypotenuse"**), opposite side $a$ (the **swinging** side); height $h=c\sin A$ (the **"perpendicular"**). Then **$a<h$ none · $a=h$ one · $h<a<c$ two · $a\ge c$ one**. |
-| **Acute, right-angled, or obtuse?** | the **cosine rule as a sign test**. Compare the **longest** side$^2$ with the sum of the other two squares: **$>$ acute · $=$ right · $<$ obtuse** (equivalently, the sign of $\cos$ of the largest angle). |
-| **Find a missing side / angle / area** | **cosine rule** (a side from two sides + the included angle, or an angle from three sides) · **sine rule** $\dfrac{a}{\sin A}=2R$ · **area** $=\tfrac12 bc\sin A$. |
-
-So: *"how many triangles"* → the perpendicular/hypotenuse distances; *"what kind of triangle"* → the cosine-rule sign test.
-:::
-
-::: {.callout-tip}
-## In one picture — the swinging side, the "perpendicular", the "hypotenuse"
-
-Think of the right triangle you drop from $B$ onto the ray. The **adjacent side $c$** is its **hypotenuse**
-(the longest, slanted side) and the **height $h=c\sin A$** is its **perpendicular** (the shortest reach — the
-foot of the drop). Let the **swinging side** be $a$ (the arc of radius $a$ from $B$). Then:
-
-| How many triangles | When (in words) |
-|---|---|
-| **One** | $a$ **equals the perpendicular** ($a=h$, a right angle) **or** $a$ **equals or beats the hypotenuse** ($a\ge c$) |
-| **Two** | $a$ is **between them**: $\text{perpendicular}<a<\text{hypotenuse}$, i.e. $h<a<c$ |
-| **None** | $a$ is **shorter than the perpendicular** (the shortest possible reach): $a<h$ |
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(area from coordinates)*]{style="color:#7a5195"}
-
-::: {.topic}
-Topic — the shoelace formula (no need to find side lengths or angles)
-:::
-
-**Answer: $11$.**
-
-$$\text{Area}=\tfrac12\big|\,1(3-7)+5(7-1)+2(1-3)\,\big|=\tfrac12\big|\,-4+30-4\,\big|=\tfrac12\cdot22=11.$$
-
-```{python}
-#| fig-align: center
-import numpy as np, matplotlib.pyplot as plt
-A=np.array([0,0]); ang=np.radians(35); c=6.0
-B=np.array([c,0]); h=c*np.sin(ang)
-ray=np.array([np.cos(ang),np.sin(ang)])
-F=(B@ray)*ray                      # foot of perpendicular from B onto the ray
-plt.figure(figsize=(4.6,2.6))
-plt.plot([A[0],9*ray[0]],[A[1],9*ray[1]],color='#2b6cb0',lw=1)   # ray from A
-plt.plot([A[0],B[0]],[A[1],B[1]],'k',lw=1.6)                     # AB (hypotenuse c)
-plt.plot([B[0],F[0]],[B[1],F[1]],color='crimson',lw=1.6)        # perpendicular h
-plt.plot(*A,'ks',ms=4); plt.plot(*B,'ks',ms=4)
-plt.annotate('A',A,textcoords='offset points',xytext=(-10,-2))
-plt.annotate('B',B,textcoords='offset points',xytext=(6,-2))
-plt.annotate('c = AB  (the "hypotenuse")',(c/2,-0.05),textcoords='offset points',xytext=(-30,-14),fontsize=8)
-plt.annotate('h = c·sinA\n(the "perpendicular")',((B[0]+F[0])/2,(B[1]+F[1])/2),textcoords='offset points',xytext=(8,-6),fontsize=8,color='crimson')
-th=np.linspace(0,np.pi,100); plt.plot(B[0]+h*np.cos(th),B[1]+h*np.sin(th),'0.6',ls='--',lw=0.8)
-plt.xlim(-1,9); plt.ylim(-1.2,5); plt.gca().set_aspect('equal'); plt.axis('off')
-plt.tight_layout(); plt.show()
-```
-:::
+The main TMUA/MAT triangle trap is the **ambiguous (SSA) case**: one angle, the side next to it, and the side
+opposite it may determine zero, one, or two triangles. The other recurring tasks are classifying a triangle,
+using area or the sine rule, and working with coordinates. Use the question wording to select the tool below.
 
 ::::: {.formulasheet}
 
 :::: {.fs-head}
 <div class="fs-kicker">TMUA · Paper 1 · MM4 Triangles</div>
-<div class="fs-title">The Ambiguous Case — Exam Skim Sheet</div>
-<div class="fs-sub">Two sides and a non-included angle: how many triangles actually exist?</div>
+<div class="fs-title">Triangles — Exam Skim Sheet</div>
+<div class="fs-sub">Pick the tool first; then watch the SSA boundaries.</div>
 ::::
 
 :::: {.fs-grid}
 
 ::: {.fs-card}
-### 1 · The set-up
-You know an angle $A$, the side $c$ **next to** it ($AB$), and the side $a$ **opposite** it ($BC$).
+### 1 · How many triangles? — SSA
+Known angle $A$, adjacent side $c$, opposite side $a$. Drop the perpendicular from the far endpoint of $c$:
+$$h=c\sin A.$$
 
-Draw the ray from $A$ at angle $A$ — the third vertex $C$ must lie on it. Swing an **arc of radius $a$** centred at $B$ and count the cuts.
+[The side $a$ swings as an arc. The number of times it cuts the ray is the number of triangles.]{.eg}
 :::
 
 ::: {.fs-card}
-### 2 · The one quantity that decides it
-The **height** $h=c\sin A$ — the shortest distance from $B$ to the ray.
-
-[Compare $a$ with **both** $h$ and $c$. Comparing with only one is the usual mistake.]{.eg}
-:::
-
-::: {.fs-card}
-### 3 · The count
+### 2 · SSA count
 | Condition | Triangles |
 |---|---|
-| $a<h=c\sin A$ | **none** (the arc falls short) |
-| $a=h$ | **one** (right angle at $C$) |
-| $h<a<c$ | **two** (the arc cuts twice) |
-| $a\ge c$ | **one** (the far cut lands behind $A$) |
+| $a<h$ | **none** |
+| $a=h$ | **one** (right-angled) |
+| $h<a<c$ | **two** |
+| $a\ge c$ | **one** |
+
+[So **unique** means $a=h$ or $a\ge c$. Compare $a$ with both $h$ and $c$.]{.eg}
 :::
 
 ::: {.fs-card}
-### 4 · Read it back
-**Unique** exactly when $a=h$ **or** $a\ge c$; **two** when $h<a<c$; **impossible** when $a<h$.
+### 3 · Missing side or angle
+Use the **cosine rule** for SAS or SSS:
+$$a^2=b^2+c^2-2bc\cos A.$$
+Use the **sine rule** when an opposite pair is known:
+$$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R.$$
 
-[If the known angle is **obtuse**, $c<h$ is impossible and only $a>c$ works — always one triangle.]{.eg}
+[With SSA, $\sin B=k$ may give $B$ and $180^\circ-B$; check whether each makes a valid triangle.]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · Acute, right, or obtuse?
+Let $\ell$ be the longest side and $p,q$ the other two. Compare
+$$\ell^2\quad\text{with}\quad p^2+q^2.$$
+
+| Test | Triangle |
+|---|---|
+| $\ell^2<p^2+q^2$ | acute |
+| $\ell^2=p^2+q^2$ | right-angled |
+| $\ell^2>p^2+q^2$ | obtuse |
+:::
+
+::: {.fs-card}
+### 5 · Area
+For two sides and their **included** angle,
+$$K=\frac12bc\sin A.$$
+For coordinates, use
+$$K=\frac12\left|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\right|.$$
+
+[The points are collinear exactly when the shoelace expression is $0$.]{.eg}
+:::
+
+::: {.fs-card}
+### 6 · Fast decision map
+| Question wording | Tool |
+|---|---|
+| none / one / two; unique | $h=c\sin A$ |
+| side or angle | cosine / sine rule |
+| acute / right / obtuse | longest-side square test |
+| area | $\tfrac12bc\sin A$ / shoelace |
 :::
 
 ::::
 
 :::::
 
-::: {.callout-tip}
-## The method — three questions, every time
-
-1. **Which side is *opposite* the known angle?** Call it $a$. **Which is *next to* it?** Call it $c$.
-2. **Compute the height $h=c\sin A$.**
-3. **Compare $a$ with $h$ and with $c$** and read the table: $a<h$ none, $a=h$ one, $h<a<c$ two, $a\ge c$ one.
-:::
+**SSA in one sentence:** identify the opposite side $a$ and adjacent side $c$, calculate $h=c\sin A$, then
+compare $a$ with $h$ and $c$ using card 2.
 
 **On this page:** 1. Counting triangles (SSA) · 2. "Uniquely determined" · 3. Ranges & the cosine-rule
 quadratic · 4. Acute, right, or obtuse · 5. Area, the sine rule & the circumradius · 6. Triangles on the
@@ -680,6 +644,20 @@ slopes between them agree.
 Find the area of the triangle with vertices $A(1,1)$, $B(5,3)$ and $C(2,7)$.
 :::
 
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(area directly from coordinates)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the shoelace formula (no need to find side lengths or angles)
+:::
+
+**Answer: $11$.**
+
+$$\text{Area}=\tfrac12\big|\,1(3-7)+5(7-1)+2(1-3)\,\big|
+=\tfrac12\big|\,-4+30-4\,\big|=11.$$
+
 ```{python}
 #| fig-align: center
 import matplotlib.pyplot as plt
@@ -727,10 +705,10 @@ Working
 
 ---
 
-## 7 · From the mocks & cross-exam — more of the ambiguous case
+## 7 · From the mocks & cross-exam — mixed extensions
 
-These are every same-type question in the practice banks (JZ Maths mocks, Tyler mocks) — the exact patterns the
-live test reuses. All answers are python-verified.
+These mixed questions reuse the same tools with algebraic side lengths, additional angle conditions, or less
+familiar geometry.
 
 ### Question 17
 
@@ -926,28 +904,5 @@ Working
 :::
 
 ---
-
-::: {.callout-tip}
-## Memorise — the ambiguous case
-
-- Known **angle $A$**, **adjacent** side $c$, **opposite** side $a$. Height $h=c\sin A$.
-- **$a<h$ none · $a=h$ one · $h<a<c$ two · $a\ge c$ one.** Unique $\iff a=h$ or $a\ge c$.
-- **Cosine rule $\Rightarrow$** quadratic $b^{2}-(2c\cos A)b+(c^{2}-a^{2})=0$; triangles $=$ **positive
-  roots**. Product $c^{2}-a^{2}\le0$ (i.e. $a\ge c$) forces exactly one.
-- **Obtuse known angle:** only $a>c$ works — always one.
-:::
-
-::: {.callout-tip}
-## Memorise — the other triangle tools
-
-- **Acute/right/obtuse:** compare the **longest** side$^2$ with the sum of the other two squares —
-  $p^2+q^2>\ell^2$ acute, $=$ right, $<$ obtuse. (Triangle exists $\iff$ the two shorter sides beat the
-  longest.)
-- **Area $=\tfrac12 bc\sin A$**; for fixed $b,c$ it is largest at $A=90^\circ$. A given area gives
-  $\sin A=k$, hence **two** angles $A$ and $180^\circ-A$.
-- **Sine rule:** $\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$ (circumradius).
-- **Coordinates:** area $=\tfrac12\big|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\big|$; it is $0$ $\iff$ the
-  points are collinear (no triangle).
-:::
 
 :::
