@@ -1,0 +1,119 @@
+---
+title: "이우성 · Session — Paper 2 Reasoning"
+subtitle: "Errors in proofs · necessary & sufficient · contrapositive — built from his own flagged questions"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## The target, in marks
+
+He is at **14 + 14 = 28 / 40**. The goal is **32 / 40** — that is **four more marks**, not a rebuild.
+
+Look at where his Paper-2 marks actually leak: almost every question he flagged is one of **three** ideas —
+**spotting the error in a proof**, **necessary vs sufficient**, and **the contrapositive**. There are more than
+four marks sitting in that list. Nothing new has to be learned; the toolkit pages for all three already exist.
+:::
+
+## His own questions, sorted by idea
+
+Everything below is a question **he actually sat**. The right-hand column is the page to work it through on.
+
+| Idea | His questions | Work it on |
+|---|---|---|
+| **Spot the error in a proof** *(Err1, Err2)* | 09/04 **Q5 ⚠** ("$n^2+2$ prime $\Rightarrow n$ a multiple of 3" — the proof breaks at $n=1$) · 09/04 **Q17** (first mistake on line 7) · 09/04 **Q3** ($\sqrt{x-3}<x-2$, first bad step) · 09/16 **Q4** | **[S7 — Spot the Error](../../toolkit/s07_spot_the_error.qmd)** · [concepts](../../toolkit/s07_concepts.qmd) |
+| **Necessary & sufficient** *(Arg2)* | 09/04 **Q1 ⚠** (sufficient **but not** necessary) · 09/04 **Q11 ⚠** · 09/04 **Q7** (which are *necessarily* true) · 09/16 **Q5**, **Q13** | **[S3 — Necessary and Sufficient](../../toolkit/s03_necessary_sufficient.qmd)** · [concepts](../../toolkit/s03_concepts.qmd) |
+| **Converse & contrapositive** *(Arg1)* | 09/04 **Q16** (the three-lever safe — "which **must** be true") | **[S2 — Converse and Contrapositive](../../toolkit/s02_converse_contrapositive.qmd)** · [concepts](../../toolkit/s02_concepts.qmd) |
+
+---
+
+## The three ideas, on one card each
+
+::: {.callout-tip}
+## 1 · Necessary vs sufficient — two sentences
+
+- "$A$ is **sufficient** for $B$" means $A\Rightarrow B$. (Having $A$ is enough.)
+- "$A$ is **necessary** for $B$" means $B\Rightarrow A$. (Without $A$ you cannot have $B$.)
+
+**The exam's favourite trap — "sufficient but not necessary".** Find the *exact* (necessary **and** sufficient)
+condition first, then ask whether the option is a **proper subset** of it: a proper subset guarantees the result
+(sufficient) but misses some cases (not necessary).
+
+*His 09/04 Q1 is exactly this:* the exact condition for $x^3-3px^2+4=0$ to have one real root is $p<1$; the
+option $\lvert p\rvert<1$ sits strictly inside that, so it is **sufficient but not necessary**.
+:::
+
+::: {.callout-tip}
+## 2 · Contrapositive — the only safe flip
+
+$$A\Rightarrow B\quad\text{is the same statement as}\quad \lnot B\Rightarrow\lnot A.$$
+
+The **converse** $B\Rightarrow A$ is **not** the same statement. When a question says "which **must** be true",
+the contrapositive is almost always the answer being tested, and the converse is the trap option.
+
+Negating a compound needs care: $\lnot(P\text{ and }Q)=\lnot P\text{ or }\lnot Q$, and
+$\lnot(P\text{ or }Q)=\lnot P\text{ and }\lnot Q$.
+
+*His 09/04 Q16* gives "if $A$ is right **and** ($B$ left **or** $C$ right) then open" — the safe being closed
+forces the negation of that bracket, which is where the options separate.
+:::
+
+::: {.callout-tip}
+## 3 · Errors in proofs — the checklist to run
+
+Read a purported proof with this list in hand, and stop at the **first** line that fails:
+
+1. **Small cases.** Does line by line survive $n=1$, $x=0$, the empty case? *(His Q5 dies at $n=1$: there
+   $n^2+2=3$, which is prime, so "composite" is false.)*
+2. **Dividing.** Did a step divide by something that could be $0$? "$ab=ac\Rightarrow b=c$" needs $a\neq0$.
+3. **Squaring.** Squaring both sides can invent solutions; $\sqrt{X}<Y$ also silently needs $Y>0$.
+   *(His Q3.)*
+4. **Reversing.** Did the proof use the **converse** of what it established?
+5. **"For all" vs "there exists".** An example never proves a "for all"; one counterexample kills it.
+6. **Common false deductions.** $\sin A=\sin B\Rightarrow A=B$ is **not** valid.
+
+The question asks for the **first** bad line — so read downwards and stop at the first failure, even if later
+lines are also wrong.
+:::
+
+---
+
+## Session plan (about 90 minutes)
+
+| | Block | What to do |
+|---|---|---|
+| **1** | *Warm-up* — 10 min | The two sentences on card 1. Then re-do **09/04 Q1** cold, saying out loud which condition is the exact one. |
+| **2** | **S3 — Necessary & sufficient** — 30 min | [Concepts](../../toolkit/s03_concepts.qmd), then the [class problems](../../toolkit/s03_necessary_sufficient.qmd) (6 worked questions). Finish by re-doing **Q11** and **09/16 Q13**. |
+| **3** | **S2 — Contrapositive** — 15 min | [Concepts](../../toolkit/s02_concepts.qmd) + [class problems](../../toolkit/s02_converse_contrapositive.qmd). Anchor on **Q16**; make him state the converse each time and say why it is *not* implied. |
+| **4** | **S7 — Spot the error** — 35 min | [Concepts](../../toolkit/s07_concepts.qmd) (the common fallacies), then the [class problems](../../toolkit/s07_spot_the_error.qmd) (10 questions). Re-do **Q5** and **Q17** with the checklist visible. |
+
+::: {.callout-note appearance="simple"}
+**Run it as a confirm-don't-guess drill.** His audits show the same habit on every flagged question — he reaches
+the right region, then cannot commit ("C or D?", "E??"). So for **every** answer in this session he should say
+**one** confirming sentence out loud before moving on: *"I tested $n=1$ and it fails"*, *"the converse would
+allow …, so it is not implied"*, *"$\lvert p\rvert<1$ is inside $p<1$, so sufficient only"*. That sentence is
+the mark.
+:::
+
+---
+
+## Homework
+
+| Set | Link |
+|---|---|
+| **S3 assignment** — necessary & sufficient | **[Questions](../../toolkit/s03_assignment_student.qmd)** · [MS](../../toolkit/s03_assignment_ms.qmd) |
+| **S7 assignment** — spot the error | **[Questions](../../toolkit/s07_assignment_student.qmd)** · [MS](../../toolkit/s07_assignment_ms.qmd) |
+| **Paper 2 concepts quiz** (S1–S7, 14 questions) — a quick check of everything | **[Quiz](../../toolkit/paper2_quiz.qmd)** |
+
+*If there is time left over,* the remaining toolkit sessions are **[S1 statement forms](../../toolkit/s01_statement_forms.qmd)**,
+**[S4 quantifiers & negation](../../toolkit/s04_quantifiers_negation.qmd)**,
+**[S5 proof methods](../../toolkit/s05_proof_methods.qmd)** and
+**[S6 scrambled proofs](../../toolkit/s06_scrambled_proofs.qmd)** — the full list is on the
+**[Paper 2 Toolkit](../../toolkit/index.qmd)** page.
+
+::: {.callout-note appearance="simple"}
+Back to his **[hub](index.qmd)** · the two error audits: **[09/16](set_2026-09-16.qmd)** ·
+**[09/04](set_2026-09-04.qmd)**.
+:::

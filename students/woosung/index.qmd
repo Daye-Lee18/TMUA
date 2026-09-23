@@ -56,41 +56,31 @@ Scores sit at **14/20 on both papers** and the pattern is consistent:
 His weak list overlaps ~90 % with the existing clinics, so lessons should **reuse** them rather than rebuild.
 
 ::: {.callout-tip}
-## The three sessions to run next (Session 1 = Triangles, done last week ✓)
+## ▶ Next session — Paper 2 reasoning
 
-1. **Coordinate geometry — circles & the plane.** His loudest gap: on 09/04 Paper 1 the two wrong questions
-   and both flagged ones were circles/geometry (100 concentric circles, tangent lines, distances, regions).
-   → **[Coordinate geometry clinic](../../lessons/coordinate_geometry_clinic/class_material.qmd)**.
-2. **Differentiation & stationary points.** Five graded/flagged items across both 09/04 papers, all "find the
-   turning points, then reason" (Mock 2 Q1, Q14; Paper 1 tangents; 09/16 P2 Q18).
-   → **[Differentiation clinic](../../lessons/differentiation_clinic/class_material.qmd)** §2 + §4, plus the
-   **[min/max of polynomials supplement](../../lessons/differentiation_clinic/supplementary_minmax.qmd)**
-   (where a quartic actually turns, and classifying a stationary point that is *not* a turning point — the
-   idea behind his Mock 2 Q14).
-3. **Range & max–min + confirm-don't-guess.** The $y$-as-parameter method (Mock 2 Q13 rational-in-$\cos x$, Q9
-   discriminant), run as a **verify-before-committing** drill, closed with a **timed last-5-in-15-min** block.
-   → **[Range clinic](../../lessons/range_clinic/class_material.qmd)**.
+**[Open the session page →](session_paper2_reasoning.qmd)**
+
+He is at **28/40** and wants **32/40** — four marks. Almost every Paper-2 question he flagged is one of three
+ideas: **spotting the error in a proof**, **necessary vs sufficient**, and **the contrapositive**. The toolkit
+pages for all three already exist, so the session reuses **[S7](../../toolkit/s07_spot_the_error.qmd)**,
+**[S3](../../toolkit/s03_necessary_sufficient.qmd)** and **[S2](../../toolkit/s02_converse_contrapositive.qmd)**,
+anchored on his own questions.
+
+*(Session 1 = Triangles, done. The two Paper-1 clinics below stay queued behind this.)*
 :::
 
 ---
 
 ## Clinic library — in priority order
 
-Re-ordered after the **09/04 audit** by how much each costs him. **#0 Triangles is done** (last week). The
-next three (**#1–#3**) are the priority sessions; work down from there.
+Trimmed to what is actually in play. **#0 Triangles is done**; **#1–#2** are the Paper-1 clinics still to
+run. Paper 2 reasoning is the next session and has its own page below.
 
 | # | Clinic | Why — from his papers | Class material | Assignment |
 |---|---|---|---|---|
 | **✓ 0** | **Triangles — the ambiguous case** | *done last week* — P2 Q11 "educated guess" (two triangles, range of $x$) | **[Open](../../lessons/triangle_clinic/class_material.qmd)** | **[Questions](../../lessons/triangle_clinic/assignment_student.qmd)** · [MS](../../lessons/triangle_clinic/assignment_ms.qmd) |
-| **1** | **Coordinate geometry — circles & the plane** | **his loudest gap:** 09/04 P1 **B✗** (100 circles — now Q13 in the clinic), **J⚠** (tangent lines), **J′⚠** (distances); P2 Q10⚠ (regions); 09/16 P1 Q7⚠ | **[Open](../../lessons/coordinate_geometry_clinic/class_material.qmd)** — 25 | **[Questions](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** (15) · [MS](../../lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
-| **2** | **Differentiation & stationary points** | five graded/flagged: P2 **Q1⚠, Q2, Q14⚠**; P1 tangents; 09/16 P2 Q18⚠ — "turning points, then reason" | **[Open](../../lessons/differentiation_clinic/class_material.qmd)** — 9 · **[Supplement: min/max of polynomials](../../lessons/differentiation_clinic/supplementary_minmax.qmd)** | **[Questions](../../lessons/differentiation_clinic/assignment_student.qmd)** (14) · [MS](../../lessons/differentiation_clinic/assignment_ms.qmd) |
-| **3** | **Range & the $y$-parameter method** | P2 **Q13⚠** (max of rational-in-$\cos x$), **Q9⚠** (discriminant); 09/16 P1 Q2, Q18 — run as a *confirm-don't-guess* drill | **[Open](../../lessons/range_clinic/class_material.qmd)** | — |
-| **4** | **Logarithms** (+ extension) | P2 Q18⚠ (log system), Q12; P1 H, 09/16 P1 Q9 | **[Log](../../lessons/log_clinic/class_material.qmd)** · **[Log extension](../../lessons/log_extension_clinic/class_material.qmd)** (simultaneous log/exp, quadratic-in-$a^x$) | — |
-| **5** | **Floor & ceiling** | P2 **Q19✗** — $\int\lceil x\rceil2^{\lceil x\rceil}$ is a step integral, not by-parts | **[Open](../../lessons/floor_ceiling_clinic/class_material.qmd)** | — |
-| **6** | **Trigonometry** | P1 $\sin5\theta$, $\sin^2$ sums; P2 Q20 counting; 09/16 P1 Q6 ordering | **[Open](../../lessons/trig_clinic/class_material.qmd)** | **[Questions](../../lessons/trig_clinic/assignment_student.qmd)** · [MS](../../lessons/trig_clinic/assignment_ms.qmd) |
-| **7** | **Unfamiliar graphs** | P1 H′ ($\log_2$ of a trig expression); P2 symmetry & transformations | **[Concepts](../../lessons/graph_clinic/concepts.qmd)** · **[Open](../../lessons/graph_clinic/class_material.qmd)** | **[Questions](../../lessons/graph_clinic/assignment_student.qmd)** · [MS](../../lessons/graph_clinic/assignment_ms.qmd) |
-| **8** | **Paper 2 reasoning** | P2 Q1/Q5/Q11 "reached it, couldn't confirm" — necessary/sufficient, edge cases | **[Open](../../lessons/selfstudy2_paper2_reasoning/practice.qmd)** | — |
-| **9** | **Modulus** | supporting — he handled the mock modulus items; keep sharp | **[Open](../../lessons/modulus_clinic/class_material.qmd)** | **[Questions](../../lessons/modulus_clinic/assignment_student.qmd)** · [MS](../../lessons/modulus_clinic/assignment_ms.qmd) |
+| **1** | **Unfamiliar graphs** | P1 H′ ($\log_2$ of a trig expression); P2 symmetry & transformations | **[Concepts](../../lessons/graph_clinic/concepts.qmd)** · **[Open](../../lessons/graph_clinic/class_material.qmd)** | **[Questions](../../lessons/graph_clinic/assignment_student.qmd)** · [MS](../../lessons/graph_clinic/assignment_ms.qmd) |
+| **2** | **Coordinate geometry — circles & the plane** | **his loudest gap:** 09/04 P1 **B✗** (100 circles — now Q13 in the clinic), **J⚠** (tangent lines), **J′⚠** (distances); P2 Q10⚠ (regions); 09/16 P1 Q7⚠ | **[Open](../../lessons/coordinate_geometry_clinic/class_material.qmd)** — 25 | **[Questions](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** (15) · [MS](../../lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
 
 *(Bigger than any single clinic: his **pace** — last 5 questions in 15 min — and, on Paper 2, **confirming**
 an answer instead of guessing. Drill those alongside #1–#3.)*

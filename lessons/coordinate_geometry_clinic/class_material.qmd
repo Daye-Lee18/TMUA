@@ -173,6 +173,49 @@ and the line form a right-angled triangle, so $d=v\cos\theta$ where $\theta$ is 
 the horizontal. The line has gradient $m=-\dfrac{a}{b}$, and for any gradient
 $$\cos\theta=\frac{1}{\sqrt{1+m^{2}}}=\frac{1}{\sqrt{1+a^{2}/b^{2}}}=\frac{\lvert b\rvert}{\sqrt{a^{2}+b^{2}}}.$$
 
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+from matplotlib.patches import Arc
+a,b,c=3,4,-5
+P=np.array([3.0,4.0]); V=np.array([3.0,-1.0]); F=np.array([0.6,0.8])
+fig,ax=plt.subplots(figsize=(5.6,4.6))
+xs=np.linspace(-1.6,4.4,10)
+ax.plot(xs,(-a*xs-c)/b,color='#2b6cb0',lw=2.0)
+ax.annotate(r'$ax+by+c=0$',(-1.5,(-a*-1.5-c)/b),textcoords='offset points',
+            xytext=(2,-19),fontsize=9,color='#2b6cb0')
+ax.plot([V[0]-2.6,V[0]+1.1],[V[1],V[1]],color='0.65',ls=':',lw=1.1)
+ax.plot([P[0],V[0]],[P[1],V[1]],color='#2e8b57',lw=2.4)
+ax.plot([P[0],F[0]],[P[1],F[1]],color='crimson',lw=2.4)
+ax.plot([V[0],F[0]],[V[1],F[1]],color='0.35',lw=1.6)
+for Q,lab,dx,dy in [(P,'$P(x_1,y_1)$',8,6),(V,'$V$',8,-4),(F,'$F$',-20,4)]:
+    ax.plot(*Q,'o',color='black',ms=6)
+    ax.annotate(lab,Q,textcoords='offset points',xytext=(dx,dy),fontsize=10)
+ax.annotate(r'$v=5$'+'\n(vertical gap)',((P[0]+V[0])/2,(P[1]+V[1])/2),textcoords='offset points',
+            xytext=(10,-4),fontsize=9,color='#2e8b57',fontweight='bold')
+ax.annotate(r'$d=4$',((P[0]+F[0])/2,(P[1]+F[1])/2),textcoords='offset points',
+            xytext=(-34,12),fontsize=10,color='crimson',fontweight='bold')
+ax.annotate('3',((V[0]+F[0])/2,(V[1]+F[1])/2),textcoords='offset points',xytext=(4,-14),fontsize=9,color='0.35')
+u1=(P-F)/np.linalg.norm(P-F); u2=(V-F)/np.linalg.norm(V-F); sq=0.30
+ax.plot(*zip(F+u1*sq, F+u1*sq+u2*sq, F+u2*sq), color='0.35', lw=1.2)
+angPV=np.degrees(np.arctan2(*(V-P)[::-1])); angPF=np.degrees(np.arctan2(*(F-P)[::-1]))
+ax.add_patch(Arc(P,1.9,1.9,angle=0,theta1=min(angPV,angPF),theta2=max(angPV,angPF),color='crimson',lw=1.6))
+ax.annotate(r'$\theta$',(P[0]-0.55,P[1]-1.05),fontsize=12,color='crimson',fontweight='bold')
+angline=np.degrees(np.arctan2(-a,b))
+ax.add_patch(Arc(V,1.7,1.7,angle=0,theta1=180+angline,theta2=180,color='#2b6cb0',lw=1.6))
+ax.annotate(r'$\theta$',(V[0]-1.05,V[1]+0.16),fontsize=12,color='#2b6cb0',fontweight='bold')
+ax.annotate('same $\\theta$: the line tilts from the horizontal by $\\theta$,\nso the perpendicular tilts from the vertical by $\\theta$ too',
+            (-1.55,-2.45),fontsize=8.4,ha='left',color='0.25')
+ax.annotate(r'$\cos\theta=\dfrac{d}{v}=\dfrac{4}{5}=\dfrac{|b|}{\sqrt{a^2+b^2}}$',(0.5,4.45),
+            fontsize=10.5,color='crimson',ha='center',
+            bbox=dict(fc='white',ec='crimson',alpha=.9,boxstyle='round,pad=0.35'))
+ax.set_aspect('equal'); ax.grid(alpha=0.18)
+ax.set_xlim(-1.75,5.0); ax.set_ylim(-3.0,5.2)
+ax.set_title('Why $d=v\\cos\\theta$  (shown with $P(3,4)$ and $3x+4y-5=0$)',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+
+
 *Step 3 — multiply.*
 $$d=v\cos\theta=\frac{\lvert ax_1+by_1+c\rvert}{\lvert b\rvert}\cdot\frac{\lvert b\rvert}{\sqrt{a^{2}+b^{2}}}
 =\frac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^{2}+b^{2}}}.\qquad\blacksquare$$
