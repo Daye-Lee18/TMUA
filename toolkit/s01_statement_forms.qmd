@@ -985,6 +985,65 @@ Working
 
 ---
 
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q14 &nbsp;◆</span>
+
+::: {.question}
+Three lines are given by
+$$ax+by+c=0,\qquad bx+cy+a=0,\qquad cx+ay+b=0,$$
+where $a,b,c$ are non-zero reals. Which **one** of the following is correct?
+
+&nbsp;&nbsp;**A** if two of the lines are parallel, then all three are parallel.
+&nbsp;&nbsp;**B** if two of the lines are parallel, then the third is perpendicular to the other two.
+&nbsp;&nbsp;**C** if two of the lines are parallel, then the third is parallel to $y=x$.
+&nbsp;&nbsp;**D** if two of the lines are parallel, then the third is perpendicular to $y=x$.
+&nbsp;&nbsp;**E** if two of the lines are perpendicular, then all three meet at a point.
+&nbsp;&nbsp;**F** if two of the lines are perpendicular, then the third is parallel to $y=x$.
+&nbsp;&nbsp;**G** if two of the lines are perpendicular, then the third is perpendicular to $y=x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; find the invariant first)*]{style="color:#7a5195"}
+**F.** Seven options, each an implication — *do not test them one by one.* Find the one fact that is true of
+**every** such triple of lines, and all seven answers fall out of it.
+
+**The invariant.** The gradients are
+$$m_{1}=-\frac ab,\qquad m_{2}=-\frac bc,\qquad m_{3}=-\frac ca,$$
+and their product collapses:
+$$m_{1}m_{2}m_{3}=\left(-\frac ab\right)\left(-\frac bc\right)\left(-\frac ca\right)=-\frac{abc}{abc}=-1 .$$
+*Whatever $a,b,c$ are, the three gradients multiply to $-1$.*
+
+**Now read each hypothesis off the invariant.**
+
+- **If two are perpendicular** — say $m_{1}m_{2}=-1$ — then $m_{3}=\dfrac{-1}{m_{1}m_{2}}=\dfrac{-1}{-1}=1$.
+  Gradient $1$ is exactly "parallel to $y=x$". **F is true**, and **G** (which wants $m_{3}=-1$) is false.
+- **If two are parallel** — say $m_{1}=m_{2}=m$ — then $m^{2}m_{3}=-1$, so $m_{3}=-\dfrac{1}{m^{2}}$, which
+  is **always negative**. That single observation kills **C** at once (it needs $m_{3}=1>0$), and the rest
+  fail because $m_{3}$ is *not determined*: with $m=-\tfrac12$ the third gradient is $-4$, with $m=-1$ it is
+  $-1$, with $m=-2$ it is $-\tfrac14$. So the third line is sometimes parallel to the other two and sometimes
+  not (**A**), sometimes perpendicular to them and sometimes not (**B**), sometimes of gradient $-1$ and
+  sometimes not (**D**).
+- **E** claims concurrency. The three lines meet at a point exactly when
+  $\begin{vmatrix}a&b&c\\ b&c&a\\ c&a&b\end{vmatrix}=0$, i.e. when $a+b+c=0$ (or $a=b=c$) — a condition about
+  the coefficients that perpendicularity does nothing to force. *Counterexample:* $a=b=-6,\ c=6$ makes two of
+  the lines perpendicular, yet $a+b+c=-6\neq0$, so they are not concurrent. **E is false.**
+
+**The habit worth taking.** When every option is an implication with the *same* hypothesis, the question is
+really asking *"what is determined by that hypothesis?"* — so compute that one quantity and compare. Here one
+line of algebra ($m_{1}m_{2}m_{3}=-1$) decided all seven. $\;\blacksquare$
+
+*Gradients, perpendicularity and concurrency are Paper 1 material — see the
+**[coordinate geometry clinic](../lessons/coordinate_geometry_clinic/class_material.qmd)**. This question is
+a reminder that Paper 2 wraps Paper 1 content in a logical shell.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## After this session
 
 ::: {.callout-important}

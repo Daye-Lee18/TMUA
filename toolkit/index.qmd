@@ -59,11 +59,11 @@ answer checked against the official solution.
 
 | Session | Class questions | of which Part 4 |
 |---|---|---|
-| **S1** Statement forms | 11 | 4 |
+| **S1** Statement forms | 12 | 5 |
 | **S2** Converse & contrapositive | 11 | 4 |
 | **S3** Necessary & sufficient | 19 | 13 |
-| **S4** Quantifiers & negation | 13 | 6 |
-| **S5** Proof methods | 33 | 6 |
+| **S4** Quantifiers & negation | 14 | 7 |
+| **S5** Proof methods | 34 | 7 |
 | **S7** Spot the error | 20 | 10 |
 
 Questions marked **★** are ones 이우성 flagged on his own mock; **◆** marks questions from 여운주's

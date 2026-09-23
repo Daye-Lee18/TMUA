@@ -912,6 +912,56 @@ Working
 
 ---
 
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q19 &nbsp;◆</span>
+
+::: {.question}
+$f$ is a non-constant polynomial and $g(x)=x\,f''(x)$. Suppose $f(x)=0$ for exactly $M$ real values of $x$,
+and $g(x)=0$ for exactly $N$ real values of $x$. Which of the following are **possible**?
+
+&nbsp;&nbsp;**I** &nbsp; $M<N$ &nbsp;&nbsp; **II** &nbsp; $M=N$ &nbsp;&nbsp; **III** &nbsp; $M>N$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; "possible" is an $\exists$)*]{style="color:#7a5195"}
+**H — all three.**
+
+**Read the word "possible" as a quantifier.** "$M<N$ is possible" means *"**there exists** a polynomial $f$
+with $M<N$"* — so each statement is an $\exists$, and **an $\exists$ is proved by producing one example**.
+Three statements, three examples; no general theory is needed.
+
+*First note what $g=0$ means:* $g(x)=x\,f''(x)$ vanishes when $x=0$ **or** $f''(x)=0$. So $N$ counts the root
+$x=0$ together with the real roots of $f''$ — and $x=0$ is always available, which is what makes $N$ easy to
+control.
+
+| | want | take $f$ | $M$ | $g=xf''$ | $N$ |
+|---|---|---|---|---|---|
+| **I** | $M<N$ | $x^{4}+1$ | $0$ — *never zero* | $12x^{3}$ | $1$ &nbsp;($x=0$) |
+| **II** | $M=N$ | $x^{2}$ | $1$ &nbsp;($x=0$) | $2x$ | $1$ &nbsp;($x=0$) |
+| **III** | $M>N$ | $x^{4}-5x^{2}+4$ | $4$ &nbsp;($\pm1,\pm2$) | $x\left(12x^{2}-10\right)$ | $3$ &nbsp;($0,\pm\sqrt{5/6}$) |
+
+All three orderings occur, so **H**.
+
+**Why this is easier than it looks.** The instinct is to hunt for a relationship between the roots of $f$ and
+the roots of $f''$ — but there is none to find, and the question never asks for one. *It asks only whether
+each ordering can happen at all*, and one witness settles each. Compare **Question 10**: proving $\exists$
+cost one value of $x$ there, and one polynomial here.
+
+*The mirror-image trap:* had the question asked which ordering **must** hold, a single example would prove
+nothing and you would need an argument covering every $f$. **"Possible" and "always" demand opposite kinds of
+work** — read which one you were given before starting. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## After this session
 
 ::: {.callout-important}

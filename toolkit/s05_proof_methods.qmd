@@ -1,6 +1,6 @@
 ---
 title: "Toolkit S5 — Proof Methods · Class Problems"
-subtitle: "33 problems — solve fast, in three batches"
+subtitle: "34 problems — solve fast, in three batches"
 format: html
 jupyter: python3
 execute:
@@ -947,6 +947,56 @@ ax.set_title(r"increasing everywhere, but not always positive", fontsize=11)
 ax.legend(fontsize=9, loc='lower right')
 plt.tight_layout(); plt.show()
 ```
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 34 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q16 &nbsp;◆</span>
+
+::: {.question}
+A sequence is given by $u_{1}=a$, $u_{2}=b$ and $u_{n+2}=u_{n}+u_{n+1}$, where $a$ and $b$ are positive
+integers with $\gcd(a,b)=7$. Which of the following **must** be true?
+
+&nbsp;&nbsp;**I** &nbsp; $u_{2023}$ is a multiple of $7$.
+&nbsp;&nbsp;**II** &nbsp; if $u_{1}$ is not a factor of $u_{2}$, then $u_{1}$ is not a factor of $u_{n}$ for
+any $n>1$.
+&nbsp;&nbsp;**III** &nbsp; $\gcd(u_{1},u_{5})=7$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; one proof and two counterexamples)*]{style="color:#7a5195"}
+**B — I only.** *"Must be true" makes each statement a "for all $a,b$" claim, so each is settled either by a
+proof covering every case or by a single counterexample.* Here one of each, twice over.
+
+**I — true, and it needs a proof.** $\gcd(a,b)=7$ means $7$ divides **both** $a$ and $b$. A sum of two
+multiples of $7$ is a multiple of $7$, so $u_{3}=u_{1}+u_{2}$ is one; and then $u_{4}$, and so on. By
+induction every term is a multiple of $7$ — including $u_{2023}$. *(Notice how little the index matters: the
+$2023$ is decoration.)*
+
+**III — false, by counterexample.** Expanding, $u_{5}=2a+3b$, so
+$$\gcd(u_{1},u_{5})=\gcd(a,\,2a+3b)=\gcd(a,3b),$$
+which need not be $7$. **Take $a=21$, $b=7$** (indeed $\gcd=7$): the sequence is $21,7,28,35,63$, and
+$\gcd(21,63)=\mathbf{21}\neq7$. *The factor of $3$ shared by $21$ and $3b$ is what breaks it.*
+
+**II — false, by counterexample.** **Take $a=14$, $b=7$**: the sequence is $14,7,21,28,49$. Here $u_{1}=14$
+does **not** divide $u_{2}=7$, so the hypothesis holds — but $u_{4}=28$ **is** divisible by $14$, so the
+conclusion fails. *The reason is visible in $u_{4}=a+2b$: the coefficient $2$ can supply exactly the factor
+that $b$ alone was missing.*
+
+**The method, not the arithmetic.** Three statements, and the right first question for each is *"am I being
+asked to prove this for every $a,b$, or to break it with one pair?"* Statements II and III are both of the
+shape "this always happens", so **one** well-chosen pair ends each — and small multiples of $7$ are where to
+look, because they keep $\gcd(a,b)=7$ while letting an extra common factor sneak in downstream.
+$\;\blacksquare$
+:::
 
 ::: {.workspace style="min-height:5cm"}
 Working
