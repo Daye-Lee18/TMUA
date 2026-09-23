@@ -1,0 +1,506 @@
+---
+title: "Supplementary — Min/Max of Polynomials"
+subtitle: "Match the graph to the ratio: quadratics, cubics, and quartics (MM6)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**When you need this page.** Any question that gives the roots of a polynomial and asks *where* its maximum or
+minimum occurs. The useful shortcut depends on the **degree and shape of the graph**: a quadratic uses the
+midpoint, a cubic with a double root uses a $2:1$ division, and a quartic with a triple root uses a $3:1$
+division. The symmetric cubic and quartic have their own $\sqrt3$ and $\sqrt2$ patterns. Match the algebra to
+the graph first; then use the correct ratio.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM6 · Supplementary</div>
+<div class="fs-title">Min/Max of Polynomials — Exam Skim Sheet</div>
+<div class="fs-sub">Five graph shapes; five locations worth recognising.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Quadratic — midpoint
+For $f(x)=k(x-\alpha)(x-\beta)$, the graph is a parabola whose axis of symmetry lies halfway between its two
+roots:
+$$x=\frac{\alpha+\beta}{2}.$$
+
+[$\alpha\;\xrightarrow{\;1\;}\;\text{turn}\;\xrightarrow{\;1\;}\;\beta$. Remember **quadratic = $1:1$**.]{.eg}
+:::
+
+::: {.fs-card}
+### 2 · Cubic — double root + simple root
+For $f(x)=k(x-\alpha)^2(x-\beta)$, $\alpha$ is the touching point and $\beta$ is the crossing point. Apart from
+$x=\alpha$, the other stationary point is
+$$x=\frac{\alpha+2\beta}{3}.$$
+
+[$\alpha\;\xrightarrow{\;2\;}\;\text{turn}\;\xrightarrow{\;1\;}\;\beta$. From the double root, move $\tfrac23$ of the way: **$2:1$**.]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · Cubic — origin symmetry
+For $f(x)=kx(x-A)(x+A)=k(x^3-A^2x)$, the roots are $-A,0,A$ and the origin is the point of inflection.
+The two turning points lie at
+$$x=\pm\frac{A}{\sqrt3}.$$
+
+[From the centre to a root: $\lvert x_{\rm turn}\rvert:A=1:\sqrt3$. Remember **symmetric cubic = $\sqrt3$**.]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · Quartic — symmetric W
+For $f(x)=kx^2(x-p)(x+p)=k(x^4-p^2x^2)$ with $k>0$, the origin is a local maximum and the two minima lie at
+$$x=\pm\frac{p}{\sqrt2}.$$
+
+[From $0$ to $p$: $\lvert x_{\rm min}\rvert:p=1:\sqrt2$. It is $0.707p$, **not** the midpoint $0.5p$.]{.eg}
+:::
+
+::: {.fs-card}
+### 5 · Quartic — triple root + simple root
+For $f(x)=k(x-\alpha)^3(x-\beta)$, $\alpha$ is a stationary inflection, not a maximum or minimum. The only
+turning point is
+$$x=\frac{\alpha+3\beta}{4}.$$
+
+[$\alpha\;\xrightarrow{\;3\;}\;\text{turn}\;\xrightarrow{\;1\;}\;\beta$. From the triple root, move $\tfrac34$ of the way: **$3:1$**.]{.eg}
+:::
+
+::: {.fs-card}
+### 6 · One-line memory map
+
+| Shape | Location |
+|---|---|
+| quadratic: two roots | $1:1$ |
+| cubic: double + simple | $2:1$ |
+| cubic: roots $0,\pm A$ | $\pm A/\sqrt3$ |
+| quartic: symmetric W | $\pm p/\sqrt2$ |
+| quartic: triple + simple | $3:1$ |
+
+[Repeated-root ladder: **degree 2 → $1:1$; degree 3 → $2:1$; degree 4 → $3:1$**.]{.eg}
+:::
+
+::::
+
+:::::
+
+**Match each formula to its graph.** Red dots are maxima or minima; the hollow green dot is a stationary
+inflection. Under each curve the root-to-root gap is marked with the **ratio** the turning point splits it in —
+that is the number to memorise.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+r2, r3 = np.sqrt(2), np.sqrt(3)
+# title, f, x-range, roots, turning points, stationary inflections, ratio bar (A,B,T,left,right,whole)
+cases = [
+ ("Quadratic  ·  1 : 1", lambda x:(x+2)*(x-2), (-3.2,3.2), [-2,2], [(0,-4)], [],
+  (-2,2,0,"1","1",None)),
+ ("Cubic, double + simple  ·  2 : 1", lambda x:(x+2)**2*(x-2), (-3.2,3.0), [-2,2],
+  [(-2,0),(2/3,-256/27)], [], (-2,2,2/3,"2","1",None)),
+ ("Symmetric cubic  ·  1 : \u221a3", lambda x:x*(x**2-9), (-3.8,3.8), [-3,0,3],
+  [(-r3,6*r3),(r3,-6*r3)], [], (0,3,r3,"1",None,"\u221a3")),
+ ("Symmetric quartic (W)  ·  1 : \u221a2", lambda x:x**2*(x**2-16), (-4.8,4.8), [-4,0,4],
+  [(0,0),(-2*r2,-64),(2*r2,-64)], [], (0,4,2*r2,"1",None,"\u221a2")),
+ ("Quartic, triple + simple  ·  3 : 1", lambda x:(x+2)**3*(x-2), (-3.1,2.7), [-2,2],
+  [(1,-27)], [(-2,0)], (-2,2,1,"3","1",None)),
+]
+fig, axes = plt.subplots(len(cases),1,figsize=(5.6,14.4))
+for ax,(title,fn,(lo,hi),roots,turns,infls,bar) in zip(axes,cases):
+    x=np.linspace(lo,hi,800); y=fn(x)
+    ax.plot(x,y,color='#2b6cb0',lw=2.0)
+    ax.axhline(0,color='0.55',lw=.9)
+    for r in roots: ax.plot(r,0,'s',color='black',ms=5)
+    for tx,ty in turns: ax.plot(tx,ty,'o',color='crimson',ms=7)
+    for ix,iy in infls: ax.plot(ix,iy,'o',mfc='white',mec='green',mew=2.2,ms=10)
+    ylo,yhi=y.min(),y.max(); span=yhi-ylo; ybar=ylo-0.20*span
+    A,B,T,lab_l,lab_r,lab_w=bar
+    ax.plot([A,B],[ybar,ybar],color='0.35',lw=1.2)
+    for xv in (A,B,T):
+        ax.plot([xv,xv],[ybar-0.035*span,ybar+0.035*span],color='0.35',lw=1.2)
+    ax.plot([T,T],[ybar,0],color='0.65',lw=.8,ls=':')
+    ax.annotate(lab_l,((A+T)/2,ybar),textcoords='offset points',xytext=(0,6),
+                ha='center',fontsize=10,color='crimson',fontweight='bold')
+    if lab_r:
+        ax.annotate(lab_r,((T+B)/2,ybar),textcoords='offset points',xytext=(0,6),
+                    ha='center',fontsize=10,color='crimson',fontweight='bold')
+    if lab_w:
+        ax.plot([A,B],[ybar-0.14*span,ybar-0.14*span],color='0.35',lw=1.2)
+        for xv in (A,B):
+            ax.plot([xv,xv],[ybar-0.175*span,ybar-0.105*span],color='0.35',lw=1.2)
+        ax.annotate(lab_w,((A+B)/2,ybar-0.14*span),textcoords='offset points',xytext=(0,-16),
+                    ha='center',fontsize=10,color='crimson',fontweight='bold')
+    ax.set_ylim(ybar-0.32*span, yhi+0.14*span)
+    ax.set_title(title,fontsize=10,fontweight='bold')
+    ax.set_xticks([]); ax.set_yticks([]); ax.grid(alpha=.15)
+fig.suptitle('\u25a0 roots   \u25cf turning point   \u25cb stationary inflection\nred numbers = how the root-to-root gap splits',
+             fontsize=10, y=0.997)
+plt.tight_layout(rect=[0,0,1,0.985]); plt.show()
+```
+
+---
+
+# 1 · Finding the turning points
+
+### Question 1
+
+::: {.question}
+Find the coordinates of all the turning points of $y=x^4-8x^2$, and say which is a maximum and which are
+minima. *(Give exact coordinates.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Route A — differentiate and factor out the $x$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $f'(x)=0$, then classify with $f''$
+:::
+
+**Answer form: exact coordinates. Answer: maximum $(0,0)$; minima $(-2,-16)$ and $(2,-16)$.**
+
+*Differentiate and factor completely — the factor of $x$ gives the stationary point at the origin.*
+$$\frac{dy}{dx}=4x^3-16x=4x\bigl(x^2-4\bigr)=0\ \Rightarrow\ x=0,\ \pm2.$$
+*Evaluate:* $y(0)=0$ and $y(\pm2)=16-32=-16$. *Classify with $y''=12x^2-16$:* $y''(0)=-16<0$ → **maximum**;
+$y''(\pm2)=32>0$ → **minima**.
+
+*Cross-check with card 4:* here $p^2=8$, so the minima should be at $x=\pm\dfrac{p}{\sqrt2}=\pm\dfrac{2\sqrt2}{\sqrt2}=\pm2$ ✓
+and the minimum value $-\dfrac{p^4}{4}=-\dfrac{64}{4}=-16$ ✓.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+Find the minimum value of $x^4-10x^2+9$ and the values of $x$ at which it occurs, **without differentiating**.
+*(Give exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Route B — it is a quadratic in $t=x^2$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — substitute $t=x^2\ge0$ and complete the square
+:::
+
+**Answer form: exact values. Answer: minimum $-16$, at $x=\pm\sqrt5$.**
+
+*Put $t=x^2$ (so $t\ge0$) — the expression is a quadratic in $t$.*
+$$t^2-10t+9=(t-5)^2-16.$$
+*The square is smallest when $t=5$, which is allowed since $5\ge0$,* giving the minimum value $-16$. Then
+$x^2=5$, so $x=\pm\sqrt5$.
+
+*(Check by differentiating: $y'=4x^3-20x=4x(x^2-5)$ gives $x=0,\pm\sqrt5$; $y(\pm\sqrt5)=25-50+9=-16$, and
+$y(0)=9$ is the local maximum.)*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+# 2 · The trap — it is not the midpoint
+
+### Question 3
+
+::: {.question}
+The curve $y=x^2\bigl(x^2-36\bigr)$ meets the $x$-axis at $x=0$ and $x=\pm6$. A student says "the roots either
+side are $0$ and $6$, so the minimum between them is at $x=3$."
+
+&nbsp;&nbsp;(a) Find the actual $x$-coordinate of that minimum, and the minimum value.
+&nbsp;&nbsp;(b) Explain in one sentence why the student's reasoning fails.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the quartic turns at $1/\sqrt2$ of the root, not at half)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a quartic's turning point is **not** the midpoint of its roots
+:::
+
+**Answer form: exact values + a reason. Answer: (a) $x=3\sqrt2$, minimum $-324$. (b) Halving the roots is a
+*quadratic* property; a quartic turns at $\dfrac{1}{\sqrt2}$ of the root.**
+
+**(a)** Expand: $y=x^4-36x^2$, so $p^2=36$ and $p=6$.
+$$\frac{dy}{dx}=4x^3-72x=4x\bigl(x^2-18\bigr)=0\ \Rightarrow\ x=0,\ \pm3\sqrt2.$$
+So the minimum in $0<x<6$ is at $x=3\sqrt2\approx4.24$ — exactly $\dfrac{p}{\sqrt2}$. Its value is
+$y=(3\sqrt2)^4-36(3\sqrt2)^2=324-648=-324$, matching $-\dfrac{p^4}{4}=-\dfrac{1296}{4}$.
+
+**(b)** *A parabola is symmetric about the midpoint of its roots, so halving works there. This curve is a
+quartic: it is symmetric about the $y$-axis, not about the midpoint of $0$ and $6$, so the dip sits further
+out — at $0.707p$ rather than $0.5p$.* (At the student's $x=3$, $y=-243$, which is **not** the minimum.)
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,6.6,400); y=x**4-36*x**2
+plt.figure(figsize=(4.8,2.9))
+plt.plot(x,y,color='#2b6cb0',lw=1.7)
+plt.plot(3*np.sqrt(2),-324,'o',color='crimson',ms=6)
+plt.plot(3,-243,'x',color='green',ms=9,mew=2)
+plt.annotate('true min  x = 3√2 ≈ 4.24\ny = −324',(3*np.sqrt(2),-324),
+             textcoords='offset points',xytext=(8,14),fontsize=8,color='crimson')
+plt.annotate("student's x = 3\ny = −243",(3,-243),textcoords='offset points',
+             xytext=(-70,10),fontsize=8,color='green')
+plt.axhline(0,color='0.6',lw=.8)
+plt.title('Only the right-hand half, so the gap is visible',fontsize=8)
+plt.grid(alpha=0.2); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# 3 · Working backwards from the minimum value
+
+### Question 4
+
+::: {.question}
+The minimum value of $x^4-p^2x^2$ is $-\dfrac{81}{4}$, where $p$ is real and non-zero. Find $p^2$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(complete the square, then set the minimum equal to the given value)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — minimum $=-\dfrac{p^4}{4}$, so read $p^4$ straight off
+:::
+
+**Answer form: an exact number. Answer: $p^2=9$.**
+
+*From completing the square, the minimum value is $-\dfrac{p^4}{4}$.* Setting this equal to $-\dfrac{81}{4}$:
+$$-\frac{p^4}{4}=-\frac{81}{4}\ \Rightarrow\ p^4=81\ \Rightarrow\ p^2=9$$
+(taking the positive root, since $p^2\ge0$; $p=\pm3$, but only $p^2$ was asked for).
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 5 · the anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q12</span>
+
+::: {.question}
+The minimum value of the function $x^4-p^2x^2$ is $-9$, where $p$ is a real number. Find the minimum value of
+the function $x^2-px+6$. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(two minimisations — the quartic hands you $p^2$, the quadratic uses it)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — minimum of the quartic gives $p^2$; then the quadratic's minimum is $6-\dfrac{p^2}{4}$
+:::
+
+**Answer form: an exact value. Answer: $\dfrac92$.**
+
+*First half — the quartic.* Its minimum is $-\dfrac{p^4}{4}$, so
+$-\dfrac{p^4}{4}=-9\Rightarrow p^4=36\Rightarrow p^2=6$.
+
+*Second half — the quadratic.* $x^2-px+6$ opens upward and turns at $x=\dfrac{p}{2}$, with minimum value
+$$6-\frac{p^2}{4}=6-\frac{6}{4}=\frac{9}{2}.$$
+*Notice you never needed $p$ itself — only $p^2$. That is why the answer is the same for $p=\sqrt6$ and
+$p=-\sqrt6$, even though the turning point sits at $x=\pm\dfrac{\sqrt6}{2}$ accordingly.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# 4 · The general form
+
+### Question 6
+
+::: {.question}
+For the curve $y=x^4-2kx^2$ with $k>0$, show that the minima occur at $x=\pm\sqrt{k}$ and that the minimum
+value is $-k^2$. Hence state the minima of $y=x^4-2kx^2$ when $k=5$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(same quartic, written with a different parameter)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — match $2k=p^2$ and reuse card 4
+:::
+
+**Answer form: a proof + exact coordinates. Answer: minima at $x=\pm\sqrt k$, value $-k^2$; for $k=5$, the
+minima are $\bigl(\pm\sqrt5,\,-25\bigr)$.**
+
+*Differentiate and factor:*
+$$\frac{dy}{dx}=4x^3-4kx=4x\bigl(x^2-k\bigr)=0\ \Rightarrow\ x=0,\ \pm\sqrt k\quad(k>0).$$
+*At $x=\pm\sqrt k$:* $y=k^2-2k\cdot k=-k^2$, and $y''=12x^2-4k=8k>0$ there, so these are **minima** (while
+$x=0$ gives $y''=-4k<0$, the local maximum).
+
+*Consistency with card 4:* comparing $x^4-2kx^2$ with $x^4-p^2x^2$ gives $p^2=2k$, so
+$\pm\dfrac{p}{\sqrt2}=\pm\sqrt{\dfrac{p^2}{2}}=\pm\sqrt k$ ✓ and $-\dfrac{p^4}{4}=-\dfrac{(2k)^2}{4}=-k^2$ ✓.
+
+For $k=5$: minima at $x=\pm\sqrt5$ with $y=-25$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# 5 · Reading a quartic from its roots
+
+::: {.callout-tip}
+## Multiplicity decides the shape — and the number of turning points
+
+At a root of multiplicity $m$, the curve behaves locally like $x^m$:
+
+| $m$ | At that root the curve… | Is it a turning point? |
+|---|---|---|
+| **1** (simple) | **crosses** straight through, at an angle | no |
+| **2** (double) | **touches** and turns back — the axis is a tangent | **yes** |
+| **3** (triple) | **crosses**, but flattens out as it does | **no** — a *stationary inflection* |
+| **4** (quadruple) | **touches**, very flat | **yes** |
+
+**Odd multiplicity → crosses. Even multiplicity → touches.** Any root with $m\ge2$ is also a **stationary**
+point, but a **triple** root is the odd one out: it is stationary *without* being a turning point.
+
+A quartic's derivative is a cubic, so it has **3 or 1** turning points. You lose turning points exactly when
+$f'$ picks up a **repeated** root — which is what happens at a triple root of $f$.
+:::
+
+**All six cases at a glance** (positive leading coefficient; red dots are turning points, the hollow dot is a
+stationary inflection):
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt, sympy as sp
+X=sp.symbols('X')
+cases=[("4 distinct roots\n$x(x-1)(x-2)(x-3)$", X*(X-1)*(X-2)*(X-3), (-0.6,3.6)),
+       ("double + two simple\n$(x+1)x^2(x-2)$",  (X+1)*X**2*(X-2),    (-1.5,2.6)),
+       ("two double roots\n$x^2(x-2)^2$",        X**2*(X-2)**2,       (-0.8,2.8)),
+       ("TRIPLE + simple\n$x^3(x-2)$",           X**3*(X-2),          (-0.9,2.5)),
+       ("quadruple root\n$(x-1)^4$",             (X-1)**4,            (-0.3,2.3)),
+       ("2 real + 2 complex\n$(x^2+1)(x^2-4)$",  (X**2+1)*(X**2-4),   (-2.6,2.6))]
+fig,ax=plt.subplots(3,2,figsize=(7.4,8.2))
+for a,(title,expr,(lo,hi)) in zip(ax.ravel(),cases):
+    fn=sp.lambdify(X,sp.expand(expr),'numpy')
+    xs=np.linspace(lo,hi,600); ys=fn(xs)
+    a.plot(xs,ys,color='#2b6cb0',lw=1.8)
+    a.axhline(0,color='0.55',lw=.9)
+    d=sp.diff(sp.expand(expr),X)
+    for st in sp.solve(d,X):
+        if not st.is_real: continue
+        L=d.subs(X,st-sp.Rational(1,100)); R=d.subs(X,st+sp.Rational(1,100))
+        xv,yv=float(st),float(sp.expand(expr).subs(X,st))
+        if sp.sign(L)!=sp.sign(R): a.plot(xv,yv,'o',color='crimson',ms=6)          # turning point
+        else: a.plot(xv,yv,'o',mfc='none',mec='green',mew=2,ms=9)                  # stationary inflection
+    for r,m in sp.roots(sp.Poly(sp.expand(expr),X)).items():
+        if r.is_real: a.plot(float(r),0,'ks',ms=4)
+    a.set_title(title,fontsize=9); a.grid(alpha=0.2)
+    a.set_xticks([]); a.set_yticks([])
+plt.tight_layout(); plt.show()
+```
+
+*Look at the fourth panel: at $x=0$ the curve **passes through** the axis while flattening — that is the triple
+root. It is a stationary point, but the curve keeps going down, so it is **not** a minimum. The only turning
+point of that quartic is the minimum further right.*
+
+---
+
+### Question 7
+
+::: {.question}
+For each curve, state (i) where it meets the $x$-axis and whether it **crosses** or **touches** there, and
+(ii) how many **turning points** it has.
+
+&nbsp;&nbsp;(a) $y=x^2(x-3)^2$ &nbsp;&nbsp;&nbsp; (b) $y=x^3(x+1)$ &nbsp;&nbsp;&nbsp; (c) $y=(x-2)^4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(read the multiplicity off each bracket)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — odd multiplicity crosses, even touches; a triple root is stationary but **not** a turning point
+:::
+
+**Answer form: crossing behaviour + a count.**
+
+**(a) $x^2(x-3)^2$** — double roots at $x=0$ and $x=3$, so it **touches** at both. Turning points: **3**
+(minimum at $0$, maximum at $x=\tfrac32$ with $y=\tfrac{81}{16}$, minimum at $3$).
+
+**(b) $x^3(x+1)$** — a **triple** root at $x=0$ and a simple root at $x=-1$, so it **crosses at both** (but
+flattens at $0$). $y'=x^2(4x+3)$, so $x=0$ is a stationary **inflection** and $x=-\tfrac34$ is a minimum
+($y=-\tfrac{27}{256}$). Turning points: **1**.
+
+**(c) $(x-2)^4$** — a quadruple root at $x=2$, so it **touches**, very flat. Turning points: **1** (the
+minimum at $x=2$).
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+The curve is $y=x^3(x-2)$.
+&nbsp;&nbsp;(a) Find its stationary points and classify each one.
+&nbsp;&nbsp;(b) Explain why a quartic can have only **one** turning point.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a repeated root of $f'$ is a stationary point that does not turn)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $f'$ must **change sign** for a turning point; a repeated root of $f'$ gives an inflection instead
+:::
+
+**Answer form: coordinates + classification, then a reason. Answer: stationary inflection at $(0,0)$;
+minimum at $\left(\tfrac32,-\tfrac{27}{16}\right)$ — one turning point.**
+
+**(a)** Expand to $y=x^4-2x^3$ and differentiate:
+$$\frac{dy}{dx}=4x^3-6x^2=2x^2\bigl(2x-3\bigr).$$
+*The factor $x^2$ is a **repeated** root of $y'$, so $y'$ does not change sign at $x=0$* — just to the left and
+just to the right, $2x^2>0$ while $2x-3<0$, so $y'<0$ on **both** sides. Hence $(0,0)$ is a **stationary point
+of inflection**, not a turning point. At $x=\tfrac32$, $y'$ changes from $-$ to $+$, so that is a **minimum**,
+with $y=\left(\tfrac32\right)^3\left(\tfrac32-2\right)=-\tfrac{27}{16}$.
+
+**(b)** *A quartic's derivative is a cubic, which has three roots counted with multiplicity. Only roots where
+$y'$ **changes sign** are turning points — so if $y'$ has a repeated root (here a double root at $x=0$, coming
+from the triple root of $y$), that stationary point is an inflection and the count drops from three to one.*
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+:::

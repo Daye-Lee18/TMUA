@@ -1,0 +1,834 @@
+---
+title: "Modulus Clinic 2 — Advanced"
+subtitle: "The hard modulus types: extreme values, areas, nested brackets & parameters"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Clinic 1 built the basic moves; this one is the **hard** modulus material — greatest/least values on a
+region, areas enclosed by V-shapes, modulus integrals, nested brackets, and "exactly $n$ solutions" parameter
+questions. The same two moves still run everything: **split at the sign-change point, or square to remove the
+bars** — the skill now is *organising* the cases and *reading the graph*.
+
+::: {.callout-tip}
+## How to attack the advanced types
+
+| The question asks for… | The move | §|
+|---|---|---|
+| greatest/least $\lvert x+y\rvert$ or $\lvert xy\rvert$ on a region | evaluate at the **corners** of the region | §1 |
+| solve/count $\lvert\dots\rvert=$ or $<$ a quadratic | **square** (if both sides $\ge0$) or **case-split** by branch | §2 |
+| minimise $\sum\lvert x-a_i\rvert$ | sit $x$ between the two **middle** points (median) | §3 |
+| area enclosed by V/Λ modulus graphs | find the corners → a **kite**; area $\tfrac12 d_1 d_2$ | §4 |
+| a modulus **integral** | split at every corner; integrate each piece with its sign | §5 |
+| solve/count a **nested** modulus | peel from the **outside**: $\lvert A\rvert=k\Rightarrow A=\pm k$ | §6 |
+| **exactly $n$ solutions** for a parameter | **graph** the modulus, slide the line/level; count at vertices & tangents | §7 |
+:::
+
+**On this page:** 1. Greatest/least value on a region · 2. Modulus vs a quadratic · 3. Sum of distances ·
+4. Areas of modulus graphs · 5. Modulus integrals · 6. Nested moduli · 7. Parameters & "exactly $n$ solutions"
+
+---
+
+## 1 · Greatest / least value on a region
+
+::: {.callout-tip}
+## Concept — the extreme sits at a corner
+
+Two modulus (or modulus-and-curve) constraints carve out a **bounded region**. A quantity like $\lvert
+x+y\rvert$ or $\lvert xy\rvert$ reaches its greatest value at a **corner** of that region — so find the corners
+(intersections of the boundaries) and test each.
+:::
+
+### Question 1
+
+::: {.question}
+$x,y$ satisfy $\;\lvert3-2x\rvert\le7\;$ and $\;\lvert y+3\rvert\le6$. What is the greatest possible value of
+$\lvert x+y\rvert$? &nbsp;&nbsp;**A** $7$ &nbsp; **B** $8$ &nbsp; **C** $11$ &nbsp; **D** $14$ &nbsp;
+**E** no greatest value
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(greatest $\lvert x+y\rvert$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — turn each modulus band into a range, then push to the extreme corner
+:::
+
+**Answer: C ($11$).**
+
+**Step 1 — unfold each band.** $\lvert3-2x\rvert\le7\Rightarrow-7\le3-2x\le7\Rightarrow-2\le x\le5$. And
+$\lvert y+3\rvert\le6\Rightarrow-9\le y\le3$.
+
+**Step 2 — extremes of $x+y$.** The smallest $x+y$ is $(-2)+(-9)=-11$; the largest is $5+3=8$.
+
+**Step 3 — take the modulus.** $\lvert x+y\rvert$ is largest at the **more extreme** end: $\lvert-11\rvert=11$
+beats $\lvert8\rvert=8$. So the greatest is $\mathbf{11}$.
+
+**Where the wrong options come from.** Taking only the "top" corner $5+3=8$ (option B) misses that the
+**bottom** corner has larger *modulus*.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+$x,y$ satisfy $\;\lvert y-x\rvert\le2\;$ and $\;y\le4-x^{2}$. What is the greatest possible value of $\lvert
+xy\rvert$? &nbsp;&nbsp;**A** $3$ &nbsp; **B** $4$ &nbsp; **C** $8$ &nbsp; **D** $15$ &nbsp; **E** $16$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(greatest $\lvert xy\rvert$ on a curved region)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — corners are where the boundary lines meet the parabola
+:::
+
+**Answer: D ($15$).**
+
+**Step 1 — the boundaries.** $\lvert y-x\rvert\le2$ is the band $x-2\le y\le x+2$; together with $y\le4-x^{2}$
+the region is bounded by the two lines and the parabola.
+
+**Step 2 — the corners** (line meets parabola):
+
+- $y=x+2=4-x^{2}\Rightarrow x^{2}+x-2=0\Rightarrow x=1,-2$, giving $(1,3),(-2,0)$.
+- $y=x-2=4-x^{2}\Rightarrow x^{2}+x-6=0\Rightarrow x=2,-3$, giving $(2,0),(-3,-5)$.
+
+**Step 3 — test $\lvert xy\rvert$.** $(1,3)\!\to\!3$, $(-2,0)\!\to\!0$, $(2,0)\!\to\!0$, $(-3,-5)\!\to\!15$.
+Greatest is $\mathbf{15}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3.5,2.5,400)
+plt.figure(figsize=(4.8,3.4))
+plt.plot(x,4-x**2,color='#2b6cb0',label='y=4−x²')
+plt.plot(x,x+2,color='#dd6b20',lw=1,label='y=x+2'); plt.plot(x,x-2,color='#2ca02c',lw=1,label='y=x−2')
+for px,py in [(1,3),(-2,0),(2,0),(-3,-5)]: plt.plot(px,py,'o',color='crimson')
+plt.annotate('(−3,−5): |xy|=15',(-3,-5),textcoords='offset points',xytext=(6,-4),fontsize=8,color='crimson')
+plt.ylim(-7,5); plt.grid(alpha=0.25); plt.legend(fontsize=7)
+plt.title('corners of the region; test |xy| at each',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 2 · Modulus vs a quadratic
+
+::: {.callout-tip}
+## Concept — square when you can, case-split when you must
+
+- $\lvert A\rvert=\lvert B\rvert\iff A^{2}=B^{2}$; $\;\lvert A\rvert<\lvert B\rvert\iff A^{2}<B^{2}$.
+- When only **one** side is a modulus (e.g. $\lvert x^{2}-4\rvert<4-2x$), split into the two cases of the
+  inside's sign — and remember $4-2x$ must be $>0$ for a modulus to be less than it.
+- To **count** solutions of a modulus $=$ a polynomial, split into branches, solve each quadratic/cubic, and
+  **keep only the roots that lie in that branch**.
+:::
+
+### Question 3
+
+::: {.question}
+Find the set of $x$ with $\;\lvert x^{2}-4\rvert<4-2x$. &nbsp;&nbsp;**A** $-4<x<-2$ &nbsp; **B** $-4<x<0$
+&nbsp; **C** $-4<x<2$ &nbsp; **D** $-2<x<0$ &nbsp; **E** $0<x<2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a modulus-quadratic inequality)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split by the sign of $x^{2}-4$; keep each branch's valid part
+:::
+
+**Answer: B ($-4<x<0$).**
+
+**Step 1 — where $x^{2}-4\ge0$** (i.e. $x\le-2$ or $x\ge2$): $\lvert x^{2}-4\rvert=x^{2}-4$, so
+$x^{2}-4<4-2x\Rightarrow x^{2}+2x-8<0\Rightarrow(x+4)(x-2)<0\Rightarrow-4<x<2$. Intersect with $x\le-2$ or
+$x\ge2$: gives $\mathbf{-4<x\le-2}$.
+
+**Step 2 — where $x^{2}-4<0$** (i.e. $-2<x<2$): $\lvert x^{2}-4\rvert=4-x^{2}$, so
+$4-x^{2}<4-2x\Rightarrow-x^{2}+2x<0\Rightarrow x(x-2)>0\Rightarrow x<0$ or $x>2$. Intersect with $-2<x<2$:
+gives $\mathbf{-2<x<0}$.
+
+**Step 3 — combine.** $(-4,-2]\cup(-2,0)=(-4,0)$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+What is the product of the solutions of $\;4-\lvert x\rvert=\lvert4x+8\rvert$? &nbsp;&nbsp;**A** $\tfrac{16}
+{15}$ &nbsp; **B** $\tfrac{48}{25}$ &nbsp; **C** $\tfrac{16}5$ &nbsp; **D** $4$ &nbsp; **E** $\tfrac{16}3$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(product of solutions of $\lvert A\rvert=\lvert B\rvert$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lvert A\rvert=\lvert B\rvert$ splits into $A=B$ and $A=-B$
+:::
+
+**Answer: C ($\tfrac{16}5$).** Split by the sign of each inside; keep only roots that fit their region.
+
+**Step 1 — $4x+8\ge0$, i.e. $x\ge-2$** (so $\lvert4x+8\rvert=4x+8$). A quick look shows any solution here is
+negative, so $\lvert x\rvert=-x$ and $4-\lvert x\rvert=4+x$:
+$$4+x=4x+8\Rightarrow 3x=-4\Rightarrow x=-\tfrac43\quad(\ge-2\ \checkmark).$$
+
+**Step 2 — $4x+8<0$, i.e. $x<-2$** (so $\lvert4x+8\rvert=-4x-8$, and $x<0$ gives $4-\lvert x\rvert=4+x$):
+$$4+x=-4x-8\Rightarrow 5x=-12\Rightarrow x=-\tfrac{12}5\quad(<-2\ \checkmark).$$
+
+**Step 3 — product.** $\left(-\tfrac43\right)\left(-\tfrac{12}5\right)=\tfrac{48}{15}=\tfrac{16}5.$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,2,400)
+plt.figure(figsize=(4.8,3.0))
+plt.plot(x,4-np.abs(x),color='#2b6cb0',label='y=4−|x|')
+plt.plot(x,np.abs(4*x+8),color='#dd6b20',label='y=|4x+8|')
+for r in (-4/3,-12/5): plt.plot(r,4-abs(r),'o',color='crimson')
+plt.ylim(-1,8); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('two crossings at x=−4/3 and x=−12/5',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+How many solutions does $\;\lvert x^{3}\rvert+\lvert x-2\rvert=\lvert4x\rvert$ have? &nbsp;&nbsp;**A** $0$
+&nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $3$ &nbsp; **E** $4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(count solutions of a mixed equation)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split into $x\ge0$ / $x<0$, factor, keep in-branch roots
+:::
+
+**Answer: D ($3$).** Note $\lvert x^{3}\rvert=\lvert x\rvert^{3}$, so the sign only depends on $x$ and on
+$x-2$.
+
+**Step 1 — $0\le x<2$:** $x^{3}+(2-x)=4x\Rightarrow x^{3}-5x+2=0$. Testing, $x=2$ is out of range; factoring
+gives a root $x=-1+\sqrt2\approx0.41$ (in range) — **1 root**.
+
+**Step 2 — $x\ge2$:** $x^{3}+(x-2)=4x\Rightarrow x^{3}-3x-2=0=(x+1)(x-2)(x+1)$… the only root $\ge2$ is
+$x=2$ — **1 root**.
+
+**Step 3 — $x<0$:** $-x^{3}+(2-x)=-4x\Rightarrow x^{3}-3x-2=0=(x-2)(x+1)^{2}$; the root in range is $x=-1$
+— **1 root**.
+
+Three solutions in all: $x=-1,\ -1+\sqrt2,\ 2$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 3 · Sum of distances — the median principle
+
+::: {.callout-tip}
+## Concept — stand between the two middle points
+
+$\sum_i\lvert x-a_i\rvert$ is the total distance from $x$ to the points $a_i$. It is **smallest when $x$ lies
+between the two middle points** (any median position). For an even count, the minimum equals the sum of the
+**paired gaps** from the outside in: $(a_{\max}-a_{\min})+(a_{2}-a_{n-1})+\dots$
+:::
+
+### Question 6
+
+::: {.question}
+What is the minimum value of $\;\lvert x+1\rvert+\lvert x-1\rvert+\lvert x-2\rvert+\lvert x-4\rvert$?
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $2$ &nbsp; **C** $4$ &nbsp; **D** $6$ &nbsp; **E** $8$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(minimise a sum of four distances)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — median position; add the paired gaps
+:::
+
+**Answer: D ($6$).**
+
+The four points are $-1,1,2,4$. The sum of distances is least for any $x$ **between the two middle points**
+$1$ and $2$. Pair from the outside in: the outer gap $4-(-1)=5$ plus the inner gap $2-1=1$, giving
+$5+1=\mathbf6$. *(Check at $x=1.5$: $2.5+0.5+0.5+2.5=6$.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,6,400); f=np.abs(x+1)+np.abs(x-1)+np.abs(x-2)+np.abs(x-4)
+plt.figure(figsize=(4.8,3.0)); plt.plot(x,f,color='#2b6cb0',lw=2)
+plt.axhspan(6,6.0,color='crimson'); plt.plot([1,2],[6,6],color='crimson',lw=4,solid_capstyle='butt')
+plt.annotate('flat minimum 6 on [1,2]',(1.5,6),textcoords='offset points',xytext=(6,8),fontsize=8,color='crimson')
+plt.grid(alpha=0.25); plt.title('minimum where x is between the middle points',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 4 · Areas enclosed by modulus graphs
+
+::: {.callout-tip}
+## Concept — two V's make a kite
+
+$y=\lvert\dots\rvert$ is a **V** (opens up) and $y=c-\lvert\dots\rvert$ is a **Λ** (opens down). Where they
+enclose a region it is a **kite / rhombus**, and its area is $\tfrac12 d_1 d_2$ (half the product of the
+diagonals). When a curve like $x^{2}-2\lvert x\rvert-8$ is involved, integrate — using **symmetry** in
+$\lvert x\rvert$ to do one side and double.
+:::
+
+### Question 7
+
+::: {.question}
+Find the area between $\;y=2\lvert x+1\rvert\;$ and $\;y=6-2\lvert x+1\rvert$. &nbsp;&nbsp;**A** $\sqrt5$
+&nbsp; **B** $6$ &nbsp; **C** $3\sqrt5$ &nbsp; **D** $9$ &nbsp; **E** $6\sqrt5$ &nbsp; **F** $18$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(area between two V-shapes)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a V and a Λ enclose a kite; use $\tfrac12 d_1 d_2$
+:::
+
+**Answer: D ($9$).**
+
+**Step 1 — the two shapes.** $y=2\lvert x+1\rvert$ is a V with vertex $(-1,0)$; $y=6-2\lvert x+1\rvert$ is a Λ
+with peak $(-1,6)$.
+
+**Step 2 — where they meet.** $2\lvert x+1\rvert=6-2\lvert x+1\rvert\Rightarrow\lvert x+1\rvert=\tfrac32
+\Rightarrow x=\tfrac12$ or $x=-\tfrac52$, both at height $y=3$.
+
+**Step 3 — kite area.** The vertices are $(-1,0),(\tfrac12,3),(-1,6),(-\tfrac52,3)$: a kite with vertical
+diagonal $6$ and horizontal diagonal $3$. Area $=\tfrac12\cdot6\cdot3=9$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,2,400)
+plt.figure(figsize=(4.4,3.2))
+plt.plot(x,2*np.abs(x+1),color='#2b6cb0',label='y=2|x+1|')
+plt.plot(x,6-2*np.abs(x+1),color='#dd6b20',label='y=6−2|x+1|')
+V=np.array([[-1,0],[0.5,3],[-1,6],[-2.5,3],[-1,0]]); plt.fill(V[:,0],V[:,1],color='#2ca02c',alpha=0.12)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.title('kite: diagonals 6 and 3 → area 9',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+The curves $y=k\lvert x\rvert-3$ and $y=-\tfrac1k\lvert x\rvert+2$ enclose a finite area. What is the **sum**
+of the values of $k$ giving an area of $10$? &nbsp;&nbsp;**A** $2$ &nbsp; **B** $\tfrac52$ &nbsp; **C** $3$
+&nbsp; **D** $\tfrac{10}3$ &nbsp; **E** $5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a parameter that fixes the area)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — write the kite area in terms of $k$, set it to $10$, sum the roots
+:::
+
+**Answer: B ($\tfrac52$).**
+
+**Step 1 — the kite.** The V $y=k\lvert x\rvert-3$ (vertex $(0,-3)$) and the Λ $y=-\tfrac1k\lvert x\rvert+2$
+(vertex $(0,2)$) meet where $k\lvert x\rvert-3=-\tfrac1k\lvert x\rvert+2$, i.e. $\lvert x\rvert\left(k+\tfrac1k
+\right)=5$, so $\lvert x\rvert=\dfrac{5k}{k^{2}+1}$.
+
+**Step 2 — area.** Vertical diagonal $=2-(-3)=5$; horizontal diagonal $=2\lvert x\rvert=\dfrac{10k}{k^{2}+1}$.
+Area $=\tfrac12\cdot5\cdot\dfrac{10k}{k^{2}+1}=\dfrac{25k}{k^{2}+1}$.
+
+**Step 3 — set $=10$ and use the sum of roots.** $\dfrac{25k}{k^{2}+1}=10\Rightarrow10k^{2}-25k+10=0
+\Rightarrow2k^{2}-5k+2=0$. The two roots ($k=\tfrac12,2$) sum to $\dfrac52$ (sum of roots $=-\tfrac{b}a=
+\tfrac52$).
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 9
+
+::: {.question}
+Find the finite area between the coordinate axes and the curve $\;y=x^{2}-2\lvert x\rvert-8$. &nbsp;&nbsp;**A**
+$-\tfrac{160}3$ &nbsp; **B** $-\tfrac{80}3$ &nbsp; **C** $-4$ &nbsp; **D** $-\tfrac{16}3$ &nbsp; **E** $0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(area with a curve — use symmetry)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $x^{2}-2\lvert x\rvert-8$ is even; integrate one side and double
+:::
+
+**Answer: A ($-\tfrac{160}3$).**
+
+**Step 1 — the curve is even.** $y=x^{2}-2\lvert x\rvert-8$; for $x\ge0$ it is $x^{2}-2x-8=(x-4)(x+2)$, so it
+cuts the axis at $x=4$ (and by symmetry $x=-4$).
+
+**Step 2 — integrate one side, double.** By symmetry,
+$$\int_{-4}^{4}\!\big(x^{2}-2\lvert x\rvert-8\big)\,\mathrm dx=2\int_{0}^{4}\!\big(x^{2}-2x-8\big)\,\mathrm dx
+=2\Big[\tfrac{x^{3}}3-x^{2}-8x\Big]_0^4=2\Big(\tfrac{64}3-16-32\Big)=2\!\left(-\tfrac{80}3\right)=-\tfrac{160}3.$$
+
+The value is **negative** because the whole enclosed piece lies **below** the $x$-axis.
+
+**Where the wrong options come from.** Doing only one side gives $-\tfrac{80}3$ (B); dropping the sign loses
+the "below the axis" information.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 5 · Modulus integrals
+
+::: {.callout-tip}
+## Concept — split at every corner
+
+$\int\lvert f\rvert$ (or any integrand with a modulus): break the range at **every zero of the inside**, and
+on each piece replace the bracket by $+$ or $-$ its content. For $\int f(\lvert x\rvert)$, use that
+$f(\lvert x\rvert)$ is **even**.
+:::
+
+### Question 10
+
+::: {.question}
+Evaluate $\displaystyle\int_{0}^{3}x\lvert6-3x\rvert\,\mathrm dx$. &nbsp;&nbsp;**A** $0$ &nbsp; **B** $4$
+&nbsp; **C** $8$ &nbsp; **D** $12$ &nbsp; **E** $15$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(split a modulus integral)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split $\int_0^3 x\lvert6-3x\rvert$ at the corner $x=2$
+:::
+
+**Answer: C ($8$).**
+
+**Step 1 — the corner.** $6-3x=0$ at $x=2$; it is $\ge0$ for $x\le2$, $<0$ for $x>2$.
+
+**Step 2 — split.**
+$$\int_0^2 x(6-3x)\,\mathrm dx+\int_2^3 x(3x-6)\,\mathrm dx=\big[3x^{2}-x^{3}\big]_0^2+\big[x^{3}-3x^{2}\big]_2^3
+=(12-8)+\big(0-(-4)\big)=4+4=8.$$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 11
+
+::: {.question}
+Arrange smallest to largest: $\;P=\displaystyle\int_{-2}^{2}\!\big(\lvert3+x\rvert-\lvert3-x\rvert\big)\mathrm
+dx$, $\;Q=\displaystyle\int_{0}^{2}\!x\lvert3-x\rvert\,\mathrm dx$, $\;R=\displaystyle\int_{-2}^{0}\!x\lvert
+3+x\rvert\,\mathrm dx$. &nbsp;&nbsp;**A** PQR &nbsp; **B** PRQ &nbsp; **C** QPR &nbsp; **D** QRP &nbsp;
+**E** RPQ &nbsp; **F** RQP
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(order three modulus integrals)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — an odd integrand over a symmetric range is $0$; sign the others
+:::
+
+**Answer: E (R, P, Q).**
+
+- **$P=0$:** the integrand $\lvert3+x\rvert-\lvert3-x\rvert$ is **odd** (swapping $x\to-x$ negates it), and the
+  range $[-2,2]$ is symmetric, so it integrates to $0$.
+- **$Q>0$:** on $[0,2]$, $3-x>0$, so $Q=\int_0^2 x(3-x)\,\mathrm dx=\tfrac{10}3>0$.
+- **$R<0$:** on $[-2,0]$, $3+x>0$, so $R=\int_{-2}^0 x(3+x)\,\mathrm dx=-\tfrac{10}3<0$.
+
+So $R<P<Q$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 12
+
+::: {.question}
+$\mathrm f(0)=0$ and $x\,\mathrm f(x)>0$ for $x\ne0$. Given $\displaystyle\int_{-3}^{3}\mathrm f=0$ and
+$\displaystyle\int_{-3}^{3}\mathrm f(\lvert x\rvert)=6$, find $\displaystyle\int_{-3}^{0}\lvert\mathrm
+f(x)\rvert\,\mathrm dx$. &nbsp;&nbsp;**A** $-6$ &nbsp; **B** $-3$ &nbsp; **C** $0$ &nbsp; **D** $3$ &nbsp;
+**E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*($f(\lvert x\rvert)$ is even, plus a sign clue)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split $\int f=0$ and $\int\lvert f\rvert$ into the two half-integrals
+:::
+
+**Answer: D ($3$).**
+
+**Step 1 — the sign of $\mathrm f$.** $x\,\mathrm f(x)>0$ means $\mathrm f$ has the **same** sign as $x$:
+$\mathrm f>0$ for $x>0$, $\mathrm f<0$ for $x<0$.
+
+**Step 2 — name the halves.** Let $A=\displaystyle\int_0^3\mathrm f\ (>0)$ and $\displaystyle\int_{-3}^0
+\mathrm f=-B$ with $B=\int_{-3}^0\lvert\mathrm f\rvert\ (>0)$. Then $\int_{-3}^3\mathrm f=A-B=0$, so $A=B$.
+
+**Step 3 — use "even".** $\mathrm f(\lvert x\rvert)$ is even and equals $\mathrm f(x)$ for $x\ge0$, so
+$\int_{-3}^3\mathrm f(\lvert x\rvert)=2\int_0^3\mathrm f=2A=6\Rightarrow A=3$. Hence $\int_{-3}^0\lvert\mathrm
+f\rvert=B=A=3$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 6 · Nested moduli
+
+::: {.callout-tip}
+## Concept — peel from the outside
+
+For $\big\lvert\,\cdots\lvert\cdots\rvert\cdots\big\rvert=k$, work **outward-in**: $\lvert A\rvert=k
+\Rightarrow A=\pm k$, then repeat on $A$. Reject any step that asks a modulus to equal a **negative**. For a
+parameter version, graph the nested modulus (a "W") and slide the horizontal level.
+:::
+
+### Question 13
+
+::: {.question}
+How many solutions does $\;\Big\lvert\,3-\big\lvert\,2-\lvert1-x\rvert\,\big\rvert\Big\rvert-1=0\;$ have?
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$ &nbsp; **E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(count solutions of a triple modulus)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — peel three layers, rejecting impossible branches
+:::
+
+**Answer: D ($5$).**
+
+**Peel layer 1:** $\big\lvert3-\lvert2-\lvert1-x\rvert\rvert\big\rvert=1\Rightarrow 3-\lvert2-\lvert1-x\rvert
+\rvert=\pm1\Rightarrow\lvert2-\lvert1-x\rvert\rvert=2$ or $4$.
+
+**Peel layer 2:** $\lvert2-\lvert1-x\rvert\rvert=2\Rightarrow\lvert1-x\rvert=0$ or $4$; and
+$\lvert2-\lvert1-x\rvert\rvert=4\Rightarrow\lvert1-x\rvert=-2$ (reject) or $6$. So $\lvert1-x\rvert\in\{0,4,6\}$.
+
+**Peel layer 3:** $\lvert1-x\rvert=0\Rightarrow x=1$; $=4\Rightarrow x=5,-3$; $=6\Rightarrow x=7,-5$. Five
+values: $x=1,5,-3,7,-5$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 14
+
+::: {.question}
+$\big\lvert\,\lvert x-1\rvert-3\,\big\rvert-5=k$ has exactly $3$ solutions. Find $k$. &nbsp;&nbsp;**A** $-2$
+&nbsp; **B** $-1$ &nbsp; **C** $1$ &nbsp; **D** $3$ &nbsp; **E** $5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a nested modulus with a parameter)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — graph the "W" $\big\lvert\lvert x-1\rvert-3\big\rvert$; a level hits it $3$ times at the peak
+:::
+
+**Answer: A ($-2$).**
+
+**Step 1 — the shape.** $y=\big\lvert\lvert x-1\rvert-3\big\rvert$ is a **W**: it touches $0$ at $x=-2$ and
+$x=4$, and has a **peak of height $3$** at $x=1$.
+
+**Step 2 — read the level.** Setting $y=k+5$, a horizontal level cuts the W in: $2$ points if $k+5>3$; **$3$
+points exactly when $k+5=3$** (the level passes through the peak); $4$ points if $0<k+5<3$.
+
+**Step 3 — solve.** $k+5=3\Rightarrow k=-2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,8,600); y=np.abs(np.abs(x-1)-3)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,y,color='#2b6cb0',lw=2)
+plt.axhline(3,color='crimson',ls='--',lw=1.2); plt.annotate('level 3 → 3 solutions',(4,3),textcoords='offset points',xytext=(4,6),color='crimson',fontsize=8)
+plt.grid(alpha=0.25); plt.title('W-graph: the peak at height 3 gives exactly 3 hits',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 7 · Parameters & "exactly $n$ solutions"
+
+::: {.callout-tip}
+## Concept — graph the modulus, then slide the line or level
+
+Draw the modulus expression as a fixed graph, and the parameter as a **moving line/level**. Count solutions as
+the line slides: the special counts happen at **corners (vertices)** and **tangencies**. For "true for all
+$x$", the modulus $\pm$ opens into two half-line quadratic conditions — handle each side.
+:::
+
+### Question 15
+
+::: {.question}
+How many values of $k$ give $3$ distinct real solutions to $\;\lvert x-k\rvert=x^{2}-4x+4$? &nbsp;&nbsp;**A**
+$0$ &nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $3$ &nbsp; **E** $4$ &nbsp; **F** infinitely many
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a $V$ meeting a repeated-root parabola)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — slide the V $\lvert x-k\rvert$ against the parabola $(x-2)^{2}$; count tangencies
+:::
+
+**Answer: D ($3$).** Note $x^{2}-4x+4=(x-2)^{2}$, a parabola with vertex $(2,0)$; $\lvert x-k\rvert$ is a V
+with vertex $(k,0)$ sliding along the $x$-axis.
+
+**Step 1 — the aligned case $k=2$.** Then $\lvert x-2\rvert=(x-2)^{2}$; with $u=x-2$, $\lvert u\rvert=u^{2}$
+gives $u=0,\pm1$, i.e. $x=2,3,1$ — **3 solutions**.
+
+**Step 2 — the two tangencies.** As $k$ moves off $2$, one arm of the V becomes **tangent** to the parabola,
+again giving $3$ meetings. Solving the tangency conditions ($x-k=(x-2)^{2}$ and $k-x=(x-2)^{2}$ with zero
+discriminant) gives $k=\tfrac94$ and $k=\tfrac74$.
+
+So exactly **three** values of $k$: $\tfrac74,\ 2,\ \tfrac94$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 16
+
+::: {.question}
+$\lvert x-a\rvert+\lvert x+a\rvert=10-x$ ($a>0$) has **exactly $1$** real solution. Find $a$. &nbsp;&nbsp;**A**
+$0$ &nbsp; **B** $\tfrac53$ &nbsp; **C** $\tfrac{10}3$ &nbsp; **D** $5$ &nbsp; **E** $10$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a flat-bottomed sum meeting a line once)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lvert x-a\rvert+\lvert x+a\rvert$ is flat then rising; find where a line touches once
+:::
+
+**Answer: E ($10$).**
+
+**Step 1 — the left side.** $\lvert x-a\rvert+\lvert x+a\rvert$ equals $-2x$ for $x<-a$, the constant $2a$ for
+$-a\le x\le a$, and $2x$ for $x>a$ — a **flat-bottomed valley** of height $2a$ between $-a$ and $a$.
+
+**Step 2 — the line $10-x$.** It has slope $-1$. The left arm ($-2x$, slope $-2$) and the line generally cross
+once; the flat part and the line cross once. To get **only one** crossing overall, the line must meet the
+graph exactly at the **corner** where the left arm joins the flat bottom, at $x=-a$.
+
+**Step 3 — solve.** At $x=-a$ the value is $2a$ and the line gives $10-(-a)=10+a$; equal corner-touch needs
+the two crossings to coincide, which happens at $a=10$ (there the single meeting point is $x=-10$, and no
+other branch produces a solution).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-20,15,600); a=10
+plt.figure(figsize=(5.0,3.0))
+plt.plot(x,np.abs(x-a)+np.abs(x+a),color='#2b6cb0',lw=2,label='|x−10|+|x+10|')
+plt.plot(x,10-x,color='crimson',lw=1.4,label='y=10−x')
+plt.plot(-10,20,'o',color='k'); plt.ylim(0,45); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('a=10: the line just touches at the single point x=−10',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 17
+
+::: {.question}
+For which $m$ is $\;m\lvert x\rvert+2<x^{2}+3x+6\;$ true for **all** real $x$? &nbsp;&nbsp;**A** $m<1$ &nbsp;
+**B** $m<\tfrac32$ &nbsp; **C** $m<2$ &nbsp; **D** $-7<m<1$ &nbsp; **E** $-1<m<7$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*("true for all $x$" against a quadratic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split at $x=0$; on each half-line test the parabola by its vertex position
+:::
+
+**Answer: A ($m<1$).**
+
+The inequality must hold for **all real $x$**. Move everything to one side:
+$$x^{2}+3x+4-m\lvert x\rvert>0\qquad\text{for all }x.$$
+Because of the $\lvert x\rvert$, split into $x\ge0$ and $x<0$. On each side it is an ordinary upward
+parabola, and we test whether it stays positive on its half-line by asking **where its vertex (axis of
+symmetry) sits**.
+
+**Case 1 — $x\ge0$** (here $\lvert x\rvert=x$): need $\;x^{2}+(3-m)x+4>0\;$ for all $x\ge0$. The vertex is
+at $x=\dfrac{m-3}{2}$, and at $x=0$ the value is $4>0$.
+
+- **Vertex at or left of the $y$-axis** $\left(\dfrac{m-3}{2}\le0\iff m\le3\right)$: on $x\ge0$ the parabola
+  only rises from $x=0$, so its least value there is $f(0)=4>0$ — **always positive**, whatever the
+  discriminant.
+- **Vertex to the right** $\left(\dfrac{m-3}{2}>0\iff m>3\right)$: now the minimum on $x\ge0$ **is** the
+  vertex, so it must lie above the axis, i.e. discriminant $<0$:
+  $$D_1=(3-m)^{2}-16<0\iff(m-3)^{2}<16\iff-1<m<7.$$
+  Combined with $m>3$ this gives $\;3<m<7$.
+
+Together, the $x\ge0$ side holds for $\;\mathbf{m<7}$.
+
+**Case 2 — $x<0$** (here $\lvert x\rvert=-x$): need $\;x^{2}+(3+m)x+4>0\;$ for all $x<0$. The vertex is at
+$x=-\dfrac{3+m}{2}$, and as $x\to0^{-}$ the value is $4>0$.
+
+- **Vertex at or right of the $y$-axis** $\left(-\dfrac{3+m}{2}\ge0\iff m\le-3\right)$: on $x<0$ the parabola
+  is falling towards $x=0$, so its values stay above $f(0)=4>0$ — **always positive**.
+- **Vertex to the left** $\left(-\dfrac{3+m}{2}<0\iff m>-3\right)$: the minimum on $x<0$ is the vertex, so
+  discriminant $<0$:
+  $$D_2=(3+m)^{2}-16<0\iff(m+3)^{2}<16\iff-7<m<1.$$
+  Combined with $m>-3$ this gives $\;-3<m<1$.
+
+Together, the $x<0$ side holds for $\;\mathbf{m<1}$.
+
+**Common range.** The inequality must hold on **both** sides, so intersect the two:
+$$m<7\ \text{ and }\ m<1\ \Longrightarrow\ m<1.$$
+The tighter constraint comes from the $x<0$ branch, whose boundary is $m=1$ (there $x^{2}+4x+4=(x+2)^{2}$
+just touches the axis at $x=-2$). The answer is **A**, $m<1$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,500)
+fig,ax=plt.subplots(1,2,figsize=(6.8,3.2))
+# Case 1: x>=0 quadratic  x^2+(3-m)x+4
+ax[0].plot(x,x**2+(3-2)*x+4,color='#2ca02c',lw=1.7,label='m=2: vertex left of 0 (safe)')
+ax[0].plot(x,x**2+(3-7)*x+4,color='crimson',lw=1.7,label='m=7: (x-2)^2 just touches')
+ax[0].axvspan(0,6,color='0.92'); ax[0].axhline(0,color='0.5',lw=0.8)
+ax[0].set_xlim(-4,6); ax[0].set_ylim(-1,14); ax[0].grid(alpha=0.25); ax[0].legend(fontsize=6.5)
+ax[0].set_title('x>=0: x^2+(3-m)x+4\nfails first at m=7',fontsize=8.5)
+# Case 2: x<0 quadratic  x^2+(3+m)x+4
+ax[1].plot(x,x**2+(3-4)*x+4,color='#2ca02c',lw=1.7,label='m=-4: vertex right of 0 (safe)')
+ax[1].plot(x,x**2+(3+1)*x+4,color='crimson',lw=1.7,label='m=1: (x+2)^2 just touches')
+ax[1].plot(-2,0,'o',color='crimson',ms=4)
+ax[1].axvspan(-6,0,color='0.92'); ax[1].axhline(0,color='0.5',lw=0.8)
+ax[1].set_xlim(-6,4); ax[1].set_ylim(-1,14); ax[1].grid(alpha=0.25); ax[1].legend(fontsize=6.5)
+ax[1].set_title('x<0: x^2+(3+m)x+4\nfails first at m=1',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — advanced modulus
+
+- **Extreme value on a region:** test the **corners** (largest *modulus*, so check the negative corner too).
+- **$\lvert A\rvert=\lvert B\rvert\Rightarrow A^{2}=B^{2}$;** one-sided modulus vs a quadratic $\Rightarrow$
+  split by the inside's sign and keep each branch's valid part.
+- **$\sum\lvert x-a_i\rvert$ minimised between the two middle points;** min $=$ sum of paired outer gaps.
+- **V $+$ Λ $\Rightarrow$ kite, area $\tfrac12 d_1 d_2$;** with a curve, integrate using $\lvert x\rvert$
+  symmetry.
+- **Integrals:** split at every corner. **Nested moduli:** peel outward, rejecting "$=$ negative".
+- **"Exactly $n$ solutions":** graph the modulus, slide the line/level — special counts at **vertices** and
+  **tangencies**.
+:::
+
+:::

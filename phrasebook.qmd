@@ -115,6 +115,10 @@ Almost none of this vocabulary appears in a Korean A-Level classroom, so it is w
 | Word | IPA | Say it | Korean | In class |
 |---|---|---|---|---|
 | **statement** | /ˈsteɪtmənt/ | **STATE**-munt | 명제 | "A **statement** is either true or false." |
+| **conclude** | /kənˈkluːd/ | kun-**KLOOD** | 결론짓다 | "What can you **conclude**?" *(verb)* |
+| **conclusion** | /kənˈkluːʒən/ | kun-**KLOO**-zhun | 결론 | "The **conclusion** is the back half of the implication." *(noun)* |
+| **hypothesis** | /haɪˈpɒθəsɪs/ | hy-**POTH**-uh-sis | 가정 | "The **hypothesis** is the front half — what you assume." |
+| **deduce** | /dɪˈdjuːs/ | di-**DYOOSS** | 연역하다 | "Nothing can be **deduced** from that." |
 | **implies** | /ɪmˈplaɪz/ | im-**PLIES** | 함의하다 | "$A$ **implies** $B$." |
 | **implication** | /ˌɪmplɪˈkeɪʃən/ | im-pli-**KAY**-shun | 함의 | "The **implication** only runs one way." |
 | **converse** | /ˈkɒnvɜːs/ | **KON**-verse *(noun: stress first)* | 역 | "That's the **converse**, and it isn't equivalent." |
@@ -177,7 +181,90 @@ These are the ones worth having on the tip of your tongue. Say them out loud a f
 
 ---
 
-## 7 · Plural traps
+## 7 · Reading symbols out loud
+
+Korean textbooks name the *concept*; English speakers say the *symbol*. The two are not the same, and
+reading a symbol by its concept name is one of the quickest ways to sound like a non-native.
+
+| Symbol | You say | Not | 한국어 |
+|---|---|---|---|
+| $\dbinom{n}{r}$ | "**$n$ choose $r$**" | ✗ "combination n r" | 조합 |
+| $^nC_r$ | "**$n$ C $r$**" (letter by letter) | — | 같은 것, 다른 표기 |
+| $n!$ | "**$n$ factorial**" | — | 계승 |
+| $\displaystyle\sum_{k=0}^{90}$ | "**the sum from $k$ equals nought to ninety**" | ✗ "sigma" *(that's the letter, not the operation)* | 시그마 합 |
+| $\displaystyle\int_0^1 f(x)\,\mathrm dx$ | "**the integral from nought to one of $f$ of $x$, $\mathrm d x$**" | — | 정적분 |
+| $\dfrac{\mathrm dy}{\mathrm dx}$ | "**$\mathrm d y$ by $\mathrm d x$**" | ✗ "dy over dx" | 미분계수 |
+| $f'(x)$ | "**$f$ dashed of $x$**" *(UK)* / "$f$ prime of $x$" *(US)* | — | 도함수 |
+| $\lvert x \rvert$ | "**mod $x$**" or "**the modulus of $x$**" | ✗ "absolute x" | 절댓값 |
+| $\sqrt{x}$ | "**root $x$**" or "**the square root of $x$**" | — | 제곱근 |
+| $x^{2}$ | "**$x$ squared**" | — | 제곱 |
+| $x^{n}$ | "**$x$ to the $n$**" or "$x$ to the power $n$" | — | 거듭제곱 |
+| $2^{-99}$ | "**two to the minus ninety-nine**" | — | |
+| $\ne$ | "**is not equal to**" | — | |
+| $\ge$ | "**is greater than or equal to**" | — | |
+| $\Rightarrow$ | "**implies**" | — | 함의 |
+| $\iff$ | "**if and only if**" | ✗ reading "iff" aloud as *iff* | 필요충분 |
+| $(1,\,-1)$ | "**the point one, minus one**" | — | |
+| $[0,\,\pi]$ | "**the closed interval nought to pi**" | — | 폐구간 |
+
+::: {.callout-note appearance="simple"}
+**conclude vs conclusion.** *Conclude* is the **verb**, *conclusion* the **noun** — and in an implication
+$A \Rightarrow B$, the **hypothesis** is $A$ (what you assume) and the **conclusion** is $B$ (what
+follows). So: *"From the hypothesis we **conclude** that … "*, and *"$B$ is the **conclusion** of the
+implication."*
+
+The question Paper 2 asks over and over is *"**what can you conclude?**"* — and the correct answer is
+often *"**nothing**"*.
+:::
+
+::: {.callout-note appearance="simple"}
+**Say the symbol, not its name.** $\binom{5}{2}$ is "**five choose two**", never "combination five two".
+*Combinations* is the name of the **topic** — you use it in a sentence like *"this is a combinations
+problem, so the order doesn't matter"* — but never to read the symbol itself.
+
+Notice too that "choose" is both the name and the meaning: *"the coefficient of $x$ in $(1+x)^n$ is
+**$n$ choose $1$** — because you **choose** which one of the $n$ brackets the $x$ comes from."*
+:::
+
+---
+
+## 8 · Saying a condition: *if it is to …*
+
+This is the single most useful sentence pattern in mathematical English, and almost nobody is taught it.
+
+> **"If** the expression **is to** be positive for all $x$, **then** the discriminant **must** be negative."
+
+The construction **`be to` + verb** means *"if this is the goal / the requirement"*. It is stronger and
+more precise than a plain *if*:
+
+| Plain *if* | *be to* |
+|---|---|
+| "If it stays above the axis, …" — describes what happens | "If it **is to** stay above the axis, …" — states what is **required** |
+
+It is exactly the right register for a maths condition, because a condition is a *requirement*, not an
+observation. Use it whenever you translate a demand into an equation:
+
+- "If the roots **are to** be real, the discriminant must be at least zero."
+- "If this **is to** hold **for all** $x$, the coefficient of $x^2$ must vanish."
+- "If you **are to** finish in seventy-five minutes, you cannot spend six on one question."
+- "If the two circles **are to** touch, the distance between the centres must equal the sum of the radii."
+
+**The partner phrases** that finish the sentence:
+
+- "…, then it **must never** reach the axis — **not even touch it**." &nbsp; *(the phrase that rules out the equality case)*
+- "…, then the discriminant **has to be** strictly negative."
+- "…, then $r$ **cannot** be $1$."
+- "…, **and only then**, may we divide by $1-u$."
+
+::: {.callout-note appearance="simple"}
+**Strictly.** English marks the difference between $<$ and $\le$ with one word: **strictly**.
+*"The discriminant must be **strictly** negative"* means $<0$, not $\le 0$. Say it — it is the whole
+difference between the right answer and option B in question 2.
+:::
+
+---
+
+## 9 · Plural traps
 
 English mathematical plurals are mostly Latin, and getting them wrong is the fastest way to sound
 uncertain in front of a class.

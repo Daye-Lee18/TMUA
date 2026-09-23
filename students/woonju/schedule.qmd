@@ -1,0 +1,91 @@
+---
+title: "여운주 · D-day Plan"
+subtitle: "23 Sep → 15 Oct 2026 · exam Thu 15 Oct · times in KST and UK (BST)"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+The run-in to the exam. **All times are given in both Korea (KST) and UK (BST)**; while the UK is on summer
+time, **KST = UK + 8 h**. Sessions are twice-plus per week. Homework links go straight to the clinic assignment
+for that topic.
+
+::: {.callout-important}
+## How to use the back half — review beats volume
+
+The second half is mock-heavy. The point of a mock is **not** the score — it is the **review**. So:
+
+1. **Sit every mock cold** — full time limit, no calculator, no breaks, no peeking.
+2. **Mark it, then spend as long on the review as on the paper.** Every wrong or guessed question → name the
+   topic → redo it properly → note the "one move" you missed.
+3. If time is short, **drop a mock rather than skip a review.** Roughly 11 full papers sit in the back half;
+   getting real value from 7 of them beats rushing all 11.
+:::
+
+::: {.callout-tip}
+## Three tweaks to the plan (worth making)
+
+- **23 Sep is Coordinate geometry, not Parametric.** *Parametric & locus is beyond the TMUA spec (a MAT
+  topic).* The question you actually got wrong twice — "normal to a curve" (2016 Q3, 2018 Q11) — is
+  **coordinate geometry**, so run the **[Coordinate geometry clinic](../../lessons/coordinate_geometry_clinic/class_material.qmd)** instead.
+- **Keep the 2023 paper pristine for 14 Oct.** The plan reviews 2023 P1/P2 as homework on 25 Sep *and* sits
+  2023 as the final cold mock on 14 Oct — by then you'll have seen it. For the 25 Sep review, use a paper you
+  have **already sat** (e.g. **2018**) so 2023 stays fresh for the real dress rehearsal.
+- **Guard your pace in every mock.** Whatever else, keep the "**last 5 questions in 15 minutes**" habit and a
+  "flag-and-move after 4 minutes" rule — that is where the marks leak.
+:::
+
+---
+
+## Phase 1 — Concepts (23–25 Sep)
+
+| Date | KST | UK (BST) | Session | Homework |
+|---|---|---|---|---|
+| **Wed 23 Sep** | 17:45–18:45 | 09:45–10:45 | **Coordinate geometry** clinic *(replaces parametric — see note)* | **[Coord assignment](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** (15 Q) |
+| **Thu 24 Sep** | 19:05–20:05 | 11:05–12:05 | **Logarithms** clinic (+ extension) | **[Log-extension assignment](../../lessons/log_extension_clinic/assignment_student.qmd)** (11 Q) |
+| **Fri 25 Sep** | 16:45–17:45 | 08:45–09:45 | **Range & the $y$-parameter** clinic | [Range clinic](../../lessons/range_clinic/class_material.qmd) problems · review a **2018** past paper *(keep 2023 for 14 Oct)* |
+
+---
+
+## Phase 2 — Consolidation & first real sitting (26–28 Sep)
+
+| Date | KST | UK (BST) | Session | Homework |
+|---|---|---|---|---|
+| **Sat 26 Sep** | 22:00–24:00 | 14:00–16:00 | **Paper 1 concept sweep** + mixed mini-mock *(also touch Differentiation, Sequences, Completing-the-square)* | Sit **JZ mock — Paper 1 & Paper 2** (cold) |
+| **Sun 27 Sep** | 21:00–23:00 | 13:00–15:00 | **Paper 2 concept sweep** (logic, proof, spotting errors) | Review the JZ mock wrong questions |
+| **Mon 28 Sep** | 22:20–23:20 | 14:20–15:20 | **JZ Mock A** (sit + review) | Redo any flagged questions |
+
+---
+
+## Phase 3 — Mock intensive (30 Sep – 5 Oct)
+
+| Date | KST | UK (BST) | Session | Homework |
+|---|---|---|---|---|
+| **Wed 30 Sep** | Thu 1 Oct 00:30–01:30 | 16:30–17:30 | **JZ Mock B** | Review |
+| **Sun 4 Oct** | 21:00–23:00 | 13:00–15:00 | **JZ Mock C** + **JZ Mock D** | Review — pick the weaker one to go deep on |
+| **Mon 5 Oct** (1) | 22:20–23:20 | 14:20–15:20 | **JZ Mock E** | Review |
+| **Mon 5 Oct** (2) | Tue 6 Oct 00:30–01:30 | 16:30–17:30 | **Tyler Mock A** | Review |
+
+---
+
+## Phase 4 — Past-paper dress rehearsals (7–14 Oct)
+
+| Date | KST | UK (BST) | Session | Homework |
+|---|---|---|---|---|
+| **Wed 7 Oct** | Thu 8 Oct 00:30–01:30 | 16:30–17:30 | **Past paper 2019** (timed) | Review |
+| **Sun 11 Oct** | 21:00–23:00 | 13:00–15:00 | **Past papers 2021 & 2020** (timed) | Review |
+| **Mon 12 Oct** | 22:20–23:20 | 14:20–15:20 | **Past paper 2022** (timed) | Review |
+| **Wed 14 Oct** | Thu 15 Oct 00:30–01:30 | 16:30–17:30 | **Past paper 2023** — final dress rehearsal | Light review only — rest before the exam |
+
+---
+
+## 🎯 Thu 15 Oct — Exam day
+
+Two papers, 75 minutes each, back to back. No calculator, no formula booklet, no penalty for a wrong answer —
+**so never leave a blank.** Keep the pace rule, flag-and-move, and trust the review you have banked.
+
+::: {.callout-note appearance="simple"}
+Full clinic library and mocks are on the **[여운주 hub](index.qmd)**; the common **[past papers, Paper 2 toolkit
+and mock banks](../../index.qmd)** are on the home page.
+:::

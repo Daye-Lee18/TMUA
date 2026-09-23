@@ -19,10 +19,6 @@ mathematics. It is asking whether you can find the short route.
 
 ## Question 1
 
-::: {.topic}
-Topic — completing the square; the vertex form of a quadratic
-:::
-
 ::: {.question}
 $\mathrm f(x)$ is a quadratic function in $x$. The graph of $y = \mathrm f(x)$ passes through the point
 $(1, -1)$ and has a turning point at $(-1, 3)$. Find an expression for $\mathrm f(x)$.
@@ -38,6 +34,11 @@ question hands you both, so use both.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — completing the square; the vertex form of a quadratic
+:::
+
 
 We are told the turning point, so [let's start from the vertex form]{.hl}
 
@@ -86,10 +87,6 @@ Working
 
 ## Question 2
 
-::: {.topic}
-Topic — the discriminant as a condition; quadratic inequalities
-:::
-
 ::: {.question}
 Find the complete set of values of the real constant $k$ for which the expression
 $$x^2 + kx + 2x + 1 - 2k$$
@@ -102,14 +99,19 @@ is positive for all real values of $x$.
 
 *Positive for all real values of $x$* is really a statement about the graph. The coefficient of $x^2$ is
 positive, so [the parabola opens upwards]{.hl}; if it is to stay above the axis everywhere, then [it
-must never cross the $x$-axis]{.hl}. In other words [it has no real roots, so the discriminant is
-negative]{.hl}.
+must never reach the $x$-axis — not even touch it]{.hl}. In other words [it has no real roots, so the
+discriminant is negative]{.hl}.
 
 Two things to watch. The coefficient of $x$ is $k+2$, not $k$ — the $x$ terms have been split up on
 purpose. And what you end up with is *another* quadratic inequality, this time in $k$.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — the discriminant as a condition; quadratic inequalities
+:::
+
 
 First [collect like terms]{.hl}:
 
@@ -155,10 +157,6 @@ Working
 
 ## Question 3
 
-::: {.topic}
-Topic — binomial coefficients; the sum of the first $n$ integers
-:::
-
 ::: {.question}
 Find the coefficient of $x$ in the expression
 $$(1+x)^0 + (1+x)^1 + (1+x)^2 + (1+x)^3 + \cdots + (1+x)^{79} + (1+x)^{80} .$$
@@ -174,6 +172,11 @@ brackets you could pick it from. So the whole thing turns into a sum you already
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — binomial coefficients; the sum of the first $n$ integers
+:::
+
 
 The coefficient of $x$ in $(1+x)^n$ is $\dbinom{n}{1} = n$. So we just [add up the $n$ values]{.hl} from
 each bracket:
@@ -205,10 +208,6 @@ Working
 
 ## Question 4
 
-::: {.topic}
-Topic — recurrence relations; laws of indices
-:::
-
 ::: {.question}
 The sequence $x_n$ is given by $x_1 = 10$ and $x_{n+1} = \sqrt{x_n}$ for $n \ge 1$. What is the value of
 $x_{100}$? *(Here $a^{b^c}$ means $a^{(b^c)}$.)*
@@ -225,6 +224,11 @@ roots have you taken by the time you get to the 100th term?]{.hl}
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — recurrence relations; laws of indices
+:::
+
 
 [Write out the first few terms]{.hl} and keep your eye on the power of $10$:
 
@@ -263,10 +267,6 @@ Working
 
 ## Question 5
 
-::: {.topic}
-Topic — geometric series; a hidden quadratic under the substitution $u = r^3$
-:::
-
 ::: {.question}
 $S$ is a geometric sequence. The sum of the first $6$ terms of $S$ is equal to $9$ times the sum of the
 first $3$ terms. The $7$th term of $S$ is $360$. Find the $1$st term of $S$.
@@ -282,6 +282,11 @@ since $r^6 = (r^3)^2$, [it's a quadratic in disguise]{.hl}: let $u = r^3$ and it
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — geometric series; a hidden quadratic under the substitution $u = r^3$
+:::
+
 
 Using $S_n = \dfrac{a(1-r^n)}{1-r}$, the condition $S_6 = 9S_3$ says
 
@@ -329,10 +334,6 @@ Working
 
 ## Question 6
 
-::: {.topic}
-Topic — circles; the distance between two centres
-:::
-
 ::: {.question}
 The circles with equations
 $$(x+4)^2 + (y+1)^2 = 64 \qquad\text{and}\qquad (x-8)^2 + (y-4)^2 = r^2 \quad (r>0)$$
@@ -348,6 +349,11 @@ Everything then comes from [the distance between the two centres]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — circles; the distance between two centres
+:::
+
 
 Read the centres and the radius straight off the equations: the first circle has centre $(-4,-1)$ and
 radius $\sqrt{64} = 8$; the second has centre $(8,4)$ and radius $r$.
@@ -421,10 +427,6 @@ Working
 
 ## Question 7
 
-::: {.topic}
-Topic — the product rule; minimising with respect to a second variable
-:::
-
 ::: {.question}
 A curve has equation $y = (2q - x^2)(2qx + 3)$. The gradient of the curve at $x = -1$ is a function of
 $q$. Find the value of $q$ which minimises the gradient of the curve at $x=-1$.
@@ -441,6 +443,11 @@ the mistake this question is fishing for is doing stage one and stopping.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — the product rule; minimising with respect to a second variable
+:::
+
 
 **Stage 1 — differentiate with respect to $x$**, holding $q$ constant. Use the product rule:
 
@@ -477,10 +484,6 @@ Working
 
 ## Question 8
 
-::: {.topic}
-Topic — the trapezium rule; graph transformations
-:::
-
 ::: {.question}
 The function $\mathrm f$ is such that $0 < \mathrm f(x) < 1$ for $0 \le x \le 1$. The trapezium rule with
 $n$ equal intervals is used to estimate $\int_0^1 \mathrm f(x)\,\mathrm dx$ and produces an
@@ -502,6 +505,11 @@ bend the same way up. [Only one of the five flips it]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — the trapezium rule; graph transformations
+:::
+
 
 Call the trapezium estimate of $\int_0^1 \mathrm f$ by the name $T$, and the true value $I$. We are told
 $T < I$: an underestimate.
@@ -570,10 +578,6 @@ Working
 
 ## Question 9
 
-::: {.topic}
-Topic — the area between two curves
-:::
-
 ::: {.question}
 $p$ is a positive constant. Find the area enclosed between the curves $y = p\sqrt{x}$ and $x = p\sqrt{y}$.
 
@@ -583,13 +587,29 @@ $p$ is a positive constant. Find the area enclosed between the curves $y = p\sqr
 :::
 
 The two curves are [mirror images of each other in the line $y=x$]{.hl} — swap $x$ and $y$ in one and
-you get the other. Before you integrate anything, look at the options: [every term in the answer must
-have the same power of $p$]{.hl}, because scaling $p$ just scales the whole picture. Four of the seven
-options mix $p^{5/2}$ with $p^2$, or $p^3$ with $p^4$, so [they are impossible without any working at
-all]{.hl}.
+you get the other. Before you integrate anything, look at the options, because four of them can be
+thrown away without doing any work at all.
+
+Here is why. The curves meet at $(0,0)$ and at $(p^2, p^2)$, so the region sits inside a square of side
+$p^2$ — and [changing $p$ does not change the shape of the region, it only scales it]{.hl}. Put $p=1$
+and the corner is at $(1,1)$; put $p=2$ and it is at $(4,4)$; put $p=3$ and it is at $(9,9)$. The same
+picture, stretched by a factor $p^2$ in **both** directions. Stretching a shape by $k$ each way
+multiplies its area by $k^2$, so with $k = p^2$,
+
+$$\text{area} = (\text{some fixed number}) \times \left(p^2\right)^2 = (\text{some fixed number}) \times p^4 .$$
+
+So [the answer has to be a single power of $p$, namely $p^4$]{.hl}. Options A, B, E and F each mix two
+different powers ($p^{5/2}$ with $p^2$, or $p^3$ with $p^4$), which is impossible: doubling $p$ would
+scale their two terms by different factors, and the picture does not behave like that. **That leaves
+only C, D and G** — and only then is it worth integrating.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — the area between two curves
+:::
+
 
 First [make both curves functions of $x$]{.hl}. Square both sides of $x = p\sqrt y$:
 
@@ -653,10 +673,6 @@ Working
 
 ## Question 10
 
-::: {.topic}
-Topic — integrating a function containing a modulus
-:::
-
 ::: {.question}
 Evaluate $\displaystyle\int_{-1}^{3} |x|(1-x)\,\mathrm dx$.
 
@@ -672,6 +688,11 @@ the six options.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — integrating a function containing a modulus
+:::
+
 
 Split at $x = 0$.
 
@@ -698,7 +719,32 @@ which is **option F**. $\blacksquare$
 | **D** | $-\tfrac{16}{3}$ — this is exactly what you get if you **ignore the modulus completely** and integrate $x(1-x)$ from $-1$ to $3$ in one go. That is why it is on the list. |
 | **C** | $+\tfrac{16}{3}$ — the same omission, plus a sign error. |
 | **E** | $+\tfrac{11}{3}$ — all the work correct, then the sign dropped at the last line. |
-| **A**, **B** | $\pm\tfrac{17}{3}$ — no clear origin. |
+| **A** | $+\tfrac{17}{3}$ — this is the **area**, not the integral. See the note below: it is the subtlest trap on the question. |
+| **B** | $-\tfrac{17}{3}$ — the area, with a sign error on top. |
+
+::: {.callout-warning}
+## *Area* is not the same as *integral*
+
+The curve is **below the axis** for $x > 1$, and the natural instinct is to make that part positive —
+that is what you have always done when finding an area. **Do not do it here.**
+
+The question says **"Evaluate $\int_{-1}^{3}\dots$"**, not *"find the area enclosed"*. A definite
+integral is a **signed** area: a region below the axis counts as **negative**, by definition. That is
+not a flaw to be corrected — it *is* the answer, and it is why the final value comes out negative.
+
+Had the question asked for the **area**, you would have split **twice** — at $x=0$ *and* at $x=1$ — and
+flipped the sign of the last piece:
+
+$$\text{area} = \underbrace{\tfrac56}_{-1 \to 0} \;+\; \underbrace{\tfrac16}_{0 \to 1} \;+\; \underbrace{\left|-\tfrac{14}{3}\right|}_{1 \to 3} \;=\; \tfrac{17}{3} ,$$
+
+and $\tfrac{17}{3}$ is sitting there as **option A**. So there are two possible reasons to split, and
+only one of them applies here:
+
+| Split at | Why you might | Needed here? |
+|---|---|---|
+| $x = 0$ | the **modulus** changes its formula — $\lvert x\rvert$ is $-x$ on the left, $x$ on the right | **Yes.** Either side of zero the integrand is genuinely a different function. |
+| $x = 1$ | the **curve crosses the axis** — the sign of $y$ changes | **No.** Only if you were asked for an *area*. |
+:::
 
 ```{python}
 import numpy as np, matplotlib.pyplot as plt
@@ -731,10 +777,6 @@ Working
 
 ## Question 11
 
-::: {.topic}
-Topic — laws of logarithms; simultaneous equations; a hidden quadratic
-:::
-
 ::: {.question}
 Find the sum of the real values of $x$ that satisfy the simultaneous equations
 $$\log_3(xy^2) = 1 , \qquad (\log_3 x)(\log_3 y) = -3 .$$
@@ -751,6 +793,11 @@ them are *a power of 3 plus a smaller power of 3*, which tells you what shape th
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — laws of logarithms; simultaneous equations; a hidden quadratic
+:::
+
 
 Let $a = \log_3 x$ and $b = \log_3 y$.
 
@@ -798,10 +845,6 @@ Working
 
 ## Question 12
 
-::: {.topic}
-Topic — integration after simplifying; the difference of two squares
-:::
-
 ::: {.question}
 It is given that
 $$\frac{\mathrm dV}{\mathrm dt} = \frac{24\pi(t-1)}{1+\sqrt t} \quad \text{for } t \ge 1 ,$$
@@ -819,6 +862,11 @@ usually about to disappear]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — integration after simplifying; the difference of two squares
+:::
+
 
 Write $t = \left(\sqrt t\right)^2$, so that
 
@@ -860,10 +908,6 @@ Working
 
 ## Question 13
 
-::: {.topic}
-Topic — a hidden quadratic; the range of the substituted variable
-:::
-
 ::: {.question}
 Find the maximum value of $\;4^{\sin x} - 4 \times 2^{\sin x} + \dfrac{17}{4}\;$ for real $x$.
 
@@ -879,6 +923,11 @@ option F is sitting there waiting for anyone who forgets it.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — a hidden quadratic; the range of the substituted variable
+:::
+
 
 Let $u = 2^{\sin x}$. Then $4^{\sin x} = \left(2^2\right)^{\sin x} = \left(2^{\sin x}\right)^2 = u^2$,
 so the expression becomes
@@ -950,10 +999,6 @@ Working
 
 ## Question 14
 
-::: {.topic}
-Topic — solving two linear equations in $\sin 2x$ and $\cos 2x$; the doubled range
-:::
-
 ::: {.question}
 $x$ satisfies the simultaneous equations
 $$\sin 2x + \sqrt3 \cos 2x = -1 , \qquad \sqrt3 \sin 2x - \cos 2x = \sqrt3 ,$$
@@ -971,6 +1016,11 @@ to $720^\circ$, which is **two** full turns.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — solving two linear equations in $\sin 2x$ and $\cos 2x$; the doubled range
+:::
+
 
 Put $s = \sin 2x$ and $c = \cos 2x$:
 
@@ -1016,10 +1066,6 @@ Working
 
 ## Question 15
 
-::: {.topic}
-Topic — indices with the same base; a hidden quadratic
-:::
-
 ::: {.question}
 Find the real **non-zero** solution to the equation
 $$\frac{2^{(9^x)}}{8^{(3^x)}} = \frac14 .$$
@@ -1035,6 +1081,11 @@ says that when zero is a solution]{.hl}. That is a free hint about what is comin
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — indices with the same base; a hidden quadratic
+:::
+
 
 Write $8$ and $\tfrac14$ as powers of $2$:
 
@@ -1078,10 +1129,6 @@ Working
 
 ## Question 16
 
-::: {.topic}
-Topic — definite integrals; a translation does not change the area
-:::
-
 ::: {.question}
 Given that
 $$2\int_0^1 \mathrm f(x)\,\mathrm dx + 5\int_1^2 \mathrm f(x)\,\mathrm dx = 14 \qquad\text{and}\qquad \int_0^1 \mathrm f(x+1)\,\mathrm dx = 6 ,$$
@@ -1099,6 +1146,11 @@ that, and you will get a perfectly clean wrong answer that is sitting on the opt
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — definite integrals; a translation does not change the area
+:::
+
 
 Deal with the second equation first. [Let $u = x + 1$]{.hl}. When $x = 0$, $u = 1$; when $x=1$, $u=2$;
 and $\mathrm du = \mathrm dx$. So
@@ -1137,10 +1189,6 @@ Working
 
 ## Question 17
 
-::: {.topic}
-Topic — a product of two factors; sign tables
-:::
-
 ::: {.question}
 Find the fraction of the interval $0 \le \theta \le \pi$ for which
 $$\Big(\sin 2\theta - \tfrac12\Big)\Big(\sin\theta - \cos\theta\Big) \ge 0 .$$
@@ -1157,6 +1205,11 @@ a number of twelfths, which is telling you how the interval is going to be cut u
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — a product of two factors; sign tables
+:::
+
 
 **First factor.** $\sin 2\theta - \tfrac12 = 0$ means $\sin 2\theta = \tfrac12$, so
 $2\theta = \tfrac{\pi}{6}$ or $\tfrac{5\pi}{6}$, giving
@@ -1241,10 +1294,6 @@ Working
 
 ## Question 18
 
-::: {.topic}
-Topic — shortest distance from a curve to a line
-:::
-
 ::: {.question}
 Find the shortest distance between the curve $y = x^2 + 4$ and the line $y = 2x - 2$.
 
@@ -1260,6 +1309,11 @@ perpendicular to the line, not vertically]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — shortest distance from a curve to a line
+:::
+
 
 First check they don't actually meet: $x^2 + 4 = 2x - 2$ gives $x^2 - 2x + 6 = 0$, whose discriminant is
 $4 - 24 = -20 < 0$. No real roots, so the curve and the line never cross and the shortest distance is a
@@ -1327,10 +1381,6 @@ Working
 
 ## Question 19
 
-::: {.topic}
-Topic — a long sum whose terms repeat
-:::
-
 ::: {.question}
 Find the value of $\displaystyle\sum_{k=0}^{90} \sin(10 + 90k)^\circ$.
 
@@ -1346,6 +1396,11 @@ terms, not ninety.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — a long sum whose terms repeat
+:::
+
 
 Write out the first few terms:
 
@@ -1388,10 +1443,6 @@ Working
 
 ## Question 20
 
-::: {.topic}
-Topic — separating the constant; reading roots off a cubic
-:::
-
 ::: {.question}
 What is the complete range of values of $k$ for which the curves
 $$y = x^3 - 12x \qquad\text{and}\qquad y = k - (x-2)^2$$
@@ -1408,6 +1459,11 @@ the turning points]{.hl}, because the number of crossings only changes when the 
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+
+::: {.topic}
+Topic — separating the constant; reading roots off a cubic
+:::
+
 
 Set them equal and collect the $k$:
 

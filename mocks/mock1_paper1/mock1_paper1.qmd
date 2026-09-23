@@ -1,0 +1,194 @@
+---
+title: "Mock 1 · Paper 1 — Applications of Mathematical Knowledge"
+subtitle: "20 questions · 75 minutes · no calculator"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Instructions.** Twenty multiple-choice questions in **75 minutes** — about **3 min 45 s each**.
+**No calculator.** There is **no penalty for a wrong answer**, so never leave a blank — if you are stuck,
+eliminate what you can and choose. Record one letter per question; mark it, then check against the
+[worked solutions](mock1_paper1_ms.qmd).
+
+---
+
+## Question 1
+
+Find the exact value of $\;\dfrac{27^{2/3}\times 2^{4}}{6^{2}}$.
+
+&nbsp;&nbsp;**A** $2$ &nbsp;&nbsp; **B** $4$ &nbsp;&nbsp; **C** $6$ &nbsp;&nbsp; **D** $8$ &nbsp;&nbsp; **E** $16$
+
+---
+
+## Question 2
+
+Write $\;\dfrac{6}{3-\sqrt3}\;$ in the form $a+b\sqrt3$.
+
+&nbsp;&nbsp;**A** $\sqrt3$ &nbsp;&nbsp; **B** $3-\sqrt3$ &nbsp;&nbsp; **C** $2+\sqrt3$ &nbsp;&nbsp;
+**D** $3+\sqrt3$ &nbsp;&nbsp; **E** $3+2\sqrt3$
+
+---
+
+## Question 3
+
+The equation $\;x^{2}+kx+(k+3)=0\;$ has no real roots. Find the set of possible values of $k$.
+
+&nbsp;&nbsp;**A** $k<-2$ or $k>6$ &nbsp;&nbsp; **B** $-6<k<2$ &nbsp;&nbsp; **C** $-2<k<6$ &nbsp;&nbsp;
+**D** $2<k<6$ &nbsp;&nbsp; **E** $-2\le k\le 6$
+
+---
+
+## Question 4
+
+Find the minimum value of $\;3x^{2}+12x+7$.
+
+&nbsp;&nbsp;**A** $-12$ &nbsp;&nbsp; **B** $-5$ &nbsp;&nbsp; **C** $-1$ &nbsp;&nbsp; **D** $5$ &nbsp;&nbsp; **E** $7$
+
+---
+
+## Question 5
+
+The function $f(x)=x^{2}-2kx+5$ has minimum value $1$. Find the positive value of $k$.
+
+&nbsp;&nbsp;**A** $1$ &nbsp;&nbsp; **B** $2$ &nbsp;&nbsp; **C** $3$ &nbsp;&nbsp; **D** $4$ &nbsp;&nbsp; **E** $6$
+
+---
+
+## Question 6
+
+The graph of $y=f(x)$ has a maximum at $(2,5)$. State the coordinates of the maximum of $y=f(2x)+1$.
+
+&nbsp;&nbsp;**A** $(2,6)$ &nbsp;&nbsp; **B** $(1,5)$ &nbsp;&nbsp; **C** $(1,6)$ &nbsp;&nbsp;
+**D** $(4,6)$ &nbsp;&nbsp; **E** $(1,11)$
+
+---
+
+## Question 7
+
+The graph of $y=f(x)$ has range $1\le f(x)\le 4$. Find the minimum value of $\;\bigl(f(x)\bigr)^{2}-6f(x)$.
+
+&nbsp;&nbsp;**A** $-5$ &nbsp;&nbsp; **B** $-6$ &nbsp;&nbsp; **C** $-8$ &nbsp;&nbsp; **D** $-9$ &nbsp;&nbsp; **E** $0$
+
+---
+
+## Question 8
+
+How many solutions does $\;2\sin^{2}x+\sin x-1=0\;$ have in the interval $0^\circ\le x<360^\circ$?
+
+&nbsp;&nbsp;**A** $0$ &nbsp;&nbsp; **B** $1$ &nbsp;&nbsp; **C** $2$ &nbsp;&nbsp; **D** $3$ &nbsp;&nbsp; **E** $4$
+
+---
+
+## Question 9
+
+In triangle $ABC$, $AB=5$, $AC=7$ and angle $BAC=60^\circ$. Find the exact length of $BC$.
+
+&nbsp;&nbsp;**A** $\sqrt{39}$ &nbsp;&nbsp; **B** $\sqrt{74}$ &nbsp;&nbsp; **C** $\sqrt{109}$ &nbsp;&nbsp;
+**D** $8$ &nbsp;&nbsp; **E** $12$
+
+---
+
+## Question 10
+
+A circle has equation $\;x^{2}+y^{2}-6x+4y-12=0$. Find its radius.
+
+&nbsp;&nbsp;**A** $\sqrt{13}$ &nbsp;&nbsp; **B** $5$ &nbsp;&nbsp; **C** $12$ &nbsp;&nbsp; **D** $13$ &nbsp;&nbsp; **E** $25$
+
+---
+
+## Question 11
+
+The line $y=2x+c$ is a tangent to the circle $x^{2}+y^{2}=5$. Find the possible values of $c$.
+
+&nbsp;&nbsp;**A** $c=\pm1$ &nbsp;&nbsp; **B** $c=\pm\sqrt5$ &nbsp;&nbsp; **C** $c=5$ &nbsp;&nbsp;
+**D** $c=\pm5$ &nbsp;&nbsp; **E** $c=\pm25$
+
+---
+
+## Question 12
+
+An arithmetic series has first term $3$ and common difference $4$. Find the sum of its first $20$ terms.
+
+&nbsp;&nbsp;**A** $410$ &nbsp;&nbsp; **B** $800$ &nbsp;&nbsp; **C** $820$ &nbsp;&nbsp; **D** $1640$ &nbsp;&nbsp; **E** $83$
+
+---
+
+## Question 13
+
+A geometric series has first term $8$ and common ratio $\tfrac34$. Find its sum to infinity.
+
+&nbsp;&nbsp;**A** $6$ &nbsp;&nbsp; **B** $24$ &nbsp;&nbsp; **C** $32$ &nbsp;&nbsp; **D** $40$ &nbsp;&nbsp; **E** it does not converge
+
+---
+
+## Question 14
+
+Find the coefficient of $x^{2}$ in the binomial expansion of $(2+3x)^{5}$.
+
+&nbsp;&nbsp;**A** $90$ &nbsp;&nbsp; **B** $240$ &nbsp;&nbsp; **C** $360$ &nbsp;&nbsp; **D** $720$ &nbsp;&nbsp; **E** $1080$
+
+---
+
+## Question 15
+
+Solve $\;\log_{2}x+\log_{2}(x-2)=3$.
+
+&nbsp;&nbsp;**A** $x=2$ &nbsp;&nbsp; **B** $x=4$ &nbsp;&nbsp; **C** $x=8$ &nbsp;&nbsp;
+**D** $x=-2$ &nbsp;&nbsp; **E** $x=4$ and $x=-2$
+
+---
+
+## Question 16
+
+The equation $\;3^{2x}-4\cdot 3^{x}+3=0\;$ has two real solutions. Find the sum of these solutions.
+
+&nbsp;&nbsp;**A** $-1$ &nbsp;&nbsp; **B** $0$ &nbsp;&nbsp; **C** $1$ &nbsp;&nbsp; **D** $2$ &nbsp;&nbsp; **E** $3$
+
+---
+
+## Question 17
+
+The curve $y=x^{3}-3x^{2}-9x+5$ has two stationary points. State the $x$-coordinate of the **local
+maximum**.
+
+&nbsp;&nbsp;**A** $x=-3$ &nbsp;&nbsp; **B** $x=-1$ &nbsp;&nbsp; **C** $x=0$ &nbsp;&nbsp;
+**D** $x=1$ &nbsp;&nbsp; **E** $x=3$
+
+---
+
+## Question 18
+
+Find the area of the region enclosed between the line $y=2x$ and the curve $y=x^{2}$.
+
+&nbsp;&nbsp;**A** $\tfrac23$ &nbsp;&nbsp; **B** $\tfrac43$ &nbsp;&nbsp; **C** $2$ &nbsp;&nbsp;
+**D** $\tfrac83$ &nbsp;&nbsp; **E** $4$
+
+---
+
+## Question 19
+
+A function $f$ is **odd**, and $\displaystyle\int_{0}^{3} f(x)\,\mathrm dx = 5$. Find
+$\displaystyle\int_{-3}^{3} f(x)\,\mathrm dx$.
+
+&nbsp;&nbsp;**A** $-5$ &nbsp;&nbsp; **B** $0$ &nbsp;&nbsp; **C** $5$ &nbsp;&nbsp; **D** $10$ &nbsp;&nbsp;
+**E** cannot be determined
+
+---
+
+## Question 20
+
+How many real roots does the equation $\;x^{3}-3x+1=0\;$ have?
+
+&nbsp;&nbsp;**A** $0$ &nbsp;&nbsp; **B** $1$ &nbsp;&nbsp; **C** $2$ &nbsp;&nbsp; **D** $3$ &nbsp;&nbsp;
+**E** it depends on the value of $x$
+
+---
+
+*End of paper. Mark your answers, then work through the [solutions](mock1_paper1_ms.qmd) — every wrong or
+slow question goes into the personal set.*
+
+:::

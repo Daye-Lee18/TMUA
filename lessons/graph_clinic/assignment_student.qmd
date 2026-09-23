@@ -1,0 +1,209 @@
+---
+title: "Graph Clinic — Assignment"
+subtitle: "Hard set — parameter curves, symmetry, counting intersections, log/exp humps & non-function curves"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **65 marks** · Suggested time: **85 minutes**. You are not meant to
+*recognise* these curves — you are meant to **read** them with the fixed checklist (ends · symmetry · sign of
+the leading constant · where the wiggles bunch up · turning points).
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Reading unfamiliar curves** | $a\sin(x^{b})$ parameters · even/odd · bounded humps · $\lvert x\rvert$ inside · self-powers | 18 |
+| **B — Counting as intersections** | line/curve crossings · $\lvert f\rvert$ counts · cubic-level sets · tangency | 20 |
+| **C — Sketching harder curves** | reciprocals of quadratics · exp/log humps · non-function curves · oblique asymptotes · double reflections | 27 |
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Sketches → label every **asymptote, turning point and axis intercept**, and state the
+**domain** and any **symmetry** (even/odd). "How many solutions" → **a whole number**, justified by a sketch.
+Exact coordinates for maxima/minima.
+:::
+
+---
+
+# Section A — Reading unfamiliar curves
+
+## Question 1 **[4]**
+
+A graph of $y=a\sin(x^{b})$, with $a,b$ non-zero integers, is **odd**, oscillates **infinitely fast near
+$x=0$**, flattens towards $0$ as $\lvert x\rvert\to\infty$, and on the right approaches the $x$-axis **from
+below**. State everything you can about $a$ and $b$, with reasons.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 2 **[4]**
+
+State whether each function is **even**, **odd**, or **neither**, with a one-line reason.
+
+&nbsp;&nbsp;(a) $\;x\sin x$ **[1]** &nbsp;&nbsp;&nbsp; (b) $\;x^{2}\sin x$ **[1]** &nbsp;&nbsp;&nbsp;
+(c) $\;\sin(x^{2})$ **[1]** &nbsp;&nbsp;&nbsp; (d) $\;x^{3}+x$ **[1]**
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Sketch $\;y=\dfrac{x^{2}}{x^{2}+1}$: state its symmetry, its behaviour as $\lvert x\rvert\to\infty$, its
+minimum, and its range.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 4 **[4]**
+
+Contrast the graphs of $\;y=\cos\lvert x\rvert$ and $\;y=\lvert\cos x\rvert$. Are either of them the same as
+$y=\cos x$? Explain, and describe how each differs from $\cos x$ where it does.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 5 **[3]**
+
+Sketch $\;y=x^{1/x}$ for $x>0$: its value as $x\to0^{+}$, its value at $x=1$, its behaviour as
+$x\to\infty$, and the location and exact $x$-coordinate of its maximum.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Section B — Counting as intersections
+
+## Question 6 **[5]**
+
+By sketching $y=3^{x}$ and a suitable straight line, find how many real solutions $\;3^{x}=x+3\;$ has.
+Explain how the sketch gives the count.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 7 **[4]**
+
+How many real solutions does $\;\lvert x^{2}-4\rvert=3\;$ have? List them.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 8 **[4]**
+
+For which values of the constant $k$ does $\;x^{3}-3x=k\;$ have **three distinct** real solutions? (Sketch
+$y=x^{3}-3x$ and use its turning points.)
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 9 **[4]**
+
+By sketching $y=\cos x$ and a suitable line, find how many solutions $\;5\cos x=x\;$ has (with $x$ in
+**radians**). Justify the count.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10 **[3]**
+
+How many real solutions does $\;x^{2}=\cos x\;$ have? Justify with a sketch.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Section C — Sketching harder curves
+
+## Question 11 **[5]**
+
+Sketch $\;y=\dfrac{1}{x^{2}-4}$: its vertical asymptotes, its symmetry, the shape of each of the three
+branches, and hence its **range**.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 12 **[4]**
+
+Sketch $\;y=x\,e^{-x}$: its behaviour at each end, and its turning point (with exact coordinates).
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 13 **[4]**
+
+Sketch the curve $\;x=y^{2}-1$. State why it is **not** a function of $x$, its vertex, the direction it opens,
+and its symmetry.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 14 **[5]**
+
+Sketch $\;y=x+\dfrac{4}{x}$: its two asymptotes, its symmetry, and its turning points (exact coordinates).
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 15 **[4]**
+
+Sketch $\;y=x\ln x$ for $x>0$: its value as $x\to0^{+}$, its behaviour as $x\to\infty$, and its minimum (exact
+coordinates).
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 16 **[5]**
+
+The graph of $y=\sin x$ is reflected first in the line $x=\dfrac{3\pi}{4}$, then in the line $y=2$. Find the
+equation of the resulting curve, showing each step.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+:::

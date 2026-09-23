@@ -1,0 +1,217 @@
+---
+title: "Toolkit S7 — Spot the Error · Assignment"
+subtitle: "8 real TMUA Paper 2 questions + 1 MAT — student copy"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+Every question on this sheet is a **real past-paper question** — Sections A–B from TMUA Paper 2, Section C
+from the MAT (source given under each). For each, decide whether the argument is correct, or find the
+**first** step/line that is wrong. Read line by line and ask: *"does this follow, for every value the
+previous line allows?"*
+
+---
+
+## Section A — Which step is invalid?
+
+**A1.** &nbsp; Consider the following problem: *Solve the inequality
+$\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$, where $n$ is a positive integer.*
+
+A student produces the following argument:
+
+$$\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10} \qquad\text{— then step (I) gives —}$$
+$$\log_{\frac12}\left(\tfrac14\right)^{n}<\log_{\frac12}\left(\tfrac1{32}\right)^{10} \qquad\text{— (II) —}$$
+$$n\log_{\frac12}\left(\tfrac14\right)<10\log_{\frac12}\left(\tfrac1{32}\right) \qquad\text{— (III) —}$$
+$$n<\frac{10\log_{\frac12}\left(\tfrac1{32}\right)}{\log_{\frac12}\left(\tfrac14\right)} \qquad\text{— (IV) —}$$
+$$n<\frac{10\times5}{2}=25 \qquad\text{— (V) —}$$
+$$1\leq n\leq 24$$
+
+Which step (if any) in the argument is invalid? &nbsp; **A** none; the argument is correct &nbsp;
+**B** only (I) &nbsp; **C** only (II) &nbsp; **D** only (III) &nbsp; **E** only (IV) &nbsp; **F** only (V)
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2017 Paper 2, Q18)*
+
+---
+
+**A2.** &nbsp; Consider the following attempt to solve the equation $4x\sqrt{2x-1}=10x-5$:
+
+$$4x\sqrt{2x-1}=10x-5 \qquad\text{— (I) —}$$
+$$4x\sqrt{2x-1}=5(2x-1) \qquad\text{— (II) —}$$
+$$16x^{2}(2x-1)=25(2x-1)^{2} \qquad\text{— (III) —}$$
+$$16x^{2}=25(2x-1) \qquad\text{— (IV) —}$$
+$$16x^{2}-50x+25=0 \qquad\text{— (V) —}$$
+$$(8x-5)(2x-5)=0 \qquad\text{— (VI) —}$$
+$$\text{The solutions of the original equation are } x=\tfrac58 \text{ and } x=\tfrac52.$$
+
+Which one of the following is true? &nbsp; **A** The solution is correct. &nbsp; **B** Only one of
+$x=\tfrac58,\tfrac52$ is correct and the error arises from step (II). &nbsp; **C** …from step (III).
+&nbsp; **D** …from step (IV). &nbsp; **E** There is another value of $x$ that satisfies the original
+equation and the error arises from step (II). &nbsp; **F** …from step (III). &nbsp; **G** …from step
+(IV).
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2018 Paper 2, Q9)*
+
+---
+
+**A3.** &nbsp; On which line is the **first** error in the following argument?
+
+&nbsp;&nbsp;**A** $\sin^{2}x+\cos^{2}x=1$ for all values of $x$.
+&nbsp;&nbsp;**B** Therefore $\cos x=\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**C** Hence $1+\cos x=1+\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**D** Thus $(1+\cos x)^{2}=\left(1+\sqrt{1-\sin^{2}x}\right)^{2}$ for all values of $x$.
+&nbsp;&nbsp;**E** Substituting $x=\pi$ gives $0=4$.
+
+(Choose the line **A–E** on which the first error occurs.)
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2021 Paper 2, Q5)*
+
+---
+
+**A4.** &nbsp; Here is an attempt to solve the inequality $x^{4}-2x^{2}-3<0$ by completing the square:
+
+$$x^{4}-2x^{2}-3<0$$
+&nbsp;&nbsp;**I** &nbsp; if and only if $x^{4}-2x^{2}+1<4$
+&nbsp;&nbsp;**II** &nbsp; if and only if $(x^{2}-1)^{2}<4$
+&nbsp;&nbsp;**III** &nbsp; if and only if $-2<x^{2}-1<2$
+&nbsp;&nbsp;**IV** &nbsp; if and only if $x^{2}-1<2$
+&nbsp;&nbsp;**V** &nbsp; if and only if $x^{2}<3$
+&nbsp;&nbsp;**VI** &nbsp; if and only if $-\sqrt3<x<\sqrt3$
+
+Which of the following is true? &nbsp; **A** The argument is completely correct. &nbsp; **B** First error
+in line I. &nbsp; **C** line II. &nbsp; **D** line III. &nbsp; **E** line IV. &nbsp; **F** line V.
+&nbsp; **G** line VI.
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2023 Paper 2, Q10)*
+
+---
+
+## Section B — Evaluate the proof
+
+**B1.** &nbsp; The following is an attempted proof of the conjecture: **if $\tan\theta>0$, then
+$\sin\theta+\cos\theta>1$.**
+
+Suppose $\tan\theta>0$, so in particular $\cos\theta\neq0$.
+
+&nbsp;&nbsp;**(I)** &nbsp; Since $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$, then
+$\sin\theta\cos\theta=\tan\theta\cos^{2}\theta>0$.
+&nbsp;&nbsp;**(II)** &nbsp; It follows that $1+2\sin\theta\cos\theta>1$.
+&nbsp;&nbsp;**(III)** &nbsp; Therefore $\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta>1$.
+&nbsp;&nbsp;**(IV)** &nbsp; which factorises to give $(\sin\theta+\cos\theta)^{2}>1$.
+&nbsp;&nbsp;**(V)** &nbsp; Therefore $\sin\theta+\cos\theta>1$.
+
+Which one of the following is the case? &nbsp; **A** The proof is correct. &nbsp; **B** First error in
+line (I). &nbsp; **C** line (II). &nbsp; **D** line (III). &nbsp; **E** line (IV). &nbsp; **F** line (V).
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2018 Paper 2, Q13)*
+
+---
+
+**B2.** &nbsp; Consider the following claim: *The difference between two consecutive positive cube numbers
+is always prime.* Here is an attempted proof:
+
+&nbsp;&nbsp;**I** &nbsp; $(x+1)^{3}=x^{3}+3x^{2}+3x+1$
+&nbsp;&nbsp;**II** &nbsp; Taking $x$ to be a positive integer, the difference between two consecutive cube
+numbers can be expressed as $(x+1)^{3}-x^{3}=3x^{2}+3x+1$.
+&nbsp;&nbsp;**III** &nbsp; It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer
+coefficients because its discriminant is negative.
+&nbsp;&nbsp;**IV** &nbsp; Therefore for every positive integer value of $x$ the integer $3x^{2}+3x+1$
+cannot be factorised.
+&nbsp;&nbsp;**V** &nbsp; Hence, the difference between two consecutive cube numbers will always be prime.
+
+Which of the following best describes this proof? &nbsp; **A** completely correct, claim true. &nbsp;
+**B** completely correct, but there are counterexamples to the claim. &nbsp; **C** wrong, first error line
+I. &nbsp; **D** line II. &nbsp; **E** line III. &nbsp; **F** line IV. &nbsp; **G** line V.
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2022 Paper 2, Q7)*
+
+---
+
+**B3.** &nbsp; A student attempts to answer: *What is the largest number of consecutive odd integers that
+are all prime?* The attempt is as follows:
+
+&nbsp;&nbsp;**I** &nbsp; There are two consecutive odd integers that are prime (for example: $17,19$).
+&nbsp;&nbsp;**II** &nbsp; Any three consecutive odd integers can be written in the form $n-2,\,n,\,n+2$
+for some $n$.
+&nbsp;&nbsp;**III** &nbsp; If $n$ is one more than a multiple of $3$, then $n+2$ is a multiple of $3$.
+&nbsp;&nbsp;**IV** &nbsp; If $n$ is two more than a multiple of $3$, then $n-2$ is a multiple of $3$.
+&nbsp;&nbsp;**V** &nbsp; The only other possibility is that $n$ is a multiple of $3$.
+&nbsp;&nbsp;**VI** &nbsp; In each case, one of the integers is a multiple of $3$, so not prime.
+&nbsp;&nbsp;**VII** &nbsp; Therefore the largest number of consecutive odd integers that are all prime is two.
+
+Which of the following best describes this attempt? &nbsp; **A** completely correct. &nbsp; **B** first
+error line I. &nbsp; **C** line II. &nbsp; **D** line III. &nbsp; **E** line IV. &nbsp; **F** line V.
+&nbsp; **G** line VI. &nbsp; **H** line VII.
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2023 Paper 2, Q4)*
+
+---
+
+**B4.** &nbsp; A student is asked to prove whether the following statement $(*)$ is true or false:
+
+$$(*)\quad\text{For all real numbers } a \text{ and } b,\ \ |a+b|<|a|+|b|.$$
+
+The student's proof is as follows: *Statement $(*)$ is **false**. A counterexample is $a=3,\,b=4$, as
+$|3+4|=7$ and $|3|+|4|=7$, but $7<7$ is false.*
+
+Which of the following best describes the student's proof? &nbsp; **A** $(*)$ is true, and the proof is
+not correct. &nbsp; **B** $(*)$ is false, but the proof is not correct: the counterexample is not valid.
+&nbsp; **C** $(*)$ is false, but the proof is not correct: the student needs to give *all* the values of
+$a,b$ where $|a+b|<|a|+|b|$ is false. &nbsp; **D** $(*)$ is false, but the proof is not correct: the
+student should have stated $|a+b|\leq|a|+|b|$. &nbsp; **E** $(*)$ is false, and the proof is fully
+correct.
+
+::: {.workspace style="min-height:3cm"}
+Answer + reason:
+:::
+
+*(TMUA 2020 Paper 2, Q8)*
+
+---
+
+## Section C — Cross-exam (MAT)
+
+**C1.** &nbsp; For all real $n$, it is the case that
+$n^{4}+1=\left(n^{2}+\sqrt2\,n+1\right)\left(n^{2}-\sqrt2\,n+1\right)$. From this we may deduce that
+$n^{4}+4$ is
+
+&nbsp;&nbsp;**(a)** never a prime number for any positive whole number $n$.
+&nbsp;&nbsp;**(b)** a prime number for exactly one positive whole number $n$.
+&nbsp;&nbsp;**(c)** a prime number for exactly two positive whole numbers $n$.
+&nbsp;&nbsp;**(d)** a prime number for exactly three positive whole numbers $n$.
+&nbsp;&nbsp;**(e)** a prime number for exactly four positive whole numbers $n$.
+
+::: {.workspace style="min-height:3.5cm"}
+Answer + reason:
+:::
+
+*(MAT 2022, Q1G — the "closest cousin" exam; same factorise-then-check-primality idea as B2 above)*

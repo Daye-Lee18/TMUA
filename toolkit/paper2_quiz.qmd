@@ -1,0 +1,356 @@
+---
+title: "Paper 2 Concepts Quiz — Sessions 1–7"
+subtitle: "Fast recall — fill-in-the-blank and True/False across everything in Section 2"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+A rapid quiz over every Paper 2 reasoning idea (toolkit S1–S7). Two formats only, so you can run through it
+fast: **fill in the blank** and **True or False**. Each table hides its answers in the `Solution` toggle
+directly beneath it — attempt the whole table, then open the one toggle to check. The spec uses no symbols
+and no truth tables, so every answer is in words.
+
+The last two sections — *Which topic?* and the *Rapid-fire memory bank* — are the highest-value pages.
+
+---
+
+## Session 1 — Statement forms (Arg1)
+
+### Fill in the blank
+
+| # | Complete the sentence |
+|---|---|
+| 1 | "$A$ only if $B$" means $A$ leads to ____. |
+| 2 | "$A$ if $B$" means ____ leads to $A$. |
+| 3 | "$A$ if and only if $B$" claims ____ directions. |
+| 4 | In "if $P$ then $Q$", the hypothesis (what is assumed) is ____. |
+| 5 | In "if $P$ then $Q$", the conclusion (what follows) is ____. |
+| 6 | "You pass only if you revise" — passing forces that you ____. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** $B$ &nbsp;·&nbsp; **2** $B$ &nbsp;·&nbsp; **3** both &nbsp;·&nbsp; **4** $P$ &nbsp;·&nbsp; **5** $Q$
+&nbsp;·&nbsp; **6** revised
+:::
+
+### True or False
+
+| # | Statement |
+|---|---|
+| 1 | "$A$ only if $B$" means $B$ leads to $A$. |
+| 2 | "$A$ if $B$" is the same as "if $B$ then $A$". |
+| 3 | "if and only if" asserts both directions. |
+| 4 | "only if" points at the condition that must **follow**. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** False &nbsp;·&nbsp; **2** True &nbsp;·&nbsp; **3** True &nbsp;·&nbsp; **4** True
+:::
+
+---
+
+## Session 2 — Converse and contrapositive (Arg1)
+
+### Fill in the blank
+
+| # | Complete the sentence |
+|---|---|
+| 1 | The converse of "if $P$ then $Q$" is ____. |
+| 2 | The contrapositive of "if $P$ then $Q$" is ____. |
+| 3 | The ____ is always equivalent to the original. |
+| 4 | The ____ is usually **not** equivalent to the original. |
+| 5 | Contrapositive of "if $n^2$ is even then $n$ is even" is ____. |
+| 6 | Proving a statement by proving its contrapositive is ____ (valid / invalid). |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** if $Q$ then $P$ &nbsp;·&nbsp; **2** if not $Q$ then not $P$ &nbsp;·&nbsp; **3** contrapositive
+&nbsp;·&nbsp; **4** converse &nbsp;·&nbsp; **5** if $n$ is odd then $n^2$ is odd &nbsp;·&nbsp; **6** valid
+:::
+
+### True or False
+
+| # | Statement |
+|---|---|
+| 1 | A statement and its converse are always equivalent. |
+| 2 | A statement and its contrapositive are always equivalent. |
+| 3 | If "if $P$ then $Q$" is true, then "if $Q$ then $P$" is true. |
+| 4 | Presenting the converse as the answer is a genuine error (TMUA 2021 P2 Q11). |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** False &nbsp;·&nbsp; **2** True &nbsp;·&nbsp; **3** False &nbsp;·&nbsp; **4** True
+:::
+
+---
+
+## Session 3 — Necessary and sufficient (Arg2)
+
+### Fill in the blank
+
+| # | Complete the sentence |
+|---|---|
+| 1 | "$P$ is sufficient for $Q$" means ____ leads to ____. |
+| 2 | "$P$ is necessary for $Q$" means ____ leads to ____. |
+| 3 | "$P$ is necessary **and** sufficient for $Q$" means ____. |
+| 4 | "$x>2$" is ____ but not ____ for "$x^2>4$". |
+| 5 | A sufficient condition is a ____ set sitting inside $Q$. |
+| 6 | A necessary condition is a ____ set containing $Q$. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** $P$ leads to $Q$ &nbsp;·&nbsp; **2** $Q$ leads to $P$ &nbsp;·&nbsp; **3** each leads to the other
+(equivalent) &nbsp;·&nbsp; **4** sufficient; necessary &nbsp;·&nbsp; **5** smaller &nbsp;·&nbsp; **6** bigger
+:::
+
+### True or False
+
+| # | Statement |
+|---|---|
+| 1 | "$P$ is necessary for $Q$" means $Q$ leads to $P$. |
+| 2 | "$P$ is sufficient for $Q$" means $Q$ leads to $P$. |
+| 3 | "necessary and sufficient" is the same as "if and only if". |
+| 4 | "$x>2$" is necessary for "$x^2>4$". |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** True &nbsp;·&nbsp; **2** False &nbsp;·&nbsp; **3** True &nbsp;·&nbsp; **4** False
+:::
+
+---
+
+## Session 4 — Quantifiers and negation (Arg3, Arg4)
+
+### Fill in the blank
+
+| # | Complete the sentence |
+|---|---|
+| 1 | The negation of "for all $x$, $P(x)$" is "____ $x$ such that ____". |
+| 2 | The negation of "there exists $x$ with $P(x)$" is "____ $x$, ____". |
+| 3 | not($A$ and $B$) $=$ ____. |
+| 4 | not($A$ or $B$) $=$ ____. |
+| 5 | "for some" means "for ____". |
+| 6 | Negating a quantified statement flips ____ and negates the inside. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** there exists; not $P(x)$ &nbsp;·&nbsp; **2** for all; not $P(x)$ &nbsp;·&nbsp; **3** not $A$ or not
+$B$ &nbsp;·&nbsp; **4** not $A$ and not $B$ &nbsp;·&nbsp; **5** at least one &nbsp;·&nbsp; **6** the
+quantifier (all ↔ some)
+:::
+
+### True or False
+
+| # | Statement |
+|---|---|
+| 1 | "for all $x$ there exists $y$" is the same as "there exists $y$ for all $x$". |
+| 2 | Negating "for all" gives "there exists". |
+| 3 | De Morgan turns "and" into "or" (and vice versa) when negating. |
+| 4 | "for some" means "not all". |
+| 5 | One counterexample negates a "for all" statement. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** False &nbsp;·&nbsp; **2** True &nbsp;·&nbsp; **3** True &nbsp;·&nbsp; **4** False &nbsp;·&nbsp;
+**5** True
+:::
+
+---
+
+## Session 5 — Proof methods (Prf1)
+
+### Fill in the blank
+
+| # | Complete the sentence |
+|---|---|
+| 1 | The four proof methods are direct, ____, ____, and ____. |
+| 2 | To disprove "for all $n$, $P(n)$" you give one ____. |
+| 3 | A proof by contradiction begins by assuming the statement is ____. |
+| 4 | $\sqrt2$ and $\sqrt3$ are proved irrational by ____. |
+| 5 | The product of two consecutive integers is always ____. |
+| 6 | The product of three consecutive integers is divisible by ____. |
+| 7 | "By cases" first splits into an ____ list of possibilities. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** by cases; by contradiction; by counterexample &nbsp;·&nbsp; **2** counterexample &nbsp;·&nbsp;
+**3** false &nbsp;·&nbsp; **4** contradiction (lowest terms) &nbsp;·&nbsp; **5** even &nbsp;·&nbsp; **6** 6
+&nbsp;·&nbsp; **7** exhaustive
+:::
+
+### True or False
+
+| # | Statement |
+|---|---|
+| 1 | One counterexample is enough to disprove a "for all" claim. |
+| 2 | Every multiple of $3$ is not prime. |
+| 3 | A prime greater than $2$ is odd. |
+| 4 | To prove a "for all" statement, one supporting example is enough. |
+| 5 | In a proof by cases the cases must cover every possibility. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** True &nbsp;·&nbsp; **2** False *(3 is prime)* &nbsp;·&nbsp; **3** True &nbsp;·&nbsp; **4** False
+&nbsp;·&nbsp; **5** True
+:::
+
+---
+
+## Session 6 — Scrambled proofs (Prf4)
+
+### Fill in the blank
+
+| # | Complete the sentence |
+|---|---|
+| 1 | The first line of a proof is a ____, ____, or ____ (or the given). |
+| 2 | The last line of a proof is the ____. |
+| 3 | After anchoring the ends, order the middle by ____. |
+| 4 | A line that uses "$a=2c$" must come ____ the line "$a$ is even". |
+| 5 | A conclusion line can appear in the ____ of a proof. |
+| 6 | TMUA tests this skill through the "which line is the first ____" format. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** Let; Suppose; Assume &nbsp;·&nbsp; **2** conclusion &nbsp;·&nbsp; **3** dependency &nbsp;·&nbsp;
+**4** after &nbsp;·&nbsp; **5** never (only at the end) &nbsp;·&nbsp; **6** error
+:::
+
+### True or False
+
+| # | Statement |
+|---|---|
+| 1 | A line that uses a result must come after that result. |
+| 2 | The first line of a proof states what you are trying to prove. |
+| 3 | A conclusion line can sit in the middle of a valid proof. |
+| 4 | In a contradiction proof, the opening assumes the statement is false. |
+| 5 | The lines of a valid proof can be put in any order and stay valid. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** True &nbsp;·&nbsp; **2** False &nbsp;·&nbsp; **3** False &nbsp;·&nbsp; **4** True &nbsp;·&nbsp;
+**5** False
+:::
+
+---
+
+## Session 7 — Spot the error (Err1, Err2)
+
+### Fill in the blank
+
+| # | Complete the sentence |
+|---|---|
+| 1 | Hotspot 1: dividing or cancelling — could it be ____? |
+| 2 | Hotspot 2: a square or root — a lost ____ or an extra ____. |
+| 3 | Hotspot 3: a ____ used as if it were proved. |
+| 4 | Hotspot 4: the conclusion sneaking into a premise — ____ reasoning. |
+| 5 | $ab=ac \Rightarrow b=c$ fails when $a=$ ____. |
+| 6 | $a^2=b^2$ gives $a=$ ____. |
+| 7 | $x^2=9$ gives $x=$ ____. |
+| 8 | A function is not one-to-one if some ____ line meets its graph more than once. |
+| 9 | Multiplying an inequality by a negative number ____ the sign. |
+| 10 | After squaring an equation you must ____ each candidate into the original. |
+| 11 | Safe move for "divide by a variable": ____ instead. |
+| 12 | $\sqrt{x^2}=$ ____. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** zero &nbsp;·&nbsp; **2** sign; root &nbsp;·&nbsp; **3** converse &nbsp;·&nbsp; **4** circular
+&nbsp;·&nbsp; **5** 0 &nbsp;·&nbsp; **6** $\pm b$ &nbsp;·&nbsp; **7** $\pm3$ &nbsp;·&nbsp; **8** horizontal
+&nbsp;·&nbsp; **9** reverses (flips) &nbsp;·&nbsp; **10** substitute back (check) &nbsp;·&nbsp; **11** factor
+&nbsp;·&nbsp; **12** $\lvert x\rvert$
+:::
+
+### True or False
+
+| # | Statement |
+|---|---|
+| 1 | If $ab=ac$ then $b=c$. |
+| 2 | If $a^2=b^2$ then $a=b$. |
+| 3 | If $\sin A=\sin B$ then $A=B$. |
+| 4 | Squaring both sides of an equation can create solutions the original didn't have. |
+| 5 | $\sqrt{1-\sin^2 x}=\cos x$ for **all** $x$. |
+| 6 | A polynomial with no linear factors always takes prime values. |
+| 7 | An argument whose lines are each true must be a valid proof. |
+| 8 | Not every "spot the error" question actually contains an error. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** False &nbsp;·&nbsp; **2** False &nbsp;·&nbsp; **3** False &nbsp;·&nbsp; **4** True &nbsp;·&nbsp;
+**5** False *(fails when $\cos x<0$)* &nbsp;·&nbsp; **6** False &nbsp;·&nbsp; **7** False &nbsp;·&nbsp;
+**8** True
+:::
+
+---
+
+## Which topic? — reading the question type
+
+The first word tells you what a Paper 2 reasoning question is testing. Match each phrase to its toolkit
+code, then open the toggle.
+
+| # | A question that says … |
+|---|---|
+| 1 | "$A$ **only if** $B$", "if and only if" |
+| 2 | "converse", "contrapositive" |
+| 3 | "**necessary**", "**sufficient**" |
+| 4 | "**for all**", "**there exists**", "for some", "negation" |
+| 5 | "**counterexample**", "disprove", "prove that" |
+| 6 | "arrange / order the steps of the proof" |
+| 7 | "which line is the **first error**", "best describes this proof", "is it valid" |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** Statement forms (Arg1, S1) &nbsp;·&nbsp; **2** Converse / contrapositive (Arg1, S2) &nbsp;·&nbsp;
+**3** Necessary & sufficient (Arg2, S3) &nbsp;·&nbsp; **4** Quantifiers & negation (Arg3/4, S4) &nbsp;·&nbsp;
+**5** Proof methods (Prf1, S5) &nbsp;·&nbsp; **6** Scrambled proofs (Prf4, S6) &nbsp;·&nbsp; **7** Spot the
+error (Err1/Err2, S7)
+:::
+
+---
+
+## Rapid-fire memory bank — True or False (all sessions)
+
+The one page to have automatic. Every line is a real trap.
+
+| # | Statement |
+|---|---|
+| 1 | "$A$ only if $B$" means $A$ leads to $B$. |
+| 2 | A statement and its converse are always equivalent. |
+| 3 | A statement and its contrapositive are always equivalent. |
+| 4 | "$P$ is necessary for $Q$" means $Q$ leads to $P$. |
+| 5 | "$P$ is sufficient for $Q$" means $Q$ leads to $P$. |
+| 6 | "necessary and sufficient" means the two statements are equivalent. |
+| 7 | The negation of "for all $x$, $P(x)$" is "there exists $x$ with not $P(x)$". |
+| 8 | "for all $x$ there exists $y$" equals "there exists $y$ for all $x$". |
+| 9 | "for some" means "at least one". |
+| 10 | One counterexample disproves a "for all" claim. |
+| 11 | One example proves a "for all" claim. |
+| 12 | If $ab=ac$ then $b=c$. |
+| 13 | If $a^2=b^2$ then $a=b$. |
+| 14 | If $\sin A=\sin B$ then $A=B$. |
+| 15 | If $x^2=9$ then $x=3$. |
+| 16 | Squaring an equation can add solutions; taking a root can lose the $\pm$. |
+| 17 | Multiplying an inequality by a negative reverses it. |
+| 18 | Taking $\log_b$ with $0<b<1$ reverses an inequality. |
+| 19 | A multiple of $3$ is never prime. |
+| 20 | A polynomial with no linear factors always gives prime values. |
+| 21 | A conclusion line can appear in the middle of a proof. |
+| 22 | An argument whose lines are all true must be a valid proof. |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**1** True &nbsp;·&nbsp; **2** False &nbsp;·&nbsp; **3** True &nbsp;·&nbsp; **4** True &nbsp;·&nbsp;
+**5** False &nbsp;·&nbsp; **6** True &nbsp;·&nbsp; **7** True &nbsp;·&nbsp; **8** False &nbsp;·&nbsp;
+**9** True &nbsp;·&nbsp; **10** True &nbsp;·&nbsp; **11** False &nbsp;·&nbsp; **12** False &nbsp;·&nbsp;
+**13** False &nbsp;·&nbsp; **14** False &nbsp;·&nbsp; **15** False &nbsp;·&nbsp; **16** True &nbsp;·&nbsp;
+**17** True &nbsp;·&nbsp; **18** True &nbsp;·&nbsp; **19** False &nbsp;·&nbsp; **20** False &nbsp;·&nbsp;
+**21** False &nbsp;·&nbsp; **22** False
+:::
+
+:::

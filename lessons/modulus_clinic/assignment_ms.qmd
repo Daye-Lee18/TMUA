@@ -1,0 +1,366 @@
+---
+title: "Modulus Clinic — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **71**.
+
+Two habits to check: on an **equation**, did every root get tested against the case that produced it (reject
+out-of-branch roots)? On a **graph/region**, did they split at every **corner** (where a modulus argument is
+$0$) before doing anything else?
+
+---
+
+# Section A — Equations & inequalities
+
+## Question 1 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $x=\tfrac43,\ 6$; (b) $x=1$.** &nbsp; **(M1 A1 M1 A1)**
+
+**(a)** $\lvert2x-5\rvert=x+1$ needs $x+1\ge0$. Case $2x-5=x+1\Rightarrow x=6$ (✓, $\lvert7\rvert=7$); case
+$2x-5=-(x+1)\Rightarrow3x=4\Rightarrow x=\tfrac43$ (✓, $\lvert-\tfrac73\rvert=\tfrac73=x+1$). Both valid.
+
+**(b)** $\lvert x-3\rvert=2x$ needs $2x\ge0$. Case $x-3=2x\Rightarrow x=-3$ (**reject**, $2x<0$); case
+$-(x-3)=2x\Rightarrow x=1$ (✓). Only $x=1$.
+
+*Always check the right-hand side is $\ge0$ and that each root satisfies the sign of its own case — that is
+how $x=-3$ is thrown out in (b).*
+:::
+
+---
+
+## Question 2 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x\le-3$ or $x\ge\tfrac12$, i.e. $(-\infty,-3]\cup[\tfrac12,\infty)$.** &nbsp; **(M1 A1 A1 B1)**
+
+Both sides are $\ge0$, so square: $(3x+2)^{2}\ge(x-4)^{2}\Rightarrow(3x+2)^{2}-(x-4)^{2}\ge0$. Factor as a
+difference of squares:
+$$\big[(3x+2)-(x-4)\big]\big[(3x+2)+(x-4)\big]=(2x+6)(4x-2)=4(x+3)(2x-1)\ge0,$$
+so $(x+3)(2x-1)\ge0\Rightarrow x\le-3$ or $x\ge\tfrac12$.
+
+*Squaring is legal because both sides are non-negative; factor as a difference of two squares rather than
+expanding.*
+:::
+
+---
+
+## Question 3 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$-2$.** &nbsp; **(M1 A1 A1 B1)**
+
+$\lvert x^{2}-2x\rvert=\lvert x-2\rvert\Rightarrow x^{2}-2x=\pm(x-2)$.
+
+- $x^{2}-2x=x-2\Rightarrow x^{2}-3x+2=0\Rightarrow(x-1)(x-2)=0\Rightarrow x=1,2$.
+- $x^{2}-2x=-(x-2)\Rightarrow x^{2}-x-2=0\Rightarrow(x-2)(x+1)=0\Rightarrow x=2,-1$.
+
+Distinct solutions $\{-1,1,2\}$; product $(-1)(1)(2)=-2$.
+
+*$\lvert A\rvert=\lvert B\rvert\iff A=\pm B$ — no non-negativity condition needed. The root $x=2$ appears in
+both branches but is counted once.*
+:::
+
+---
+
+## Question 4 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$k<4$: none; $k=4$: infinitely many (all $-3\le x\le1$); $k>4$: two.** &nbsp; **(M1 A1 A1 B1)**
+
+$\lvert x+3\rvert+\lvert x-1\rvert$ is the total distance from $x$ to $-3$ and to $1$. Its **minimum** is the
+gap between them, $\lvert1-(-3)\rvert=4$, achieved for **every** $x$ in $[-3,1]$ (a flat bottom); outside, it
+rises with slope $2$. So a level $k$ meets it in **none** ($k<4$), **a whole segment** ($k=4$), or **two**
+points ($k>4$).
+
+*A sum of two distances is flat and equal to the gap between the two points, then V-shaped outside — that flat
+bottom is why $k=4$ gives infinitely many solutions.*
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$\big(-\sqrt7,-1\big)\cup\big(1,\sqrt7\big)$.** &nbsp; **(M1 A1 A1 B1)**
+
+$\lvert x^{2}-4\rvert<3\Rightarrow-3<x^{2}-4<3\Rightarrow1<x^{2}<7\Rightarrow1<\lvert x\rvert<\sqrt7$. So
+$x\in(-\sqrt7,-1)\cup(1,\sqrt7)$.
+
+*Unfold to a double inequality on $x^{2}$, then take roots: $1<x^{2}<7$ becomes $1<\lvert x\rvert<\sqrt7$,
+which is two symmetric intervals.*
+:::
+
+---
+
+# Section B — Graphs, x|x| & regions
+
+## Question 6 **[6]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) roots $1,3$, dip flipped up to a local max $(2,1)$; (b) even, roots $\pm1,\pm3$, minima $(\pm2,-1)$,
+local max $(0,3)$; (c) four.** &nbsp; **(M1 A1 M1 A1 M1 A1)**
+
+$f(x)=(x-1)(x-3)$ has minimum $(2,-1)$.
+
+- **(a) $\lvert f\rvert$:** the part between the roots (below the axis) flips **up**, so the dip becomes a
+  hump with a corner-free local max $(2,1)$; roots stay at $x=1,3$.
+- **(b) $f(\lvert x\rvert)$:** keep $x\ge0$ and mirror in the $y$-axis — even, with roots $\pm1,\pm3$, minima
+  $(\pm2,-1)$, and a local maximum $(0,3)$ at the join.
+- **(c)** $\lvert f(x)\rvert=\tfrac12\Rightarrow f=\tfrac12$ or $f=-\tfrac12$. $f=\tfrac12$:
+  $x^{2}-4x+\tfrac52=0\Rightarrow x=2\pm\tfrac{\sqrt6}2$ (two). $f=-\tfrac12$: $x^{2}-4x+\tfrac72=0
+  \Rightarrow x=2\pm\tfrac{\sqrt2}2$ (two, since the discriminant $2>0$ and $f$ dips to $-1<-\tfrac12$). **Four**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,6,600); f=x**2-4*x+3
+fig,ax=plt.subplots(2,1,figsize=(5.0,4.6))
+ax[0].plot(x,np.abs(f),color='#2b6cb0',lw=2); ax[0].plot([1,3],[0,0],'o',color='crimson'); ax[0].plot(2,1,'o',color='crimson')
+ax[0].set_title('y = |f(x)|: dip flipped up, local max (2,1)',fontsize=9)
+ax[1].plot(x,(np.abs(x))**2-4*np.abs(x)+3,color='#2b6cb0',lw=2)
+ax[1].plot([1,3,-1,-3],[0,0,0,0],'o',color='crimson'); ax[1].plot(0,3,'o',color='#2ca02c')
+ax[1].set_title('y = f(|x|): even, minima (±2,−1), local max (0,3)',fontsize=9)
+for a in ax: a.axhline(0,color='0.6',lw=0.5); a.grid(alpha=0.2); a.set_ylim(-2,5)
+plt.tight_layout(); plt.show()
+```
+
+*In (c) count where the two horizontal levels $f=\pm\tfrac12$ cut the parabola; $f=-\tfrac12$ has solutions
+only because $f$ reaches down to $-1$.*
+:::
+
+---
+
+## Question 7 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=1$ and $x=-1-\sqrt2$ — two solutions.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+Split at $x=0$.
+
+- $x\ge0$: $x\lvert x\rvert=x^{2}$, so $x^{2}=2x-1\Rightarrow(x-1)^{2}=0\Rightarrow x=1$ (✓, a repeated root
+  but one point).
+- $x<0$: $x\lvert x\rvert=-x^{2}$, so $-x^{2}=2x-1\Rightarrow x^{2}+2x-1=0\Rightarrow x=-1\pm\sqrt2$. Only
+  $x=-1-\sqrt2$ is $<0$; $x=-1+\sqrt2\approx0.41$ is rejected (wrong branch).
+
+So two distinct solutions.
+
+*On each branch $x\lvert x\rvert$ is an ordinary quadratic ($x^{2}$ or $-x^{2}$); keep only the roots lying in
+the branch that produced them.*
+:::
+
+---
+
+## Question 8 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**One: $x=1$.** &nbsp; **(M1 A1 A1 B1)**
+
+Corners at $x=-2,1$.
+
+- $x\ge1$: $(x-1)+(x+2)=2x+1=3x\Rightarrow x=1$ (✓).
+- $-2\le x<1$: $(1-x)+(x+2)=3=3x\Rightarrow x=1$ (not in $[-2,1)$ — reject).
+- $x<-2$: $(1-x)+(-x-2)=-2x-1=3x\Rightarrow x=-\tfrac15$ (not $<-2$ — reject).
+
+Only $x=1$.
+
+*The left-hand side is $3$ on the flat middle and rises to the right; the line $3x$ overtakes it exactly at
+$x=1$.*
+:::
+
+---
+
+## Question 9 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**A diamond centred $(1,-2)$; area $18$.** &nbsp; **(M1 A1 A1 B1)**
+
+$\lvert x-1\rvert+\lvert y+2\rvert=3$ is a diamond (square rotated $45^\circ$) centred at $(1,-2)$ with
+vertices $3$ units along each axis: $(4,-2),(-2,-2),(1,1),(1,-5)$. Its diagonals are both $2\times3=6$, so
+area $=\tfrac12\cdot6\cdot6=18$ (equivalently $2\cdot3^{2}$).
+
+```{python}
+#| fig-align: center
+import matplotlib.pyplot as plt
+V=[(4,-2),(1,1),(-2,-2),(1,-5),(4,-2)]
+plt.figure(figsize=(3.6,3.2)); plt.plot([p[0] for p in V],[p[1] for p in V],'-o',color='#2b6cb0')
+plt.plot(1,-2,'o',color='crimson'); plt.annotate('(1,−2)',(1,-2),textcoords='offset points',xytext=(6,2),fontsize=8)
+plt.grid(alpha=0.3); plt.gca().set_aspect('equal'); plt.title('|x−1|+|y+2|=3: area 18',fontsize=9); plt.tight_layout(); plt.show()
+```
+
+*For $\lvert x-h\rvert+\lvert y-k\rvert=r$ the area is $2r^{2}$; here $r=3$.*
+:::
+
+---
+
+## Question 10 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$64$.** &nbsp; **(M1 A1 A1 B1)**
+
+$\lvert2x\rvert+\lvert y\rvert\le8$ is a diamond with $x$-intercepts $\pm4$ (set $y=0$) and $y$-intercepts
+$\pm8$ (set $x=0$). Its diagonals are $8$ (horizontal) and $16$ (vertical), so area
+$=\tfrac12\cdot8\cdot16=64$.
+
+*The coefficient on $x$ squashes that axis: $\lvert2x\rvert\le8$ reaches only to $x=\pm4$, half as far as the
+$y$-axis.*
+:::
+
+---
+
+# Section C — Integrals, distances & nesting
+
+## Question 11 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$\dfrac{49}{6}$.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+$x^{2}-x-2=(x-2)(x+1)$ is negative on $(-1,2)$ and positive on $[-2,-1]$ and $[2,3]$. Split at the roots:
+$$\int_{-2}^{-1}(x^{2}-x-2)\,\mathrm dx-\int_{-1}^{2}(x^{2}-x-2)\,\mathrm dx+\int_{2}^{3}(x^{2}-x-2)\,\mathrm dx
+=\frac{11}{6}+\frac{9}{2}+\frac{11}{6}=\frac{49}{6}.$$
+
+*The modulus forces a sign flip on the middle piece where the quadratic is negative; split at the roots
+$-1,2$ before integrating.*
+:::
+
+---
+
+## Question 12 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$4$.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+$\lvert x^{2}-1\rvert$ is **even**, so integrate over $[0,2]$ and double. On $[0,1]$, $x^{2}-1\le0$; on
+$[1,2]$, $\ge0$:
+$$2\!\left[\int_{0}^{1}(1-x^{2})\,\mathrm dx+\int_{1}^{2}(x^{2}-1)\,\mathrm dx\right]
+=2\!\left[\tfrac23+\tfrac43\right]=2\cdot2=4.$$
+
+*Even symmetry halves the work; then split the half-integral at the corner $x=1$ where $x^{2}-1$ changes
+sign.*
+:::
+
+---
+
+## Question 13 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Least value $10$, at every $x\in[4,6]$.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+Pair the points from the outside in. $\lvert x-1\rvert+\lvert x-9\rvert\ge9-1=8$, least on $[1,9]$; and
+$\lvert x-4\rvert+\lvert x-6\rvert\ge6-4=2$, least on $[4,6]$. Both minima hold simultaneously on the overlap
+$[4,6]$, giving total least value $8+2=10$.
+
+*For an even number of points the sum of distances is minimised on the **middle interval** (here between the
+two central points $4$ and $6$); add the paired gaps.*
+:::
+
+---
+
+## Question 14 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$18$.** &nbsp; **(M1 A1 A1 B1)**
+
+$y=\lvert x-2\rvert$ is a V with vertex $(2,0)$; $y=6-\lvert x-2\rvert$ is a $\Lambda$ with peak $(2,6)$. They
+meet where $\lvert x-2\rvert=3$, i.e. $x=-1,5$ (both at $y=3$). The enclosed shape is a kite with horizontal
+diagonal from $(-1,3)$ to $(5,3)$ of length $6$, and vertical diagonal from $(2,0)$ to $(2,6)$ of length $6$:
+area $=\tfrac12\cdot6\cdot6=18$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,7,400)
+plt.figure(figsize=(4.6,3.0)); plt.plot(x,np.abs(x-2),color='#2b6cb0',lw=2,label='y=|x−2|'); plt.plot(x,6-np.abs(x-2),color='#dd6b20',lw=2,label='y=6−|x−2|')
+plt.plot([-1,5,2,2],[3,3,0,6],'o',color='crimson')
+plt.legend(fontsize=8); plt.grid(alpha=0.25); plt.title('kite: diagonals 6 and 6 → area 18',fontsize=9); plt.tight_layout(); plt.show()
+```
+
+*Two V/Λ graphs enclose a kite; use $\tfrac12 d_1 d_2$ with the horizontal and vertical diagonals.*
+:::
+
+---
+
+## Question 15 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Four: $x=-2,\ 0,\ 4,\ 6$.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+Peel the outer modulus: $\big\lvert\lvert x-2\rvert-3\big\rvert=1\Rightarrow\lvert x-2\rvert-3=\pm1$, so
+$\lvert x-2\rvert=4$ or $\lvert x-2\rvert=2$.
+
+- $\lvert x-2\rvert=4\Rightarrow x=6$ or $x=-2$.
+- $\lvert x-2\rvert=2\Rightarrow x=4$ or $x=0$.
+
+All four are valid (each $\lvert x-2\rvert$ value is $\ge0$). Four solutions.
+
+*Work outwards: the outer $=1$ gives two inner values $4,2$, each a genuine modulus equation with two roots —
+$2\times2=4$.*
+:::
+
+---
+
+## Question 16 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $\ge4$, equality iff $1\le x\le5$; (b) $1\le x\le5$.** &nbsp; **(M1 A1 A1 B1)**
+
+**(a)** By the triangle inequality, $\lvert x-1\rvert+\lvert x-5\rvert=\lvert x-1\rvert+\lvert5-x\rvert\ge
+\lvert(x-1)+(5-x)\rvert=\lvert4\rvert=4$. Equality holds when $x-1$ and $5-x$ have the **same sign** (or one is
+zero), i.e. $1\le x\le5$.
+
+**(b)** Hence $\lvert x-1\rvert+\lvert x-5\rvert=4$ exactly on the segment $1\le x\le5$.
+
+*The sum equals the gap between the two points precisely on the interval between them — outside it, at least
+one distance is "wasted" and the sum exceeds $4$.*
+:::
+
+---
+
+## Marking summary
+
+| Q | Marks | Tested |
+|---|---|---|
+| 1 | 4 | case-split equations, reject out-of-branch roots |
+| 2 | 4 | $\lvert A\rvert\ge\lvert B\rvert$ by squaring & difference of squares |
+| 3 | 4 | $\lvert A\rvert=\lvert B\rvert$ → $A=\pm B$, distinct-root product |
+| 4 | 4 | sum of two distances — flat bottom → count vs $k$ |
+| 5 | 4 | modulus-quadratic inequality |
+| 6 | 6 | $\lvert f\rvert$ vs $f(\lvert x\rvert)$ + a level count |
+| 7 | 5 | $x\lvert x\rvert$ split into two quadratics |
+| 8 | 4 | sum of moduli = line, split at corners |
+| 9 | 4 | diamond $\lvert x-h\rvert+\lvert y-k\rvert=r$, area $2r^{2}$ |
+| 10 | 4 | squashed diamond area |
+| 11 | 5 | split-at-roots modulus integral |
+| 12 | 5 | even symmetry then corner split |
+| 13 | 5 | minimise a sum of four distances (median) |
+| 14 | 4 | V-and-Λ kite area |
+| 15 | 5 | nested modulus — peel outward |
+| 16 | 4 | triangle inequality bound & equality |
+
+**If marks are lost, look at 1, 7 and 8** — the recurring error is keeping a root that fails the sign
+condition of the case (or branch) that produced it.
+:::

@@ -1,0 +1,312 @@
+---
+title: "Toolkit S6 — Scrambled Proofs · Class Problems"
+subtitle: "Put the lines in order — Easy → Hard"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Ten proofs whose lines have been jumbled. For each, **anchor the ends** (the "Let/Suppose/Assume" line
+first, the conclusion last), then order the middle so **every line is justified by the ones above it**.
+These mirror the Paper 2 **Prf4** multiple-choice format.
+
+::: {.callout-note appearance="simple"}
+**Method.** first line = *Let / Suppose / Assume* or the given · last line = the conclusion (or "… a
+contradiction, so …") · middle = follow the dependencies ("$a=2c$" only after "$a$ is even").
+:::
+
+---
+
+## Question 1
+
+::: {.question}
+The following prove "the sum of two even numbers is even." Which ordering is correct?
+
+&nbsp;&nbsp;**(i)** So the sum is $2(a+b)$, which is even. &nbsp;&nbsp; **(ii)** Let the two even numbers be
+$2a$ and $2b$. &nbsp;&nbsp; **(iii)** Their sum is $2a+2b$.
+
+&nbsp;&nbsp;**A** (ii),(iii),(i) &nbsp; **B** (ii),(i),(iii) &nbsp; **C** (iii),(ii),(i) &nbsp;
+**D** (i),(ii),(iii)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy — direct)*]{style="color:#7a5195"}
+**A.** (ii) is the opening "Let…"; (i) is the conclusion "…even"; (iii) is the algebra between them, since
+(i)'s $2(a+b)$ comes from (iii)'s $2a+2b$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+Order the proof of "if $n$ is odd, then $n^2$ is odd."
+
+&nbsp;&nbsp;**(i)** Then $n^2=(2k+1)^2=4k^2+4k+1$. &nbsp;&nbsp; **(ii)** Let $n=2k+1$. &nbsp;&nbsp;
+**(iii)** So $n^2=2(2k^2+2k)+1$, which is odd.
+
+&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
+**D** (iii),(i),(ii)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy → Medium — direct)*]{style="color:#7a5195"}
+**A.** Open with $n=2k+1$ (ii); square it (i); rearrange to $2(\dots)+1$ (iii). (iii) needs (i)'s
+expansion first. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+::: {.question}
+Order the proof of "$n^2+n$ is even for every integer $n$."
+
+&nbsp;&nbsp;**(i)** If $n$ is even, $n=2k$, then $n^2+n=2(2k^2+k)$.
+&nbsp;&nbsp;**(ii)** In both cases $n^2+n$ is even, so it holds for all $n$.
+&nbsp;&nbsp;**(iii)** Every integer is even or odd.
+&nbsp;&nbsp;**(iv)** If $n$ is odd, $n=2k+1$, then $n^2+n=2(2k^2+3k+1)$.
+
+&nbsp;&nbsp;**A** (iii),(i),(iv),(ii) &nbsp; **B** (i),(iv),(iii),(ii) &nbsp; **C** (iii),(ii),(i),(iv)
+&nbsp; **D** (i),(iii),(iv),(ii)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — cases)*]{style="color:#7a5195"}
+**A.** State the exhaustive split (iii) first; do each case (i),(iv); conclude (ii) — which refers to
+"both cases", so it must come **after** them. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+Order the proof of "there is no largest positive integer."
+
+&nbsp;&nbsp;**(i)** Then $N+1$ is a positive integer larger than $N$.
+&nbsp;&nbsp;**(ii)** Suppose there is a largest positive integer, $N$.
+&nbsp;&nbsp;**(iii)** This contradicts $N$ being the largest, so no largest exists.
+
+&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
+**D** (iii),(ii),(i)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — contradiction)*]{style="color:#7a5195"}
+**A.** Assume the opposite (ii); derive the larger integer (i); state the contradiction and conclude
+(iii). $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+::: {.question}
+Order the proof of "a rational plus an irrational is irrational."
+
+&nbsp;&nbsp;**(i)** Then $i=s-r$.
+&nbsp;&nbsp;**(ii)** Suppose $r+i=s$ is rational, where $r$ is rational and $i$ is irrational.
+&nbsp;&nbsp;**(iii)** But a difference of two rationals is rational, so $i$ would be rational — a
+contradiction.
+&nbsp;&nbsp;**(iv)** Hence $r+i$ is irrational.
+
+&nbsp;&nbsp;**A** (ii),(i),(iii),(iv) &nbsp; **B** (ii),(iii),(i),(iv) &nbsp; **C** (i),(ii),(iii),(iv)
+&nbsp; **D** (ii),(i),(iv),(iii)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium → Hard — contradiction)*]{style="color:#7a5195"}
+**A.** Assume the sum rational (ii); solve for $i$ (i); reach the contradiction (iii) — which needs (i)
+first; conclude (iv). $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+::: {.question}
+Order the disproof of "every prime number is odd."
+
+&nbsp;&nbsp;**(i)** But $2$ is even. &nbsp;&nbsp; **(ii)** Consider the number $2$, which is prime.
+&nbsp;&nbsp; **(iii)** So not every prime is odd.
+
+&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
+**D** (iii),(ii),(i)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy — counterexample)*]{style="color:#7a5195"}
+**A.** Name the counterexample (ii); show it breaks the claim (i); conclude the claim is false (iii).
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+::: {.question}
+Order the proof of "the product of two consecutive integers is even."
+
+&nbsp;&nbsp;**(i)** One of two consecutive integers is even.
+&nbsp;&nbsp;**(ii)** Let the integers be $n$ and $n+1$.
+&nbsp;&nbsp;**(iii)** So their product $n(n+1)$ has an even factor, hence is even.
+
+&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
+**D** (i),(iii),(ii)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — direct)*]{style="color:#7a5195"}
+**A.** Introduce the integers (ii); note one is even (i); conclude the product is even (iii).
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.question}
+Order the proof of "$\sqrt3$ is irrational" (you may use: if $3$ divides $a^2$ then $3$ divides $a$).
+
+&nbsp;&nbsp;**(i)** Suppose $\sqrt3=\dfrac ab$ in lowest terms.
+&nbsp;&nbsp;**(ii)** Then $a^2=3b^2$, so $3$ divides $a^2$, hence $3$ divides $a$; write $a=3c$.
+&nbsp;&nbsp;**(iii)** So $9c^2=3b^2$, i.e. $b^2=3c^2$, so $3$ divides $b$.
+&nbsp;&nbsp;**(iv)** But then $a$ and $b$ share the factor $3$ — a contradiction.
+&nbsp;&nbsp;**(v)** Therefore $\sqrt3$ is irrational.
+
+&nbsp;&nbsp;**A** (i),(ii),(iii),(iv),(v) &nbsp; **B** (i),(iii),(ii),(iv),(v) &nbsp;
+**C** (ii),(i),(iii),(v),(iv) &nbsp; **D** (i),(ii),(iv),(iii),(v)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — contradiction)*]{style="color:#7a5195"}
+**A.** Assume lowest terms (i); get "$3$ divides $a$" and $a=3c$ (ii); substitute to get "$3$ divides $b$" (iii) — this
+**needs** $a=3c$ from (ii); the shared factor is the contradiction (iv); conclude (v). $\;\blacksquare$
+
+*The trap is (iii) before (ii): you cannot use $a=3c$ before deriving it.*
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+::: {.question}
+This proof of "if $n^2$ is even then $n$ is even" (by contrapositive) has its lines listed as
+**(1),(2),(3),(4)** — but **one line is in the wrong place**.
+
+&nbsp;&nbsp;**(1)** Suppose $n$ is odd.
+&nbsp;&nbsp;**(2)** So $n^2$ is odd, proving the contrapositive.
+&nbsp;&nbsp;**(3)** Then $n=2k+1$.
+&nbsp;&nbsp;**(4)** So $n^2=(2k+1)^2=2(2k^2+2k)+1$.
+
+What is the correct order?
+
+&nbsp;&nbsp;**A** (1),(3),(4),(2) &nbsp; **B** (1),(2),(3),(4) &nbsp; **C** (3),(1),(4),(2) &nbsp;
+**D** (1),(4),(3),(2)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — one line is misplaced)*]{style="color:#7a5195"}
+**A.** Line (2) is the **conclusion**, so it must come **last** — it was misplaced at position 2. Correct:
+suppose $n$ odd (1), write $n=2k+1$ (3), square it (4), conclude $n^2$ odd (2). $\;\blacksquare$
+
+*A conclusion line ("So … proving …") can never sit in the middle.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+::: {.question}
+Order the proof of "the product of any three consecutive integers is divisible by $6$."
+
+&nbsp;&nbsp;**(i)** Among three consecutive integers, one is a multiple of $2$ and one is a multiple of $3$.
+&nbsp;&nbsp;**(ii)** Let the integers be $n,\,n+1,\,n+2$.
+&nbsp;&nbsp;**(iii)** So the product is divisible by both $2$ and $3$.
+&nbsp;&nbsp;**(iv)** Since $2$ and $3$ are coprime, the product is divisible by $6$.
+
+&nbsp;&nbsp;**A** (ii),(i),(iii),(iv) &nbsp; **B** (i),(ii),(iii),(iv) &nbsp; **C** (ii),(iii),(i),(iv)
+&nbsp; **D** (ii),(i),(iv),(iii)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — longer direct proof)*]{style="color:#7a5195"}
+**A.** Introduce the integers (ii); note the multiples of $2$ and $3$ (i); deduce divisibility by both
+(iii); combine via coprimality to get $6$ (iv). $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The one habit to leave with
+
+**Anchor the ends first** — the "Let / Suppose / Assume" line opens, the conclusion (or contradiction)
+closes — then order the middle by **dependency**: a line that uses a result must come after it. A
+conclusion line is never in the middle.
+:::
+
+:::

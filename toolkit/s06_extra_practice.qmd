@@ -1,0 +1,317 @@
+---
+title: "Toolkit S6 — Scrambled Proofs · Extra Practice"
+subtitle: "More reordering drills built on the two types you found hardest (Assignment Q2 & Q4)"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+You lost time on **Q2** (the *"largest run of consecutive odd primes"* number-theory proof) and **Q4** (the
+*"if $\tan\theta>0$ then $\sin\theta+\cos\theta>1$"* algebra). Those are the two flavours of scrambled proof
+that catch everyone, so this page drills each one on its own.
+
+- **Part A — word / case-splitting proofs** (like Q2): the lines are mostly *sentences*. The order is a
+  logical story: set up the general object, split into cases, dispose of each case, then conclude.
+- **Part B — algebraic & trig chains** (like Q4): the lines are mostly *equations/inequalities*. The order is
+  a chain where each line is produced from the one above.
+
+For each proof: write the letters in the correct order in the **Working** box, then open the **Solution** to
+check the order *and the reason each line sits where it does*.
+
+::: {.callout-tip}
+## How to order a **word / case-splitting** proof (the Q2 skill)
+
+Almost every number-theory proof of this kind has the **same five-part shape**. Learn the shape and the
+order writes itself:
+
+1. **Set up** — name the general object ("write any three consecutive integers as $n,\,n+1,\,n+2$") or give
+   the example that shows the answer is *at least* this big.
+2. **List the cases** — "every integer is a multiple of $3$, or one more, or two more than a multiple of $3$".
+3. **Do each case** — one line per case (their internal order does not matter, but keep them together).
+4. **"In each case…"** — the line that collects all cases into one statement.
+5. **Conclude** — "Therefore …", restating the claim.
+
+The two anchors are the easiest marks: the **first** line is the set-up ("Write…", "Suppose…", or the
+"for example" case), and the **last** is the "Therefore…". Place those two, then slot the cases in the middle.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** For each proof, a **string of letters** — the lines in correct logical order.
+:::
+
+---
+
+# Part A — Word / case-splitting proofs (like Q2)
+
+## Proof A1
+
+**Claim:** *among any three consecutive integers, at least one is a multiple of $3$.*
+
+&nbsp;&nbsp;**(a)** If $n$ is one more than a multiple of $3$, then $n+2$ is a multiple of $3$.
+&nbsp;&nbsp;**(b)** Write any three consecutive integers as $n,\,n+1,\,n+2$.
+&nbsp;&nbsp;**(c)** So among any three consecutive integers, at least one is a multiple of $3$.
+&nbsp;&nbsp;**(d)** If $n$ is a multiple of $3$, then $n$ itself is a multiple of $3$.
+&nbsp;&nbsp;**(e)** Every integer is a multiple of $3$, or one more, or two more than a multiple of $3$.
+&nbsp;&nbsp;**(f)** If $n$ is two more than a multiple of $3$, then $n+1$ is a multiple of $3$.
+&nbsp;&nbsp;**(g)** In each of the three cases, one of $n,\,n+1,\,n+2$ is a multiple of $3$.
+
+::: {.workspace style="min-height:2.5cm"}
+Order:
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: b, e, d, a, f, g, c.**
+
+- **b** — *set up*: name the three integers $n,\,n+1,\,n+2$.
+- **e** — *list the cases*: the three remainders of $n$ on division by $3$.
+- **d, a, f** — *do each case* ($n$ is a multiple of $3$ / one more / two more). Their order among themselves
+  is free, but all three must sit together, after **e** and before **g**.
+- **g** — *"in each case…"*: collects the three cases into one statement.
+- **c** — *conclude*: restate the claim.
+
+*The frame is exactly Q2's. The only thinking is inside the cases: if $n$ leaves remainder $1$, then $n+2$
+lands back on a multiple of $3$; if remainder $2$, then $n+1$ does.*
+:::
+
+---
+
+## Proof A2 &nbsp; *(closest cousin of Q2)*
+
+**Claim:** *what is the largest number of consecutive integers, all greater than $1$, that can all be prime?*
+
+&nbsp;&nbsp;**(a)** An even integer greater than $2$ is not prime, because it has $2$ as a factor.
+&nbsp;&nbsp;**(b)** $2$ and $3$ are two consecutive integers that are both prime.
+&nbsp;&nbsp;**(c)** Therefore the largest number of consecutive integers that are all prime is two.
+&nbsp;&nbsp;**(d)** Now take any three consecutive integers, all greater than $1$.
+&nbsp;&nbsp;**(e)** Among any three consecutive integers at least one is even, and here it is at least $4$.
+&nbsp;&nbsp;**(f)** So one of the three is not prime, and they cannot all be prime.
+
+::: {.workspace style="min-height:3cm"}
+Order:
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: b, d, e, a, f, c.**
+
+- **b** — *the example*: two in a row is achievable ($2,3$). This is the "$\geq 2$" half, exactly like Q2's
+  "$17,19$" line.
+- **d** — *set up the general case*: suppose there were three or more in a row.
+- **e** — one of any three consecutive integers is even (and, since all are $>1$, that even one is $\geq 4$).
+- **a** — an even number above $2$ is not prime.
+- **f** — so they cannot all be prime — the "$\leq 2$" half.
+- **c** — *conclude*: the largest run is exactly two.
+
+*This is Q2 with "even" playing the role that "multiple of $3$" played there. A run is pinned down by showing
+both "at least two" (the example) and "no more than two" (the case argument) — do not forget the example line.*
+:::
+
+---
+
+## Proof A3
+
+**Claim:** *every perfect square is either a multiple of $4$ or one more than a multiple of $4$.*
+
+&nbsp;&nbsp;**(a)** If $n$ is odd, write $n=2k+1$; then $n^{2}=4k^{2}+4k+1=4(k^{2}+k)+1$, one more than a
+multiple of $4$.
+&nbsp;&nbsp;**(b)** A perfect square is $n^{2}$ for some integer $n$.
+&nbsp;&nbsp;**(c)** Every integer $n$ is either even or odd.
+&nbsp;&nbsp;**(d)** In either case, $n^{2}$ is a multiple of $4$ or one more than a multiple of $4$.
+&nbsp;&nbsp;**(e)** If $n$ is even, write $n=2k$; then $n^{2}=4k^{2}$, a multiple of $4$.
+&nbsp;&nbsp;**(f)** Therefore every perfect square is a multiple of $4$ or one more than a multiple of $4$.
+
+::: {.workspace style="min-height:2.5cm"}
+Order:
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: b, c, e, a, d, f.**
+
+- **b** — *set up*: a perfect square is $n^{2}$.
+- **c** — *list the cases*: $n$ is even or odd (only two cases this time).
+- **e, a** — *do each case*: even $n$ gives $4k^{2}$; odd $n$ gives $4(k^{2}+k)+1$.
+- **d** — *"in either case…"*.
+- **f** — *conclude*.
+
+*Two cases instead of three, but the shape is identical. The algebra inside each case is the whole point:
+$(2k)^2$ and $(2k+1)^2$ are what force the remainder to be $0$ or $1$.*
+:::
+
+---
+
+## Proof A4 &nbsp; *(builds on A1)*
+
+**Claim:** *for every integer $n$, the number $n^{3}-n$ is a multiple of $6$.*
+
+&nbsp;&nbsp;**(a)** Among any three consecutive integers, at least one is even and at least one is a multiple
+of $3$.
+&nbsp;&nbsp;**(b)** So the product is a multiple of both $2$ and $3$, and hence a multiple of $6$.
+&nbsp;&nbsp;**(c)** Factorise: $n^{3}-n=n(n^{2}-1)=(n-1)\,n\,(n+1)$.
+&nbsp;&nbsp;**(d)** Therefore $n^{3}-n$ is a multiple of $6$ for every integer $n$.
+&nbsp;&nbsp;**(e)** These factors $n-1,\,n,\,n+1$ are three consecutive integers.
+
+::: {.workspace style="min-height:2.5cm"}
+Order:
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: c, e, a, b, d.**
+
+- **c** — *set up*: factorise into a product.
+- **e** — *recognise*: the factors are three consecutive integers.
+- **a** — *use the fact* (this is exactly A1, plus the even version): one is a multiple of $2$, one a multiple
+  of $3$.
+- **b** — *combine*: a multiple of $2$ and of $3$ is a multiple of $6$.
+- **d** — *conclude*.
+
+*Here the "cases" are hidden inside the result you already proved in A1 — you quote it rather than re-run it.
+Spotting that $n^{3}-n$ factorises into consecutive integers is the one creative step; everything after is
+bookkeeping.*
+:::
+
+---
+
+# Part B — Algebraic & trig chains (like Q4)
+
+For these the order is a **chain**: each line is manufactured from the one directly above (square it, expand
+it, factorise it, divide by something positive). Anchor the **first** worked line (straight from the given)
+and the **conclusion**, then read the middle as "what was done to get here".
+
+## Proof B1
+
+**Claim:** *if $a>0$ then $a+\dfrac1a\geq 2$.* &nbsp; *(opens with "Suppose $a>0$.")*
+
+&nbsp;&nbsp;**(a)** Dividing both sides by $a$, which is positive, gives $a+\dfrac1a\geq 2$.
+&nbsp;&nbsp;**(b)** A square is never negative, so $(a-1)^{2}\geq 0$.
+&nbsp;&nbsp;**(c)** Expanding, $a^{2}-2a+1\geq 0$.
+&nbsp;&nbsp;**(d)** Adding $2a$ to both sides, $a^{2}+1\geq 2a$.
+
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: b, c, d, a.**
+
+- **b** — *start from a true square*: $(a-1)^{2}\geq 0$.
+- **c** — expand it.
+- **d** — rearrange to $a^{2}+1\geq 2a$.
+- **a** — *the sign-care step*: divide by $a>0$. Because $a$ is **positive**, the inequality direction is
+  kept, giving $a+\tfrac1a\geq 2$.
+
+*This is the Q4 idea run forwards: build a square, then unpack it. The single subtle line is **a** — dividing
+by $a$ is only safe because $a>0$, which is why the proof opened by assuming it.*
+:::
+
+---
+
+## Proof B2
+
+**Claim:** *if $x>0$ and $y>0$ then $\dfrac{x+y}{2}\geq\sqrt{xy}$.* &nbsp; *(opens with "Let $x>0$ and
+$y>0$.")*
+
+&nbsp;&nbsp;**(a)** Rearranging, $x+y\geq 2\sqrt{xy}$.
+&nbsp;&nbsp;**(b)** A square is never negative, so $\left(\sqrt{x}-\sqrt{y}\right)^{2}\geq 0$.
+&nbsp;&nbsp;**(c)** Dividing both sides by $2$ gives $\dfrac{x+y}{2}\geq\sqrt{xy}$.
+&nbsp;&nbsp;**(d)** Expanding, $x-2\sqrt{xy}+y\geq 0$.
+
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: b, d, a, c.**
+
+- **b** — start from the non-negative square $\left(\sqrt{x}-\sqrt{y}\right)^{2}\geq 0$ (both roots are real
+  because $x,y>0$).
+- **d** — expand: $x-2\sqrt{xy}+y\geq 0$.
+- **a** — rearrange to $x+y\geq 2\sqrt{xy}$.
+- **c** — divide by $2$ to reach the stated form.
+
+*Same engine as B1 — "a square is $\geq 0$", then unpack — now producing the arithmetic-mean / geometric-mean
+inequality. The opening "$x,y>0$" is what lets $\sqrt{x},\sqrt{y}$ exist.*
+:::
+
+---
+
+## Proof B3 &nbsp; *(trig chain — the Q4 twin)*
+
+**Claim:** *if $\sin\theta+\cos\theta=1$ then $\sin\theta\cos\theta=0$.* &nbsp; *(opens with "Suppose
+$\sin\theta+\cos\theta=1$.")*
+
+&nbsp;&nbsp;**(a)** Using $\sin^{2}\theta+\cos^{2}\theta=1$, this becomes $1+2\sin\theta\cos\theta=1$.
+&nbsp;&nbsp;**(b)** Squaring both sides, $(\sin\theta+\cos\theta)^{2}=1$.
+&nbsp;&nbsp;**(c)** Therefore $2\sin\theta\cos\theta=0$, so $\sin\theta\cos\theta=0$.
+&nbsp;&nbsp;**(d)** Expanding the left side, $\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta=1$.
+
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: b, d, a, c.**
+
+- **b** — *first move*: square both sides of the given.
+- **d** — expand the bracket.
+- **a** — replace $\sin^{2}\theta+\cos^{2}\theta$ by $1$, leaving $1+2\sin\theta\cos\theta=1$.
+- **c** — subtract $1$ and halve: $\sin\theta\cos\theta=0$.
+
+*Line-for-line the Q4 pattern — square, expand, use $\sin^{2}+\cos^{2}=1$, tidy up. The Pythagorean identity
+is the pivot in the middle, just as it was in Q4.*
+:::
+
+---
+
+## Proof B4
+
+**Claim:** *if $a>b>0$ then $\dfrac1a<\dfrac1b$.* &nbsp; *(opens with "Suppose $a>b>0$.")*
+
+&nbsp;&nbsp;**(a)** Dividing both sides of $a>b$ by the positive number $ab$ keeps the inequality:
+$\dfrac{a}{ab}>\dfrac{b}{ab}$.
+&nbsp;&nbsp;**(b)** This simplifies to $\dfrac1b>\dfrac1a$.
+&nbsp;&nbsp;**(c)** Therefore $\dfrac1a<\dfrac1b$.
+&nbsp;&nbsp;**(d)** Since $a>0$ and $b>0$, the product $ab$ is positive.
+
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Order: d, a, b, c.**
+
+- **d** — *establish the sign*: $ab>0$. This must come first, because the next step relies on it.
+- **a** — divide $a>b$ by $ab$; being positive, it keeps the "$>$".
+- **b** — simplify each side to $\tfrac1b>\tfrac1a$.
+- **c** — rewrite as $\tfrac1a<\tfrac1b$.
+
+*The trap is to divide by $ab$ **without** first noting it is positive — dividing an inequality by a negative
+would flip it. Line **d** is small but it is the whole reason the argument is valid, so it has to lead.*
+:::
+
+---
+
+::: {.callout-tip}
+## The one habit to leave with
+
+Every scrambled proof — words or algebra — is read the same way: **anchor the two ends first**, then order
+the middle so that **each line is justified by the ones above it**.
+
+- **Word / case proofs (Q2 type):** set up → list the cases → do each case → "in each case…" → conclude. The
+  example line ("for example $2,3$") is part of the set-up and is easy to misplace at the end — keep it near
+  the front.
+- **Algebra / trig chains (Q4 type):** start from the given (or a true square), then each line is *the
+  previous line with one operation done to it*. Watch the sign-care line — dividing by something is only legal
+  once you have said it is positive.
+:::
+
+:::

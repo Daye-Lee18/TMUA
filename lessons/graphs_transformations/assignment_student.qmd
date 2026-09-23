@@ -1,0 +1,160 @@
+---
+title: "Graphs Clinic 1 — Assignment"
+subtitle: "Transformations & function-of-a-function"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **37 marks** · Suggested time: **50 minutes**.
+
+Two rules do most of the work:
+
+> **Outside the bracket → changes $y$, does as it says. Inside the bracket → changes $x$, does the
+> opposite** (and $f(ax)$ stretches by $\tfrac1a$).
+
+> **An expression built from $f(x)$:** let $w=f(x)$, read the range of $w$, finish it as an ordinary
+> max/min in $w$ — **turning points *and* endpoints.**
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Fluency** | single transformations; images of points | 11 |
+| **B — Exam standard** | modulus graphs; function-of-a-function | 17 |
+| **C — Stretch** | combined transformations; counting solutions | 9 |
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Turning points → **coordinates** $(x,y)$. "How many solutions" → **a whole number**.
+Sketches → label every root, turning point, and axis intercept.
+:::
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+The graph of $y=f(x)$ has its maximum at $(3,5)$. State the coordinates of the maximum of each of the
+following.
+
+&nbsp;&nbsp;(a) $\;y=f(x)-2$ **[1]** &nbsp;&nbsp;&nbsp; (b) $\;y=f(x+4)$ **[1]**
+
+&nbsp;&nbsp;(c) $\;y=4f(x)$ **[1]** &nbsp;&nbsp;&nbsp; (d) $\;y=f\!\left(\tfrac{x}{2}\right)$ **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 2 **[4]**
+
+The point $P(6,2)$ lies on the graph of $y=f(x)$. State the coordinates of the image of $P$ on each of
+the following.
+
+&nbsp;&nbsp;(a) $\;y=-f(x)$ **[1]** &nbsp;&nbsp;&nbsp; (b) $\;y=f(-x)$ **[1]**
+
+&nbsp;&nbsp;(c) $\;y=f(x)+3$ **[1]** &nbsp;&nbsp;&nbsp; (d) $\;y=f(2x)$ **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Describe **the single transformation** that maps $y=f(x)$ onto each graph. Be precise (state the
+direction and the amount, or the stretch factor).
+
+&nbsp;&nbsp;(a) $\;y=f(x-5)$ **[1]** &nbsp;&nbsp;&nbsp; (b) $\;y=f(x)+5$ **[1]** &nbsp;&nbsp;&nbsp;
+(c) $\;y=f(3x)$ **[1]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[6]**
+
+Let $f(x)=(x-3)(x+1)$ — a parabola with roots $x=-1$ and $x=3$ and minimum at $(1,-4)$.
+
+&nbsp;&nbsp;(a) Sketch $\;y=\lvert f(x)\rvert$, labelling the roots and the turning point. **[2]**
+
+&nbsp;&nbsp;(b) Sketch $\;y=f(\lvert x\rvert)$, labelling the roots and the turning points. **[2]**
+
+&nbsp;&nbsp;(c) How many solutions does $\;\lvert f(x)\rvert = 2\;$ have? Justify. **[2]**
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 5 **[6]**
+
+The graph of $y=f(x)$ has range $1\le f(x)\le5$. Find the **maximum** and **minimum** values of
+$$\bigl(f(x)\bigr)^2 - 6f(x) + 10,$$
+and hence the difference between them.
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 6 **[5]**
+
+The graph of $y=f(x)$ has range $0\le f(x)\le3$. Find the **maximum** and **minimum** values of
+$$\bigl(f(x)\bigr)^3 - 12f(x),$$
+and hence the difference between them.
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+The graph of $y=f(x)$ has a maximum at $(2,4)$ and a minimum at $(5,-2)$.
+
+&nbsp;&nbsp;(a) State the coordinates of the maximum and the minimum of $\;y=f(2x-2)+1$. **[3]**
+
+&nbsp;&nbsp;(b) State the coordinates of the maximum and the minimum of $\;y=-f(x)$. **[2]**
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 8 **[4]**
+
+The graph of $y=f(x)$ has a single maximum value of $4$, reached at $x=0$; $f(x)>0$ for all $x$, and
+$f(x)\to0$ as $x\to\pm\infty$ (a single symmetric "bump").
+
+How many solutions does $\;\bigl(f(x)\bigr)^2 - 5f(x) + 4 = 0\;$ have? Justify.
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+For every "function-of-a-function" question (5, 6, 8): did you **substitute $w=f(x)$ first**, and did you
+check **both the turning point *and* the endpoints** of the range? Missing an endpoint is the commonest
+way these go wrong.
+:::
+
+:::

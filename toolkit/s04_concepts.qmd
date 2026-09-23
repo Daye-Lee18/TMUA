@@ -1,0 +1,310 @@
+---
+title: "Toolkit S4 — Quantifiers & Negation · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 2"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Arg3, Arg4</div>
+<div class="fs-title">Quantifiers & Negation — Key Concepts</div>
+<div class="fs-sub">Two quantifiers — <strong>for all</strong> and <strong>there exists</strong> — and the rules for negating any statement built from them. The three moves that do everything: <em>flip the quantifier &amp; negate the inside</em>, <em>De Morgan on and/or</em>, and <em>negate an implication as "hypothesis and not conclusion"</em>. And watch the <strong>order</strong> of two quantifiers — it changes the meaning.</div>
+::::
+
+## Quantifiers and their negations
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### For all / there exists
+
+**for all** — a claim about **every** object. **there exists** (= **for some** = **for at least one**) —
+a claim that **at least one** object works.
+
+$$\text{"for some"} = \text{"there exists at least one"}$$
+
+[a "there exists" is **false** only when *nothing* works; a "for all" is **false** as soon as *one* thing
+fails]{.eg}
+:::
+
+::: {.fs-card}
+### The two negation rules
+
+$$\text{not}(\text{for all } x,\ P)=\text{there exists } x,\ \text{not }P$$
+$$\text{not}(\text{there exists } x,\ P)=\text{for all } x,\ \text{not }P$$
+
+**Flip the quantifier *and* negate the inside — both, every time.**
+
+[changing only one of the two is the single commonest error on this topic]{.eg}
+:::
+
+::: {.fs-card}
+### De Morgan — negating *and* / *or*
+
+$$\text{not}(A \text{ and } B)=(\text{not }A)\ \textbf{or}\ (\text{not }B)$$
+$$\text{not}(A \text{ or } B)=(\text{not }A)\ \textbf{and}\ (\text{not }B)$$
+
+Negating swaps **and ↔ or**.
+
+[not("$n$ odd **and** $n>100$") $=$ "$n$ even **or** $n\le100$"]{.eg}
+:::
+
+::: {.fs-card}
+### Negating an implication
+
+$$\text{not}(\text{if } P \text{ then } Q)=P \ \textbf{and}\ \text{not }Q$$
+
+The negation is **not** another implication: it says the hypothesis holds **but** the conclusion fails.
+
+[not("if $x<0$ then $x^3<0$") $=$ "$x<0$ **and** $x^3\ge0$"]{.eg}
+:::
+
+::::
+
+## Traps, and the order of quantifiers
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### "not all" ≠ "none"
+
+The negation of **"all are $Y$"** is **"at least one is not $Y$"** (a *there exists*) — **never**
+"none is $Y$".
+
+$$\text{not(all } Y)=\text{some is not } Y \neq \text{no } Y$$
+
+["no multiple of $4$ is even" is far stronger — and false; the real negation needs just **one** exception]{.eg}
+:::
+
+::: {.fs-card}
+### Order of quantifiers
+
+Swapping **for all** and **there exists** changes the meaning:
+
+$$\underbrace{\text{for all } m,\ \text{there exists } n,\ n>m}_{\textbf{true}}$$
+$$\underbrace{\text{there exists } n,\ \text{for all } m,\ n>m}_{\textbf{false}}$$
+
+[first: $n$ is picked **after** $m$, so it may depend on it; second: one $n$ must beat **every** $m$]{.eg}
+:::
+
+::: {.fs-card}
+### Where these show up (cross-exam)
+
+Paper 2 **Arg3/Arg4** tests exactly this — usually as multiple choice: "which is the negation of…",
+"which statement is true". Quantifier-order questions and De Morgan negations also appear on **MAT** and
+**STEP** reasoning.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## True or false? — test yourself
+
+The Paper 2 quantifier questions come in two flavours: *is this quantified statement true?* and *is this
+negation / logical rule correct?* Memorise the verdict on each; **the *False* ones are the traps.**
+
+**A. Are these quantified statements true?**
+
+| Statement | T / F ? |
+|---|:--:|
+| For all real $x$, $\;x^2+1>0$. | |
+| For all integers $n$, $\;2n$ is even. | |
+| For every integer $n$, $\;n^2\ge n$. | |
+| For all real $x$, if $x>2$ then $x^2>4$. | |
+| There exists a real $x$ such that $x^2=x$. | |
+| There exists an integer that is prime and even. | |
+| For all real $x$, $\;x^2>0$. | |
+| There exists a real $x$ such that $x^2=-1$. | |
+| There exists an integer $n$ such that $n^2=2$. | |
+
+**B. Are these negations / logical rules correct?**
+
+| Statement | T / F ? |
+|---|:--:|
+| The negation of "all cats are grey" is "some cat is not grey". | |
+| The negation of "there exists $x$ with $P(x)$" is "for all $x$, not $P(x)$". | |
+| $\text{not}(A \text{ and } B)$ is the same as $(\text{not }A)\text{ or }(\text{not }B)$. | |
+| $\text{not}(A \text{ or } B)$ is the same as $(\text{not }A)\text{ and }(\text{not }B)$. | |
+| The negation of "if $P$ then $Q$" is "$P$ and not $Q$". | |
+| "for some" means the same as "there exists at least one". | |
+| The negation of "all cats are grey" is "no cat is grey". | |
+| $\text{not}(A \text{ and } B)$ is the same as $(\text{not }A)\text{ and }(\text{not }B)$. | |
+| The negation of "if $P$ then $Q$" is "if $P$ then not $Q$". | |
+| "for all $x$, there exists $y$" means the same as "there exists $y$, for all $x$". | |
+| "not all $X$ are $Y$" is the same as "no $X$ is $Y$". | |
+
+## Proofs of the "true or false?" facts
+
+Decide each verdict above first, then open the key.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## A. Are these quantified statements true? — answers & proofs
+- $\forall$ real $x,\ x^2+1>0$ — **True**: $x^2\ge0$, so $x^2+1\ge1$.
+- $\forall$ integers $n,\ 2n$ even — **True**: $2n=2\cdot n$.
+- $\forall$ integer $n,\ n^2\ge n$ — **True**: $n^2-n=n(n-1)\ge0$ for every integer.
+- $\forall$ real $x$, if $x>2$ then $x^2>4$ — **True**: $x>2>0\Rightarrow x^2>4$.
+- $\exists$ real $x,\ x^2=x$ — **True**: $x=0$ (or $x=1$).
+- $\exists$ integer that is prime and even — **True**: $2$.
+- $\forall$ real $x,\ x^2>0$ — **False**: $x=0$ gives $x^2=0$.
+- $\exists$ real $x,\ x^2=-1$ — **False**: a real square is $\ge0$.
+- $\exists$ integer $n,\ n^2=2$ — **False**: $\sqrt2$ is not an integer.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## B. Are these negations / logical rules correct? — answers & proofs
+- Negation of "all cats are grey" is "some cat is not grey" — **True**: $\lnot\forall = \exists\lnot$.
+- Negation of "$\exists x$ with $P(x)$" is "$\forall x,\ \lnot P(x)$" — **True**: $\lnot\exists = \forall\lnot$.
+- $\lnot(A\text{ and }B)=(\lnot A)\text{ or }(\lnot B)$ — **True**: De Morgan.
+- $\lnot(A\text{ or }B)=(\lnot A)\text{ and }(\lnot B)$ — **True**: De Morgan.
+- Negation of "if $P$ then $Q$" is "$P$ and not $Q$" — **True**.
+- "for some" means "there exists at least one" — **True**.
+- Negation of "all cats are grey" is "no cat is grey" — **False**: the negation needs just **one** non-grey cat, not every cat non-grey.
+- $\lnot(A\text{ and }B)=(\lnot A)\text{ and }(\lnot B)$ — **False**: De Morgan turns *and* into **or**.
+- Negation of "if $P$ then $Q$" is "if $P$ then not $Q$" — **False**: it is "$P$ and not $Q$", not another implication.
+- "$\forall x,\ \exists y$" means "$\exists y,\ \forall x$" — **False**: swapping the quantifiers changes the meaning.
+- "not all $X$ are $Y$" is "no $X$ is $Y$" — **False**: "not all" needs one exception; "none" needs every case to fail.
+:::
+
+## Notes
+
+### For all, there exists — and "for some"
+
+**"for all"** asserts a property of *every* object; a single exception makes it false. **"there
+exists"** (the exam also says **"for some"** and **"for at least one"**, all meaning the same) asserts
+that *at least one* object has the property; it is false only when *nothing* does. Keeping straight *what
+makes each false* is half of this topic — because negation turns one into the other.
+
+### The two negation rules
+
+To negate a quantified statement, do **both** of these:
+
+::: {.keyline}
+1. **flip the quantifier** — "for all" ↔ "there exists"; &nbsp; 2. **negate the inside**.
+:::
+
+Change only one and the negation is wrong — the standard slip.
+
+::: {.example}
+[Example.]{.lbl} Negate: "For all real $x$, $\;x^3\ge0$."
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Flip *for all* → *there exists*, and negate $x^3\ge0$ to $x^3<0$:
+
+> **There exists a real $x$ such that $x^3<0$.** &nbsp;*(True — e.g. $x=-1$.)* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### De Morgan — negating *and* and *or*
+
+When the inside is a compound "$A$ **and** $B$" or "$A$ **or** $B$", negating it uses **De Morgan's
+laws**: negation turns **and** into **or**, and **or** into **and**, negating each part:
+
+::: {.keyline}
+not($A$ and $B$) $=$ (not $A$) **or** (not $B$) &nbsp;&nbsp;·&nbsp;&nbsp; not($A$ or $B$) $=$ (not $A$) **and** (not $B$)
+:::
+
+The picture: to break "$A$ **and** $B$" you only need **one** of them to fail (hence *or*); to break "$A$
+**or** $B$" you need **both** to fail (hence *and*).
+
+::: {.example}
+[Example.]{.lbl} Negate: "There exists an integer $n$ such that $n$ is odd **and** $n>100$."
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Flip *there exists* → *for all*, then apply De Morgan to "odd **and** $>100$":
+
+> **For all integers $n$, &nbsp; $n$ is even **or** $n\le100$.** $\;\blacksquare$
+
+*Two moves at once: the quantifier flips, **and** the "and" inside becomes "or". Missing the De Morgan
+swap — writing "even **and** $\le100$" — is the usual error.*
+:::
+
+::: {.workbox}
+
+:::
+
+### Negating an implication
+
+An "if $P$ then $Q$" is broken only when $P$ is true but $Q$ fails. So its negation is **not** another
+implication:
+
+::: {.keyline}
+not(if $P$ then $Q$) $=$ $P$ **and** (not $Q$).
+:::
+
+::: {.example}
+[Example.]{.lbl} Negate: "For all real $x$, if $x<0$ then $x^3<0$."
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Flip *for all* → *there exists*; negate the implication to "$x<0$ **and** $x^3\ge0$":
+
+> **There exists a real $x$ such that $x<0$ and $x^3\ge0$.** &nbsp;*(False, but correctly formed.)*
+> $\;\blacksquare$
+
+*The negation keeps the hypothesis and denies the conclusion — never "if $x<0$ then $x^3\ge0$".*
+:::
+
+::: {.workbox}
+
+:::
+
+### "not all" is not "none"
+
+A favourite trap. The negation of **"all multiples of $4$ are even"** is **"at least one multiple of $4$
+is not even"** — a *there exists* needing a single exception. It is **not** "no multiple of $4$ is even",
+which claims *every* one is odd — a much stronger (and here false) statement.
+
+::: {.keyline}
+not(all are $Y$) $=$ **some** is not $Y$ &nbsp; (one exception) &nbsp;≠&nbsp; **no** is $Y$ (all fail).
+:::
+
+### The order of quantifiers
+
+This is the deep one. Two statements can use the **same words in a different order** and mean different
+things — one true, one false. Compare, over the positive integers:
+
+- **P:** *For all $m$, there exists $n$ such that $n>m$.*
+- **Q:** *There exists $n$ such that for all $m$, $n>m$.*
+
+In **P**, "for all $m$" comes first, so $n$ is chosen **after** $m$ and may **depend on** it: *given any
+$m$, there is some larger $n$* — take $n=m+1$. **P is true.**
+
+In **Q**, "there exists $n$" comes first, so **one** $n$ is fixed **before** $m$ and must beat **every**
+$m$: *there is a largest positive integer.* No such $n$ exists — **Q is false.**
+
+::: {.example}
+[Example.]{.lbl} Write the negation of **Q**: "there exists $n$ such that for all $m$, $n>m$."
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Flip **each** quantifier in turn and negate the inside ($n>m$ becomes $n\le m$):
+
+> **For all $n$, there exists $m$ such that $n\le m$.** $\;\blacksquare$
+
+*In words: for every integer there is one at least as large — which is true, matching the fact that Q was
+false. When there are two quantifiers, negation flips **both**, in order.*
+:::
+
+::: {.workbox}
+
+:::
+
+::::

@@ -1,0 +1,198 @@
+---
+title: "Toolkit S6 — Scrambled Proofs · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 2"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Why this shows up on TMUA
+
+Paper 2 asks the **Prf4** type as multiple choice: *"the lines of a proof are given in the wrong order —
+which ordering is correct?"* You never write the proof; you **judge the logical flow**. The skill is
+finding the one line that must come first, the one that must come last, and then respecting the
+**dependencies** in between.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Prf4</div>
+<div class="fs-title">Scrambled Proofs — Key Concepts</div>
+<div class="fs-sub">A jumbled list of statements has to be reassembled into a valid proof. Anchor the two ends — the opening line and the conclusion — then order the middle by "what does each line need before it can be said?"</div>
+::::
+
+## Reassembling a proof
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Find the first line
+
+The opening line **sets up**, it never concludes. Look for:
+
+$$\textbf{"Let…"}\quad\textbf{"Suppose…"}\quad\textbf{"Assume…"}\quad\text{a definition / given}$$
+
+[a proof by contradiction opens with **"Assume the statement is false"**]{.eg}
+:::
+
+::: {.fs-card}
+### Find the last line
+
+The final line is the **conclusion** — the thing you set out to prove, or the contradiction that settles
+it.
+
+$$\textbf{"…which is even."}\quad\textbf{"…a contradiction."}\quad\textbf{"…so } S \text{ is true."}$$
+
+[anchor both ends first; the middle then almost orders itself]{.eg}
+:::
+
+::: {.fs-card}
+### The dependency rule
+
+Every line must be **justified by what comes before it**. A line that **uses** a quantity or a result
+must come **after** that quantity is introduced or that result is established.
+
+[you cannot write "so $a=2c$" before the line that says "$a$ is even"]{.eg}
+:::
+
+::: {.fs-card}
+### Read the connecting words
+
+The linking words fix the order:
+
+**"Let / Suppose"** → opening. **"Since / Because"** → points **back**. **"Therefore / So / Hence"** →
+follows from the lines **above**. **"But this contradicts…"** → near the end.
+:::
+
+::::
+
+## The shape of each proof type
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Direct proof
+
+**Assume/represent** the objects → **algebra/steps** → **state the conclusion**. The order is the order of
+the algebra.
+:::
+
+::: {.fs-card}
+### Proof by contradiction
+
+**Assume the opposite** → derive consequences → **reach something impossible** → **conclude the statement
+is true**. The "contradiction" line is always second-to-last.
+:::
+
+::: {.fs-card}
+### Where it shows up (cross-exam)
+
+Prf4 on Paper 2; the same "put the argument in order" skill is tested in **MAT/STEP** structured proofs
+and in comprehension questions.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## True or false? — test yourself
+
+Facts about how a proof is ordered. Memorise the verdict; **the *False* ones are the traps.**
+
+| Statement | T / F ? |
+|---|:--:|
+| A line that uses a previously-derived result must come **after** that result. | |
+| In a proof by contradiction, the opening line **assumes the statement is false**. | |
+| The **last** line of a proof is its conclusion. | |
+| "Therefore" signals a line that **follows from** the lines above it. | |
+| "Suppose" or "Assume" usually signals an **opening** line. | |
+| The **first** line of a proof states what you are trying to prove. | |
+| In a direct proof of "if $P$ then $Q$", the first line assumes $Q$. | |
+| The lines of a valid proof can be put in **any** order and stay valid. | |
+
+## Proofs of the "true or false?" facts
+
+Decide each verdict above first, then open the key.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answers & proofs
+- A line that uses a previously-derived result must come **after** it — **True**: a step is valid only once the things it uses have appeared.
+- In a proof by contradiction, the opening line **assumes the statement is false** — **True**: that is the method.
+- The **last** line of a proof is its conclusion — **True**.
+- "Therefore" signals a line that **follows from** the lines above — **True**.
+- "Suppose" / "Assume" usually signals an **opening** line — **True**.
+- The **first** line states what you are trying to prove — **False**: the first line **sets up** (a Let/Suppose/given); the goal is where you **end**.
+- In a direct proof of "if $P$ then $Q$", the first line assumes $Q$ — **False**: it assumes **$P$**.
+- The lines of a valid proof can be put in **any** order and stay valid — **False**: order is everything — each step needs its inputs already present.
+:::
+
+## Notes
+
+### The method: anchor the ends, then follow the dependencies
+
+Never try to read a scrambled proof top-to-bottom. Do this instead:
+
+::: {.keyline}
+**1.** Find the **first** line — a "Let / Suppose / Assume" or the given. &nbsp; **2.** Find the **last**
+line — the conclusion or the contradiction. &nbsp; **3.** Fill the middle so that **each line is justified
+by the ones above it** (a line using "$a=2c$" comes after "$a$ is even").
+:::
+
+::: {.example}
+[Example.]{.lbl} These four lines prove "the sum of two odd numbers is even", but they are jumbled. Put
+them in the correct order.
+
+&nbsp;&nbsp;**(i)** So the sum is $2(a+b+1)$, which is even.
+&nbsp;&nbsp;**(ii)** Let the two odd numbers be $2a+1$ and $2b+1$.
+&nbsp;&nbsp;**(iii)** Their sum is $(2a+1)+(2b+1)=2a+2b+2$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Order: **(ii), (iii), (i).** &nbsp; (ii) is the opening "**Let…**"; (i) is the conclusion "…which is
+**even**"; (iii) is the algebra that must sit between them, since (i)'s "$2(a+b+1)$" is only reached after
+(iii)'s "$2a+2b+2$". $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### Contradiction proofs — the tell-tale ends
+
+For a contradiction proof the ends are unmistakable: the **first** line is "**Assume … is false**" (or
+"Suppose $\sqrt2=a/b$ in lowest terms"), and the **last two** lines are "**… a contradiction**" then "**so
+the statement is true**". Order the middle by the chain of consequences.
+
+::: {.example}
+[Example.]{.lbl} These lines prove "$\sqrt2$ is irrational". Put them in order.
+
+&nbsp;&nbsp;**(i)** Then $4c^2=2b^2$, so $b^2=2c^2$ and $b$ is even.
+&nbsp;&nbsp;**(ii)** Suppose $\sqrt2=\dfrac ab$ in lowest terms.
+&nbsp;&nbsp;**(iii)** So $\sqrt2$ is irrational.
+&nbsp;&nbsp;**(iv)** Then $a^2=2b^2$, so $a$ is even; write $a=2c$.
+&nbsp;&nbsp;**(v)** But now $a$ and $b$ share the factor $2$ — a contradiction.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Order: **(ii), (iv), (i), (v), (iii).** &nbsp; Opening assumption (ii); then "$a$ even" (iv) must precede
+(i) because (i) uses $a=2c$; (i) gives "$b$ even"; (v) is the contradiction (needs both $a,b$ even); (iii)
+concludes. $\;\blacksquare$
+
+*The dependency $\text{(iv)}\to\text{(i)}$ is the whole question: you cannot substitute $a=2c$ before you
+have written it.*
+:::
+
+::: {.workbox}
+
+:::
+
+::::

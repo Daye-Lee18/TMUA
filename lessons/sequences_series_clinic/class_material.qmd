@@ -1,0 +1,366 @@
+---
+title: "Sequences, Series & Binomial Clinic"
+subtitle: "Arithmetic & geometric series, sum to infinity, recurrences, and the binomial expansion (MM2)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+This is the **in-spec MM2** bank. TMUA sequence-and-series questions are short but unforgiving: one wrong
+formula and the whole answer is out. The recurring skills are **setting up two equations for an AP or GP**,
+**summing a geometric series to infinity** ($S_\infty=\dfrac{a}{1-r}$, valid only for $|r|<1$), **spotting a
+periodic recurrence**, and **extracting one coefficient from a binomial expansion** without expanding
+everything. Two of these are questions you got wrong (the combined-GP one and the $x^2$-coefficient one), so
+they are the anchors.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM2 Sequences &amp; series</div>
+<div class="fs-title">AP, GP &amp; Binomial — Exam Skim Sheet</div>
+<div class="fs-sub">Read this before you start; come back whenever a question stalls.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Arithmetic (AP)
+$a_n=a+(n-1)d$; sum $S_n=\dfrac{n}{2}\bigl(2a+(n-1)d\bigr)=\dfrac{n}{2}(a_1+a_n)$. Also
+$\displaystyle\sum_{k=1}^{n}k=\dfrac{n(n+1)}{2}$, and **the $n$th term from a sum formula** is
+$a_n=S_n-S_{n-1}$.
+:::
+
+::: {.fs-card}
+### 2 · Geometric (GP)
+$a_n=ar^{n-1}$; finite sum $S_n=\dfrac{a(1-r^{n})}{1-r}$; **sum to infinity**
+$S_\infty=\dfrac{a}{1-r}$ **only when $|r|<1$** (a "convergent" GP).
+:::
+
+::: {.fs-card}
+### 3 · Recurrences
+compute the first few terms and look for a **period** — $(-1)^n$-type and
+$u_{n+1}=\dfrac{1}{1-u_n}$-type sequences repeat, so the $n$th term depends only on $n\bmod(\text{period})$.
+:::
+
+::: {.fs-card}
+### 4 · Binomial
+$(a+bx)^n=\displaystyle\sum_{k=0}^{n}\binom{n}{k}a^{n-k}(bx)^{k}$. To get **one** coefficient, pick
+the single $k$ that makes the power of $x$ right — don't expand the whole thing. For a product of brackets,
+collect **every** way the target power can appear.
+:::
+
+::::
+
+:::::
+
+**On this page:** 1. Arithmetic, geometric & sum to infinity · 2. Combined series & recurrences · 3. Binomial
+coefficients. Answers are in the **Solution** toggles; use the **Working** box and **state the exact value**.
+
+*(For a periodic **sequence of functions** integrated over a range, see the
+[Integrals-to-reason-about clinic](../integral_reasoning_clinic/class_material.qmd) — the 2016 Q4 periodic
+sequence lives there.)*
+
+---
+
+## 1 · Arithmetic, geometric & sum to infinity
+
+### Question 1
+
+::: {.question}
+The sum of the first $n$ terms of an arithmetic series is $S_n=2n^2+3n$. Find the common difference $d$ and the
+$10$th term. *(Give exact numbers.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(recover the $n$th term from the sum formula)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $a_n=S_n-S_{n-1}$
+:::
+
+**Answer form: two numbers. Answer: $d=4$, $a_{10}=41$.**
+
+*The $n$th term is the difference of consecutive sums.*
+$a_n=S_n-S_{n-1}=(2n^2+3n)-\bigl(2(n-1)^2+3(n-1)\bigr)=4n+1$. *This is linear in $n$, confirming an AP with*
+$a_1=5$ and common difference $d=4$. Then $a_{10}=4(10)+1=41$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q3</span>
+
+::: {.question}
+An arithmetic progression and a **convergent** geometric progression each have first term $\tfrac12$. The sum
+of their second terms is $\tfrac12$, and the sum of their third terms is $\tfrac18$. What is the sum to infinity
+of the geometric progression? *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(two equations in $d$ and $r$, then $S_\infty$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — set up the second- and third-term equations, solve, then $S_\infty=\dfrac{a}{1-r}$
+:::
+
+**Answer form: an exact value. Answer: $1$.**
+
+*Let the AP have common difference $d$ and the GP ratio $r$; both start at $\tfrac12$.* Second terms:
+$\bigl(\tfrac12+d\bigr)+\tfrac12 r=\tfrac12$. Third terms: $\bigl(\tfrac12+2d\bigr)+\tfrac12 r^2=\tfrac18$.
+*Solving the pair gives $r=\tfrac12$ (and $d=-\tfrac14$).* Since $|r|<1$ the GP converges, so
+$S_\infty=\dfrac{1/2}{1-1/2}=1$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P1 Q4</span>
+
+::: {.question}
+The $1$st, $2$nd and $3$rd terms of a geometric progression are also the $1$st, $4$th and $6$th terms,
+respectively, of an arithmetic progression. The sum to infinity of the geometric progression is $12$. Find the
+first term of the geometric progression. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(equal AP gaps pin down $r$; then use $S_\infty$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the AP has a constant common difference, so translate the GP terms into a ratio equation for $r$
+:::
+
+**Answer form: an exact number. Answer: $4$.**
+
+*Let the GP be $a,ar,ar^2$. In the AP these sit at positions $1,4,6$, so with common difference $D$:*
+$$ar-a=3D\quad(\text{positions }1\to4),\qquad ar^2-a=5D\quad(\text{positions }1\to6).$$
+*Divide to eliminate $a$ and $D$:* $\dfrac{ar^2-a}{ar-a}=\dfrac{r^2-1}{r-1}=r+1=\dfrac{5}{3}$, so $r=\dfrac23$.
+*Then $S_\infty=\dfrac{a}{1-r}=12\Rightarrow a=12\bigl(1-\tfrac23\bigr)=4$.*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P1 Q19</span>
+
+::: {.question}
+A geometric series has first term $4$ and common ratio $r$, where $0<r<1$. The first, second and fourth terms of
+this geometric series form three successive terms of an arithmetic series. Find the sum to infinity of the
+geometric series. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the AP condition is "middle is the average of its neighbours")*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — three terms are in AP $\iff$ $2\times\text{middle}=\text{first}+\text{third}$
+:::
+
+**Answer form: an exact value. Answer: $6+2\sqrt5$.**
+
+*The GP terms are $4,\,4r,\,4r^3$ (positions $1,2,4$). For an AP, twice the middle equals the sum of the
+outers:* $2(4r)=4+4r^3\Rightarrow 2r=1+r^3\Rightarrow r^3-2r+1=0$. *Factor: $(r-1)(r^2+r-1)=0$; reject $r=1$
+(not $<1$) and the negative root, leaving $r=\dfrac{\sqrt5-1}{2}$.* Then
+$$S_\infty=\frac{4}{1-r}=\frac{4}{1-\frac{\sqrt5-1}{2}}=\frac{8}{3-\sqrt5}=\frac{8(3+\sqrt5)}{4}=6+2\sqrt5.$$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 2 · Combined series & recurrences
+
+### Question 5 · anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q14</span>
+
+::: {.question}
+The terms of an infinite series $S$ are formed by adding together the corresponding terms of two infinite
+geometric series, $T$ and $U$. The first term of $T$ and the first term of $U$ are each $4$. In order, the first
+three terms of the combined series $S$ are $8$, $3$ and $\tfrac54$. What is the sum to infinity of $S$? *(Give an
+exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(work with the sum and product of the two ratios)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — set up equations for $p+q$ and $p^2+q^2$, then $S_\infty=\dfrac{4}{1-p}+\dfrac{4}{1-q}$
+:::
+
+**Answer form: an exact value. Answer: $\dfrac{40}{3}$.**
+
+*Let $T$ have ratio $p$ and $U$ have ratio $q$. The combined terms are $4p^{n-1}+4q^{n-1}$.* The given terms
+say $4p+4q=3$ and $4p^2+4q^2=\tfrac54$, i.e. $p+q=\tfrac34$ and $p^2+q^2=\tfrac{5}{16}$. *So
+$2pq=(p+q)^2-(p^2+q^2)=\tfrac{9}{16}-\tfrac{5}{16}=\tfrac14$, giving $pq=\tfrac18$.* Now
+$$S_\infty=\frac{4}{1-p}+\frac{4}{1-q}=\frac{4\bigl(2-(p+q)\bigr)}{1-(p+q)+pq}
+=\frac{4\bigl(2-\tfrac34\bigr)}{1-\tfrac34+\tfrac18}=\frac{5}{3/8}=\frac{40}{3}.$$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+This is 2016 Paper 1 Q14, which you got wrong. The trap is trying to find $p$ and $q$ individually — you never
+need them. Everything runs through $p+q$ and $pq$, exactly as symmetric expressions always do.
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+A sequence is defined by $u_1=3$ and $u_{n+1}=\dfrac{1}{1-u_n}$ for $n\ge1$. Find the value of $u_{100}$. *(Give
+an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(list a few terms — it is periodic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — compute until the sequence repeats, then reduce $100$ modulo the period
+:::
+
+**Answer form: an exact value. Answer: $3$.**
+
+*Compute forward.* $u_1=3$, $u_2=\dfrac{1}{1-3}=-\dfrac12$, $u_3=\dfrac{1}{1-(-\frac12)}=\dfrac23$,
+$u_4=\dfrac{1}{1-\frac23}=3$. *The sequence has period $3$: $3,-\tfrac12,\tfrac23,3,\dots$* Since $100=3(33)+1$,
+$u_{100}=u_1=3$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 3 · Binomial coefficients
+
+### Question 7
+
+::: {.question}
+Find the coefficient of $x^4$ in the expansion of $(1+2x)^7$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(pick the single term with the right power)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the $x^k$ term of $(a+bx)^n$ is $\binom{n}{k}a^{n-k}b^k$
+:::
+
+**Answer form: an exact number. Answer: $560$.**
+
+*Only the $k=4$ term contributes to $x^4$:* $\dbinom{7}{4}(1)^{3}(2x)^{4}=35\cdot16\,x^4=560\,x^4$. The
+coefficient is $560$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P1 Q6</span>
+
+::: {.question}
+In the simplified expansion of $(2+3x)^{12}$, how many of the terms have a coefficient that is **divisible by
+$12$**? *(Give a number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(check the divisibility of each coefficient by $3$ and by $4$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the $x^k$ coefficient is $\binom{12}{k}2^{12-k}3^k$; test divisibility by $12=4\times3$
+:::
+
+**Answer form: a number. Answer: $11$.**
+
+*There are $13$ terms ($k=0,\dots,12$), with coefficient $c_k=\dbinom{12}{k}2^{12-k}3^{k}$. Divisible by $12$
+means divisible by both $3$ and $4$ — so hunt for the terms that fail one of these.*
+
+- **Factor of $3$:** $c_k$ carries $3^{k}$, present for every $k\ge1$. The **only** term without a factor $3$
+  is $k=0$: $c_0=2^{12}=4096$.
+- **Factor of $4$:** $c_k$ carries $2^{12-k}$, which is $\ge2^2$ for all $k\le10$; and $k=11$ is still fine
+  because $\binom{12}{11}=12$ supplies the missing factors. The **only** term without a factor $4$ is $k=12$:
+  $c_{12}=3^{12}$, which is odd.
+
+*So exactly two terms fail — $k=0$ (no factor $3$) and $k=12$ (no factor $4$) — and the remaining $13-2=11$
+coefficients are divisible by $12$.*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 9 · anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA specimen · P1 Q20</span>
+
+::: {.question}
+The coefficient of $x^2$ in the expansion of
+$$(4-x^2)\Bigl[(1+2x+3x^2)^6-(1+4x^3)^5\Bigr]$$
+is what? *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(only low powers survive — never expand the whole thing)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — collect every way to reach $x^2$: (constant of the front)$\times$($x^2$ inside) + ($-x^2$ front)$\times$(constant inside)
+:::
+
+**Answer form: an exact number. Answer: $312$.**
+
+*You only need the $x^0,x^1,x^2$ parts of the bracket.* In $(1+2x+3x^2)^6$: the constant is $1$; the $x^2$
+coefficient is $\dbinom{6}{1}\cdot3+\dbinom{6}{2}\cdot2^2=18+60=78$. In $(1+4x^3)^5$ there is no $x^1$ or $x^2$
+term and the constant is $1$, so it contributes only to $x^0$. *Hence the bracket has constant term $1-1=0$ and
+$x^2$ coefficient $78$.*
+
+*Now multiply by $(4-x^2)$ and collect $x^2$:* the "$4$" times the bracket's $x^2$ term gives $4\cdot78=312$;
+the "$-x^2$" times the bracket's **constant** term gives $-1\cdot0=0$. Total $=312$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+This is the specimen-paper Q20 you got wrong. The whole battle is refusing to expand: you only ever need the
+constant and the $x^2$ coefficient of each bracket, and the "$1-1=0$" constant is what makes the second product
+vanish.
+:::
+
+:::

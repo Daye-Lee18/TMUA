@@ -1,0 +1,409 @@
+---
+title: "Integration, Area & Symmetry Clinic"
+subtitle: "Definite integrals, signed vs total area, area between curves, the trapezium rule & dy/dx = f(x) (MM7)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+This is the **in-spec MM7** bank: definite integration as **area**, the shortcuts that **symmetry** gives you,
+**area between curves**, the **trapezium rule**, and simple **differential equations** $\frac{dy}{dx}=f(x)$.
+The recurring exam trick is that a "hard" integral collapses once you notice an **odd** part vanishes, or that
+"area" means **total** (positive) area even where the curve dips below the axis.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM7 Integration</div>
+<div class="fs-title">Integration, Area &amp; Symmetry — Exam Skim Sheet</div>
+<div class="fs-sub">Read this before you start; come back whenever a question stalls.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Integrate $x^n$
+($n\neq-1$): $\displaystyle\int x^n\,dx=\dfrac{x^{n+1}}{n+1}(+C)$. Rewrite surds and
+fractions as powers first.
+:::
+
+::: {.fs-card}
+### 2 · Symmetry over $[-a,a]$
+$\displaystyle\int_{-a}^{a}(\text{odd})=0$ and
+$\displaystyle\int_{-a}^{a}(\text{even})=2\int_0^a(\text{even})$. (Odd: only odd powers of $x$; even: only even
+powers or a constant.)
+:::
+
+::: {.fs-card}
+### 3 · Signed vs total area
+$\int_a^b f$ counts area **below** the axis as **negative**. For **total** area,
+split at the roots and add the absolute values (or take $\bigl|\int\bigr|$ only when the curve keeps one sign).
+:::
+
+::: {.fs-card}
+### 4 · Area between two curves
+$\displaystyle\int_{a}^{b}\bigl(y_{\text{top}}-y_{\text{bottom}}\bigr)\,dx$, where
+$a,b$ are the $x$-coordinates of the intersections.
+:::
+
+::: {.fs-card}
+### 5 · Trapezium rule
+with $n$ strips of width $h$:
+$\displaystyle\int\approx\frac{h}{2}\bigl(y_0+y_n+2(y_1+\dots+y_{n-1})\bigr)$ — an **over**estimate for a curve
+that bends upward (convex), an underestimate for concave.
+:::
+
+::: {.fs-card}
+### 6 · $\dfrac{dy}{dx}=f(x)$
+integrate to get $y=F(x)+C$, then use the given point to fix $C$.
+:::
+
+::::
+
+:::::
+
+**On this page:** 1. Definite integrals & symmetry · 2. Area · 3. Combining ranges, trapezium rule &
+differential equations. Answers are in the **Solution** toggles; use the **Working** box and **state the exact
+value**.
+
+---
+
+## 1 · Definite integrals & symmetry
+
+### Question 1
+
+::: {.question}
+Evaluate $\displaystyle\int_{-2}^{2}\bigl(x^3-4x+1\bigr)\,dx$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(kill the odd part by symmetry)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\int_{-a}^{a}(\text{odd})=0$, so only the constant survives
+:::
+
+**Answer form: an exact value. Answer: $4$.**
+
+*$x^3$ and $-4x$ are odd, so their integrals over the symmetric interval $[-2,2]$ are zero.* Only the constant
+remains: $\displaystyle\int_{-2}^{2}1\,dx=2-(-2)=4$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+Evaluate $\displaystyle\int_{1}^{4}\left(2x-\frac{1}{\sqrt{x}}\right)\,dx$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(write $\tfrac1{\sqrt x}=x^{-1/2}$ first)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — integrate $x^n$ term by term, then substitute the limits
+:::
+
+**Answer form: an exact value. Answer: $13$.**
+
+$\displaystyle\int\bigl(2x-x^{-1/2}\bigr)\,dx=x^2-2x^{1/2}=x^2-2\sqrt{x}$. *Evaluate from $1$ to $4$:*
+$(16-2\cdot2)-(1-2\cdot1)=(16-4)-(1-2)=12-(-1)=13$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 3
+
+::: {.question}
+Evaluate $\displaystyle\int_{0}^{2}\lvert x-1\rvert\,dx$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(split where the inside changes sign)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a modulus integrand: break the range at the sign change ($x=1$)
+:::
+
+**Answer form: an exact value. Answer: $1$.**
+
+*On $[0,1]$, $x-1\le0$ so $\lvert x-1\rvert=1-x$; on $[1,2]$, $\lvert x-1\rvert=x-1$.*
+$$\int_0^1(1-x)\,dx+\int_1^2(x-1)\,dx=\tfrac12+\tfrac12=1.$$
+*(It is the area of two triangles, each $\tfrac12$.)*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 2 · Area
+
+### Question 4
+
+::: {.question}
+Find the area of the region enclosed between the curve $y=x^2-4$ and the $x$-axis. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(area is positive even though the integral is negative)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the curve is **below** the axis on the region, so take the modulus of the integral
+:::
+
+**Answer form: an exact value. Answer: $\dfrac{32}{3}$.**
+
+*The curve meets the axis at $x=\pm2$ and is below it in between, so the integral is negative and the area is its
+size.* $\displaystyle\int_{-2}^{2}(x^2-4)\,dx=\left[\tfrac{x^3}{3}-4x\right]_{-2}^{2}=-\tfrac{32}{3}$, so the
+area is $\left|-\tfrac{32}{3}\right|=\dfrac{32}{3}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,300); y=x**2-4
+plt.figure(figsize=(4.0,2.6))
+plt.plot(x,y,'#2b6cb0',lw=1.6)
+xf=np.linspace(-2,2,200); plt.fill_between(xf,xf**2-4,color='#2b6cb0',alpha=.2)
+plt.axhline(0,color='0.5',lw=.8); plt.axvline(0,color='0.5',lw=.8)
+plt.title('The curve dips below the axis between x = −2 and 2',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+Find the area of the region enclosed between the line $y=2x$ and the curve $y=x^2$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(top minus bottom, between the intersections)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — area $=\int(y_{\text{top}}-y_{\text{bottom}})\,dx$
+:::
+
+**Answer form: an exact value. Answer: $\dfrac43$.**
+
+*Intersections: $x^2=2x\Rightarrow x=0,2$. Between them the line is on top,* so
+$$\int_0^2(2x-x^2)\,dx=\left[x^2-\tfrac{x^3}{3}\right]_0^2=4-\tfrac83=\dfrac43.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-0.5,2.5,300)
+plt.figure(figsize=(4.0,2.6))
+plt.plot(x,2*x,color='crimson',lw=1.4,label='y = 2x')
+plt.plot(x,x**2,color='#2b6cb0',lw=1.6,label='y = x²')
+xf=np.linspace(0,2,200); plt.fill_between(xf,2*xf,xf**2,color='0.6',alpha=.3)
+plt.legend(fontsize=8); plt.grid(alpha=0.25)
+plt.title('Between the intersections x = 0 and x = 2',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+Find the area of the region enclosed between the curve $y=\sqrt{x}$ and the line $y=x$. *(Give the exact
+value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(which is on top? test a point)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — on $(0,1)$, $\sqrt{x}>x$, so $\sqrt{x}$ is the top curve
+:::
+
+**Answer form: an exact value. Answer: $\dfrac16$.**
+
+*They meet where $\sqrt x=x\Rightarrow x=0,1$; between them $\sqrt x>x$ (e.g. at $x=\tfrac14$, $\tfrac12>\tfrac14$),*
+so
+$$\int_0^1\bigl(\sqrt{x}-x\bigr)\,dx=\left[\tfrac23x^{3/2}-\tfrac{x^2}{2}\right]_0^1=\tfrac23-\tfrac12=\dfrac16.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,1.3,300)
+plt.figure(figsize=(4.0,2.6))
+plt.plot(x,np.sqrt(x),color='#2b6cb0',lw=1.6,label='y = √x')
+plt.plot(x,x,color='crimson',lw=1.4,label='y = x')
+xf=np.linspace(0,1,200); plt.fill_between(xf,np.sqrt(xf),xf,color='0.6',alpha=.3)
+plt.legend(fontsize=8); plt.grid(alpha=0.25); plt.gca().set_aspect('equal')
+plt.title('Between x = 0 and x = 1',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 3 · Combining ranges, the trapezium rule & differential equations
+
+### Question 7
+
+::: {.question}
+Given that $\displaystyle\int_{0}^{3}f=10$ and $\displaystyle\int_{3}^{7}f=-4$, find $\displaystyle\int_{0}^{7}f$.
+*(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contiguous ranges just add)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\int_0^7=\int_0^3+\int_3^7$
+:::
+
+**Answer form: an exact value. Answer: $6$.**
+
+*The ranges $[0,3]$ and $[3,7]$ join at $x=3$, so the integrals add:* $\int_0^7 f=10+(-4)=6$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+Use the trapezium rule with **four** strips of equal width to estimate $\displaystyle\int_{0}^{4}x^2\,dx$, and
+state whether it is an over- or under-estimate. *(Give the exact estimate.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(sum the strip formula; a convex curve is over-estimated)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\frac{h}{2}\bigl(y_0+y_n+2\sum y_{\text{mid}}\bigr)$
+:::
+
+**Answer form: an exact value. Answer: $22$ (an over-estimate).**
+
+*Width $h=1$; ordinates at $x=0,1,2,3,4$ are $0,1,4,9,16$.*
+$$\int\approx\frac12\bigl(0+16+2(1+4+9)\bigr)=\frac12(16+28)=22.$$
+*The exact value is $\dfrac{64}{3}\approx21.3$, so the estimate $22$ is an **over**estimate — as expected, since
+$y=x^2$ bends upward and the chords lie above the curve.*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,4,200)
+plt.figure(figsize=(4.2,2.6))
+plt.plot(x,x**2,'#2b6cb0',lw=1.6)
+xs=[0,1,2,3,4]; ys=[v**2 for v in xs]
+for i in range(4):
+    plt.fill([xs[i],xs[i],xs[i+1],xs[i+1]],[0,ys[i],ys[i+1],0],color='crimson',alpha=.15,edgecolor='crimson',lw=0.8)
+plt.title('Four trapezia over-shoot the convex curve',fontsize=8)
+plt.grid(alpha=0.2); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 9
+
+::: {.question}
+A curve satisfies $\dfrac{dy}{dx}=6x^2-4x$ and passes through the point $(1,5)$. Find $y$ in terms of $x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(integrate, then fix $C$ with the point)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — solve $\frac{dy}{dx}=f(x)$ by integrating, then use the given point
+:::
+
+**Answer form: $y=\dots$. Answer: $y=2x^3-2x^2+5$.**
+
+*Integrate:* $y=\displaystyle\int(6x^2-4x)\,dx=2x^3-2x^2+C$. *Use $(1,5)$:* $2-2+C=5\Rightarrow C=5$. So
+$y=2x^3-2x^2+5$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 10
+
+::: {.question}
+The area of the region between the line $y=2x$, the $x$-axis, and the vertical line $x=n$ (for $n>0$) is
+$A(n)$. Find the smallest integer $n$ for which $A(n)>50$. *(Give the integer.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the area is a simple integral in $n$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $A(n)=\int_0^n 2x\,dx$, then solve the inequality
+:::
+
+**Answer form: an integer. Answer: $8$.**
+
+$A(n)=\displaystyle\int_0^n 2x\,dx=\bigl[x^2\bigr]_0^n=n^2$. *(It is a triangle of base $n$ and height $2n$,
+area $\tfrac12\cdot n\cdot 2n=n^2$.)* Require $n^2>50$: since $7^2=49<50$ and $8^2=64>50$, the smallest integer
+is $n=8$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+:::

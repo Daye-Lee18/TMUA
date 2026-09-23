@@ -1,0 +1,899 @@
+---
+title: "Modulus Clinic — Class Material"
+subtitle: "Every kind of modulus question, gathered from the TMUA papers, the MAT, and the mocks"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The modulus $\lvert\cdot\rvert$ shows up all over Paper 2 — inside equations, inside functions, inside
+integrals, inside trig, and as the boundary of a region. This clinic collects one of each kind, from the
+TMUA past papers, the Oxford MAT, and the Tyler mocks, and works them the same reliable way every time.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · Modulus</div>
+<div class="fs-title">The Modulus — Exam Skim Sheet</div>
+<div class="fs-sub">Four ways to look at the same bars — pick whichever kills the modulus fastest.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Definition
+$\lvert x\rvert=x$ if $x\ge0$, and $\lvert x\rvert=-x$ if $x<0$.
+
+It is **never negative**.
+:::
+
+::: {.fs-card}
+### 2 · As a square root
+$\lvert x\rvert=\sqrt{x^{2}}$.
+
+[So $\sqrt{x^{2}}$ is $\lvert x\rvert$, **not** $x$ — a classic dropped mark.]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · As a distance
+$\lvert x-a\rvert$ is the **distance** from $x$ to $a$ on the number line.
+
+[$\lvert x-a\rvert<k$ means "within $k$ of $a$".]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · The golden rule
+Whenever you meet a modulus, either **split at the point where the inside changes sign**, or **square** to remove it.
+
+**Never just delete the bars.**
+:::
+
+::::
+
+:::::
+
+::: {.callout-tip}
+## How to attack **any** modulus problem — a decision guide
+
+Whatever the question, find its row and use that move. Every worked example below is one of these.
+
+| If the modulus is in… | The reliable move | Section |
+|---|---|---|
+| an **equation** $\lvert A\rvert=k$ | write $A=k$ **or** $A=-k$ | §1 |
+| an **inequality** $\lvert A\rvert<k$ / $\lvert A\rvert<\lvert B\rvert$ | unfold to $-k<A<k$ / **square** both sides | §1 |
+| a **"true for all $x$"** condition | test the $x$ that makes a side **zero**, then confirm | §1 |
+| a **graph** $\lvert f(x)\rvert$ or $f(\lvert x\rvert)$ | flip-below-up / mirror-the-right-half | §2 |
+| $x\lvert x\rvert$ (or any $\pm x^2$ split) | split into $x\ge0$ and $x<0$, **keep in-branch roots** | §3 |
+| a **surd** $\sqrt{1-s^2}$ or a **square** $(\dots)^2=k$ | rewrite as $\lvert\cdot\rvert$; count $\pm$ branches | §4 |
+| an **integral** $\int\lvert f\rvert$ or a step $\lfloor\,\rfloor,\lceil\,\rceil$ | split at every zero / constant strips (often a series) | §5 |
+| a **region / area** $\lvert ax\rvert+\lvert y\rvert=c$ | find the corners → a diamond; area $\tfrac12 d_1d_2$ | §6 |
+
+**Two moves cover almost everything:** *split at the sign-change point*, or *square to remove the bars*. Pick
+whichever leaves the cleaner equation.
+:::
+
+**On this page:** 1. Solving modulus equations & inequalities · 2. Sketching $\lvert f(x)\rvert$ and
+$f(\lvert x\rvert)$ · 3. The $x\lvert x\rvert$ curve · 4. Modulus in trig (and surds) · 5. Integrating a
+modulus · 6. Regions, diamonds & the triangle inequality
+
+---
+
+## 1 · Solving modulus equations & inequalities
+
+::: {.callout-tip}
+## Concept — three moves
+
+- $\lvert A\rvert=k$ (with $k\ge0$) $\;\Rightarrow\; A=k$ **or** $A=-k$.
+- $\lvert A\rvert<k \;\Rightarrow\; -k<A<k$; &nbsp; $\lvert A\rvert>k \;\Rightarrow\; A>k$ **or** $A<-k$.
+- $\lvert A\rvert<\lvert B\rvert \;\Rightarrow\; A^{2}<B^{2}$ (squaring is safe — both sides are $\ge0$).
+- For "**true for all $x$**" questions, test the $x$ that makes one side **zero** — it usually pins the answer.
+:::
+
+### Question 1
+
+::: {.question}
+Solve $\;\lvert x-2\rvert=3$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(warm-up)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a basic modulus equation
+:::
+
+**Answer: $x=5$ or $x=-1$.**
+
+$\lvert x-2\rvert=3$ means the distance from $x$ to $2$ is $3$, so $x-2=3$ or $x-2=-3$, giving $x=5$ or
+$x=-1$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+Solve $\;\lvert 2x-1\rvert<5$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a modulus inequality)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — unfold $\lvert A\rvert<k$ into a double inequality
+:::
+
+**Answer: $-2<x<3$.**
+
+$\lvert 2x-1\rvert<5$ means $-5<2x-1<5$. Add $1$: $-4<2x<6$. Divide by $2$: $-2<x<3$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 3
+
+::: {.question}
+The set of $x$ satisfying **both** $\;\lvert x+5\rvert<\lvert x+11\rvert\;$ and $\;\lvert x+11\rvert<\lvert
+x+1\rvert\;$ is &nbsp;&nbsp;**A** empty &nbsp; **B** a single point &nbsp; **C** length $1$ &nbsp; **D**
+length $2$ &nbsp; **E** length $3$ &nbsp; **F** length $4$ &nbsp; **G** length $5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(TMUA 2022 P2 Q14)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — two "$\lvert A\rvert<\lvert B\rvert$" inequalities at once; square each
+:::
+
+**Answer: D (an interval of length $2$).**
+
+**Step 1 — square the first.** $\lvert x+5\rvert<\lvert x+11\rvert\Rightarrow(x+5)^{2}<(x+11)^{2}$. Expand:
+$10x+25<22x+121\Rightarrow x>-8$. *(Or: "$x$ is closer to $-5$ than to $-11$", so $x$ is right of the
+midpoint $-8$.)*
+
+**Step 2 — square the second.** $\lvert x+11\rvert<\lvert x+1\rvert\Rightarrow(x+11)^{2}<(x+1)^{2}\Rightarrow
+22x+121<2x+1\Rightarrow x<-6$.
+
+**Step 3 — intersect.** $-8<x<-6$: an interval of **length $2$**.
+
+**Where the wrong options come from.** Dropping the bars and solving $x+5<x+11$ (always true) loses the whole
+question; forgetting to intersect the two answers gives a single half-line, not a length.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+$(*)$: $\;a\lvert x\rvert+1\le\lvert x-2\rvert$, where $a$ is a real constant. Which describes the complete
+set of $a$ for which $(*)$ holds for **all real $x$**? &nbsp;&nbsp;**A** $a\le\tfrac32$ &nbsp; **B** $a\le1$
+&nbsp; **C** $a\le\tfrac12$ &nbsp; **D** $a\le0$ &nbsp; **E** $a\le-\tfrac12$ &nbsp; **F** $a\le-1$ &nbsp;
+**G** $a\le-\tfrac32$ &nbsp; **H** no such $a$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(TMUA 2019 P2 Q18)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — "true for all $x$": test the point where a modulus vanishes
+:::
+
+**Answer: E ($a\le-\tfrac12$).**
+
+**Step 1 — test the value that makes the right side $0$.** At $x=2$, $\lvert x-2\rvert=0$, so $(*)$ needs
+$a\lvert2\rvert+1\le0$, i.e. $2a+1\le0\Rightarrow a\le-\tfrac12$. So $a\le-\tfrac12$ is **necessary**.
+
+**Step 2 — check it is enough.** Rearranged, $(*)$ says $a\le\dfrac{\lvert x-2\rvert-1}{\lvert x\rvert}$ for
+every $x\ne0$ (and at $x=0$ it is $1\le2$, fine). The **smallest** value of that right-hand side is
+$-\tfrac12$, reached at $x=2$; everywhere else it is larger. So $a\le-\tfrac12$ makes $(*)$ hold for all $x$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,10,1200); x=x[np.abs(x)>1e-3]
+g=(np.abs(x-2)-1)/np.abs(x)
+plt.figure(figsize=(5.2,3.0))
+plt.plot(x,g,color='#2b6cb0',label='(|x−2|−1)/|x|')
+plt.axhline(-0.5,color='crimson',ls='--',lw=1); plt.plot(2,-0.5,'o',color='crimson')
+plt.annotate('min = −1/2 at x=2',(2,-0.5),textcoords='offset points',xytext=(8,-14),color='crimson',fontsize=8)
+plt.ylim(-1.2,3); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('a must be ≤ the minimum of this curve',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.** Testing $x=0$ only gives the weak $1\le2$ and the trap $a\le\tfrac32$
+(A); forgetting that $a$ can be negative rules out the correct branch entirely.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## 2 · Sketching $\lvert f(x)\rvert$ and $f(\lvert x\rvert)$
+
+::: {.callout-tip}
+## Concept — two different reflections
+
+- **$y=\lvert f(x)\rvert$:** keep $f$ where it is $\ge0$; **reflect the part below the $x$-axis up** above it.
+- **$y=f(\lvert x\rvert)$:** keep the right half ($x\ge0$) of $f$; **mirror it across the $y$-axis** to the
+  left. The result is always an **even** function (symmetric about the $y$-axis).
+- They are usually **different graphs** — decide which modulus you have before drawing.
+:::
+
+### Question 5
+
+::: {.question}
+Sketch $\;y=\lvert x^{2}-4\rvert$, marking where it meets the axes and any corners.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(reflect below-axis up)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — sketch $y=\lvert f(x)\rvert$
+:::
+
+**Answer: the parabola $x^{2}-4$ with its dip between $-2$ and $2$ flipped up.**
+
+$x^{2}-4$ is negative for $-2<x<2$. Reflecting that piece up gives a "W-ish" curve: it touches $y=0$ at
+$x=\pm2$ (sharp **corners**), rises to $y=4$ at $x=0$, and matches $x^{2}-4$ outside $[-2,2]$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,400)
+plt.figure(figsize=(4.6,3.0))
+plt.plot(x,x**2-4,color='0.7',ls='--',label='y=x²−4')
+plt.plot(x,np.abs(x**2-4),color='#2b6cb0',lw=2,label='y=|x²−4|')
+plt.axhline(0,color='0.5',lw=0.7)
+for r in (-2,2): plt.plot(r,0,'o',color='crimson')
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.title('flip the below-axis dip up (corners at ±2)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+The graph of $y=f(x)$ for $x\ge0$ is the line from $(0,-1)$ rising to $(3,2)$. Sketch $y=f(\lvert x\rvert)$
+for $-3\le x\le3$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(mirror the right half)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $f(\lvert x\rvert)$ is even
+:::
+
+**Answer: a "V"-shaped graph, symmetric about the $y$-axis.**
+
+$f(\lvert x\rvert)$ uses only the **right half** of $f$ and mirrors it to the left. So from $x=0$ (where
+$y=-1$) the graph rises to $(3,2)$ on the right and to $(-3,2)$ on the left — a symmetric V with its point at
+$(0,-1)$. *(The left half of the original $f$ is ignored completely.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,200)
+plt.figure(figsize=(4.4,3.0))
+plt.plot(x,np.abs(x)-1,color='#2b6cb0',lw=2)   # f(x)=x-1 for x>=0 -> f(|x|)=|x|-1
+plt.plot([0,3],[-1,2],color='0.7',ls='--',label='original f (x≥0)')
+plt.axhline(0,color='0.5',lw=0.7); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('f(|x|): right half mirrored to the left',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 7
+
+::: {.question}
+$f$ satisfies $f(0)=0$ and $x\,f(x)<0$ for $x\ne0$. Given $\displaystyle\int_{-5}^{5}f(x)\,\mathrm dx=2$ and
+$\displaystyle\int_{-5}^{5}\lvert f(x)\rvert\,\mathrm dx=16$, find $\displaystyle\int_{-5}^{5}f(\lvert
+x\rvert)\,\mathrm dx$. &nbsp;&nbsp;**A** $-14$ &nbsp; **B** $-4$ &nbsp; **C** $0$ &nbsp; **D** $4$ &nbsp;
+**E** $14$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set C — $f(\lvert x\rvert)$ inside an integral)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — use that $f(\lvert x\rvert)$ is even, plus a sign condition, to split an integral
+:::
+
+**Answer: A ($-14$).**
+
+**Step 1 — read the sign condition.** $x\,f(x)<0$ means $f$ has the **opposite sign to $x$**: $f<0$ for $x>0$,
+and $f>0$ for $x<0$.
+
+**Step 2 — name the two halves.** Let $P=\displaystyle\int_{-5}^{0}f$ (this is $\ge0$) and $N=\displaystyle
+\int_{0}^{5}f$ (this is $\le0$). Then
+$$P+N=\int_{-5}^{5}f=2,\qquad P-N=\int_{-5}^{5}\lvert f\rvert=16,$$
+because $\lvert f\rvert=f$ on the left and $\lvert f\rvert=-f$ on the right. Solving: $P=9$, $N=-7$.
+
+**Step 3 — use that $f(\lvert x\rvert)$ is even.** On $x\ge0$, $\lvert x\rvert=x$, so $f(\lvert x\rvert)=f(x)$;
+by symmetry $\displaystyle\int_{-5}^{5}f(\lvert x\rvert)=2\int_{0}^{5}f(x)=2N=-14.$
+
+**Where the wrong options come from.** Guessing it equals the given $2$ or $16$ ignores the reshaping; missing
+the "even" doubling gives $N=-7$ instead of $-14$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## 3 · The $x\lvert x\rvert$ curve
+
+::: {.callout-tip}
+## Concept — an $x^{3}$-shaped S-curve
+
+$y=x\lvert x\rvert$ is $x^{2}$ for $x\ge0$ and $-x^{2}$ for $x<0$: **odd, strictly increasing**, flat at the
+origin, steep far out — the same shape family as $y=x^{3}$. A straight line therefore meets it in **$1$, $2$
+or $3$ points**, never $0$ or $4$.
+:::
+
+### Question 8
+
+::: {.question}
+$p,q$ real; $\;x\lvert x\rvert=px+q\;$ has exactly $k$ distinct real solutions. Complete list of possible $k$?
+&nbsp;&nbsp;**A** $0,1,2$ &nbsp; **B** $0,1,2,3$ &nbsp; **C** $0,1,2,3,4$ &nbsp; **D** $0,2,4$ &nbsp;
+**E** $1,2,3$ &nbsp; **F** $1,2,3,4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(TMUA 2021 P2 Q16)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — how many times a line meets $y=x\lvert x\rvert$
+:::
+
+**Answer: E ($1,2,3$).**
+
+**Step 1 — draw the curve.** $x\lvert x\rvert$ is the increasing S-curve above; it runs from $-\infty$ to
+$+\infty$.
+
+**Step 2 — count crossings with a line.** Because the curve outgrows any line at both ends, there is **always
+at least one** crossing, so $k\ge1$. When the line is steep enough (slope $p>0$) it can cut the curve
+**three** times. So $k\in\{1,2,3\}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,400); y=x*np.abs(x)
+plt.figure(figsize=(5.0,3.6))
+plt.plot(x,y,color='black',lw=2,label='y=x|x|')
+plt.plot(x,0*x+2,'--',color='#2b6cb0',label='1 solution')
+plt.plot(x,2*x-1,'--',color='#dd6b20',label='2 solutions')
+plt.plot(x,3*x,'--',color='crimson',label='3 solutions')
+plt.ylim(-9,9); plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.title('a line meets y=x|x| in 1, 2 or 3 points',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.** Options with $0$ or $4$ forget that an increasing curve to $\pm\infty$
+must be crossed at least once and can be crossed at most three times by a line.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 9
+
+::: {.question}
+How many real solutions does $\;x\lvert x\rvert+1=3\lvert x\rvert\;$ have? &nbsp;&nbsp;**(a)** $0$ &nbsp;
+**(b)** $1$ &nbsp; **(c)** $2$ &nbsp; **(d)** $3$ &nbsp; **(e)** $4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2022 Q1A — solve on each branch, then count)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — solve an $x\lvert x\rvert$ equation by splitting into $x\ge0$ and $x<0$
+:::
+
+**Answer: (d) $3$.** Split at $x=0$, solve each branch, and **keep only the roots that lie in that branch**.
+
+**Step 1 — the branch $x\ge0$.** Here $\lvert x\rvert=x$: $x^{2}+1=3x\Rightarrow x^{2}-3x+1=0\Rightarrow
+x=\dfrac{3\pm\sqrt5}2$. Both $\approx0.38$ and $\approx2.62$ are $\ge0$ — **two** valid roots.
+
+**Step 2 — the branch $x<0$.** Here $\lvert x\rvert=-x$: $-x^{2}+1=-3x\Rightarrow x^{2}-3x-1=0\Rightarrow
+x=\dfrac{3\pm\sqrt{13}}2$. Only $\dfrac{3-\sqrt{13}}2\approx-0.30$ is $<0$ — **one** valid root (the other,
+$\approx3.30$, is positive, so it must be **rejected** on this branch).
+
+**Step 3 — total.** $2+1=3$.
+
+**Where the wrong options come from.** Forgetting to reject the out-of-branch root gives $4$ (e); solving only
+one branch gives $2$ (c).
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 4 · Modulus in trig (and surds that hide one)
+
+::: {.callout-tip}
+## Concept — surds collapse to a modulus; squares open to $\pm$
+
+- **$\sqrt{x^{2}}=\lvert x\rvert$**, so $\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}=\sqrt{1-\sin^{2}\theta}=
+  \lvert\cos\theta\rvert$ (and similarly for $\sin$).
+- **$(\dots)^{2}=k$ means $\lvert\dots\rvert=\sqrt k$**, i.e. two separate equations.
+- **$\lvert\sin x\rvert=k$** has **twice** as many solutions as $\sin x=k$ (the negative branch too).
+:::
+
+### Question 10
+
+::: {.question}
+How many solutions does $\;\lvert\sin x\rvert=\tfrac12\;$ have for $0\le x\le2\pi$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(warm-up)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lvert\sin x\rvert=k$ doubles the solutions
+:::
+
+**Answer: $4$.**
+
+$\lvert\sin x\rvert=\tfrac12$ means $\sin x=\tfrac12$ **or** $\sin x=-\tfrac12$. In $[0,2\pi]$: $\sin
+x=\tfrac12$ at $\tfrac\pi6,\tfrac{5\pi}6$; $\sin x=-\tfrac12$ at $\tfrac{7\pi}6,\tfrac{11\pi}6$. Four in all.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 11
+
+::: {.question}
+For $\theta\in\{1^\circ,\dots,360^\circ\}$, for how many is
+$\;\sin\theta\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}+\cos\theta\sqrt{1+\cos\theta}\,\sqrt{1-\cos\theta}=0$?
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $4$ &nbsp; **E** $93$ &nbsp; **F** $182$
+&nbsp; **G** $271$ &nbsp; **H** $360$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(TMUA 2021 P2 Q19)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a surd product is really $\lvert\cos\theta\rvert$; count by quadrant
+:::
+
+**Answer: F ($182$).**
+
+**Step 1 — collapse the surds.** $\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}=\lvert\cos\theta\rvert$ and
+$\sqrt{1+\cos\theta}\,\sqrt{1-\cos\theta}=\lvert\sin\theta\rvert$, so the expression is
+$\sin\theta\lvert\cos\theta\rvert+\cos\theta\lvert\sin\theta\rvert$.
+
+**Step 2 — sign by quadrant.** It is $+2\sin\theta\cos\theta>0$ in Q1 and $-2\sin\theta\cos\theta<0$ in Q3, but
+$0$ in **Q2 and Q4** (the two terms cancel) and on the axes.
+
+**Step 3 — count integer degrees.** Q2: $91^\circ\!-\!179^\circ$ ($89$); Q4: $271^\circ\!-\!359^\circ$ ($89$);
+axes $90,180,270,360$ ($4$). Total $\;89+89+4=182$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,360,1441); r=np.radians(th)
+val=np.sin(r)*np.abs(np.cos(r))+np.cos(r)*np.abs(np.sin(r))
+plt.figure(figsize=(6.0,2.7))
+plt.plot(th,val,color='#2b6cb0'); plt.axhline(0,color='crimson',lw=0.9)
+for a,b in [(90,180),(270,360)]: plt.axvspan(a,b,color='#c6f6d5',alpha=0.6)
+plt.xticks(range(0,361,90)); plt.grid(alpha=0.25)
+plt.title('zero on Q2, Q4 and the axes',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.** Treating each surd as $\cos\theta$ (dropping the modulus) makes the
+whole thing $2\sin\theta\cos\theta$, which is $0$ only $4$ times — the distractor D.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 12
+
+::: {.question}
+How many solutions does $\;(4\cos2\theta-1)^{2}=9\;$ have for $-180^\circ\le\theta\le180^\circ$?
+&nbsp;&nbsp;**A** $4$ &nbsp; **B** $5$ &nbsp; **C** $6$ &nbsp; **D** $7$ &nbsp; **E** $8$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set C — a squared bracket)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $(\dots)^{2}=9$ becomes $\lvert\dots\rvert=3$
+:::
+
+**Answer: D ($7$).**
+
+**Step 1 — open the square.** $(4\cos2\theta-1)^{2}=9\Rightarrow\lvert4\cos2\theta-1\rvert=3\Rightarrow
+4\cos2\theta-1=\pm3$, so $\cos2\theta=1$ **or** $\cos2\theta=-\tfrac12$.
+
+**Step 2 — count each, over $2\theta\in[-360^\circ,360^\circ]$.**
+
+- $\cos2\theta=1$: $2\theta=0,\pm360^\circ\Rightarrow\theta=0,\pm180^\circ$ — **3** values.
+- $\cos2\theta=-\tfrac12$: $2\theta=\pm120^\circ,\pm240^\circ\Rightarrow\theta=\pm60^\circ,\pm120^\circ$ —
+  **4** values.
+
+Total $3+4=7$.
+
+**Where the wrong options come from.** Taking only the $+3$ root (forgetting $-3$) drops four solutions;
+forgetting that $\theta=\pm180^\circ$ both count trims the total.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 5 · Integrating a modulus
+
+::: {.callout-tip}
+## Concept — split at every zero, then take area
+
+$\displaystyle\int\lvert f(x)\rvert\,\mathrm dx$: find where $f=0$, **break the range there**, and on each
+piece replace $\lvert f\rvert$ by $f$ or $-f$ (whichever is positive). An integral of a modulus is an **area**
+— it is never negative.
+:::
+
+### Question 13
+
+::: {.question}
+Evaluate $\displaystyle\int_{0}^{4}x\lvert x-4\rvert\,\mathrm dx$. &nbsp;&nbsp;**A** $-\tfrac{32}3$ &nbsp;
+**B** $-\tfrac{16}3$ &nbsp; **C** $\tfrac{16}3$ &nbsp; **D** $\tfrac{32}3$ &nbsp; **E** $0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set B)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split $\int x\lvert x-4\rvert$ at the corner $x=4$
+:::
+
+**Answer: D ($\tfrac{32}3$).**
+
+**Step 1 — resolve the modulus on the range.** On $0\le x\le4$, $x-4\le0$, so $\lvert x-4\rvert=4-x$ (no need
+to split — the corner $x=4$ is at the end).
+
+**Step 2 — integrate.**
+$$\int_{0}^{4}x(4-x)\,\mathrm dx=\int_{0}^{4}(4x-x^{2})\,\mathrm dx=\left[2x^{2}-\tfrac{x^{3}}3\right]_0^4
+=32-\tfrac{64}3=\tfrac{32}3.$$
+
+**Where the wrong options come from.** Using $x-4$ without the sign flip gives $\int(x^{2}-4x)=-\tfrac{32}3$
+(A) — a **negative** answer, which can't be right for a positive integrand.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 14
+
+::: {.question}
+$\mathrm f_1(x)=\lvert x\rvert$ and $\mathrm f_{n+1}(x)=\lvert \mathrm f_n(x)+x\rvert$ for $n\ge1$. Find
+$\displaystyle\int_{-1}^{1}\mathrm f_{99}(x)\,\mathrm dx$. &nbsp;&nbsp;**A** $0$ &nbsp; **B** $0.5$ &nbsp;
+**C** $1$ &nbsp; **D** $49.5$ &nbsp; **E** $50$ &nbsp; **F** $99$ &nbsp; **G** $99.5$ &nbsp; **H** $100$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(TMUA 2021 P2 Q20)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — an iterated modulus function; find the pattern on each sign region
+:::
+
+**Answer: E ($50$).** The modulus behaves completely differently on each side, so split at $x=0$.
+
+**Step 1 — the side $x\ge0$.** $\lvert x\rvert=x$, so $\mathrm f_1=x,\ \mathrm f_2=\lvert x+x\rvert=2x,\
+\mathrm f_3=3x,\dots$, i.e. $\mathrm f_n=nx$. Thus $\displaystyle\int_0^1 99x\,\mathrm dx=49.5$.
+
+**Step 2 — the side $x<0$.** $\lvert x\rvert=-x$, so $\mathrm f_1=-x,\ \mathrm f_2=\lvert-x+x\rvert=0,\
+\mathrm f_3=\lvert0+x\rvert=-x,\ \mathrm f_4=0,\dots$ — it alternates $-x,0$. As $99$ is odd, $\mathrm
+f_{99}=-x$, and $\displaystyle\int_{-1}^{0}(-x)\,\mathrm dx=0.5$.
+
+**Step 3 — add.** $49.5+0.5=50$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,1,400)
+def f(n,xv):
+    v=np.abs(xv)
+    for _ in range(n-1): v=np.abs(v+xv)
+    return v
+plt.figure(figsize=(5.0,3.0))
+for n,c in [(1,'#2b6cb0'),(2,'#dd6b20'),(3,'#2ca02c')]:
+    plt.plot(x,[f(n,xv) for xv in x],color=c,label=f'f{n}(x)')
+plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('x≥0: fₙ=n·x;  x<0: fₙ alternates −x, 0',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.** Doing only the $x\ge0$ side gives $49.5$ (D); assuming $\mathrm
+f_n=nx$ everywhere gives $99$ (F).
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Question 15
+
+::: {.question}
+$\lfloor x\rfloor$ is the largest whole number $\le x$. Define $\mathrm f(x)=\left(\tfrac34\right)^{\lfloor
+\log_2 x\rfloor}$ for $0<x<2$, and $\mathrm f(x)=0$ otherwise. Find $\displaystyle\int_0^2\mathrm f(x)\,\mathrm
+dx$. &nbsp;&nbsp;**(a)** $1$ &nbsp; **(b)** $2$ &nbsp; **(c)** $3$ &nbsp; **(d)** $4$ &nbsp; **(e)** $5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2023 Q1J — a floor-function integral as a geometric series)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a step function is constant on each interval; add the strips
+:::
+
+**Answer: (c) $3$.**
+
+**Step 1 — where is $\lfloor\log_2 x\rfloor$ constant?** $\lfloor\log_2 x\rfloor=m$ exactly on
+$x\in[2^{m},2^{m+1})$. For $0<x<2$ this uses $m=0,-1,-2,\dots$, and on each such interval $\mathrm f$ takes the
+**constant** value $\left(\tfrac34\right)^{m}$.
+
+**Step 2 — strip areas.** The interval for $m=-k$ ($k\ge0$) is $[2^{-k},2^{-k+1})$, of width $2^{-k}$, and
+there $\mathrm f=\left(\tfrac34\right)^{-k}=\left(\tfrac43\right)^{k}$. So its strip has area
+$\left(\tfrac43\right)^{k}\cdot 2^{-k}=\left(\tfrac23\right)^{k}$.
+
+**Step 3 — sum the geometric series.** $\displaystyle\int_0^2\mathrm f=\sum_{k=0}^{\infty}\left(\tfrac23
+\right)^{k}=\dfrac1{1-\frac23}=3.$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.0,3.0))
+for k in range(0,6):
+    lo,hi=2.0**(-k),2.0**(-k+1); h=(4/3)**k
+    plt.plot([lo,hi],[h,h],color='#2b6cb0',lw=2)
+plt.xlim(0,2); plt.xlabel('x'); plt.ylabel('f(x)'); plt.grid(alpha=0.25)
+plt.title('constant (3/4)^floor(log2 x) on each interval; strips sum to 3',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 6 · Regions, diamonds & the triangle inequality
+
+::: {.callout-tip}
+## Concept — modulus makes corners and diamonds
+
+- **$\lvert ax\rvert+\lvert y\rvert=c$** is a **diamond** (rhombus) with vertices on the axes; its area is
+  $\tfrac12 d_1 d_2$ (the product of the diagonals, halved).
+- **Area between two modulus graphs:** find the corners, split there, integrate (upper $-$ lower) on each
+  piece.
+- **Triangle inequality:** $\lvert x+y\rvert\le\lvert x\rvert+\lvert y\rvert$ always (a sum's size is at most
+  the sum of the sizes).
+:::
+
+### Question 16
+
+::: {.question}
+Find the area between $y=\lvert x-1\rvert$ and $y=3-\lvert x\rvert$. &nbsp;&nbsp;**A** $1$ &nbsp; **B**
+$\tfrac32$ &nbsp; **C** $3$ &nbsp; **D** $4$ &nbsp; **E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set A)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — area between $\lvert x-1\rvert$ and $3-\lvert x\rvert$
+:::
+
+**Answer: D ($4$).**
+
+**Step 1 — the shapes.** $y=\lvert x-1\rvert$ is a V with corner $(1,0)$; $y=3-\lvert x\rvert$ is an
+upside-down V ($\Lambda$) with peak $(0,3)$, sitting above.
+
+**Step 2 — where they meet.** For $x\ge1$: $x-1=3-x\Rightarrow x=2$. For $x<0$: $1-x=3+x\Rightarrow x=-1$. So
+they cross at $x=-1$ and $x=2$.
+
+**Step 3 — integrate (upper $-$ lower), splitting at the corners $x=0,1$.**
+$$\int_{-1}^{0}(2+2x)\,\mathrm dx+\int_{0}^{1}2\,\mathrm dx+\int_{1}^{2}(4-2x)\,\mathrm dx=1+2+1=4.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,3,400)
+plt.figure(figsize=(4.6,3.0))
+plt.plot(x,np.abs(x-1),color='#2b6cb0',label='y=|x−1|')
+plt.plot(x,3-np.abs(x),color='#dd6b20',label='y=3−|x|')
+xf=np.linspace(-1,2,100); plt.fill_between(xf,np.abs(xf-1),3-np.abs(xf),color='#2ca02c',alpha=0.15)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.title('enclosed area = 4',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 17
+
+::: {.question}
+Find the area enclosed by $\;\lvert 2x\rvert+\lvert y\rvert=2$. &nbsp;&nbsp;**A** $2\sqrt5$ &nbsp; **B** $4$
+&nbsp; **C** $2\sqrt2$ &nbsp; **D** $\tfrac52$ &nbsp; **E** $\sqrt2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set D)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lvert 2x\rvert+\lvert y\rvert=2$ is a diamond
+:::
+
+**Answer: B ($4$).**
+
+**Step 1 — the corners.** On the $x$-axis ($y=0$): $\lvert2x\rvert=2\Rightarrow x=\pm1$. On the $y$-axis
+($x=0$): $\lvert y\rvert=2\Rightarrow y=\pm2$. So it is a diamond with vertices $(\pm1,0),(0,\pm2)$.
+
+**Step 2 — area from the diagonals.** Horizontal diagonal $=2$, vertical diagonal $=4$, so area $=\tfrac12
+\cdot2\cdot4=4$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+V=np.array([[1,0],[0,2],[-1,0],[0,-2],[1,0]])
+plt.figure(figsize=(3.3,3.3))
+plt.plot(V[:,0],V[:,1],color='#2b6cb0'); plt.fill(V[:,0],V[:,1],color='#2ca02c',alpha=0.15)
+plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25)
+plt.title('|2x|+|y|=2 : diamond, area 4',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.** Reading the $x$-intercepts as $\pm2$ (forgetting the $2x$ inside)
+doubles the horizontal diagonal and the area.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 18
+
+::: {.question}
+Which must be true for all real $x,y$? &nbsp;&nbsp;**I** $\lvert x+y\rvert\le\lvert x\rvert+\lvert y\rvert$
+&nbsp; **II** $\lvert x-y\rvert\le\lvert x\rvert+\lvert y\rvert$ &nbsp; **III** $\lvert x\rvert-\lvert
+y\rvert\le\lvert x-y\rvert$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the triangle inequality)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lvert x+y\rvert\le\lvert x\rvert+\lvert y\rvert$ and its relatives
+:::
+
+**Answer: all three.**
+
+- **I — the triangle inequality:** a sum's size is at most the sum of the sizes.
+- **II:** apply I to $x$ and $-y$: $\lvert x-y\rvert=\lvert x+(-y)\rvert\le\lvert x\rvert+\lvert-y\rvert=\lvert
+  x\rvert+\lvert y\rvert$.
+- **III — reverse triangle inequality:** from I, $\lvert x\rvert=\lvert(x-y)+y\rvert\le\lvert x-y\rvert+\lvert
+  y\rvert$; subtract $\lvert y\rvert$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — the whole modulus toolkit
+
+- **Definition & squareroot:** $\lvert x\rvert=x$ or $-x$; $\lvert x\rvert=\sqrt{x^{2}}$ (never negative);
+  $\lvert x-a\rvert=$ distance to $a$.
+- **Solve:** $\lvert A\rvert=k\Rightarrow A=\pm k$; $\lvert A\rvert<k\Rightarrow-k<A<k$; $\lvert A\rvert<\lvert
+  B\rvert\Rightarrow A^{2}<B^{2}$. **"For all $x$": test where a side is $0$.**
+- **Graphs:** $\lvert f(x)\rvert$ flips the below-axis part up; $f(\lvert x\rvert)$ mirrors the right half
+  (even). $x\lvert x\rvert$ is the $x^{3}$-shaped S-curve (a line meets it $1$–$3$ times).
+- **Trig/surds:** $\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}=\lvert\cos\theta\rvert$; $(\dots)^{2}=k\Rightarrow
+  \lvert\dots\rvert=\sqrt k$; $\lvert\sin x\rvert=k$ doubles the solutions.
+- **Integrate:** split at every zero of $f$; $\int\lvert f\rvert$ is an **area** (never negative).
+- **Regions:** $\lvert ax\rvert+\lvert y\rvert=c$ is a diamond (area $\tfrac12 d_1 d_2$); triangle inequality
+  $\lvert x+y\rvert\le\lvert x\rvert+\lvert y\rvert$.
+:::
+
+:::

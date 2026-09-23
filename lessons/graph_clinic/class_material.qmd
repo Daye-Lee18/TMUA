@@ -1,0 +1,800 @@
+---
+title: "Graph Clinic — Unfamiliar Curves"
+subtitle: "Problem bank — TMUA, MAT & mock questions · method is on the Master Sheet"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The **problem bank** for unfamiliar graphs — real questions from the TMUA papers, the MAT, and the mocks.
+Work each question **cold**: the topic hint now sits **inside** the solution, so it won't give the method
+away before you have tried it. The transferable techniques are collected under
+**[Solving insights](concepts.qmd#solving-insights)** on the Master Sheet.
+
+::: {.callout-note appearance="simple"}
+**Learn the method first.** The 6-step checklist, the pattern cheat-keys, the dominance hierarchy and the
+question strategy are all on the **[Master Formula & Strategy Sheet](concepts.qmd)**. This page is where you
+drill them.
+:::
+
+::: {.callout-warning appearance="simple"}
+**Scope.** A few problems here use $e$, $e^x$, $x^x$ or the natural logarithm $\ln x$ (the self-powers in §3
+and the log/exponential humps in §9). Those are **beyond the TMUA specification** — TMUA uses only $y=a^x$ and
+$\log_a$ — and are kept as **MAT-level extensions**, since the *reading* skill is identical. Skip them if you
+are drilling strictly to the TMUA syllabus.
+:::
+
+**On this page:** 1. Parameter curves $a\sin(x^{b})$ · 2. Oscillation near the origin · 3. Self-powers &
+disguises · 4. Bounded humps · 5. Combining & transforming curves · 6. Absolute values inside · 7. Solutions as intersections · 8. Rising with flat spots · 9. Log & exponential humps · 10. Curves that are not functions
+
+---
+
+## 1 · Parameter curves $a\sin(x^{b})$
+
+### Question 1
+
+::: {.question}
+Graphs 1 and 2 (below) show functions $y=a\sin(x^{b})$ with $a,b$ non-zero integers. Which statements are
+**necessarily** true? &nbsp;&nbsp;**I** in Graph 1, $a<0$ and $b$ is even &nbsp; **II** in Graph 2, $a>0$ and
+$b<0$ &nbsp; **III** $b>0$ in both &nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III
+&nbsp; **E** I,II &nbsp; **F** II,III &nbsp; **G** I,III &nbsp; **H** all
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,12000); x=x[np.abs(x)>0.04]
+fig,ax=plt.subplots(1,2,figsize=(6.8,2.7))
+ax[0].plot(x,-np.sin(x**(-2.0)),color='crimson',lw=0.5); ax[0].set_title('b<0, a<0 (even): both tails →0 from below',fontsize=8)
+ax[1].plot(x,np.sin(x**(-3.0)),color='crimson',lw=0.5); ax[1].set_title('b<0, a>0 (odd): right tail above, left below',fontsize=8)
+for a in ax:
+    a.axhline(0,color='0.6',lw=0.6); a.axvline(0,color='0.6',lw=0.6); a.set_yticks([]); a.set_xticks([])
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set C — the parameter-graph classic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — read parity of $b$, sign of $b$, and sign of $a$ off each graph
+:::
+
+**Answer: G (I and III only).**
+
+**Read Graph 1.** It is **even** (mirror in the $y$-axis) $\Rightarrow b$ is **even**. The wiggles get faster
+**outward** (smooth near $0$) $\Rightarrow b>0$. Near $x=0^{+}$ it dips **below** the axis $\Rightarrow a<0$.
+So Graph 1 is $a<0,\ b$ even, $b>0$ — e.g. $y=-\sin(x^{2})$.
+
+**Read Graph 2.** It is **odd** (rotational symmetry about $O$) $\Rightarrow b$ is **odd**. Again the wiggles
+speed up **outward** $\Rightarrow b>0$ — e.g. $y=\sin(x^{3})$.
+
+Now the statements:
+
+- **I** ($a<0$ and $b$ even in Graph 1): both hold — **true**.
+- **III** ($b>0$ in both): both are smooth near $0$ and wiggle faster outward — **true**.
+- **II** ($a>0$ and $b<0$ in Graph 2): $b>0$ here, so "$b<0$" is **false** — II is false.
+
+Only I and III.
+
+**Why "$b<0$" is wrong** — a negative $b$ makes $x^{b}$ blow up at the origin, so $a\sin(x^{b})$ oscillates
+*infinitely fast near $x=0$* and flattens far out (below). Neither given graph does that; both are calm at
+the centre and busy at the edges, which is the signature of $b>0$.
+
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,6000)
+fig,ax=plt.subplots(1,2,figsize=(6.8,2.8))
+ax[0].plot(x,-np.sin(x**2),color='#2b6cb0'); ax[0].set_title('Graph 1',fontsize=10)
+ax[1].plot(x,np.sin(x**3),color='#2b6cb0'); ax[1].set_title('Graph 2',fontsize=10)
+for a in ax:
+    a.axhline(0,color='0.6',lw=0.6); a.axvline(0,color='0.6',lw=0.6)
+    a.set_yticks([]); a.set_xticks([])
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+A graph of $y=a\sin(x^{b})$ (integers $a,b$) has $180^\circ$ rotational symmetry about the origin, wiggles
+**infinitely fast near $x=0$**, flattens towards $0$ as $\lvert x\rvert\to\infty$, and just right of the last
+"calm" region leaves the axis **upward**. What can you say about $a$ and $b$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(read the parameters off a description)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — drive the three reads in reverse
+:::
+
+**Answer: $b$ is a **negative odd** integer, and $a>0$.**
+
+- **Rotational symmetry $\Rightarrow$ odd $\Rightarrow b$ odd.**
+- **Infinitely fast near $0$, flat outward $\Rightarrow b<0$** (the inside $x^{b}$ blows up at $0$). So $b$ is
+  a negative odd integer (e.g. $-1,-3$).
+- For large $x>0$, $x^{b}\to0^{+}$ and $y\approx a\,x^{b}$, so the graph approaches $0$ from **above** when
+  $a>0$ — matching "leaves upward". Hence $a>0$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 2 · Oscillation near the origin
+
+### Question 3
+
+::: {.question}
+Describe the key features of (i) $y=\sin\!\dfrac1x$ and (ii) $y=x\sin\!\dfrac1x$ near $x=0$ and as
+$\lvert x\rvert\to\infty$, and say which one is **even**.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(two look-alikes, told apart)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — bounded-but-wild vs damped-to-zero at the origin
+:::
+
+**Answer: (i) wild but bounded; (ii) damped to $0$ at the origin and $\to1$ at both ends; (ii) is even.**
+
+- **(i) $\sin\frac1x$:** near $x=0$ it swings between $-1$ and $1$ **infinitely often** (no single value); as
+  $\lvert x\rvert\to\infty$, $\frac1x\to0$ so $y\to0$. Odd, since $\sin\frac1{-x}=-\sin\frac1x$.
+- **(ii) $x\sin\frac1x$:** near $0$ the factor $x$ squeezes it — $\lvert y\rvert\le\lvert x\rvert\to0$ — so it
+  **damps to $0$** (still wiggling). As $\lvert x\rvert\to\infty$, $\sin\frac1x\approx\frac1x$, so
+  $y\approx x\cdot\frac1x=1$: it approaches $1$ at **both** ends. It is **even**
+  ($(-x)\sin\frac1{-x}=(-x)(-\sin\frac1x)=x\sin\frac1x$).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,20000); x=x[np.abs(x)>1e-3]
+fig,ax=plt.subplots(1,2,figsize=(6.8,2.8))
+ax[0].plot(x,np.sin(1/x),color='#2b6cb0',lw=0.6); ax[0].set_title('y=sin(1/x): wild near 0, →0 outward',fontsize=8)
+ax[1].plot(x,x*np.sin(1/x),color='#2b6cb0',lw=0.7); ax[1].plot(x,np.abs(x),'0.7',lw=0.6,ls='--'); ax[1].plot(x,-np.abs(x),'0.7',lw=0.6,ls='--')
+ax[1].set_title('y=x·sin(1/x): damped to 0, →1 at ends',fontsize=8)
+for a in ax: a.axhline(0,color='0.6',lw=0.5); a.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 3 · Self-powers & disguises
+
+### Question 4
+
+::: {.question}
+Sketch $y=x^{x}$ for $0<x\le1$: its value as $x\to0^{+}$, its value at $x=1$, and where its minimum is.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a self-power)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=x^{x}$ via $x^{x}=e^{x\ln x}$
+:::
+
+**Answer: starts at $1$, ends at $1$, minimum $\approx0.69$ at $x=\tfrac1e\approx0.37$ — a shallow U.**
+
+Write $x^{x}=e^{x\ln x}$. As $x\to0^{+}$, $x\ln x\to0$, so $y\to e^{0}=1$; at $x=1$, $1^{1}=1$. The derivative
+$\dfrac{\mathrm d}{\mathrm dx}x^{x}=x^{x}(\ln x+1)=0$ at $\ln x=-1$, i.e. $x=\tfrac1e$, where
+$y=\left(\tfrac1e\right)^{1/e}\approx0.69$ — the single minimum.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1e-4,1,400); y=x**x
+plt.figure(figsize=(4.6,3.0)); plt.plot(x,y,color='#2b6cb0',lw=2)
+plt.plot(1/np.e,(1/np.e)**(1/np.e),'o',color='crimson')
+plt.annotate('min ≈0.69 at x=1/e',(1/np.e,(1/np.e)**(1/np.e)),textcoords='offset points',xytext=(10,-4),fontsize=8,color='crimson')
+plt.ylim(0.6,1.05); plt.grid(alpha=0.25); plt.title('y = xˣ on (0,1]: a shallow U',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+Which standard curve is $\;y=\sin^{2}x+\sin^{4}x+\sin^{6}x+\cdots$? Describe its shape on $[-180^\circ,
+180^\circ]$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2019 Q1C — a disguised standard curve)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — recognise a geometric series, then it's a curve you know
+:::
+
+**Answer: $y=\tan^{2}x$.**
+
+It is geometric with first term $\sin^{2}x$ and ratio $\sin^{2}x$ (and $\sin^{2}x<1$):
+$$y=\frac{\sin^{2}x}{1-\sin^{2}x}=\frac{\sin^{2}x}{\cos^{2}x}=\tan^{2}x.$$
+So $y\ge0$, is $0$ at $x=0,\pm180^\circ$, equals $1$ at $\pm45^\circ,\pm135^\circ$, and has **vertical
+asymptotes at $\pm90^\circ$** (where $\sin^{2}x\to1$). The unfamiliar sum is just $\tan^{2}x$ in disguise.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.2,3.0))
+for lo,hi in [(-180,-90),(-90,90),(90,180)]:
+    xd=np.linspace(lo+0.5,hi-0.5,400); plt.plot(xd,np.tan(np.radians(xd))**2,color='#2b6cb0',lw=2)
+for a in (-90,90): plt.axvline(a,color='crimson',ls=':',lw=1)
+plt.ylim(0,4); plt.xlim(-180,180); plt.xticks([-180,-90,0,90,180]); plt.axhline(0,color='0.6',lw=0.7)
+plt.title('y = tan²x: 0 at 0,±180; asymptotes at ±90',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 4 · Bounded humps
+
+### Question 6
+
+::: {.question}
+Sketch $y=\dfrac{x}{1+x^{2}}$: its symmetry, its behaviour as $\lvert x\rvert\to\infty$, and its maximum.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a rational bump)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=\dfrac{x}{1+x^{2}}$: odd, rises then decays, bounded
+:::
+
+**Answer: odd; $\to0$ at both ends; maximum $\tfrac12$ at $x=1$ (minimum $-\tfrac12$ at $x=-1$).**
+
+- **Odd:** replacing $x$ by $-x$ negates $y$, so it has $180^\circ$ symmetry about $O$; passes through $(0,0)$.
+- **Ends:** for large $\lvert x\rvert$ the $x^{2}$ dominates, so $y\approx\dfrac{x}{x^{2}}=\dfrac1x\to0$ — it
+  decays back to the axis (no vertical asymptote, since $1+x^{2}>0$ always).
+- **Turning points:** $y'=\dfrac{(1+x^{2})-x(2x)}{(1+x^{2})^{2}}=\dfrac{1-x^{2}}{(1+x^{2})^{2}}=0$ at
+  $x=\pm1$, giving a maximum $\tfrac12$ at $x=1$ and a minimum $-\tfrac12$ at $x=-1$. So the curve rises to a
+  gentle hump and comes back — bounded in $\left[-\tfrac12,\tfrac12\right]$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,400)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,x/(1+x**2),color='#2b6cb0',lw=2)
+plt.plot(1,0.5,'o',color='crimson'); plt.plot(-1,-0.5,'o',color='crimson')
+plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6); plt.grid(alpha=0.25)
+plt.title('y = x/(1+x²): odd hump, max ½ at x=1',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+---
+
+## 5 · Combining & transforming curves
+
+### Question 7
+
+::: {.question}
+Which describes the graph of $\;y=(x-1)^{2}-\cos(\pi x)$? &nbsp;&nbsp;**(a)** an upward, symmetric curve that
+dips just **below** the axis twice and has a small hump between them, then rises steeply &nbsp; **(b)** the
+same but not symmetric &nbsp; **(c)** a plain parabola (no ripple) &nbsp; **(d)** a rising wavy line (no
+parabola) &nbsp; **(e)** a parabola dipping well below the axis on one side
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2016 Q1E — a parabola with a ripple)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — add the parabola and the $-\cos(\pi x)$ ripple; check the symmetry axis
+:::
+
+**Answer: (a).**
+
+**Step 1 — symmetry.** Both $(x-1)^{2}$ and $\cos(\pi x)$ are unchanged by $x\mapsto2-x$ (reflection in
+$x=1$), so the whole graph is **symmetric about $x=1$** — an upward parabola shape carrying a ripple.
+
+**Step 2 — a few values.** $x=0:\,1-1=0$; $x=1:\,0-(-1)=1$ (a small hump); $x=2:\,1-1=0$. So it passes
+through $(0,0)$ and $(2,0)$ with a bump of height $1$ at $x=1$.
+
+**Step 3 — does it dip below?** At $x=0.2$: $(0.8)^{2}-\cos(0.2\pi)=0.64-0.81=-0.17<0$ — it dips **just
+below** the axis (and by symmetry again near $x=1.8$). Outside $[0,2]$ the $(x-1)^{2}$ term takes over and it
+climbs steeply. That is exactly picture **(a)**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.2,3.2,600)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,(x-1)**2-np.cos(np.pi*x),color='#2b6cb0',lw=2)
+plt.axhline(0,color='0.6',lw=0.7); plt.axvline(1,color='0.7',lw=0.6,ls=':')
+plt.grid(alpha=0.25); plt.title('(x−1)²−cos(πx): symmetric about x=1, two sub-axis dips, hump at x=1',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+Sketch $y=x+\dfrac1x$: its two asymptotes, its symmetry, and its turning points.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2023 Q2 — an oblique asymptote)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=x+\tfrac1x$: line $y=x$ far out, blow-up at $0$, turning points from $y'=0$
+:::
+
+**Answer: asymptotes $y=x$ and $x=0$; odd; minimum $2$ at $x=1$ and maximum $-2$ at $x=-1$.**
+
+- **Ends:** for large $\lvert x\rvert$, $\tfrac1x\to0$, so the curve approaches the line $y=x$ (oblique
+  asymptote); as $x\to0$, $\tfrac1x\to\pm\infty$, so $x=0$ is a vertical asymptote.
+- **Symmetry:** replacing $x$ by $-x$ negates $y$ — **odd** ($180^\circ$ about $O$).
+- **Turning points:** $y'=1-\dfrac1{x^{2}}=0$ at $x=\pm1$, giving a **minimum $y=2$ at $x=1$** and a
+  **maximum $y=-2$ at $x=-1$**. So on $x>0$ the curve comes down from $+\infty$ (near the axis) to a low point
+  $2$ at $x=1$, then rises along $y=x$; the left branch is its $180^\circ$ mirror.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+xp=np.linspace(0.12,5,400); xn=np.linspace(-5,-0.12,400)
+plt.figure(figsize=(4.8,3.4))
+plt.plot(xp,xp+1/xp,color='#2b6cb0',lw=2); plt.plot(xn,xn+1/xn,color='#2b6cb0',lw=2)
+xs=np.linspace(-5,5,50); plt.plot(xs,xs,'0.7',ls='--',lw=0.8,label='y=x')
+plt.plot(1,2,'o',color='crimson'); plt.plot(-1,-2,'o',color='crimson')
+plt.axvline(0,color='0.6',lw=0.6); plt.axhline(0,color='0.6',lw=0.6)
+plt.ylim(-8,8); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('y = x + 1/x: min 2 at x=1, asymptotes x=0 and y=x',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 9
+
+::: {.question}
+The graph of $y=\sin x$ is reflected first in the line $x=\pi$, then in the line $y=2$. The result is
+&nbsp;&nbsp;**(a)** $y=\cos x$ &nbsp; **(b)** $y=2+\sin x$ &nbsp; **(c)** $y=4+\sin x$ &nbsp;
+**(d)** $y=2-\cos x$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2013 Q1B — a double reflection of $\sin x$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — reflect in $x=\pi$ ($x\mapsto2\pi-x$), then in $y=2$ ($y\mapsto4-y$)
+:::
+
+**Answer: (c) $y=4+\sin x$.**
+
+**Step 1 — reflect in $x=\pi$.** A reflection in the vertical line $x=\pi$ replaces $x$ by $2\pi-x$:
+$$y=\sin(2\pi-x)=-\sin x.$$
+
+**Step 2 — reflect in $y=2$.** A reflection in the horizontal line $y=2$ replaces $y$ by $4-y$:
+$$y=4-(-\sin x)=4+\sin x.$$
+
+So the result is $y=4+\sin x$ — a sine wave lifted to oscillate about $y=4$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 6 · Absolute values inside a graph
+
+### Question 10
+
+::: {.question}
+Describe and contrast the graphs of $y=\sin\lvert x\rvert$ and $y=\lvert\sin x\rvert$. Which one still dips
+**below** the $x$-axis?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT-style — tell $\sin\lvert x\rvert$ from $\lvert\sin x\rvert$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $f(\lvert x\rvert)$ mirrors the right half; $\lvert f\rvert$ flips the negative parts up
+:::
+
+**Answer: $\sin\lvert x\rvert$ dips below the axis; $\lvert\sin x\rvert$ never does.**
+
+- **$\sin\lvert x\rvert$:** for $x\ge0$ it *is* $\sin x$ (so it goes negative on $(\pi,2\pi)$ etc.), and for
+  $x<0$ it is the **mirror image in the $y$-axis**. So it is a normal sine wave on the right, reflected to the
+  left — a **hump at the origin**, then it dips below the axis away from $0$. Even.
+- **$\lvert\sin x\rvert$:** take $\sin x$ and **flip every negative arch up**. The result is a row of
+  identical positive humps, period $\pi$, touching $0$ at every multiple of $\pi$. Even, but **never
+  negative**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-7,7,1200)
+fig,ax=plt.subplots(1,2,figsize=(6.8,2.7))
+ax[0].plot(x,np.sin(np.abs(x)),color='#2b6cb0',lw=1.6); ax[0].set_title('y = sin|x|: mirror of sin, dips below',fontsize=8.5)
+ax[1].plot(x,np.abs(np.sin(x)),color='#2b6cb0',lw=1.6); ax[1].set_title('y = |sin x|: humps, never below 0',fontsize=8.5)
+for a in ax: a.axhline(0,color='0.6',lw=0.6); a.axvline(0,color='0.7',lw=0.5,ls=':'); a.grid(alpha=0.2); a.set_ylim(-1.2,1.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 7 · Solutions as intersections
+
+### Question 11
+
+::: {.question}
+How many real solutions does $\;2^{x}=x^{2}\;$ have? &nbsp;&nbsp;**A** 1 &nbsp; **B** 2 &nbsp; **C** 3
+&nbsp; **D** 4
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(how many solutions?)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — plot $y=2^{x}$ and $y=x^{2}$ together and count crossings
+:::
+
+**Answer: C (3).**
+
+Two are easy to spot on the right: $2^{2}=2^{2}$ and $2^{4}=4^{2}$, i.e. $x=2$ and $x=4$. Between them
+($x=3$) $2^{3}=8<9=3^{2}$, so the exponential dips **below** the parabola there and comes back — those are
+genuine crossings. The surprise is on the **left**: as $x\to-\infty$, $2^{x}\to0^{+}$ while $x^{2}\to+\infty$,
+but at $x=0$, $2^{0}=1>0=0^{2}$ — so they cross once more, near $x\approx-0.77$. Three solutions in all.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.5,5,600)
+plt.figure(figsize=(5.0,3.2)); plt.plot(x,2.0**x,color='#2b6cb0',lw=2,label='y=2ˣ'); plt.plot(x,x**2,color='crimson',lw=2,label='y=x²')
+for r in [-0.766,2,4]: plt.plot(r,r**2,'ko',ms=4)
+plt.ylim(-1,20); plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.axhline(0,color='0.6',lw=0.5)
+plt.title('2ˣ = x²: crossings near −0.77, 2, 4',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 12
+
+::: {.question}
+For how many real $x$ does $e^{x}=kx$ hold, depending on the constant $k$? In particular, find the value of
+$k>0$ where the count **changes**.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a tangent line decides the count)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a line $y=kx$ tangent to $y=e^{x}$; tilt past it to change the number of roots
+:::
+
+**Answer: $k<0$ gives one solution; $0<k<e$ none; $k=e$ one (tangent); $k>e$ two.**
+
+The solutions of $e^{x}=kx$ are where the line $y=kx$ meets $y=e^{x}$.
+
+- For $k<0$ the line goes down to the right and meets the curve **once** (on the left).
+- For $k>0$ the line rises; if it is too shallow it misses the curve entirely. The borderline is when $y=kx$
+  is **tangent** to $y=e^{x}$. Tangency at $x=a$ needs equal value and slope: $e^{a}=ka$ and $e^{a}=k$.
+  Dividing, $a=1$, so $k=e^{1}=e$. Thus $k=e$ gives exactly **one** (tangent) solution, $0<k<e$ gives
+  **none**, and $k>e$ gives **two**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,3,400)
+plt.figure(figsize=(5.0,3.2)); plt.plot(x,np.exp(x),color='#2b6cb0',lw=2,label='y=eˣ')
+for k,c,ls in [(np.e,'crimson','-'),(1.5,'0.6','--'),(4,'green','--')]:
+    plt.plot(x,k*x,color=c,ls=ls,lw=1.3,label=f'y={k:.2f}x' if k!=np.e else 'y=e·x (tangent)')
+plt.plot(1,np.e,'ko',ms=4); plt.ylim(-1,10); plt.grid(alpha=0.25); plt.legend(fontsize=7.5)
+plt.title('eˣ = kx: tangent at k=e (x=1)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 8 · Rising forever, but with flat spots
+
+### Question 13
+
+::: {.question}
+Sketch $y=x+\sin x$. Is it ever decreasing? What happens at $x=\pi,3\pi,\dots$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a wave that never comes back down)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y'=1+\cos x\ge0$: increasing throughout, flat where $\cos x=-1$
+:::
+
+**Answer: never decreasing; at $x=\pi,3\pi,\dots$ it has a horizontal tangent (inflection), then keeps rising.**
+
+$y'=1+\cos x$, and $\cos x\ge-1$, so $y'\ge0$ **always** — the curve is (weakly) increasing everywhere. It
+equals $0$ only where $\cos x=-1$, i.e. $x=\pi,3\pi,5\pi,\dots$; there the graph **flattens** for an instant
+but does **not** turn over — it is a point of inflection with a horizontal tangent. So $y=x+\sin x$ climbs
+steadily along the line $y=x$, pausing at each odd multiple of $\pi$, never dipping.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2*np.pi,3*np.pi,700)
+plt.figure(figsize=(5.2,3.0)); plt.plot(x,x+np.sin(x),color='#2b6cb0',lw=2)
+plt.plot(x,x,'0.7',ls='--',lw=0.8,label='y=x')
+for k in [-1,1,3]: plt.plot(k*np.pi,k*np.pi,'o',color='crimson',ms=4)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.axhline(0,color='0.6',lw=0.5); plt.axvline(0,color='0.6',lw=0.5)
+plt.title('y = x + sin x: rising, flat at x=π,3π,…',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 9 · Logarithm and exponential humps
+
+### Question 14
+
+::: {.question}
+Sketch $y=\dfrac{\ln x}{x}$ for $x>0$: its behaviour as $x\to0^{+}$ and $x\to\infty$, where it crosses the
+axis, and its maximum.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a single log hump)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=\dfrac{\ln x}{x}$: $\to-\infty$ at $0^{+}$, one max, $\to0$ at $\infty$
+:::
+
+**Answer: $\to-\infty$ at $0^{+}$; crosses at $x=1$; maximum $\tfrac1e$ at $x=e$; $\to0^{+}$ as $x\to\infty$.**
+
+- As $x\to0^{+}$: $\ln x\to-\infty$ and $\tfrac1x\to+\infty$, so $y\to-\infty$.
+- At $x=1$: $\ln1=0$, so it crosses the axis; positive for $x>1$.
+- As $x\to\infty$: $x$ beats $\ln x$, so $y\to0^{+}$ (the $x$-axis is an asymptote from above).
+- Turning point: $y'=\dfrac{1-\ln x}{x^{2}}=0$ at $\ln x=1$, i.e. $x=e$, giving the maximum
+  $y=\dfrac1e\approx0.37$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0.05,12,600)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,np.log(x)/x,color='#2b6cb0',lw=2)
+plt.plot(np.e,1/np.e,'o',color='crimson'); plt.annotate('max 1/e at x=e',(np.e,1/np.e),textcoords='offset points',xytext=(8,-2),fontsize=8,color='crimson')
+plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6); plt.ylim(-2,0.6); plt.grid(alpha=0.25)
+plt.title('y = ln(x)/x: max 1/e at x=e, →0 outward',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 15
+
+::: {.question}
+Sketch $y=x^{2}e^{-x}$: its two ends, and its turning points.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(an exponential hump)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=x^{2}e^{-x}$: blows up left, min at $0$, max at $2$, $\to0$ right
+:::
+
+**Answer: $\to+\infty$ as $x\to-\infty$; minimum $0$ at $x=0$; maximum $\tfrac4{e^{2}}\approx0.54$ at $x=2$;
+$\to0^{+}$ as $x\to+\infty$.**
+
+- As $x\to-\infty$: $x^{2}\to+\infty$ and $e^{-x}\to+\infty$, so $y\to+\infty$ (climbs steeply on the left).
+- As $x\to+\infty$: $e^{-x}$ beats $x^{2}$, so $y\to0^{+}$.
+- Turning points: $y'=(2x-x^{2})e^{-x}=x(2-x)e^{-x}=0$ at $x=0$ (a minimum, $y=0$, touching the axis) and
+  $x=2$ (a maximum, $y=4e^{-2}\approx0.54$). So it falls from the upper left to touch the origin, rises to a
+  hump at $x=2$, then decays to the axis.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.5,8,600)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,x**2*np.exp(-x),color='#2b6cb0',lw=2)
+plt.plot(0,0,'o',color='crimson'); plt.plot(2,4*np.exp(-2),'o',color='crimson')
+plt.annotate('max 4/e² at x=2',(2,4*np.exp(-2)),textcoords='offset points',xytext=(6,6),fontsize=8,color='crimson')
+plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6); plt.ylim(-0.3,3); plt.grid(alpha=0.25)
+plt.title('y = x²e⁻ˣ: touch at 0, hump at 2, →0 right',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 10 · Curves that are not functions
+
+### Question 16
+
+::: {.question}
+Sketch (i) $\lvert x\rvert+\lvert y\rvert=1$ and (ii) $x^{2/3}+y^{2/3}=1$. How do the two shapes differ
+between their corners on the axes?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a diamond and a star)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — four-fold symmetry; solve one quadrant, then reflect
+:::
+
+**Answer: (i) is a straight-edged diamond (square tilted $45^\circ$); (ii) is a four-pointed star (astroid)
+whose sides cave *inward* toward the origin.**
+
+Both are symmetric in **both** axes (only $\lvert x\rvert,\lvert y\rvert$ or even powers appear) and pass
+through $(\pm1,0)$ and $(0,\pm1)$, so sketch the first quadrant and reflect.
+
+- **(i)** In the first quadrant $x+y=1$ — a **straight line** from $(1,0)$ to $(0,1)$. Reflected, the four
+  segments make a **diamond** (a square rotated $45^\circ$).
+- **(ii)** In the first quadrant $y=(1-x^{2/3})^{3/2}$, which bulges **inward**: at $x=\tfrac1{2\sqrt2}$,
+  $y=\tfrac1{2\sqrt2}\approx0.354$ (well inside the straight line's midpoint $0.5$). The four arcs meet the
+  axes in sharp **cusps**, giving a concave four-pointed star (the **astroid**).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(6.4,3.2))
+ax[0].plot([1,0,-1,0,1],[0,1,0,-1,0],color='#2b6cb0',lw=2); ax[0].set_title('|x|+|y|=1: diamond',fontsize=9)
+t=np.linspace(0,2*np.pi,400); ax[1].plot(np.cos(t)**3,np.sin(t)**3,color='#2b6cb0',lw=2); ax[1].set_title('x^(2/3)+y^(2/3)=1: astroid',fontsize=9)
+for a in ax:
+    a.axhline(0,color='0.6',lw=0.5); a.axvline(0,color='0.6',lw=0.5); a.set_aspect('equal'); a.set_xlim(-1.3,1.3); a.set_ylim(-1.3,1.3); a.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 17
+
+::: {.question}
+Sketch $y=\dfrac1{x^{2}-1}$: its asymptotes, its symmetry, and the three branches.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the reciprocal of a quadratic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=\dfrac1{x^{2}-1}$: two vertical asymptotes, even, a hump between them
+:::
+
+**Answer: vertical asymptotes $x=\pm1$; even; middle branch a downward hump with maximum $-1$ at $x=0$; the
+two outer branches drop from $+\infty$ toward the $x$-axis.**
+
+- **Asymptotes:** the denominator is $0$ at $x=\pm1$ (vertical asymptotes); as $\lvert x\rvert\to\infty$,
+  $y\to0$, so the $x$-axis is a horizontal asymptote.
+- **Symmetry:** only $x^{2}$ appears, so it is **even** (mirror in the $y$-axis).
+- **Branches:** on $-1<x<1$ the denominator is negative, so $y<0$; it is largest (closest to $0$) at the ends
+  and most negative at the centre, giving a **maximum $y=-1$ at $x=0$** — a downward hump between the
+  asymptotes. Outside, $\lvert x\rvert>1$ makes the denominator positive, so each outer branch comes down from
+  $+\infty$ (near the asymptote) toward the axis.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.2,3.2))
+for lo,hi in [(-4,-1.02),(-0.98,0.98),(1.02,4)]:
+    x=np.linspace(lo,hi,400); plt.plot(x,1/(x**2-1),color='#2b6cb0',lw=2)
+for a in (-1,1): plt.axvline(a,color='crimson',ls=':',lw=1)
+plt.plot(0,-1,'o',color='crimson'); plt.axhline(0,color='0.6',lw=0.6)
+plt.ylim(-6,6); plt.grid(alpha=0.25)
+plt.title('y = 1/(x²−1): asymptotes x=±1, max −1 at 0',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+:::

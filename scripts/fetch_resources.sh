@@ -93,3 +93,37 @@ get 2024/04/30144123/TMUA-2023-answer-keys.pdf            $D/TMUA-2023-answer-ke
 
 echo
 echo "Done — $(find _resources -name '*.pdf' | wc -l | tr -d ' ') PDFs."
+
+# ---------------------------------------------------------------------------
+# Supplementary practice ladder (academy-recommended). All free & official.
+# Not redistributed — downloaded locally only. Sources documented in curriculum.qmd.
+echo "Supplementary practice ladder →  _resources/supplementary/"
+
+M=_resources/supplementary/MAT   # Oxford Mathematics Admissions Test + solutions
+mkdir -p "$M"
+curl -sSL --retry 3 -o "$M/MAT-2022.pdf"           https://www.maths.ox.ac.uk/system/files/attachments/test22.pdf
+curl -sSL --retry 3 -o "$M/MAT-2023.pdf"           https://www.maths.ox.ac.uk/system/files/attachments/test23.pdf
+curl -sSL --retry 3 -o "$M/MAT-2024.pdf"           https://www.maths.ox.ac.uk/system/files/attachments/test24.pdf
+curl -sSL --retry 3 -o "$M/MAT-2022-solutions.pdf" https://www.maths.ox.ac.uk/system/files/attachments/websolutions22_2.pdf
+curl -sSL --retry 3 -o "$M/MAT-2023-solutions.pdf" https://www.maths.ox.ac.uk/system/files/attachments/websolutions23_1.pdf
+curl -sSL --retry 3 -o "$M/MAT-2024-solutions.pdf" https://www.maths.ox.ac.uk/system/files/attachments/websolutions24.pdf
+
+P=_resources/supplementary/PAT   # Oxford Physics Aptitude Test (use the maths questions only)
+mkdir -p "$P"
+for y in 2021 2022 2023; do
+  curl -sSL --retry 3 -o "$P/PAT-$y.pdf" "https://www.physics.ox.ac.uk/system/files/file_attachments/PAT-$y.pdf"
+done
+
+T=_resources/supplementary/tyler_tmua_mocks   # Tyler Tutoring — full TMUA mocks A-D + worked solutions
+mkdir -p "$T"
+tyler() { curl -sSL --retry 3 -o "$T/$2" "https://www.tylertutoring.com/_files/ugd/e40201_$1.pdf"; }
+tyler 0b76af75de7a458c926de029f7bf4bfe Tyler_TMUA_Set_A_questions.pdf
+tyler a7634ef090d846b3b542d8ed2583db4a Tyler_TMUA_Set_A_solutions.pdf
+tyler 57e6ecba9b284ac89cb7e1088c1a7d65 Tyler_TMUA_Set_B_questions.pdf
+tyler b0ff58a3c827471ea30439a179ada359 Tyler_TMUA_Set_B_solutions.pdf
+tyler 034be11b89f74508acc23839ca8b3028 Tyler_TMUA_Set_C_questions.pdf
+tyler a13f9db224de48d9a7e127f29383f3f6 Tyler_TMUA_Set_C_solutions.pdf
+tyler feacec67387945f880826f15128890b3 Tyler_TMUA_Set_D_questions.pdf
+tyler 117c467bb02d46de9e1179bceed73b30 Tyler_TMUA_Set_D_solutions.pdf
+
+echo "  (ECAA, ENGAA, STEP, AMC 12 are linked from curriculum.qmd — fetch by hand from their sites.)"

@@ -1,0 +1,184 @@
+---
+title: "Toolkit S4 — Assignment"
+subtitle: "Quantifiers and negation"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+
+Two rules settle every negation below:
+
+$$\text{not}(\text{for all } x,\ P) = \text{there exists } x,\ \text{not } P \qquad\qquad
+\text{not}(\text{there exists } x,\ P) = \text{for all } x,\ \text{not } P$$
+
+**Flip the quantifier, and negate the inside — both, every time.**
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Fluency** | truth of quantified statements; single negations | 10 |
+| **B — Exam standard** | counterexamples; negating conditions inside | 14 |
+| **C — Stretch** | two quantifiers and their order | 8 |
+
+::: {.callout-note appearance="simple"}
+**Also due this session:** Notes on Logic and Proof, **pp. 56–63**, plus **five "for all" statements of
+your own** about integers (three true, two false, with counterexamples for the false ones).
+:::
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+State whether each is **true** or **false**. In each case $x$ is real, $n$ an integer.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^2 + 1 > 0$. **[1]**
+
+&nbsp;&nbsp;(b) There exists a real $x$ such that $x^2 = -1$. **[1]**
+
+&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $2n$ is even. **[1]**
+
+&nbsp;&nbsp;(d) There exists an integer $n$ such that $n^2 = 2$. **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 2 **[3]**
+
+Write the **negation** of each, as a positive sentence.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^3 \ge 0$. **[1]**
+
+&nbsp;&nbsp;(b) There exists an integer $n$ such that $n^2 = 10$. **[1]**
+
+&nbsp;&nbsp;(c) Every triangle has three equal sides. **[1]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Consider the statement: &nbsp; **All multiples of $4$ are even.**
+
+&nbsp;&nbsp;(a) Is it true or false? **[1]**
+
+&nbsp;&nbsp;(b) Write its correct negation. **[1]**
+
+&nbsp;&nbsp;(c) A student says the negation is *"No multiple of $4$ is even."* Explain why that is wrong. **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[6]**
+
+For each statement, decide whether it is true. If false, **disprove it with a counterexample**; if true,
+give a one-line reason.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $\sqrt{x^2} = x$. **[2]**
+
+&nbsp;&nbsp;(b) For all real $x$, &nbsp; if $x > 3$ then $x^2 > 9$. **[2]**
+
+&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $n^2 - n$ is even. **[2]**
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 5 **[4]**
+
+Write the negation of each, as a positive statement.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; if $x < 0$ then $x^3 < 0$. **[2]**
+
+&nbsp;&nbsp;(b) There exists an integer $n$ such that $n$ is odd **and** $n > 100$. **[2]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 6 **[4]**
+
+$n$ denotes a positive integer. Consider the statement
+
+$$\textbf{(S):}\quad \text{For all } n, \text{ if } n \text{ is a multiple of } 6 \text{ then } n \text{ is a multiple of } 3.$$
+
+&nbsp;&nbsp;(a) Is (S) true? Justify. **[1]**
+
+&nbsp;&nbsp;(b) Write the negation of (S). **[2]**
+
+&nbsp;&nbsp;(c) Does a counterexample to (S) exist? If so give one; if not, explain why. **[1]**
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+For positive integers, consider:
+
+&nbsp;&nbsp;**P:** For all $m$, there exists $n$ such that $n > m$.
+
+&nbsp;&nbsp;**Q:** There exists $n$ such that for all $m$, $n > m$.
+
+&nbsp;&nbsp;(a) Explain the difference in meaning between **P** and **Q**. **[2]**
+
+&nbsp;&nbsp;(b) State, with reasons, whether each is true. **[2]**
+
+&nbsp;&nbsp;(c) Write the negation of **Q**. **[1]**
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 8 **[3]**
+
+$n$ denotes a positive integer. Consider
+
+$$\textbf{(T):}\quad \text{For all } n, \; n^2 \ge n.$$
+
+&nbsp;&nbsp;(a) Write the negation of (T). **[1]**
+
+&nbsp;&nbsp;(b) Is (T) true or false? If false, give a counterexample; if true, say why no counterexample
+exists. **[2]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+Check every negation twice: did you **flip the quantifier** *and* **negate the inside**? A negation that
+changed only one of the two is the commonest error in this whole topic — and it is exactly what is being
+marked.
+:::
+
+:::

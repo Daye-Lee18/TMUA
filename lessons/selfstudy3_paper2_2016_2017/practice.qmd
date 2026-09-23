@@ -1,0 +1,545 @@
+---
+title: "Self-study 3 — Paper 2 Reasoning (2016 & 2017)"
+subtitle: "The questions you missed: 2016 Paper 2 (Q8, Q9, Q13, Q20) and 2017 Paper 2 (Q4, Q8, Q11, Q13, Q18)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Nine real Paper 2 questions you got wrong (or left blank) across the **2016** and **2017** papers. Every one is
+a *reasoning* question underneath — the maths is easy, the trap is a logical slip: multiplying inequalities you
+may not multiply, an ambiguous angle, a remainder that overflows, an incomplete "I only checked one case".
+Each solution says **why**, and points to the toolkit session that drills the same idea. Attempt each, then
+open the Solution.
+
+::: {.callout-tip}
+## The five slips these test
+
+- **Combining inequalities** (2016 Q8): you may **add** two same-direction inequalities, but you may **not
+  multiply** them unless both sides are known positive.
+- **Ambiguous angle** (2016 Q9): equal area + two equal sides only gives $\sin\theta$ equal, so $\theta$ or
+  $180^\circ-\theta$ — the classic SSA ambiguity.
+- **Remainder overflow** (2016 Q13): "$b=aq+r$" needs $0\le r<a$; a product of two remainders $rs$ can be
+  bigger than $a$, so it is **not** the remainder.
+- **Check every case** (2017 Q4, Q18): one substitution, or one direction of a log, is not the whole argument.
+- **Constant shift = rectangle** (2017 Q11): adding a constant to a function raises the area by
+  height $\times$ width.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter. All answer letters below are the **official** ones (checked against the
+2016 and 2017 answer keys).
+:::
+
+---
+
+# 2016 Paper 2
+
+## Question 8
+
+::: {.question}
+A region is defined by the inequalities $x+y>6$ and $x-y>-4$. Consider the three statements:
+
+&nbsp;&nbsp;**(1)** $x>1$ &nbsp;&nbsp; **(2)** $y>5$ &nbsp;&nbsp; **(3)** $(x+y)(x-y)>-24$
+
+Which of the above statements is/are true for **every** point in the region?
+
+&nbsp;&nbsp;**A** none &nbsp; **B** 1 only &nbsp; **C** 2 only &nbsp; **D** 3 only &nbsp; **E** 1 and 2 only
+&nbsp; **F** 1 and 3 only &nbsp; **G** 2 and 3 only &nbsp; **H** 1, 2 and 3
+:::
+
+You may **add** the two given inequalities; you may **not multiply** them, because [$x-y$ can be
+negative]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — B (1 only)
+
+[*(answer B)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — which statements hold for a whole region · **combining inequalities (S7)**
+:::
+
+
+- **(1) $x>1$ — true.** **Add** the two inequalities (always legal for same-direction "$>$"):
+  $$(x+y)+(x-y)>6+(-4)\;\Rightarrow\;2x>2\;\Rightarrow\;x>1.\ \checkmark$$
+  Geometrically the two boundary lines $y=-x+6$ and $y=x+4$ meet at $(1,5)$, and the region is the wedge to its
+  right — so every point has $x>1$.
+- **(2) $y>5$ — false.** The lower edge of the wedge is $y=-x+6$, which drops below $5$ as soon as $x>1$
+  (e.g. $x=10$ allows $y$ near $-4$). So $y$ is not bounded below by $5$.
+- **(3) $(x+y)(x-y)>-24$ — false.** The tempting move is "multiply the bounds": $6\times(-4)=-24$. **Illegal** —
+  $x-y$ ranges over $(-4,\infty)$, so it can be a **small negative** while $x+y$ is **large**. Take
+  $(x,y)=(3.05,\,6.95)$: then $x+y=10>6$ ✓ and $x-y=-3.9>-4$ ✓, yet $(x+y)(x-y)=10\times(-3.9)=-39<-24$. ✗
+
+Only (1) holds everywhere — **B**.
+
+```{python}
+#| fig-cap: "Region: y>−x+6 and y<x+4 (wedge with apex (1,5)). Every point has x>1 (✓stmt 1). The point (3.05,6.95) is in the region but makes (x+y)(x−y)=−39 < −24, so stmt 3 fails."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,12,400)
+fig,ax=plt.subplots(figsize=(5.4,3.8))
+ax.plot(x,-x+6,color='#1f77b4',lw=2,label='x+y=6')
+ax.plot(x,x+4,color='#dd6b20',lw=2,label='x−y=−4  (y=x+4)')
+yy1=-x+6; yy2=x+4
+ax.fill_between(x,np.maximum(yy1,-2),yy2,where=(yy2>np.maximum(yy1,-2)),color='#2ca02c',alpha=0.12)
+ax.plot(1,5,'o',color='k'); ax.annotate('apex (1,5)',(1,5),(1.4,2.6),fontsize=9)
+ax.plot(3.05,6.95,'o',color='#d62728'); ax.annotate('(3.05, 6.95)\n(x+y)(x−y)=−39',(3.05,6.95),(3.4,8.6),fontsize=8,color='#d62728')
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_xlim(-1,12); ax.set_ylim(-2,12); ax.legend(fontsize=8,loc='lower right')
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title('The region and where statement 3 fails',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Your slip (you picked **F**) was multiplying `x+y>6` and `x−y>−4` to get statement 3. Adding is fine;
+multiplying inequalities is only valid when both sides are positive. **Toolkit: S7 — inequalities & signs.***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+::: {.question}
+Triangles $ABC$ and $XYZ$ have the same area. Which of these extra conditions, taken **independently**, would
+imply that they are congruent?
+
+&nbsp;&nbsp;**(1)** $AB=XY$ and $BC=YZ$
+&nbsp;&nbsp;**(2)** $AB=XY$ and $\angle ABC=\angle XYZ$
+&nbsp;&nbsp;**(3)** $\angle ABC=\angle XYZ$ and $\angle BCA=\angle YZX$
+
+The options **A–H** give every yes/no pattern for (Condition 1 implies, Condition 2 implies, Condition 3
+implies). *(D = "(1) does not, (2) does, (3) does".)*
+:::
+
+Area $=\tfrac12\,AB\cdot BC\,\sin(\angle ABC)$ — so "same area + two sides" only pins down [$\sin$ of the
+angle]{.hl}, not the angle itself.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — D (No, Yes, Yes)
+
+[*(answer D)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — which extra condition is **sufficient** for congruence · **sufficient conditions (S3)**
+:::
+
+
+- **(1) does NOT imply.** With $AB=XY$, $BC=YZ$ and equal area,
+  $\tfrac12 AB\cdot BC\sin\angle ABC=\tfrac12 XY\cdot YZ\sin\angle XYZ$ gives only
+  $\sin\angle ABC=\sin\angle XYZ$, so $\angle ABC=\angle XYZ$ **or** $\angle ABC=180^\circ-\angle XYZ$. The
+  supplementary case is a genuinely different triangle (same two sides, same area, different third side). Not
+  sufficient.
+- **(2) DOES imply.** Now $\angle ABC=\angle XYZ$ is given, so $\sin$ is equal *and* the angles match. Equal
+  area with $AB=XY$ then forces $BC=YZ$, and with the **included** angle equal this is **SAS** — congruent.
+- **(3) DOES imply.** Two equal angles give the third equal too (angles sum to $180^\circ$), so the triangles
+  are **similar**. Similar triangles with **equal area** have scale factor $1$ — congruent.
+
+So (1) no, (2) yes, (3) yes — **D**.
+
+```{python}
+#| fig-cap: "Condition (1) fails: both triangles have AB=5, BC=6 and the same area (½·5·6·sin30° = ½·5·6·sin150°), but the angle at B is 30° vs 150°, so the third side AC differs — not congruent."
+import numpy as np, matplotlib.pyplot as plt
+fig,(ax1,ax2)=plt.subplots(1,2,figsize=(6.4,3.2))
+for ax,th,ttl in [(ax1,30,'∠B = 30°'),(ax2,150,'∠B = 150°')]:
+    B=np.array([0,0]); A=np.array([5,0]); C=6*np.array([np.cos(np.radians(th)),np.sin(np.radians(th))])
+    tri=np.array([A,B,C,A])
+    ax.plot(tri[:,0],tri[:,1],color='#1f77b4',lw=2)
+    ax.fill(tri[:,0],tri[:,1],color='#1f77b4',alpha=0.10)
+    ax.text(*(A+[0.1,-0.5]),'A',fontsize=10); ax.text(*(B+[-0.5,-0.5]),'B',fontsize=10); ax.text(*(C+[0.1,0.2]),'C',fontsize=10)
+    ax.set_title(ttl+'  (area 7.5)',fontsize=10); ax.set_aspect('equal'); ax.axis('off')
+    ax.set_xlim(-6,6); ax.set_ylim(-1,4)
+plt.tight_layout(); plt.show()
+```
+
+*The angle-ambiguity ($\sin\theta=\sin(180^\circ-\theta)$) is the same non-injective trap as S7; and the
+question itself is pure **S3** — "which condition is *sufficient*". **Toolkit: S3 — necessary & sufficient.***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+::: {.question}
+In this question, $a,b,c$ are positive integers. The following is an attempted proof of the **false** statement:
+*if $a$ divides $bc$, then $a$ divides $b$ or $a$ divides $c$.* (Here "$a$ divides $bc$" means "$a$ is a factor
+of $bc$".) Which line contains the error?
+
+&nbsp;&nbsp;**1.** The statement is equivalent to 'if $a$ does not divide $b$ and $a$ does not divide $c$ then $a$ does not divide $bc$'.
+&nbsp;&nbsp;**2.** Suppose $a$ does not divide $b$ and $a$ does not divide $c$. Then the remainder when dividing $b$ by $a$ is $r$, where $0<r<a$, and the remainder when dividing $c$ by $a$ is $s$, where $0<s<a$.
+&nbsp;&nbsp;**3.** So $b=ax+r$ and $c=ay+s$ for some integers $x$ and $y$.
+&nbsp;&nbsp;**4.** Thus $bc=a(axy+xs+yr)+rs$.
+&nbsp;&nbsp;**5.** So the remainder when dividing $bc$ by $a$ is $rs$.
+&nbsp;&nbsp;**6.** Since $r>0$ and $s>0$, it follows that $rs>0$.
+&nbsp;&nbsp;**7.** Hence $a$ does not divide $bc$.
+
+&nbsp;&nbsp;**A** Line 1 &nbsp; **B** Line 2 &nbsp; **C** Line 3 &nbsp; **D** Line 4 &nbsp; **E** Line 5 &nbsp;
+**F** Line 6 &nbsp; **G** Line 7
+:::
+
+A remainder must satisfy [$0\le r<a$]{.hl}. Is $rs$ guaranteed to be less than $a$?
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — E (Line 5)
+
+[*(answer E)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — spot the error in a divisibility proof · **spot the error (S7)**
+:::
+
+
+Lines 1–4 are all correct: the contrapositive restatement is valid, and the algebra
+$bc=a(axy+xs+yr)+rs$ is right.
+
+The error is **Line 5**. For "$rs$" to be *the remainder* of $bc\div a$, we would need $0\le rs<a$ — but $r$
+and $s$ are each only known to be $<a$, so their **product can be $\ge a$**, and then the true remainder is
+$rs\bmod a$, which can be $0$. Concretely take $a=4,\ b=2\ (r=2),\ c=2\ (s=2)$: then $rs=4$, but $bc=4$ and the
+remainder of $4\div4$ is $\mathbf 0$ — so $a$ **does** divide $bc$. The proof collapses at Line 5.
+
+(The statement really is false: $a=6,\ b=2,\ c=3$ gives $bc=6$, which $6$ divides, yet $6$ divides neither $2$ nor $3$.)
+
+*This is exactly the S7 "spot the error" pattern, and the fix is the modular-arithmetic care from S5
+(a remainder lives in $\{0,\dots,a-1\}$). **Toolkit: [S7 — spot the error](../../toolkit/s07_assignment_ms.qmd),
+S5 — modular arithmetic.***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+::: {.question}
+Each interior angle of a regular polygon with $n$ sides is $\dfrac34$ of each interior angle of a second regular
+polygon with $m$ sides. How many pairs of positive integers $n$ and $m$ are there for which this statement is
+true?
+
+&nbsp;&nbsp;**A** none &nbsp; **B** 1 &nbsp; **C** 2 &nbsp; **D** 3 &nbsp; **E** 4 &nbsp; **F** 5 &nbsp;
+**G** 6 &nbsp; **H** infinitely many
+:::
+
+Interior angle of a regular $k$-gon is $\dfrac{180(k-2)}{k}$. Set up the equation, then hunt [integer
+solutions with $n,m\ge3$]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — E (4)
+
+[*(answer E)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — integer solutions of an angle equation · **number theory (S5)**
+:::
+
+
+$$\frac{180(n-2)}{n}=\frac34\cdot\frac{180(m-2)}{m}\;\Rightarrow\;4m(n-2)=3n(m-2)\;\Rightarrow\;mn-8m+6n=0.$$
+Solve for $m$: $\displaystyle m=\frac{6n}{8-n}$. For $m>0$ we need $n<8$, so test $n=3,4,5,6,7$ (a polygon needs
+$\ge3$ sides):
+
+| $n$ | $m=\dfrac{6n}{8-n}$ | integer? |
+|---|---|---|
+| 3 | $18/5=3.6$ | ✗ |
+| **4** | $24/4=6$ | ✓ |
+| **5** | $30/3=10$ | ✓ |
+| **6** | $36/2=18$ | ✓ |
+| **7** | $42/1=42$ | ✓ |
+
+Four valid pairs: $(4,6),(5,10),(6,18),(7,42)$ — **E**. (Check $(4,6)$: square $90^\circ=\tfrac34\times120^\circ$
+hexagon. ✓)
+
+*Turning "how many pairs" into an integer-solution hunt — factor, bound the variable, test cases — is the S5
+number-theory skill. **Toolkit: S5.***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# 2017 Paper 2
+
+## Question 4
+
+::: {.question}
+The following question appeared in an examination: *given that $\tan x=\sqrt3$, find the possible values of
+$\sin 2x$.* A student gave the answer: "$\tan x=\sqrt3$ so $x=60^\circ$ and $2x=120^\circ$, therefore
+$\sin 2x=\dfrac{\sqrt3}{2}$." Which one of the following statements is correct?
+
+&nbsp;&nbsp;**A** $\tfrac{\sqrt3}{2}$ is the only possible value, and this is fully supported by the reasoning given.
+&nbsp;&nbsp;**B** $\tfrac{\sqrt3}{2}$ is the only possible value, but the reasoning should consider other values of $x$ for which $\tan x=\sqrt3$.
+&nbsp;&nbsp;**C** $\tfrac{\sqrt3}{2}$ is the only possible value, but the reasoning should consider other values of $x$ for which $\sin 2x=\tfrac{\sqrt3}{2}$.
+&nbsp;&nbsp;**D** $\tfrac{\sqrt3}{2}$ is **not** the only value because the reasoning should have considered other $x$ with $\tan x=\sqrt3$.
+&nbsp;&nbsp;**E** $\tfrac{\sqrt3}{2}$ is **not** the only value because the reasoning should have considered other $x$ with $\sin 2x=\tfrac{\sqrt3}{2}$.
+:::
+
+$\tan x=\sqrt3$ has [many solutions]{.hl} ($x=60^\circ+180^\circ k$) — check whether they all give the same
+$\sin 2x$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — B
+
+[*(answer B)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — is the value unique, and is the reasoning complete? · **complete reasoning (S3/S7)**
+:::
+
+
+$\tan x=\sqrt3\Rightarrow x=60^\circ+180^\circ k$ for integer $k$. Then $2x=120^\circ+360^\circ k$, so
+$$\sin 2x=\sin(120^\circ+360^\circ k)=\sin120^\circ=\frac{\sqrt3}{2}\quad\text{for every such }x.$$
+So $\tfrac{\sqrt3}{2}$ **is** the only value (the value is unique). But the student only substituted the single
+solution $x=60^\circ$; a complete answer must check that the **other** solutions of $\tan x=\sqrt3$ (e.g.
+$x=240^\circ$) give the same value. Value unique, reasoning incomplete — **B**.
+
+*Why not C: the extra cases to verify are the other $x$ with $\tan x=\sqrt3$ (the given equation), not other
+$x$ with $\sin 2x=\tfrac{\sqrt3}{2}$. Why not D/E: the value genuinely is unique. You picked **C** — right that
+the reasoning is incomplete, wrong about which cases were missed. **Toolkit: S3/S7 — check every case.***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.question}
+Which one of the following numbers is smallest in value?
+
+&nbsp;&nbsp;**A** $\log_2 7$ &nbsp; **B** $\left(2^{-3}+2^{-2}\right)^{-1}$ &nbsp; **C** $2^{(\pi/3)}$ &nbsp;
+**D** $\dfrac{1}{4\left(\sqrt2-1\right)^{3}}$ &nbsp; **E** $4\sin^{2}\!\left(\dfrac{\pi}{4}\right)$
+:::
+
+Reduce each to a **number** you can compare — the trig one hides the simplest value of all.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — E
+
+[*(answer E)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — order five awkward numbers by estimating each · **surds, logs, indices (Paper 1)**
+:::
+
+
+Estimate or simplify each:
+
+| | value | |
+|---|---|---|
+| **A** $\log_2 7$ | between $\log_2 4=2$ and $\log_2 8=3$ | $\approx 2.81$ |
+| **B** $(2^{-3}+2^{-2})^{-1}=(\tfrac18+\tfrac14)^{-1}=(\tfrac38)^{-1}$ | $=\tfrac83$ | $\approx 2.67$ |
+| **C** $2^{\pi/3}=2^{1.047}$ | just above $2^1=2$ | $\approx 2.07$ |
+| **D** $\dfrac{1}{4(\sqrt2-1)^3}$, $\ (\sqrt2-1)^3\approx0.071$ | $\dfrac{1}{4(0.071)}$ | $\approx 3.52$ |
+| **E** $4\sin^2(\pi/4)=4\left(\tfrac{\sqrt2}{2}\right)^2=4\cdot\tfrac12$ | $=2$ | $\mathbf{2.00}$ |
+
+The smallest is **E $=2$** exactly.
+
+```{python}
+#| fig-cap: "The five values. E = 4sin²(π/4) = 2 is the smallest (C ≈ 2.07 is the near-miss)."
+import numpy as np, matplotlib.pyplot as plt
+labels=['A\n$\\log_2 7$','B\n$(2^{-3}+2^{-2})^{-1}$','C\n$2^{\\pi/3}$','D\n$\\frac{1}{4(\\sqrt{2}-1)^3}$','E\n$4\\sin^2\\frac{\\pi}{4}$']
+vals=[np.log2(7),(2**-3+2**-2)**-1,2**(np.pi/3),1/(4*(np.sqrt(2)-1)**3),4*np.sin(np.pi/4)**2]
+cols=['#1f77b4']*5; cols[4]='#2ca02c'
+fig,ax=plt.subplots(figsize=(5.6,3.2))
+bars=ax.bar(range(5),vals,color=cols)
+for i,v in enumerate(vals): ax.text(i,v+0.05,f'{v:.2f}',ha='center',fontsize=9)
+ax.axhline(2,color='#2ca02c',ls=':',lw=1)
+ax.set_xticks(range(5)); ax.set_xticklabels(labels,fontsize=8); ax.set_ylim(0,4); ax.set_ylabel('value')
+ax.set_title('Smallest is E = 2',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*You picked **C** ($\approx2.07$) — the closest rival — but $4\sin^2(\pi/4)$ collapses to exactly $2$. When a
+question mixes logs, indices, surds and trig, convert each to a decimal before choosing.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+::: {.question}
+The function $f(x)$ is increasing and $f(0)=0$. The positive constants $a$ and $b$ satisfy $a<b$. The area of
+the region enclosed by the curve $y=f(x)$, the $x$-axis and the lines $x=a$ and $x=b$ is denoted by $R$. The
+function $g(x)$ is defined by $g(x)=f(x)+2f(b)$. Which of the following is an expression for the area enclosed
+by $y=g(x)$, the $x$-axis and the lines $x=a$ and $x=b$?
+
+&nbsp;&nbsp;**A** $R+(b-a)f(b)$ &nbsp; **B** $R+2(b-a)f(b)$ &nbsp; **C** $R+2f(b)-f(a)$ &nbsp;
+**D** $R+2f(b)$ &nbsp; **E** $R+(f(b))^{2}$ &nbsp; **F** $R+(f(b))^{2}-(f(a))^{2}$ &nbsp;
+**G** $R+2(f(b)-f(a))f(b)$
+:::
+
+$2f(b)$ is a **constant** (it does not depend on $x$), so $g$ is just $f$ [shifted straight up]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — B
+
+[*(answer B)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — area after adding a constant to a function · **area & transformations (Graphs Clinic 1)**
+:::
+
+
+Because $2f(b)$ is a constant, $g(x)=f(x)+2f(b)$ is the graph of $f$ **raised by $2f(b)$**. The area is
+$$\int_a^b\big(f(x)+2f(b)\big)\,\mathrm dx=\underbrace{\int_a^b f(x)\,\mathrm dx}_{=\,R}+2f(b)\underbrace{(b-a)}_{\text{width}}=R+2(b-a)f(b).$$
+The extra area is simply a **rectangle** of height $2f(b)$ and width $(b-a)$ — **B**. (Since $f$ is increasing
+with $f(0)=0$ and $a,b>0$, $f(b)>0$, so the whole strip sits above the axis and the "area" is this clean
+integral.)
+
+```{python}
+#| fig-cap: "g = f + 2f(b) is f raised by the constant 2f(b). Area under g = R (under f) + rectangle of height 2f(b), width (b−a). Here f(x)=x, a=1, b=3: R=4, extra = 6×2 = 12."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,3.6,300); f=x; a,b=1,3; fb=b; shift=2*fb
+fig,ax=plt.subplots(figsize=(5.4,3.6))
+ax.plot(x,f,color='#1f77b4',lw=2,label='y=f(x)')
+ax.plot(x,f+shift,color='#dd6b20',lw=2,label='y=g(x)=f(x)+2f(b)')
+xs=np.linspace(a,b,50)
+ax.fill_between(xs,0,xs,color='#1f77b4',alpha=0.15,label='R')
+ax.fill_between(xs,xs,xs+shift,color='#dd6b20',alpha=0.15,label='extra rectangle 2f(b)(b−a)')
+ax.axvline(a,color='0.6',ls=':',lw=1); ax.axvline(b,color='0.6',ls=':',lw=1)
+ax.text(0.55,-0.6,'a=1',fontsize=9); ax.text(2.9,-0.6,'b=3',fontsize=9)
+ax.set_xlim(0,3.7); ax.set_ylim(-0.2,11); ax.legend(fontsize=7.5,loc='upper left')
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title('Adding a constant raises the area by height × width',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+
+*This is the Graphs-Clinic-1 area rule: $\int (f+c)=\int f + c\times(\text{width})$. The distractor **D**
+($R+2f(b)$) forgets the width $(b-a)$. **Toolkit: Graphs Clinic 1 — areas.***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+::: {.question}
+The positive real numbers $a\times10^{-3}$, $b\times10^{-2}$ and $c\times10^{-1}$ are each in standard form, and
+$$\left(a\times10^{-3}\right)+\left(b\times10^{-2}\right)=\left(c\times10^{-1}\right).$$
+Which of the following statements (I, II, III, IV) **must** be true?
+
+&nbsp;&nbsp;**I** $a>9$ &nbsp;&nbsp; **II** $b>9$ &nbsp;&nbsp; **III** $a<c$ &nbsp;&nbsp; **IV** $b<c$
+
+&nbsp;&nbsp;**A** I only &nbsp; **B** II only &nbsp; **C** I and II only &nbsp; **D** I and III only &nbsp;
+**E** I and IV only &nbsp; **F** II and III only &nbsp; **G** II and IV only &nbsp; **H** I, II, III and IV
+:::
+
+"Standard form" means each of $a,b,c$ lies in $[1,10)$. Clear the powers of ten and see [what is forced]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — B (II only)
+
+[*(answer B)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — standard form and a forced carry · **reasoning with bounds**
+:::
+
+
+Multiply through by $10^{3}$: $\;a+10b=100c$, with $1\le a<10$, $1\le b<10$, $1\le c<10$.
+
+- **Bound $c$.** The left side satisfies $11\le a+10b<110$, so $100c\in[11,110)$ forces $c=1$ (since $100c$ is
+  at least $100$ only when $c\ge1$, and $<110$ means $c<1.1$). Hence $a+10b=100$.
+- **II ($b>9$): true.** From $a=100-10b$ and $1\le a<10$: $\,1\le100-10b<10\Rightarrow 9<b\le9.9$. So $b>9$
+  **always**. ✓
+- **I ($a>9$): false.** $a=100-10b$ ranges over $(1,10)$ as $b$ ranges over $(9,9.9]$ — e.g. $b=9.5$ gives
+  $a=5$, not $>9$.
+- **III ($a<c$): false**, and **IV ($b<c$): false**, since $c=1$ while $a>1$ and $b>9$.
+
+Only II must hold — **B**. (A carry from the hundredths place into the tenths is what forces $b>9$.)
+
+*The whole question is bounding variables from "standard form" constraints — no trick, just careful ranges.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+::: {.question}
+Consider the problem: *solve the inequality $\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$, where $n$
+is a positive integer.* A student produces:
+
+$$\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}$$
+$$\text{(I)}\ \big\downarrow\quad$$
+$$\log_{\frac12}\left(\tfrac14\right)^{n}<\log_{\frac12}\left(\tfrac1{32}\right)^{10}$$
+$$\text{(II)}\ \big\downarrow\quad$$
+$$n\log_{\frac12}\left(\tfrac14\right)<10\log_{\frac12}\left(\tfrac1{32}\right)$$
+$$\text{(III)}\ \big\downarrow\quad$$
+$$n<\frac{10\log_{\frac12}\left(\tfrac1{32}\right)}{\log_{\frac12}\left(\tfrac14\right)}$$
+$$\text{(IV)}\ \big\downarrow\quad$$
+$$n<\frac{10\times5}{2}=25$$
+$$\text{(V)}\ \big\downarrow\quad\qquad 1\leq n\leq 24$$
+
+Which step (if any) is invalid? &nbsp; **A** none &nbsp; **B** only (I) &nbsp; **C** only (II) &nbsp;
+**D** only (III) &nbsp; **E** only (IV) &nbsp; **F** only (V)
+:::
+
+The base is [$\tfrac12<1$]{.hl}, so $\log_{1/2}$ is a **decreasing** function.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — B (step I)
+
+[*(answer B)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a log with base below 1 flips the inequality · **logs with base <1 (S7)**
+:::
+
+
+Step (I) applies $\log_{1/2}$ to both sides. Because the base $\tfrac12<1$, $\log_{1/2}$ is **decreasing**, so
+it must **reverse** the inequality — the student kept "$<$". The very first step is invalid; every later step
+is algebraically fine, so *only* (I) is wrong — **B**.
+
+Done correctly: $\left(\tfrac14\right)^n=2^{-2n}$ and $\left(\tfrac1{32}\right)^{10}=2^{-50}$, so
+$2^{-2n}<2^{-50}\Leftrightarrow-2n<-50\Leftrightarrow n>25$.
+
+*This is the same question as **[S7 assignment A1](../../toolkit/s07_assignment_ms.qmd)** — and the
+[S7 concepts note on logs with a base below 1](../../toolkit/s07_concepts.qmd) has the graph. **Toolkit: S7.***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## What to take away
+
+- **Inequalities:** add them freely, but **never multiply** two inequalities unless both sides are positive
+  (2016 Q8); a **decreasing** function (log base $<1$) **flips** the sign (2017 Q18).
+- **Geometry from area:** equal area + two sides gives only $\sin\theta$ equal — the **ambiguous angle**
+  (2016 Q9).
+- **Remainders live in $\{0,\dots,a-1\}$:** a product of remainders can overflow, so it is not itself a
+  remainder (2016 Q13).
+- **Finish the reasoning:** check *all* the cases the hypothesis allows (2017 Q4), and remember a **constant
+  shift** raises area by height × width (2017 Q11).
+- Most of these map straight onto the toolkit: **S3** (sufficient/necessary), **S5** (number theory), **S7**
+  (spot the error, inequalities, logs base $<1$).
+:::
+
+:::

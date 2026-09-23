@@ -1,0 +1,272 @@
+---
+title: "Toolkit S1 — Statement Forms · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 2"
+format:
+  html:
+    toc: false
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Why learn this when TMUA is multiple choice?
+
+You never write a proof on TMUA — every question is **multiple choice**. But almost every Paper 2 question
+hides an *"if / only if / if and only if"*, and the marks turn on reading it as the right **arrow**. Get
+"$A$ only if $B$" pointing the correct way in your head and half the reasoning questions fall open.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Arg1</div>
+<div class="fs-title">Statement Forms — Key Concepts</div>
+<div class="fs-sub">Four ways to say a conditional — "if A then B", "A if B", "A only if B", "A if and only if B". Turn each into an arrow. The one that catches everyone: <strong>"A only if B" means A ⇒ B, not B ⇒ A.</strong></div>
+::::
+
+## The four forms
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### "if $A$ then $B$"
+
+$$\text{"if } A \text{ then } B\text{"}\ \equiv\ A\Rightarrow B$$
+$A$ is the hypothesis, $B$ the conclusion — whenever $A$ holds, $B$ must.
+
+[if it is raining, the ground is wet]{.eg}
+:::
+
+::: {.fs-card}
+### "$A$ if $B$"
+
+$$\text{"}A \text{ if } B\text{"}\ \equiv\ B\Rightarrow A$$
+The **"if" clause is the hypothesis** — rearrange to "if $B$ then $A$".
+
+[the alarm sounds if the door opens $=$ door opens $\Rightarrow$ alarm]{.eg}
+:::
+
+::: {.fs-card}
+### "$A$ only if $B$" — the tricky one
+
+$$\text{"}A \text{ only if } B\text{"}\ \equiv\ A\Rightarrow B$$
+"Only if" points the arrow **forward**: $A$ can hold **only when** $B$ does, so $B$ is **required**.
+
+[the bells ring only if it is Sunday $=$ bells $\Rightarrow$ Sunday (**not** Sunday $\Rightarrow$ bells)]{.eg}
+:::
+
+::: {.fs-card}
+### "$A$ if and only if $B$"
+
+$$\text{"}A \text{ iff } B\text{"}\ \equiv\ A\Leftrightarrow B$$
+**Both** directions at once: $A\Rightarrow B$ **and** $B\Rightarrow A$.
+
+[a triangle is equilateral if and only if all its angles are $60^\circ$]{.eg}
+:::
+
+::::
+
+## Reading them, and the trap
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Turn each into an arrow
+
+| Form | Arrow |
+|---|---|
+| if $A$ then $B$ | $A\Rightarrow B$ |
+| $A$ if $B$ | $B\Rightarrow A$ |
+| $A$ **only if** $B$ | $A\Rightarrow B$ |
+| $A$ iff $B$ | $A\Leftrightarrow B$ |
+:::
+
+::: {.fs-card}
+### The trap — "only if"
+
+"$A$ **only if** $B$" is $A\Rightarrow B$, **not** $B\Rightarrow A$. It reverses most people's instinct:
+"only if" makes $B$ **necessary** for $A$ (without $B$, no $A$).
+:::
+
+::: {.fs-card}
+### Link to necessary / sufficient (cross-exam)
+
+"$A$ **if** $B$" $=$ $B$ is **sufficient** for $A$; "$A$ **only if** $B$" $=$ $B$ is **necessary** for
+$A$; "iff" $=$ both. This is Arg1, and the same wording runs through **MAT** and **STEP** reasoning.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## True or false? — test yourself
+
+Two kinds of question: *is this translation into an arrow correct?* and *is this concrete statement
+true?* Memorise the verdict; **the *False* ones are the traps.**
+
+**A. Reading the forms as arrows**
+
+| Statement | T / F ? |
+|---|:--:|
+| "if $A$ then $B$" means $A\Rightarrow B$. | |
+| "$A$ if $B$" means $B\Rightarrow A$. | |
+| "$A$ only if $B$" means $A\Rightarrow B$. | |
+| "$A$ if and only if $B$" means both $A\Rightarrow B$ and $B\Rightarrow A$. | |
+| "$A$ only if $B$" means $B\Rightarrow A$. | |
+| "$A$ if $B$" means $A\Rightarrow B$. | |
+
+**B. Concrete statements**
+
+| Statement | T / F ? |
+|---|:--:|
+| "A number is divisible by $4$ **only if** it is even" is true. | |
+| "$x>0$ **if** $x>3$" is true. | |
+| "A triangle is equilateral **if and only if** all its angles are $60^\circ$" is true. | |
+| "A number is even **only if** it is divisible by $4$" is true. | |
+| "$n$ is prime **if and only if** $n$ is odd" is true. | |
+
+## Proofs of the "true or false?" facts
+
+Decide each verdict above first, then open the key.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## A. Reading the forms as arrows — answers & proofs
+- "if $A$ then $B$" means $A\Rightarrow B$ — **True**: the standard reading.
+- "$A$ if $B$" means $B\Rightarrow A$ — **True**: "$A$ if $B$" says $B$ is enough for $A$.
+- "$A$ only if $B$" means $A\Rightarrow B$ — **True**: $A$ can hold *only when* $B$ does.
+- "$A$ if and only if $B$" means both $A\Rightarrow B$ and $B\Rightarrow A$ — **True**: the definition of iff.
+- "$A$ only if $B$" means $B\Rightarrow A$ — **False**: it means $A\Rightarrow B$, not the reverse.
+- "$A$ if $B$" means $A\Rightarrow B$ — **False**: it means $B\Rightarrow A$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## B. Concrete statements — answers & proofs
+- "divisible by $4$ **only if** even" is true — **True**: divisible by $4\Rightarrow$ even.
+- "$x>0$ **if** $x>3$" is true — **True**: $x>3\Rightarrow x>0$.
+- "equilateral **iff** all angles $60^\circ$" is true — **True**: each condition forces the other.
+- "even **only if** divisible by $4$" is true — **False**: that claims even $\Rightarrow$ divisible by $4$, but $6$ is even and not divisible by $4$.
+- "$n$ prime **iff** $n$ odd" is true — **False**: fails **both** ways — $2$ is prime but not odd, and $9$ is odd but not prime.
+:::
+
+## Notes
+
+### "if $A$ then $B$" and "$A$ if $B$"
+
+"**if $A$ then $B$**" is the plain conditional $A\Rightarrow B$: $A$ is the hypothesis, $B$ the conclusion.
+"**$A$ if $B$**" says the same kind of thing but with the parts reordered — **the "if" always introduces
+the hypothesis**, so "$A$ if $B$" means "if $B$ then $A$", i.e. $B\Rightarrow A$.
+
+::: {.example}
+[Example.]{.lbl} Write "$x>0$ if $x>3$" as an implication, and say whether it is true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+The "if" introduces the hypothesis $x>3$, so it means "if $x>3$ then $x>0$", i.e. $x>3\Rightarrow x>0$.
+This is **true**. $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### "$A$ only if $B$" — the one everyone gets backwards
+
+"**$A$ only if $B$**" means $A\Rightarrow B$. The phrase says $A$ can be true **only when** $B$ is true —
+so $B$ is **necessary** for $A$, and the arrow runs $A\Rightarrow B$. It does **not** mean $B\Rightarrow A$.
+
+::: {.example}
+[Example.]{.lbl} A town's bells ring **only if** it is Sunday. On Tuesday, are the bells ringing? On
+Sunday, must they be?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+"Bells ring only if Sunday" means bells $\Rightarrow$ Sunday. **Tuesday:** since it is not Sunday, the
+bells cannot be ringing (contrapositive: not Sunday $\Rightarrow$ not ringing). **Sunday:** the statement
+says nothing — bells *may* ring, but need not. So "only if" gives $A\Rightarrow B$, never $B\Rightarrow A$.
+$\;\blacksquare$
+
+*If it really were "the bells ring **if** it is Sunday", that would be the other arrow, Sunday
+$\Rightarrow$ bells — a different claim.*
+:::
+
+::: {.workbox}
+
+:::
+
+::: {.callout-tip appearance="simple"}
+**Two ways to remember it.**
+(1) **The arrowhead points at whatever follows "only if".** In "$A$ **only if** $B$", $B$ is the
+destination, so $A\Rightarrow B$. (In "$A$ **if** $B$", the *if*-clause $B$ is the start, so $B\Rightarrow
+A$.)
+(2) **As a picture:** "$A$ only if $B$" means **$A$ sits inside $B$** — being in $A$ forces you into $B$.
+:::
+
+```{python}
+#| fig-cap: "\"A only if B\" as sets: A sits inside B (A ⊆ B). Being in A forces you into B — that is A ⇒ B."
+import numpy as np, matplotlib.pyplot as plt
+t=np.linspace(0,2*np.pi,200)
+fig,ax=plt.subplots(figsize=(4.4,3.0))
+ax.plot(2.4+2.4*np.cos(t),2.4*np.sin(t),color='#1f77b4',lw=2)   # B
+ax.plot(1.7+1.1*np.cos(t),1.1*np.sin(t),color='#d62728',lw=2)   # A inside B
+ax.text(1.5,0,'A',fontsize=13,color='#d62728',ha='center',va='center',fontweight='bold')
+ax.text(3.9,1.6,'B',fontsize=13,color='#1f77b4',ha='center',va='center',fontweight='bold')
+ax.text(2.4,-3.05,'"A only if B":  A ⊆ B,  so  A ⇒ B',ha='center',fontsize=10)
+ax.set_xlim(-0.4,5.2); ax.set_ylim(-3.4,2.8); ax.axis('off'); ax.set_aspect('equal')
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## For deeper understanding — the truth table (you never need this on the exam)
+
+TMUA never asks you to fill a truth table or use symbols. But if you want a full check: "if $A$ then $B$"
+is **false in exactly one case** — $A$ true and $B$ false — and **true otherwise**.
+
+| $A$ | $B$ | if $A$ then $B$ | (not $A$) or $B$ | if not $B$ then not $A$ |
+|:---:|:---:|:---:|:---:|:---:|
+| T | T | T | T | T |
+| T | F | **F** | **F** | **F** |
+| F | T | T | T | T |
+| F | F | T | T | T |
+
+The last three columns are **identical**, so
+$$\text{"if }A\text{ then }B\text{"}\ \equiv\ \text{"(not }A\text{) or }B\text{"}\ \equiv\ \text{"if not }B\text{ then not }A\text{"}.$$
+The third is the **contrapositive** (always equivalent — see S2); a handy way to rewrite "if $A$ then $B$"
+is *"not $A$, or $B$"*. The **converse** "if $B$ then $A$" would give a **different** column, which is
+exactly why it is not equivalent.
+:::
+
+### "$A$ if and only if $B$"
+
+"**$A$ if and only if $B$**" combines both: the "**if**" gives $B\Rightarrow A$ and the "**only if**" gives
+$A\Rightarrow B$, so together $A\Leftrightarrow B$ — $A$ and $B$ are two names for the same thing. To prove
+an iff you must prove **both** directions.
+
+::: {.example}
+[Example.]{.lbl} Is "$n$ is prime if and only if $n$ is odd" true?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**False** — and it fails in both directions. "Prime $\Rightarrow$ odd" is false ($2$ is prime and even);
+"odd $\Rightarrow$ prime" is false ($9$ is odd and not prime). A single failing direction already breaks an
+iff. $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### Link to necessary and sufficient
+
+The forms are just necessary/sufficient in words: "$A$ **if** $B$" makes $B$ **sufficient** for $A$
+($B\Rightarrow A$); "$A$ **only if** $B$" makes $B$ **necessary** for $A$ ($A\Rightarrow B$); and "iff"
+makes $B$ both. Reading the arrow first, then translating to necessary/sufficient, keeps the two topics
+lined up.
+
+::::

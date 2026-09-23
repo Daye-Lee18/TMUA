@@ -1,0 +1,157 @@
+---
+title: "Sequences, Series & Binomial Clinic — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **41**.
+
+Two habits to check: for a **sum to infinity**, did they verify $|r|<1$ before quoting $\dfrac{a}{1-r}$? For a
+**single binomial coefficient**, did they pick the one term with the right power rather than expanding the whole
+bracket?
+
+---
+
+# Section A — AP & GP basics
+
+## Question 1 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**First term $1$, common difference $4$.** &nbsp; **(M1 A1 A1)**
+
+*Two terms give two equations.* $a+4d=17$ and $a+11d=45$ **(M1)**. Subtracting: $7d=28\Rightarrow d=4$ **(A1)**,
+then $a=17-16=1$ **(A1)**.
+:::
+
+## Question 2 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$r=\dfrac14$.** &nbsp; **(M1 A1 A1)**
+
+*Use $S_\infty=\dfrac{a}{1-r}$.* $\dfrac{18}{1-r}=24$ **(M1)** $\Rightarrow 1-r=\dfrac{18}{24}=\dfrac34$ **(A1)**,
+so $r=\dfrac14$ (and $|r|<1$, so it converges) **(A1)**.
+:::
+
+## Question 3 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$1010$.** &nbsp; **(M1 A1 A1)**
+
+$S_{20}=\dfrac{20}{2}\bigl(2a+19d\bigr)=10(6+95)$ **(M1 A1)** $=10\cdot101=1010$ **(A1)**.
+:::
+
+## Question 4 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$765$.** &nbsp; **(M1 A1 A1)**
+
+*Divide the two term equations to get $r$.* $ar^2=12,\ ar^5=96\Rightarrow r^3=8\Rightarrow r=2$, then $a=3$
+**(M1 A1)**. $S_8=\dfrac{3(2^8-1)}{2-1}=3\cdot255=765$ **(A1)**.
+:::
+
+---
+
+# Section B — Sum to infinity & recurrences
+
+## Question 5 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$27$.** &nbsp; **(M1 A1 A1 A1)**
+
+$ar=6$ and $ar^3=\dfrac23$, so $r^2=\dfrac{2/3}{6}=\dfrac19$ **(M1)**. *Positive terms ⇒ $r=\dfrac13$* **(A1)**,
+then $a=\dfrac{6}{r}=18$ **(A1)**. Since $|r|<1$, $S_\infty=\dfrac{18}{1-\frac13}=27$ **(A1)**.
+:::
+
+## Question 6 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$u_n=3^{n}+2$; $u_6=731$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Find the fixed point $L=3L-4\Rightarrow L=2$, then $u_n-2$ is geometric:* $u_{n+1}-2=3(u_n-2)$ **(M1 A1)**.
+With $u_1-2=3$, $u_n-2=3\cdot3^{n-1}=3^{n}$, so $u_n=3^{n}+2$ **(A1)**. Hence $u_6=3^6+2=731$ **(A1)**.
+*(Or just iterate: $5,11,29,83,245,731$.)*
+:::
+
+---
+
+# Section C — Binomial
+
+## Question 7 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$-560$.** &nbsp; **(M1 A1 A1)**
+
+*The $x^3$ term is $\dbinom{7}{3}(2)^{4}(-x)^{3}$* **(M1)** $=35\cdot16\cdot(-1)\,x^3$ **(A1)** $=-560x^3$, so the
+coefficient is $-560$ **(A1)**.
+:::
+
+## Question 8 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$160$.** &nbsp; **(M1 A1 A1)**
+
+*General term $\dbinom{6}{k}(2x)^{6-k}\left(\dfrac1x\right)^{k}=\dbinom{6}{k}2^{6-k}x^{6-2k}$; the constant
+needs $6-2k=0\Rightarrow k=3$* **(M1 A1)**. Constant $=\dbinom{6}{3}2^{3}=20\cdot8=160$ **(A1)**.
+:::
+
+## Question 9 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$30$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Collect $x^2$ from both ways it can appear.* In $(1-2x)^5$: the $x^2$ coefficient is
+$\dbinom{5}{2}(-2)^2=40$ and the $x^1$ coefficient is $\dbinom{5}{1}(-2)=-10$ **(M1 A1)**. Multiplying by
+$(1+x)$: the $x^2$ term is $1\cdot40+x\cdot(-10x)$, i.e. $40+(-10)=30$ **(A1 A1)**.
+:::
+
+## Question 10 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$n=4$.** &nbsp; **(M1 A1 A1)**
+
+*The coefficient of $x$ in $(1+3x)^n$ is $\dbinom{n}{1}\cdot3=3n$* **(M1)**. Set $3n=12$ **(A1)** $\Rightarrow
+n=4$ **(A1)**.
+:::
+
+---
+
+# Section D — Harder
+
+## Question 11 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$43$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Use $a_n=S_n-S_{n-1}$.* $a_n=(n^2+4n)-\bigl((n-1)^2+4(n-1)\bigr)$ **(M1)** $=2n+3$ **(A1 A1)**. So $a_{20}=43$
+**(A1)**.
+:::
+
+## Question 12 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$r=\dfrac45$ or $r=-\dfrac45$.** &nbsp; **(M1 A1 A1 A1)**
+
+Let the GP have first term $a$: $a(1+r)=9$ and $\dfrac{a}{1-r}=25\Rightarrow a=25(1-r)$ **(M1)**. Substitute:
+$25(1-r)(1+r)=9\Rightarrow25(1-r^2)=9$ **(A1)** $\Rightarrow 1-r^2=\dfrac{9}{25}\Rightarrow r^2=\dfrac{16}{25}$
+**(A1)**. So $r=\pm\dfrac45$, and both satisfy $|r|<1$ (so both are valid) **(A1)**.
+:::
+
+:::

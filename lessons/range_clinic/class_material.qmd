@@ -1,0 +1,550 @@
+---
+title: "Range Clinic — the y-as-parameter method"
+subtitle: "Turn 'which values does f(x) take?' into a discriminant — bounded ranges, gaps, holes, and 'range = all reals'"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+"What is the **range** of $f$?" and "what is the **greatest/least value** of $f$?" are the *same* question:
+the range is the set of heights $y$ the graph reaches, and its endpoints are the max and min. The trick that
+cracks all of them — especially for a **rational** function — is to **treat $y$ as a constant**, turn $y=f(x)$
+into an equation in $x$, and ask *for which $y$ does it have a real solution?* For a quadratic in $x$ that is
+just a **discriminant** condition. This clinic drills that one idea across every flavour it appears in — bounded
+ranges, forbidden **gaps**, reducible **holes**, and "**range $=$ all reals**" — from the TMUA/MAT papers and
+their cousins (STEP, PAT, admissions mocks).
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · Range &amp; max/min</div>
+<div class="fs-title">The y-as-Parameter Method — Exam Skim Sheet</div>
+<div class="fs-sub">Turn "which values does f(x) take?" into an ordinary inequality in y.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · The three steps
+1. Set $y=f(x)$, clear the fraction, collect into a **quadratic in $x$** with $y$ as a parameter:
+   $A(y)x^{2}+B(y)x+C(y)=0$.
+2. A real $x$ exists $\iff$ **discriminant $\ge0$**: $B(y)^{2}-4A(y)C(y)\ge0$.
+3. Solve that inequality **for $y$** — the $y$-set **is** the range, and its ends are the max/min.
+:::
+
+::: {.fs-card}
+### 2 · Two things to check
+**$A(y)=0$:** there the equation is *linear* in $x$, so that $y$ is still reached provided $B(y)\ne0$ — test it separately.
+
+**A reducible fraction** (numerator and denominator share a factor) leaves a **hole**: one value is quietly missing from the range.
+:::
+
+::: {.fs-card}
+### 3 · Bounded humps
+If the denominator is a positive quadratic (no real roots) there is no vertical asymptote, so the curve is **bounded** — a genuine max and min, found with no calculus at all.
+
+[A **repeated root** at a boundary $y$ means $y=\text{const}$ is *tangent* — that height is the max or min.]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · Gaps and "range $=\mathbb{R}$"
+If the denominator has real roots, the discriminant can be **negative on an interval** of $y$ — those heights are **skipped** (a gap either side of an asymptote).
+
+[Asymptotes alone do **not** guarantee "all reals" — you still need the double discriminant.]{.eg}
+:::
+
+::::
+
+:::::
+
+**On this page:** 1. The core idea · 2. Max & min (bounded ranges) · 3. Forbidden gaps & holes · 4. "Range
+$=$ all reals" (a discriminant inside a discriminant)
+
+---
+
+## 1 · The core idea
+
+### Question 1
+
+::: {.question}
+Find the range of $\;y=\dfrac{x^{2}+1}{x^{2}+x+1}\;$ (defined for all real $x$, since $x^{2}+x+1>0$).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the whole method on one curve)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — clear the fraction, force a real root, solve the discriminant inequality for $y$
+:::
+
+**Answer: $\dfrac23\le y\le2$.**
+
+**Quadratic in $x$:** $y(x^{2}+x+1)=x^{2}+1\Rightarrow(y-1)x^{2}+yx+(y-1)=0$.
+
+**Real $x$ needs discriminant $\ge0$:**
+$$y^{2}-4(y-1)^{2}\ge0\Rightarrow-(y-2)(3y-2)\ge0\Rightarrow(y-2)(3y-2)\le0\Rightarrow\tfrac23\le y\le2.$$
+At $y=1$ ($A=0$) the equation is linear, $x=0$ — fine, and inside the interval anyway. Range
+$\left[\tfrac23,2\right]$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-10,10,800); f=(x**2+1)/(x**2+x+1)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,f,color='#2b6cb0',lw=2)
+plt.axhline(2,color='crimson',ls=':',lw=1); plt.axhline(2/3,color='crimson',ls=':',lw=1)
+plt.annotate('max 2',(6,2),textcoords='offset points',xytext=(0,4),fontsize=8,color='crimson')
+plt.annotate('min 2/3',(6,2/3),textcoords='offset points',xytext=(0,-12),fontsize=8,color='crimson')
+plt.grid(alpha=0.25); plt.title('y = (x²+1)/(x²+x+1): range [2/3, 2]',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 2 · Max & min (bounded ranges)
+
+::: {.callout-tip}
+## Concept — a bounded hump has a real max and min, found without calculus
+
+If the denominator is a positive quadratic (no real roots), there is no vertical asymptote and the curve is
+**bounded** — a genuine max and min. The $y$-as-parameter method pins their exact heights straight from a
+discriminant. A **repeated root at a boundary** $y$ means the horizontal line $y=$ const is *tangent* — that
+height is the max or min.
+:::
+
+### Question 2
+
+::: {.question}
+Find the greatest and least values of $\;y=\dfrac{x}{x^{2}+1}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the odd bump, exact bounds)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\dfrac{x}{x^{2}+1}$: quadratic in $x$, discriminant $\ge0$
+:::
+
+**Answer: greatest $\tfrac12$ (at $x=1$), least $-\tfrac12$ (at $x=-1$).**
+
+$y(x^{2}+1)=x\Rightarrow yx^{2}-x+y=0$. For $y\ne0$: $1-4y^{2}\ge0\Rightarrow-\tfrac12\le y\le\tfrac12$. (At
+$y=0$, $x=0$.) Range $\left[-\tfrac12,\tfrac12\right]$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 3
+
+::: {.question}
+Find the range of $\;y=\dfrac{4x}{x^{2}+4}$, and state where the maximum and minimum occur.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a repeated root marks the turning point)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the range endpoints are the max/min; the boundary $y$ gives the $x$ where they occur
+:::
+
+**Answer: $-1\le y\le1$; maximum $1$ at $x=2$, minimum $-1$ at $x=-2$.**
+
+$y(x^{2}+4)=4x\Rightarrow yx^{2}-4x+4y=0$. Discriminant $16-16y^{2}\ge0\Rightarrow-1\le y\le1$. At $y=1$:
+$x^{2}-4x+4=0\Rightarrow x=2$ (repeated $\Rightarrow$ tangent $\Rightarrow$ turning point); at $y=-1$: $x=-2$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+Find the range of $\;y=\dfrac{1}{x^{2}+2x+3}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(reciprocal of a positive quadratic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — complete the square in the denominator; a positive minimum gives a max of the reciprocal
+:::
+
+**Answer: $0<y\le\tfrac12$.**
+
+Complete the square: $x^{2}+2x+3=(x+1)^{2}+2\ge2$, with minimum $2$ at $x=-1$. Since the denominator is always
+$\ge2>0$, the fraction is always **positive** and at most $\dfrac12$ (reached at $x=-1$); as
+$\lvert x\rvert\to\infty$ it tends to $0$ but never equals it. Range $\left(0,\tfrac12\right]$. *(You can also
+run the $y$-parameter method: $yx^{2}+2yx+(3y-1)=0$, discriminant $4y^{2}-4y(3y-1)\ge0\Rightarrow y(1-2y)\ge0
+\Rightarrow0\le y\le\tfrac12$, then drop $y=0$ as unattained.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+Find the range of $\;y=\dfrac{x-1}{x^{2}+3}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a harder bounded range)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — full $y$-parameter method with a linear numerator
+:::
+
+**Answer: $-\tfrac12\le y\le\tfrac16$.**
+
+$y(x^{2}+3)=x-1\Rightarrow yx^{2}-x+(3y+1)=0$. For $y\ne0$, discriminant $\ge0$:
+$$1-4y(3y+1)\ge0\Rightarrow12y^{2}+4y-1\le0\Rightarrow(6y-1)(2y+1)\le0\Rightarrow-\tfrac12\le y\le\tfrac16.$$
+(At $y=0$: $x=1$, which lies in the interval.) Range $\left[-\tfrac12,\tfrac16\right]$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+Find the range of $\;y=\dfrac{x^{2}-x+1}{x^{2}+x+1}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a symmetric quadratic-over-quadratic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — same method; factor the discriminant to read both bounds
+:::
+
+**Answer: $\dfrac13\le y\le3$.**
+
+$y(x^{2}+x+1)=x^{2}-x+1\Rightarrow(y-1)x^{2}+(y+1)x+(y-1)=0$. Discriminant $\ge0$:
+$$(y+1)^{2}-4(y-1)^{2}\ge0\Rightarrow-(y-3)(3y-1)\ge0\Rightarrow(y-3)(3y-1)\le0\Rightarrow\tfrac13\le y\le3.$$
+Range $\left[\tfrac13,3\right]$. *(Note the symmetry: swapping $x\to\tfrac1x$ swaps $y\to\tfrac1y$, so the
+bounds are reciprocals — $\tfrac13$ and $3$.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 3 · Forbidden gaps & holes
+
+::: {.callout-tip}
+## Concept — when the range is everything *except* an interval or a point
+
+If the denominator has real roots (a vertical asymptote), the same discriminant may come out **negative on an
+interval** — those $y$ are the values the curve **cannot** reach: a **gap**. And if numerator and denominator
+share a factor, the graph is a familiar curve with a single **hole** punched out — one missing $y$.
+:::
+
+### Question 7
+
+::: {.question}
+Show that $\;y=\dfrac{x^{2}+2}{x-1}\;$ cannot take values in a certain interval, and find that interval.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the forbidden band)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — discriminant $<0$ on an interval $=$ values the function skips
+:::
+
+**Answer: it takes every value except $2-2\sqrt3<y<2+2\sqrt3$.**
+
+$y(x-1)=x^{2}+2\Rightarrow x^{2}-yx+(y+2)=0$. A real $x$ needs
+$$y^{2}-4(y+2)\ge0\Rightarrow y^{2}-4y-8\ge0\Rightarrow y\le2-2\sqrt3\ \text{ or }\ y\ge2+2\sqrt3.$$
+So the **gap** $\big(2-2\sqrt3,\ 2+2\sqrt3\big)\approx(-1.46,\ 5.46)$ is never attained — the range is
+everything outside it. *(Geometrically these two bounds are the local max and local min either side of the
+asymptote $x=1$.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+State the range of $\;y=\dfrac{x^{2}-1}{x-1}$, being careful about its domain.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(one missing value)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a shared factor cancels to a line, but a point is removed
+:::
+
+**Answer: all real numbers except $2$ (i.e. $y\ne2$).**
+
+For $x\ne1$, $\dfrac{x^{2}-1}{x-1}=\dfrac{(x-1)(x+1)}{x-1}=x+1$. So the graph is the line $y=x+1$ with a
+**hole** at $x=1$, where $y$ would be $2$. The line otherwise takes every real value, so the range is
+$\mathbb{R}\setminus\{2\}$. *(The cancellation is legal only because $x\ne1$ — never lose that exclusion.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 4 · "Range $=$ all reals"
+
+::: {.callout-tip}
+## Concept — a discriminant inside a discriminant
+
+If the range is meant to be **every** real $y$, the discriminant $B(y)^{2}-4A(y)C(y)\ge0$ must hold for **all
+$y$**. That expression is itself a **quadratic in $y$**; "always $\ge0$" means its own leading coefficient is
+$>0$ **and** its own discriminant is $\le0$. So you take a discriminant **twice** — once in $x$, once in $y$.
+:::
+
+### Question 9
+
+::: {.question}
+The function $f$ is $\;f(x)=\dfrac{x-k}{x^{2}-4x-k}\;$ for $x\in\mathbb{R}$, where $k$ is a constant and
+$x^{2}-4x-k\ne0$. Given that the **range** of $f$ is **all** the real numbers, what are the possible values of
+$k$? &nbsp;&nbsp;**A** $-5\le k\le5$ &nbsp; **B** $k\le-5,\ k\ge5$ &nbsp; **C** $0\le k\le5$ &nbsp;
+**D** $k\le0,\ k\ge5$ &nbsp; **E** $k=0$ or $k=5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the parameter classic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — quadratic in $x$ (parameter $y$) $\to$ quadratic in $y$ (parameter $k$) $\to$ discriminant $\le0$
+:::
+
+**Answer: C ($0\le k\le5$).**
+
+Clear the fraction: $y(x^{2}-4x-k)=x-k\Rightarrow yx^{2}-(4y+1)x+k(1-y)=0$. Discriminant in $x$:
+$$(4y+1)^{2}-4y\cdot k(1-y)=(16+4k)y^{2}+(8-4k)y+1\ \ge0\quad\text{for all }y.$$
+A quadratic in $y$ is $\ge0$ for all $y$ iff leading coefficient $>0$ and its discriminant $\le0$:
+$$16+4k>0\ (k>-4),\qquad(8-4k)^{2}-4(16+4k)=16k(k-5)\le0\Rightarrow0\le k\le5.$$
+So the range is all of $\mathbb{R}$ exactly for $0\le k\le5$.
+
+*(Endpoint note: at $k=0$ the fraction $\dfrac{x}{x^{2}-4x}=\dfrac1{x-4}$ reduces and loses the value $0$, so
+some sources take strict $0<k<5$; the intended MCQ answer is the discriminant range C.)*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Question 10
+
+::: {.question}
+For which values of $k$ does $\;f(x)=\dfrac{x-k}{x^{2}-2x-k}\;$ have **range equal to all real numbers**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(same machine, fresh numbers)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — repeat the double discriminant; keep the sign conditions straight
+:::
+
+**Answer: $0\le k\le3$.**
+
+$y(x^{2}-2x-k)=x-k\Rightarrow yx^{2}-(2y+1)x+k(1-y)=0$. Discriminant in $x$:
+$$(2y+1)^{2}-4y\cdot k(1-y)=(4+4k)y^{2}+(4-4k)y+1\ \ge0\ \text{for all }y.$$
+Need $4+4k>0$ ($k>-1$) and $(4-4k)^{2}-4(4+4k)=16k(k-3)\le0\Rightarrow0\le k\le3$. Together: $0\le k\le3$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 11
+
+::: {.question}
+For $\;f(x)=\dfrac{2x+1}{x^{2}+bx+2}$, the range is **all** real numbers. Find the set of possible values of
+$b$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(asymptotes are not enough)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — even with vertical asymptotes, "range $=\mathbb{R}$" still needs the double discriminant
+:::
+
+**Answer: $b\ge\dfrac92$.**
+
+$y(x^{2}+bx+2)=2x+1\Rightarrow yx^{2}+(by-2)x+(2y-1)=0$. A real $x$ exists for a given $y$ iff the
+discriminant in $x$ is $\ge0$:
+$$(by-2)^{2}-4y(2y-1)=(b^{2}-8)y^{2}+(4-4b)y+4\ \ge0.$$
+For the range to be **all** $y$, this quadratic in $y$ must be $\ge0$ for every $y$, so its leading
+coefficient is $>0$ **and** its own discriminant is $\le0$:
+$$b^{2}-8>0,\qquad(4-4b)^{2}-16(b^{2}-8)=16(9-2b)\le0.$$
+The second gives $b\ge\tfrac92$, which already forces $b^{2}-8>0$. So $b\ge\dfrac92$.
+
+*The surprise:* when $2\sqrt2<b<\tfrac92$ the denominator **does** have real roots, so the graph has vertical
+asymptotes — yet the discriminant above is still negative on an interval of $y$, so those heights are skipped.
+For example at $b=4$ the value $y=\tfrac34$ is never reached. **Asymptotes do not guarantee "all reals"; you
+still need the double discriminant.**
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## 5 · Two harder mock questions
+
+### Question 12
+
+::: {.question}
+Find the maximum value of
+$$f(x)=\frac{2\sin^2x+10\cos x-14}{\cos^2x+3\cos x-10}.$$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute $c=\cos x$, cancel, then it is a simple rational on $[-1,1]$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — turn a trig fraction into a rational in $c=\cos x\in[-1,1]$; a common factor cancels
+:::
+
+**Answer: maximum value $2$ (at $\cos x=-1$).**
+
+Write everything in $c=\cos x$ using $\sin^2x=1-c^2$. Numerator $=2(1-c^2)+10c-14=-2c^2+10c-12=-2(c-2)(c-3)$;
+denominator $=c^2+3c-10=(c+5)(c-2)$. *The factor $(c-2)$ cancels* (and $c=2$ is impossible anyway since
+$|c|\le1$):
+$$f=\frac{-2(c-3)}{c+5}=\frac{2(3-c)}{c+5},\qquad c\in[-1,1].$$
+*As $c$ increases, $3-c$ falls and $c+5$ rises, so $f$ is decreasing — the maximum is at the smallest $c=-1$:*
+$f=\dfrac{2\cdot4}{4}=2$ (and the least is $\dfrac{2\cdot2}{6}=\tfrac23$ at $c=1$).
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 13
+
+::: {.question}
+Find the complete set of values of $k$ for which the graph $y=\lvert 2x+k\rvert$ lies **strictly below** the
+curve $y=x^2+(k-1)x+5$ for **every** real $x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the modulus is two lines — the parabola must beat both)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — "curve above $\lvert\text{line}\rvert$ for all $x$" $=$ **two** "always positive" (discriminant $<0$) conditions; take the intersection
+:::
+
+**Answer: $1-2\sqrt3<k<1+2\sqrt3$.**
+
+*$\lvert 2x+k\rvert$ equals $2x+k$ or $-(2x+k)$, so the parabola must exceed **both** lines for all $x$ — two
+"always positive" conditions.*
+
+- Above $2x+k$: $x^2+(k-3)x+(5-k)>0$ for all $x\Rightarrow$ disc $<0$: $k^2-2k-11<0\Rightarrow
+  1-2\sqrt3<k<1+2\sqrt3$.
+- Above $-(2x+k)$: $x^2+(k+1)x+(5+k)>0$ for all $x\Rightarrow$ disc $<0$: $k^2-2k-19<0\Rightarrow
+  1-2\sqrt5<k<1+2\sqrt5$.
+
+*Both must hold, so take the **intersection** — the tighter interval (since $2\sqrt3<2\sqrt5$):*
+$$1-2\sqrt3<k<1+2\sqrt3.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-5,4,400); k=0
+plt.figure(figsize=(4.4,2.8))
+plt.plot(x,x**2+(k-1)*x+5,color='#2b6cb0',lw=1.6,label='parabola')
+plt.plot(x,np.abs(2*x+k),color='crimson',lw=1.4,label='y = |2x+k|')
+plt.legend(fontsize=8); plt.grid(alpha=0.25); plt.ylim(-1,14)
+plt.title('Need the parabola above BOTH arms of the V, for all x  (k=0 shown)',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+This one is easy to half-solve (the tempting wrong answer is the wider $1-2\sqrt5<k<1+2\sqrt5$). The trap is
+stopping after **one** case — you need the parabola above *both* arms of the V, so the answer is the
+**intersection**, i.e. the tighter interval.
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — the range / max-min method
+
+- **One idea:** to find the range of $y=f(x)$, make it a **quadratic in $x$** with $y$ as a parameter and
+  demand a real root: **discriminant $\ge0$**, then solve for $y$. The $y$-set **is** the range; its ends are
+  the max/min.
+- **A repeated root at a boundary** $=$ horizontal tangent $=$ turning point (that height is a max or min).
+- **Gap:** if the discriminant is $<0$ on an interval, those $y$ are **skipped** (values either side of a
+  vertical asymptote).
+- **Hole:** a shared factor cancels to a simpler curve with **one missing value**.
+- **Range $=\mathbb{R}$:** the discriminant (a quadratic in $y$) must be $\ge0$ for **all** $y$ $\Rightarrow$
+  leading coefficient $>0$ **and** its own discriminant $\le0$ — a **discriminant inside a discriminant**.
+- Same skill as counting solutions with a parameter — see the Graph Clinic (line-meets-curve) and the
+  Logarithm Clinic.
+:::
+
+:::

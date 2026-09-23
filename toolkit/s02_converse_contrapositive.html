@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Paper 2 Toolkit · S2 — Converse and Contrapositive – TMUA Preparation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">TMUA Preparation</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about/format.html"> 
+<span class="menu-text">The Test</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../papers/index.html"> 
+<span class="menu-text">Papers</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lessons/index.html"> 
+<span class="menu-text">Lessons</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../toolkit/index.html"> 
+<span class="menu-text">Paper 2 Toolkit</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../phrasebook.html"> 
+<span class="menu-text">Phrasebook</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formula-sheet" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Formula Sheet</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-formula-sheet">    
+        <li>
+    <a class="dropdown-item" href="../formula_sheet_blank.html">
+ <span class="dropdown-text">Blank — fill it in yourself</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../formula_sheet.html">
+ <span class="dropdown-text">Completed reference copy</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Paper 2 Toolkit · S2 — Converse and Contrapositive</h1>
+<p class="subtitle lead">Work each question — Easy → Medium → Hard</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="solutions">
+<p>Last session ended with a warning: from <span class="math inline">\(A \Rightarrow B\)</span> you may deduce one thing for free, and one thing not at all. This session is about which is which.</p>
+<p>There are <strong>three</strong> ways to rearrange an implication, and only <strong>one</strong> of them says the same thing as the original. Getting them mixed up is the single most expensive mistake in Paper 2, because every <em>“which of these is equivalent?”</em> question turns on it — and the exam writes them in English, not symbols, precisely so that they are easy to confuse.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Two words that are easy to swap — do not
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is the <strong>contrapositive</strong> that is always equivalent to the original. The <strong>converse</strong> almost never is.</p>
+<p>A one-second check: <strong>the contrapositive has negations in it; the converse does not.</strong></p>
+</div>
+</div>
+<p>Specification: <strong>Arg1</strong> — <em>the converse of a statement; the contrapositive of a statement; the relationship between the truth of a statement and its converse and its contrapositive.</em> Official source: <strong>Notes on Logic and Proof</strong>, pp.&nbsp;43–49.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>What the codes mean.</strong> Section 2 of the specification is numbered in three groups, and every session in this toolkit is tagged with the ones it covers: <strong>Arg1–4</strong> (<em>arguments</em> — statements, connectives, <em>if</em> and <em>only if</em>, converse and contrapositive, necessary and sufficient, quantifiers, negation), <strong>Prf1–5</strong> (<em>proof</em> — direct, cases, contradiction, counterexample), and <strong>Err1–2</strong> (<em>errors</em> — finding the flaw in a purported proof). They are a map, not something to memorise: when a Paper 2 question defeats you, the code tells you which session to go back to.</p>
+</div>
+</div>
+</div>
+<hr>
+<section id="part-1-easy" class="level1">
+<h1>Part 1 — Easy</h1>
+<p>Mechanical drills. Get the three rearrangements automatic before you try to judge them.</p>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<div class="topic">
+<p>Topic — forming the converse, inverse and contrapositive</p>
+</div>
+<div class="question">
+<p>Consider the statement</p>
+<blockquote class="blockquote">
+<p><strong>If <span class="math inline">\(n\)</span> is divisible by <span class="math inline">\(6\)</span>, then <span class="math inline">\(n\)</span> is even.</strong></p>
+</blockquote>
+<p>&nbsp;&nbsp;(a) Write down its <strong>converse</strong>. <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(b) Write down its <strong>contrapositive</strong>. <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(c) Write down its <strong>inverse</strong> (negate both halves, keeping the arrow’s direction). <strong>[1]</strong></p>
+<p><em>Write your answers as full English sentences — the TMUA never asks for symbols such as <span class="math inline">\(\lnot\)</span> or <span class="math inline">\(\Rightarrow\)</span>, and every option on the real paper is written out in words.</em></p>
+</div>
+<p>Each of the three is made by one small operation, so <span class="hl">do them by the rule, not by the meaning</span>: the converse <strong>reverses</strong> the arrow, the inverse <strong>negates</strong> both halves, and the contrapositive does <strong>both</strong>. Write <span class="math inline">\(A\)</span> = <em>“<span class="math inline">\(n\)</span> is divisible by <span class="math inline">\(6\)</span>”</em> and <span class="math inline">\(B\)</span> = <em>“<span class="math inline">\(n\)</span> is even”</em> on your paper first — with names in front of you it is almost impossible to go wrong.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A\)</span> = “<span class="math inline">\(n\)</span> is divisible by <span class="math inline">\(6\)</span>” and <span class="math inline">\(B\)</span> = “<span class="math inline">\(n\)</span> is even”. The original is <span class="math inline">\(A \Rightarrow B\)</span>.</p>
+<p><strong>(a) Converse</strong> — reverse only, <span class="math inline">\(B \Rightarrow A\)</span>:</p>
+<blockquote class="blockquote">
+<p>If <span class="math inline">\(n\)</span> is even, then <span class="math inline">\(n\)</span> is divisible by <span class="math inline">\(6\)</span>.</p>
+</blockquote>
+<p><strong>(b) Contrapositive</strong> — negate <strong>and</strong> reverse, <span class="math inline">\(\text{not }B \Rightarrow \text{not }A\)</span>:</p>
+<blockquote class="blockquote">
+<p>If <span class="math inline">\(n\)</span> is <strong>not</strong> even, then <span class="math inline">\(n\)</span> is <strong>not</strong> divisible by <span class="math inline">\(6\)</span>.</p>
+<p><em>(More naturally: if <span class="math inline">\(n\)</span> is odd, then <span class="math inline">\(n\)</span> is not divisible by <span class="math inline">\(6\)</span>.)</em></p>
+</blockquote>
+<p><strong>(c) Inverse</strong> — negate only, <span class="math inline">\(\text{not }A \Rightarrow \text{not }B\)</span>:</p>
+<blockquote class="blockquote">
+<p>If <span class="math inline">\(n\)</span> is <strong>not</strong> divisible by <span class="math inline">\(6\)</span>, then <span class="math inline">\(n\)</span> is <strong>not</strong> even.</p>
+</blockquote>
+<p><span class="math inline">\(\blacksquare\)</span></p>
+<p>Now look at what you have. The original is <strong>true</strong>. So is the contrapositive (b) — as it must be. But the converse (a) is <strong>false</strong> (<span class="math inline">\(n=4\)</span> is even and not divisible by <span class="math inline">\(6\)</span>), and so is the inverse (c) — the same <span class="math inline">\(n=4\)</span> breaks it.</p>
+<p><strong>Common slips.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✗</th>
+<th>✓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Giving the inverse when asked for the contrapositive</td>
+<td>The contrapositive needs <strong>both</strong> operations. Negating alone is the <em>inverse</em>, and it is not equivalent.</td>
+</tr>
+<tr class="even">
+<td>“If <span class="math inline">\(n\)</span> is not even” left as-is when a cleaner form exists</td>
+<td>Not wrong, but say <strong>“if <span class="math inline">\(n\)</span> is odd”</strong> — the exam’s options are usually phrased naturally.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="workspace" style="min-height:7cm">
+<p>Working</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Concepts — the three rearrangements
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>From <span class="math inline">\(A \Rightarrow B\)</span> there are exactly three things you can do:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Operation</th>
+<th>Form</th>
+<th>Equivalent to the original?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Converse</strong></td>
+<td>reverse</td>
+<td><span class="math inline">\(B \Rightarrow A\)</span></td>
+<td><strong>No</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Inverse</strong></td>
+<td>negate</td>
+<td>not <span class="math inline">\(A \Rightarrow\)</span> not <span class="math inline">\(B\)</span></td>
+<td><strong>No</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Contrapositive</strong></td>
+<td><strong>negate and reverse</strong></td>
+<td>not <span class="math inline">\(B \Rightarrow\)</span> not <span class="math inline">\(A\)</span></td>
+<td><strong>Yes, always</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>How to keep them straight.</strong></p>
+<ul>
+<li>The <strong>contrapositive</strong> is the only one with <strong>two</strong> operations — and it is the only one that is safe.</li>
+<li>The <strong>converse and the inverse are contrapositives of each other</strong>, so they are equivalent <em>to each other</em> — and both are unrelated to the original. (That is why they are true or false together: in Question 1, both (a) and (c) came out false.)</li>
+</ul>
+<p><strong>A picture.</strong> Read <span class="math inline">\(A \Rightarrow B\)</span> as “circle <span class="math inline">\(A\)</span> sits inside circle <span class="math inline">\(B\)</span>”.</p>
+<ul>
+<li><strong>Contrapositive:</strong> <em>outside <span class="math inline">\(B\)</span> ⟹ outside <span class="math inline">\(A\)</span></em>. Look at the picture — if all of <span class="math inline">\(A\)</span> is inside <span class="math inline">\(B\)</span>, then anything outside <span class="math inline">\(B\)</span> certainly missed <span class="math inline">\(A\)</span>. <strong>Same picture, read from outside in.</strong> That is <em>why</em> it is always equivalent.</li>
+<li><strong>Converse:</strong> <em>inside <span class="math inline">\(B\)</span> ⟹ inside <span class="math inline">\(A\)</span></em>. That would need the two circles to <strong>coincide</strong>, which is a genuinely different claim.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="cbd8c2cc" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s02_converse_contrapositive_files/figure-html/cell-2-output-1.png" width="634" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<div class="topic">
+<p>Topic — why the contrapositive is equivalent, and the converse is not</p>
+</div>
+<div class="question">
+<p>Assume this statement is <strong>true</strong>:</p>
+<blockquote class="blockquote">
+<p><em>If it rains, then the ground gets wet.</em></p>
+</blockquote>
+<p>For each of the following, state whether it <strong>must</strong> be true, <strong>must</strong> be false, or <strong>cannot be determined</strong>.</p>
+<p>&nbsp;&nbsp;(a) If the ground is not wet, then it did not rain. <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(b) If the ground is wet, then it rained. <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(c) If it did not rain, then the ground is not wet. <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(d) It rained and the ground is not wet. <strong>[1]</strong></p>
+</div>
+<p>Identify each one before you judge it: (a), (b), (c) are the contrapositive, the converse and the inverse in some order. Only one of them is forced to be true. For (b) and (c), ask the honest question — <span class="hl">could the ground be wet for some other reason?</span> A burst pipe, a hose, a neighbour washing a car. Part (d) is different in kind: it is not a rearrangement at all, but a claim that the original statement is <em>broken</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A\)</span> = “it rains”, <span class="math inline">\(B\)</span> = “the ground gets wet”. Given: <span class="math inline">\(A \Rightarrow B\)</span> is true.</p>
+<p><strong>(a) Must be true.</strong> This is the <strong>contrapositive</strong> (not <span class="math inline">\(B \Rightarrow\)</span> not <span class="math inline">\(A\)</span>). Dry ground rules out rain, because rain would have guaranteed wet ground. ✓</p>
+<p><strong>(b) Cannot be determined.</strong> This is the <strong>converse</strong> (<span class="math inline">\(B \Rightarrow A\)</span>). Wet ground is consistent with a burst pipe. The original statement simply says nothing about it — <span class="hl">it might be true in some other world, but it does not <em>follow</em></span>.</p>
+<p><strong>(c) Cannot be determined.</strong> This is the <strong>inverse</strong> (not <span class="math inline">\(A \Rightarrow\)</span> not <span class="math inline">\(B\)</span>). Same reason: no rain does not mean dry ground, because something else could wet it.</p>
+<p><strong>(d) Must be false.</strong> This says <span class="math inline">\(A\)</span> is true and <span class="math inline">\(B\)</span> is false — which is exactly the one combination <span class="math inline">\(A \Rightarrow B\)</span> forbids. If it could happen, the original statement would be false.</p>
+<p><span class="math inline">\(\blacksquare\)</span></p>
+<p>Notice that (b) and (c) received the same verdict. That is not a coincidence: <strong>the converse and the inverse are contrapositives of each other</strong>, so they always stand or fall together.</p>
+<p><strong>Common slips.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✗</th>
+<th>✓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(b) or (c) marked “must be false”</td>
+<td>They are not <em>false</em> — they are <strong>undetermined</strong>. Nothing in the statement settles them either way.</td>
+</tr>
+<tr class="even">
+<td>(d) treated as a rearrangement</td>
+<td>It is not an implication at all. It is the single case that would make the original <strong>false</strong>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="workspace" style="min-height:7cm">
+<p>Working</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Concepts — the one forbidden combination
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(A \Rightarrow B\)</span> makes exactly <strong>one</strong> promise: <em>you will never find <span class="math inline">\(A\)</span> true while <span class="math inline">\(B\)</span> is false.</em> Everything else is permitted.</p>
+<p><strong>How to read the table.</strong> Each row is one possible situation — a combination of “is <span class="math inline">\(A\)</span> true?” and “is <span class="math inline">\(B\)</span> true?”. The last column asks: <em>would that situation make the promise a lie?</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Row</th>
+<th><span class="math inline">\(A\)</span></th>
+<th><span class="math inline">\(B\)</span></th>
+<th>Situation, in the rain example</th>
+<th>Promise broken?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>true</td>
+<td>true</td>
+<td>it rained, ground wet</td>
+<td>no — exactly as promised</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>true</td>
+<td><strong>false</strong></td>
+<td>it rained, ground <strong>dry</strong></td>
+<td><strong>YES</strong> — the only way to break it</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>false</td>
+<td>true</td>
+<td>no rain, ground wet</td>
+<td>no — a burst pipe; the promise said nothing about this</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>false</td>
+<td>false</td>
+<td>no rain, ground dry</td>
+<td>no — again, nothing was promised</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rows 3 and 4 are why the converse and inverse cannot be deduced.</strong> When <span class="math inline">\(A\)</span> is false, the statement makes <strong>no claim at all</strong> about <span class="math inline">\(B\)</span> — so <span class="math inline">\(B\)</span> is free to be either. Row 3 is precisely the counterexample that kills the converse.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Why this makes the contrapositive equivalent — slowly.</strong></p>
+<p>Two statements are the same statement when they are <strong>broken by exactly the same situations</strong>. So ask, for the contrapositive “not <span class="math inline">\(B \Rightarrow\)</span> not <span class="math inline">\(A\)</span>”, which row breaks <em>it</em>.</p>
+<p>An implication is broken when its <strong>front is true and its back is false</strong>. For “not <span class="math inline">\(B \Rightarrow\)</span> not <span class="math inline">\(A\)</span>”, that means:</p>
+<ul>
+<li>front true: &nbsp; “not <span class="math inline">\(B\)</span>” is true &nbsp;<span class="math inline">\(\longrightarrow\)</span>&nbsp; <strong><span class="math inline">\(B\)</span> is false</strong></li>
+<li>back false: &nbsp; “not <span class="math inline">\(A\)</span>” is false &nbsp;<span class="math inline">\(\longrightarrow\)</span>&nbsp; <strong><span class="math inline">\(A\)</span> is true</strong></li>
+</ul>
+<p>So the contrapositive is broken when <span class="math inline">\(A\)</span> is true and <span class="math inline">\(B\)</span> is false — <strong>row 2, the same single row</strong> that breaks the original. Same breaking condition, same statement. ∎</p>
+<p>Now try the same test on the <strong>converse</strong> (<span class="math inline">\(B \Rightarrow A\)</span>): it is broken when <span class="math inline">\(B\)</span> is true and <span class="math inline">\(A\)</span> is false — that is <strong>row 3</strong>, a <em>different</em> row. Different breaking condition, different statement. That is the whole distinction, in one calculation.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Proving something is false.</strong> To show <span class="math inline">\(A \Rightarrow B\)</span> is <em>false</em>, you must produce a case where <span class="math inline">\(A\)</span> holds and <span class="math inline">\(B\)</span> fails — a <strong>counterexample</strong>. Part (d) is what a counterexample looks like: not “I disagree”, but a specific situation the statement forbids.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<div class="topic">
+<p>Topic — judging a statement, its converse and its contrapositive</p>
+</div>
+<div class="question">
+<p>Let <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> be integers. Consider</p>
+<blockquote class="blockquote">
+<p><strong>If <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are both odd, then <span class="math inline">\(ab\)</span> is odd.</strong></p>
+</blockquote>
+<p>&nbsp;&nbsp;(a) Is the statement true? <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(b) Write its converse, and decide whether the converse is true. <strong>[2]</strong></p>
+<p>&nbsp;&nbsp;(c) Write its contrapositive. Without doing any new work, say whether it is true and explain how you know. <strong>[2]</strong></p>
+</div>
+<p>Part (c) is the point of the question, and it should cost you <strong>no effort at all</strong>: once you have settled (a), the contrapositive’s truth is <span class="hl">already decided, because a statement and its contrapositive are the same statement</span>. If you find yourself proving (c) from scratch, you have missed the shortcut this whole session is about.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) True.</strong> If <span class="math inline">\(a = 2m+1\)</span> and <span class="math inline">\(b = 2n+1\)</span> then</p>
+<p><span class="math display">\[ab = (2m+1)(2n+1) = 4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1 ,\]</span></p>
+<p>which is odd. ✓</p>
+<p><strong>(b) Converse:</strong> <em>If <span class="math inline">\(ab\)</span> is odd, then <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are both odd.</em></p>
+<p>This is also <strong>true</strong>. <em>(If either factor were even, say <span class="math inline">\(a = 2k\)</span>, then <span class="math inline">\(ab = 2kb\)</span> would be even. So an odd product forces both factors odd.)</em></p>
+<p><strong>(c) Contrapositive:</strong> <em>If <span class="math inline">\(ab\)</span> is <strong>not</strong> odd, then <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are <strong>not</strong> both odd</em> — more naturally, <em>if <span class="math inline">\(ab\)</span> is even, then at least one of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> is even.</em></p>
+<p>It is <strong>true</strong>, and <span class="hl">we know this without any work: it is the contrapositive of a true statement, and a statement and its contrapositive are always equivalent</span>. Since (a) is true, so is (c). ✓</p>
+<p><span class="math inline">\(\blacksquare\)</span></p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Watch the negation in (c).</strong> The negation of “<em><span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are <strong>both</strong> odd</em>” is <strong>not</strong> “<em>both are even</em>” — it is “<em>at least one is even</em>”. Negating an “and” flips it to an “or”: that is Session 4, but the trap is here already.</p>
+</div>
+</div>
+</div>
+<p><strong>Common slips.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✗</th>
+<th>✓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Proving (c) from scratch</td>
+<td>Unnecessary. (a) true <span class="math inline">\(\Rightarrow\)</span> (c) true, automatically. That is the whole value of the contrapositive.</td>
+</tr>
+<tr class="even">
+<td>(c) written as “if <span class="math inline">\(ab\)</span> is even, then <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are both even”</td>
+<td>Over-negated. “not (both odd)” means <strong>at least one</strong> is even, not <em>both</em>.</td>
+</tr>
+<tr class="odd">
+<td>Concluding from (b) that converses are usually true</td>
+<td>Here both directions happen to hold — because “odd product” and “both factors odd” really are the <em>same condition</em>, so the pair forms an “if and only if”. That is <strong>unusual</strong>: compare Question 1, where the converse was false.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="workspace" style="min-height:8cm">
+<p>Working</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Concepts — what you get for free, and what you must earn
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>You have proved</th>
+<th>You also get, free</th>
+<th>You still owe</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A \Rightarrow B\)</span></td>
+<td>its contrapositive, not <span class="math inline">\(B \Rightarrow\)</span> not <span class="math inline">\(A\)</span></td>
+<td>the converse <span class="math inline">\(B \Rightarrow A\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A \Leftrightarrow B\)</span></td>
+<td>everything — all four forms</td>
+<td>nothing</td>
+</tr>
+</tbody>
+</table>
+<p>So when a question gives you a true statement and asks about a rearrangement:</p>
+<ol type="1">
+<li>Work out <strong>which</strong> rearrangement it is (converse / inverse / contrapositive).</li>
+<li>If it is the <strong>contrapositive</strong> — done, it is true, no work needed.</li>
+<li>If it is the <strong>converse or inverse</strong> — you must check it <strong>separately</strong>. It may be true, it may be false; the original tells you nothing.</li>
+</ol>
+<p><strong>When the converse also turns out true</strong>, as in part (b), the two statements are equivalent and you may write them as one “if and only if”. Many definitions are exactly this: <em>“<span class="math inline">\(ab\)</span> is odd <strong>if and only if</strong> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are both odd.”</em></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-2-medium" class="level1">
+<h1>Part 2 — Medium</h1>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<div class="topic">
+<p>Topic — proof by contrapositive</p>
+</div>
+<div class="question">
+<p>Let <span class="math inline">\(n\)</span> be an integer. Prove that</p>
+<blockquote class="blockquote">
+<p><strong>if <span class="math inline">\(n^2\)</span> is even, then <span class="math inline">\(n\)</span> is even.</strong></p>
+</blockquote>
+<p>&nbsp;&nbsp;(a) Write down the contrapositive of the statement. <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(b) Prove the contrapositive. <strong>[3]</strong></p>
+<p>&nbsp;&nbsp;(c) Explain why this proves the original statement. <strong>[1]</strong></p>
+</div>
+<p>Try proving the original directly and you will get stuck fast: “<span class="math inline">\(n^2\)</span> is even” gives you <span class="math inline">\(n^2 = 2k\)</span>, and extracting information about <span class="math inline">\(n\)</span> from that requires facts you have not been given. The contrapositive, though, starts from “<em><span class="math inline">\(n\)</span> is odd</em>” — and <span class="hl">an odd number has a formula you can actually compute with</span>, namely <span class="math inline">\(n = 2m+1\)</span>. That asymmetry is the whole reason this technique exists.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) Contrapositive:</strong> <em>If <span class="math inline">\(n\)</span> is <strong>not</strong> even, then <span class="math inline">\(n^2\)</span> is <strong>not</strong> even</em> — that is,</p>
+<blockquote class="blockquote">
+<p><strong>if <span class="math inline">\(n\)</span> is odd, then <span class="math inline">\(n^2\)</span> is odd.</strong></p>
+</blockquote>
+<p><strong>(b) Proof.</strong> Suppose <span class="math inline">\(n\)</span> is odd. Then <span class="math inline">\(n = 2m+1\)</span> for some integer <span class="math inline">\(m\)</span>, so</p>
+<p><span class="math display">\[n^2 = (2m+1)^2 = 4m^2 + 4m + 1 = 2\left(2m^2 + 2m\right) + 1 .\]</span></p>
+<p>Since <span class="math inline">\(2m^2 + 2m\)</span> is an integer, <span class="math inline">\(n^2\)</span> is <strong>odd</strong>. <span class="math inline">\(\blacksquare\)</span></p>
+<p><strong>(c)</strong> A statement and its contrapositive are <strong>logically equivalent</strong> — they are true in exactly the same circumstances. So having proved the contrapositive, <span class="hl">the original statement is proved as well; there is nothing further to do</span>.</p>
+<p><strong>Common slips.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✗</th>
+<th>✓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Proving the <strong>converse</strong> (“if <span class="math inline">\(n\)</span> is even then <span class="math inline">\(n^2\)</span> is even”) instead</td>
+<td>That is a different statement. True here, but it does <strong>not</strong> prove the original.</td>
+</tr>
+<tr class="even">
+<td>Writing <span class="math inline">\(n = 2m+1\)</span> and then forgetting to say <em>“for some integer <span class="math inline">\(m\)</span>”</em></td>
+<td>The quantifier matters — it is what makes <span class="math inline">\(2m^2+2m\)</span> an integer at the end.</td>
+</tr>
+<tr class="odd">
+<td>Stopping at <span class="math inline">\(4m^2+4m+1\)</span></td>
+<td>Not finished. You must display it in the form <span class="math inline">\(2(\text{integer})+1\)</span> to have shown it is odd.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="workspace" style="min-height:9cm">
+<p>Working</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Concepts — when to reach for the contrapositive
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>The method.</strong></p>
+<ol type="1">
+<li>You want to prove <span class="math inline">\(A \Rightarrow B\)</span> and the direct route is awkward.</li>
+<li>Write the contrapositive: <strong>not <span class="math inline">\(B \Rightarrow\)</span> not <span class="math inline">\(A\)</span></strong>.</li>
+<li>Prove <em>that</em> instead.</li>
+<li>Say the sentence: <em>“since a statement and its contrapositive are equivalent, the original follows.”</em></li>
+</ol>
+<p><strong>The signal to use it.</strong> Reach for the contrapositive when the <strong>negations are easier to work with than the originals</strong>. Typical cases:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Original hypothesis</th>
+<th>Negation</th>
+<th>Which is easier?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(n^2\)</span> is even</td>
+<td><span class="math inline">\(n\)</span> is odd</td>
+<td>the <strong>negation</strong> — it gives you <span class="math inline">\(n = 2m+1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x\)</span> is irrational</td>
+<td><span class="math inline">\(x\)</span> is rational</td>
+<td>the <strong>negation</strong> — it gives you <span class="math inline">\(x = p/q\)</span></td>
+</tr>
+<tr class="odd">
+<td>“at least one of …”</td>
+<td>“none of …”</td>
+<td>the <strong>negation</strong> — one case instead of many</td>
+</tr>
+</tbody>
+</table>
+<p>Anything of the form <em>“if [something about a square/product] then [something about the number itself]”</em> is a strong candidate, because squaring is easy and un-squaring is not.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Not the same as proof by contradiction.</strong> In a proof by contrapositive you assume <strong>not <span class="math inline">\(B\)</span></strong> and derive <strong>not <span class="math inline">\(A\)</span></strong> — a clean, direct argument. In a proof by contradiction you assume <strong><span class="math inline">\(A\)</span> and not <span class="math inline">\(B\)</span></strong> together and derive an absurdity. They feel similar and are often confused; contradiction is Session 5.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<div class="topic">
+<p>Topic — contrapositives of statements written with “only if”</p>
+</div>
+<div class="question">
+<p><span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are statements. For each sentence below, write down its <strong>contrapositive</strong>, in the same style of English as the original.</p>
+<p>&nbsp;&nbsp;(a) <span class="math inline">\(P\)</span> only if <span class="math inline">\(Q\)</span>. <strong>[2]</strong></p>
+<p>&nbsp;&nbsp;(b) <span class="math inline">\(P\)</span> if <span class="math inline">\(Q\)</span>. <strong>[2]</strong></p>
+<p>&nbsp;&nbsp;(c) Hence explain why the contrapositive of <em>“<span class="math inline">\(x&gt;3\)</span> only if <span class="math inline">\(x^2&gt;9\)</span>”</em> is <em>“<span class="math inline">\(x^2 \le 9\)</span> only if <span class="math inline">\(x \le 3\)</span>”</em>. <strong>[2]</strong></p>
+</div>
+<p>Do not try to negate an “only if” sentence directly — <span class="hl">convert it to “if … then …” first</span>, take the contrapositive there, and only then translate back if the question wants that style. Trying to shortcut this is how people produce the inverse by accident. Recall from S1: <em>only if</em> keeps the order, a bare <em>if</em> swaps it.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a)</strong> “<span class="math inline">\(P\)</span> only if <span class="math inline">\(Q\)</span>” means <span class="math inline">\(P \Rightarrow Q\)</span>.</p>
+<p>Its contrapositive is <span class="math inline">\(\text{not } Q \Rightarrow \text{not } P\)</span>, i.e.&nbsp;<em>if not <span class="math inline">\(Q\)</span>, then not <span class="math inline">\(P\)</span></em>. Written back in “only if” style:</p>
+<blockquote class="blockquote">
+<p><strong>not <span class="math inline">\(Q\)</span> only if not <span class="math inline">\(P\)</span>.</strong></p>
+</blockquote>
+<p><em>(Both are correct answers; the official Notes give exactly this pairing.)</em></p>
+<p><strong>(b)</strong> “<span class="math inline">\(P\)</span> if <span class="math inline">\(Q\)</span>” means <span class="math inline">\(Q \Rightarrow P\)</span> — the arrow starts at <span class="math inline">\(Q\)</span>.</p>
+<p>Its contrapositive is <span class="math inline">\(\text{not } P \Rightarrow \text{not } Q\)</span>, i.e.</p>
+<blockquote class="blockquote">
+<p><strong>not <span class="math inline">\(P\)</span> if not <span class="math inline">\(Q\)</span></strong> &nbsp; <em>(equivalently: if not <span class="math inline">\(P\)</span>, then not <span class="math inline">\(Q\)</span>).</em></p>
+</blockquote>
+<p><strong>(c)</strong> Take <span class="math inline">\(P\)</span> = “<span class="math inline">\(x&gt;3\)</span>” and <span class="math inline">\(Q\)</span> = “<span class="math inline">\(x^2&gt;9\)</span>”. The given sentence is “<span class="math inline">\(P\)</span> only if <span class="math inline">\(Q\)</span>”, so by part (a) its contrapositive is “not <span class="math inline">\(Q\)</span> only if not <span class="math inline">\(P\)</span>”. Now negate each half:</p>
+<ul>
+<li>not <span class="math inline">\(Q\)</span> is “<span class="math inline">\(x^2 \le 9\)</span>” &nbsp; <em>(the negation of <span class="math inline">\(&gt;\)</span> is <span class="math inline">\(\le\)</span>, not <span class="math inline">\(&lt;\)</span>)</em></li>
+<li>not <span class="math inline">\(P\)</span> is “<span class="math inline">\(x \le 3\)</span>”</li>
+</ul>
+<p>giving exactly <strong>“<span class="math inline">\(x^2 \le 9\)</span> only if <span class="math inline">\(x \le 3\)</span>”</strong>. ✓</p>
+<p><span class="math inline">\(\blacksquare\)</span></p>
+<p><em>Sanity check that it says something true: if <span class="math inline">\(x^2 \le 9\)</span> then <span class="math inline">\(-3 \le x \le 3\)</span>, so certainly <span class="math inline">\(x \le 3\)</span>. ✓</em></p>
+<p><strong>Common slips.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✗</th>
+<th>✓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Negating <span class="math inline">\(x &gt; 3\)</span> to <span class="math inline">\(x &lt; 3\)</span></td>
+<td>The negation of “greater than” is <strong>“less than or equal to”</strong>: <span class="math inline">\(x \le 3\)</span>. Forgetting the equality case is a standard TMUA trap.</td>
+</tr>
+<tr class="even">
+<td>Taking the contrapositive of (b) as “not <span class="math inline">\(Q\)</span> only if not <span class="math inline">\(P\)</span>”</td>
+<td>(b)’s arrow runs <span class="math inline">\(Q \Rightarrow P\)</span>, so its contrapositive negates in the <strong>other</strong> order: not <span class="math inline">\(P \Rightarrow\)</span> not <span class="math inline">\(Q\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="workspace" style="min-height:8cm">
+<p>Working</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Concepts — the routine, and negating comparisons
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>The routine for any awkward wording:</strong></p>
+<p><span class="math display">\[\text{English sentence} \;\longrightarrow\; \text{“if … then …”} \;\longrightarrow\; \text{contrapositive} \;\longrightarrow\; \text{(translate back if asked)}\]</span></p>
+<p>Never operate on the original English directly.</p>
+<p><strong>The official Notes’ table</strong>, worth recognising:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Statement</th>
+<th>Contrapositive</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>if <span class="math inline">\(A\)</span> then <span class="math inline">\(B\)</span></td>
+<td>if not <span class="math inline">\(B\)</span> then not <span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A\)</span> only if <span class="math inline">\(B\)</span></td>
+<td>not <span class="math inline">\(B\)</span> only if not <span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Negating comparisons</strong> — get these exactly right, because half-marks live here:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Statement</th>
+<th>Its negation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x &gt; 3\)</span></td>
+<td><span class="math inline">\(x \le 3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x \ge 3\)</span></td>
+<td><span class="math inline">\(x &lt; 3\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x = 3\)</span></td>
+<td><span class="math inline">\(x \ne 3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1 &lt; x &lt; 4\)</span></td>
+<td><span class="math inline">\(x \le 1\)</span> <strong>or</strong> <span class="math inline">\(x \ge 4\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The pattern: <strong>negating a strict inequality gives a non-strict one, and vice versa</strong> — the boundary case always changes sides.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-3-hard" class="level1">
+<h1>Part 3 — Hard</h1>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<div class="topic">
+<p>Topic — sorting several rephrasings at exam speed</p>
+</div>
+<div class="question">
+<p><span class="math inline">\(m\)</span> is a positive integer. Consider the theorem</p>
+<p><span class="math display">\[\text{If } m^2 \text{ is divisible by } 4, \text{ then } m \text{ is even.} \tag{$*$}\]</span></p>
+<p>Which of the following, <strong>taken individually</strong>, is/are equivalent to <span class="math inline">\((*)\)</span>?</p>
+<p>&nbsp;&nbsp;<strong>I</strong> &nbsp; If <span class="math inline">\(m\)</span> is odd, then <span class="math inline">\(m^2\)</span> is not divisible by <span class="math inline">\(4\)</span>.</p>
+<p>&nbsp;&nbsp;<strong>II</strong> &nbsp; If <span class="math inline">\(m\)</span> is even, then <span class="math inline">\(m^2\)</span> is divisible by <span class="math inline">\(4\)</span>.</p>
+<p>&nbsp;&nbsp;<strong>III</strong> &nbsp; <span class="math inline">\(m^2\)</span> is divisible by <span class="math inline">\(4\)</span> only if <span class="math inline">\(m\)</span> is even.</p>
+<p>&nbsp;&nbsp;<strong>A</strong> I only &nbsp;&nbsp; <strong>B</strong> II only &nbsp;&nbsp; <strong>C</strong> III only &nbsp;&nbsp; <strong>D</strong> I and II &nbsp;&nbsp; <strong>E</strong> I and III &nbsp;&nbsp; <strong>F</strong> II and III &nbsp;&nbsp; <strong>G</strong> I, II and III &nbsp;&nbsp; <strong>H</strong> None</p>
+</div>
+<p>Name the halves and write <span class="math inline">\((*)\)</span> as an arrow before you read the options — ten seconds spent there saves a minute of confusion. Then classify each of I, II, III as <em>original / converse / inverse / contrapositive</em>. Be warned that <span class="hl">all three statements happen to be <strong>true</strong>, so truth will not discriminate between them</span>; the question is which ones say <em>the same thing</em> as <span class="math inline">\((*)\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(P\)</span> = “<span class="math inline">\(m^2\)</span> is divisible by <span class="math inline">\(4\)</span>” and <span class="math inline">\(Q\)</span> = “<span class="math inline">\(m\)</span> is even”. Then <span class="math inline">\((*) = P \Rightarrow Q\)</span>.</p>
+<p><strong>I.</strong> “If <span class="math inline">\(m\)</span> is odd, then <span class="math inline">\(m^2\)</span> is not divisible by <span class="math inline">\(4\)</span>” is <span class="math inline">\(\text{not } Q \Rightarrow \text{not } P\)</span> — negated <strong>and</strong> reversed. That is the <strong>contrapositive</strong>. <strong>Equivalent.</strong> ✓</p>
+<p><strong>II.</strong> “If <span class="math inline">\(m\)</span> is even, then <span class="math inline">\(m^2\)</span> is divisible by <span class="math inline">\(4\)</span>” is <span class="math inline">\(Q \Rightarrow P\)</span> — reversed only. That is the <strong>converse</strong>. <strong>Not equivalent</strong> — even though, as it happens, it is a true statement. ✗</p>
+<p><strong>III.</strong> “<span class="math inline">\(P\)</span> <strong>only if</strong> <span class="math inline">\(Q\)</span>” is <span class="math inline">\(P \Rightarrow Q\)</span> — which is <span class="math inline">\((*)\)</span> itself, word for word. <strong>Equivalent.</strong> ✓</p>
+<p><strong>Answer: E (I and III).</strong> <span class="math inline">\(\blacksquare\)</span></p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Why II is the trap.</strong> It is true, it is <em>about</em> the same two facts, and it feels like a restatement. But <span class="math inline">\(Q \Rightarrow P\)</span> is the converse, and <span class="hl">a converse is a different claim even when it is a true one</span>. The question asks <em>“equivalent to”</em>, not <em>“also true”</em>.</p>
+</div>
+</div>
+</div>
+<p><strong>Common slips.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✗</th>
+<th>✓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Including II because it is true</td>
+<td>Truth is not equivalence. Compare the <strong>arrows</strong>, not the truth values.</td>
+</tr>
+<tr class="even">
+<td>Rejecting I because it “looks different”</td>
+<td>It is negated and reversed — the definition of the contrapositive, always equivalent.</td>
+</tr>
+<tr class="odd">
+<td>Missing III because “only if” was unfamiliar</td>
+<td>“<span class="math inline">\(P\)</span> only if <span class="math inline">\(Q\)</span>” is just <span class="math inline">\(P \Rightarrow Q\)</span> — the original, restyled.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="workspace" style="min-height:9cm">
+<p>Working</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Concepts — a 30-second exam routine
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Name the halves.</strong> Write “<span class="math inline">\(P\)</span> = …, <span class="math inline">\(Q\)</span> = …” on your paper.</li>
+<li><strong>Write the theorem as one arrow</strong>, <span class="math inline">\(P \Rightarrow Q\)</span>.</li>
+<li><strong>Convert each option to an arrow</strong>, using the S1 rules for <em>if</em> / <em>only if</em>.</li>
+<li><strong>Match by shape</strong>, not by meaning:</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>What you see</th>
+<th>It is</th>
+<th>Equivalent?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(P \Rightarrow Q\)</span></td>
+<td>the original (perhaps restyled)</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>not <span class="math inline">\(Q \Rightarrow\)</span> not <span class="math inline">\(P\)</span></td>
+<td>contrapositive</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Q \Rightarrow P\)</span></td>
+<td>converse</td>
+<td>✗</td>
+</tr>
+<tr class="even">
+<td>not <span class="math inline">\(P \Rightarrow\)</span> not <span class="math inline">\(Q\)</span></td>
+<td>inverse</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Never</strong> let the truth of a statement enter this decision. Exam writers deliberately choose theorems where the converse is <em>also</em> true (as here), precisely so that candidates who reason “it’s true, so it must be equivalent” get it wrong.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<div class="topic">
+<p>Topic — spotting a converse used as though it were a contrapositive</p>
+</div>
+<div class="question">
+<p>A student is asked to prove:</p>
+<blockquote class="blockquote">
+<p><strong>If <span class="math inline">\(n^3\)</span> is odd, then <span class="math inline">\(n\)</span> is odd.</strong></p>
+</blockquote>
+<p>The student writes:</p>
+<blockquote class="blockquote">
+<p><em>“Suppose <span class="math inline">\(n\)</span> is odd. Then <span class="math inline">\(n = 2k+1\)</span>, so<em> <span class="math display">\[n^3 = (2k+1)^3 = 8k^3 + 12k^2 + 6k + 1 = 2\left(4k^3 + 6k^2 + 3k\right) + 1 ,\]</span> </em>which is odd. Hence if <span class="math inline">\(n^3\)</span> is odd, then <span class="math inline">\(n\)</span> is odd.”</em></p>
+</blockquote>
+<p>&nbsp;&nbsp;(a) Is the student’s algebra correct? <strong>[1]</strong></p>
+<p>&nbsp;&nbsp;(b) Is the student’s <strong>proof</strong> correct? Explain precisely what has been proved and what was required. <strong>[3]</strong></p>
+<p>&nbsp;&nbsp;(c) Write a correct proof of the original statement. <strong>[2]</strong></p>
+</div>
+<p>Read the student’s first line and the last line, and ask what was <strong>assumed</strong> versus what was <strong>required</strong>. <span class="hl">The algebra can be flawless while the logic is wrong</span> — that combination is exactly what Paper 2’s “find the error” questions are built from, and it is far harder to spot than an arithmetic slip.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) Yes, the algebra is correct.</strong> <span class="math inline">\((2k+1)^3 = 8k^3 + 12k^2 + 6k + 1\)</span>, and that equals <span class="math inline">\(2(4k^3+6k^2+3k) + 1\)</span>, which is odd. Nothing is wrong with any line of it.</p>
+<p><strong>(b) No, the proof is not correct.</strong> Look at what was assumed and what was concluded:</p>
+<ul>
+<li>The student <strong>assumed</strong> <em><span class="math inline">\(n\)</span> is odd</em> and <strong>derived</strong> <em><span class="math inline">\(n^3\)</span> is odd</em>. That proves <span class="math display">\[(n \text{ odd}) \Rightarrow (n^3 \text{ odd}) .\]</span></li>
+<li>The question asked for <span class="math display">\[(n^3 \text{ odd}) \Rightarrow (n \text{ odd}) .\]</span></li>
+</ul>
+<p>So the student has proved the <strong>converse</strong> of what was required. <span class="hl">The converse is not equivalent to the original, so nothing about the original has been established</span> — the final sentence (“Hence …”) does not follow.</p>
+<p><em>It is worth noting that the statement the student proved is perfectly true, and so is the one they were asked for. But proving one does not prove the other, and that is the error.</em></p>
+<p><strong>(c) A correct proof.</strong> Use the <strong>contrapositive</strong>: <em>if <span class="math inline">\(n\)</span> is even, then <span class="math inline">\(n^3\)</span> is even.</em></p>
+<p>Suppose <span class="math inline">\(n\)</span> is even, so <span class="math inline">\(n = 2k\)</span> for some integer <span class="math inline">\(k\)</span>. Then</p>
+<p><span class="math display">\[n^3 = (2k)^3 = 8k^3 = 2\left(4k^3\right) ,\]</span></p>
+<p>which is even. Since a statement and its contrapositive are equivalent, the original — <em>if <span class="math inline">\(n^3\)</span> is odd then <span class="math inline">\(n\)</span> is odd</em> — is proved. <span class="math inline">\(\blacksquare\)</span></p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>The near-miss.</strong> The student’s work is only a small edit away from being right: had they <em>started</em> from “<span class="math inline">\(n\)</span> is even” instead of “<span class="math inline">\(n\)</span> is odd”, they would have had exactly the proof in (c). Choosing which statement to assume is the entire skill here.</p>
+</div>
+</div>
+</div>
+<p><strong>Common slips.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✗</th>
+<th>✓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“The proof is fine because the algebra checks out”</td>
+<td>Correct algebra proving the <strong>wrong statement</strong> is still a failed proof. Always compare <em>assumed</em> with <em>required</em>.</td>
+</tr>
+<tr class="even">
+<td>Fixing it by “reversing the steps”</td>
+<td>The steps are not reversible as written. Restart from the contrapositive, as in (c).</td>
+</tr>
+<tr class="odd">
+<td>Calling the student’s error a contrapositive</td>
+<td>They proved the <strong>converse</strong>. Their argument contains no negations at all — the giveaway.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="workspace" style="min-height:9cm">
+<p>Working</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Concepts — auditing any proof in two lines
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Whenever you are asked whether a proof is valid, ignore the algebra at first and write down two things:</p>
+<p><span class="math display">\[\textbf{ASSUMED: } \underline{\qquad\qquad} \qquad\qquad \textbf{REQUIRED: } \underline{\qquad\qquad}\]</span></p>
+<p>Then check the match:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assumed → concluded</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>exactly what was required</td>
+<td>✓ valid (direct proof)</td>
+</tr>
+<tr class="even">
+<td><strong>not <span class="math inline">\(B\)</span></strong> → <strong>not <span class="math inline">\(A\)</span></strong>, when <span class="math inline">\(A \Rightarrow B\)</span> was required</td>
+<td>✓ valid (proof by contrapositive)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(B\)</span> → <span class="math inline">\(A\)</span>, when <span class="math inline">\(A \Rightarrow B\)</span> was required</td>
+<td>✗ <strong>proved the converse</strong></td>
+</tr>
+<tr class="even">
+<td>not <span class="math inline">\(A\)</span> → not <span class="math inline">\(B\)</span>, when <span class="math inline">\(A \Rightarrow B\)</span> was required</td>
+<td>✗ <strong>proved the inverse</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>A quick tell:</strong> a genuine proof by contrapositive <strong>contains negations</strong> — it starts from “suppose <span class="math inline">\(n\)</span> is <em>even</em>”, “suppose <span class="math inline">\(x\)</span> is <em>rational</em>”. If a student claims contrapositive but their argument has no negation anywhere, they have almost certainly proved the converse instead.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="after-this-session" class="level2">
+<h2 class="anchored" data-anchor-id="after-this-session">After this session</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Homework
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The main task — this is the one that covers today.</strong></p>
+<ol type="1">
+<li><strong><a href="../toolkit/s02_assignment_student.html">Assignment: Converse and contrapositive</a></strong> — 8 questions, <strong>32 marks</strong>, about 45 minutes.</li>
+</ol>
+<p><strong>Then, to make it stick:</strong></p>
+<ol start="2" type="1">
+<li><strong>Notes on Logic and Proof, pp.&nbsp;43–49</strong> (<em>Converses and Contrapositives</em>). Note especially the discussion on p.&nbsp;49 of <em>why</em> the converse/contrapositive mix-up happens.</li>
+<li><strong>Ten statements of your own.</strong> Write any ten “if … then …” statements about integers, and for each one write its converse and its contrapositive. Mark which are true. You should find the contrapositives always match the original, and the converses vary.</li>
+</ol>
+</div>
+</div>
+<p><strong>The whole session in one line:</strong></p>
+<blockquote class="blockquote">
+<p><strong>Reverse only = the converse, and it proves nothing. Negate <em>and</em> reverse = the contrapositive, and it is free.</strong></p>
+</blockquote>
+<p><strong>Next session (<a href="../toolkit/s03_necessary_sufficient.html">S3</a>): necessary and sufficient</strong> — the same three arrows, dressed in the two words the TMUA tests most often. You have already met them: <em>“<span class="math inline">\(P\)</span> is sufficient for <span class="math inline">\(Q\)</span>”</em> is <span class="math inline">\(P \Rightarrow Q\)</span>, and <em>“<span class="math inline">\(P\)</span> is necessary for <span class="math inline">\(Q\)</span>”</em> is <span class="math inline">\(Q \Rightarrow P\)</span> — so one of those two is secretly a converse.</p>
+</section>
+</section>
+</div>
+
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/daye-lee18\.github\.io\/TMUA\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

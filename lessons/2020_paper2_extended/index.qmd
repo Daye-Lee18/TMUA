@@ -1,0 +1,1349 @@
+---
+title: "2020 Paper 2 — Extended Practice"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The 2020 Paper 2 question types, each with its general method and a set of practice problems drawn from TMUA
+and from MAT, PAT and other papers where the same idea appears.
+
+**On this page:** 1. Line meets a curve — discriminant · 2. Trigonometry — quadrant signs & summing sines · 3. Spot the error · 4. Counterexamples · 5. Graphs & asymptotes · 6. Necessary & sufficient · 7. Inequalities — adding & positivity · 8. Integration facts · 9. Logic — implications & grids · 10. Modulus · 11. Applications — units, patterns & optimization
+
+## 1 · Line meets a curve — discriminant
+
+*Seed: 2020 P2 Q1, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — set equal, then read the discriminant
+
+1. **"Crosses or touches" means the line and curve meet** — the simultaneous equations have **at least one
+   real solution**. Subtract to get a quadratic $ax^{2}+bx+c=0$.
+2. **Real solution $\iff$ discriminant $b^{2}-4ac\ge0$.** ("Touches only" is $=0$; "crosses twice" is $>0$;
+   "misses" is $<0$.)
+3. **Solve the discriminant inequality.** "Meets" gives the **outside** region ($\ge0$); the "between"
+   interval is where the line **misses**.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A set of values (an interval or its complement).
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q1 — the seed)*
+
+::: {.question}
+Find the complete set of $k$ for which $y=x-2$ crosses or touches $y=x^{2}+kx+2$.
+&nbsp;&nbsp;**A** $-1\le k\le3$ &nbsp; **B** $-3\le k\le5$ &nbsp; **C** $-4\le k\le4$ &nbsp; **D** $k\le-1$ or
+$k\ge3$ &nbsp; **E** $k\le-3$ or $k\ge5$ &nbsp; **F** $k\le-4$ or $k\ge4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($k\le-3$ or $k\ge5$).**
+
+**Step 1 — set equal.** $x^{2}+kx+2=x-2\Rightarrow x^{2}+(k-1)x+4=0$.
+
+**Step 2 — need a real root.** Discriminant $\ge0$: $(k-1)^{2}-16\ge0\Rightarrow(k-1)^{2}\ge16\Rightarrow
+k-1\le-4$ or $k-1\ge4$.
+
+**Step 3 — read off.** $k\le-3$ or $k\ge5$. *(The "between" interval, option B, is where the line **misses**
+— the opposite of what's asked.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,400)
+plt.figure(figsize=(4.8,3.2))
+for k,c in [(-3,'#2b6cb0'),(5,'#dd6b20')]:
+    plt.plot(x,x**2+k*x+2,color=c,lw=1.8,label=f'k={k} (tangent)')
+plt.plot(x,x-2,'k--',lw=1.2,label='y=x−2')
+plt.ylim(-8,14); plt.axhline(0,color='0.7',lw=.6); plt.legend(fontsize=8,loc='upper center')
+plt.title('k=−3 and k=5: line just touches',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(Tyler Mock TMUA, Set A — same idea)*
+
+::: {.question}
+Find the complete set of $k$ for which $y=2x-1$ crosses or touches $y=x^{2}+kx+3$.
+&nbsp;&nbsp;**A** $-2\le k\le6$ &nbsp; **B** $-1\le k\le3$ &nbsp; **C** $-3\le k\le3$ &nbsp; **D** $k\le-2$ or
+$k\ge6$ &nbsp; **E** $k\le-1$ or $k\ge3$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($k\le-2$ or $k\ge6$).**
+
+**Step 1 — set equal.** $x^{2}+kx+3=2x-1\Rightarrow x^{2}+(k-2)x+4=0$.
+
+**Step 2 — discriminant $\ge0$.** $(k-2)^{2}-16\ge0\Rightarrow(k-2)^{2}\ge16\Rightarrow k-2\le-4$ or
+$k-2\ge4$.
+
+**Step 3 — read off.** $k\le-2$ or $k\ge6$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(tangency — the "$=0$" case)*
+
+::: {.question}
+For which positive $k$ is $y=kx$ a tangent to $y=x^{2}+1$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $k=2$.**
+
+Tangent means **one repeated** root, so discriminant $=0$. $x^{2}+1=kx\Rightarrow x^{2}-kx+1=0$;
+$k^{2}-4=0\Rightarrow k=\pm2$. The positive one is $k=2$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(no intersection)*
+
+::: {.question}
+For which $c$ does $y=x+c$ **not** meet $y=x^{2}$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $c<-\tfrac14$.**
+
+No intersection means discriminant $<0$. $x^{2}=x+c\Rightarrow x^{2}-x-c=0$; discriminant $1+4c<0\Rightarrow
+c<-\tfrac14$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — line meets a curve
+
+- **Subtract to a quadratic**, then use the **discriminant** $b^{2}-4ac$: $>0$ two points, $=0$ tangent
+  (touches), $<0$ misses.
+- **"Crosses or touches" $=$ discriminant $\ge0$** — the **outside** region; the "between" interval is where
+  the line misses.
+:::
+
+---
+
+## 2 · Trigonometry — quadrant signs & summing sines
+
+*Seeds: 2020 P2 Q2, Q15.*
+
+::: {.callout-tip}
+## The method — pick the quadrant, then attach the sign
+
+1. **Signs by quadrant (CAST):** all positive in Q1; only $\sin$ in Q2; only $\tan$ in Q3; only $\cos$ in Q4.
+   Use the **given range** to choose the quadrant.
+2. **Get the size from a right triangle** (opposite/adjacent/hypotenuse), then attach the quadrant's sign.
+3. **For a sum of periodic terms:** write out **one period**, note the block sum, and track the **running
+   total**.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** An exact value, or a condition on $n$.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q2 — the seed)*
+
+::: {.question}
+Given $\tan\theta=2$ and $180^\circ<\theta<360^\circ$, find $\cos\theta$. &nbsp;&nbsp;**A** $\sqrt3$ &nbsp;
+**B** $-\sqrt3$ &nbsp; **C** $\tfrac{\sqrt3}2$ &nbsp; **D** $-\tfrac{\sqrt3}2$ &nbsp; **E** $\tfrac{\sqrt5}5$
+&nbsp; **F** $-\tfrac{\sqrt5}5$ &nbsp; **G** $\tfrac{2\sqrt5}5$ &nbsp; **H** $-\tfrac{2\sqrt5}5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F ($-\tfrac{\sqrt5}5$).**
+
+**Step 1 — which quadrant.** $\tan\theta=2>0$ occurs in Q1 and Q3. The range $180^\circ<\theta<360^\circ$
+rules out Q1, so $\theta$ is in **Q3**, where $\cos\theta<0$.
+
+**Step 2 — size from a triangle.** opposite $=2$, adjacent $=1$, hypotenuse $=\sqrt5$, so
+$\lvert\cos\theta\rvert=\tfrac1{\sqrt5}$.
+
+**Step 3 — attach the sign.** In Q3, $\cos\theta=-\tfrac1{\sqrt5}=-\tfrac{\sqrt5}5$. *(Reading straight to the
+acute $+\tfrac{\sqrt5}5$ forgets the quadrant.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2020 P2 Q15 — a running sum of sines)*
+
+::: {.question}
+Which is a **necessary and sufficient** condition for $\displaystyle\sum_{k=1}^{n}\sin\!\Big(\frac{k\pi}3
+\Big)=\frac{\sqrt3}2$? &nbsp;&nbsp;**A** $n=1$ &nbsp; **B** $n$ a multiple of $3$ &nbsp; **C** $n$ a multiple
+of $6$ &nbsp; **D** $n$ is $1$ more than a multiple of $3$ &nbsp; **E** $n$ is $1$ more than a multiple of $6$
+&nbsp; **F** $n$ is $1$ or $2$ more than a multiple of $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($n\equiv1$ mod $3$).**
+
+**Step 1 — the terms repeat with period $6$.** $\sin\tfrac{k\pi}3$ cycles
+$\tfrac{\sqrt3}2,\tfrac{\sqrt3}2,0,-\tfrac{\sqrt3}2,-\tfrac{\sqrt3}2,0,\dots$, and one full block sums to $0$.
+
+**Step 2 — track the running total.** $S_1=\tfrac{\sqrt3}2,\ S_2=\sqrt3,\ S_3=\sqrt3,\ S_4=\tfrac{\sqrt3}2,\
+S_5=0,\ S_6=0$, then it repeats.
+
+**Step 3 — read where it equals $\tfrac{\sqrt3}2$.** Only at $n=1$ and $n=4$ in each block — both $\equiv1$
+mod $3$. Because each block sums to $0$, the hits recur at $n=1,4,7,10,\dots$: **one more than a multiple of
+$3$**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=np.arange(1,13); S=np.cumsum(np.sin(n*np.pi/3))
+plt.figure(figsize=(5.0,2.8))
+plt.axhline(np.sqrt(3)/2,color='crimson',ls=':',lw=1.2,label='√3/2')
+plt.plot(n,S,'-o',color='#2b6cb0',ms=4)
+hit=np.isclose(S,np.sqrt(3)/2); plt.plot(n[hit],S[hit],'o',color='#dd6b20',ms=8,label='hits')
+plt.xticks(n); plt.legend(fontsize=8); plt.title('running total hits √3/2 at n=1,4,7,10',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(sign from another quadrant)*
+
+::: {.question}
+Given $\cos\theta=-\tfrac35$ and $90^\circ<\theta<180^\circ$, find $\sin\theta$ and $\tan\theta$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $\sin\theta=\tfrac45$, $\tan\theta=-\tfrac43$.**
+
+$\theta$ is in **Q2**, where $\sin>0$ and $\tan<0$. From $\sin^{2}\theta=1-\tfrac9{25}=\tfrac{16}{25}$ and the
+positive sign, $\sin\theta=\tfrac45$. Then $\tan\theta=\dfrac{\sin\theta}{\cos\theta}=\dfrac{4/5}{-3/5}=
+-\tfrac43$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — trig signs & sums
+
+- **CAST:** Q1 all $+$; Q2 only $\sin$; Q3 only $\tan$; Q4 only $\cos$. Use the range to pick the quadrant.
+- **Size from a triangle, sign from the quadrant.**
+- **Sum of periodic terms:** one period + block sum + running total.
+:::
+
+---
+
+## 3 · Spot the error
+
+*Seeds: 2020 P2 Q3, Q16.*
+
+::: {.callout-tip}
+## The method — trace top-down; stop at the first broken line
+
+1. **The "first error" is the earliest line that fails,** not the line where the answer finally looks wrong.
+2. **A minus in front of a bracket flips *every* term inside:** $-(3n-1)=-3n+1$.
+3. **The FTC reads off $\mathrm f(\text{upper limit})$ only when the upper limit is exactly $x$.** A general
+   upper limit $g(x)$ carries a **$\times g'(x)$** (chain rule).
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** "Correct", or the first error line.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q3 — a sign slip)*
+
+::: {.question}
+Claim: for all integers $n$, $\;4\!\left(\tfrac{9n+1}2-\tfrac{3n-1}2\right)$ is divisible by $3$. The steps:
+(I) $=2\cdot2\!\left(\tfrac{9n+1}2-\tfrac{3n-1}2\right)$; (II) $=2(9n+1-3n-1)$; (III) $=2(6n)$; (IV) $=12n$;
+(V,VI) $=3(4n)$, a multiple of $3$. Correct, or first error? &nbsp;&nbsp;**A** correct &nbsp; **B** line I
+&nbsp; **C** line II &nbsp; **D** line III &nbsp; **E** line IV &nbsp; **F** line V &nbsp; **G** line VI
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (line II).**
+
+Cancelling the two $\tfrac12$'s should give $2\big((9n+1)-(3n-1)\big)$, and the minus flips **both** terms:
+$$2(9n+1-3n+1)=2(6n+2)=12n+4.$$
+The student wrote "$-3n-1$" instead of "$-3n+1$" — a dropped sign at line II. The true value is $12n+4$, which
+leaves remainder $1$ on division by $3$, so the **claim is actually false**; the "$12n$" at line IV is just a
+consequence of the slip.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2020 P2 Q16 — a missing chain rule)*
+
+::: {.question}
+A student differentiates $\displaystyle\frac{\mathrm d}{\mathrm dx}\int_{x}^{2x}t^{2}\,\mathrm dt$: (I)
+$\int_x^{2x}=\int_0^{2x}-\int_0^{x}$; (II) $\tfrac{\mathrm d}{\mathrm dx}\int_0^{x}t^{2}=x^{2}$; (III)
+$\tfrac{\mathrm d}{\mathrm dx}\int_0^{2x}t^{2}=(2x)^{2}=4x^{2}$; (IV) $=4x^{2}-x^{2}$; (V) $=3x^{2}$. First
+error? &nbsp;&nbsp;**A** correct &nbsp; **B** line I &nbsp; **C** line II &nbsp; **D** line III &nbsp;
+**E** line IV &nbsp; **F** line V
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (line III).**
+
+The upper limit is $2x$, not $x$, so the FTC needs the **chain rule**:
+$$\frac{\mathrm d}{\mathrm dx}\int_0^{2x}t^{2}\,\mathrm dt=(2x)^{2}\cdot\frac{\mathrm d(2x)}{\mathrm dx}=4x^{2}
+\cdot2=8x^{2},$$
+not $4x^{2}$. **Check directly:** $\int_x^{2x}t^{2}\,\mathrm dt=\big[\tfrac{t^{3}}3\big]_x^{2x}=\tfrac{7x^{3}}
+3$, so the derivative is $7x^{2}$ — matching $8x^{2}-x^{2}$. The student's $3x^{2}$ is wrong, first slip at
+line III.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(squaring introduces a false root)*
+
+::: {.question}
+"Solve $\sqrt{x+2}=x$." A student writes: (I) $x+2=x^{2}$; (II) $x^{2}-x-2=0$; (III) $(x-2)(x+1)=0$; (IV)
+$x=2$ or $x=-1$. Where does the argument first go wrong?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: line IV (it fails to reject $x=-1$).**
+
+Lines I–III are correct algebra, but **squaring can create false roots**, so both candidates must be checked
+in the original equation. $x=2$: $\sqrt4=2$ ✔. $x=-1$: $\sqrt1=1\ne-1$ ✘ (a square root is never negative). So
+$x=-1$ must be **rejected** — the only solution is $x=2$. The error is presenting $x=-1$ as valid at line IV.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — spot the error
+
+- **First error $=$ earliest broken line**; later absurdities are consequences.
+- **Minus before a bracket flips every term.**
+- **FTC:** $\tfrac{\mathrm d}{\mathrm dx}\int_0^{g(x)}\mathrm f=\mathrm f(g(x))\cdot g'(x)$ — don't forget
+  $g'$.
+- **Squaring can add false roots** — always check candidates in the original equation.
+:::
+
+---
+
+## 4 · Counterexamples
+
+*Seed: 2020 P2 Q4.*
+
+::: {.callout-tip}
+## The method — obey the hypothesis, fail the conclusion
+
+1. **A counterexample must satisfy the claim's hypothesis** (its domain) **and break its conclusion.** A case
+   that fails the *domain* is a decoy, not a counterexample.
+2. **List the allowed building blocks** (the non-primes, the primes, …) and check every way to hit the target.
+3. **One valid counterexample disproves a "for all" claim** — but confirm the decoys really don't qualify.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which cases are counterexamples.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q4 — the seed)*
+
+::: {.question}
+Claim: *every integer $N>6$ is the sum of two non-prime integers greater than $1$.* Which are
+counterexamples? &nbsp;&nbsp;**I** $N=5$ &nbsp; **II** $N=7$ &nbsp; **III** $N=9$ &nbsp;&nbsp;(**A** none
+$\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G (II and III).**
+
+- **I ($N=5$):** $5$ is **not $>6$**, so it isn't even covered by the claim — a decoy, not a counterexample.
+- **II ($N=7$):** usable non-primes $>1$ up to $7$ are $\{4,6\}$; the only pairing toward $7$ is $4+3$, but
+  $3$ is prime. Can't be done — **counterexample**.
+- **III ($N=9$):** usable are $\{4,6,8\}$; $4+5,6+3,8+1$ all fail ($5,3$ prime, $1$ not allowed). **Counter-
+  example.**
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(the famous prime-generating quadratic)*
+
+::: {.question}
+Is $n^{2}+n+41$ prime for **every** non-negative integer $n$? If not, give the smallest counterexample.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No — the smallest counterexample is $n=40$.**
+
+It is prime for $n=0,1,\dots,39$ (a famous run), which is exactly why it's a trap. But at $n=40$:
+$40^{2}+40+41=40(40+1)+41=40\cdot41+41=41\cdot41=41^{2}$ — composite. So $n=40$ breaks the claim.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a "Mersenne" claim)*
+
+::: {.question}
+Is $2^{n}-1$ prime for **every** integer $n\ge2$? If not, give the smallest counterexample.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No — the smallest counterexample is $n=4$.**
+
+$2^{2}-1=3$ ✓, $2^{3}-1=7$ ✓, but $2^{4}-1=15=3\times5$ — composite. So $n=4$ is the smallest counterexample.
+*(In fact $2^{n}-1$ can be prime only when $n$ itself is prime, and even then not always — e.g. $2^{11}-1=
+2047=23\times89$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — counterexamples
+
+- **Obey the hypothesis, break the conclusion.** A case outside the domain (e.g. $N=5$ when $N>6$) is a decoy.
+- **List the allowed pieces and test every combination.**
+- **Long prime runs are traps:** $n^{2}+n+41$ fails at $n=41$-th value ($n=40$); $2^{n}-1$ fails at $n=4$.
+:::
+---
+
+## 5 · Graphs & asymptotes
+
+*Seed: 2020 P2 Q5, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — read the two ends and the middle
+
+1. **Find the limit at each end** ($x\to+\infty$ and $x\to-\infty$) — these give the **horizontal asymptotes**.
+   For $\dfrac{2^{x}}{1+2^{x}}$-type fractions, divide top and bottom by the biggest term.
+2. **Find one middle value** (usually $x=0$) to fix the height.
+3. **Decide increasing or decreasing**, then match the S-curve to the option.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** One letter (a sketch).
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q5 — the seed)*
+
+::: {.question}
+Which shows $\displaystyle y=\frac{2^{x}}{1+2^{x}}$? &nbsp;&nbsp;**A** increasing S-curve, top asymptote
+&nbsp; **B** increasing, no upper asymptote &nbsp; **C** decreasing, low asymptote &nbsp; **D** decreasing
+S-curve, top asymptote &nbsp; **E** decreasing, no asymptote &nbsp; **F** decreasing, low asymptote
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A (increasing S-curve, top asymptote).**
+
+**Step 1 — ends.** As $x\to-\infty$, $2^{x}\to0$, so $y\to\dfrac0{1}=0$ (asymptote $y=0$). As $x\to+\infty$,
+divide by $2^{x}$: $y=\dfrac1{2^{-x}+1}\to\dfrac1{0+1}=1$ (asymptote $y=1$).
+
+**Step 2 — middle.** At $x=0$, $y=\dfrac1{1+1}=\tfrac12$.
+
+**Step 3 — shape.** It rises from $0$ to $1$, so it is an **increasing S-curve** between $y=0$ and $y=1$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,400); y=2.0**x/(1+2.0**x)
+plt.figure(figsize=(4.6,3.0))
+plt.plot(x,y,color='#2b6cb0',lw=2)
+plt.axhline(0,color='crimson',ls=':',lw=1.1); plt.axhline(1,color='crimson',ls=':',lw=1.1)
+plt.plot(0,0.5,'o',color='#dd6b20'); plt.annotate('(0, ½)',(0.3,0.52),fontsize=9)
+plt.ylim(-0.15,1.15); plt.title('rises from 0 to 1',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(Tyler Mock TMUA, Set A — the decreasing cousin)*
+
+::: {.question}
+Which shows $\displaystyle y=\frac{3}{2^{x}+1}$? &nbsp;&nbsp;**A** increasing, top asymptote &nbsp;
+**B** increasing, no asymptote &nbsp; **C** increasing, low asymptote &nbsp; **D** decreasing S-curve, top
+asymptote &nbsp; **E** decreasing, no asymptote &nbsp; **F** decreasing, low asymptote
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (decreasing S-curve, top asymptote).**
+
+**Step 1 — ends.** As $x\to-\infty$, $2^{x}\to0$, so $y\to\dfrac3{0+1}=3$ (top asymptote $y=3$). As
+$x\to+\infty$, $2^{x}\to\infty$, so $y\to0$ (bottom asymptote, the $x$-axis).
+
+**Step 2 — middle.** At $x=0$, $y=\dfrac3{1+1}=\tfrac32$.
+
+**Step 3 — shape.** It **falls** from $3$ to $0$ — a decreasing S-curve with a top asymptote $y=3$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,400); y=3/(2.0**x+1)
+plt.figure(figsize=(4.6,3.0))
+plt.plot(x,y,color='#2b6cb0',lw=2)
+plt.axhline(3,color='crimson',ls=':',lw=1.1); plt.axhline(0,color='0.6',lw=0.7)
+plt.plot(0,1.5,'o',color='#dd6b20'); plt.annotate('(0, 1.5)',(0.3,1.6),fontsize=9)
+plt.ylim(-0.3,3.4); plt.title('falls from 3 to 0',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a shifted reciprocal)*
+
+::: {.question}
+State the two asymptotes of $\;y=\dfrac1{x-2}+1$, and where it crosses the axes.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: asymptotes $x=2$ and $y=1$; crosses at $(1,0)$ and $(0,\tfrac12)$.**
+
+The reciprocal $\dfrac1{x-2}$ blows up at $x=2$ (**vertical asymptote**) and tends to $0$ far out, so the
+$+1$ makes $y\to1$ (**horizontal asymptote**). Axis crossings: $y=0\Rightarrow\dfrac1{x-2}=-1\Rightarrow x=1$;
+$x=0\Rightarrow y=\dfrac1{-2}+1=\tfrac12$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — graphs & asymptotes
+
+- **Horizontal asymptotes** come from the limits at $x\to\pm\infty$ (divide by the dominant term).
+- **Vertical asymptotes** come from where a denominator is $0$.
+- **One middle value $+$ increasing/decreasing** pins the S-curve.
+:::
+
+---
+
+## 6 · Necessary & sufficient
+
+*Seeds: 2020 P2 Q6, Q7, Q14, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — necessary reverses the arrow
+
+1. **"$X$ sufficient for $Y$" is $X\Rightarrow Y$;** test by assuming $X$ and checking $Y$ always follows.
+2. **"$X$ necessary for $Y$" is $Y\Rightarrow X$;** test by asking *can $Y$ happen while $X$ fails?* If yes,
+   not necessary.
+3. **A near-miss shape is a counterexample to sufficiency** (rhombus/rectangle for "square"); a **single
+   balancing example without the property** kills necessity.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A letter, or a Yes/No pattern.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q6 — the seed)*
+
+::: {.question}
+Which conditions on $\mathrm f$ are **necessary** for $\displaystyle\int_{-5}^{0}\mathrm f=\int_{0}^{5}\mathrm
+f$? &nbsp;&nbsp;**I** $\mathrm f$ even &nbsp; **II** $\mathrm f$ constant &nbsp; **III** $\mathrm f$ odd
+&nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A (none).**
+
+Necessary means the identity **forces** the condition. Each of I and II is only **sufficient** — many
+non-even, non-constant functions still balance the two halves (build two different bumps of equal area). And
+III (odd) actually makes $\int_{-5}^0=-\int_0^5$, so it would force both to be $0$ — not implied at all. So no
+condition is necessary.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2020 P2 Q7 — sufficient for a square)*
+
+::: {.question}
+Parallelogram $PQRS$. Which condition is **individually sufficient** for it to be a square? &nbsp;&nbsp;**I**
+$\lvert PQ\rvert=\lvert QR\rvert$ &nbsp; **II** $PR\perp QS$ &nbsp; **III** $\angle PQR=\angle QRS$
+&nbsp;&nbsp;(Yes/No triple, **A**–**H**)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: H (no, no, no).**
+
+A square needs **both** equal sides and right angles; each condition supplies only one.
+
+- **I** equal adjacent sides $\Rightarrow$ **rhombus** (angles free) — not sufficient.
+- **II** perpendicular diagonals in a parallelogram $\Rightarrow$ **rhombus** again — not sufficient.
+- **III** equal consecutive angles $\Rightarrow$ each $90^\circ$ (they're supplementary) $\Rightarrow$
+  **rectangle** (sides free) — not sufficient.
+
+Each gives a near-miss, never a guaranteed square.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(TMUA 2020 P2 Q14 — reduce to one equation first)*
+
+::: {.question}
+Arithmetic sequence, first term $a$, common difference $d$ (non-zero integers). Property **P**: some $m$ has
+$S_m=S_{2m}$. Which is true? &nbsp;&nbsp;**I** $ad<0$ is **sufficient** for P &nbsp; **II** $d$ even is
+**necessary** for P &nbsp;&nbsp;(**A** neither &nbsp; **B** I &nbsp; **C** II &nbsp; **D** both)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A (neither).**
+
+$S_m=S_{2m}$ simplifies to $2a+(3m-1)d=0$ for some positive integer $m$, i.e. $3m-1=-\dfrac{2a}d$.
+
+- **I not sufficient:** $ad<0$ only makes $-\tfrac{2a}d$ positive; it need not equal a valid $3m-1$. Take
+  $a=2,d=-1$: $-\tfrac{2a}d=4$, but $3m-1=4$ gives $m=\tfrac53$, not an integer — P fails.
+- **II not necessary:** $a=-1,d=1,m=1$ gives $2(-1)+2(1)=0$, so P holds with $d=1$ **odd**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set A — max vs the sign of the derivative)*
+
+::: {.question}
+$\mathrm p$ has exactly two stationary points, at $x=a$ and $x=b$ ($a<b$). $P$: $\mathrm p$ has a **maximum**
+at $a$. $Q$: $\mathrm p'(x)<0$ for $a<x<b$. Is $P$ necessary / sufficient for $Q$? &nbsp;&nbsp;**A** both
+&nbsp; **B** neither &nbsp; **C** necessary, not sufficient &nbsp; **D** sufficient, not necessary
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (sufficient, not necessary).**
+
+- **Sufficient ($P\Rightarrow Q$):** if $a$ is a maximum, $\mathrm p$ decreases straight after it and keeps
+  decreasing until the next stationary point $b$ — so $\mathrm p'<0$ on $(a,b)$. ✔
+- **Not necessary ($Q\not\Rightarrow P$):** $\mathrm p'$ could be $<0$ on $(a,b)$ while $a$ is a **stationary
+  point of inflection** (falling, with $\mathrm p'<0$ on *both* sides of $a$), not a maximum. Then $Q$ holds
+  but $P$ fails. ✘
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — necessary & sufficient
+
+- **Sufficient $=X\Rightarrow Y$; necessary $=Y\Rightarrow X$** (reverse the arrow).
+- **Reduce a "property" to one equation first,** then test the two directions separately.
+- **Near-miss counterexamples:** rhombus/rectangle for "square"; a stationary inflection for "maximum".
+:::
+
+---
+
+## 7 · Inequalities — adding & positivity
+
+*Seeds: 2020 P2 Q10, Q18, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — you may add inequalities, never subtract them
+
+1. **Adding two same-direction inequalities is always legal;** subtracting them is not.
+2. **"Positive for all $x$" is a strong hypothesis:** it kills any odd-degree leading term, pins the value at
+   $x=0$, and (once the top term is gone) forces the next coefficient too.
+3. **To break a "must be true", build a small counterexample** obeying the givens.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which statements must hold.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q10 — the seed)*
+
+::: {.question}
+$0<a+b<c+d$ and $0<a+c<b+d$. Which **must** hold? &nbsp;&nbsp;**I** $a<d$ &nbsp; **II** $b<c$ &nbsp; **III**
+$a+b+c+d>0$ &nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F (I and III).**
+
+- **I true:** **add** the two given inequalities: $(a+b)+(a+c)<(c+d)+(b+d)\Rightarrow 2a<2d\Rightarrow a<d$.
+- **III true:** $a+b>0$ and $c+d>a+b>0$, so their sum is positive.
+- **II not forced:** you'd have to **subtract**, which is illegal. Counterexample $a=0,b=3,c=2,d=2$: both
+  givens hold, yet $b=3>c=2$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2020 P2 Q18 — a cubic that stays positive)*
+
+::: {.question}
+Cubics $\mathrm f,\mathrm g$ with $\mathrm f(x)-\mathrm g(x)>0$ for **all** real $x$
+($\mathrm f=ax^{3}+bx^{2}+cx+d$, $\mathrm g=px^{3}+qx^{2}+rx+s$). Which are **necessarily** true?
+&nbsp;&nbsp;**I** $a>p$ &nbsp; **II** if $b=q$ then $c=r$ &nbsp; **III** $d>s$ &nbsp;&nbsp;(**A** none $\dots$
+**H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G (II and III).**
+
+Let $h=\mathrm f-\mathrm g=(a-p)x^{3}+(b-q)x^{2}+(c-r)x+(d-s)>0$ for all $x$.
+
+- **I false:** a genuine cubic runs to $-\infty$ on one side, so it can't stay positive — the cubic term must
+  vanish, $a-p=0$, i.e. $a=p$ (an "$=$", not "$>$").
+- **III true:** put $x=0$: $h(0)=d-s>0$.
+- **II true:** with $a=p$, if also $b=q$ then $h=(c-r)x+(d-s)$; a non-constant line can't stay positive, so
+  $c-r=0$, i.e. $c=r$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set A — order relations)*
+
+::: {.question}
+$0<a<b<c<d$. Which **must** be true? &nbsp;&nbsp;**I** $a+c<b+d$ &nbsp; **II** $d-c>b-a$ &nbsp; **III**
+$\dfrac bc<\dfrac da$ &nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G (I and III).**
+
+- **I true:** $a<b$ and $c<d$; add them: $a+c<b+d$.
+- **III true:** $b<c\Rightarrow\dfrac bc<1$, and $d>a>0\Rightarrow\dfrac da>1$, so $\dfrac bc<1<\dfrac da$.
+- **II not forced:** it needs an illegal subtraction. Counterexample $a=1,b=2,c=3,d=4$: $d-c=1$ and $b-a=1$,
+  so $d-c>b-a$ is false.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — inequalities
+
+- **Add same-direction inequalities freely; never subtract them.**
+- **Positive-for-all-$x$** forces the leading odd term to $0$, pins $x=0$, and cascades to the next
+  coefficient.
+- **Ratios:** $\dfrac{\text{small}}{\text{big}}<1<\dfrac{\text{big}}{\text{small}}$.
+:::
+
+---
+
+## 8 · Integration facts — trapezium rule & $\int(\text{square})\ge0$
+
+*Seeds: 2020 P2 Q12, Q13.*
+
+::: {.callout-tip}
+## The method — a chord sits above a convex curve; a square integrates to $\ge0$
+
+1. **Trapezium rule joins the curve by straight chords.** A chord lies **above** a curve that bends up, so the
+   rule **overestimates exactly when $\mathrm f''>0$ (convex)** — regardless of increasing/decreasing.
+2. **The integral of a square is $\ge0$:** $\displaystyle\int(\mathrm f(x))^{2}\,\mathrm dx\ge0$ always. Isolate
+   a squared term and this one sign fact drives everything.
+3. **"$P$ if $Q$" means $Q\Rightarrow P$** — a true one-way implication can carry an over-strong extra
+   hypothesis and still be true.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A letter, or which claims are forced.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q12 — when the trapezium rule overestimates)*
+
+::: {.question}
+"The trapezium rule **overestimates** $\int_a^b\mathrm f$ …" — which completion is correct? &nbsp;&nbsp;**A**
+*if* $\mathrm f'>0,\mathrm f''<0$ &nbsp; **B** *only if* $\mathrm f'>0,\mathrm f''<0$ &nbsp; **C** *iff*
+$\mathrm f'>0,\mathrm f''<0$ &nbsp; **D** *if* $\mathrm f'<0,\mathrm f''>0$ &nbsp; **E** *only if*
+$\mathrm f'<0,\mathrm f''>0$ &nbsp; **F** *iff* $\mathrm f'<0,\mathrm f''>0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D.**
+
+**Step 1 — the geometry.** A chord lies **above** a convex curve, so the rule overestimates **exactly when
+$\mathrm f''>0$** — the sign of $\mathrm f'$ (up or down) doesn't matter.
+
+**Step 2 — weigh the wording.** "$\mathrm f'<0$ **and** $\mathrm f''>0$" already includes $\mathrm f''>0$, so
+it is a **true (one-way) "if"** — option D. It is **not "iff"** (F) or "only if" (E), because a convex
+*increasing* function overestimates too. Options A–C use $\mathrm f''<0$ (concave), which **under**estimates.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2,200); f=np.exp(-x)+0.3   # convex, decreasing
+plt.figure(figsize=(4.6,3.0))
+plt.plot(x,f,color='#2b6cb0',lw=2,label="convex f (f''>0)")
+xs=np.array([0,1,2]); plt.plot(xs,np.exp(-xs)+0.3,'--',color='crimson',label='trapezium chords (above)')
+plt.fill_between(x,f,alpha=0.08,color='#2b6cb0')
+plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('chords lie above a convex curve → overestimate',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2020 P2 Q13 — the square-integral trick)*
+
+::: {.question}
+$\displaystyle\int_0^3(\mathrm f)^{2}+\int_0^3\mathrm f=\int_0^1\mathrm f$. Which are **necessarily** true?
+&nbsp;&nbsp;**I** $\mathrm f(x)\le0$ for some $x\in[1,3]$ &nbsp; **II** $\int_0^3\mathrm f\le\int_0^1\mathrm f$
+&nbsp;&nbsp;(**A** neither &nbsp; **B** I &nbsp; **C** II &nbsp; **D** both)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (both).**
+
+**Step 1 — isolate the square.** $\displaystyle\int_0^3(\mathrm f)^{2}=\int_0^1\mathrm f-\int_0^3\mathrm
+f=-\int_1^3\mathrm f$. The left side is $\ge0$, so $\displaystyle\int_1^3\mathrm f\le0$.
+
+**Step 2 — read off.** **II** is exactly $\int_0^3\mathrm f-\int_0^1\mathrm f=\int_1^3\mathrm f\le0$ — true.
+And **I:** if $\mathrm f>0$ everywhere on $[1,3]$ then $\int_1^3\mathrm f>0$, a contradiction — so $\mathrm f$
+must dip to $\le0$ somewhere on $[1,3]$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(estimate the direction)*
+
+::: {.question}
+Does the trapezium rule over- or under-estimate $\displaystyle\int_0^1 x^{2}\,\mathrm dx$? And
+$\displaystyle\int_0^1\sqrt x\,\mathrm dx$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: over-estimate for $x^{2}$; under-estimate for $\sqrt x$.**
+
+$x^{2}$ has $\mathrm f''=2>0$ (**convex**), so the chords lie above it — **over-estimate**. $\sqrt
+x=x^{1/2}$ has $\mathrm f''=-\tfrac14x^{-3/2}<0$ (**concave**), so the chords lie below — **under-estimate**.
+It is the sign of $\mathrm f''$, not whether the function rises, that decides.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — integration facts
+
+- **Trapezium rule: over-estimates a convex curve ($\mathrm f''>0$), under-estimates a concave one** — the
+  sign of $\mathrm f''$ alone decides.
+- **$\int(\text{square})\ge0$** — isolate a squared term and let this drive the deductions.
+- **"$P$ if $Q$" $=Q\Rightarrow P$**; a true one-way "if" can carry a needlessly strong extra hypothesis.
+:::
+---
+
+## 9 · Logic — implications & grids
+
+*Seeds: 2020 P2 Q20, Q19.*
+
+::: {.callout-tip}
+## The method — translate to arrows, spot equivalent pairs
+
+1. **Dictionary:** "$P$ **only if** $Q$" is $P\Rightarrow Q$; "$P$ **if** $Q$" is $Q\Rightarrow P$.
+2. **Equivalent statements share a truth value** (a statement and its contrapositive; $\neg p\vee\neg q$ said
+   two ways). If "**exactly one** is true", the true one must be **un-paired** — pair members would give two.
+3. **Truth-teller/liar grids:** a truth-teller's statement is **true**, a liar's is **false**. "My neighbours
+   are all liars" makes the truth-tellers an **independent** set (no two adjacent) that is also **dominating**
+   (every other cell touches one).
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A letter, or a smallest/largest count.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q20 — exactly one true)*
+
+::: {.question}
+Exactly one of the following is true. Which? ($p:\ x\ge0$, $q:\ \mathrm f(x)\ge0$) &nbsp;&nbsp;**A** $x\ge0$
+only if $\mathrm f(x)<0$ &nbsp; **B** $x<0$ if $\mathrm f(x)\ge0$ &nbsp; **C** $x\ge0$ only if $\mathrm
+f(x)\ge0$ &nbsp; **D** $\mathrm f(x)<0$ if $x<0$ &nbsp; **E** $\mathrm f(x)\ge0$ only if $x\ge0$ &nbsp;
+**F** $\mathrm f(x)\ge0$ iff $x<0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C.**
+
+**Step 1 — translate.** $\text{A}:p\Rightarrow\neg q$, $\text{B}:q\Rightarrow\neg p$, $\text{C}:p\Rightarrow
+q$, $\text{D}:\neg p\Rightarrow\neg q$, $\text{E}:q\Rightarrow p$, $\text{F}:q\Leftrightarrow\neg p$.
+
+**Step 2 — spot equivalent pairs.** $\text{A}\equiv\text{B}$ (both $\neg p\vee\neg q$) and
+$\text{D}\equiv\text{E}$ (both $p\vee\neg q$). A pair is always true together, so the unique true statement
+can't be in one — it is **C or F**.
+
+**Step 3 — rule out F.** If F were the only true one, C would be false, meaning $x\ge0$ **and** $\mathrm
+f(x)<0$ — but that makes A true too (a second truth). Contradiction. So the answer is **C**.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2020 P2 Q19 — truth-tellers in a grid)*
+
+::: {.question}
+Nine people sit in a $3\times3$ grid (neighbours share a side); each is a truth-teller or a liar. Everyone
+says *"my neighbours are all liars."* What are the **smallest** and **largest** numbers who could be telling
+the truth? &nbsp;&nbsp;**A** $1,4$ &nbsp; **B** $2,4$ &nbsp; **C** $2,5$ &nbsp; **D** $3,4$ &nbsp; **E**
+$3,5$ &nbsp; **F** $4,4$ &nbsp; **G** $4,5$ &nbsp; **H** $5,5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($3$ and $5$).**
+
+**Step 1 — what each type forces.** A **truth-teller** really has all-liar neighbours, so **no two are
+adjacent** (independent). A **liar** falsely claims all-liar neighbours, so **each liar has a truth-teller
+neighbour** (dominating).
+
+**Step 2 — smallest $=3$.** Fewer than $3$ can't reach all nine cells (the centre alone misses the corners).
+Three placed cleverly cover everyone with none adjacent.
+
+**Step 3 — largest $=5$.** The most non-adjacent cells is the checkerboard $\{$four corners $+$ centre$\}=5$,
+and every edge cell touches one — independent **and** dominating.
+
+```{python}
+#| fig-align: center
+import matplotlib.pyplot as plt
+def draw(ax,T,title):
+    for i in range(4):
+        ax.plot([0,3],[i,i],color='0.3',lw=1); ax.plot([i,i],[0,3],color='0.3',lw=1)
+    for (r,c) in T:
+        ax.add_patch(plt.Rectangle((c,2-r),1,1,color='#bcd3ef'))
+        ax.text(c+0.5,2-r+0.5,'T',ha='center',va='center',fontsize=13,weight='bold',color='#1f3864')
+    for r in range(3):
+        for c in range(3):
+            if (r,c) not in T: ax.text(c+0.5,2-r+0.5,'L',ha='center',va='center',fontsize=12,color='0.5')
+    ax.set_xlim(-.2,3.2); ax.set_ylim(-.2,3.2); ax.set_aspect('equal'); ax.axis('off'); ax.set_title(title,fontsize=9)
+fig,ax=plt.subplots(1,2,figsize=(6.2,3.2))
+draw(ax[0],{(0,0),(1,2),(2,1)},'smallest: 3'); draw(ax[1],{(0,0),(0,2),(1,1),(2,0),(2,2)},'largest: 5')
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a knights-and-knaves warm-up)*
+
+::: {.question}
+On an island, knights always tell the truth and knaves always lie. $A$ says "$B$ is a knave" and $B$ says
+"$A$ and I are the same type." What are $A$ and $B$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $A$ is a knight, $B$ is a knave.**
+
+Suppose $B$ is a knight. Then $B$'s statement is true, so $A,B$ are the same type — $A$ is a knight too. Then
+$A$'s "$B$ is a knave" is true, contradicting $B$ a knight. So $B$ is a **knave**. Then $A$'s "$B$ is a knave"
+is **true**, so $A$ is a **knight**. (Check $B$: as a knave, "$A$ and I are the same type" is false — indeed
+they differ. ✔)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — logic
+
+- **"only if" $=\Rightarrow$, "if" $=\Leftarrow$.**
+- **Equivalent statements share a truth value;** a unique-true statement must be un-paired.
+- **Truth-teller $=$ statement true; liar $=$ statement false.** "All neighbours lie" $\to$ independent
+  **and** dominating.
+:::
+
+---
+
+## 10 · Modulus
+
+*Seed: 2020 P2 Q8. For the full modulus toolkit, see the [Modulus Clinic](../modulus_clinic/class_material.qmd).*
+
+::: {.callout-tip}
+## The method — the triangle inequality, with a sharp eye on "$<$" vs "$\le$"
+
+1. **Triangle inequality:** $\lvert a+b\rvert\le\lvert a\rvert+\lvert b\rvert$ **always**, with **equality when
+   $a,b$ have the same sign** (or either is $0$).
+2. So the **strict** "$\lvert a+b\rvert<\lvert a\rvert+\lvert b\rvert$" is **false** — equality is a genuine
+   failure of strict "$<$".
+3. **One counterexample** (here any same-sign pair) settles a "for all" claim.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** True/false with a reason, or a solution set.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q8 — the seed)*
+
+::: {.question}
+A student judges $(*)$: *for all real $a,b$, $\lvert a+b\rvert<\lvert a\rvert+\lvert b\rvert$*, writing: "$(*)$
+is false; $a=3,b=4$ gives $\lvert7\rvert=7=\lvert3\rvert+\lvert4\rvert$, but $7<7$ is false." Which is
+correct? &nbsp;&nbsp;**A** $(*)$ true, proof wrong &nbsp; **B** $(*)$ false, counterexample invalid &nbsp;
+**C** $(*)$ false, but must give all failing $a,b$ &nbsp; **D** $(*)$ false, should use $\le$ &nbsp; **E**
+$(*)$ false, proof fully correct
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($(*)$ false, proof fully correct).**
+
+- **Is $(*)$ false?** When $a,b$ have the same sign, $\lvert a+b\rvert=\lvert a\rvert+\lvert b\rvert$, so the
+  strict "$<$" fails. Yes, false. (The true statement is the triangle inequality with "$\le$".)
+- **Is one case enough?** Yes — a single counterexample defeats a "for all" (so C is wrong).
+- **Is $a=3,b=4$ valid?** Both sides are $7$, so "$7<7$" is false there — a genuine counterexample.
+
+Statement false, proof complete and correct — **E**. (D misreads the task: the student was asked to judge the
+statement, not repair it.)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(when is the triangle inequality tight?)*
+
+::: {.question}
+For which real $a,b$ does $\;\lvert a+b\rvert=\lvert a\rvert+\lvert b\rvert$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: exactly when $a$ and $b$ have the same sign (or at least one is $0$).**
+
+If $a,b\ge0$ then $a+b\ge0$ and both sides equal $a+b$; similarly if both $\le0$. If they have **opposite**
+signs there is cancellation, so $\lvert a+b\rvert<\lvert a\rvert+\lvert b\rvert$ (strict). So equality $\iff
+ab\ge0$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a quick modulus inequality)*
+
+::: {.question}
+Solve $\;\lvert x-3\rvert<2$, and state the answer as an interval.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $1<x<5$.**
+
+$\lvert x-3\rvert<2$ means the distance from $x$ to $3$ is under $2$: $-2<x-3<2\Rightarrow 1<x<5$. *(For
+tougher modulus questions — graphs, integrals, diamonds — see the Modulus Clinic.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — modulus
+
+- **Triangle inequality $\lvert a+b\rvert\le\lvert a\rvert+\lvert b\rvert$;** equality $\iff$ same sign.
+- **Strict "$<$" fails at equality** — the classic disproof of the strict version.
+- **$\lvert x-a\rvert<k\iff a-k<x<a+k$** (within $k$ of $a$).
+:::
+
+---
+
+## 11 · Applications — units, patterns & optimization
+
+*Seeds: 2020 P2 Q9, Q11, Q17, plus a real cross-exam problem (Tyler Mock TMUA, Set B).*
+
+::: {.callout-tip}
+## The method — fix only what's broken; find the binding constraint
+
+1. **Units (radians on a degrees calculator):** a radian *measure* is a pure number, so a leading/dividing
+   $x$ stays as-is; only the angle **inside** $\sin/\tan$ must be re-expressed: $\theta$ rad
+   $=\theta\times\dfrac{180}\pi$ degrees.
+2. **Lattice patterns:** describe each family of edges by a line and the range it covers, then test the
+   candidate point.
+3. **Optimization ("smallest/largest"):** push each quantity to its limit, find the **binding constraint**,
+   and check the extreme is actually achievable.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A calculator expression, a point, or a number.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2020 P2 Q9 — radians on a degrees calculator)*
+
+::: {.question}
+To evaluate $\mathrm f(x)=x\sin x$ (with $x$ in radians) at $x=4$ on a **degrees-only** calculator, what can
+be typed? &nbsp;&nbsp;**A** $(\pi\times4\div180)\times\sin(4)$ &nbsp; **B** $(\pi\times4\div180)\times\sin(\pi
+\times4\div180)$ &nbsp; **C** $4\times\sin(\pi\times4\div180)$ &nbsp; **D** $(180\times4\div\pi)\times\sin(4)$
+&nbsp; **E** $(180\times4\div\pi)\times\sin(180\times4\div\pi)$ &nbsp; **F** $4\times\sin(180\times4\div\pi)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F.**
+
+**Step 1 — the leading factor.** $\mathrm f(4)=4\times\sin(4\text{ rad})$; the "$4$" out front is a pure
+number, so it stays as **4**.
+
+**Step 2 — fix only the angle.** The calculator reads its input as **degrees**, so the $4$ **radians** inside
+$\sin$ must be re-written as degrees: $4\text{ rad}=4\times\dfrac{180}\pi$ degrees $=(180\times4\div\pi)^\circ$.
+
+**Step 3 — assemble.** $4\times\sin(180\times4\div\pi)$ — option **F**. *(The $\times\pi/180$ decoys convert
+the wrong way.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(Tyler Mock TMUA, Set B — the dividing version)*
+
+::: {.question}
+To evaluate $\mathrm f(x)=\dfrac{\tan x}{x}$ (with $x$ in radians) at $x=5$ on a **degrees-only** calculator,
+what can be typed? &nbsp;&nbsp;**A** $\tfrac15\times\tan(\pi\times5\div180)$ &nbsp; **B** $5\times\tan(\pi
+\times5\div180)$ &nbsp; **C** $\tan(\pi\times5\div180)\div(\pi\times5\div180)$ &nbsp; **D** $\tan(180\times5
+\div\pi)\div(180\times5\div\pi)$ &nbsp; **E** $\tfrac15\times\tan(180\times5\div\pi)$ &nbsp; **F** $5\times
+\tan(180\times5\div\pi)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E.**
+
+$\mathrm f(5)=\dfrac{\tan(5\text{ rad})}{5}=\tfrac15\times\tan(5\text{ rad})$. The dividing "$5$" is a pure
+number ($\to\tfrac15$), and only the angle inside $\tan$ needs converting: $5\text{ rad}=(180\times5\div\pi)^
+\circ$. So type $\tfrac15\times\tan(180\times5\div\pi)$ — option **E**. *(D wrongly converts the divisor too;
+A/B/C convert the angle the wrong way.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(TMUA 2020 P2 Q11 — a lattice spiral)*
+
+::: {.question}
+A square spiral is drawn from the origin, turning anticlockwise through the lattice points (as in the paper).
+Which point is **not** on the spiral? &nbsp;&nbsp;**A** $(99,100)$ &nbsp; **B** $(99,-100)$ &nbsp; **C**
+$(-99,100)$ &nbsp; **D** $(-99,-100)$ &nbsp; **E** $(100,99)$ &nbsp; **F** $(100,-99)$ &nbsp; **G** $(-100,99)$
+&nbsp; **H** $(-100,-99)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G ($(-100,99)$).**
+
+**Step 1 — describe the edges.** The straight runs sit on lines $x=\pm2k$ and $y=\pm2k$, each covering a
+range. The key asymmetry: a **left vertical** $x=-2k$ stops **two short of the top**, at $y=2k-2$, because the
+horizontal above it starts one column further left.
+
+**Step 2 — test with $k=50$.** $(100,\pm99)$ lie on the right vertical $x=100$ ($-100\le y\le100$) — on the
+spiral; so do the corner points $(\pm99,\pm100)$. $(-100,-99)$ sits on the left vertical $x=-100$, which runs
+$-100\le y\le98$ — on it. But $(-100,99)$ needs $y=99$ on that same left vertical, which only reaches $y=98$
+— the spiral has **already turned left**. So $(-100,99)$ is **not** on it.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+pts=[(0,0)]; x=y=0; d=0; dirs=[(1,0),(0,1),(-1,0),(0,-1)]
+for i in range(1,9):
+    L=2*((i+1)//2); dx,dy=dirs[d]; x+=dx*L; y+=dy*L; pts.append((x,y)); d=(d+1)%4
+xs,ys=zip(*pts)
+plt.figure(figsize=(4.2,4.2)); plt.plot(xs,ys,color='#2b6cb0',lw=2)
+plt.xlim(-9,9); plt.ylim(-9,9); plt.gca().set_aspect('equal'); plt.grid(True,color='0.9',lw=.5)
+plt.axhline(0,color='0.8',lw=.6); plt.axvline(0,color='0.8',lw=.6)
+plt.title('the square spiral (first turns)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(TMUA 2020 P2 Q17 — the smallest range)*
+
+::: {.question}
+Six **distinct** integers split into two sets of three. The first has mean $10$, median $8$; the second has
+mean $12$, median $9$. What is the smallest possible **range** of the six? &nbsp;&nbsp;**A** $8$ &nbsp;
+**B** $10$ &nbsp; **C** $11$ &nbsp; **D** $12$ &nbsp; **E** $14$ &nbsp; **F** $15$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($14$).**
+
+**Step 1 — set up.** $\{a,8,b\}$ with $a<8<b$ and $a+b=30-8=22$; $\{c,9,d\}$ with $c<9<d$ and $c+d=36-9=27$.
+
+**Step 2 — find the binding constraint.** To shrink the range, push the small ends up and the large ends
+down. The largest value is $d=27-c$; to make it small, make $c$ **large**, but $c<9$ and (distinct) $c\ne8$,
+so $c\le7$. That forces $d\ge20$.
+
+**Step 3 — build it.** With $c=7$: $d=20$; then $a\le6$ (since $7$ is used), take $a=6,b=16$. Smallest value
+$6$, largest $20$: $\{6,8,16\},\{7,9,20\}$ — six distinct integers, range $20-6=14$. Nothing beats it, since
+$d=19$ would need $c=8$ (already a median).
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — applications
+
+- **Radians on a degrees calculator:** pure-number factors stay; convert only the **angle** inside $\sin/\tan$
+  by $\times\tfrac{180}\pi$.
+- **Lattice patterns:** each edge is a line covering a range — test the point against the right line.
+- **"Smallest/largest":** push to the limits, find the **binding constraint**, and confirm it's achievable.
+:::
+
+:::

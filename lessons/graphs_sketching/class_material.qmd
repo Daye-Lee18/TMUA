@@ -1,0 +1,1038 @@
+---
+title: "Graphs Clinic 2 · Sketching & Graph-Solving"
+subtitle: "Session 9 — 20 exam-standard questions; sketch it, or draw-and-count"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Clinic 1 was *"the graph is given — move it or read it"*. This clinic is the other half: **you produce the
+graph** (sketch from scratch) or **use a graph to solve** (draw two things and count crossings). Twenty
+exam-standard questions in three parts. As before, the aim is volume and speed — meet each idea enough times
+that the method is in your head before you pick up the pen.
+
+::: {.callout-tip}
+## The recall box — know this before you look at any question
+
+**The sketch checklist** — for any $y=f(x)$, in this order:
+
+1. **Intercepts** — $x=0$ for the $y$-intercept; $y=0$ for the roots.
+2. **Repeated roots** — a **single** factor *crosses*, a **squared** factor *touches*, a **cubed** factor
+   flattens-and-crosses.
+3. **Turning points** — $f'(x)=0$, or complete the square for a quadratic.
+4. **Asymptotes** — where a denominator is $0$ (vertical); the value as $x\to\pm\infty$ (horizontal).
+5. **Ends** — sign of the leading term fixes $x\to\pm\infty$.
+
+**Draw-and-count** — to solve $f(x)=g(x)$ or "how many roots", **draw both graphs and count intersections**.
+A moving line $y=k$ turns "how many roots of $f(x)=k$" into "how many times the line cuts the curve".
+
+**Two number facts**
+
+- **Tangency** ⇔ meets **once** ⇔ the resulting quadratic has **discriminant $0$**.
+- **Root count of a cubic** from turning-point values: a **positive max and a negative min** force **three**
+  roots; **same sign** gives **one**.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter. Asymptotes → the equations of the lines. Turning point → coordinates
+$(x,y)$. "How many" → a whole number.
+:::
+
+---
+
+# Part 1 — Sketch & recognise (produce the shape in seconds)
+
+## Question 1
+
+::: {.question}
+The curve has equation $y=(2-x)(x+1)^{2}$. Which statement is true?
+
+&nbsp;&nbsp;**A** crosses at $x=2$, touches at $x=-1$, and $y\to-\infty$ as $x\to+\infty$ &nbsp;
+**B** crosses at $x=2$, touches at $x=-1$, and $y\to+\infty$ as $x\to+\infty$ &nbsp;
+**C** touches at $x=2$, crosses at $x=-1$, and $y\to-\infty$ as $x\to+\infty$ &nbsp;
+**D** crosses at both $x=2$ and $x=-1$, and $y\to+\infty$ as $x\to+\infty$
+:::
+
+The **squared** factor decides touch vs cross; the sign of the [leading term]{.hl} decides the ends. Multiply
+out just the top power: $(-x)(x^2)=-x^3$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — touch vs cross, and the end behaviour from the leading term
+:::
+
+
+Roots: $x=2$ from the single factor $(2-x)$ → **crosses**; $x=-1$ from $(x+1)^2$ → **touches**. Leading term
+$-x^{3}$, so as $x\to+\infty$, $y\to-\infty$. Hence **A**.
+
+```{python}
+#| fig-cap: "y=(2−x)(x+1)²: crosses at x=2, touches the axis at x=−1, and falls to −∞ on the right (leading term −x³)."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; R='#d62728'; T='#2ca02c'
+x=np.linspace(-2.6,3.2,500); y=(2-x)*(x+1)**2
+fig,ax=plt.subplots(figsize=(5.2,3.4))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(2,0,'o',color=R); ax.annotate('x=2 crosses',(2,0),(1.9,7),color=R,fontsize=9)
+ax.plot(-1,0,'o',color=T); ax.annotate('x=−1 touches',(-1,0),(-2.5,5),color=T,fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-14,14)
+ax.set_title(r'$y=(2-x)(x+1)^2$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Distractor **B** got the shape right but forgot the leading sign is negative; **C** swapped touch and cross.*
+$\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+State the equations of the two asymptotes of $\;y=\dfrac{3x+1}{x-2}.$
+
+*Answer form: a vertical line $x=\dots$ and a horizontal line $y=\dots$*
+:::
+
+Vertical asymptote where the [denominator is zero]{.hl}. For the horizontal one, rewrite as
+"constant $+$ (small)".
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — asymptotes of a rational curve; split off the constant
+:::
+
+
+Denominator zero at $x=2$ → **vertical asymptote $x=2$**. Divide out:
+$$\frac{3x+1}{x-2}=\frac{3(x-2)+7}{x-2}=3+\frac{7}{x-2},$$
+and as $x\to\pm\infty$ the fraction dies, leaving **horizontal asymptote $y=3$**.
+
+```{python}
+#| fig-cap: "y=(3x+1)/(x−2): vertical asymptote x=2, horizontal asymptote y=3, two branches."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; A='#d62728'
+fig,ax=plt.subplots(figsize=(5.0,3.4))
+xl=np.linspace(-4,1.9,300); xr=np.linspace(2.1,8,300)
+ax.plot(xl,(3*xl+1)/(xl-2),color=C,lw=2); ax.plot(xr,(3*xr+1)/(xr-2),color=C,lw=2)
+ax.axvline(2,color=A,ls='--',lw=1); ax.axhline(3,color=A,ls='--',lw=1)
+ax.text(2.1,-6,'x=2',color=A,fontsize=9); ax.text(5.5,3.3,'y=3',color=A,fontsize=9)
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_ylim(-8,12); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title(r'$y=\frac{3x+1}{x-2}$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The horizontal asymptote is the ratio of the leading coefficients, $3/1=3$ — not $0$. Splitting off the
+constant makes that obvious and also shows the "$+7/(x-2)$" branch direction.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+::: {.question}
+Which one of these curves passes through $(1,0)$ and has the $y$-axis as an asymptote?
+
+&nbsp;&nbsp;**A** $y=2^{x}$ &nbsp; **B** $y=\log_{2}x$ &nbsp; **C** $y=x^{2}$ &nbsp; **D** $y=2^{-x}$ &nbsp;
+**E** $y=x^{2}-1$
+:::
+
+Two fingerprints: the point it passes through, and [which axis it hugs]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — recognise exponential vs log vs power from key features
+:::
+
+
+$y=\log_{2}x$ passes through $(1,0)$ (since $\log_2 1=0$) and shoots down the **$y$-axis** as $x\to0^{+}$ —
+that axis is its asymptote. So **B**.
+
+```{python}
+#| fig-cap: "y=log₂x: through (1,0), with the y-axis as a vertical asymptote. Contrast y=2ˣ (through (0,1), x-axis asymptote)."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(5.0,3.4))
+xp=np.linspace(0.05,5,300); ax.plot(xp,np.log2(xp),color='#1f77b4',lw=2,label='y=log₂x')
+x=np.linspace(-3,2.3,300); ax.plot(x,2.0**x,color='#ff7f0e',lw=1.6,ls='--',label='y=2ˣ')
+ax.plot(1,0,'o',color='#d62728'); ax.annotate('(1,0)',(1,0),(1.1,-1.1),fontsize=9,color='#d62728')
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_xlim(-3,5); ax.set_ylim(-4,5); ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y')
+plt.tight_layout(); plt.show()
+```
+
+*$y=2^{x}$ (A) is the mirror image: through $(0,1)$ with the **$x$**-axis as asymptote. The power curves C, E
+pass through neither test.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+$y=\lvert 2x-4\rvert$. State the coordinates of the vertex, and hence how many solutions
+$\;\lvert 2x-4\rvert=6\;$ has.
+
+*Answer form: a vertex $(x,y)$ and a whole number.*
+:::
+
+The V sits with its point where the [inside is zero]{.hl}; a horizontal line above the vertex cuts **both**
+arms.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — the modulus "V", and counting solutions of $\lvert\ \rvert=k$
+:::
+
+
+Inside zero at $x=2$, so the **vertex is $(2,0)$**. The line $y=6$ is above it, cutting both arms:
+$2x-4=6\Rightarrow x=5$ and $2x-4=-6\Rightarrow x=-1$ — **2 solutions**.
+
+```{python}
+#| fig-cap: "y=|2x−4|: vertex (2,0). The line y=6 meets both arms, at x=−1 and x=5 → 2 solutions."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'; H='#2ca02c'
+x=np.linspace(-3,7,400); y=np.abs(2*x-4)
+fig,ax=plt.subplots(figsize=(5.2,3.2))
+ax.plot(x,y,color=C,lw=2)
+ax.axhline(6,color=L,ls='--',lw=1.2,label='y=6')
+ax.plot(2,0,'o',color='0.4'); ax.annotate('(2,0)',(2,0),(2.1,0.6),fontsize=9)
+for xi in (-1,5): ax.plot(xi,6,'o',color=H)
+ax.axhline(0,color='0.6',lw=0.7); ax.legend(fontsize=8)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-0.5,10)
+ax.set_title('|2x−4| = 6  →  2 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Exactly at the vertex ($k=0$) there would be one solution; below it, none. The number of solutions is "how
+high is the line above the point of the V".* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+::: {.question}
+By completing the square, state the minimum point of $y=x^{2}-6x+11$, and hence the number of real solutions
+of $x^{2}-6x+11=0$.
+
+*Answer form: a point $(x,y)$ and a whole number.*
+:::
+
+The completed square gives the vertex directly; if the [minimum is above the $x$-axis]{.hl}, the curve never
+reaches $y=0$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — complete the square to place a parabola, then read the root count
+:::
+
+
+$x^{2}-6x+11=(x-3)^{2}+2$, so the **minimum is $(3,2)$**. The lowest point is $2>0$, above the axis, so the
+curve never crosses $y=0$: **$0$ real solutions**. (Check: discriminant $(-6)^2-4(11)=-8<0$.)
+
+```{python}
+#| fig-cap: "y=(x−3)²+2: minimum (3,2) sits above the x-axis, so there are no real roots."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; V='#2ca02c'
+x=np.linspace(0,6,400); y=(x-3)**2+2
+fig,ax=plt.subplots(figsize=(5.0,3.4))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(3,2,'o',color=V); ax.annotate('(3,2) min',(3,2),(3.2,3.2),color=V,fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-1,11)
+ax.set_title(r'$y=x^2-6x+11=(x-3)^2+2$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The completed square is a sketch and a root-count in one line: vertex $=(3,2)$, and "vertex above axis, cup
+up" means no roots — no need for the quadratic formula.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+::: {.question}
+A cubic curve meets the $x$-axis **only** at $x=-2$ (crossing) and $x=1$ (touching), and $y\to+\infty$ as
+$x\to+\infty$. Which equation could it be?
+
+&nbsp;&nbsp;**A** $y=(x+2)(x-1)^{2}$ &nbsp; **B** $y=(x-2)(x+1)^{2}$ &nbsp;
+**C** $y=(x+2)^{2}(x-1)$ &nbsp; **D** $y=-(x+2)(x-1)^{2}$
+:::
+
+Match three things: the [crossing root, the touching root, and the positive leading term]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — "which equation could this be?" — shape $+$ roots (MAT Q1 style)
+:::
+
+
+- Crossing at $x=-2$ needs the **single** factor $(x+2)$.
+- Touching at $x=1$ needs the **squared** factor $(x-1)^{2}$.
+- $y\to+\infty$ as $x\to+\infty$ needs a **positive** leading term.
+
+$(x+2)(x-1)^{2}$ has all three — **A**.
+
+```{python}
+#| fig-cap: "y=(x+2)(x−1)²: crosses at x=−2, touches at x=1, positive cubic (up to the right)."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; R='#d62728'; T='#2ca02c'
+x=np.linspace(-3.2,2.4,500); y=(x+2)*(x-1)**2
+fig,ax=plt.subplots(figsize=(5.2,3.4))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(-2,0,'o',color=R); ax.annotate('x=−2 crosses',(-2,0),(-3.1,6),color=R,fontsize=9)
+ax.plot(1,0,'o',color=T); ax.annotate('x=1 touches',(1,0),(1.05,4),color=T,fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-6,12)
+ax.set_title(r'$y=(x+2)(x-1)^2$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Distractor **B** swaps the roles (crosses at $2$, touches at $-1$); **C** swaps touch and cross; **D** has a
+negative lead, so it goes to $-\infty$ on the right.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+::: {.question}
+The curve is $y=\dfrac{1}{x-3}+2$. Which point lies **on** the curve?
+
+&nbsp;&nbsp;**A** $(3,2)$ &nbsp; **B** $(4,3)$ &nbsp; **C** $(0,2)$ &nbsp; **D** $(2,3)$
+:::
+
+The asymptotes are $x=3$ and $y=2$ — their meeting point $(3,2)$ is the [one place the curve avoids]{.hl}.
+Test the others.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a shifted reciprocal; tell a point *on* the curve from the asymptote crossing
+:::
+
+
+At $x=4$: $y=\dfrac{1}{4-3}+2=1+2=3$, so $(4,3)$ is on the curve — **B**.
+
+```{python}
+#| fig-cap: "y=1/(x−3)+2: asymptotes x=3, y=2 (their meeting point (3,2) is NOT on the curve); (4,3) is."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; A='#d62728'; P='#2ca02c'
+fig,ax=plt.subplots(figsize=(5.0,3.4))
+xl=np.linspace(-1,2.9,300); xr=np.linspace(3.1,7,300)
+ax.plot(xl,1/(xl-3)+2,color=C,lw=2); ax.plot(xr,1/(xr-3)+2,color=C,lw=2)
+ax.axvline(3,color=A,ls='--',lw=1); ax.axhline(2,color=A,ls='--',lw=1)
+ax.plot(4,3,'o',color=P); ax.annotate('(4,3) on curve',(4,3),(4.1,3.4),color=P,fontsize=9)
+ax.plot(3,2,'x',color=A,ms=8); ax.annotate('(3,2) not on curve',(3,2),(3.15,0.4),color=A,fontsize=8)
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_ylim(-2,6); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title(r'$y=\frac{1}{x-3}+2$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The tempting wrong answer **A** $(3,2)$ is exactly where the asymptotes cross — the single point the curve
+can never reach. Always substitute to test.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.question}
+How many solutions does $\;\sin x=\dfrac12\;$ have for $0^\circ\le x\le 360^\circ$?
+
+&nbsp;&nbsp;**A** $1$ &nbsp; **B** $2$ &nbsp; **C** $3$ &nbsp; **D** $4$
+:::
+
+Draw $y=\sin x$ across the interval and the line $y=\tfrac12$, and [count crossings]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — count solutions of a trig equation by drawing the line across one period
+:::
+
+
+$\sin x=\tfrac12$ at $x=30^\circ$ and, by symmetry about $90^\circ$, at $x=150^\circ$. Over one full turn the
+line $y=\tfrac12$ cuts the curve **twice** — **B**.
+
+```{python}
+#| fig-cap: "y=sin x on [0°,360°] meets y=½ twice: at 30° and 150°."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'; H='#2ca02c'
+d=np.linspace(0,360,600); y=np.sin(np.radians(d))
+fig,ax=plt.subplots(figsize=(5.6,3.0))
+ax.plot(d,y,color=C,lw=2); ax.axhline(0.5,color=L,ls='--',lw=1.2,label='y=½')
+for xi in (30,150): ax.plot(xi,0.5,'o',color=H)
+ax.axhline(0,color='0.6',lw=0.7); ax.set_xticks([0,90,180,270,360])
+ax.set_xlabel('x (degrees)'); ax.set_ylabel('y'); ax.legend(fontsize=8)
+ax.set_title('sin x = ½ on [0°,360°]  →  2 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Between $0^\circ$ and $360^\circ$ the sine curve is above $\tfrac12$ on one hump only, entering and leaving
+it — hence exactly two crossings. Widen the interval and you add two per extra turn.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Part 2 — Solve & count (draw two things, count crossings)
+
+## Question 9
+
+::: {.question}
+How many real solutions does $\;x^{3}-3x=1\;$ have?
+
+&nbsp;&nbsp;**A** $1$ &nbsp; **B** $2$ &nbsp; **C** $3$ &nbsp; **D** $0$
+:::
+
+Sketch $y=x^{3}-3x$ (turning points at $x=\pm1$) and slide the line $y=1$; the count is [how the line sits
+against the two turning-point heights]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — count roots of a cubic from the signs of its turning-point values
+:::
+
+
+$y=x^{3}-3x$ has $y'=3x^{2}-3=0$ at $x=\pm1$: local **max** $(-1,2)$ and local **min** $(1,-2)$. The line
+$y=1$ lies **between** $-2$ and $2$, so it cuts the curve **three** times — **C**.
+
+```{python}
+#| fig-cap: "y=x³−3x with turning points (−1,2) and (1,−2). The line y=1 sits between them, giving 3 crossings."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'
+x=np.linspace(-2.2,2.2,500); y=x**3-3*x
+fig,ax=plt.subplots(figsize=(5.4,3.6))
+ax.plot(x,y,color=C,lw=2,label='y=x³−3x')
+ax.axhline(1,color=L,ls='--',lw=1.2,label='y=1 → 3 solutions')
+ax.plot(-1,2,'o',color='0.4'); ax.plot(1,-2,'o',color='0.4')
+ax.annotate('max (−1,2)',(-1,2),(-2.1,2.6),fontsize=8); ax.annotate('min (1,−2)',(1,-2),(1.05,-3.4),fontsize=8)
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.legend(fontsize=8,loc='lower right'); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-5,5.5)
+plt.tight_layout(); plt.show()
+```
+
+*The rule in one line: a horizontal line strictly between the local min and local max value cuts a cubic
+three times; outside that band, once. No need to solve the cubic.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+::: {.question}
+How many real roots does $\;x^{3}-3x+4=0\;$ have?
+
+&nbsp;&nbsp;**A** $1$ &nbsp; **B** $2$ &nbsp; **C** $3$ &nbsp; **D** $0$
+:::
+
+Find the two turning-point values of $g(x)=x^{3}-3x+4$; if they have the [same sign]{.hl}, the axis is cut
+once.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — the same test, when the turning values share a sign
+:::
+
+
+$g'(x)=3x^{2}-3=0$ at $x=\pm1$. Then $g(-1)=-1+3+4=6$ (local max) and $g(1)=1-3+4=2$ (local min). **Both are
+positive**, so the whole curve sits above the axis except for one final descent on the far left — the axis is
+crossed **once**. Answer **A**.
+
+```{python}
+#| fig-cap: "y=x³−3x+4: both turning values (6 and 2) are positive, so the curve crosses the x-axis just once."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; R='#d62728'
+x=np.linspace(-3,2.2,500); y=x**3-3*x+4
+fig,ax=plt.subplots(figsize=(5.2,3.6))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(-1,6,'o',color='0.4'); ax.plot(1,2,'o',color='0.4')
+ax.annotate('max 6',(-1,6),(-1.1,7),fontsize=8); ax.annotate('min 2',(1,2),(1.05,2.6),fontsize=8)
+ax.plot(-2.196,0,'o',color=R); ax.annotate('only root ≈ −2.2',(-2.196,0),(-3,1.5),color=R,fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-3,12)
+plt.tight_layout(); plt.show()
+```
+
+*Same test as Q9, opposite outcome: a positive max **and** a positive min means the dip never reaches the
+axis, so there is a single crossing.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+::: {.question}
+Find the value of $c$ for which the line $y=3x+c$ is a tangent to the curve $y=x^{2}$.
+
+&nbsp;&nbsp;**A** $c=-\tfrac94$ &nbsp; **B** $c=\tfrac94$ &nbsp; **C** $c=-\tfrac32$ &nbsp;
+**D** $c=3$
+:::
+
+Tangent means the line meets the curve **once**, so the quadratic you get has [discriminant $0$]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — tangency by discriminant (no calculus)
+:::
+
+
+Set equal: $x^{2}=3x+c\Rightarrow x^{2}-3x-c=0$. One solution ⇔ discriminant $0$:
+$$(-3)^{2}-4(1)(-c)=0\Rightarrow 9+4c=0\Rightarrow c=-\frac94.$$
+Answer **A**.
+
+```{python}
+#| fig-cap: "y=x² and the tangent y=3x−9/4: they touch at exactly one point (x=3/2)."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'
+x=np.linspace(-1.5,4,400)
+fig,ax=plt.subplots(figsize=(5.0,3.6))
+ax.plot(x,x**2,color=C,lw=2,label='y=x²')
+ax.plot(x,3*x-9/4,color=L,lw=1.6,label='y=3x−9/4')
+ax.plot(1.5,2.25,'o',color='#2ca02c'); ax.annotate('touch (1.5, 2.25)',(1.5,2.25),(1.6,0.4),fontsize=9,color='#2ca02c')
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-3,10)
+plt.tight_layout(); plt.show()
+```
+
+*Discriminant $0$ is the algebraic word for "touches once". This beats differentiating whenever the line is
+straight and the curve is a quadratic.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+::: {.question}
+For what value of $c$ is $y=x+c$ a tangent to $y=x^{2}-3x+5$?
+
+&nbsp;&nbsp;**A** $c=1$ &nbsp; **B** $c=-1$ &nbsp; **C** $c=5$ &nbsp; **D** $c=4$
+:::
+
+Same recipe: subtract, get a quadratic in $x$, and set its [discriminant to zero]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — tangency again, with a quadratic that is not $y=x^2$
+:::
+
+
+$x^{2}-3x+5=x+c\Rightarrow x^{2}-4x+(5-c)=0$. Discriminant $0$:
+$$(-4)^{2}-4(5-c)=0\Rightarrow 16-20+4c=0\Rightarrow 4c=4\Rightarrow c=1.$$
+Answer **A**.
+
+```{python}
+#| fig-cap: "y=x²−3x+5 and its tangent y=x+1, touching at x=2."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'
+x=np.linspace(-0.5,4.5,400)
+fig,ax=plt.subplots(figsize=(5.0,3.6))
+ax.plot(x,x**2-3*x+5,color=C,lw=2,label='y=x²−3x+5')
+ax.plot(x,x+1,color=L,lw=1.6,label='y=x+1')
+ax.plot(2,3,'o',color='#2ca02c'); ax.annotate('touch (2, 3)',(2,3),(2.1,1.6),fontsize=9,color='#2ca02c')
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(0,10)
+plt.tight_layout(); plt.show()
+```
+
+*The constant term of the quadratic is $5-c$, not $5$ — carry the unknown all the way into the discriminant
+before solving.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+::: {.question}
+How many points lie on **both** $x^{2}+y^{2}=25$ and $y=x+1$?
+
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $3$
+:::
+
+Substitute the line into the circle; the number of intersections is the number of [real solutions of the
+resulting quadratic]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — intersections of a line and a circle by substitution
+:::
+
+
+Put $y=x+1$ into the circle:
+$$x^{2}+(x+1)^{2}=25\Rightarrow 2x^{2}+2x-24=0\Rightarrow x^{2}+x-12=0\Rightarrow (x+4)(x-3)=0.$$
+Two real values $x=-4,3$, so **2** intersection points — **C**.
+
+```{python}
+#| fig-cap: "The line y=x+1 is a secant of the circle x²+y²=25, cutting it at (−4,−3) and (3,4)."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'; H='#2ca02c'
+t=np.linspace(0,2*np.pi,400)
+fig,ax=plt.subplots(figsize=(4.4,4.4))
+ax.plot(5*np.cos(t),5*np.sin(t),color=C,lw=2)
+xx=np.linspace(-6,6,100); ax.plot(xx,xx+1,color=L,lw=1.6)
+for (px,py) in [(-4,-3),(3,4)]: ax.plot(px,py,'o',color=H)
+ax.set_aspect('equal'); ax.axhline(0,color='0.7',lw=.6); ax.axvline(0,color='0.7',lw=.6)
+ax.set_xlim(-7,7); ax.set_ylim(-7,7); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title('line ∩ circle: 2 points',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Two real roots → secant (2 points); repeated root → tangent (1); no real root → the line misses the circle
+(0). The discriminant tells you which without drawing.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+::: {.question}
+Which of the following best describes the graph of $\;y^{2}=x^{2}$?
+
+&nbsp;&nbsp;**A** a circle &nbsp; **B** a single straight line &nbsp; **C** two straight lines through the
+origin &nbsp; **D** a parabola
+:::
+
+Do not leave it implicit — [take the square root]{.hl} and see what it becomes.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — recognise an implicit relation after rewriting
+:::
+
+
+$y^{2}=x^{2}\Rightarrow y=\pm x$. That is **two straight lines through the origin**, $y=x$ and $y=-x$ — **C**.
+
+```{python}
+#| fig-cap: "y²=x² is the pair of lines y=x and y=−x (an ✕ through the origin), not a curve."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,100)
+fig,ax=plt.subplots(figsize=(4.2,4.2))
+ax.plot(x,x,color='#1f77b4',lw=2,label='y=x'); ax.plot(x,-x,color='#d62728',lw=2,label='y=−x')
+ax.axhline(0,color='0.7',lw=.6); ax.axvline(0,color='0.7',lw=.6)
+ax.set_aspect('equal'); ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title('y² = x²',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The habit for any unfamiliar relation: rewrite until it is a shape you know. Squares hide **$\pm$**, so
+"$y^2=\dots$" almost always splits into two branches.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 15
+
+::: {.question}
+For how many **integer** values of $k$ does $\;x^{3}-3x^{2}=k\;$ have three distinct real solutions?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$
+:::
+
+Three roots exactly when the line $y=k$ lies **strictly between** the [two turning-point heights]{.hl}. Find
+them, then count integers in the gap.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a moving line $y=k$; for how many $k$ are there three roots
+:::
+
+
+$g(x)=x^{3}-3x^{2}$ has $g'(x)=3x^{2}-6x=3x(x-2)=0$ at $x=0$ and $x=2$: local **max** $g(0)=0$ and local
+**min** $g(2)=-4$. Three distinct roots ⇔ $-4<k<0$. The integers strictly inside are $-3,-2,-1$ — **3**
+values, so **B**.
+
+```{python}
+#| fig-cap: "y=x³−3x² has max 0 (x=0) and min −4 (x=2). y=k gives 3 roots only for −4<k<0: integers −3,−2,−1."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'
+x=np.linspace(-1.3,3.3,500); y=x**3-3*x**2
+fig,ax=plt.subplots(figsize=(5.4,3.8))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(0,0,'o',color='#2ca02c'); ax.plot(2,-4,'o',color='#d62728')
+ax.annotate('max 0',(0,0),(-1.1,0.6),color='#2ca02c',fontsize=9)
+ax.annotate('min −4',(2,-4),(2.1,-4.6),color='#d62728',fontsize=9)
+for k in (-3,-2,-1): ax.axhline(k,color='0.6',ls=':',lw=1)
+ax.axhline(0,color='0.7',lw=.7); ax.axvline(0,color='0.7',lw=.6)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-6,3)
+ax.set_title(r'$x^3-3x^2=k$: 3 roots for $-4<k<0$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Strict inequality matters: at $k=0$ or $k=-4$ the line passes **through** a turning point, so two roots
+merge and you get only two distinct solutions — those endpoints are excluded.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Part 3 — Push to 9.0 (harder mixed)
+
+These reward the shortcuts on the concepts page — the cubic ratio rules, a two-value tangency, an equation
+that mixes a modulus with a line. Same habits, less forgiving.
+
+## Question 16
+
+::: {.question}
+The curve $y=x^{3}-27x$ has its centre of symmetry at the origin. Using the $1:\sqrt3$ ratio (centre → turning
+point : centre → root), find the coordinates of the local **maximum**.
+
+*Answer form: a point $(x,y)$.*
+:::
+
+Find the roots first; the turning point sits at [the root distance divided by $\sqrt3$]{.hl}. Then read the
+height off the equation.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — cubic $1:\sqrt3$ rule: place the turning points without calculus
+:::
+
+
+Roots: $x^{3}-27x=x(x^{2}-27)=0\Rightarrow x=0,\ \pm3\sqrt3$. The centre is on the axis, so the $1:\sqrt3$ rule
+applies: turning point at $\dfrac{3\sqrt3}{\sqrt3}=3$ from the centre, i.e. $x=\pm3$. The **local maximum** is
+on the left, at $x=-3$:
+$$y=(-3)^{3}-27(-3)=-27+81=54.$$
+So the maximum is $(-3,54)$.
+
+```{python}
+#| fig-cap: "y=x³−27x: roots 0, ±3√3; by the 1:√3 rule the turning points are at ±3, giving max (−3,54) and min (3,−54)."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'
+x=np.linspace(-6,6,600); y=x**3-27*x
+fig,ax=plt.subplots(figsize=(5.4,3.8))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(-3,54,'o',color='#2ca02c'); ax.annotate('max (−3, 54)',(-3,54),(-5.7,58),color='#2ca02c',fontsize=9)
+ax.plot(3,-54,'o',color='#d62728'); ax.annotate('min (3, −54)',(3,-54),(0.5,-70),color='#d62728',fontsize=9)
+for r in (0,3*np.sqrt(3),-3*np.sqrt(3)): ax.plot(r,0,'o',color='0.5',ms=5)
+ax.axhline(0,color='0.7',lw=.7); ax.axvline(0,color='0.7',lw=.6)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-90,90)
+ax.set_title(r'$y=x^3-27x$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Check by calculus if you like ($y'=3x^{2}-27=0\Rightarrow x=\pm3$) — but the ratio gives it faster, and it is
+the intended route. Remember $1:\sqrt3$ needs the centre **on the $x$-axis**.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+::: {.question}
+The curve $y=x^{3}-12x$ has a local maximum at $(-2,16)$. At which **other** value of $x$ does the curve pass
+through the height $y=16$ again?
+
+&nbsp;&nbsp;**A** $x=2$ &nbsp; **B** $x=3$ &nbsp; **C** $x=4$ &nbsp; **D** $x=6$
+:::
+
+The $2:1$ rule: the gap between the turning points, then [half that gap again]{.hl} on to where the far
+turning-point height is re-attained.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — cubic $2:1$ rule: where does the curve regain a turning-point height
+:::
+
+
+Turning points at $x=\pm2$ (gap $4$). By the $2:1$ rule the curve regains the max height $16$ a further half
+of that gap, $2$, beyond the min — at $x=2+2=4$. Check: $4^{3}-12(4)=64-48=16$ ✓. Answer **C**.
+
+```{python}
+#| fig-cap: "y=x³−12x: the max height 16 (at x=−2) is regained at x=4 — the 2:1 rule (turning-point gap 4 : return gap 2)."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'
+x=np.linspace(-4,4.4,500); y=x**3-12*x
+fig,ax=plt.subplots(figsize=(5.4,3.8))
+ax.plot(x,y,color=C,lw=2)
+ax.axhline(16,color='0.6',ls=':',lw=1)
+ax.plot(-2,16,'o',color='#2ca02c'); ax.annotate('max (−2, 16)',(-2,16),(-3.9,18),color='#2ca02c',fontsize=9)
+ax.plot(4,16,'o',color='#ff7f0e'); ax.annotate('(4, 16)',(4,16),(3.0,19),color='#ff7f0e',fontsize=9)
+ax.plot(2,-16,'o',color='#d62728'); ax.annotate('min (2, −16)',(2,-16),(0.2,-22),color='#d62728',fontsize=9)
+ax.axhline(0,color='0.7',lw=.7); ax.axvline(0,color='0.7',lw=.6)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_xticks([-4,-2,0,2,4]); ax.set_ylim(-26,26)
+ax.set_title(r'$y=x^3-12x$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Unlike $1:\sqrt3$, the $2:1$ rule needs no root symmetry — it follows from the point-symmetry every cubic
+has, so it works even when the curve is shifted.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+::: {.question}
+The line $y=mx+2$ is a tangent to the curve $y=x^{2}+3x+6$. Find the possible values of $m$.
+
+&nbsp;&nbsp;**A** $m=-1$ or $m=7$ &nbsp; **B** $m=1$ or $m=-7$ &nbsp; **C** $m=3$ only &nbsp;
+**D** $m=-1$ or $m=-7$
+:::
+
+The line passes through the fixed point $(0,2)$, so there are **two** tangents. Discriminant $0$ gives a
+[quadratic in $m$]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a tangency that yields **two** values (a line through a fixed point)
+:::
+
+
+$x^{2}+3x+6=mx+2\Rightarrow x^{2}+(3-m)x+4=0$. Tangent ⇔ discriminant $0$:
+$$(3-m)^{2}-16=0\Rightarrow 3-m=\pm4\Rightarrow m=-1\ \text{or}\ m=7.$$
+Answer **A**.
+
+```{python}
+#| fig-cap: "From (0,2) there are two tangents to y=x²+3x+6: slopes m=−1 and m=7."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'
+x=np.linspace(-6,3,400)
+fig,ax=plt.subplots(figsize=(5.2,3.8))
+ax.plot(x,x**2+3*x+6,color=C,lw=2,label='y=x²+3x+6')
+ax.plot(x,-1*x+2,color='#d62728',lw=1.5,label='m=−1')
+ax.plot(x,7*x+2,color='#2ca02c',lw=1.5,label='m=7')
+ax.plot(0,2,'o',color='k'); ax.annotate('(0,2)',(0,2),(0.2,3),fontsize=9)
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-4,20)
+plt.tight_layout(); plt.show()
+```
+
+*A discriminant condition that leaves a letter in it becomes a **quadratic in that letter** — expect two
+answers, matching the two tangents you can draw from an external point.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+::: {.question}
+How many real solutions does $\;\lvert x^{2}-1\rvert=x+1\;$ have?
+
+&nbsp;&nbsp;**A** $1$ &nbsp; **B** $2$ &nbsp; **C** $3$ &nbsp; **D** $4$
+:::
+
+Draw $y=\lvert x^{2}-1\rvert$ (the parabola with its dip flipped up) and the line $y=x+1$, then [count
+crossings]{.hl}. Solve algebraically by splitting the modulus.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — count solutions of $\lvert\text{quadratic}\rvert=\text{line}$ by drawing both
+:::
+
+
+Split on where $x^{2}-1$ changes sign ($\lvert x\rvert=1$):
+
+- **$\lvert x\rvert\ge1$:** $x^{2}-1=x+1\Rightarrow x^{2}-x-2=0\Rightarrow(x-2)(x+1)=0\Rightarrow x=2$ or
+  $x=-1$ (both satisfy $\lvert x\rvert\ge1$). ✔
+- **$-1<x<1$:** $-(x^{2}-1)=x+1\Rightarrow x^{2}+x=0\Rightarrow x(x+1)=0\Rightarrow x=0$ (in range; $x=-1$ is
+  the boundary, already counted). ✔
+
+Distinct solutions $x=-1,\ 0,\ 2$ — **3**, so **C**. (Each has $x+1\ge0$, so the equation is consistent.)
+
+```{python}
+#| fig-cap: "y=|x²−1| meets the line y=x+1 at x=−1, 0, 2 → three solutions."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'; H='#2ca02c'
+x=np.linspace(-2.6,3,600); y=np.abs(x**2-1)
+fig,ax=plt.subplots(figsize=(5.4,3.6))
+ax.plot(x,y,color=C,lw=2,label='y=|x²−1|')
+ax.plot(x,x+1,color=L,lw=1.6,label='y=x+1')
+for xi in (-1,0,2): ax.plot(xi,xi+1,'o',color=H)
+ax.axhline(0,color='0.6',lw=0.7); ax.axvline(0,color='0.6',lw=0.6)
+ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-0.5,5)
+ax.set_title('|x²−1| = x+1  →  3 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Splitting the modulus at its sign-change points is the safe route; the picture then confirms you have not
+picked up a false solution from the wrong branch.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+::: {.question}
+How many real solutions does $\;2^{x}=x+2\;$ have?
+
+&nbsp;&nbsp;**A** $1$ &nbsp; **B** $2$ &nbsp; **C** $3$ &nbsp; **D** $0$
+:::
+
+There is no algebra for this — **draw $y=2^{x}$ and the line $y=x+2$** and count where they meet, checking the
+[obvious points]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — count solutions of exponential $=$ line by drawing (no algebra available)
+:::
+
+
+Test a couple of points on $h(x)=2^{x}-(x+2)$:
+
+- $x=2$: $2^{2}-4=0$ — a crossing at $x=2$.
+- $x=-2$: $2^{-2}-0=\tfrac14>0$, but $x=-1$: $2^{-1}-1=-\tfrac12<0$ — a **sign change**, so a second crossing
+  between $-2$ and $-1$.
+
+For large $x$ the exponential wins ($h>0$), and between the two crossings $h$ stays negative. So there are
+exactly **two** solutions — **B**.
+
+```{python}
+#| fig-cap: "y=2ˣ and y=x+2 cross twice: once near x≈−1.7 and once at x=2."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; L='#d62728'; H='#2ca02c'
+x=np.linspace(-3,3,500)
+fig,ax=plt.subplots(figsize=(5.4,3.6))
+ax.plot(x,2.0**x,color=C,lw=2,label='y=2ˣ')
+ax.plot(x,x+2,color=L,lw=1.6,label='y=x+2')
+ax.plot(2,4,'o',color=H)
+# left crossing (numeric)
+from scipy.optimize import brentq
+xl=brentq(lambda t:2.0**t-(t+2),-2,-1); ax.plot(xl,xl+2,'o',color=H)
+ax.annotate('x=2',(2,4),(2.1,2.4),fontsize=9,color=H)
+ax.annotate(f'x≈{xl:.2f}',(xl,xl+2),(-2.9,1.4),fontsize=9,color=H)
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.legend(fontsize=8,loc='upper left'); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-1,8)
+plt.tight_layout(); plt.show()
+```
+
+*A curve and a line can meet $0$, $1$ or $2$ times; the way to be sure is to evaluate $h=\text{curve}-\text{line}$
+at a few points and watch for **sign changes**. One obvious integer crossing ($x=2$) plus one hidden one on the
+left gives two.* $\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The two habits to leave with
+
+1. **Sketch:** run the checklist — intercepts, repeated roots (touch vs cross), turning points, asymptotes,
+   ends. The leading term fixes the ends; a squared factor touches, a single factor crosses.
+2. **Draw-and-count:** to solve or to count roots, draw the two graphs and count crossings. A line strictly
+   between a cubic's turning-point heights gives three roots; tangency means discriminant $0$; and the cubic
+   $1:\sqrt3$ and $2:1$ ratios place turning points and return-heights with no calculus.
+:::
+
+:::

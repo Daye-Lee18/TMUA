@@ -1,0 +1,669 @@
+---
+title: "Toolkit S5 — Proof Methods · Class Problems"
+subtitle: "27 problems — solve fast, in two batches"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Twenty-seven problems** across the four methods — **direct**, **cases**, **contradiction**,
+**counterexample** — plus choosing the right one and spotting a flaw. Work them in **two fast batches**
+(Part 1 + Part 2, then the longer Part 3), the way the session runs. **Part 3 is the hard tier** — the
+questions that separate a 7 from a 9. Everything is argued in **English sentences**;
+no symbols are required on Paper 2. Question types are drawn from **MAT, AMC, STEP** proof questions —
+the same ideas, one notch harder.
+
+::: {.callout-note appearance="simple"}
+**Recall box.** algebra → **direct** · even/odd or ± → **cases** · "impossible / irrational / no
+largest" → **contradiction** · a "for all" you doubt → **counterexample**. You can *disprove* a "for
+all" with one example; you can never *prove* one that way.
+:::
+
+---
+
+# Part 1 — Core methods, fast
+
+## Question 1
+
+::: {.question}
+Prove that the sum of any two odd numbers is even.
+:::
+
+Write each odd number as $2k+1$ — [that makes the argument cover every odd number at once]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(direct)*]{style="color:#7a5195"}
+$(2a+1)+(2b+1)=2(a+b+1)$, which is $2\times(\text{integer})$ — even. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+Which single value disproves **"every prime number is odd"**?
+
+&nbsp;&nbsp;**A** $1$ &nbsp; **B** $2$ &nbsp; **C** $9$ &nbsp; **D** $15$
+:::
+
+A "for all" dies to one example fitting the hypothesis but breaking the conclusion.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(counterexample, MCQ)*]{style="color:#7a5195"}
+**B.** $2$ is prime but even. ($9,15$ are odd **and** not prime, so they are not counterexamples; $1$ is
+not prime.) $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+::: {.question}
+What is the best method to prove **"$\sqrt2$ is irrational"**?
+
+&nbsp;&nbsp;**A** direct proof &nbsp; **B** proof by cases &nbsp; **C** proof by contradiction &nbsp;
+**D** disproof by counterexample
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(choosing a method, MCQ)*]{style="color:#7a5195"}
+**C.** "Irrational" is a claim of impossibility (no fraction works) — contradiction is the natural weapon:
+assume it *is* rational and force an absurdity. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+To prove by contradiction that **there is no largest positive integer**, what do you assume first?
+
+&nbsp;&nbsp;**A** every integer is small &nbsp; **B** there **is** a largest positive integer $N$ &nbsp;
+**C** $N+1$ is largest &nbsp; **D** there are infinitely many integers
+:::
+
+Contradiction opens with the **exact negation** of the goal.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contradiction, MCQ)*]{style="color:#7a5195"}
+**B.** Assume a largest positive integer $N$ exists; then $N+1$ is larger — contradiction. (**D** is the
+conclusion, not the assumption.) $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+::: {.question}
+Prove that $\lvert x\rvert \ge x$ for every real number $x$.
+:::
+
+Split at the sign of $x$ — [two exhaustive cases]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(cases)*]{style="color:#7a5195"}
+**Case $x\ge0$:** $\lvert x\rvert=x$, so $\lvert x\rvert\ge x$. **Case $x<0$:** $\lvert x\rvert=-x>0>x$,
+so $\lvert x\rvert> x$. Both cases give $\lvert x\rvert\ge x$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+::: {.question}
+Disprove: **"for all real $a,b$, if $a<b$ then $a^2<b^2$."**
+:::
+
+[Test negatives]{.hl} — squaring can reverse an inequality.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(counterexample)*]{style="color:#7a5195"}
+$a=-3$, $b=2$: then $a<b$ holds, but $a^2=9>4=b^2$. One counterexample disproves it. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+::: {.question}
+Prove that if $n$ is even, then $n^2$ is even.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(direct)*]{style="color:#7a5195"}
+$n=2k\Rightarrow n^2=4k^2=2(2k^2)$ — even. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.question}
+A student writes: *"$n^2+n$ is even because $1^2+1=2$, $2^2+2=6$, $3^2+3=12$ are all even, so it holds for
+all $n$."* The conclusion is true, but why is this not a proof?
+
+&nbsp;&nbsp;**A** the sums are wrong &nbsp; **B** examples cannot prove a "for all" &nbsp;
+**C** the statement is false &nbsp; **D** nothing — it is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(spot the flaw, MCQ)*]{style="color:#7a5195"}
+**B.** A finite list leaves infinitely many $n$ unchecked. A real proof: $n^2+n=n(n+1)$ is a product of
+two consecutive integers, one even. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# Part 2 — Constructing proofs (exam standard)
+
+## Question 9
+
+::: {.question}
+Prove that the product of two consecutive integers is even.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(direct / cases)*]{style="color:#7a5195"}
+Take $n$ and $n+1$. One of any two consecutive integers is even, so their product $n(n+1)$ is even. (Or:
+if $n=2k$, product $=2k(n+1)$; if $n=2k+1$, then $n+1=2k+2$ is even.) $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+::: {.question}
+Prove that if $n^2$ is even, then $n$ is even.
+:::
+
+Assume the **opposite** of the conclusion.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contradiction)*]{style="color:#7a5195"}
+Suppose $n^2$ even but $n$ **odd**. Then $n=2k+1$, so $n^2=4k^2+4k+1=2(2k^2+2k)+1$ — **odd**,
+contradicting $n^2$ even. So $n$ is even. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+::: {.question}
+Prove that the square of any integer is of the form $4k$ or $4k+1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(cases)*]{style="color:#7a5195"}
+**Even $n=2m$:** $n^2=4m^2$ (form $4k$). **Odd $n=2m+1$:** $n^2=4m^2+4m+1=4(m^2+m)+1$ (form $4k+1$).
+Exhaustive, so it holds for all $n$. $\;\blacksquare$
+
+*Consequence: a perfect square is never $4k+2$ or $4k+3$.*
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+::: {.question}
+Prove that if $n$ is an odd integer, then $n^2-1$ is divisible by $8$.
+:::
+
+Factor $n^2-1=(n-1)(n+1)$; [among two consecutive even numbers one is a multiple of $4$]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(direct)*]{style="color:#7a5195"}
+$n=2k+1\Rightarrow n^2-1=(2k)(2k+2)=4k(k+1)$. Since $k,k+1$ are consecutive, one is even, so $k(k+1)=2m$;
+hence $n^2-1=8m$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+::: {.question}
+Prove that the sum of a rational number and an irrational number is irrational.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contradiction)*]{style="color:#7a5195"}
+Let $r$ rational, $x$ irrational; suppose $r+x=s$ is rational. Then $x=s-r$ is a difference of two
+rationals, hence rational — contradicting $x$ irrational. So $r+x$ is irrational. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+::: {.question}
+Disprove: **"$2^{n}-1$ is prime for every integer $n\ge2$."**
+:::
+
+Test the values a hopeful pattern skips.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(counterexample)*]{style="color:#7a5195"}
+$n=4$: $2^4-1=15=3\times5$, not prime. Counterexample. $\;\blacksquare$
+
+**Why we look for a composite value — and where to find it.** To disprove "**always** prime" you only need
+**one** $n$ for which $2^n-1$ is **composite** (not prime). The trick is *which* $n$ to try: take a
+**composite exponent** $n=ab$, because such a power *always* factors:
+$$2^{ab}-1=(2^{a}-1)\bigl(2^{a(b-1)}+2^{a(b-2)}+\dots+1\bigr).$$
+So $n=4=2\times2$ is guaranteed to have $2^{2}-1=3$ as a factor — hence $2^4-1=15$ is a multiple of $3$,
+no calculation needed; and $n=6=2\times3$ gives $2^6-1=63=7\times9$. A **prime** exponent need not fail
+($2^3-1=7$ and $2^5-1=31$ are prime), which is exactly why testing $n=1,2,3,\dots$ in order looks
+hopeful — so **skip the prime exponents and test a composite one**.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 15
+
+::: {.question}
+Prove, by cases, that $n^2+3n$ is even for every integer $n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(cases)*]{style="color:#7a5195"}
+**Even $n=2k$:** $4k^2+6k=2(2k^2+3k)$. **Odd $n=2k+1$:** $(2k+1)^2+3(2k+1)=4k^2+10k+4=2(2k^2+5k+2)$. Both
+even; exhaustive. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+::: {.question}
+A student claims **"$n^2+n+41$ is prime for every positive integer $n$."** Disprove it.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(counterexample)*]{style="color:#7a5195"}
+$n=40$: $40^2+40+41=1681=41^2$, not prime. Counterexample. $\;\blacksquare$
+
+*Checking small $n$ (all prime) proves nothing — the value at $n=40$ is forced to have factor $41$.*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+# Part 3 — Push to 8–9 (harder, cross-exam)
+
+## Question 17
+
+::: {.question}
+Prove, by contradiction, that $\sqrt3$ is irrational. You may use: **if $m^2$ is divisible by $3$ then
+$m$ is divisible by $3$.**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contradiction — MAT/STEP)*]{style="color:#7a5195"}
+Suppose $\sqrt3=\dfrac{a}{b}$ in lowest terms. Then $a^2=3b^2$, so $3$ divides $a^2$, hence $3$ divides $a$; write
+$a=3c$. Then $9c^2=3b^2\Rightarrow b^2=3c^2$, so $3$ divides $b$. Now $3$ divides both $a$ and $b$ —
+contradicting "lowest terms". So $\sqrt3$ is irrational. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+::: {.question}
+Prove that $n^3-n$ is divisible by $6$ for every integer $n$.
+:::
+
+Factor into consecutive integers, then argue divisibility by $2$ **and** by $3$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(cases / direct — STEP)*]{style="color:#7a5195"}
+$n^3-n=n(n^2-1)=(n-1)\,n\,(n+1)$ — three **consecutive** integers. Among any three consecutive integers
+one is a multiple of $3$, and at least one is even, so the product is divisible by both $3$ and $2$, hence
+by $6$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+::: {.question}
+Decide whether **"if $p$ and $q$ are prime then $p+q$ is even"** is true; if false, disprove it.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(counterexample — AMC)*]{style="color:#7a5195"}
+**False.** $p=2$, $q=3$ are prime but $p+q=5$ is odd. The claim quietly assumes both primes are odd, but
+$2$ is the even prime. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+::: {.question}
+Prove that there is no smallest positive rational number.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contradiction)*]{style="color:#7a5195"}
+Suppose $q$ is the smallest positive rational. Then $\dfrac{q}{2}$ is also a positive rational and
+$\dfrac{q}{2}<q$ — smaller than the supposed smallest. Contradiction, so no smallest positive rational
+exists. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 21
+
+::: {.question}
+A "proof" that $2=1$: *Let $a=b$. Then $a^2=ab$, so $a^2-b^2=ab-b^2$, i.e. $(a-b)(a+b)=b(a-b)$. Dividing
+by $(a-b)$ gives $a+b=b$, so $2b=b$, hence $2=1$.* Where is the error?
+
+&nbsp;&nbsp;**A** $a^2=ab$ is wrong &nbsp; **B** the factorisation is wrong &nbsp;
+**C** dividing by $(a-b)$, which is $0$ &nbsp; **D** $2b=b$ does not give $2=1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(spot the flaw — MAT-style)*]{style="color:#7a5195"}
+**C.** Since $a=b$, $a-b=0$, and dividing by $0$ is not allowed — that step is invalid. Every other line
+is correct. $\;\blacksquare$
+
+*The classic Err2 trap: cancelling a factor that might be (here, definitely is) zero.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 22
+
+::: {.question}
+Disprove: **"the sum of two irrational numbers is always irrational."**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(counterexample — STEP)*]{style="color:#7a5195"}
+$\sqrt2$ and $2-\sqrt2$ are both irrational, but their sum is $\sqrt2+(2-\sqrt2)=2$, which is rational.
+Counterexample. (Simplest: $\sqrt2+(-\sqrt2)=0$.) $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+## Question 23
+
+::: {.question}
+Prove that $\log_2 3$ is irrational.
+:::
+
+Assume it is rational, clear to an **integer power equation**, then compare parities.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contradiction — STEP/olympiad)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — contradiction; an even-vs-odd clash
+:::
+
+Suppose $\log_2 3=\dfrac{a}{b}$ with positive integers $a,b$. Then $2^{a/b}=3$, so $2^{a}=3^{b}$. But
+$2^{a}$ is **even** (as $a\ge1$) while $3^{b}$ is **odd** — impossible. So $\log_2 3$ is irrational.
+$\;\blacksquare$
+
+*The contradiction is a parity clash: an even number cannot equal an odd number.*
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 24
+
+::: {.question}
+Prove that if $a^2+b^2$ is divisible by $4$, then $a$ and $b$ are both even.
+:::
+
+Use the earlier fact that every square is $4k$ (even) or $4k+1$ (odd), and check the three parity
+combinations.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(cases — harder)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — cases via squares mod 4
+:::
+
+A square is $4k$ if the base is even and $4k+1$ if odd. So, working modulo $4$:
+
+- both even: $0+0=0$ ✓ (divisible by $4$);
+- one odd: $0+1=1$;
+- both odd: $1+1=2$.
+
+Only "both even" gives a multiple of $4$. Hence if $4$ divides $a^2+b^2$, then $a$ and $b$ are both even.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 25
+
+::: {.question}
+Disprove: **"$n!+1$ is prime for every positive integer $n$."**
+:::
+
+The first few work — test a little further.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(counterexample — harder)*]{style="color:#7a5195"}
+$n=1,2,3$ give $2,3,7$ (all prime), but $n=4$: $4!+1=25=5^2$, not prime. Counterexample. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 26
+
+::: {.question}
+Prove that $n^3$ and $n$ always have the **same parity** (both odd, or both even).
+:::
+
+Show their **difference** is even.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(direct — harder)*]{style="color:#7a5195"}
+$n^3-n=(n-1)\,n\,(n+1)$, a product of three consecutive integers, which is even. Since $n^3-n$ is even,
+$n^3$ and $n$ differ by an even number, so they have the same parity. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 27
+
+::: {.question}
+To solve $\sqrt{x+2}=x$, a student squares both sides: $x+2=x^2\Rightarrow x^2-x-2=0\Rightarrow
+(x-2)(x+1)=0$, so $x=2$ or $x=-1$ — and gives **both**. What is wrong?
+
+&nbsp;&nbsp;**A** the factorisation is wrong &nbsp; **B** $x=-1$ does not satisfy the original equation —
+squaring introduced it &nbsp; **C** $x=2$ is wrong &nbsp; **D** nothing
+:::
+
+Squaring can create **extraneous** roots — always check answers in the **original** equation.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(spot the flaw — squaring, MCQ)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the "squaring both sides" trap (Err2)
+:::
+
+**B.** Check: $x=2$ gives $\sqrt4=2$ ✓; but $x=-1$ gives $\sqrt1=1\neq-1$ ✗. Squaring both sides can
+introduce a root that does not satisfy the original equation, so $x=-1$ must be rejected. Only $x=2$ is a
+solution. $\;\blacksquare$
+
+*Squaring is not reversible — it can turn a false statement into a true one, so every squared solution
+must be tested in the original.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The one habit to leave with
+
+Match the claim to the method on sight, and never prove a "for all" by examples. Contradiction and
+counterexample carry the most marks on Paper 2 — the two to be fastest at. Part 3 is where the 8–9 marks
+live: parity clashes, squares mod 4, extraneous roots.
+:::
+
+:::

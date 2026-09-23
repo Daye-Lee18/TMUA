@@ -1,0 +1,336 @@
+---
+title: "TMUA 2016 · Paper 1 — the hard questions, and how to *start* them"
+subtitle: "For long or unfamiliar problems: the first move is the whole battle"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+You scored well but froze on the **long** questions. The fix is not more theory — it is a **way in**: a
+fixed set of first moves so that "I don't know where to start" never happens. This booklet gives that
+method, maps all 20 questions of 2016 by length and difficulty, and then walks the **first move** of every
+hard one.
+
+::: {.callout-tip}
+## Five first moves for a question you can't start
+
+Do these **in order**; one of them always cracks it.
+
+1. **Name the topic and the goal.** "This is a *series* question; it wants a *sum to infinity*." Half of
+   "stuck" is not having said what you're being asked.
+2. **Write down every given as an equation.** Turn each sentence of a word problem into a line of algebra
+   *before* trying to solve. (Q6, Q7, Q14 are just three or four such lines.)
+3. **Substitute to make it familiar.** A messy power or product becomes a standard shape: $u=2^{2x}$ turns
+   Q11 into a quadratic; $w=f(x)$, $u=x^2$, and "let the unknown be $x$" all do the same job.
+4. **Draw it.** "How many solutions / where is it negative / a max volume" → sketch the graph or the
+   figure and read it. (Q10, Q13, Q17.)
+5. **Introduce the unknown and use the *condition*.** Optimisation and geometry: name the variable, write
+   the constraint, then differentiate or use a rule. (Q12, Q15, Q20.)
+
+**Timing:** 3 min 45 s per question. If a long one isn't moving after the first move, **mark it and come
+back** — a later easy question is worth the same mark.
+:::
+
+**Answer key.** 1 H · 2 E · 3 C · 4 B · 5 C · 6 C · 7 B · 8 F · 9 D · 10 E ·
+11 E · 12 E · 13 C · 14 D · 15 C · 16 C · 17 D · 18 A · 19 B · 20 D
+
+---
+
+# The hard / long questions — the way in
+
+## Question 6
+
+::: {.question}
+Paints $P,Q,R$ contain $30\%$, $20\%$, and $R\%$ red. Mixed in proportion $12:5:3$, the result is $25\%$
+red. Find $R$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(long — ratio word problem)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — weighted average · **First move: write the given as one equation**
+:::
+
+The whole question is one weighted-average equation — write it and it is over:
+$$\frac{12(30)+5(20)+3R}{12+5+3}=25\ \Rightarrow\ 360+100+3R=500\ \Rightarrow\ R=\frac{40}{3}=13\tfrac13\%.$$
+**Answer C.** *A "combined in the proportion $a:b:c$" sentence is always $\dfrac{a\,x_1+b\,x_2+c\,x_3}{a+b+c}$.*
+:::
+
+## Question 7
+
+::: {.question}
+$60\%$ of members are women. $\tfrac25$ of the men play cricket; $\tfrac23$ of the cricketers are women.
+Find $P(\text{woman who plays tennis})$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(long — probability; the one to table)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — probability · **First move: put it in a two-way table**
+:::
+
+Take $100$ members and fill a **tennis / cricket $\times$ men / women** table.
+Men $=40$, women $=60$. Men cricket $=\tfrac25(40)=16$, so men tennis $=24$.
+"$\tfrac23$ of cricketers are women" $\Rightarrow$ men are $\tfrac13$ of cricketers $=16$, so cricketers
+$=48$ and women cricketers $=32$. Then women tennis $=60-32=28$.
+$$P=\frac{28}{100}=\frac{7}{25}.\qquad\textbf{Answer B.}$$
+*Every "long probability" question becomes short once the table is drawn — never reason about it in
+words.*
+:::
+
+## Question 9
+
+::: {.question}
+The segment from $(3,3)$ to $(7,5)$ is a diameter. The circle is translated $3$ left, reflected in the
+$x$-axis, then enlarged by factor $4$ about its own centre. Find the final equation.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(long — circle through a chain of transformations)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — circles + transformations · **First move: get centre & radius, then apply each step in order**
+:::
+
+Centre $=(5,4)$ (midpoint); radius $=\tfrac12\sqrt{4^2+2^2}=\sqrt5$. Now apply the steps to the **centre**
+and **radius** only:
+translate $3$ left $\to(2,4)$; reflect in $x$-axis $\to(2,-4)$; enlarge $\times4$ about its own centre
+$\to$ centre unchanged $(2,-4)$, radius $\to4\sqrt5$, so $r^2=80$.
+$$(x-2)^2+(y+4)^2=80.\qquad\textbf{Answer D.}$$
+*A circle is just (centre, radius). Track those two through the transformations — never the whole
+equation.*
+:::
+
+## Question 12
+
+::: {.question}
+A cylinder sits in a sphere of radius $5$ with both rim circles on the sphere. Find the maximum volume.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(long — optimisation, cylinder in a sphere)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — optimisation · **First move: name the variable, write the constraint, then differentiate**
+:::
+
+Let the cylinder have radius $r$ and half-height $h$. The **constraint** (corner on the sphere) is
+$r^2+h^2=25$. Volume $V=\pi r^2(2h)=2\pi h(25-h^2)$.
+$$\frac{\mathrm dV}{\mathrm dh}=2\pi(25-3h^2)=0\ \Rightarrow\ h=\frac{5}{\sqrt3},\quad r^2=25-\frac{25}{3}=\frac{50}{3}.$$
+$$V=2\pi\cdot\frac{5}{\sqrt3}\cdot\frac{50}{3}=\frac{500\pi}{3\sqrt3}=\frac{500\sqrt3}{9}\,\pi.\qquad\textbf{Answer E.}$$
+*Optimisation is always the same three lines: **variable → constraint → differentiate**.*
+:::
+
+## Question 13
+
+::: {.question}
+How many real roots does $3x^5-10x^3-120x+30=0$ have?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(short but hard — real roots of a quintic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — root counting · **First move: turning points, then the sign of the values**
+:::
+
+Don't try to solve it — **count** using the shape. $f'(x)=15x^4-30x^2-120=15(x^2-4)(x^2+2)$, so the only
+turning points are $x=\pm2$. Their values: $f(-2)=254>0$ (local max), $f(2)=-194<0$ (local min). A
+positive-leading quintic runs $-\infty\to+\infty$; with a positive max and a negative min it crosses the
+axis **three** times. **Answer C.**
+
+```{python}
+#| fig-cap: "y = 3x⁵−10x³−120x+30: local max +254 at x=−2, local min −194 at x=2 → three real roots."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,600); y=3*x**5-10*x**3-120*x+30
+fig,ax=plt.subplots(figsize=(5.4,3.4))
+ax.plot(x,y,color='#1f77b4',lw=2)
+ax.plot(-2,254,'o',color='#2ca02c'); ax.plot(2,-194,'o',color='#d62728')
+ax.annotate('max +254',(-2,254),(-2.9,270),color='#2ca02c',fontsize=9)
+ax.annotate('min −194',(2,-194),(0.2,-230),color='#d62728',fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.set_ylim(-400,400)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title('3 real roots',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+:::
+
+## Question 14
+
+::: {.question}
+$S=T+U$, where $T,U$ are geometric with first terms both $4$. The first three terms of $S$ are $8,\,3,\,
+\tfrac54$. Find the sum to infinity of $S$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(long — two geometric series added)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — geometric series · **First move: turn the three given terms into equations in $r,s$**
+:::
+
+Let ratios be $r,s$. The three terms give:
+$$4r+4s=3\Rightarrow r+s=\tfrac34,\qquad 4r^2+4s^2=\tfrac54\Rightarrow r^2+s^2=\tfrac{5}{16}.$$
+Then $2rs=(r+s)^2-(r^2+s^2)=\tfrac{9}{16}-\tfrac{5}{16}=\tfrac14$, so $rs=\tfrac18$.
+$$S_\infty=\frac{4}{1-r}+\frac{4}{1-s}=\frac{4\bigl(2-(r+s)\bigr)}{1-(r+s)+rs}=\frac{4\cdot\tfrac54}{\tfrac38}=\frac{40}{3}.\qquad\textbf{Answer D.}$$
+*The trick is not to find $r,s$ separately — get $r+s$ and $rs$, and everything is symmetric.*
+:::
+
+## Question 15
+
+::: {.question}
+The least possible value, as $a$ varies, of the gradient of $y=(2x+a)(x-2a)^2$ at $x=1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(hard — least gradient as a parameter varies)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — differentiation + optimising over a parameter · **First move: differentiate, then minimise in $a$**
+:::
+
+Differentiate (product rule) and substitute $x=1$ — that gives a **quadratic in $a$**, which you then
+minimise. $\dfrac{\mathrm dy}{\mathrm dx}=(x-2a)(6x-2a)$; at $x=1$: $(1-2a)(6-2a)=4a^2-14a+6$. Minimise
+over $a$: vertex at $a=\tfrac{14}{8}=\tfrac74$, value $4a^2-14a+6=-\tfrac{25}{4}$. **Answer C.**
+*Two layers: differentiate in $x$ first, then treat the result as a function of $a$ and find its minimum.*
+:::
+
+## Question 17
+
+::: {.question}
+For $0<x<\pi$, where is $y=(1+2\cos x)\cos 2x$ negative?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(hard — where a product is negative)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — trig sign analysis · **First move: a sign table of each factor**
+:::
+
+A product is negative when the factors have **opposite signs** — so find where each changes sign, then
+tabulate. $1+2\cos x=0$ at $x=\tfrac{2\pi}{3}$; $\cos2x=0$ at $x=\tfrac\pi4,\tfrac{3\pi}4$.
+
+| interval | $1+2\cos x$ | $\cos2x$ | product |
+|---|---|---|---|
+| $0,\tfrac\pi4$ | $+$ | $+$ | $+$ |
+| $\tfrac\pi4,\tfrac{2\pi}3$ | $+$ | $-$ | $-$ |
+| $\tfrac{2\pi}3,\tfrac{3\pi}4$ | $-$ | $-$ | $+$ |
+| $\tfrac{3\pi}4,\pi$ | $-$ | $+$ | $-$ |
+
+Negative on $\tfrac\pi4<x<\tfrac{2\pi}3$ and $\tfrac{3\pi}4<x<\pi$. **Answer D.**
+:::
+
+## Question 18
+
+::: {.question}
+Where is $\;y=\dfrac{1-x}{\sqrt[3]{x^2}}\;$ decreasing $(x\neq0)$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(hard — decreasing interval of an index function)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — differentiation · **First move: rewrite as powers of $x$, then differentiate**
+:::
+
+Rewrite in index form before differentiating: $y=x^{-2/3}-x^{1/3}$. Then
+$$\frac{\mathrm dy}{\mathrm dx}=-\tfrac23 x^{-5/3}-\tfrac13 x^{-2/3}=-\tfrac13 x^{-5/3}(2+x).$$
+Decreasing means $\dfrac{\mathrm dy}{\mathrm dx}<0$. A sign check: for $x>0$ it is negative (decreasing);
+for $-2<x<0$ positive; for $x<-2$ negative. So decreasing on $x\le-2$ and $x>0$. **Answer A.**
+*Never differentiate a surd/quotient as it stands — turn it into $x^{\text{powers}}$ first.*
+:::
+
+## Question 19
+
+::: {.question}
+The coefficient of $x^3$ in $(1+2x+3x^2)^6$ equals **twice** the coefficient of $x^4$ in $(1-ax^2)^5$.
+Find $a$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(long — comparing binomial coefficients)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — binomial / multinomial · **First move: which term gives the power you want**
+:::
+
+**Right side:** $x^4$ needs $(-ax^2)^2$: coefficient $\binom52(-a)^2=10a^2$.
+**Left side:** pick $i$ factors of $2x$ and $j$ of $3x^2$ with $i+2j=3$ — so $(i,j)=(3,0)$ or $(1,1)$:
+$$\underbrace{\tfrac{6!}{3!\,3!}2^3}_{160}+\underbrace{\tfrac{6!}{1!\,1!\,4!}(2)(3)}_{180}=340.$$
+Set $340=2(10a^2)\Rightarrow a^2=17\Rightarrow a=\pm\sqrt{17}$. **Answer B.**
+*For a multinomial power, list the $(i,j)$ that hit the target power first; each is one multinomial term.*
+:::
+
+## Question 20
+
+::: {.question}
+A square-based pyramid with base $PQRS$ and apex $O$, all edges $20$. Find the shortest distance **over
+the surface** from $P$ to the midpoint $M$ of edge $OR$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Way in + solution
+
+[*(long — shortest path over a 3-D surface)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — 3-D geometry · **First move: unfold the faces into a flat net**
+:::
+
+A shortest surface path becomes a **straight line once you unfold** the faces it crosses into one plane.
+$P\to M$ crosses the two faces $OPQ$ and $OQR$, which share edge $OQ$ — unfold them flat about $OQ$.
+
+Every triangular face is **equilateral** (all edges $20$), so each contributes $60^\circ$ at $O$: in the
+flat net $\angle POR = 60^\circ+60^\circ = 120^\circ$. With $OP=20$ and $OM=10$ ($M$ is the midpoint of
+$OR$), the cosine rule gives
+$$PM^2=20^2+10^2-2(20)(10)\cos120^\circ=500-400\left(-\tfrac12\right)=700,\qquad PM=10\sqrt7.$$
+**Answer D.**
+
+*The whole difficulty is seeing "over the surface" $=$ **unfold to a flat net, then straight line via the
+cosine rule**. Once unfolded it is a GCSE triangle: the only new step is adding the two $60^\circ$ face
+angles to get $120^\circ$.*
+:::
+
+---
+
+::: {.callout-tip}
+## The one habit to leave with
+
+You did not lack the maths — you lacked a **first move**. For any long question: **name the goal → write
+each given as an equation → substitute / draw / name the unknown and use the constraint.** Then it is a
+short question. And if it still won't move in a minute, **mark it and come back** — every question is one
+mark.
+:::
+
+The other six questions (1, 2, 4, 5, 11, 16) are shorter and standard: expand-and-match (1), factor
+theorem (2), simplify the term then sum (4 — the term is actually constant), area with the curve below the
+axis (5), the substitution $u=2^{2x}$ (11), and combining logs (16). Drill those for speed; spend your
+saved time on the long ones above.
+
+:::

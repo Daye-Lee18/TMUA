@@ -1,0 +1,398 @@
+---
+title: "Trigonometry Clinic — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **77**.
+
+Two habits to check on every answer: on a **counting** question, did they use the *full* interval and remember
+the **tangent asymptotes are not solutions**? On the **ambiguous case**, did they compare the opposite side
+with both the height $h=c\sin A$ **and** the adjacent side $c$?
+
+---
+
+# Section A — Solving, counting & identities
+
+## Question 1 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=60^\circ,\ 300^\circ$.** &nbsp; **(M1 A1 A1)**
+
+Use $\sin^{2}x=1-\cos^{2}x$: $2(1-\cos^{2}x)-3\cos x=0\Rightarrow2\cos^{2}x+3\cos x-2=0
+\Rightarrow(2\cos x-1)(\cos x+2)=0$. So $\cos x=\tfrac12$ (giving $x=60^\circ,300^\circ$); $\cos x=-2$ is
+impossible.
+
+*Convert to a single ratio before factorising — the root $\cos x=-2$ is rejected because $\lvert\cos x\rvert
+\le1$.*
+:::
+
+---
+
+## Question 2 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Six: $x=0^\circ,45^\circ,135^\circ,180^\circ,225^\circ,315^\circ$.** &nbsp; **(M1 A1 A1 A1)**
+
+$\sin 3x=\sin x\Rightarrow 3x=x+360^\circ k$ **or** $3x=180^\circ-x+360^\circ k$. The first gives
+$x=180^\circ k\Rightarrow x=0^\circ,180^\circ$; the second gives $4x=180^\circ+360^\circ k\Rightarrow
+x=45^\circ,135^\circ,225^\circ,315^\circ$.
+
+*Both families of the general solution of $\sin A=\sin B$ are needed; miss the second and you lose four
+solutions.*
+:::
+
+---
+
+## Question 3 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=60^\circ,\ 180^\circ,\ 300^\circ$.** &nbsp; **(M1 A1 A1)**
+
+$\cos 2x=2\cos^{2}x-1$, so $2\cos^{2}x+\cos x-1=0\Rightarrow(2\cos x-1)(\cos x+1)=0$. Then $\cos x=\tfrac12$
+($60^\circ,300^\circ$) or $\cos x=-1$ ($180^\circ$).
+
+*Don't drop $\cos x=-1$: it gives the single solution $x=180^\circ$ (a tangency, easy to miss on a sketch).*
+:::
+
+---
+
+## Question 4 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Four: $x=0^\circ,\ 60^\circ,\ 180^\circ,\ 300^\circ$.** &nbsp; **(M1 A1 A1 A1)**
+
+$\tan x=\dfrac{\sin x}{\cos x}=2\sin x\Rightarrow\sin x\Bigl(\dfrac1{\cos x}-2\Bigr)=0$ (for $\cos x\ne0$). So
+$\sin x=0$ ($x=0^\circ,180^\circ$) or $\cos x=\tfrac12$ ($x=60^\circ,300^\circ$).
+
+*The tempting extra "solutions" $x=90^\circ,270^\circ$ are where $\tan x$ is **undefined** — not solutions.
+Never multiply through by $\cos x$ without excluding $\cos x=0$.*
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Proved.** &nbsp; **(M1 A1 A1 A1)**
+
+Numerator: $\sin\theta+\sin 2\theta=\sin\theta+2\sin\theta\cos\theta=\sin\theta(1+2\cos\theta)$.
+Denominator: $1+\cos\theta+\cos 2\theta=1+\cos\theta+(2\cos^{2}\theta-1)=\cos\theta+2\cos^{2}\theta=
+\cos\theta(1+2\cos\theta)$. Hence
+$$\frac{\sin\theta(1+2\cos\theta)}{\cos\theta(1+2\cos\theta)}=\frac{\sin\theta}{\cos\theta}=\tan\theta.$$
+
+*Factor a common $(1+2\cos\theta)$ from top and bottom — the identity works because $\cos 2\theta$ is written
+in the $2\cos^{2}\theta-1$ form so the $+1$ cancels.*
+:::
+
+---
+
+## Question 6 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Proved.** &nbsp; **(M1 A1 A1 A1)**
+
+$\sin 3\theta=\sin(2\theta+\theta)=\sin 2\theta\cos\theta+\cos 2\theta\sin\theta
+=(2\sin\theta\cos\theta)\cos\theta+(1-2\sin^{2}\theta)\sin\theta$
+$=2\sin\theta\cos^{2}\theta+\sin\theta-2\sin^{3}\theta=2\sin\theta(1-\sin^{2}\theta)+\sin\theta-2\sin^{3}\theta
+=3\sin\theta-4\sin^{3}\theta.$
+
+*Choose the $\cos 2\theta=1-2\sin^{2}\theta$ form so that after $\cos^{2}\theta=1-\sin^{2}\theta$ everything is
+in $\sin\theta$.*
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 7 **[6]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $13\cos(x+67.4^\circ)$; (b) $13$; (c) $x=232.6^\circ,\ 352.6^\circ$.** &nbsp; **(M1 A1 A1 B1 M1 A1)**
+
+**(a)** $R=\sqrt{5^{2}+12^{2}}=13$; matching $R\cos x\cos\alpha-R\sin x\sin\alpha$ gives $\tan\alpha=\tfrac{12}
+{5}\Rightarrow\alpha=67.38^\circ$. So $5\cos x-12\sin x=13\cos(x+67.4^\circ)$.
+
+**(b)** Maximum $=R=13$ (when $\cos(x+\alpha)=1$).
+
+**(c)** $13\cos(x+67.38^\circ)=6.5\Rightarrow\cos(x+67.38^\circ)=0.5\Rightarrow x+67.38^\circ=\pm60^\circ+360^\circ k$.
+Then $x=-7.38^\circ\ (\to352.6^\circ)$ or $x=-127.38^\circ\ (\to232.6^\circ)$.
+
+*The sign pattern $5\cos x-12\sin x=R\cos(x+\alpha)$ needs the **$+\alpha$** form (both a $\cos\cos$ and a
+$-\sin\sin$); add $360^\circ$ to bring each root into $[0^\circ,360^\circ)$.*
+:::
+
+---
+
+## Question 8 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $10\sin40^\circ<a<10$ (i.e. $6.43<a<10$); (b) two triangles.** &nbsp; **(M1 A1 A1 M1 A1)**
+
+The known angle is at $A$; the adjacent side is $c=AB=10$ and the opposite side is $a=BC$. Height
+$h=c\sin A=10\sin40^\circ\approx6.43$. Two triangles occur exactly on the band $h<a<c$, i.e.
+$10\sin40^\circ<a<10$.
+
+**(b)** $a=7$ lies in $(6.43,10)$, so **two** triangles.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); ang=np.radians(40); c=10.0; B=np.array([c,0]); ray=np.array([np.cos(ang),np.sin(ang)])
+plt.figure(figsize=(5.0,2.7))
+plt.plot([A[0],13*ray[0]],[A[1],13*ray[1]],color='#2b6cb0',lw=1)
+plt.plot([A[0],B[0]],[A[1],B[1]],'k',lw=1.6)
+th=np.linspace(0,np.pi,200); a=7.0
+plt.plot(B[0]+a*np.cos(th),B[1]+a*np.sin(th),color='crimson',ls='--',lw=1)
+tt=np.roots([1,-2*B@ray,B@B-a*a]); tt=[t for t in tt if np.isreal(t) and t>1e-9]
+for t in np.real(tt): plt.plot(t*ray[0],t*ray[1],'o',color='crimson',ms=5)
+plt.plot(*A,'ks',ms=4); plt.plot(*B,'ks',ms=4)
+plt.annotate('A',A,textcoords='offset points',xytext=(-10,-2)); plt.annotate('B',B,textcoords='offset points',xytext=(6,-2))
+plt.title('a=7: arc of radius 7 from B cuts the ray twice → two triangles',fontsize=8.5)
+plt.xlim(-1,14); plt.ylim(-1,10); plt.gca().set_aspect('equal'); plt.axis('off'); plt.tight_layout(); plt.show()
+```
+
+*Compare the opposite side with **both** $h$ and $c$: below $h$ none, equal to $h$ one (right angle), between
+$h$ and $c$ two, at or above $c$ one.*
+:::
+
+---
+
+## Question 9 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $\cos=\dfrac{5}{13}$; (b) area $=84$.** &nbsp; **(M1 A1 A1 M1 A1)**
+
+**(a)** The largest angle is opposite the longest side $15$:
+$\cos=\dfrac{13^{2}+14^{2}-15^{2}}{2\cdot13\cdot14}=\dfrac{169+196-225}{364}=\dfrac{140}{364}=\dfrac{5}{13}.$
+
+**(b)** $\sin=\sqrt{1-\tfrac{25}{169}}=\tfrac{12}{13}$, so area $=\tfrac12\cdot13\cdot14\cdot\tfrac{12}{13}=84$
+(Heron confirms: $s=21$, $\sqrt{21\cdot8\cdot7\cdot6}=84$).
+
+*Once $\cos=\tfrac5{13}$ is exact, $\sin=\tfrac{12}{13}$ follows from a 5-12-13 triangle, so the area is exact
+with no rounding.*
+:::
+
+---
+
+## Question 10 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$a=\dfrac{\pi}{6}$.** &nbsp; **(M1 A1 A1 B1)**
+
+A sine curve is symmetric about every vertical through a peak or trough, where the argument is
+$\tfrac\pi2+k\pi$: $2x-\tfrac{5\pi}{6}=\tfrac\pi2+k\pi\Rightarrow x=\tfrac{2\pi}{3}+\tfrac{k\pi}{2}$. Taking
+$k=-1$ gives the smallest positive value $x=\tfrac{2\pi}{3}-\tfrac{\pi}{2}=\tfrac{\pi}{6}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2*np.pi,1400)
+plt.figure(figsize=(5.4,2.7)); plt.plot(x,np.sin(2*x-5*np.pi/6),color='#2b6cb0',lw=2)
+plt.axvline(np.pi/6,color='crimson',ls='--',lw=1.3); plt.plot(np.pi/6,-1,'o',color='#2ca02c')
+plt.annotate('x = π/6 (through a trough)',(np.pi/6,-1),(np.pi/6+0.2,-0.5),color='crimson',fontsize=8)
+plt.axhline(0,color='0.6',lw=0.6); plt.ylim(-1.3,1.2); plt.title('y = sin(2x − 5π/6)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+*Solve for the argument $=\tfrac\pi2+k\pi$, then pick the $k$ (here $-1$) that lands the line first past $0$.*
+:::
+
+---
+
+## Question 11 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Five: $x=0,\ \tfrac{\pi}{4},\ \pi,\ \tfrac{5\pi}{4},\ 2\pi$.** &nbsp; **(M1 A1 A1 A1)**
+
+$2\sin^{2}x=\sin 2x=2\sin x\cos x\Rightarrow2\sin x(\sin x-\cos x)=0$. So $\sin x=0$
+($x=0,\pi,2\pi$) or $\tan x=1$ ($x=\tfrac{\pi}{4},\tfrac{5\pi}{4}$).
+
+*Factor rather than divide by $\sin x$ — dividing would lose $x=0,\pi,2\pi$. The interval is **closed**, so
+both endpoints $0$ and $2\pi$ count.*
+:::
+
+---
+
+## Question 12 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Greatest $15$, least $5$; $R=5$.** &nbsp; **(M1 A1 B1)**
+
+$3\sin x+4\cos x=5\sin(x+\alpha)$ with $R=\sqrt{3^{2}+4^{2}}=5$, so it ranges over $[-5,5]$; adding $10$ gives
+$[5,15]$.
+
+*The constant just shifts the range of the $R\sin(x+\alpha)$ part — max $=10+R$, min $=10-R$.*
+:::
+
+---
+
+# Section C — Push to 9
+
+## Question 13 **[6]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$\cos\theta=\dfrac{\sqrt{10}}{4}$.** &nbsp; **(M1 A1 A1 M1 A1 A1)**
+
+Cosine rule at $B$, unknown $AB=c$, with the opposite side $AC=6$ and the adjacent known side $BC=9$:
+$$6^{2}=c^{2}+9^{2}-2\cdot c\cdot9\cos\theta\ \Rightarrow\ c^{2}-(18\cos\theta)c+45=0.$$
+The two roots $c_1,c_2$ are the two $AB$ lengths: $c_1c_2=45$, $c_1+c_2=18\cos\theta$. Area
+$=\tfrac12\,AB\cdot BC\sin\theta\propto AB$, so "larger $=2\times$" gives $c_1=2c_2$; then
+$2c_2^{2}=45\Rightarrow c_2=\sqrt{22.5}$, $c_1=2\sqrt{22.5}$, and
+$$c_1+c_2=3\sqrt{22.5}=\tfrac{9\sqrt{10}}{2}=18\cos\theta\ \Rightarrow\ \cos\theta=\frac{9\sqrt{10}}{36}
+=\frac{\sqrt{10}}{4}.$$
+*(Check: with $\cos\theta=\tfrac{\sqrt{10}}4$ the discriminant $(18\cos\theta)^{2}-4\cdot45=324\cdot\tfrac{10}
+{16}-180=202.5-180=22.5>0$, so two triangles really exist.)*
+
+*The two triangles are the two positive roots of the cosine-rule quadratic; area $\propto$ the swinging side,
+so the ratio fixes the roots and the sum then gives $\cos\theta$.*
+:::
+
+---
+
+## Question 14 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Eight: $x=\tfrac{\pi}{6},\tfrac{5\pi}{6},\tfrac{7\pi}{6},\tfrac{11\pi}{6},\tfrac{13\pi}{6},\tfrac{17\pi}{6},
+\tfrac{19\pi}{6},\tfrac{23\pi}{6}$.** &nbsp; **(M1 A1 A1 A1)**
+
+$\lvert\sin x\rvert=\tfrac12\Rightarrow\sin x=\pm\tfrac12$. In each period of length $2\pi$ there are **four**
+solutions (two from $+\tfrac12$, two from $-\tfrac12$); over $[0,4\pi]$ that is two periods, so $4\times2=8$.
+
+*Because the modulus folds the negative arches up, both $\sin x=\tfrac12$ and $\sin x=-\tfrac12$ contribute —
+four per turn, not two.*
+:::
+
+---
+
+## Question 15 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Seven solutions.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+Write it as $\sin x=\tfrac{x}{10}$: the solutions are the crossings of $y=\sin x$ with the line
+$y=\tfrac{x}{10}$ (gradient $\tfrac1{10}$). The line reaches $y=\pm1$ at $x=\pm10$, so only $\lvert x\rvert
+\le10$ can give crossings. Counting: $x=0$; then on $x>0$ the line cuts the first hump and the following arches
+until it climbs past $1$ near $x=10$, giving three more; by odd symmetry there are three on $x<0$. Total
+$3+1+3=7$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-11,11,2000)
+plt.figure(figsize=(5.6,3.0)); plt.plot(x,np.sin(x),color='#2b6cb0',lw=1.6,label='y=sin x')
+plt.plot(x,x/10,color='crimson',lw=1.4,label='y=x/10')
+# mark crossings
+from numpy import sign
+g=np.sin(x)-x/10; idx=np.where(np.diff(sign(g))!=0)[0]
+for i in idx: plt.plot((x[i]+x[i+1])/2, np.sin((x[i]+x[i+1])/2),'ko',ms=3)
+plt.axhline(0,color='0.6',lw=0.5); plt.grid(alpha=0.2); plt.legend(fontsize=8)
+plt.title('10 sin x = x: 7 crossings inside |x|≤10',fontsize=9); plt.tight_layout(); plt.show()
+```
+
+*The bounding step is realising the line can only meet the sine wave where $\lvert x/10\rvert\le1$; outside
+$[-10,10]$ the line is already above/below the wave forever.*
+:::
+
+---
+
+## Question 16 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Proved; undefined at $\theta=0^\circ,90^\circ,180^\circ,270^\circ,360^\circ$.** &nbsp; **(M1 A1 A1 B1)**
+
+$$\tan\theta+\cot\theta=\frac{\sin\theta}{\cos\theta}+\frac{\cos\theta}{\sin\theta}
+=\frac{\sin^{2}\theta+\cos^{2}\theta}{\sin\theta\cos\theta}=\frac{1}{\sin\theta\cos\theta}
+=\frac{2}{2\sin\theta\cos\theta}=\frac{2}{\sin 2\theta}.$$
+Both sides are undefined when $\sin\theta\cos\theta=0$, i.e. $\sin 2\theta=0$:
+$\theta=0^\circ,90^\circ,180^\circ,270^\circ,360^\circ$.
+
+*Combine over the common denominator $\sin\theta\cos\theta$, then use $2\sin\theta\cos\theta=\sin 2\theta$;
+the excluded angles are exactly the zeros of that denominator.*
+:::
+
+---
+
+## Question 17 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Four: $x=0^\circ,\ 90^\circ,\ 180^\circ,\ 270^\circ$.** &nbsp; **(M1 A1 A1 A1)**
+
+$\cos 3x=\cos x\Rightarrow 3x=\pm x+360^\circ k$. From $3x=x+360^\circ k$: $x=180^\circ k\Rightarrow
+0^\circ,180^\circ$. From $3x=-x+360^\circ k$: $4x=360^\circ k\Rightarrow x=0^\circ,90^\circ,180^\circ,270^\circ$.
+The union is $\{0^\circ,90^\circ,180^\circ,270^\circ\}$.
+
+*Use both branches $3x=x+\dots$ and $3x=-x+\dots$ of $\cos A=\cos B$; $x=180^\circ$ is a tangency shared by
+both families.*
+:::
+
+---
+
+## Question 18 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Greatest $\dfrac{2+\sqrt2}{2}$ (at $x=315^\circ$); least $\dfrac{2-\sqrt2}{2}$.** &nbsp; **(M1 A1 A1 M1 A1)**
+
+Write the denominator with $R$-form: $\sin x-\cos x=\sqrt2\sin(x-45^\circ)$, so
+$2+\sin x-\cos x=2+\sqrt2\sin(x-45^\circ)$, which ranges over $[2-\sqrt2,\ 2+\sqrt2]$ (both positive). The
+fraction is largest when the denominator is **smallest**:
+$$\text{greatest}=\frac{1}{2-\sqrt2}=\frac{2+\sqrt2}{2},\qquad\text{least}=\frac{1}{2+\sqrt2}=\frac{2-\sqrt2}{2}.$$
+The greatest occurs when $\sin(x-45^\circ)=-1$, i.e. $x-45^\circ=-90^\circ\Rightarrow x=315^\circ$ (also
+$x=315^\circ$ in range).
+
+*A reciprocal is largest where its denominator is least; rationalise $\dfrac1{2\mp\sqrt2}$ by multiplying by
+the conjugate.*
+:::
+
+---
+
+## Marking summary
+
+| Q | Marks | Tested |
+|---|---|---|
+| 1 | 3 | quadratic in $\cos x$, reject $\lvert\cos\rvert>1$ |
+| 2 | 4 | $\sin A=\sin B$ — both general-solution families |
+| 3 | 3 | double angle → quadratic; keep $\cos x=-1$ |
+| 4 | 4 | factor not divide; $\tan$ asymptotes are not solutions |
+| 5 | 4 | prove identity via common factor |
+| 6 | 4 | compound + double angle → $\sin$ only |
+| 7 | 6 | $R\cos(x+\alpha)$; solve & count |
+| 8 | 5 | ambiguous case band $h<a<c$ |
+| 9 | 5 | cosine rule for largest angle + exact area |
+| 10 | 4 | symmetry line through a peak/trough |
+| 11 | 4 | factor $\sin 2x$; closed interval endpoints |
+| 12 | 3 | $R$-form range with a shift |
+| 13 | 6 | area-ratio SSA quadratic → $\cos\theta$ |
+| 14 | 4 | $\lvert\sin\rvert$ gives four per period |
+| 15 | 5 | line-meets-curve counting, bounding by $\lvert x/10\rvert\le1$ |
+| 16 | 4 | prove $\tan+\cot=2\csc 2\theta$; excluded angles |
+| 17 | 4 | $\cos A=\cos B$ — both families |
+| 18 | 5 | reciprocal of an $R$-form denominator |
+
+**If marks are lost, look at 4, 11, 17** — the recurring errors are counting the $\tan$/undefined points as
+solutions and forgetting one branch of the $\sin A=\sin B$ / $\cos A=\cos B$ general solution.
+:::

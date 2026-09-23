@@ -1,0 +1,1334 @@
+---
+title: "TMUA 2020 · Paper 1 — Class Material"
+subtitle: "Speed focus: which questions to leave, and the cues for the short route"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Twenty questions, seventy-five minutes, no calculator — **three minutes forty-five seconds each**. By now
+that number should be familiar. This paper is where we stop treating it as a fact and start treating it
+as a *strategy*.
+
+So this session has one extra job on top of the mathematics: deciding **which questions to leave**.
+Three or four questions on any TMUA paper will cost you six or seven minutes each if you meet them
+head-on, and the candidate who recognises them early and comes back later scores higher than the one who
+is simply better at algebra. Each question below carries a timing flag:
+
+| ⏱ 2 min | should be quick — if it isn't, you have missed the shortcut |
+| ⏱ 4 min | on pace |
+| ⏱ 6 min+ | **recognise, mark, and come back.** Getting this on a second pass is a win |
+
+::: {.callout-note appearance="simple"}
+**Formula sheet.** From this session on, keep the [Formula Sheet](../../formula_sheet.qmd) beside you.
+Every time a question needs a result you had to stop and reconstruct, write it on the sheet. Today's
+paper will fill most of the **algebra** and **sequences** rows.
+:::
+
+**Answer key.** 1 C · 2 C · 3 B · 4 D · 5 A · 6 C · 7 A · 8 D · 9 C · 10 A ·
+11 E · 12 D · 13 F · 14 E · 15 C · 16 C · 17 A · 18 A · 19 E · 20 C
+
+---
+
+## Question 1 &nbsp; ⏱ 2 min
+
+::: {.question}
+Which of the following is an expression for the first derivative with respect to $x$ of
+$$\frac{x^3 - 5x^2}{2x\sqrt{x}} \;?$$
+
+&nbsp;&nbsp;**A** $-\dfrac{\sqrt x}{2}$ &nbsp;&nbsp; **B** $\dfrac{\sqrt x}{4}$ &nbsp;&nbsp;
+**C** $\dfrac{3x-5}{4\sqrt x}$ &nbsp;&nbsp; **D** $\dfrac{3\sqrt x - 5}{4\sqrt x}$ &nbsp;&nbsp;
+**E** $\dfrac{3\sqrt x - 10}{3\sqrt x}$ &nbsp;&nbsp; **F** $\dfrac{3x^2 - 10x}{3\sqrt x}$
+:::
+
+Do **not** reach for the quotient rule — it is legal, but it will cost you three minutes and a page of
+algebra. [The denominator is a single power of $x$]{.hl}, so divide through first and you are left with
+two simple terms. This is the paper's opening reminder that **simplifying is part of differentiating**.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — simplifying before differentiating; fractional indices
+:::
+
+
+Write the denominator as a power: $2x\sqrt x = 2x^{3/2}$. Then divide **term by term**:
+
+$$\frac{x^3 - 5x^2}{2x^{3/2}} = \frac{x^3}{2x^{3/2}} - \frac{5x^2}{2x^{3/2}} = \tfrac12 x^{3/2} - \tfrac52 x^{1/2} .$$
+
+Now differentiate, using $\frac{\mathrm d}{\mathrm dx}x^n = nx^{n-1}$:
+
+$$\frac{\mathrm dy}{\mathrm dx} = \tfrac12 \cdot \tfrac32 x^{1/2} - \tfrac52 \cdot \tfrac12 x^{-1/2}
+= \tfrac34 x^{1/2} - \tfrac54 x^{-1/2} .$$
+
+Put it over a common denominator to match the options:
+
+$$= \frac{3x - 5}{4\sqrt x} ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $\dfrac{3\sqrt x - 5}{4\sqrt x}$ — the numerator's $x$ left as $\sqrt x$; an index slip when combining the two terms. |
+| **F** | Differentiated the numerator and denominator *separately* — the classic false "quotient rule". |
+| **A**, **B** | Only one of the two terms differentiated. |
+| **E** | A $3$ instead of a $4$ in the denominator, plus a numerator slip. |
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 2 &nbsp; ⏱ 4 min
+
+::: {.question}
+$(2x+1)$ and $(x-2)$ are factors of $2x^3 + px^2 + q$. What is the value of $2p + q$?
+
+&nbsp;&nbsp;**A** $-10$ &nbsp;&nbsp; **B** $-\tfrac{38}{5}$ &nbsp;&nbsp; **C** $-\tfrac{22}{3}$ &nbsp;&nbsp;
+**D** $\tfrac{22}{3}$ &nbsp;&nbsp; **E** $\tfrac{38}{5}$ &nbsp;&nbsp; **F** $10$
+:::
+
+Two factors give two equations, and two equations give $p$ and $q$ — that part is routine. The thing to
+notice is [the cubic has no $x$ term]{.hl}, which is not an accident: it keeps the substitutions clean.
+Watch the fractional root $x = -\tfrac12$ carefully; that is where the arithmetic goes wrong.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — the Factor Theorem with two unknowns
+:::
+
+
+By the Factor Theorem, $(x-a)$ is a factor of $f(x)$ exactly when $f(a) = 0$. Here the two factors give
+the roots $x = -\tfrac12$ and $x = 2$.
+
+**From $f(2) = 0$:**
+$$2(8) + p(4) + q = 0 \quad\Longrightarrow\quad 16 + 4p + q = 0 .$$
+
+**From $f\!\left(-\tfrac12\right) = 0$:**
+$$2\left(-\tfrac18\right) + p\left(\tfrac14\right) + q = 0 \quad\Longrightarrow\quad -\tfrac14 + \tfrac{p}{4} + q = 0 ,$$
+
+and multiplying by $4$: $\;-1 + p + 4q = 0$.
+
+Solve the pair. From the first, $q = -16 - 4p$; substituting into the second:
+
+$$-1 + p + 4(-16 - 4p) = 0 \quad\Longrightarrow\quad -1 + p - 64 - 16p = 0 \quad\Longrightarrow\quad -15p = 65 ,$$
+
+so $p = -\tfrac{13}{3}$ and $q = -16 - 4\left(-\tfrac{13}{3}\right) = -16 + \tfrac{52}{3} = \tfrac{4}{3}$.
+
+Finally the question asks for $2p+q$, **not** for $p$ and $q$ separately:
+
+$$2p + q = -\tfrac{26}{3} + \tfrac43 = -\tfrac{22}{3} ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $+\tfrac{22}{3}$ — a sign lost at the last step. |
+| **B**, **E** | $\pm\tfrac{38}{5}$ — from mis-clearing the fraction in the $x=-\tfrac12$ equation (dividing by $2$ instead of multiplying by $4$). |
+| **A**, **F** | $\pm 10$ — consistent with using $x = \tfrac12$ instead of $x = -\tfrac12$. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 3 &nbsp; ⏱ 4 min
+
+::: {.question}
+Find the complete set of values of $x$ for which
+$$(x+4)(x+3)(1-x) > 0 \quad\text{and}\quad (x+2)(x-2) < 0 .$$
+
+&nbsp;&nbsp;**A** $1<x<2$ &nbsp;&nbsp; **B** $-2<x<1$ &nbsp;&nbsp; **C** $-2<x<2$ &nbsp;&nbsp;
+**D** $x<-2$ or $x>1$ &nbsp;&nbsp; **E** $x<-4$ or $x>2$ &nbsp;&nbsp;
+**F** $x<-4$ or $-3<x<1$ &nbsp;&nbsp; **G** $-4<x<-2$ or $x>1$
+:::
+
+Solve the two inequalities **separately**, then intersect. The second is quick ($-2<x<2$). For the first,
+[watch the $(1-x)$ factor]{.hl} — it is *decreasing*, so the cubic's leading coefficient is negative and
+the sign pattern is the reverse of what you may expect. A quick sketch is safer than a rule here.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — simultaneous polynomial inequalities
+:::
+
+
+**Second inequality.** $(x+2)(x-2)<0$ is negative between its roots: $\;-2 < x < 2$.
+
+**First inequality.** The roots are $x = -4, -3, 1$. Rewrite $(1-x) = -(x-1)$, so
+
+$$(x+4)(x+3)(1-x) = -(x+4)(x+3)(x-1) ,$$
+
+which is a **negative** cubic: it starts high on the left and ends low on the right. Testing a point in
+each region (or reading the sketch):
+
+| Region | $x<-4$ | $-4<x<-3$ | $-3<x<1$ | $x>1$ |
+|---|---|---|---|---|
+| Sign | $+$ | $-$ | $+$ | $-$ |
+
+So the first inequality holds on $\;x<-4\;$ or $\;-3<x<1$.
+
+**Intersect the two.**
+
+- $x<-4$ has no overlap with $-2<x<2$.
+- $-3<x<1$ overlaps $-2<x<2$ in $\;-2<x<1$.
+
+The answer is $-2<x<1$, which is **option B**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **F** | The first inequality's answer alone — the second was never used. |
+| **C** | The second inequality's answer alone. |
+| **A** | Intersected the wrong branch, taking $x>1$ rather than $-3<x<1$. |
+| **D**, **E**, **G** | Sign of the cubic reversed — the $(1-x)$ trap. |
+:::
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+fig, ax = plt.subplots(figsize=(8.0, 3.0))
+segs = [('$(x+4)(x+3)(1-x)>0$', [(-6.5, -4), (-3, 1)], ROOT_CLR),
+        ('$(x+2)(x-2)<0$',      [(-2, 2)],             YINT_CLR),
+        ('both  $\\Rightarrow$  $-2<x<1$', [(-2, 1)],  ASYM_CLR)]
+for i, (lab, ss, c) in enumerate(segs):
+    yy = len(segs) - i
+    for a, b in ss:
+        ax.plot([a, b], [yy, yy], color=c, lw=8, solid_capstyle='butt', alpha=.85)
+    ax.text(-6.9, yy, lab, ha='right', va='center', fontsize=9.5)
+for v in (-4, -3, -2, 1, 2):
+    ax.axvline(v, color='grey', ls='--', lw=.9)
+ax.set_xticks([-6, -4, -3, -2, 0, 1, 2]); ax.set_yticks([])
+ax.set_xlim(-13.5, 2.6); ax.set_ylim(0.4, 3.6); ax.set_xlabel('$x$')
+for s in ('top', 'right', 'left'): ax.spines[s].set_visible(False)
+ax.set_title('Solve separately, then take the overlap', fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+The 1st, 2nd and 3rd terms of a geometric progression are also the 1st, 4th and 6th terms, respectively,
+of an arithmetic progression. The sum to infinity of the geometric progression is $12$. Find the 1st term
+of the geometric progression.
+
+&nbsp;&nbsp;**A** $1$ &nbsp;&nbsp; **B** $2$ &nbsp;&nbsp; **C** $3$ &nbsp;&nbsp; **D** $4$ &nbsp;&nbsp;
+**E** $5$ &nbsp;&nbsp; **F** $6$
+:::
+
+Two progressions, four unknowns ($a, r$ for the GP; first term and $d$ for the AP) — which is why this
+one is worth six minutes. The way through is to [write the same three numbers twice, once in GP language
+and once in AP language]{.hl}, then eliminate. The AP's first term equals the GP's first term, which
+kills two unknowns immediately.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(mark it and come back)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a geometric progression whose terms also form an arithmetic progression
+:::
+
+
+Let the GP be $a,\; ar,\; ar^2$. These are the AP's 1st, 4th and 6th terms, so with AP common difference
+$d$:
+
+$$a = a, \qquad ar = a + 3d, \qquad ar^2 = a + 5d .$$
+
+From the second equation, $3d = a(r-1)$; from the third, $5d = a(r^2-1) = a(r-1)(r+1)$.
+
+Divide the second by the first *(valid since $a \ne 0$ and $r \ne 1$ — an infinite sum needs $|r|<1$)*:
+
+$$\frac{5d}{3d} = \frac{a(r-1)(r+1)}{a(r-1)} \quad\Longrightarrow\quad \frac53 = r+1 \quad\Longrightarrow\quad r = \tfrac23 .$$
+
+Now use the sum to infinity, $S_\infty = \dfrac{a}{1-r}$:
+
+$$12 = \frac{a}{1 - \tfrac23} = \frac{a}{\tfrac13} = 3a \quad\Longrightarrow\quad a = 4 ,$$
+
+which is **option D**. $\blacksquare$
+
+*Check $|r| = \tfrac23 < 1$, so the infinite sum genuinely converges — worth a two-second look, since a
+question that mentions $S_\infty$ has told you $|r|<1$ and any answer with $|r|\ge1$ is wrong.*
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **C** | $a=3$ — from $S_\infty = \dfrac{a}{1-r}$ mis-stated as $\dfrac{a}{r}$ or similar. |
+| **F** | $a=6$ — using $r=\tfrac12$, which comes from mismatching the AP term numbers (e.g. treating them as the 1st, 3rd and 5th). |
+| **A**, **B**, **E** | No single clean route. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 5 &nbsp; ⏱ 4 min
+
+::: {.question}
+The curve $S$ has equation $y = px^2 + 6x - q$, where $p$ and $q$ are constants. $S$ has a line of
+symmetry at $x = -\tfrac14$ and touches the $x$-axis at exactly one point. What is the value of $p + 8q$?
+
+&nbsp;&nbsp;**A** $6$ &nbsp;&nbsp; **B** $18$ &nbsp;&nbsp; **C** $21$ &nbsp;&nbsp; **D** $25$ &nbsp;&nbsp;
+**E** $38$
+:::
+
+Two facts, two unknowns, and [each fact hands you one unknown on its own]{.hl} — so this is quicker than
+it looks. The line of symmetry of $y = ax^2+bx+c$ is $x = -\tfrac{b}{2a}$, which involves only $p$; and
+*touches the axis at exactly one point* is the discriminant condition, which then gives $q$. Note the
+minus sign in $-q$ — that is where marks are lost.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — line of symmetry and the discriminant
+:::
+
+
+**Symmetry gives $p$.** For $y = px^2 + 6x - q$ the line of symmetry is $x = -\dfrac{6}{2p}$, so
+
+$$-\frac{6}{2p} = -\frac14 \quad\Longrightarrow\quad \frac{3}{p} = \frac14 \quad\Longrightarrow\quad p = 12 .$$
+
+**Touching gives $q$.** "Touches the $x$-axis at exactly one point" means a repeated root, i.e.
+discriminant zero. With $a = p = 12$, $b = 6$, $c = -q$:
+
+$$b^2 - 4ac = 36 - 4(12)(-q) = 36 + 48q = 0 \quad\Longrightarrow\quad q = -\tfrac34 .$$
+
+*The $c$ here is $-q$, not $q$ — miss that and every sign afterwards is wrong.*
+
+Therefore
+
+$$p + 8q = 12 + 8\left(-\tfrac34\right) = 12 - 6 = 6 ,$$
+
+which is **option A**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **B** | $18 = 12 + 6$ — took $c = +q$, giving $q = +\tfrac34$. The sign trap, exactly. |
+| **C**, **D**, **E** | Slips in the symmetry step giving the wrong $p$ (e.g. $p=3$ from forgetting the $2$ in $2a$). |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 6 &nbsp; ⏱ 4 min
+
+::: {.question}
+Find the maximum value of the function
+$$\mathrm f(x) = \frac{1}{5^{2x} - 4\left(5^x\right) + 7} .$$
+
+&nbsp;&nbsp;**A** $\tfrac17$ &nbsp;&nbsp; **B** $\tfrac14$ &nbsp;&nbsp; **C** $\tfrac13$ &nbsp;&nbsp;
+**D** $3$ &nbsp;&nbsp; **E** $4$ &nbsp;&nbsp; **F** $7$
+:::
+
+Two moves, both familiar. First, [$5^{2x} = \left(5^x\right)^2$, so the denominator is a hidden
+quadratic]{.hl} — substitute $u = 5^x$. Second, and this is the point of the question: **to maximise a
+fraction with a positive denominator, minimise the denominator.** Check the range of $u$ as always, but
+here it does not bite: $u = 5^x$ can be any positive number, and the vertex sits inside that range.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a hidden quadratic in the denominator; maximising a reciprocal
+:::
+
+
+Let $u = 5^x$. Since $5^{2x} = \left(5^x\right)^2 = u^2$, the denominator becomes
+
+$$u^2 - 4u + 7 = (u-2)^2 + 3 ,$$
+
+by completing the square. As $x$ ranges over all reals, $u = 5^x$ ranges over **all positive numbers**,
+and $u = 2$ is available, so the denominator attains its minimum value $3$.
+
+The denominator is always positive (its minimum is $3 > 0$), so $\mathrm f(x)$ is largest exactly when
+the denominator is smallest:
+
+$$\mathrm f_{\max} = \frac{1}{3} ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $3$ — the minimum of the **denominator**, quoted without taking the reciprocal. Answered one step early. |
+| **A** | $\tfrac17$ — from $u=0$, i.e. forgetting that the vertex is at $u=2$ and just putting $x$ "small". Note $u=0$ is never actually reached. |
+| **F** | $7$ — the denominator at $u=0$, again un-reciprocated. |
+| **B**, **E** | From completing the square incorrectly as $(u-2)^2+4$. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 7 &nbsp; ⏱ 4 min
+
+::: {.question}
+Given that
+$$2^{3x} = 8^{(y+3)} \qquad\text{and}\qquad 4^{(x+1)} = \frac{16^{(y+1)}}{8^{(y+3)}} ,$$
+what is the value of $x + y$?
+
+&nbsp;&nbsp;**A** $-23$ &nbsp;&nbsp; **B** $-22$ &nbsp;&nbsp; **C** $-15$ &nbsp;&nbsp;
+**D** $-14$ &nbsp;&nbsp; **E** $-11$ &nbsp;&nbsp; **F** $-10$
+:::
+
+Every base here is a power of $2$, so [write everything as $2^{\text{something}}$ and then just compare
+exponents]{.hl}. That turns two frightening index equations into two ordinary linear ones. The only real
+risk is arithmetic: multiplying out $3(y+3)$ and $4(y+1)$ correctly, and remembering that dividing powers
+**subtracts** exponents.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — index equations with a common base
+:::
+
+
+Convert to base $2$: $\;8 = 2^3$, $\;4 = 2^2$, $\;16 = 2^4$.
+
+**First equation.**
+$$2^{3x} = \left(2^3\right)^{y+3} = 2^{3(y+3)} \quad\Longrightarrow\quad 3x = 3(y+3) \quad\Longrightarrow\quad x = y+3 .$$
+
+**Second equation.**
+$$2^{2(x+1)} = \frac{2^{4(y+1)}}{2^{3(y+3)}} = 2^{\,4(y+1) - 3(y+3)} ,$$
+
+so, comparing exponents,
+
+$$2(x+1) = 4(y+1) - 3(y+3) = 4y + 4 - 3y - 9 = y - 5 .$$
+
+Now substitute $x = y+3$ from the first equation:
+
+$$2(y+4) = y-5 \quad\Longrightarrow\quad 2y + 8 = y - 5 \quad\Longrightarrow\quad y = -13 ,$$
+
+and then $x = -13 + 3 = -10$. Hence
+
+$$x + y = -10 + (-13) = -23 ,$$
+
+which is **option A**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **F** | $-10$ — that is $x$ alone. **Answered one step early.** |
+| **D** | $-14$ — from adding the exponents instead of subtracting when dividing. |
+| **B**, **C**, **E** | Arithmetic slips in expanding $4(y+1)-3(y+3)$. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 8 &nbsp; ⏱ 4 min
+
+::: {.question}
+The function $\mathrm f$ is defined for all real $x$ as $\mathrm f(x) = (p-x)(x+2)$. Find the complete
+set of values of $p$ for which the **maximum** value of $\mathrm f(x)$ is less than $4$.
+
+&nbsp;&nbsp;**A** $-2-4\sqrt2 < p < -2+4\sqrt2$ &nbsp;&nbsp; **B** $-2-2\sqrt2 < p < -2+2\sqrt2$ &nbsp;&nbsp;
+**C** $-2\sqrt5 < p < 2\sqrt5$ &nbsp;&nbsp; **D** $-6<p<2$ &nbsp;&nbsp; **E** $-4<p<0$ &nbsp;&nbsp;
+**F** $-2<p<2$
+:::
+
+The quadratic opens **downwards** (the $x^2$ coefficient is $-1$), so it genuinely has a maximum, and
+that maximum sits halfway between the roots $x = p$ and $x = -2$. [The distance between the roots is what
+controls the height]{.hl}: the further apart they are, the taller the hump. So the condition
+"maximum $<4$" becomes a condition on that distance, and then on $p$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — the maximum of a quadratic as a condition on a parameter
+:::
+
+
+The roots are $x = p$ and $x = -2$, so by symmetry the maximum is at their midpoint,
+$x = \dfrac{p-2}{2}$.
+
+Rather than substitute that back, use the symmetric form. Writing $h$ for the half-distance between the
+roots, $h = \dfrac{p+2}{2}$, the maximum value is $h^2$ — because at the midpoint each bracket equals
+$h$ in size:
+
+$$\mathrm f_{\max} = \left(\frac{p+2}{2}\right)^2 .$$
+
+*(Check with a quick case: $p=2$ gives roots $\pm2$, and $\mathrm f(0) = 4 = \left(\tfrac42\right)^2$. ✓)*
+
+The condition is therefore
+
+$$\left(\frac{p+2}{2}\right)^2 < 4 \quad\Longrightarrow\quad (p+2)^2 < 16 \quad\Longrightarrow\quad |p+2| < 4 ,$$
+
+so $-4 < p+2 < 4$, giving
+
+$$-6 < p < 2 ,$$
+
+which is **option D**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **B** | Solved $(p+2)^2 < 8$ — from forgetting to square the $2$ in the denominator. |
+| **A** | $(p+2)^2 < 32$ — the same slip in the other direction. |
+| **F** | $-2<p<2$ — treated the maximum as occurring at $x=0$. |
+| **C**, **E** | No single clean route. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 9 &nbsp; ⏱ 4 min
+
+::: {.question}
+The quadratic expression $x^2 - 14x + 9$ factorises as $(x-\alpha)(x-\beta)$, where $\alpha$ and $\beta$
+are positive real numbers. Which quadratic expression can be factorised as
+$\left(x - \sqrt\alpha\right)\left(x - \sqrt\beta\right)$?
+
+&nbsp;&nbsp;**A** $x^2 - \sqrt{10}\,x + 3$ &nbsp;&nbsp; **B** $x^2 - \sqrt{14}\,x + 3$ &nbsp;&nbsp;
+**C** $x^2 - \sqrt{20}\,x + 3$ &nbsp;&nbsp; **D** $x^2 - 178x + 81$ &nbsp;&nbsp;
+**E** $x^2 - 176x + 81$ &nbsp;&nbsp; **F** $x^2 + 196x + 81$
+:::
+
+Do **not** find $\alpha$ and $\beta$ — they are irrational and you would be stuck with nested surds.
+[Work with their sum and product instead]{.hl}: you know $\alpha+\beta = 14$ and $\alpha\beta = 9$, and
+the new quadratic needs $\sqrt\alpha + \sqrt\beta$ and $\sqrt\alpha\sqrt\beta$. The product is immediate;
+for the sum, square it and see what appears.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — sum and product of roots
+:::
+
+
+From $x^2 - 14x + 9$: &nbsp; $\alpha + \beta = 14$ and $\alpha\beta = 9$.
+
+The new quadratic is $x^2 - \left(\sqrt\alpha + \sqrt\beta\right)x + \sqrt\alpha\sqrt\beta$, so we need
+those two quantities.
+
+**Product** — straightforward:
+$$\sqrt\alpha \sqrt\beta = \sqrt{\alpha\beta} = \sqrt9 = 3 .$$
+
+**Sum** — square it, because squaring is what turns $\sqrt{\;}$ into things we know:
+$$\left(\sqrt\alpha + \sqrt\beta\right)^2 = \alpha + \beta + 2\sqrt{\alpha\beta} = 14 + 2(3) = 20 ,$$
+
+so $\sqrt\alpha + \sqrt\beta = \sqrt{20}$ *(positive, since $\alpha,\beta>0$)*.
+
+The new expression is therefore
+
+$$x^2 - \sqrt{20}\,x + 3 ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **B** | $\sqrt{14}$ — took $\left(\sqrt\alpha+\sqrt\beta\right)^2 = \alpha+\beta$, forgetting the cross term $2\sqrt{\alpha\beta}$. |
+| **A** | $\sqrt{10}$ — the cross term added as $+2\sqrt{\alpha\beta}$ but with $\sqrt{\alpha\beta}$ taken as $-2$, or a similar sign slip. |
+| **D**, **E**, **F** | Squared the whole original quadratic instead — note $81 = 9^2$, the giveaway. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 10 &nbsp; ⏱ 4 min
+
+::: {.question}
+The following sequence of transformations is applied to the curve $y = 4x^2$:
+
+&nbsp;&nbsp;1. Translation by $\begin{pmatrix}3\\-5\end{pmatrix}$
+&nbsp;&nbsp;2. Reflection in the $x$-axis
+&nbsp;&nbsp;3. Stretch parallel to the $x$-axis with scale factor $2$
+
+What is the equation of the resulting curve?
+
+&nbsp;&nbsp;**A** $y=-x^2+12x-31$ &nbsp;&nbsp; **B** $y=-x^2+12x-41$ &nbsp;&nbsp;
+**C** $y=x^2+12x+31$ &nbsp;&nbsp; **D** $y=x^2+12x+41$ &nbsp;&nbsp;
+**E** $y=-16x^2+48x-31$ &nbsp;&nbsp; **F** $y=-16x^2+48x-41$ &nbsp;&nbsp;
+**G** $y=16x^2-48x+31$ &nbsp;&nbsp; **H** $y=16x^2-48x+41$
+:::
+
+Apply the three steps **one at a time, in the order given**, and write the equation down after each —
+trying to do them in one go is how people lose this. Two things to keep straight: a translation by
+$\binom{3}{-5}$ replaces $x$ by $x-3$ (**not** $x+3$), and [a horizontal stretch by factor $2$ replaces
+$x$ by $\tfrac{x}{2}$]{.hl} — horizontal transformations always do the opposite of what they look like.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a sequence of graph transformations, applied in order
+:::
+
+
+**Start:** $y = 4x^2$.
+
+**Step 1 — translate by $\binom{3}{-5}$:** replace $x$ with $x-3$ and subtract $5$:
+$$y = 4(x-3)^2 - 5 .$$
+
+**Step 2 — reflect in the $x$-axis:** replace $y$ with $-y$, i.e. negate the whole right-hand side:
+$$y = -\left[4(x-3)^2 - 5\right] = -4(x-3)^2 + 5 .$$
+
+**Step 3 — stretch parallel to the $x$-axis, factor $2$:** replace $x$ with $\dfrac{x}{2}$:
+$$y = -4\left(\tfrac{x}{2} - 3\right)^2 + 5 .$$
+
+Now expand. Since $\tfrac{x}{2} - 3 = \tfrac{x-6}{2}$,
+
+$$y = -4 \cdot \frac{(x-6)^2}{4} + 5 = -(x-6)^2 + 5 = -\left(x^2 - 12x + 36\right) + 5 = -x^2 + 12x - 31 ,$$
+
+which is **option A**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **E** | Stretched by replacing $x$ with $2x$ instead of $\tfrac x2$ — the horizontal-stretch trap; note the $-16x^2$. |
+| **G**, **H** | The reflection omitted (positive $x^2$ coefficient) as well. |
+| **B** | $-41$ instead of $-31$ — reflected the $-5$ but then subtracted it again. |
+| **C**, **D** | No reflection at all. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+::: {.question}
+The quadratic function shown passes through $(2,0)$ and $(q,0)$, where $q>2$. Region $R$ lies above the
+$x$-axis to the left of $x=2$; region $S$ lies below the axis between $x=2$ and $x=q$.
+
+What is the value of $q$ such that the area of region $R$ equals the area of region $S$?
+
+&nbsp;&nbsp;**A** $\sqrt6$ &nbsp;&nbsp; **B** $3$ &nbsp;&nbsp; **C** $\tfrac{18}{5}$ &nbsp;&nbsp;
+**D** $4$ &nbsp;&nbsp; **E** $6$ &nbsp;&nbsp; **F** $\tfrac{33}{5}$
+:::
+
+The key realisation saves all the work: **if the two areas are equal, the signed integral across both of
+them is zero.** So instead of computing two areas and setting them equal, [integrate straight through
+from $0$ to $q$ and set the result to zero]{.hl} — the positive and negative parts cancel by themselves.
+Note also that the leading coefficient never matters, since it multiplies both regions equally.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(mark it and come back)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — equal areas above and below the axis
+:::
+
+
+Take the curve as $y = (x-2)(x-q)$; any positive multiple of this gives the same answer, since scaling
+multiplies both areas equally.
+
+Region $R$ runs from $x=0$ to $x=2$ (above the axis), and region $S$ from $x=2$ to $x=q$ (below). Equal
+areas means the **signed** integral over the whole span vanishes:
+
+$$\int_0^q (x-2)(x-q)\,\mathrm dx = 0 .$$
+
+Expand the integrand: $(x-2)(x-q) = x^2 - (2+q)x + 2q$. Then
+
+$$\int_0^q \left(x^2 - (2+q)x + 2q\right)\mathrm dx
+= \left[\frac{x^3}{3} - \frac{(2+q)x^2}{2} + 2qx\right]_0^q
+= \frac{q^3}{3} - \frac{(2+q)q^2}{2} + 2q^2 .$$
+
+Setting this to zero and dividing by $q^2$ *(valid as $q>2 \ne 0$)*:
+
+$$\frac{q}{3} - \frac{2+q}{2} + 2 = 0 .$$
+
+Multiply by $6$:
+
+$$2q - 3(2+q) + 12 = 0 \quad\Longrightarrow\quad 2q - 6 - 3q + 12 = 0 \quad\Longrightarrow\quad -q + 6 = 0 ,$$
+
+so $q = 6$, which is **option E**. $\blacksquare$
+
+*The algebra also throws up $q=0$, which we discarded when dividing by $q^2$ — consistent with the
+requirement $q>2$.*
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $4$ — assuming symmetry, i.e. that $2$ is halfway between $0$ and $q$. Tempting, but the areas are not symmetric. |
+| **B**, **C**, **F** | Slips in expanding or in the limits of integration. |
+| **A** | $\sqrt6$ — took a square root at the end that was never needed. |
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 12 &nbsp; ⏱ 4 min
+
+::: {.question}
+How many real solutions are there to the equation $\;3\cos x = \sqrt x\;$, where $x$ is in radians?
+
+&nbsp;&nbsp;**A** $0$ &nbsp;&nbsp; **B** $1$ &nbsp;&nbsp; **C** $2$ &nbsp;&nbsp; **D** $3$ &nbsp;&nbsp;
+**E** $4$ &nbsp;&nbsp; **F** $5$ &nbsp;&nbsp; **G** infinitely many
+:::
+
+There is no algebra that solves this — [the only route is a sketch]{.hl}. Draw $y = 3\cos x$ (oscillating
+between $-3$ and $3$, period $2\pi \approx 6.28$) and $y = \sqrt x$ (starting at the origin, rising
+slowly, defined only for $x \ge 0$), and count crossings. The question is really *"when does $\sqrt x$
+grow past $3$?"*, since after that no crossing is possible.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — counting solutions by sketching two curves
+:::
+
+
+Both curves exist only for $x \ge 0$.
+
+$y = \sqrt x$ exceeds $3$ once $x > 9$, and $3\cos x \le 3$ always — so **every solution lies in
+$0 \le x \le 9$**. That is a little under one and a half periods of the cosine ($2\pi \approx 6.28$,
+$3\pi \approx 9.42$), so there is only a small window to examine.
+
+Sketching on $[0,9]$:
+
+- Near $x=0$: $3\cos x$ starts at $3$ while $\sqrt x$ starts at $0$, so the cosine is **above**.
+- The cosine falls, crossing zero at $x = \tfrac{\pi}{2} \approx 1.57$, while $\sqrt x$ keeps rising —
+  they cross once early on, at about $x \approx 1.2$. **(1)**
+- The cosine continues down to $-3$ near $x = \pi \approx 3.14$ and comes back up, crossing zero again at
+  $x = \tfrac{3\pi}{2} \approx 4.71$. Meanwhile $\sqrt x$ is around $2.2$. As the cosine climbs towards
+  $3$ near $x = 2\pi \approx 6.28$, it crosses $\sqrt x$ on the way up. **(2)**
+- Past $x = 2\pi$ the cosine falls again, from $3$ down, while $\sqrt x \approx 2.5$ — so it crosses once
+  more on the way down. **(3)**
+- After that the cosine heads to $-3$ near $x = 3\pi \approx 9.42$, by which point $\sqrt x > 3$ and no
+  further crossing is possible.
+
+So there are **3 solutions**, which is **option D**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **C** | $2$ — missed the third crossing, which happens just after $x = 2\pi$. |
+| **G** | "Infinitely many" — forgot that $\sqrt x$ eventually exceeds $3$ and outgrows the cosine permanently. |
+| **E**, **F** | Counted crossings beyond $x=9$, where none exist. |
+:::
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+xs = np.linspace(0, 12, 3000)
+fig, ax = plt.subplots(figsize=(7.6, 4.2))
+ax.plot(xs, 3*np.cos(xs), color=ROOT_CLR, lw=2, label=r'$y=3\cos x$')
+ax.plot(xs, np.sqrt(xs),  color=YINT_CLR, lw=2, label=r'$y=\sqrt{x}$')
+ax.axhline(3, color=ASYM_CLR, ls='--', lw=1.2)
+ax.text(0.3, 3.35, r'$y=3$ — beyond $x=9$, $\sqrt{x}>3$ so no more crossings',
+        color=ASYM_CLR, fontsize=9)
+
+f = 3*np.cos(xs) - np.sqrt(xs)
+idx = np.where(np.diff(np.sign(f)) != 0)[0]
+ax.plot(xs[idx], np.sqrt(xs[idx]), 'o', color='k', ms=8, zorder=5)
+for i, j in enumerate(idx, 1):
+    ax.annotate(f'({i})', (xs[j], np.sqrt(xs[j])), textcoords='offset points',
+                xytext=(6, 8), fontsize=10)
+
+ax.axhline(0, color='k', lw=.8); ax.set_xlim(0, 12); ax.set_ylim(-3.6, 4.2)
+ax.set_xlabel('$x$ (radians)'); ax.grid(alpha=.25); ax.legend(fontsize=9, loc='lower left')
+ax.set_title('Three crossings — and none past $x=9$', fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 13 &nbsp; ⏱ 4 min
+
+::: {.question}
+Find the coefficient of $x^2 y^4$ in the expansion of $\left(1 + x + y^2\right)^7$.
+
+&nbsp;&nbsp;**A** $6$ &nbsp;&nbsp; **B** $10$ &nbsp;&nbsp; **C** $21$ &nbsp;&nbsp; **D** $35$ &nbsp;&nbsp;
+**E** $105$ &nbsp;&nbsp; **F** $210$
+:::
+
+There are seven identical brackets, and each contributes exactly one of $1$, $x$, or $y^2$. To end up
+with $x^2 y^4$ you need [two brackets giving $x$, two giving $y^2$, and the remaining three giving
+$1$]{.hl} — so the coefficient is just the number of ways to choose which brackets do what. This is
+counting, not expanding.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a term in a trinomial expansion
+:::
+
+
+Each of the $7$ brackets supplies one term. To produce $x^2 y^4$:
+
+- **two** brackets must supply $x$ (giving $x^2$);
+- **two** must supply $y^2$ (giving $y^4$);
+- the remaining **three** supply $1$.
+
+Count the ways. Choose which $2$ of the $7$ give $x$, then which $2$ of the remaining $5$ give $y^2$:
+
+$$\binom{7}{2} \times \binom{5}{2} = 21 \times 10 = 210 ,$$
+
+which is **option F**. $\blacksquare$
+
+*The three $1$s are then forced, so there is nothing further to choose — $\binom{3}{3}=1$.*
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **C** | $21 = \binom72$ — chose the $x$ brackets but forgot to choose the $y^2$ brackets. |
+| **B** | $10 = \binom52$ — the other half of the same omission. |
+| **D** | $35 = \binom73$ — counted the three $1$s instead. |
+| **E** | $105$ — halved the correct answer, e.g. by dividing by $2!$ unnecessarily. |
+| **A** | $6$ — no clear route. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 14 &nbsp; ⏱ 4 min
+
+::: {.question}
+The area enclosed between the line $y = mx$ and the curve $y = x^3$ is $6$. What is the value of $m$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp;&nbsp; **B** $4$ &nbsp;&nbsp; **C** $\sqrt3$ &nbsp;&nbsp;
+**D** $\sqrt6$ &nbsp;&nbsp; **E** $2\sqrt3$ &nbsp;&nbsp; **F** $2\sqrt6$
+:::
+
+The line and the cubic meet at three points, $x = 0$ and $x = \pm\sqrt m$, enclosing **two** loops.
+[Both loops have the same area, by symmetry]{.hl} — the picture has half-turn symmetry about the origin —
+so compute one and double it. Miss that and your answer will be out by a factor of two, which is exactly
+what several options are built from.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — area between a line and a cubic, using symmetry
+:::
+
+
+Intersections: $x^3 = mx \Rightarrow x\left(x^2 - m\right) = 0$, so $x = 0$ or $x = \pm\sqrt m$
+(taking $m>0$, or there is no enclosed region).
+
+On $0 \le x \le \sqrt m$ the line is above the cubic, so that loop has area
+
+$$\int_0^{\sqrt m}\left(mx - x^3\right)\mathrm dx
+= \left[\frac{mx^2}{2} - \frac{x^4}{4}\right]_0^{\sqrt m}
+= \frac{m \cdot m}{2} - \frac{m^2}{4} = \frac{m^2}{4} .$$
+
+By symmetry the loop on $-\sqrt m \le x \le 0$ has the same area, so the **total** enclosed area is
+
+$$2 \cdot \frac{m^2}{4} = \frac{m^2}{2} .$$
+
+Setting this equal to $6$:
+
+$$\frac{m^2}{2} = 6 \quad\Longrightarrow\quad m^2 = 12 \quad\Longrightarrow\quad m = 2\sqrt3 ,$$
+
+which is **option E**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **F** | $2\sqrt6$ — from $m^2 = 24$: **forgot to double**, so solved $\tfrac{m^2}{4} = 6$. |
+| **D** | $\sqrt6$ — solved $\tfrac{m^2}{2}=3$, halving instead of doubling. |
+| **C** | $\sqrt3$ — a further factor-of-two slip. |
+| **A**, **B** | Integer guesses; no clean route. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 15 &nbsp; ⏱ 4 min
+
+::: {.question}
+Find the positive difference between the two real values of $x$ for which
+$$\left(\log_2 x\right)^4 + 12\left(\log_2\left(\frac{1}{x}\right)\right)^2 - 2^6 = 0 .$$
+
+&nbsp;&nbsp;**A** $4$ &nbsp;&nbsp; **B** $16$ &nbsp;&nbsp; **C** $\tfrac{15}{4}$ &nbsp;&nbsp;
+**D** $\tfrac{17}{4}$ &nbsp;&nbsp; **E** $\tfrac{255}{16}$ &nbsp;&nbsp; **F** $\tfrac{257}{16}$
+:::
+
+Two simplifications happen before any solving. First, [$\log_2\left(\tfrac1x\right) = -\log_2 x$]{.hl},
+and it is **squared**, so the minus sign disappears entirely. Second, $2^6 = 64$. With $t = \log_2 x$ the
+equation becomes $t^4 + 12t^2 - 64 = 0$ — a quadratic in $t^2$, and therefore a **hidden quadratic** of
+the kind that has appeared on every paper so far.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a quartic in disguise; log laws
+:::
+
+
+Let $t = \log_2 x$. Since $\log_2\left(\tfrac1x\right) = -\log_2 x = -t$, the squared bracket is
+$(-t)^2 = t^2$. And $2^6 = 64$. So the equation is
+
+$$t^4 + 12t^2 - 64 = 0 .$$
+
+Put $u = t^2$ *(so $u \ge 0$)*:
+
+$$u^2 + 12u - 64 = 0 \quad\Longrightarrow\quad (u+16)(u-4) = 0 ,$$
+
+giving $u = -16$ or $u = 4$. **Reject $u=-16$**, since $u = t^2$ cannot be negative. So
+
+$$t^2 = 4 \quad\Longrightarrow\quad t = \pm 2 \quad\Longrightarrow\quad \log_2 x = 2 \text{ or } -2 ,$$
+
+that is, $x = 2^2 = 4$ or $x = 2^{-2} = \tfrac14$. The positive difference is
+
+$$4 - \tfrac14 = \tfrac{15}{4} ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $\tfrac{17}{4} = 4 + \tfrac14$ — **added** the two values instead of subtracting. |
+| **A** | $4$ — quoted only the larger value of $x$. Answered one step early. |
+| **B** | $16$ — from $t=\pm4$, i.e. taking $u=16$ rather than $u=4$. |
+| **E**, **F** | $\tfrac{255}{16}, \tfrac{257}{16}$ — the difference and sum of $16$ and $\tfrac1{16}$, from the same $u=16$ error. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+::: {.question}
+The circle $C_1$ has equation $(x+2)^2 + (y-1)^2 = 3$, and the circle $C_2$ has equation
+$(x-4)^2 + (y-1)^2 = 3$. The straight line $l$ is a tangent to both circles and has positive gradient.
+The acute angle between $l$ and the $x$-axis is $\theta$. Find $\tan\theta$.
+
+&nbsp;&nbsp;**A** $\tfrac12$ &nbsp;&nbsp; **B** $2$ &nbsp;&nbsp; **C** $\tfrac{\sqrt2}{2}$ &nbsp;&nbsp;
+**D** $\sqrt2$ &nbsp;&nbsp; **E** $\tfrac{\sqrt2}{6}$ &nbsp;&nbsp; **F** $\tfrac{\sqrt3}{6}$ &nbsp;&nbsp;
+**G** $\tfrac{\sqrt3}{3}$ &nbsp;&nbsp; **H** $\sqrt3$
+:::
+
+Sketch it first, always. The two circles have **equal radii** $\sqrt3$ and centres $6$ apart on the same
+horizontal line — so the two *external* tangents are horizontal (gradient $0$), and the tangent we want
+must be one of the two **internal** ones that cross between the circles. [By symmetry that tangent passes
+through the midpoint of the centres]{.hl}, and then it is a right-angled triangle: radius perpendicular
+to tangent.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(mark it and come back)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a common tangent to two circles
+:::
+
+
+Centres: $O_1 = (-2,1)$ and $O_2 = (4,1)$, both with radius $\sqrt3$. The distance between centres is
+$4 - (-2) = 6$.
+
+Since the radii are equal and the centres lie on a horizontal line, the two external common tangents are
+horizontal. The tangent with **positive gradient** is therefore an *internal* tangent, and by symmetry it
+crosses the centre line at its midpoint $E = (1,1)$ — a distance $3$ from each centre.
+
+Let $D$ be the point where the tangent touches $C_2$. Then $O_2D$ is a **radius perpendicular to the
+tangent**, so triangle $O_2DE$ is right-angled at $D$, with
+
+- hypotenuse $EO_2 = 3$,
+- opposite side $O_2D = \sqrt3$ (the radius).
+
+By Pythagoras the remaining side is
+
+$$DE = \sqrt{3^2 - \left(\sqrt3\right)^2} = \sqrt{9-3} = \sqrt6 .$$
+
+The angle at $E$ is $\theta$ (the tangent makes this angle with the horizontal centre line, which is
+parallel to the $x$-axis), so
+
+$$\tan\theta = \frac{O_2D}{DE} = \frac{\sqrt3}{\sqrt6} = \frac{1}{\sqrt2} = \frac{\sqrt2}{2} ,$$
+
+which is **option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $\sqrt2$ — the reciprocal: $\tan$ taken as $\dfrac{DE}{O_2D}$, i.e. adjacent over opposite. |
+| **G** | $\tfrac{\sqrt3}{3} = \tfrac{1}{\sqrt3}$ — used $\sin\theta$ instead of $\tan\theta$ (opposite over hypotenuse). |
+| **E**, **F** | Used the full distance $6$ as the hypotenuse instead of the half-distance $3$. |
+| **A**, **B**, **H** | No clean route. |
+:::
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+r = np.sqrt(3)
+fig, ax = plt.subplots(figsize=(7.4, 4.6))
+for cx, lab in [(-2, '$C_1$'), (4, '$C_2$')]:
+    ax.add_patch(plt.Circle((cx, 1), r, fill=False, color=ROOT_CLR, lw=2))
+    ax.plot([cx], [1], 'o', color=ROOT_CLR, ms=5)
+    ax.annotate(lab, (cx, 1), textcoords='offset points', xytext=(-6, 22),
+                fontsize=11, color=ROOT_CLR)
+
+# internal tangent through midpoint (1,1) with tan(theta)=1/sqrt2
+mgrad = 1/np.sqrt(2)
+xs = np.linspace(-4.5, 7.5, 200)
+ax.plot(xs, mgrad*(xs-1)+1, color=ASYM_CLR, lw=2,
+        label=r'internal tangent, gradient $\tan\theta=\frac{\sqrt{2}}{2}$')
+# mark the two points of tangency, so the line is visibly a tangent
+nvec = np.array([mgrad, -1])/np.sqrt(mgrad**2 + 1)
+for cx in (-2, 4):
+    g = mgrad*cx - 1 + (1 - mgrad)          # signed position of the centre w.r.t. the line
+    tp = np.array([cx, 1]) - np.sign(g)*r*nvec
+    ax.plot([tp[0]], [tp[1]], '*', color='k', ms=15, zorder=6)
+    ax.plot([cx, tp[0]], [1, tp[1]], color='grey', lw=1.2, ls=':')
+ax.annotate('radius $\\perp$ tangent\nat each point of contact', (3.0, 2.41),
+            textcoords='offset points', xytext=(10, 8), fontsize=9)
+
+ax.plot([1], [1], 'o', color=YINT_CLR, ms=8, zorder=5)
+ax.annotate('midpoint $E(1,1)$', (1, 1), textcoords='offset points', xytext=(-16, -26),
+            fontsize=9, color=YINT_CLR)
+ax.plot([-2, 4], [1, 1], 'k--', lw=1)
+ax.annotate('centres $6$ apart', (1, 1), textcoords='offset points', xytext=(-30, 40), fontsize=9)
+
+ax.set_aspect('equal'); ax.grid(alpha=.25)
+ax.set_xlim(-5.5, 8.5); ax.set_ylim(-2.2, 4.6)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+ax.legend(fontsize=9, loc='lower right')
+ax.set_title('Equal radii on a horizontal line: the sloping tangent is an INTERNAL one', fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+::: {.question}
+Find the complete set of values of $m$ in terms of $c$ such that the graphs of $y = mx+c$ and
+$y = \sqrt x$ have **two** points of intersection.
+
+&nbsp;&nbsp;**A** $0<m<\tfrac{1}{4c}$ &nbsp;&nbsp; **B** $0<m<4c^2$ &nbsp;&nbsp;
+**C** $m>\tfrac{1}{4c}$ &nbsp;&nbsp; **D** $m<\tfrac{1}{4c}$ &nbsp;&nbsp;
+**E** $m>4c^2$ &nbsp;&nbsp; **F** $m<4c^2$
+:::
+
+Setting them equal gives a **quadratic in $\sqrt x$**, not in $x$ — that substitution is the whole
+question. Two intersections then needs two roots, but with a catch: [the roots are values of $\sqrt x$,
+so they must be non-negative]{.hl}, which forces extra sign conditions beyond a positive discriminant.
+If you are short of time, the sketch route below eliminates options faster than the algebra.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(mark it and come back)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a line meeting a square-root curve twice
+:::
+
+
+**The algebraic route.** Intersections satisfy $mx + c = \sqrt x$ with $x \ge 0$. Put $u = \sqrt x \ge 0$,
+so $x = u^2$:
+
+$$mu^2 - u + c = 0 .$$
+
+We need **two distinct non-negative roots** in $u$ (each gives one $x = u^2$).
+
+- $m \ne 0$, or it is linear with at most one root.
+- **Distinct real roots:** discriminant $> 0$, so $1 - 4mc > 0$, i.e. $4mc < 1$.
+- **Both roots non-negative:** their sum is $\tfrac1m$ and product $\tfrac cm$, and both must be
+  $\ge 0$. Sum $\tfrac1m > 0$ forces $m > 0$; product $\tfrac cm \ge 0$ then forces $c \ge 0$.
+
+With $m>0$ and $c>0$, the condition $4mc<1$ rearranges to
+
+$$m < \frac{1}{4c} ,$$
+
+so altogether $\;0 < m < \dfrac{1}{4c}$, which is **option A**. $\blacksquare$
+
+**The sketch route — faster under exam pressure.** $y = \sqrt x$ is increasing and concave, starting at
+the origin.
+
+- If $m \le 0$ the line is non-increasing and meets the curve **at most once** — so we need $m>0$,
+  eliminating **D** and **F** (both allow negative $m$).
+- If $c \le 0$ the line starts at or below the origin and, being straight, can cross the curve at most
+  once — so **no** value of $m$ should work when $c<0$.
+- Test the survivors at, say, $c=-1$: option **A** gives $0<m<-\tfrac14$, which is **empty** ✓;
+  options **B**, **C**, **E** all still permit values of $m$. ✗
+
+Only **A** rejects every $m$ when $c<0$, so **A** it is.
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **C** | The inequality reversed — from dividing by $4c$ without checking its sign. |
+| **D** | Correct bound, but $m>0$ omitted, so negative gradients are wrongly allowed. |
+| **B**, **E**, **F** | $4c^2$ instead of $\tfrac{1}{4c}$ — from mis-rearranging $1-4mc>0$. |
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 18 &nbsp; ⏱ 4 min
+
+::: {.question}
+Find the number of solutions and the sum of the solutions of the equation
+$$1 - 2\cos^2 x = \left|\cos x\right| ,$$
+where $0 \le x \le 180^\circ$.
+
+&nbsp;&nbsp;**A** Number $=2$, Sum $=180^\circ$ &nbsp;&nbsp; **B** Number $=2$, Sum $=240^\circ$
+&nbsp;&nbsp; **C** Number $=3$, Sum $=180^\circ$ &nbsp;&nbsp; **D** Number $=3$, Sum $=360^\circ$
+&nbsp;&nbsp; **E** Number $=4$, Sum $=240^\circ$ &nbsp;&nbsp; **F** Number $=4$, Sum $=360^\circ$
+:::
+
+The modulus looks awkward, but it is the thing that makes this easy: [substitute $u = |\cos x|$ and every
+term becomes a function of $u$]{.hl}, since $\cos^2 x = |\cos x|^2 = u^2$. You get a quadratic in $u$,
+one root of which is impossible. Then remember that $|\cos x| = \tfrac12$ has **two** solutions in the
+range, not one — the negative branch counts too.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a trigonometric equation with a modulus
+:::
+
+
+Let $u = |\cos x|$, so $u \ge 0$ and $\cos^2 x = u^2$. The equation becomes
+
+$$1 - 2u^2 = u \quad\Longrightarrow\quad 2u^2 + u - 1 = 0 \quad\Longrightarrow\quad (2u-1)(u+1) = 0 ,$$
+
+giving $u = \tfrac12$ or $u = -1$. **Reject $u = -1$**, since $u = |\cos x| \ge 0$.
+
+So $\left|\cos x\right| = \tfrac12$, which means $\cos x = \tfrac12$ **or** $\cos x = -\tfrac12$.
+
+On $0 \le x \le 180^\circ$:
+
+- $\cos x = \tfrac12 \Rightarrow x = 60^\circ$;
+- $\cos x = -\tfrac12 \Rightarrow x = 120^\circ$.
+
+That is **2 solutions**, with sum $60^\circ + 120^\circ = 180^\circ$ — **option A**. $\blacksquare$
+
+*Both branches must be taken: dropping the negative one gives a single solution and no valid option.*
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **C**, **D** | Three solutions — from also admitting $u=-1$ (i.e. $\cos x = -1$, $x = 180^\circ$), which the modulus forbids. |
+| **B** | Sum $240^\circ$ — from $60^\circ + 180^\circ$, the same rejected root. |
+| **E**, **F** | Four solutions — from treating the range as $0$ to $360^\circ$. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 19 &nbsp; ⏱ 2 min
+
+::: {.question}
+Find the lowest positive integer for which $x^2 - 52x - 52$ is positive.
+
+&nbsp;&nbsp;**A** $26$ &nbsp;&nbsp; **B** $27$ &nbsp;&nbsp; **C** $51$ &nbsp;&nbsp; **D** $52$ &nbsp;&nbsp;
+**E** $53$ &nbsp;&nbsp; **F** $54$
+:::
+
+Do not use the quadratic formula — $\sqrt{52^2 + 4\cdot52}$ is not a number you want to handle without a
+calculator. [Test the options instead]{.hl}: the expression is increasing for large $x$, so you simply
+need the first option that makes it positive, and $x^2 - 52x - 52 = x(x-52) - 52$ makes each test almost
+instant.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a quadratic inequality with awkward numbers
+:::
+
+
+Write the expression as $x(x-52) - 52$, which is quick to evaluate mentally.
+
+- $x = 52$: &nbsp; $52(0) - 52 = -52 < 0$. ✗
+- $x = 53$: &nbsp; $53(1) - 52 = 1 > 0$. ✓
+
+Since the expression is increasing for $x > 26$ (the vertex is at $x=26$), $x=53$ is the **lowest**
+positive integer that works — **option E**. $\blacksquare$
+
+*Options A and B fail badly: at $x=26$ the expression is at its minimum, $26(-26)-52 = -728$.*
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** | $52$ — from solving $x^2 > 52x$, i.e. dropping the constant $-52$ and getting $x>52$. |
+| **C** | $51$ — an off-by-one on the same slip. |
+| **A** | $26$ — the vertex, which is where the expression is *most negative*. |
+| **F** | $54$ — one step too far; $53$ already works. |
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+::: {.question}
+For how many values of $a$ is the equation
+$$(x-a)\left(x^2 - x + a\right) = 0$$
+satisfied by **exactly two** distinct values of $x$?
+
+&nbsp;&nbsp;**A** $0$ &nbsp;&nbsp; **B** $1$ &nbsp;&nbsp; **C** $2$ &nbsp;&nbsp; **D** $3$ &nbsp;&nbsp;
+**E** $4$ &nbsp;&nbsp; **F** more than $4$
+:::
+
+The equation already gives one root, $x=a$, plus whatever the quadratic contributes — so normally three
+roots. Getting **exactly two** means losing one, and [there are two quite different ways to lose a
+root]{.hl}: the quadratic could have a repeated root, or one of its roots could coincide with $x=a$.
+Miss either case and you get the wrong count.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(mark it and come back)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — when a cubic equation has exactly two distinct roots
+:::
+
+
+The roots are $x = a$, together with the roots of $x^2 - x + a = 0$, namely
+$x = \dfrac{1 \pm \sqrt{1-4a}}{2}$.
+
+Generically that is three distinct values. We need exactly two, so exactly one coincidence must occur.
+
+**Case 1 — the quadratic has a repeated root.** This needs $1-4a=0$, so $a = \tfrac14$. Then the
+quadratic's double root is $x = \tfrac12$, and the third root is $x = a = \tfrac14$, which is different.
+So the distinct roots are $\tfrac12$ and $\tfrac14$ — **exactly two**. ✓
+
+**Case 2 — one root of the quadratic equals $a$.** Substitute $x=a$ into the quadratic:
+
+$$a^2 - a + a = 0 \quad\Longrightarrow\quad a^2 = 0 \quad\Longrightarrow\quad a = 0 .$$
+
+Then the equation is $x\left(x^2-x\right) = x^2(x-1) = 0$, with roots $x=0$ (repeated) and $x=1$ —
+**exactly two** distinct values. ✓
+
+*(Substituting $x=a$ is far quicker than setting $a$ equal to the surd expression and squaring.)*
+
+No other value of $a$ produces a coincidence, so there are **2 such values** ($a=0$ and $a=\tfrac14$) —
+**option C**. $\blacksquare$
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **B** | $1$ — found only one of the two cases, usually the discriminant one. |
+| **D** | $3$ — counted $a=\tfrac12$ as well, from mistakenly requiring the double root $x=\tfrac12$ to equal $a$. |
+| **A** | $0$ — concluded no value works, e.g. by demanding both cases hold simultaneously. |
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## After this session
+
+::: {.callout-important}
+## Homework
+
+1. **2018 Paper 1 — cold and timed, 75 minutes, no calculator.** Mark it yourself against the official
+   answer key, then sort every question into the four boxes: *right and fast* / *silly slip* /
+   **right but slow** / *no idea*.
+2. **Fill in the [Formula Sheet](../../formula_sheet.qmd)** — the algebra and sequences rows at minimum.
+   Anything you had to stop and reconstruct today belongs on it: the sum to infinity, the discriminant
+   condition, sum and product of roots, the transformation rules.
+:::
+
+**What today was really about.** Look back at the four questions flagged ⏱ 6 min+ — 4, 11, 16 and 20.
+Each is perfectly doable, and each would eat two other questions' worth of time if you met it head-on at
+first pass. On a real paper you would answer the other sixteen first, then return to these with whatever
+time is left, guessing on any you cannot finish.
+
+**And the recurring cue:** questions 6, 15 and 18 were all the **same idea** in different clothing — a
+substitution turning something frightening into a quadratic, with a range restriction that rules one root
+out. That pattern has now appeared on both papers we have studied. It will appear on yours.
+
+:::

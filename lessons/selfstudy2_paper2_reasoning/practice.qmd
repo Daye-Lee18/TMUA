@@ -1,0 +1,388 @@
+---
+title: "Self-study 2 — Paper 2 Reasoning"
+subtitle: "10 problems on the types you missed on 2018 Paper 2 (Q4, Q6, Q15, Q18)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Ten problems on the four Paper 2 skills you lost marks on: **counterexamples** to calculus claims (Q6),
+**necessary/sufficient conditions** (Q18), **roots under a transformation** (Q15), and **trig counting**
+(Q4). The theme of Paper 2 is *reasoning* — so every solution says **why**, not just what. Attempt each,
+then check.
+
+::: {.callout-tip}
+## The reasoning habits
+
+- **Counterexample:** to break "if $P$ then $Q$", find one function with $P$ true but $Q$ false. For
+  "increasing / positive / stationary" claims, sketch the shape and hunt the exception.
+- **Necessary condition:** something that **must** hold whenever the statement is true (but might not be
+  enough on its own). "Convex $\Leftrightarrow f''(x)\ge0$ everywhere" is the classic.
+- **Roots under a transformation:** a *horizontal shift/stretch* and a *reflection* keep the **number**
+  of roots; a **vertical shift** can change it.
+- **Trig counting:** replace the inside (e.g. $u=2x$) and count over the **stretched** interval; a
+  squared equation $\cos^2=k^2$ splits into $\cos=\pm k$.
+:::
+
+---
+
+# Part A — Counterexamples to calculus claims
+
+## Question A1 &nbsp; *(2018 Paper 2 Q6)*
+
+::: {.question}
+Which function is a **counterexample** to: *"if $f'(x)>0$ for all real $x$, then $f(x)>0$ for all real
+$x$"*?
+
+&nbsp;&nbsp;**A** $x^2+1$ &nbsp; **B** $x^2-1$ &nbsp; **C** $x^3+x+1$ &nbsp; **D** $1-x$ &nbsp;
+**E** $2^{x}$
+:::
+
+You need a function that is **increasing everywhere** ($f'>0$) but still **dips below zero** somewhere.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**C.** For $f(x)=x^3+x+1$: $f'(x)=3x^2+1>0$ for all $x$, so it is increasing everywhere; but as
+$x\to-\infty$, $f\to-\infty$, e.g. $f(-2)=-9<0$. So the hypothesis holds and the conclusion fails —
+a counterexample.
+
+```{python}
+#| fig-cap: "y = x³+x+1 is increasing everywhere (f'=3x²+1>0) yet goes negative for x < −0.68."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,1.5,400); y=x**3+x+1
+fig,ax=plt.subplots(figsize=(5.2,3.4))
+ax.plot(x,y,color='#1f77b4',lw=2)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.plot(-0.6823,0,'o',color='#d62728'); ax.annotate('crosses 0',(-0.6823,0),(-1.9,3),color='#d62728',fontsize=9)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title(r'$y=x^3+x+1$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Why the others fail: A and B are not increasing everywhere ($f'=2x$ changes sign); D is decreasing;
+E ($2^x$) is increasing **and** always positive, so it is not a counterexample.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question A2
+
+::: {.question}
+Give a **counterexample** to: *"if $x=a$ is a stationary point of $f$, then $f$ has a maximum or a
+minimum at $a$."*
+:::
+
+A stationary point only means $f'(a)=0$ — it need not be a turning point.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Take $f(x)=x^3$ at $a=0$: $f'(x)=3x^2$, so $f'(0)=0$ (stationary), but $x=0$ is a **point of inflection**,
+not a max or min — the curve keeps rising through it.
+
+```{python}
+#| fig-cap: "y = x³ is stationary at x=0 (flat) but has neither a max nor a min there — a point of inflection."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.4,1.4,400)
+fig,ax=plt.subplots(figsize=(4.8,3.2))
+ax.plot(x,x**3,color='#1f77b4',lw=2); ax.plot(0,0,'o',color='#d62728')
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title(r'$y=x^3$ — stationary inflection at 0',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+
+*Stationary is $f'(a)=0$; a max/min also needs the gradient to **change sign**. At $x^3$ it does not.*
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question A3
+
+::: {.question}
+Give a **counterexample** to: *"if $f''(a)=0$, then $f$ has a point of inflection at $a$."*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Take $f(x)=x^4$ at $a=0$: $f''(x)=12x^2$, so $f''(0)=0$; but $x=0$ is a **minimum**, not a point of
+inflection ($f''$ does not change sign — it stays $\ge0$).
+
+```{python}
+#| fig-cap: "y = x⁴ has f''(0)=0 but a minimum at 0, not an inflection — f'' never changes sign."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.4,1.4,400)
+fig,ax=plt.subplots(figsize=(4.8,3.2))
+ax.plot(x,x**4,color='#1f77b4',lw=2); ax.plot(0,0,'o',color='#d62728')
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title(r'$y=x^4$ — min at 0, but $f\'\'(0)=0$',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+
+*An inflection needs $f''$ to **change sign**. $f''(a)=0$ alone is necessary but not sufficient — same
+"necessary vs sufficient" idea as Part B.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Part B — Necessary & sufficient conditions
+
+## Question B1 &nbsp; *(2018 Paper 2 Q18)*
+
+::: {.question}
+$f$ is a polynomial defined for all real $x$. Which is a **necessary** condition for
+$$\frac{f(a)+f(b)}{2}\ge f\!\left(\frac{a+b}{2}\right)\quad\text{for all real } a<b\,?$$
+
+&nbsp;&nbsp;**A** $f(x)\ge0$ &nbsp; **B** $f'(x)\ge0$ &nbsp; **C** $f''(x)\ge0$ &nbsp;
+**D** $f(x)\le0$ &nbsp; **E** $f'(x)\le0$ &nbsp; **F** $f''(x)\le0$ (all "for all real $x$")
+:::
+
+The inequality says the **chord lies on or above the curve** — that is the definition of **convex**.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**C.** $\dfrac{f(a)+f(b)}{2}$ is the height of the **chord** at the midpoint, and $f\!\left(\frac{a+b}{2}\right)$
+is the **curve's** height there. "Chord on or above curve for all $a,b$" is exactly **convexity**, and for
+a (twice-differentiable) polynomial convex $\Leftrightarrow f''(x)\ge0$ for all $x$.
+
+*Why not the others: the condition is about **curvature**, not sign or slope — $f$ can be convex while
+being negative or decreasing somewhere (e.g. $f(x)=x^2-5$). So A, B, D, E are neither necessary; F is the
+wrong sign (that is concave).* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question B2
+
+::: {.question}
+$f$ is differentiable. Consider the condition $f'(a)=0$ for the statement *"$f$ has a local maximum at
+$x=a$."* Is $f'(a)=0$ **necessary**, **sufficient**, **both**, or **neither**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Necessary but not sufficient.** If a differentiable $f$ has a local maximum at $a$, then $f'(a)=0$ must
+hold (necessary). But $f'(a)=0$ alone does **not** guarantee a maximum — it could be a minimum (e.g.
+$x^2$ at $0$) or an inflection (e.g. $x^3$ at $0$). So it is necessary, not sufficient. $\;\blacksquare$
+
+*"Necessary" = must be true whenever the statement holds; "sufficient" = enough on its own to force it.
+$f'(a)=0$ is the first, not the second.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question B3
+
+::: {.question}
+State a condition on $a,b,c$ that is **necessary and sufficient** for $\;ax^2+bx+c>0\;$ to hold for
+**all** real $x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$$a>0 \quad\textbf{and}\quad b^2-4ac<0.$$
+**Why both, and why necessary and sufficient:** the parabola must open **upwards** ($a>0$) *and* never
+touch the axis (**no real roots**, i.e. discriminant $<0$). Each alone is not enough — $a>0$ with a real
+root dips to zero; $b^2-4ac<0$ with $a<0$ stays entirely **below** the axis. Together they are exactly
+right. $\;\blacksquare$
+
+*A single "and" of two conditions — a very common necessary-and-sufficient answer on Paper 2.*
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+# Part C — Roots under a transformation
+
+## Question C1 &nbsp; *(2018 Paper 2 Q15)*
+
+::: {.question}
+$f(x)=x^3+3qx^2+2$, where $q$ is a real constant, and $f(x)=0$ has **3 distinct real roots**. Which of
+these are **necessarily** true?
+
+&nbsp;&nbsp;**I** $f(x)+1=0$ has 3 distinct roots. &nbsp;&nbsp; **II** $f(x+1)=0$ has 3 distinct roots.
+&nbsp;&nbsp; **III** $f(-x)-1=0$ has 3 distinct roots.
+:::
+
+Find the **local maximum value** first — it is fixed — then see which horizontal levels are guaranteed
+to cut the curve 3 times.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**II and III only.** &nbsp; $f'(x)=3x^2+6qx=3x(x+2q)$, so the turning points are at $x=0$ and $x=-2q$,
+with values $f(0)=2$ (the **local maximum**) and $f(-2q)=4q^3+2$ (the local minimum $<0$, since there are
+3 roots).
+
+- **I** ($f(x)=-1$): needs $-1$ **below** the local min. But the local min could be, say, $-0.5$
+  (between $-1$ and $0$), and then $f=-1$ has only 1 root. **Not necessarily true.**
+- **II** ($f(x+1)=0$): a horizontal shift — same shape, roots moved by $-1$. Always **3 roots.** ✓
+- **III** ($f(-x)=1$): $y=1$ lies **below the fixed local max $2$** and above the local min ($<0$), so
+  it always cuts the curve 3 times; reflection in the $y$-axis keeps the count. Always **3 roots.** ✓
+
+*The crux: the local **maximum is fixed at $2$** (it is $f(0)$), so the level $+1$ is always safely below
+it — but the level $-1$ is not always below the (variable) minimum.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question C2
+
+::: {.question}
+A cubic $f$ has exactly **3 distinct real roots**. For each transformation, does the new equation
+**necessarily** still have 3 distinct roots?
+
+&nbsp;&nbsp;(a) $f(x-2)=0$ &nbsp;&nbsp; (b) $2f(x)=0$ &nbsp;&nbsp; (c) $f(x)-100=0$ &nbsp;&nbsp;
+(d) $-f(x)=0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+- **(a) Yes** — $f(x-2)=0$ is a horizontal shift; the roots just move right by $2$, count unchanged.
+- **(b) Yes** — $2f(x)=0$ has exactly the same roots as $f(x)=0$ (dividing by $2$).
+- **(c) Not necessarily** — $f(x)=100$ is a **vertical** shift of the level line; $100$ may lie above the
+  local maximum, giving only 1 root.
+- **(d) Yes** — $-f(x)=0$ has the same roots as $f(x)=0$.
+
+*Rule: horizontal shift/stretch and reflection preserve the **number** of roots of "$=0$"; a vertical
+shift (changing the level you set equal to) can change it.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Part D — Trig counting
+
+## Question D1 &nbsp; *(2018 Paper 2 Q4)*
+
+::: {.question}
+The non-zero real number $c$ is such that $\cos x=c$ has **two** solutions for $0<x<\frac{3\pi}{2}$. How
+many solutions does $\cos^2 2x=c^2$ have in $0<x<\frac{3\pi}{2}$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $6$ &nbsp; **E** $7$ &nbsp; **F** $8$
+:::
+
+Two facts: first, "two solutions" pins down the **sign** of $c$; then $\cos^2 2x=c^2$ splits into
+$\cos2x=\pm c$, and $u=2x$ stretches the interval.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**D (6).**
+
+**Step 1 — the sign of $c$.** On $0<x<\frac{3\pi}{2}$, $\cos x=c$ has two solutions only when
+$-1<c<0$ (a small positive $c$ is met just once). So $c$ is **negative**, and $c\neq -c$.
+
+**Step 2 — split.** $\cos^2 2x=c^2\Rightarrow \cos2x=c$ **or** $\cos2x=-c$, two distinct levels in
+$(-1,1)$.
+
+**Step 3 — count with $u=2x$.** As $x$ runs $0\to\frac{3\pi}{2}$, $u=2x$ runs $0\to3\pi$ — **one and a
+half periods**. For any level in $(-1,1)$, $\cos u$ is met **3 times** on $(0,3\pi)$. So
+$\cos2x=c$ gives 3 and $\cos2x=-c$ gives 3 — total $\mathbf6$.
+
+```{python}
+#| fig-cap: "Over u=2x in (0,3π), each level y=c and y=−c meets cos u three times → 3+3 = 6 solutions."
+import numpy as np, matplotlib.pyplot as plt
+u=np.linspace(0,3*np.pi,1200); c=-0.6
+fig,ax=plt.subplots(figsize=(5.8,3.2))
+ax.plot(u,np.cos(u),color='#1f77b4',lw=2,label='y = cos u  (u=2x)')
+ax.axhline(c,color='#d62728',ls='--',lw=1.2,label='y = c')
+ax.axhline(-c,color='#2ca02c',ls='--',lw=1.2,label='y = −c')
+for lev,col in [(c,'#d62728'),(-c,'#2ca02c')]:
+    g=np.cos(u)-lev; s=np.sign(g); idx=np.where(s[:-1]*s[1:]<0)[0]
+    for i in idx:
+        ui=u[i]-g[i]*(u[i+1]-u[i])/(g[i+1]-g[i]); ax.plot(ui,lev,'o',color=col,ms=5)
+ax.set_xlabel('u = 2x'); ax.set_ylabel('y'); ax.legend(fontsize=8,loc='lower left'); ax.set_ylim(-1.2,1.3)
+ax.set_title('3 + 3 = 6 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The trap is to forget the $u=2x$ stretch (giving three, not two, hits per level) or to miss that "two
+solutions" forces $c<0$.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question D2
+
+::: {.question}
+How many solutions does $\;4\sin^2 x=1\;$ have in $0\le x\le 2\pi$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$ &nbsp; **E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$4\sin^2x=1\Rightarrow \sin^2x=\frac14\Rightarrow \sin x=\pm\frac12$. Each level gives **two** solutions
+in $[0,2\pi]$:
+$$\sin x=\tfrac12:\ x=\tfrac{\pi}{6},\tfrac{5\pi}{6};\qquad \sin x=-\tfrac12:\ x=\tfrac{7\pi}{6},\tfrac{11\pi}{6}.$$
+Total **4** — **C**.
+
+```{python}
+#| fig-cap: "y = sin x meets y = ½ and y = −½ twice each on [0, 2π] → 4 solutions."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2*np.pi,1200)
+fig,ax=plt.subplots(figsize=(5.8,3.0))
+ax.plot(x,np.sin(x),color='#1f77b4',lw=2,label='y = sin x')
+ax.axhline(0.5,color='#d62728',ls='--',lw=1.2,label='y = ½')
+ax.axhline(-0.5,color='#2ca02c',ls='--',lw=1.2,label='y = −½')
+for xi in (np.pi/6,5*np.pi/6): ax.plot(xi,0.5,'o',color='#d62728')
+for xi in (7*np.pi/6,11*np.pi/6): ax.plot(xi,-0.5,'o',color='#2ca02c')
+ax.axhline(0,color='0.6',lw=0.6); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.legend(fontsize=8,loc='lower left'); ax.set_ylim(-1.2,1.3); ax.set_title('4 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*A squared trig equation splits into $\pm$; then count each level separately.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## What to take away
+
+**Counterexample:** increasing ≠ positive; stationary ≠ turning point; $f''=0$ ≠ inflection — one shape
+breaks each. **Necessary vs sufficient:** convex $\Leftrightarrow f''\ge0$; "$f'(a)=0$" is necessary for a
+max, not sufficient. **Roots:** horizontal shift/stretch and reflection keep the count; a vertical shift
+can change it. **Trig counting:** $\cos^2=k^2\Rightarrow\cos=\pm k$, and $u=2x$ stretches the interval.
+:::
+
+:::

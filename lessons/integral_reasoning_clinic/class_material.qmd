@@ -1,0 +1,430 @@
+---
+title: "Integrals to Reason About Clinic"
+subtitle: "Modulus inside the integral · self-referential integral equations · sequences of functions"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Some TMUA integrals are **not meant to be computed**. You are never told what $f$ is; instead you are given a
+few facts and asked for a value. The skill is to **reason** — with **symmetry, sign, area, a substitution, or a
+self-reference** — never to find $f$ explicitly. This is one of the places Paper 2 hides its hardest ideas, and
+it is exactly the flavour you have found hard: **modulus inside an integral** and **functions built by a
+recursion**. Every question here is a real TMUA question.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Papers 1 &amp; 2 · Integrals to reason about</div>
+<div class="fs-title">Reason, Don't Compute — Exam Skim Sheet</div>
+<div class="fs-sub">You are never told what $f$ is. Every question below is one of these four moves.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Split a modulus by sign
+$\displaystyle\int|g|$ is **not** $\left|\int g\right|$. Break the range where $g$ changes sign; on each piece $|g|=g$ or $|g|=-g$.
+
+Two numbers unlock everything — the **signed** area $\int_a^b f$ and the **total** area $\int_a^b|f|$:
+$$\int_{f>0}f=\frac{\int f+\int|f|}{2},\qquad \int_{f<0}f=\frac{\int f-\int|f|}{2}.$$
+:::
+
+::: {.fs-card}
+### 2 · Fold with $f(\lvert x\rvert)$
+For $x<0$, $|x|=-x$, so
+$$\int_{-a}^{0}f(|x|)\,dx\overset{t=-x}{=}\int_{0}^{a}f(t)\,dt$$
+— a modulus in the *argument* just **reflects** the left half onto the right.
+
+[Sign rules: $xf(x)>0$ means $f$ **agrees** with $x$; $xf(x)<0$ means it **opposes** $x$.]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · A definite integral is a constant
+If $f$ is defined by an identity containing $\int_a^b f$, **call that number $k$**, solve for $f$ in terms of $k$, then integrate both sides to get one equation in $k$.
+
+[Use $\int_{-1}^{1}(\text{odd})=0$ to kill terms.]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · Recursions &amp; sums
+For a **sequence of functions** $f_{n+1}=(\dots f_n\dots)$, test $x>0$ and $x<0$ **separately** — one side usually grows linearly, the other goes **periodic**.
+
+For $\sum_r\int_0^r f$, first collapse $\int_0^r f$ using $\int_n^{n+1}f$, then sum.
+:::
+
+::::
+
+:::::
+
+**On this page:** 1. Modulus & symmetry inside the integral · 2. Self-referential integral equations · 3.
+Splitting, shifting & sequences of functions. Answers are in the **Solution** toggles; try the **Working** box
+first, and **give the exact value the question asks for**.
+
+---
+
+## 1 · Modulus & symmetry inside the integral
+
+### Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q7</span>
+
+::: {.question}
+The function $f$ is such that $f(0)=0$ and $xf(x)>0$ for all non-zero $x$. You are given that
+$\displaystyle\int_{-2}^{2} f(x)\,dx=4$ and $\displaystyle\int_{-2}^{2} |f(x)|\,dx=8$. Evaluate
+$\displaystyle\int_{-2}^{0} f(|x|)\,dx$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(fold the left half onto the right, then split by sign)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\int_{-2}^0 f(|x|)dx=\int_0^2 f$; get $\int_0^2 f$ from the signed and total areas
+:::
+
+**Answer form: an exact number. Answer: $6$.**
+
+*Substitute $t=-x$ to fold the modulus argument:* $\displaystyle\int_{-2}^{0} f(|x|)\,dx=\int_{0}^{2} f(t)\,dt$.
+Let $A=\int_{-2}^{0}f$ and $B=\int_{0}^{2}f$. *Since $xf(x)>0$, $f<0$ on the left (so $A<0$) and $f>0$ on the
+right (so $B>0$); hence $|f|=-f$ on the left and $|f|=f$ on the right.*
+$$A+B=\int_{-2}^{2}f=4,\qquad -A+B=\int_{-2}^{2}|f|=8.$$
+Adding, $2B=12$, so $\displaystyle\int_{0}^{2} f=B=6$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,2,400); f=1.5*x*np.abs(x)   # a sample f with xf(x)>0
+plt.figure(figsize=(4.4,2.6))
+plt.fill_between(x,f,where=(x>=0),color='#2b6cb0',alpha=.25)
+plt.fill_between(x,f,where=(x<=0),color='crimson',alpha=.25)
+plt.plot(x,f,'k',lw=1.4); plt.axhline(0,color='0.5',lw=.8); plt.axvline(0,color='0.5',lw=.8)
+plt.text(1,2,'f > 0\n(area B)',fontsize=8,color='#2b6cb0',ha='center')
+plt.text(-1,-2,'f < 0\n(area A)',fontsize=8,color='crimson',ha='center')
+plt.title('xf(x) > 0: f agrees in sign with x',fontsize=8)
+plt.axis('off'); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+The function $f$ is such that $f(0)=0$ and $xf(x)<0$ for $x\neq0$. You are given that
+$\displaystyle\int_{-3}^{3} f(x)\,dx=-2$ and $\displaystyle\int_{-3}^{3} |f(x)|\,dx=14$. Find
+$\displaystyle\int_{-3}^{0} f(|x|)\,dx$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(same fold — but now the signs are swapped)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $xf(x)<0$ flips which half is positive; then split by sign
+:::
+
+**Answer form: an exact number. Answer: $-8$.**
+
+*Again $\displaystyle\int_{-3}^{0} f(|x|)\,dx=\int_{0}^{3} f(t)\,dt=B$.* Now $xf(x)<0$ means $f>0$ on the left
+($A>0$) and $f<0$ on the right ($B<0$), so $|f|=f$ on the left and $|f|=-f$ on the right:
+$$A+B=-2,\qquad A-B=14.$$
+Subtracting, $2B=-16$, so $\displaystyle\int_{0}^{3} f=B=-8$. *The negative sign is the point: even though the
+picture looks like Q1, the sign condition reversed the answer.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 3
+
+::: {.question}
+The function $f$ is such that $0\le f(x)\le 3$ for all real $x$. You are given that
+$\displaystyle\int_{-2}^{4} |f(x)-3|\,dx=10$. Find $\displaystyle\int_{-2}^{4} f(x)\,dx$. *(Give an exact
+number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(drop the modulus using the given bound, then it is one line)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a bound on $f$ fixes the sign inside the modulus
+:::
+
+**Answer form: an exact number. Answer: $8$.**
+
+*Because $f\le 3$ everywhere, $f-3\le 0$, so $|f-3|=3-f$ — the modulus disappears without any casework.*
+$$\int_{-2}^{4}(3-f)\,dx=10\ \Rightarrow\ 3\underbrace{(4-(-2))}_{=6}-\int_{-2}^{4}f=10\ \Rightarrow\
+18-\int_{-2}^{4}f=10.$$
+Hence $\displaystyle\int_{-2}^{4} f=8$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,4,400); f=1.5+1.2*np.sin(x)
+plt.figure(figsize=(4.6,2.6))
+plt.axhline(3,color='crimson',lw=1.2); plt.plot(x,f,'#2b6cb0',lw=1.4)
+plt.fill_between(x,f,3,color='crimson',alpha=.18)
+plt.text(3.2,3.05,'y = 3',color='crimson',fontsize=8)
+plt.text(1,0.3,'y = f(x)',color='#2b6cb0',fontsize=8)
+plt.text(0.3,2.4,'shaded area = ∫|f−3| = 10',fontsize=8)
+plt.axhline(0,color='0.5',lw=.8); plt.ylim(-0.5,4); plt.axis('off')
+plt.title('Since f ≤ 3, |f−3| = 3−f: the gap below the line',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 2 · Self-referential integral equations
+
+### Question 4
+
+::: {.question}
+The function $f$ is such that
+$$2f(x)+3f(-x)\equiv 5+(2-x^2)\int_{-1}^{1} f(t)\,dt.$$
+Determine the value of $\displaystyle\int_{-1}^{1} f(x)\,dx$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(call the integral $k$, then integrate the identity over $[-1,1]$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a definite integral over fixed limits is a **constant** $k$; integrate both sides to get one equation in $k$
+:::
+
+**Answer form: an exact number. Answer: $6$.**
+
+*Let $k=\displaystyle\int_{-1}^{1}f(t)\,dt$; it is just a number, so the identity is
+$2f(x)+3f(-x)=5+(2-x^2)k$.* Integrate both sides over $[-1,1]$. *On the left, $\int_{-1}^1 f(-x)\,dx=\int_{-1}^1
+f(u)\,du=k$ by the substitution $u=-x$,* so the left side is $2k+3k=5k$. On the right,
+$$\int_{-1}^{1}5\,dx=10,\qquad \int_{-1}^{1}(2-x^2)\,dx=\Big[2x-\tfrac{x^3}{3}\Big]_{-1}^{1}=\tfrac{10}{3}.$$
+Thus $5k=10+\tfrac{10}{3}k\Rightarrow \tfrac{5}{3}k=10\Rightarrow k=6$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+The function $f$ is **odd** and satisfies
+$$3f(x)-2f(-x)\equiv x^3+\int_{-1}^{1} t^2 f(t)\,dt.$$
+Find the value of $f(2)$. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(use oddness to collapse the left side, then solve for the constant)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — oddness gives $f(-x)=-f(x)$; the integral is a constant killed by symmetry
+:::
+
+**Answer form: an exact value. Answer: $f(2)=\dfrac{8}{5}$.**
+
+*Because $f$ is odd, $f(-x)=-f(x)$, so the left side is $3f(x)+2f(x)=5f(x)$.* Writing
+$k=\displaystyle\int_{-1}^{1}t^2 f(t)\,dt$, we get $5f(x)=x^3+k$, i.e. $f(x)=\dfrac{x^3+k}{5}$.
+
+*Now substitute this $f$ back into the definition of $k$:*
+$$k=\int_{-1}^{1}t^2\cdot\frac{t^3+k}{5}\,dt=\frac{1}{5}\int_{-1}^{1}\bigl(t^5+kt^2\bigr)\,dt.$$
+*The $t^5$ term integrates to $0$ over the symmetric range (odd), and $\int_{-1}^1 t^2\,dt=\tfrac{2}{3}$,* so
+$k=\tfrac{1}{5}\cdot\tfrac{2}{3}k=\tfrac{2}{15}k\Rightarrow k=0$. Hence $f(x)=\dfrac{x^3}{5}$ and
+$f(2)=\dfrac{8}{5}$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 3 · Splitting, shifting & sequences of functions
+
+### Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P1 Q16</span>
+
+::: {.question}
+Given that
+$$2\int_{0}^{1} f(x)\,dx+5\int_{1}^{2} f(x)\,dx=14\qquad\text{and}\qquad\int_{0}^{1} f(x+1)\,dx=6,$$
+find the value of $\displaystyle\int_{0}^{2} f(x)\,dx$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a shift turns the second fact into a piece of the first)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\int_0^1 f(x+1)\,dx=\int_1^2 f$; then it is simultaneous equations in two areas
+:::
+
+**Answer form: an exact number. Answer: $-2$.**
+
+*Shift the second integral: $\int_{0}^{1}f(x+1)\,dx=\int_{1}^{2}f(u)\,du=6$ (substitute $u=x+1$).* Put
+$P=\int_0^1 f$ and $Q=\int_1^2 f=6$. The first fact gives $2P+5(6)=14\Rightarrow 2P=-16\Rightarrow P=-8$. Then
+$$\int_{0}^{2}f=P+Q=-8+6=-2.$$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q13</span>
+
+::: {.question}
+The function $f$ is such that, for **every** integer $n$, $\displaystyle\int_{n}^{n+1} f(x)\,dx=n+1$.
+Evaluate $\displaystyle\sum_{r=1}^{8}\int_{0}^{r} f(x)\,dx$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(collapse each $\int_0^r$ into a triangular number, then sum)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\int_0^r f=\sum_{n=0}^{r-1}(n+1)=\tfrac{r(r+1)}2$; then sum those
+:::
+
+**Answer form: an exact number. Answer: $120$.**
+
+*Add the unit strips from $0$ to $r$:* $\displaystyle\int_{0}^{r}f=\sum_{n=0}^{r-1}\int_{n}^{n+1}f
+=\sum_{n=0}^{r-1}(n+1)=1+2+\dots+r=\frac{r(r+1)}{2}$. *Now sum this over $r=1$ to $8$:*
+$$\sum_{r=1}^{8}\frac{r(r+1)}{2}=\frac{1}{2}\Bigl(\sum_{r=1}^{8}r^2+\sum_{r=1}^{8}r\Bigr)
+=\frac{1}{2}(204+36)=120.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=np.arange(0,8); vals=n+1
+plt.figure(figsize=(4.6,2.4))
+plt.bar(n+0.5,vals,width=0.9,color='#2b6cb0',alpha=.35,edgecolor='#2b6cb0')
+for i,v in zip(n,vals): plt.text(i+0.5,v+0.15,str(v),ha='center',fontsize=8)
+plt.title('∫ₙⁿ⁺¹ f = n+1: each unit strip adds a known area',fontsize=8)
+plt.xlabel('x',fontsize=8); plt.ylabel('strip area',fontsize=8); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q4</span>
+
+::: {.question}
+The sequence $a_n$ is defined by $a_n=(-1)^n-(-1)^{n-1}+(-1)^{n+2}$ for $n\ge1$. Find
+$\displaystyle\sum_{n=1}^{39} a_n$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(evaluate the first few, spot the period, then count)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a $(-1)^n$ sequence is **periodic**; classify odd vs even $n$ and count each
+:::
+
+**Answer form: an exact number. Answer: $-3$.**
+
+*Compute a couple of terms to see the pattern.* For **odd** $n$: $(-1)^n=-1,\,(-1)^{n-1}=+1,\,(-1)^{n+2}=-1$,
+so $a_n=-1-1-1=-3$. For **even** $n$: $a_n=1-(-1)+1=3$. *So the sequence is $-3,3,-3,3,\dots$ with period $2$.*
+Among $n=1,\dots,39$ there are $20$ odd values ($-3$ each) and $19$ even values ($+3$ each):
+$$\sum_{n=1}^{39}a_n=20(-3)+19(3)=-60+57=-3.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=np.arange(1,11); a=np.array([(-1)**k-(-1)**(k-1)+(-1)**(k+2) for k in n])
+plt.figure(figsize=(4.6,2.2))
+plt.stem(n,a)
+plt.axhline(0,color='0.5',lw=.8)
+plt.title('aₙ alternates −3, 3, −3, 3, … (period 2)',fontsize=8)
+plt.xlabel('n',fontsize=8); plt.yticks([-3,0,3]); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 9 · the capstone &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q20</span>
+
+::: {.question}
+A sequence of functions $f_1,f_2,f_3,\dots$ is defined by
+$$f_1(x)=|x|,\qquad f_{n+1}(x)=\bigl|f_n(x)+x\bigr|\quad\text{for }n\ge1.$$
+Find the value of $\displaystyle\int_{-1}^{1} f_{99}(x)\,dx$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(test $x>0$ and $x<0$ separately — one grows, the other is periodic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split by sign of $x$: a linear branch and a period-2 branch, then integrate each
+:::
+
+**Answer form: an exact number. Answer: $50$.**
+
+**Case $x\ge0$.** Here everything inside is non-negative: $f_1=x$, $f_2=|x+x|=2x$, $f_3=3x$, and in general
+$f_n(x)=nx$. *So $f_{99}(x)=99x$ on $[0,1]$,* giving $\displaystyle\int_{0}^{1}99x\,dx=\frac{99}{2}=49.5$.
+
+**Case $x<0$.** Now $f_1=|x|=-x$, then $f_2=|-x+x|=0$, $f_3=|0+x|=-x$, $f_4=0,\dots$ *— the branch is periodic
+with period $2$: odd $n$ gives $-x$, even $n$ gives $0$.* Since $99$ is odd, $f_{99}(x)=-x$ on $[-1,0]$, giving
+$\displaystyle\int_{-1}^{0}(-x)\,dx=\Big[-\tfrac{x^2}{2}\Big]_{-1}^{0}=\tfrac12=0.5$.
+
+*Add the two halves:* $\displaystyle\int_{-1}^{1} f_{99}=49.5+0.5=50$. *(The whole difficulty was seeing that
+the two sides behave completely differently — the right side runs away linearly, the left side collapses to a
+period-2 flicker.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+def fval(xv,n):
+    v=abs(xv)
+    for _ in range(n-1): v=abs(v+xv)
+    return v
+x=np.linspace(-1,1,400); y=[fval(xx,5) for xx in x]   # n=5 already shows the shape
+plt.figure(figsize=(4.6,2.6))
+plt.plot(x,y,'#2b6cb0',lw=1.6)
+plt.fill_between(x,y,color='#2b6cb0',alpha=.15)
+plt.axvline(0,color='0.5',lw=.8); plt.axhline(0,color='0.5',lw=.8)
+plt.title('For x≥0: fₙ = n·x (steep line). For x<0 (odd n): fₙ = −x',fontsize=8)
+plt.xlabel('x',fontsize=8); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+:::

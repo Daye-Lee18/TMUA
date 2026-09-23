@@ -1,0 +1,204 @@
+---
+title: "Coordinate Geometry Clinic — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **48**.
+
+Two habits to check: for a **circle equation**, did they read the centre and radius from the *completed square*
+(not from the raw coefficients)? For anything involving a **tangent or a line meeting a circle**, did they use
+the **perpendicular distance from the centre = radius** (or a discriminant), rather than trying to solve
+simultaneously by hand?
+
+---
+
+# Section A — Straight lines
+
+## Question 1 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$2x+3y+5=0$.** &nbsp; **(M1 A1 A1)**
+
+*Rewrite $3x-2y=7$ as $y=\tfrac32x-\tfrac72$, so its gradient is $\tfrac32$; the perpendicular gradient is the
+negative reciprocal.* Perpendicular gradient $=-\tfrac23$ **(M1)**. Through $(2,-3)$:
+$y+3=-\tfrac23(x-2)$ **(A1)**, i.e. $3y+9=-2x+4\Rightarrow 2x+3y+5=0$ **(A1)**.
+:::
+
+## Question 2 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$(0,-1)$.** &nbsp; **(M1 A1 A1)**
+
+*The bisector passes through the midpoint with the perpendicular gradient.* Midpoint $=(2,1)$; segment gradient
+$=\dfrac{-2-4}{5-(-1)}=-1$, so bisector gradient $=1$ **(M1)**. Line: $y-1=1(x-2)\Rightarrow y=x-1$ **(A1)**.
+At $x=0$, $y=-1$, so it crosses the $y$-axis at $(0,-1)$ **(A1)**.
+:::
+
+## Question 3 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Normal $y=-x$; meets the $y$-axis at $(0,0)$.** &nbsp; **(M1 A1 A1 A1)**
+
+*The normal gradient is the negative reciprocal of the tangent gradient.* $\dfrac{dy}{dx}=2x-3$; at $x=2$ this
+is $1$ **(M1)**, so the normal gradient is $-1$ **(A1)**. Through $(2,-2)$: $y+2=-(x-2)\Rightarrow y=-x$ **(A1)**.
+At $x=0$, $y=0$ — it meets the $y$-axis at the origin $(0,0)$ **(A1)**.
+:::
+
+---
+
+# Section B — One circle
+
+## Question 4 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Centre $(3,-2)$, radius $5$.** &nbsp; **(M1 A1 A1)**
+
+*Complete the square in $x$ and $y$.* $x^2-6x+y^2+4y=12\Rightarrow(x-3)^2-9+(y+2)^2-4=12$ **(M1)**, so
+$(x-3)^2+(y+2)^2=25$. Centre $(3,-2)$ **(A1)**, radius $\sqrt{25}=5$ **(A1)**.
+:::
+
+## Question 5 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$-1<k<1$.** &nbsp; **(M1 A1 A1)**
+
+*Complete the square to isolate $r^2$; a real circle needs $r^2>0$.*
+$(x-k)^2-k^2+(y+2)^2-4+2k^2+3=0\Rightarrow(x-k)^2+(y+2)^2=1-k^2$ **(M1 A1)**. *A genuine circle requires the
+right-hand side positive:* $1-k^2>0\Rightarrow -1<k<1$ **(A1)**.
+:::
+
+## Question 6 **[2]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**On the circle.** &nbsp; **(M1 A1)**
+
+*Compare the distance from the centre with the radius.* Centre $(1,-2)$, radius $5$. Distance to $(5,1)$ is
+$\sqrt{(5-1)^2+(1+2)^2}=\sqrt{16+9}=5$ **(M1)**. Since this **equals** the radius, the point lies **on** the
+circle **(A1)**.
+:::
+
+## Question 7 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$c=\pm10$.** &nbsp; **(M1 A1 A1)**
+
+*A tangent is at perpendicular distance $r$ from the centre.* Write the line as $2x-y+c=0$; distance from the
+origin is $\dfrac{|c|}{\sqrt{2^2+1^2}}=\dfrac{|c|}{\sqrt5}$ **(M1)**. Set equal to $r=\sqrt{20}=2\sqrt5$:
+$\dfrac{|c|}{\sqrt5}=2\sqrt5\Rightarrow|c|=10$ **(A1)**, so $c=\pm10$ **(A1)**.
+:::
+
+## Question 8 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $-4<k<4$ &nbsp; (b) $k=\pm4$ &nbsp; (c) $k<-4$ or $k>4$.** &nbsp; **(M1 A1 A1)**
+
+*Compare the perpendicular distance from the centre to the line with the radius.* Line $x-y+k=0$; distance from
+$O$ is $\dfrac{|k|}{\sqrt2}$, radius $=\sqrt8=2\sqrt2$ **(M1)**. Tangent when $\dfrac{|k|}{\sqrt2}=2\sqrt2$, i.e.
+$|k|=4$ **(A1)**. So two points when $|k|<4$, tangent when $|k|=4$, none when $|k|>4$ **(A1)**. *(A discriminant
+of $2x^2+2kx+(k^2-8)=0$ gives the same $16-... $ condition.)*
+:::
+
+---
+
+# Section C — Two circles
+
+## Question 9 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$5$.** &nbsp; **(M1 A1 A1)**
+
+Centres $(1,2),(7,10)$; radii $2,3$. *Distance between centres:* $d=\sqrt{6^2+8^2}=10$ **(M1)**. *Since
+$d=10>2+3$ the circles are separate,* so the shortest distance is $d-r_1-r_2=10-2-3=5$ **(A1 A1)**.
+:::
+
+## Question 10 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$a=10$.** &nbsp; **(M1 A1 A1)**
+
+Radii $3$ and $2$; centres $(a,1)$ and $(5,1)$ lie on $y=1$, so their distance is $|a-5|$ **(M1)**. *External
+tangency means the centre distance equals the sum of the radii:* $|a-5|=3+2=5$ **(A1)**, giving $a=0$ or
+$a=10$; the positive value is $a=10$ **(A1)**.
+:::
+
+## Question 11 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$3x+4y=23$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Subtract the two circle equations — the $x^2$ and $y^2$ terms cancel, leaving the common chord.*
+$(x^2+y^2-25)-(x^2+y^2-6x-8y+21)=0$ **(M1)** gives $6x+8y-46=0$ **(A1)**, i.e. $3x+4y=23$ **(A1)**. *(Check the
+circles really meet: the second is $(x-3)^2+(y-4)^2=4$, centre $(3,4)$ radius $2$; its distance to $O$ is $5$,
+and $3<5<7$, so they intersect in two points — the chord is valid.)* **(A1)**
+:::
+
+---
+
+# Section D — Properties & building circles
+
+## Question 12 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$3$.** &nbsp; **(M1 A1 A1)**
+
+*The perpendicular from the centre bisects the chord (MM3.3), making a right triangle with the radius as
+hypotenuse.* Half-chord $=4$, radius $=5$ **(M1)**, so the distance $d$ satisfies $d^2+4^2=5^2$ **(A1)**, giving
+$d=\sqrt{25-16}=3$ **(A1)**.
+:::
+
+## Question 13 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$(x-3)^2+(y-4)^2=25$.** &nbsp; **(M1 A1 A1 A1)**
+
+*The angle at the origin between the axes is $90^\circ$, and the angle in a semicircle is a right angle
+(MM3.3), so the segment joining the other two points is a diameter.* The diameter runs from $(6,0)$ to $(0,8)$
+**(M1)**. Its midpoint is the centre: $\left(3,4\right)$ **(A1)**. The radius is half the diameter,
+$\tfrac12\sqrt{6^2+8^2}=5$ (or the distance from $(3,4)$ to $(0,0)$) **(A1)**. Hence $(x-3)^2+(y-4)^2=25$
+**(A1)**.
+:::
+
+## Question 14 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$2\sqrt{10}$.** &nbsp; **(M1 A1 A1)**
+
+*The tangent, the radius to the point of contact, and the line from the centre to $P$ form a right triangle
+(tangent $\perp$ radius, MM3.3).* Centre $O$, radius $\sqrt{10}$; $OP^2=7^2+1^2=50$ **(M1)**. Tangent length
+$=\sqrt{OP^2-r^2}=\sqrt{50-10}=\sqrt{40}$ **(A1)** $=2\sqrt{10}$ **(A1)**.
+:::
+
+## Question 15 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$(x-3)^2+(y-3)^2=5$.** &nbsp; **(M1 A1 A1 A1)**
+
+*The centre is equidistant from the two given points, so it lies on the perpendicular bisector of the chord
+joining them.* The chord $(1,2)\to(5,2)$ is horizontal with midpoint $(3,2)$, so its perpendicular bisector is
+$x=3$ **(M1)**. *The centre also lies on $y=x$; intersect the two:* $x=3,\ y=3$, centre $(3,3)$ **(A1)**. Radius
+$=\sqrt{(3-1)^2+(3-2)^2}=\sqrt5$ **(A1)**. Hence $(x-3)^2+(y-3)^2=5$ **(A1)**.
+:::
+
+:::

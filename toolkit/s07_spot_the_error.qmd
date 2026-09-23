@@ -1,0 +1,351 @@
+---
+title: "Toolkit S7 — Spot the Error · Class Problems"
+subtitle: "Find the flaw — Easy → Hard"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Ten arguments that look convincing. For each, find the **first** line that does not follow — or decide the
+argument is actually **valid**. These mirror the Paper 2 **Err1/Err2** format.
+
+::: {.callout-note appearance="simple"}
+**Method.** Read line by line. At each step ask *"does this follow, for **every** value the line above
+allows?"* Watch the four hotspots: a **cancel/division** (could it be $0$?), a **square or root** (lost
+sign / gained root?), a **converse** used as proved, the **conclusion** slipping into a premise.
+:::
+
+---
+
+## Question 1
+
+::: {.question}
+A student solves $x^2=5x$. Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** $x^2=5x$.
+&nbsp;&nbsp;**(2)** Divide both sides by $x$: $\;x=5$.
+&nbsp;&nbsp;**(3)** So the only solution is $x=5$.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy — dividing by a variable)*]{style="color:#7a5195"}
+**B.** Dividing by $x$ assumes $x\neq0$, but $x=0$ **is** a solution ($0^2=5\cdot0$). Line (2) throws it
+away. The full solution is $x=0$ or $x=5$. $\;\blacksquare$
+
+**Do it right.** Never divide by a variable. Move everything to one side and **factor**:
+$x^2-5x=0\Rightarrow x(x-5)=0\Rightarrow x=0$ or $x=5$. Factoring keeps the root that dividing would
+delete.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** $x^2=16$.
+&nbsp;&nbsp;**(2)** Take the square root: $\;x=4$.
+&nbsp;&nbsp;**(3)** So $x=4$.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Easy — lost sign)*]{style="color:#7a5195"}
+**B.** $\sqrt{x^2}=|x|$, so $x^2=16$ gives $x=\pm4$. Line (2) drops the negative root $x=-4$.
+$\;\blacksquare$
+
+**Do it right.** When you square-root both sides, keep the $\pm$: $x=\pm\sqrt{16}=\pm4$. (Equivalently
+factor $x^2-16=(x-4)(x+4)=0$, which shows both roots at once.)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+::: {.question}
+Solving $\sin\theta=\tfrac12$ for $0^\circ\le\theta<360^\circ$. Which line is the first error?
+
+&nbsp;&nbsp;**(1)** $\sin\theta=\tfrac12$.
+&nbsp;&nbsp;**(2)** So $\theta=30^\circ$.
+&nbsp;&nbsp;**(3)** Hence the only solution is $30^\circ$.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — $\sin$ is not one-to-one)*]{style="color:#7a5195"}
+**B.** $\sin$ is not one-to-one on $[0^\circ,360^\circ)$: $\sin150^\circ=\tfrac12$ too. Line (2) gives
+only the principal value and misses $\theta=150^\circ$. $\;\blacksquare$
+
+**Do it right.** Find the principal value ($30^\circ$), then read **all** values in range off the graph
+or the symmetry of $\sin$: the second solution is $180^\circ-30^\circ=150^\circ$. So $\theta=30^\circ$ or
+$150^\circ$. (Always sketch $y=\sin\theta$ and the line $y=\tfrac12$ to see how many solutions the interval
+holds.)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+Solving $\dfrac1x<2$. Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** $\dfrac1x<2$.
+&nbsp;&nbsp;**(2)** Multiply both sides by $x$: $\;1<2x$.
+&nbsp;&nbsp;**(3)** So $x>\tfrac12$.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — multiply by unknown sign)*]{style="color:#7a5195"}
+**B.** $x$ has unknown sign, so multiplying by it may reverse the inequality. In fact $\tfrac1x<2$ holds
+for **all** $x<0$ as well as $x>\tfrac12$. Line (2) is only valid once you split into $x>0$ and $x<0$.
+$\;\blacksquare$
+
+**Do it right.** Either multiply by $x^2$ (which is always $\ge0$, so the direction is safe):
+$x<2x^2\Rightarrow 2x^2-x>0\Rightarrow x(2x-1)>0\Rightarrow x<0$ or $x>\tfrac12$; **or** handle the two
+sign cases of $x$ separately. Answer: $x<0$ or $x>\tfrac12$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+::: {.question}
+Solving $\sqrt{2x+3}=x$. Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** $\sqrt{2x+3}=x$.
+&nbsp;&nbsp;**(2)** Square: $2x+3=x^2$.
+&nbsp;&nbsp;**(3)** So $x^2-2x-3=0$, i.e. $(x-3)(x+1)=0$.
+&nbsp;&nbsp;**(4)** Therefore $x=3$ or $x=-1$.
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** line (4) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — extraneous root)*]{style="color:#7a5195"}
+**C.** The algebra is correct, but squaring can add roots, so each must be checked. $x=3$:
+$\sqrt9=3$ ✓. $x=-1$: $\sqrt1=1\neq-1$ ✗. Line (4) states both without checking; $x=-1$ is extraneous, so
+only $x=3$ is a solution. $\;\blacksquare$
+
+**Do it right.** After squaring, **substitute every candidate back into the original equation** and keep
+only the ones that satisfy it — here only $x=3$. (It also helps to note the original forces $x\ge0$,
+since $\sqrt{\;}$ is never negative.)
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+::: {.question}
+Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** If $n$ is divisible by $6$, then $n$ is divisible by $3$.
+&nbsp;&nbsp;**(2)** $9$ is divisible by $3$.
+&nbsp;&nbsp;**(3)** Therefore $9$ is divisible by $6$.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium → Hard — converse used as proved)*]{style="color:#7a5195"}
+**C.** Line (3) uses the **converse** of (1) — "if $3$ divides $n$ then $6$ divides $n$" — which is false.
+From "if $6$ divides $n$ then $3$ divides $n$" and "$3$ divides $9$" nothing follows about whether $6$
+divides $9$ (and indeed $9$ is not divisible by
+$6$). $\;\blacksquare$
+
+*A true implication never lets you run it backwards.*
+
+**Do it right.** Use the given implication only in its stated direction, and **test the actual claim
+directly**: is $9$ a multiple of $6$? $9=6\cdot1+3$, so no. The claim is simply false.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+::: {.question}
+A "proof" that in any set of numbers all are equal. Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** Base case: a set of one number — all its members are equal. True.
+&nbsp;&nbsp;**(2)** Assume any set of $n$ numbers are all equal.
+&nbsp;&nbsp;**(3)** Take $n+1$ numbers $a_1,\dots,a_{n+1}$; the first $n$ are all equal and the last $n$ are
+all equal (by the assumption).
+&nbsp;&nbsp;**(4)** The two groups overlap, so all $n+1$ numbers are equal.
+&nbsp;&nbsp;**(5)** By induction, in any set all numbers are equal.
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** line (4) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — the induction gap)*]{style="color:#7a5195"}
+**C.** The overlap argument fails at the very first step, $n=1\to2$: the two groups are $\{a_1\}$ and
+$\{a_2\}$, which share **no** element, so nothing forces $a_1=a_2$. Line (4) assumes an overlap that
+doesn't exist when $n=1$, and the whole induction never gets off the ground. $\;\blacksquare$
+
+*A famous fake: the inductive step must work for the smallest case it claims to cover.*
+
+**Do it right.** Before trusting an induction, **test the step at its first instance** ($n=1\to2$). Here it
+fails — two single numbers need not be equal — so the "theorem" is false. There is no fix; the statement
+itself is untrue.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.question}
+A proof that "if $n^2$ is even then $n$ is even." Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** We prove the contrapositive: if $n$ is odd then $n^2$ is odd.
+&nbsp;&nbsp;**(2)** Assume $n$ is odd, so $n=2k+1$.
+&nbsp;&nbsp;**(3)** Then $n^2=4k^2+4k+1=2(2k^2+2k)+1$, which is odd.
+&nbsp;&nbsp;**(4)** So $n$ odd $\Rightarrow n^2$ odd; the contrapositive holds, hence so does the original.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — is it actually valid?)*]{style="color:#7a5195"}
+**D.** Every step is correct: proving the contrapositive is legitimate, the algebra is right, and the
+contrapositive is logically equivalent to the original. There is no error. $\;\blacksquare$
+
+*Not every "spot the error" question has an error — sometimes the skill is recognising a sound proof.*
+
+**Do it right.** Nothing to fix — this is the *model* of a clean contrapositive proof: state the
+contrapositive, assume its hypothesis, derive its conclusion, done. Confirm each step follows and select
+"valid".
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+::: {.question}
+Which line contains the first error?
+
+&nbsp;&nbsp;**(1)** $x<3$.
+&nbsp;&nbsp;**(2)** Square both sides: $x^2<9$.
+&nbsp;&nbsp;**(3)** So $-3<x<3$.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — squaring an inequality)*]{style="color:#7a5195"}
+**B.** Squaring is not order-preserving for numbers that can be negative. $x=-5$ satisfies $x<3$ but
+$(-5)^2=25\not<9$. Line (2) is false, so the whole deduction collapses. $\;\blacksquare$
+
+**Do it right.** Don't square an inequality whose sides can be negative. $x<3$ is already the complete
+solution — leave it. (If the problem had been $|x|<3$, *that* squares safely to $x^2<9$, giving
+$-3<x<3$ — but that is a different statement.)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+::: {.question}
+A "proof" that $\tfrac18>\tfrac14$. Which line contains the first error? (Note $\log\tfrac12<0$.)
+
+&nbsp;&nbsp;**(1)** $3>2$.
+&nbsp;&nbsp;**(2)** Multiply both sides by $\log\tfrac12$: $\;3\log\tfrac12>2\log\tfrac12$.
+&nbsp;&nbsp;**(3)** So $\log\tfrac18>\log\tfrac14$.
+&nbsp;&nbsp;**(4)** Since $\log$ is increasing, $\tfrac18>\tfrac14$.
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** line (4) &nbsp; **D** the argument is valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — multiply by a negative)*]{style="color:#7a5195"}
+**A.** $\log\tfrac12$ is **negative**, so multiplying the inequality by it must **reverse** the direction:
+the correct line is $3\log\tfrac12<2\log\tfrac12$. Line (2) keeps the $>$ and everything after inherits the
+error. $\;\blacksquare$
+
+*Multiplying an inequality by a negative flips it — the single most common inequality slip.*
+
+**Do it right.** When you multiply (or divide) an inequality by a negative quantity, **reverse** the sign.
+Here $3>2$ and $\log\tfrac12<0$ give $3\log\tfrac12<2\log\tfrac12$, i.e. $\log\tfrac18<\log\tfrac14$, and so
+correctly $\tfrac18<\tfrac14$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The one habit to leave with
+
+A convincing-looking proof is still wrong if **one step doesn't follow for every allowed case**. Scan for
+the four hotspots — **divide** (by zero?), **square/root** (sign or extra root?), **converse** (proved?),
+**conclusion** (assumed?) — and stop at the *first* line that fails. And remember: sometimes the honest
+answer is *"no error — it's valid."*
+:::
+
+:::

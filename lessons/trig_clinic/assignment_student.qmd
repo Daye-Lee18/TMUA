@@ -1,0 +1,236 @@
+---
+title: "Trigonometry Clinic — Assignment"
+subtitle: "Hard set — solving & counting, identities, R-form, graph symmetry, sine/cosine rule & the ambiguous case"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **77 marks** · Suggested time: **95 minutes**. This is a hard set — every
+question is exam standard or above.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Solving, counting & identities** | quadratics in a trig ratio · double/triple-angle counting · proving identities | 22 |
+| **B — Exam standard** | R-form · the ambiguous case · cosine rule & area · symmetry lines | 27 |
+| **C — Push to 9** | area-ratio SSA quadratic · layered counting · line-meets-curve · harder proofs & max/min | 28 |
+
+::: {.callout-note appearance="simple"}
+**Answer form.** "How many solutions" → **a whole number**, and **list** every solution in the stated
+interval. Angles in **degrees** unless the question is written in $\pi$ (then give exact radians). Lengths,
+areas and $\cos\theta$ → **exact** (surd) form. For a "prove" question, work from one side to the other with a
+reason at each step. **Beware asymptotes** — a value where $\tan$ is undefined is never a solution.
+:::
+
+---
+
+# Section A — Solving, counting & identities
+
+## Question 1 **[3]**
+
+Solve $\;2\sin^{2}x-3\cos x=0\;$ for $0\le x<360^\circ$, listing every solution.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 2 **[4]**
+
+How many solutions does $\;\sin 3x=\sin x\;$ have for $0\le x<360^\circ$? List them.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Solve $\;\cos 2x+\cos x=0\;$ for $0\le x<360^\circ$.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 4 **[4]**
+
+Solve $\;\tan x=2\sin x\;$ for $0\le x<360^\circ$. State clearly how many solutions there are, and be careful
+about the values where $\tan x$ is undefined.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 5 **[4]**
+
+Prove the identity
+$$\frac{\sin\theta+\sin 2\theta}{1+\cos\theta+\cos 2\theta}\equiv\tan\theta.$$
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 6 **[4]**
+
+Starting from $\sin(2\theta+\theta)$, prove that $\;\sin 3\theta\equiv3\sin\theta-4\sin^{3}\theta$.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 7 **[6]**
+
+&nbsp;&nbsp;(a) Express $\;5\cos x-12\sin x\;$ in the form $R\cos(x+\alpha)$ with $R>0$ and
+$0^\circ<\alpha<90^\circ$ (give $\alpha$ to the nearest $0.1^\circ$). **[3]**
+
+&nbsp;&nbsp;(b) Write down the maximum value of $5\cos x-12\sin x$. **[1]**
+
+&nbsp;&nbsp;(c) Hence solve $\;5\cos x-12\sin x=6.5\;$ for $0\le x<360^\circ$ (answers to the nearest
+$0.1^\circ$). **[2]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 8 **[5]**
+
+In triangle $ABC$, $AB=10$ and $\angle BAC=40^\circ$; the side $BC=a$ is variable.
+
+&nbsp;&nbsp;(a) Find, in exact form, the range of $a$ for which **two distinct** triangles exist. **[3]**
+
+&nbsp;&nbsp;(b) How many triangles are there when $a=7$? Justify. **[2]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 9 **[5]**
+
+A triangle has sides $13$, $14$ and $15$.
+
+&nbsp;&nbsp;(a) Find the cosine of its **largest** angle (exact fraction). **[3]**
+
+&nbsp;&nbsp;(b) Find its exact area. **[2]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10 **[4]**
+
+Find the **smallest positive** value of $a$ for which the line $x=a$ is a line of symmetry of
+$\;y=\sin\!\Bigl(2x-\dfrac{5\pi}{6}\Bigr)$. Give your answer as an exact multiple of $\pi$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 11 **[4]**
+
+Solve $\;2\sin^{2}x=\sin 2x\;$ for $0\le x\le2\pi$, giving exact answers in radians and stating how many
+there are.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 12 **[3]**
+
+State the **greatest** and **least** values of $\;3\sin x+4\cos x+10$, and the value of $R$ you used.
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# Section C — Push to 9
+
+## Question 13 **[6]**
+
+A triangle $ABC$ has $AC=6$ and $BC=9$, and the angle at $B$ is $\theta$. Of the **two** possible triangles,
+the larger has **twice** the area of the smaller. Find $\cos\theta$ in exact form.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 14 **[4]**
+
+How many solutions does $\;\lvert\sin x\rvert=\tfrac12\;$ have for $0\le x\le4\pi$? List them.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 15 **[5]**
+
+By sketching $y=\sin x$ and a suitable line on the same axes, find how many solutions the equation
+$\;10\sin x=x\;$ has (with $x$ in **radians**). Explain how the sketch gives the count.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 16 **[4]**
+
+Prove that $\;\tan\theta+\cot\theta\equiv\dfrac{2}{\sin 2\theta}$, and state the values of $\theta$ in
+$0^\circ\le\theta\le360^\circ$ for which **neither** side is defined.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 17 **[4]**
+
+Solve $\;\cos 3x=\cos x\;$ for $0\le x<360^\circ$, listing every solution.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 18 **[5]**
+
+Find the **greatest** and **least** values of $\;\dfrac{1}{2+\sin x-\cos x}$, giving exact answers, and state
+an $x$ at which the greatest value occurs.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+:::

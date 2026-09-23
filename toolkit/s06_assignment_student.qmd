@@ -1,0 +1,127 @@
+---
+title: "Toolkit S6 — Scrambled Proofs · Assignment"
+subtitle: "6 real TMUA Paper 2 proofs to reorder — student copy"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+TMUA Paper 2 does not ask you to reorder a proof directly — instead it gives a proof and asks *"which line
+is the first error?"* (that is Session 7). But the skill underneath is the same: **reading a proof's
+logical order**. So every proof below is a **real TMUA Paper 2 proof** (source given), with its lines
+**shuffled**. Write the letters in the correct logical order — anchor the first line (a *Let / Suppose* or
+the given) and the last (the conclusion), then order the middle by dependency.
+
+*(You will meet several of these same proofs again in Session 7 — there, from the other side, hunting the
+flaw.)*
+
+---
+
+**1.** &nbsp; Claim: *the difference between two consecutive positive cube numbers is always prime.*
+
+&nbsp;&nbsp;**(a)** Therefore for every positive integer value of $x$ the integer $3x^{2}+3x+1$ cannot be
+factorised.
+&nbsp;&nbsp;**(b)** $(x+1)^{3}=x^{3}+3x^{2}+3x+1$.
+&nbsp;&nbsp;**(c)** Hence the difference between two consecutive cube numbers will always be prime.
+&nbsp;&nbsp;**(d)** It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer
+coefficients because its discriminant is negative.
+&nbsp;&nbsp;**(e)** Taking $x$ to be a positive integer, the difference between two consecutive cube
+numbers can be expressed as $(x+1)^{3}-x^{3}=3x^{2}+3x+1$.
+
+::: {.workspace style="min-height:2.5cm"}
+Order:
+:::
+
+*(lines from TMUA 2022 Paper 2, Q7)*
+
+---
+
+**2.** &nbsp; Question: *what is the largest number of consecutive odd integers that are all prime?*
+
+&nbsp;&nbsp;**(a)** In each case, one of the integers is a multiple of $3$, so not prime.
+&nbsp;&nbsp;**(b)** Any three consecutive odd integers can be written in the form $n-2,\,n,\,n+2$ for some
+$n$.
+&nbsp;&nbsp;**(c)** Therefore the largest number of consecutive odd integers that are all prime is two.
+&nbsp;&nbsp;**(d)** There are two consecutive odd integers that are prime (for example: $17,19$).
+&nbsp;&nbsp;**(e)** If $n$ is two more than a multiple of $3$, then $n-2$ is a multiple of $3$.
+&nbsp;&nbsp;**(f)** If $n$ is one more than a multiple of $3$, then $n+2$ is a multiple of $3$.
+&nbsp;&nbsp;**(g)** The only other possibility is that $n$ is a multiple of $3$.
+
+::: {.workspace style="min-height:3cm"}
+Order:
+:::
+
+*(lines from TMUA 2023 Paper 2, Q4)*
+
+---
+
+**3.** &nbsp; Solving $x^{4}-2x^{2}-3<0$ by completing the square. The proof opens with $x^{4}-2x^{2}-3<0$,
+then:
+
+&nbsp;&nbsp;**(a)** if and only if $x^{2}<3$
+&nbsp;&nbsp;**(b)** if and only if $(x^{2}-1)^{2}<4$
+&nbsp;&nbsp;**(c)** if and only if $-\sqrt3<x<\sqrt3$
+&nbsp;&nbsp;**(d)** if and only if $x^{4}-2x^{2}+1<4$
+&nbsp;&nbsp;**(e)** if and only if $x^{2}-1<2$
+&nbsp;&nbsp;**(f)** if and only if $-2<x^{2}-1<2$
+
+::: {.workspace style="min-height:2.5cm"}
+Order (after the opening line):
+:::
+
+*(lines from TMUA 2023 Paper 2, Q10)*
+
+---
+
+**4.** &nbsp; Proof of the conjecture *if $\tan\theta>0$ then $\sin\theta+\cos\theta>1$*. The proof opens
+with "Suppose $\tan\theta>0$, so $\cos\theta\neq0$", then:
+
+&nbsp;&nbsp;**(a)** which factorises to give $(\sin\theta+\cos\theta)^{2}>1$.
+&nbsp;&nbsp;**(b)** Since $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$, then
+$\sin\theta\cos\theta=\tan\theta\cos^{2}\theta>0$.
+&nbsp;&nbsp;**(c)** Therefore $\sin\theta+\cos\theta>1$.
+&nbsp;&nbsp;**(d)** It follows that $1+2\sin\theta\cos\theta>1$.
+&nbsp;&nbsp;**(e)** Therefore $\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta>1$.
+
+::: {.workspace style="min-height:2.5cm"}
+Order (after the opening line):
+:::
+
+*(lines from TMUA 2018 Paper 2, Q13)*
+
+---
+
+**5.** &nbsp; Solving the inequality $\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$ (with $n$ a
+positive integer):
+
+&nbsp;&nbsp;**(a)** $n<\dfrac{10\log_{\frac12}\left(\frac1{32}\right)}{\log_{\frac12}\left(\frac14\right)}$
+&nbsp;&nbsp;**(b)** $\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$
+&nbsp;&nbsp;**(c)** $1\leq n\leq24$
+&nbsp;&nbsp;**(d)** $n\log_{\frac12}\left(\dfrac14\right)<10\log_{\frac12}\left(\dfrac1{32}\right)$
+&nbsp;&nbsp;**(e)** $n<\dfrac{10\times5}{2}=25$
+&nbsp;&nbsp;**(f)** $\log_{\frac12}\left(\dfrac14\right)^{n}<\log_{\frac12}\left(\dfrac1{32}\right)^{10}$
+
+::: {.workspace style="min-height:2.5cm"}
+Order:
+:::
+
+*(lines from TMUA 2017 Paper 2, Q18)*
+
+---
+
+**6.** &nbsp; Solving the equation $4x\sqrt{2x-1}=10x-5$:
+
+&nbsp;&nbsp;**(a)** $16x^{2}-50x+25=0$
+&nbsp;&nbsp;**(b)** $x=\tfrac58$ or $x=\tfrac52$
+&nbsp;&nbsp;**(c)** $4x\sqrt{2x-1}=10x-5$
+&nbsp;&nbsp;**(d)** $16x^{2}(2x-1)=25(2x-1)^{2}$
+&nbsp;&nbsp;**(e)** $(8x-5)(2x-5)=0$
+&nbsp;&nbsp;**(f)** $4x\sqrt{2x-1}=5(2x-1)$
+&nbsp;&nbsp;**(g)** $16x^{2}=25(2x-1)$
+
+::: {.workspace style="min-height:3cm"}
+Order:
+:::
+
+*(lines from TMUA 2018 Paper 2, Q9)*

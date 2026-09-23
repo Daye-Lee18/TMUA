@@ -1,0 +1,683 @@
+---
+title: "2022 Paper 2 — Mark Scheme"
+subtitle: "Answer key + full worked solution for all 20 questions · verified against the official mark scheme"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+A TMUA Paper 2 is two halves in one paper: **Section 1** is applications (the same mathematics as Paper 1)
+and **Section 2** is mathematical reasoning (the Arg / Prf / Err codes — toolkit S1–S7). The 2022 paper is
+unusually reasoning-heavy: **twelve** of the twenty questions (Q3, 4, 5, 6, 7, 8, 9, 10, 13, 16, 17, 19)
+are Section-2 reasoning. Work each question first, then open its **Solution**.
+
+## Topic map
+
+| Q | Ans | What it tests | Toolkit / topic |
+|---|:--:|---|---|
+| 1 | **B** | Number of stationary points of a quartic | *Application* — calculus |
+| 2 | **E** | Coefficient in a product of series | *Application* — binomial / series |
+| **3** | **C** | Counterexample to "$n$ prime $\Rightarrow n^2+2$ not prime" | **Prf1 — counterexample (S5)** |
+| **4** | **B** | What data is **sufficient** to find a distance | **Arg2 — sufficient (S3)** |
+| **5** | **F** | $P$, its converse, its contrapositive | **Arg1 — converse & contrapositive (S2)** |
+| **6** | **C** | Is "$n$ odd" necessary / sufficient for the median | **Arg2 — necessary & sufficient (S3)** |
+| **7** | **F** | Evaluate a proof (consecutive cubes) | **Err — spot the error (S7)** |
+| **8** | **C** | Smallest $n$ making a pairing **necessarily** occur | **Prf / pigeonhole reasoning (S4/S5)** |
+| **9** | **A** | For which $k$ is a "for all" statement true | **Arg3 — quantifiers (S4)** |
+| **10** | **G** | Order of quantifiers | **Arg3 — quantifiers (S4)** |
+| 11 | **C** | Right angle in a kite | *Application* — geometry |
+| 12 | **F** | Order three integrals by size | *Application* — calculus |
+| **13** | **E** | "There exists $y$…" for how many $x$ | **Arg3 — quantifiers (S4)** |
+| 14 | **D** | Two modulus inequalities | *Application* — modulus |
+| 15 | **F** | Nested logarithms | *Application* — logs |
+| **16** | **D** | Which min/max inequality **must** hold | **Prf / reasoning (S5)** |
+| **17** | **E** | Evaluate a proof (needs the converse) | **Err + Arg1 (S7 / S2)** |
+| 18 | **E** | Match four functions to their graphs | *Application* — functions / graphs |
+| **19** | **B** | When are the properties **sufficient** for regular | **Arg2 — sufficient (S3)** |
+| 20 | **E** | Maxima of nested trig functions | *Application* — functions |
+
+---
+
+## The transferable ideas — how to attack any similar question
+
+Read these first. Each one says *"when you meet a question of this shape, here is the move"*, so the method
+carries to a new problem instead of being a one-off trick.
+
+**Geometry — "what makes this angle $90^\circ$?" → drop to Pythagoras.** A right angle at a vertex is the same
+as $\text{leg}^{2}+\text{leg}^{2}=\text{hypotenuse}^{2}$ for the triangle at that vertex. Turn the geometric
+condition into that equation and simplify; in a kite / right triangle it collapses to the **geometric-mean**
+relation $\text{altitude}^{2}=(\text{one segment})(\text{other segment})$ — here $x^{2}=yz$ (Q11).
+*(Perpendicular vectors also work: dot product $=0$.)*
+
+**Match a function to its graph → endpoints + where the turning point sits, not full calculus.** Fix each curve
+by (1) its value/limit at the **two ends** of the domain and (2) roughly **where its max/min is**. For any
+$t^{t}$-type expression the minimum is at $t=\dfrac1e\approx0.37$ (value $\approx0.69$), from
+$\dfrac{\mathrm d}{\mathrm dt}\,t^{t}=t^{t}(\ln t+1)=0$. Then read off which sketch starts/ends where and dips
+where (Q18, Q20). *Transfers to every "which graph is $y=\dots$" and "match these four" question.*
+
+**"Must it be true? / is this sufficient?" (a $P\Rightarrow Q$ claim) → hunt the easiest counterexample
+first.** To **disprove** $P\Rightarrow Q$ you need just one object with $P$ true and $Q$ false, so reach for the
+most flexible shape — a **rectangle** (for "equal-area triangles $\Rightarrow$ regular", $n=4$), an isosceles
+triangle, a small $n$. To **confirm**, show the algebra forces it ($n=3$: three equal central angles summing
+to $360^\circ$ must each be $120^\circ$). A claim is true only when **no** counterexample exists (Q19, Q4, Q6,
+Q16).
+
+**Equal areas / equal sines → the angle is $\alpha$ OR $180^\circ-\alpha$.** $\sin\theta_1=\sin\theta_2$ does
+**not** give $\theta_1=\theta_2$; it gives $\theta_1=\theta_2$ **or** $\theta_1=180^\circ-\theta_2$. That
+second option is exactly what breaks "equal $\Rightarrow$ regular" for $n\ge4$ (Q19) — the same ambiguous case
+as in trigonometry.
+
+**Order of quantifiers → read left to right; a later variable may depend on an earlier one.** "$\forall x\
+\exists n$" lets $n$ **depend on** $x$ (usually true); "$\exists x\ \forall n$" needs **one** $x$ for every
+$n$. Swapping them changes the meaning (Q9, Q10, Q13).
+
+**And the reasoning staples.** Disprove a "for all" with **one** counterexample that obeys the hypothesis
+(Q3). **Spot the first error** = the earliest line that does not follow — a valid step *from* a false line is
+not the error, and "the polynomial can't be factorised" $\neq$ "the number is prime" (Q7, Q17). **Necessary vs
+sufficient** = draw the arrow: sufficient is $P\Rightarrow Q$, necessary is $Q\Rightarrow P$ (Q4, Q6).
+
+::: {.callout-tip}
+## Numbers & facts worth memorising
+
+- $t^{t}$ has its **minimum at $t=1/e\approx0.37$**, value $\left(1/e\right)^{1/e}\approx0.69$; it starts and
+  ends at $1$ on $[0,1]$ (a shallow U).
+- **Right angle $\Leftrightarrow$ Pythagoras**; the altitude to the hypotenuse is the **geometric mean** of the
+  two segments it makes ($h^{2}=pq$).
+- $\sin\theta=\sin(180^\circ-\theta)$ — the ambiguous case.
+- Interior angles of an $n$-gon sum to $(n-2)\,180^\circ$; a **regular** $n$-gon has interior angle
+  $\dfrac{(n-2)180^\circ}{n}$ and **central angle** $\dfrac{360^\circ}{n}$.
+:::
+
+---
+
+## Question 1
+
+Determine the number of stationary points on $y=3x^{4}+4x^{3}+6x^{2}-5$.
+
+&nbsp;&nbsp;**A** 0 &nbsp; **B** 1 &nbsp; **C** 2 &nbsp; **D** 3 &nbsp; **E** 4
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer B
+**B.** $\dfrac{\mathrm dy}{\mathrm dx}=12x^{3}+12x^{2}+12x=12x\left(x^{2}+x+1\right)$. The quadratic
+$x^{2}+x+1$ has discriminant $1-4=-3<0$, so it never vanishes; the only root of $y'$ is $x=0$. Hence **one**
+stationary point.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.6,1.1,400)
+plt.figure(figsize=(4.6,3.2))
+plt.plot(x,3*x**4+4*x**3+6*x**2-5,color='#2b6cb0')
+plt.plot(0,-5,'o',color='crimson'); plt.annotate('only turning point (0,-5)',(0,-5),textcoords='offset points',xytext=(6,10),fontsize=9,color='crimson')
+plt.grid(alpha=0.25); plt.title('y = 3x⁴+4x³+6x²−5 has a single stationary point'); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+Find the coefficient of $x^{5}$ in $\;(1+x)^{5}\times\displaystyle\sum_{i=0}^{5}x^{i}$.
+
+&nbsp;&nbsp;**A** 1 &nbsp; **B** 5 &nbsp; **C** 16 &nbsp; **D** 25 &nbsp; **E** 32
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer E
+**E.** $\sum_{i=0}^{5}x^{i}=1+x+\dots+x^{5}$ has coefficient $1$ on every power $0$ to $5$. So the $x^{5}$
+coefficient of the product is $\sum_{k=0}^{5}\binom5k\times 1=\binom50+\binom51+\dots+\binom55=2^{5}=32$.
+*(Every term of $(1+x)^5$ can be completed to $x^5$ by exactly one term of the geometric sum, so you just
+add all the binomial coefficients.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+Statement: *if $n$ is prime, then $n^{2}+2$ is not prime.* Which is a counterexample? &nbsp;&nbsp;**I**
+$n=2$ &nbsp;&nbsp; **II** $n=3$ &nbsp;&nbsp; **III** $n=4$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer C
+
+[*(Prf1 · counterexample — S5)*]{style="color:#7a5195"}
+**C.** A counterexample needs $n$ **prime** and $n^{2}+2$ **prime**. $n=2$: $2^{2}+2=6$, not prime — no.
+$n=3$: $3^{2}+2=11$, which **is** prime, and $3$ is prime — counterexample. $n=4$: $4$ is not prime, so
+the hypothesis fails and it cannot be a counterexample. So only **II**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+Circle $x^{2}+2fx+y^{2}+2gy+h=0$; point $P=(p,q)$; $L$ = distance from the centre to $P$. Which one set is
+**sufficient** on its own to find $L$? &nbsp;&nbsp;**A** $f,g,h$ &nbsp; **B** $f,g,p,q$ &nbsp;
+**C** $f,h,p,q$ &nbsp; **D** $g,h,p,q$ &nbsp; **E** none of A–D
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer B
+
+[*(Arg2 · sufficient — S3)*]{style="color:#7a5195"}
+**B.** The centre is $(-f,-g)$, so $L=\sqrt{(p+f)^{2}+(q+g)^{2}}$. This needs only $f,g$ (for the centre)
+and $p,q$ (for $P$); the constant $h$ affects the *radius*, not the centre, so it is irrelevant. Hence
+$f,g,p,q$ suffice.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+$L$ passes through $(1,2)$. $P$: *if the $y$-intercept of $L$ is negative, then the $x$-intercept of $L$ is
+positive.* Which **must** be true? &nbsp;&nbsp;**I** $P$ &nbsp;&nbsp; **II** converse of $P$ &nbsp;&nbsp;
+**III** contrapositive of $P$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+
+[*(Arg1 · converse & contrapositive — S2)*]{style="color:#7a5195"}
+**F.** A line through $(1,2)$ with $y$-intercept $c<0$ has slope $2-c>0$, so from $(0,c)$ it rises; its
+$x$-intercept is $\dfrac{-c}{2-c}>0$. So $P$ is **true**, and its **contrapositive** (always equivalent) is
+true too — that is I and III. The **converse** is false: a line through $(1,2)$ can have a positive
+$x$-intercept with a positive $y$-intercept (e.g. $y=-x+3$, $x$-intercept $3$, $y$-intercept $3$). So I and
+III only.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+A list of $n$ integers. $P$: $n$ is odd. $Q$: the median of the list is one of the numbers in the list.
+Which is correct? &nbsp;&nbsp;**A** necessary and sufficient &nbsp; **B** necessary, not sufficient &nbsp;
+**C** sufficient, not necessary &nbsp; **D** neither
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer C
+
+[*(Arg2 · necessary & sufficient — S3)*]{style="color:#7a5195"}
+**C.** If $n$ is odd, the median is the single middle entry, which is in the list — so $P$ is
+**sufficient**. But $Q$ can hold with $n$ even: e.g. $1,2,2,3$ has median $\tfrac{2+2}{2}=2$, which is in the
+list. So $P$ is **not necessary**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+Claim: *the difference between two consecutive positive cube numbers is always prime.* Attempted proof:
+$(\mathrm I)\ (x+1)^{3}=x^{3}+3x^{2}+3x+1$; $(\mathrm{II})$ the difference is $3x^{2}+3x+1$;
+$(\mathrm{III})$ $3x^{2}+3x+1$ has no integer linear factors (negative discriminant); $(\mathrm{IV})$
+therefore $3x^{2}+3x+1$ cannot be factorised for any positive integer $x$; $(\mathrm V)$ hence the
+difference is always prime. Which best describes it?
+
+&nbsp;&nbsp;**A** correct, claim true &nbsp; **B** correct, but counterexamples exist &nbsp; **C** first
+error line I &nbsp; **D** line II &nbsp; **E** line III &nbsp; **F** line IV &nbsp; **G** line V
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+
+[*(Err · spot the error — S7)*]{style="color:#7a5195"}
+**F.** Lines I–III are fine (the *polynomial* $3x^{2}+3x+1$ is irreducible). Line **IV** confuses
+"irreducible polynomial" with "prime integer value" — a value can be composite even when the polynomial
+doesn't factor: $x=5$ gives $3(25)+15+1=91=7\times13$. So the claim is false and the first error is line
+IV.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+$S$ is a selection of $n$ terms from $1,4,7,\dots,70$. $(*)$: there are two distinct terms of $S$ summing
+to $74$. Smallest $n$ for which $(*)$ is **necessarily** true?
+
+&nbsp;&nbsp;**A** 12 &nbsp; **B** 13 &nbsp; **C** 14 &nbsp; **D** 21 &nbsp; **E** 22 &nbsp; **F** 23
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer C
+
+[*(pigeonhole reasoning — S4/S5)*]{style="color:#7a5195"}
+**C.** The sequence has $24$ terms ($3k-2$ for $k=1,\dots,24$). Terms pairing to $74$:
+$(4,70),(7,67),\dots,(34,40)$ — **11** pairs — while $1$ (partner $73$ is absent) and $37$
+($37+37$ is not two *distinct* terms) are **unpaired**. A selection can avoid $(*)$ by taking at most one
+from each pair plus both loners: $11+2=13$ terms. So $13$ can still avoid it, but any $14$ terms force a
+complete pair. Smallest $n=14$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+$(*)$: **for all** real $x$, if $x<k$ then $x^{2}<k$. Complete set of $k$ for which $(*)$ is true?
+
+&nbsp;&nbsp;**A** no real numbers &nbsp; **B** $k>0$ &nbsp; **C** $k<1$ &nbsp; **D** $k\leq1$ &nbsp;
+**E** $0<k<1$ &nbsp; **F** $0<k\leq1$ &nbsp; **G** all real numbers
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer A
+
+[*(Arg3 · quantifiers — S4)*]{style="color:#7a5195"}
+**A.** For **any** $k$, take $x$ very negative: then $x<k$ is true, but $x^{2}$ is huge, so $x^{2}<k$ fails.
+That one $x$ breaks the "for all", so no value of $k$ makes $(*)$ true.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,3,400); k=2
+plt.figure(figsize=(4.8,3.2))
+plt.plot(x,x**2,color='#2b6cb0',label='y = x²')
+plt.axhline(k,color='#dd6b20',ls='--',label='y = k'); plt.axvline(k**0.5,color='0.6',ls=':')
+plt.plot(-4,16,'o',color='crimson'); plt.annotate('x<k but x²>k',(-4,16),textcoords='offset points',xytext=(6,-4),color='crimson',fontsize=9)
+plt.ylim(-1,20); plt.grid(alpha=0.25); plt.legend(fontsize=9); plt.title('Some x<k always has x²>k (here k=2)'); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+Which are true? &nbsp;&nbsp;**I** for all real $x$ and all positive integers $n$, $x<n$. &nbsp;&nbsp;
+**II** for all real $x$, there exists a positive integer $n$ with $x<n$. &nbsp;&nbsp; **III** there exists
+a real $x$ such that for all positive integers $n$, $x<n$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer G
+
+[*(Arg3 · quantifiers — S4)*]{style="color:#7a5195"}
+**G.** **I is false** — take $x=100,\,n=1$. **II is true** — for any $x$ there is an integer bigger than it.
+**III is true** — take $x=0$ (indeed any $x<1$): then $x<n$ for every positive integer $n$. So II and III.
+*This is the order-of-quantifiers trap: "for all $x$, exists $n$" and "exists $x$, for all $n$" say
+different things, and here both happen to be true while the plain "for all–for all" fails.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+Kite $PQRS$, diagonals meeting at $O$, with $OP=OR=x$, $OQ=y$, $OS=z$ (the diagonals are perpendicular).
+Necessary and sufficient condition for angle $SPQ$ to be a right angle?
+
+&nbsp;&nbsp;**A** $x=y=z$ &nbsp; **B** $2x=y+z$ &nbsp; **C** $x^{2}=yz$ &nbsp; **D** $y=z$ &nbsp;
+**E** $y^{2}=x^{2}+z^{2}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer C
+**C.** &nbsp;**Idea — "when is this angle $90^\circ$?" → Pythagoras on the triangle at that vertex.**
+
+The diagonals are perpendicular, so each half is the leg of a right triangle. The two sides meeting at $P$ are
+$$SP=\sqrt{x^{2}+z^{2}},\qquad PQ=\sqrt{x^{2}+y^{2}},\qquad\text{and }SQ=y+z.$$
+Angle $SPQ=90^\circ$ is exactly $SP^{2}+PQ^{2}=SQ^{2}$:
+$$(x^{2}+z^{2})+(x^{2}+y^{2})=(y+z)^{2}\;\Longrightarrow\;2x^{2}=2yz\;\Longrightarrow\;x^{2}=yz.$$
+
+**Read it as a geometric mean.** $PO=x$ is the **altitude** from the right angle $P$ onto the hypotenuse $SQ$,
+whose foot $O$ splits it into $OS=z$ and $OQ=y$. The altitude-on-hypotenuse rule gives
+$PO^{2}=OS\cdot OQ$ — precisely $x^{2}=yz$. *(One-line check: $\vec{PS}\cdot\vec{PQ}=x^{2}-yz=0$.)*
+
+*Transfers to any "find the condition for a right angle" question — convert to Pythagoras, simplify, and watch
+for the geometric-mean pattern.*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x,y,z=2.0,1.0,4.0   # x^2=yz -> 4=4, right angle at P
+P,Q,R,S=np.array([-x,0]),np.array([0,-y]),np.array([x,0]),np.array([0,z])
+plt.figure(figsize=(3.6,4.2))
+poly=np.array([P,S,R,Q,P]); plt.plot(poly[:,0],poly[:,1],'-o',color='#2b6cb0')
+plt.plot([P[0],R[0]],[0,0],':',color='0.6'); plt.plot([0,0],[Q[1],S[1]],':',color='0.6')
+for pt,nm in [(P,'P'),(Q,'Q'),(R,'R'),(S,'S'),(np.zeros(2),'O')]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=(6,4))
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25); plt.title('Kite PQRS: angle SPQ = 90° ⟺ x²=yz'); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+Place in order (smallest first): $P=\displaystyle\int_0^1 2^{\sqrt x}\,\mathrm dx$,
+$Q=\displaystyle\int_0^1 2^{x}\,\mathrm dx$, $R=\displaystyle\int_0^1\left(\sqrt2\right)^{x}\,\mathrm dx$.
+
+&nbsp;&nbsp;**A** $P<Q<R$ &nbsp; **B** $P<R<Q$ &nbsp; **C** $Q<P<R$ &nbsp; **D** $Q<R<P$ &nbsp;
+**E** $R<P<Q$ &nbsp; **F** $R<Q<P$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+**F.** $R=\int_0^1 2^{x/2}\,\mathrm dx$. On $(0,1)$ we have $\sqrt x\geq x\geq\tfrac x2$, and $2^{t}$ is
+increasing, so $2^{\sqrt x}\geq 2^{x}\geq 2^{x/2}$ at every point. Integrating preserves the order:
+$P>Q>R$, i.e. **$R<Q<P$**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,1,300)
+plt.figure(figsize=(4.8,3.2))
+plt.plot(x,2**np.sqrt(x),label='2^√x  (P)',color='#2b6cb0')
+plt.plot(x,2**x,label='2^x  (Q)',color='#dd6b20')
+plt.plot(x,2**(x/2),label='2^(x/2)  (R)',color='crimson')
+plt.grid(alpha=0.25); plt.legend(fontsize=9); plt.title('On (0,1): 2^√x ≥ 2^x ≥ 2^(x/2)'); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+$(*)$: there exists a real $y$ such that $x-xy+y$ is negative. For how many real $x$ is $(*)$ true?
+
+&nbsp;&nbsp;**A** none &nbsp; **B** exactly one &nbsp; **C** exactly two &nbsp; **D** all except two &nbsp;
+**E** all except one &nbsp; **F** all values
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer E
+
+[*(Arg3 · quantifiers — S4)*]{style="color:#7a5195"}
+**E.** Read $x-xy+y=x+y(1-x)$ as a function of $y$. If $x\neq1$ the coefficient $(1-x)\neq0$, so it is a
+non-constant linear function of $y$ and takes negative values — $(*)$ holds. If $x=1$ it collapses to
+$1+y\cdot0=1$, always positive — $(*)$ fails. So $(*)$ is true for **all $x$ except $x=1$**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+Consider $\;\lvert x+5\rvert<\lvert x+11\rvert\;$ and $\;\lvert x+11\rvert<\lvert x+1\rvert$. Which is
+correct?
+
+&nbsp;&nbsp;**A** no real number &nbsp; **B** exactly one &nbsp; **C**–**G** an interval of length
+$1,2,3,4,5$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer D
+**D** (length $2$). Squaring (valid for moduli): $\lvert x+5\rvert<\lvert x+11\rvert\Leftrightarrow
+(x+5)^{2}<(x+11)^{2}\Leftrightarrow x>-8$; and $\lvert x+11\rvert<\lvert x+1\rvert\Leftrightarrow x<-6$.
+Both hold on $-8<x<-6$, an interval of length $2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-14,0,400)
+plt.figure(figsize=(5.0,3.0))
+plt.plot(x,np.abs(x+5),label='|x+5|'); plt.plot(x,np.abs(x+11),label='|x+11|'); plt.plot(x,np.abs(x+1),label='|x+1|')
+plt.axvspan(-8,-6,color='#c6f6d5',alpha=0.7)
+plt.annotate('both true: −8<x<−6',(-7,6),ha='center',fontsize=9)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.title('Solution set is the shaded interval (length 2)'); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 15
+
+$x,y,z>1$ with $\log_x y=z$ and $\log_y z=x$. Which must hold for $\log_z x$?
+
+&nbsp;&nbsp;**A** $y$ &nbsp; **B** $\tfrac1y$ &nbsp; **C** $xy$ &nbsp; **D** $\tfrac1{xy}$ &nbsp;
+**E** $xz$ &nbsp; **F** $\tfrac1{xz}$ &nbsp; **G** $yz$ &nbsp; **H** $\tfrac1{yz}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+**F.** $\log_x y=z$ means $y=x^{z}$; $\log_y z=x$ means $z=y^{x}=(x^{z})^{x}=x^{xz}$. Taking $\log_z$ of
+$z=x^{xz}$ gives $1=xz\,\log_z x$, so $\log_z x=\dfrac{1}{xz}$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+Integer sequences with $a_n\leq b_n+c_n$ for each $n$. Which **must** be true? &nbsp;&nbsp;**I**
+$\min a\leq\min b+\min c$ &nbsp;&nbsp; **II** $\min a\geq\min b+\min c$ &nbsp;&nbsp; **III**
+$\max a\leq\max b+\max c$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer D
+
+[*(reasoning — S5)*]{style="color:#7a5195"}
+**D** (III only). **III holds:** $\max a=a_m\leq b_m+c_m\leq\max b+\max c$. **I fails:** take $b=(0,10)$,
+$c=(10,0)$ and $a=(10,10)$ (each $a_n\leq b_n+c_n$); then $\min a=10$ but $\min b+\min c=0$. **II fails:**
+the $a_n$ have no lower bound, so $\min a$ can be far below $\min b+\min c$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+To prove *"$x^{3}+ax^{2}+b=0$ has three distinct real roots **if** $27b\!\left(b+\tfrac{4a^{3}}{27}\right)
+<0$"*, a student: (I) finds the stationary points $(0,b)$ and $\left(-\tfrac{2a}{3},\,
+b+\tfrac{4a^{3}}{27}\right)$; (II) shows the condition makes one stationary point above and one below the
+$x$-axis; (III) states *if the cubic has three distinct real roots then one stationary point is above and
+one below*; (IV) concludes the condition gives three distinct roots. Best description?
+
+&nbsp;&nbsp;**A** completely correct &nbsp; **B** proved the converse of the whole statement &nbsp;
+**C** wrong — II should follow III &nbsp; **D** wrong — needs the converse of the result in step II &nbsp;
+**E** wrong — needs the converse of the result in step III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer E
+
+[*(Err + Arg1 — S7 / S2)*]{style="color:#7a5195"}
+**E.** To reach IV the student needs "**one stationary point above and one below $\Rightarrow$ three
+distinct roots**". Step III states the *reverse* implication ("three roots $\Rightarrow$ that stationary
+configuration"). So the proof is incomplete: the student should have shown the **converse of the result in
+step III**. *(Every line is true; the gap is a direction error — exactly the S2/S7 converse trap.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+$P,Q,R,S$ are the graphs of $\;(\cos x)^{\cos x},\ (\sin x)^{\sin x},\ (\cos x)^{\sin x},\
+(\sin x)^{\cos x}\;$ on $0<x<\tfrac\pi2$, in some order. (See the four sketches in the paper.) Which row
+matches them?
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer E
+**E** — $(\cos x)^{\cos x}=R$, $(\sin x)^{\sin x}=S$, $(\cos x)^{\sin x}=P$, $(\sin x)^{\cos x}=Q$. Use the
+**endpoints**: at $x\to0$, $\cos x\to1,\ \sin x\to0$; at $x\to\tfrac\pi2$, the reverse.
+
+- $(\cos x)^{\sin x}$: $1^{0}=1\to 0^{1}=0$ — **decreasing** $1\to0$ = **P**.
+- $(\sin x)^{\cos x}$: $0^{1}=0\to 1^{0}=1$ — **increasing** $0\to1$ = **Q**.
+- $(\cos x)^{\cos x}$: $t^{t}$ with $t=\cos x$ falling $1\to0$; $t^{t}$ dips to $\approx0.69$ near $t=1/e$
+  (so near the right) then returns to $1$ = **R** (dip on the right).
+- $(\sin x)^{\sin x}$: same $t^{t}$ but $t=\sin x$ rising $0\to1$; the dip is near the **left** = **S**.
+
+*Idea → match every curve by its **two endpoints** and **where it dips**; a $t^{t}$ curve always dips at
+$t=1/e$. Never differentiate all four — read the ends and the turning point. Transfers to every graph-matching
+question.*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0.001,np.pi/2-0.001,400)
+fns=[('(cos x)^cos x  = R',np.cos(x)**np.cos(x)),
+     ('(sin x)^sin x  = S',np.sin(x)**np.sin(x)),
+     ('(cos x)^sin x  = P',np.cos(x)**np.sin(x)),
+     ('(sin x)^cos x  = Q',np.sin(x)**np.cos(x))]
+fig,axes=plt.subplots(2,2,figsize=(6.6,4.6))
+for ax,(t,y) in zip(axes.ravel(),fns):
+    ax.plot(x,y,color='#2b6cb0'); ax.set_title(t,fontsize=9); ax.set_ylim(0,1.05); ax.grid(alpha=0.25)
+    ax.set_xticks([0,np.pi/6,np.pi/3,np.pi/2]); ax.set_xticklabels(['0','π/6','π/3','π/2'],fontsize=7)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+A polygon ($n\geq3$) with all vertices on a circle $C$, centre inside, whose radii cut it into $n$
+triangles of equal area. For which $n$ are these properties **sufficient** to deduce the polygon is regular?
+
+&nbsp;&nbsp;**A** no $n$ &nbsp; **B** $n=3$ only &nbsp; **C** $n=3,4$ only &nbsp; **D** $n=3$ and $n\geq5$
+only &nbsp; **E** all $n$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer B
+
+[*(Arg2 · sufficient — S3)*]{style="color:#7a5195"}
+**Step 1 — set up the central angles.** Let $O$ be the centre and $A_1,\dots,A_n$ the consecutive vertices,
+and write $\theta_i=\angle A_iOA_{i+1}$ for the central angle of the $i$-th triangle. Since $O$ is inside,
+$0<\theta_i<180^\circ$, and one full turn gives $\theta_1+\dots+\theta_n=360^\circ$.
+
+**Step 2 — area of each slice.** Every triangle has two sides equal to the radius $R$, so
+$$\text{Area}_i=\tfrac12 R^{2}\sin\theta_i.$$
+
+**Step 3 — equal areas $\iff$ equal sines.** Equal areas mean $\sin\theta_1=\sin\theta_2=\dots=\sin\theta_n$.
+But on $0<\theta<180^\circ$, $\ \sin\theta=\sin(180^\circ-\theta)$, so each $\theta_i$ is $x$ **or**
+$180^\circ-x$ for a single value $x$. *(This ambiguity is the whole crack.)*
+
+**Step 4 — $n=3$ is forced regular.** Three angles, each $x$ or $180^\circ-x$, summing to $360^\circ$:
+
+- all three $x$: $\ 3x=360^\circ\Rightarrow x=120^\circ$ — an equilateral (regular) triangle. ✔
+- $x,x,180^\circ-x$: $\ 2x+(180^\circ-x)=360^\circ\Rightarrow x=180^\circ$ — impossible.
+- $x,180^\circ-x,180^\circ-x$: $\ x+2(180^\circ-x)=360^\circ\Rightarrow x=0^\circ$ — impossible.
+
+So the only possibility is $\theta_1=\theta_2=\theta_3=120^\circ$, hence **$n=3\Rightarrow$ necessarily regular.**
+
+**Step 5 — $n=4$ counterexample.** Take central angles $60^\circ,120^\circ,60^\circ,120^\circ$ (sum
+$360^\circ$). Since $\sin60^\circ=\sin120^\circ=\tfrac{\sqrt3}{2}$, all four triangles have the **same** area
+$\tfrac12 R^{2}\cdot\tfrac{\sqrt3}{2}$; but $60^\circ\ne120^\circ$, so the sides alternate and the polygon is
+**not** regular — it is a rectangle that is not a square.
+
+**Step 6 — $n=5$ counterexample.** Take $60^\circ,60^\circ,60^\circ,60^\circ,120^\circ$ (sum $360^\circ$).
+Again $\sin60^\circ=\sin120^\circ$, so all areas are equal, yet $60^\circ\ne120^\circ$ means the sides are not
+all equal — not a regular pentagon.
+
+**Conclusion.** Only $n=3$ forces the polygon to be regular, so the answer is **B**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+fig,ax=plt.subplots(1,2,figsize=(6.8,3.6))
+def draw(a,angs,title):
+    a.plot(np.cos(th),np.sin(th),color='0.7')
+    cum=np.cumsum([0]+angs[:-1])
+    V=np.array([[np.cos(np.radians(c)),np.sin(np.radians(c))] for c in cum])
+    poly=np.vstack([V,V[0]]); a.plot(poly[:,0],poly[:,1],'-o',color='#2b6cb0')
+    for p in V: a.plot([0,p[0]],[0,p[1]],':',color='crimson')
+    a.plot(0,0,'ks'); a.set_aspect('equal'); a.axis('off'); a.set_title(title,fontsize=8)
+draw(ax[0],[60,120,60,120],'n=4:  60°,120°,60°,120°\nsin60°=sin120° ⟹ equal areas,\nbut 60°≠120° ⟹ NOT regular\n(rectangle, not square)')
+draw(ax[1],[60,60,60,60,120],'n=5:  60°,60°,60°,60°,120°\nequal areas, yet 60°≠120°\n⟹ NOT a regular pentagon')
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+$\mathrm f_1=\cos x$, $\mathrm f_2=\sin(\cos x)$, $\mathrm f_3=\cos(\sin(\cos x))$,
+$\mathrm f_4=\sin(\cos(\sin(\cos x)))$, $\mathrm f_5=\cos(\sin(\cos(\sin(\cos x))))$ (radians), with maxima
+$m_1,\dots,m_5$. Which is true?
+
+&nbsp;&nbsp;**A** all equal to $1$ &nbsp; **B** $0<m_5<m_4<m_3<m_2<m_1=1$ &nbsp; **C** $m_1=m_3=m_5=1$ and
+$0<m_2=m_4<1$ &nbsp; **D** $m_1=m_3=m_5=1$ and $0<m_4<m_2<1$ &nbsp; **E** $m_1=m_3=1$ and $0<m_2=m_4<1$ and
+$0<m_5<1$ &nbsp; **F** $m_1=m_3=1$ and $0<m_4<m_2<1$ and $0<m_5<1$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer E
+**E.** A $\cos(\dots)$ reaches $1$ exactly when its argument can be $0$; a $\sin(\dots)$ of a small
+non-negative quantity cannot reach $1$.
+
+- $m_1=1$ ($\cos 0$). $m_3=\max\cos(\sin(\cos x))=1$ because $\sin(\cos x)=0$ is attainable (at $x=\tfrac\pi2$).
+- $m_2=\max\sin(\cos x)=\sin 1\approx0.84$ (largest when $\cos x=1$); likewise $m_4=\sin 1$, so
+  $m_2=m_4$, both in $(0,1)$.
+- $m_5=\max\cos(\sin(\cos(\sin(\cos x))))\approx0.815\in(0,1)$ — the inner $\sin(\cos(\sin(\cos x)))$ never
+  reaches $0$, so this cosine never hits $1$.
+
+Hence $m_1=m_3=1$, $0<m_2=m_4<1$, $0<m_5<1$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+:::

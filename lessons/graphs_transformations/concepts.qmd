@@ -1,0 +1,335 @@
+---
+title: "Graphs Clinic 1 — Transformations & Function-of-a-Function · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 1"
+format:
+  html:
+    toc: false
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · Applications of Mathematical Knowledge</div>
+<div class="fs-title">Transformations & Function-of-a-Function — Key Concepts</div>
+<div class="fs-sub">The graph is given; you either <strong>move it</strong> (shift, stretch, reflect) or <strong>read a value off it</strong> and feed it in. Two ideas cover everything: <em>outside as it says, inside the opposite</em>, and <em>let w = f(x)</em>. Learn the boxed rules by heart.</div>
+::::
+
+## Transformations of y = f(x)
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Outside vs inside
+
+**Outside** the bracket changes $y$ and does what it says; **inside** changes $x$ and does the opposite.
+
+$$f(x)+a:\ \text{up }a \qquad f(x)-a:\ \text{down }a$$
+$$f(x+a):\ \text{left }a \qquad f(x-a):\ \text{right }a$$
+
+[to move a feature, solve "input $=$ old input", e.g. $f(2x-6)$ max where $2x-6=$ old $x$]{.eg}
+:::
+
+::: {.fs-card}
+### Stretches
+
+$$a\,f(x):\ \text{vertical stretch}\ \times a \ \ (\text{outside})$$
+$$f(ax):\ \text{horizontal stretch}\ \times\tfrac1a \ \ (\text{inside, reciprocal})$$
+
+[$f(2x)$ is **narrower** and $x$-coordinates **halve**; height unchanged]{.eg}
+:::
+
+::: {.fs-card}
+### Reflections
+
+$$-f(x):\ \text{reflect in the } x\text{-axis}$$
+$$f(-x):\ \text{reflect in the } y\text{-axis}$$
+
+[reflecting in the $x$-axis swaps a **maximum** and a **minimum**]{.eg}
+:::
+
+::: {.fs-card}
+### The two modulus graphs
+
+$$\lvert f(x)\rvert:\ \text{flip the below-axis part **up**}$$
+$$f(\lvert x\rvert):\ \text{mirror the } x\ge0 \text{ half into } x<0$$
+
+[$f(\lvert x\rvert)$ is always **even** — symmetric about the $y$-axis]{.eg}
+:::
+
+::::
+
+## Function of a function
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### The substitution
+
+An expression built out of $f(x)$ — you cannot differentiate it in $x$. Instead:
+
+$$\text{let } w=f(x),\quad \text{read the range of } w \text{ off the graph}$$
+
+It becomes an ordinary function of $w$ on that range.
+:::
+
+::: {.fs-card}
+### Max & min on an interval
+
+Once you have $g(w)$ on $a\le w\le b$, the max and min are among:
+
+$$\text{turning points } (g'(w)=0 \text{ in range}) \ \textbf{and}\ \text{both endpoints}$$
+
+[a maximum can hide at an **endpoint**, not a turning point]{.eg}
+:::
+
+::: {.fs-card}
+### Counting solutions
+
+Solve for $w$ first, then count how many $x$ give each $w$.
+
+[a **peak** value has one preimage; a value between $0$ and the peak has two]{.eg}
+:::
+
+::: {.fs-card}
+### Which method? — $x$-count vs value
+
+$$\text{"how many solutions?"}\ \to\ \textbf{Case 1}$$
+$$\text{"max / min / range?"}\ \to\ \textbf{Case 2}$$
+
+**Case 1:** solve for $w$, then **count $x$** (draw $y=w$ on $f$, count crossings). **Case 2:** stay in
+$w$ — read the range, analyse $g(w)$; never return to $x$.
+
+[$w=1,4$ are values of $f(x)$, **not** the number of solutions]{.eg}
+:::
+
+::: {.fs-card}
+### Where it shows up on Paper 1
+
+**Identify / apply** a transformation; **sketch** an unfamiliar relation; **read** a value off a graph
+and use it; **count** roots or intersections. All four are the same two ideas in disguise.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## Notes
+
+### Outside does as it says; inside does the opposite
+
+Start from $y=f(x)$. A change **outside** the bracket acts on the output $y$, exactly as written:
+$f(x)+3$ lifts every point up by $3$. A change **inside** the bracket acts on the input $x$, and it goes
+the **opposite** way to what you expect: $f(x+2)$ moves the graph **left**, not right, because the curve
+now reaches each height *two earlier*.
+
+The reliable way to place a feature after **any** transformation is to ask *what input to $f$ produces
+it*. If $f$ has a maximum at $x=4$, then $f(2x-6)$ has its maximum where the input equals $4$:
+$2x-6=4$, so $x=5$.
+
+```{python}
+#| fig-cap: "Base y=f(x) (max at x=1), and three transformations: +2 lifts it, f(x−2) shifts it right, −f(x) reflects it in the x-axis."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,5,400); f=3*np.exp(-(x-1)**2)
+fig,ax=plt.subplots(figsize=(5.6,3.6))
+ax.plot(x,f,color='#1f77b4',lw=2,label='y=f(x)')
+ax.plot(x,f+2,color='#2ca02c',lw=1.8,ls='--',label='y=f(x)+2  (up 2)')
+ax.plot(x,3*np.exp(-(x-3)**2),color='#ff7f0e',lw=1.8,ls='--',label='y=f(x−2)  (right 2)')
+ax.plot(x,-f,color='#d62728',lw=1.8,ls='--',label='y=−f(x)  (reflect)')
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.legend(fontsize=8,loc='upper right'); ax.set_xlabel('x'); ax.set_ylabel('y')
+plt.tight_layout(); plt.show()
+```
+
+::: {.example}
+[Example.]{.lbl} The graph of $y=f(x)$ has a maximum at $(2,5)$. Find the maximum of $y=f(2x)+1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$+1$ is outside, so the height rises: $5\to6$. $f(2x)$ is inside, so the maximum occurs when the input to
+$f$ is $2$: $2x=2\Rightarrow x=1$.
+
+**Answer:** $(1,\,6)$.
+:::
+
+::: {.workbox}
+
+:::
+
+### Stretches — and which factor
+
+$a\,f(x)$ multiplies every height by $a$ (a vertical stretch, $x$ unchanged). $f(ax)$ stretches the graph
+horizontally by the **reciprocal** $\tfrac1a$: $f(2x)$ is *narrower* and every $x$-coordinate halves, while
+heights stay put. The reciprocal is the part everyone forgets.
+
+### The transformation summary — fill it in
+
+Write the **effect** of each transformation yourself, then check.
+
+| Transformation | Effect on the graph |
+|---|---|
+| $y=f(x)+a$ | |
+| $y=f(x+a)$ | |
+| $y=a\,f(x)$ | |
+| $y=f(ax)$ | |
+| $y=-f(x)$ | |
+| $y=f(-x)$ | |
+| $y=\lvert f(x)\rvert$ | |
+| $y=f(\lvert x\rvert)$ | |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answers
+| Transformation | Effect on the graph |
+|---|---|
+| $y=f(x)+a$ | translate **up** $a$ |
+| $y=f(x+a)$ | translate **left** $a$ (inside, opposite) |
+| $y=a\,f(x)$ | vertical stretch, factor $a$ |
+| $y=f(ax)$ | horizontal stretch, factor $\tfrac1a$ |
+| $y=-f(x)$ | reflect in the $x$-axis (max ↔ min) |
+| $y=f(-x)$ | reflect in the $y$-axis |
+| $y=\lvert f(x)\rvert$ | flip the part below the $x$-axis up |
+| $y=f(\lvert x\rvert)$ | keep $x\ge0$, mirror it into $x<0$ (even) |
+:::
+
+### $\lvert f(x)\rvert$ versus $f(\lvert x\rvert)$
+
+These look similar and behave completely differently — a favourite trap. The bars **outside**,
+$\lvert f(x)\rvert$, act on the *output*: anything below the axis is reflected **up**. The bars
+**inside**, $f(\lvert x\rvert)$, act on the *input*: the right-hand half is copied across to the left,
+making the graph **even** (symmetric about the $y$-axis).
+
+```{python}
+#| fig-cap: "Base f=(x−1)(x−3) dashed. Left: |f(x)| flips the dip up. Right: f(|x|) mirrors the x≥0 part into x<0."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,5,600); f=(x-1)*(x-3)
+fig,ax=plt.subplots(2,1,figsize=(5.2,7.2))
+ax[0].plot(x,f,'--',color='0.6',lw=1.2,label='f(x)'); ax[0].plot(x,np.abs(f),color='#1f77b4',lw=2,label='|f(x)|')
+ax[0].axhline(0,color='0.5',lw=0.8); ax[0].axvline(0,color='0.5',lw=0.8)
+ax[0].set_title(r'$y=|f(x)|$ — flip the dip up',fontsize=11); ax[0].legend(fontsize=8); ax[0].set_xlabel('x'); ax[0].set_ylabel('y')
+fmod=(np.abs(x)-1)*(np.abs(x)-3)
+ax[1].plot(x,f,'--',color='0.6',lw=1.2,label='f(x)'); ax[1].plot(x,fmod,color='#1f77b4',lw=2,label='f(|x|)')
+ax[1].axhline(0,color='0.5',lw=0.8); ax[1].axvline(0,color='0.5',lw=0.8)
+ax[1].set_title(r'$y=f(|x|)$ — mirror the right half',fontsize=11); ax[1].legend(fontsize=8); ax[1].set_xlabel('x'); ax[1].set_ylabel('y')
+plt.tight_layout(); plt.show()
+```
+
+### Function of a function — let w = f(x)
+
+When an expression is **built out of $f(x)$** — like $\bigl(f(x)\bigr)^3-3f(x)$ — you cannot
+differentiate it in $x$, because you have no formula for $f$. The move is a substitution:
+
+::: {.keyline}
+Let $w=f(x)$. Read the **range** of $w$ off the graph. Now it is an ordinary function of $w$.
+:::
+
+Then the maximum and minimum of that function of $w$ are found the usual way — but on a **closed
+interval**, so you must check the **turning points *and* the endpoints**.
+
+```{python}
+#| fig-cap: "g(w)=w³−3w on 0<w≤3: minimum −2 at the turning point w=1, maximum 18 at the endpoint w=3."
+import numpy as np, matplotlib.pyplot as plt
+w=np.linspace(0,3,400); g=w**3-3*w
+fig,ax=plt.subplots(figsize=(5.0,3.4))
+ax.plot(w,g,color='#1f77b4',lw=2)
+ax.plot(1,-2,'o',color='#d62728'); ax.annotate('min (1, −2)',(1,-2),(1.05,-4.3),color='#d62728',fontsize=9)
+ax.plot(3,18,'o',color='#2ca02c'); ax.annotate('max (3, 18)',(3,18),(1.5,15),color='#2ca02c',fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.set_xlim(0,3.1)
+ax.set_xlabel('w'); ax.set_ylabel('g(w)'); ax.set_title(r'$g(w)=w^3-3w$ on $(0,3]$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+::: {.example}
+[Example.]{.lbl} The graph of $y=f(x)$ attains its maximum value $3$ and $f(x)>0$ for all $x$. Find the
+difference between the maximum and minimum values of $\bigl(f(x)\bigr)^3-3f(x)$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Let $w=f(x)$. From the graph the maximum value is $3$ and $f>0$, so $w$ ranges over $0<w\le3$. Study
+$g(w)=w^3-3w$:
+$$g'(w)=3w^2-3=0\Rightarrow w=1\ (\text{in range}),\qquad g(1)=-2\ (\text{min}).$$
+Check the endpoints: $g(w)\to0$ as $w\to0^{+}$, and $g(3)=27-9=18$ (the max). So the difference is
+$$18-(-2)=20.$$
+
+**Answer:** $20$.
+:::
+
+::: {.workbox}
+
+:::
+
+The same three steps handle every one of these: **substitute $w=f(x)$ → read the range of $w$ → find the
+max and min of the function of $w$, turning points and endpoints.** The only thing that changes is whether
+the function of $w$ is a cubic, a quadratic, or something else.
+
+### Counting solutions
+
+To count how many solutions an equation like $\bigl(f(x)\bigr)^2-5f(x)+4=0$ has, **solve for $w=f(x)$
+first**, then ask how many $x$ give each value. On a single symmetric "bump" with maximum $5$: $w=4$ (the
+peak) has **one** preimage, while $w=1$ (between $0$ and the peak) has **two** — three solutions in total.
+
+::: {.example}
+[Example.]{.lbl} The graph of $y=f(x)$ has range $-1\le f(x)\le3$. Find the maximum and minimum values of
+$\bigl(f(x)\bigr)^2+1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Let $w=f(x)\in[-1,3]$, so $g(w)=w^2+1$. The vertex $w=0$ lies **inside** the range, giving the minimum
+$g(0)=1$. The maximum is at the endpoint farthest from $0$, namely $w=3$: $g(3)=10$ (bigger than
+$g(-1)=2$).
+
+**Answer:** maximum $10$, minimum $1$.
+:::
+
+::: {.workbox}
+
+:::
+
+### Which method? — solving for $x$ (Case 1) vs finding a value (Case 2)
+
+Both start with the substitution $w=f(x)$, but they **end differently** — and mixing them up is the
+classic slip. First ask *what the question wants*.
+
+**Case 1 — "how many solutions / roots?"** (it wants a **count of $x$**). Solve for $w$ first; then for
+**each** $w$-value, count how many $x$ satisfy $f(x)=w$ by drawing the horizontal line $y=w$ on the graph
+of $f$ and counting crossings. The answer is the number of **$x$'s**, *not* the number of $w$'s.
+
+::: {.callout-warning appearance="simple"}
+**The trap.** For $\bigl(f(x)\bigr)^2-5f(x)+4=0$ you get $w=1$ or $w=4$ — but that is **two values of
+$f(x)$**, not the answer. On a bump with maximum $4$: $f(x)=4$ meets the peak **once**, and $f(x)=1$ meets
+it **twice** — so **three** solutions, not two. You must go back to $x$.
+:::
+
+```{python}
+#| fig-cap: "Case 1: solve (f(x))²−5f(x)+4=0 → f(x)=1 or 4. On the bump (max 4), y=4 meets once (the peak), y=1 meets twice → 1+2 = 3 solutions in x."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,600); f=4*np.exp(-x**2)
+fig,ax=plt.subplots(figsize=(5.6,3.4))
+ax.plot(x,f,color='#1f77b4',lw=2,label='y = f(x)')
+ax.axhline(4,color='#d62728',ls='--',lw=1.2,label='f = 4  → 1 solution')
+ax.axhline(1,color='#2ca02c',ls='--',lw=1.2,label='f = 1  → 2 solutions')
+ax.plot(0,4,'o',color='#d62728')
+for xi in (-np.sqrt(np.log(4)),np.sqrt(np.log(4))): ax.plot(xi,1,'o',color='#2ca02c')
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.legend(fontsize=8,loc='lower center'); ax.set_ylim(-0.3,4.7)
+ax.set_title('1 + 2 = 3 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+**Case 2 — "maximum / minimum / range / value?"** (it wants a **value**). You **never go back to $x$**.
+Substitute $w=f(x)$, read the **range** of $w$ off the graph, and find the max/min of $g(w)$ on that
+interval — turning points **and** endpoints. The answer is a value, so $x$ never appears. (The two
+examples just above — $(f(x))^3-3f(x)$ and $(f(x))^2+1$ — are Case 2.)
+
+::: {.callout-tip appearance="simple"}
+**The one-line test.** Wants a **count of $x$** → draw the $y=w$ lines on $f$ and count crossings
+(Case 1). Wants a **value** → stay in $w$ and analyse $g(w)$ (Case 2).
+:::
+
+::::

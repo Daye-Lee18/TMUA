@@ -1,0 +1,309 @@
+---
+title: "Toolkit S4 — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
+
+The one thing to check on every negation: **did the student flip the quantifier *and* negate the
+inside?** A negation that changed only one is the standard error, and it is what most of these questions
+are really testing.
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+::: {.question}
+State whether each is **true** or **false**. In each case $x$ is real, $n$ an integer.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^2 + 1 > 0$. **[1]** &nbsp;&nbsp;&nbsp; (b) There exists a real $x$ such that $x^2 = -1$. **[1]**
+
+&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $2n$ is even. **[1]** &nbsp;&nbsp;&nbsp; (d) There exists an integer $n$ such that $n^2 = 2$. **[1]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) True** &nbsp; **(B1)** — $x^2 \ge 0$ for every real $x$, so $x^2+1 \ge 1 > 0$.
+
+**(b) False** &nbsp; **(B1)** — no real number squares to a negative.
+
+**(c) True** &nbsp; **(B1)** — $2n$ is a multiple of $2$ for every integer $n$.
+
+**(d) False** &nbsp; **(B1)** — $n^2=2$ has no integer solution ($1^2=1$, $2^2=4$).
+
+**Marking note.** For (a) and (c) the reason must cover **every** case; for (b) and (d), "no such
+$x$/$n$ exists" is the whole point — a "there exists" is false only when nothing works.
+:::
+
+---
+
+## Question 2 **[3]**
+
+::: {.question}
+Write the **negation** of each, as a positive sentence.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^3 \ge 0$. **[1]**
+
+&nbsp;&nbsp;(b) There exists an integer $n$ such that $n^2 = 10$. **[1]**
+
+&nbsp;&nbsp;(c) Every triangle has three equal sides. **[1]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** Flip *for all* → *there exists*, negate $x^3 \ge 0$ to $x^3 < 0$: &nbsp; **(B1)**
+
+> There exists a real $x$ such that $x^3 < 0$. &nbsp;*(True — e.g. $x=-1$.)*
+
+**(b)** Flip *there exists* → *for all*, negate $n^2=10$ to $n^2 \ne 10$: &nbsp; **(B1)**
+
+> For all integers $n$, &nbsp; $n^2 \ne 10$.
+
+**(c)** "Every triangle has three equal sides" is a *for all*; negate to a *there exists*: &nbsp; **(B1)**
+
+> There exists a triangle that does **not** have three equal sides &nbsp;(at least one triangle is not
+> equilateral).
+
+**Common error:** (c) given as "no triangle has three equal sides" — too strong; that is the opposite
+extreme, not the negation.
+:::
+
+---
+
+## Question 3 **[3]**
+
+::: {.question}
+Consider the statement: &nbsp; **All multiples of $4$ are even.**
+
+&nbsp;&nbsp;(a) Is it true or false? **[1]**
+
+&nbsp;&nbsp;(b) Write its correct negation. **[1]**
+
+&nbsp;&nbsp;(c) A student says the negation is *"No multiple of $4$ is even."* Explain why that is wrong. **[1]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) True** &nbsp; **(B1)** — every multiple of $4$ is $4k = 2(2k)$, hence even.
+
+**(b)** &nbsp; **(B1)**
+
+> There exists a multiple of $4$ that is **not** even &nbsp;(at least one multiple of $4$ is odd).
+
+*This negation is false, of course — but it is the correctly-formed negation, and that is what is asked.*
+
+**(c)** &nbsp; **(B1)** *"No multiple of $4$ is even"* claims **every** multiple of $4$ is odd — a "for
+all", and a strong (false) one. The negation of "all are even" needs only **one** odd multiple of $4$,
+not *all* of them to be odd. **Negating a "for all" gives a "there exists", never another "for all".**
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[6]**
+
+::: {.question}
+For each statement, decide whether it is true. If false, **disprove it with a counterexample**; if true,
+give a one-line reason.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $\sqrt{x^2} = x$. **[2]**
+
+&nbsp;&nbsp;(b) For all real $x$, &nbsp; if $x > 3$ then $x^2 > 9$. **[2]**
+
+&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $n^2 - n$ is even. **[2]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) False.** &nbsp; **(M1 A1)** &nbsp; Counterexample $x = -1$: then $\sqrt{x^2} = \sqrt1 = 1$, which is
+**not** equal to $x = -1$.
+
+*The correct identity is $\sqrt{x^2} = |x|$. Any negative $x$ is a counterexample — the "check the
+negatives" habit again.*
+
+**(b) True.** &nbsp; **(M1 A1)** &nbsp; If $x>3$ then $x>0$, so multiplying $x>3$ by $x$ gives $x^2 > 3x >
+9$. No counterexample exists.
+
+**(c) True.** &nbsp; **(M1 A1)** &nbsp; $n^2 - n = n(n-1)$, a product of two **consecutive** integers, one
+of which is even — so the product is even for every $n$.
+
+**Marking note.** In (a) the mark is for a **specific counterexample**, not for saying "$\sqrt{x^2}=|x|$"
+alone. In (b) and (c) a general argument is required — checking a few values scores the method mark at
+most.
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.question}
+Write the negation of each, as a positive statement.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; if $x < 0$ then $x^3 < 0$. **[2]**
+
+&nbsp;&nbsp;(b) There exists an integer $n$ such that $n$ is odd **and** $n > 100$. **[2]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** Flip *for all* → *there exists*; negate the implication "if $x<0$ then $x^3<0$" to "$x<0$ **and**
+$x^3 \ge 0$": &nbsp; **(M1 A1)**
+
+> There exists a real $x$ such that $x < 0$ **and** $x^3 \ge 0$.
+
+*(False, since $x<0 \Rightarrow x^3<0$ — but correctly formed. The negation of an implication is $H$ and
+not $C$, never another implication.)*
+
+**(b)** Flip *there exists* → *for all*; negate "odd and $>100$" by De Morgan to "not odd **or** not
+$>100$": &nbsp; **(M1 A1)**
+
+> For all integers $n$, &nbsp; $n$ is even **or** $n \le 100$.
+
+**Common errors:** (a) negated to "if $x<0$ then $x^3 \ge 0$" (implication not negated properly); (b)
+negated with "and" instead of "or" (De Morgan missed).
+:::
+
+---
+
+## Question 6 **[4]**
+
+::: {.question}
+$n$ denotes a positive integer. Consider the statement
+
+$$\textbf{(S):}\quad \text{For all } n,\ \text{if } n \text{ is a multiple of } 6 \text{ then } n \text{ is a multiple of } 3.$$
+
+&nbsp;&nbsp;(a) Is (S) true? Justify. **[1]**
+
+&nbsp;&nbsp;(b) Write the negation of (S). **[2]**
+
+&nbsp;&nbsp;(c) Does a counterexample to (S) exist? If so give one; if not, explain why. **[1]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) True.** &nbsp; **(B1)** &nbsp; If $6$ divides $n$ then $n = 6k = 3(2k)$, so $3$ divides $n$ — for every $n$.
+
+**(b)** Flip *for all* → *there exists*, negate the implication: &nbsp; **(M1 A1)**
+
+> There exists a positive integer $n$ such that $n$ is a multiple of $6$ **and** $n$ is **not** a
+> multiple of $3$.
+
+**(c)** &nbsp; **(B1)** &nbsp; **No counterexample exists**, because (S) is true — every multiple of $6$
+really is a multiple of $3$. Equivalently, the negation in (b) is false: nothing satisfies "multiple of
+$6$ but not of $3$".
+
+**Teaching point.** (b) and (c) are two views of the same fact: a counterexample is exactly a witness
+making the negation true. (S) true ⟺ negation false ⟺ no counterexample.
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+::: {.question}
+For positive integers, consider:
+
+&nbsp;&nbsp;**P:** For all $m$, there exists $n$ such that $n > m$.
+
+&nbsp;&nbsp;**Q:** There exists $n$ such that for all $m$, $n > m$.
+
+&nbsp;&nbsp;(a) Explain the difference in meaning between **P** and **Q**. **[2]**
+
+&nbsp;&nbsp;(b) State, with reasons, whether each is true. **[2]**
+
+&nbsp;&nbsp;(c) Write the negation of **Q**. **[1]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** &nbsp; **(M1 A1)** &nbsp; In **P**, *"for all $m$"* comes first, so $n$ is chosen **after** $m$
+and may depend on it: *given any $m$, there is some larger $n$.* In **Q**, *"there exists $n$"* comes
+first, so **one** $n$ is fixed **before** $m$ and must beat **every** $m$: *there is a largest positive
+integer.*
+
+**(b)** &nbsp; **(A1 A1)**
+
+- **P is true** — given any $m$, take $n = m+1 > m$. ✓
+- **Q is false** — it claims a largest positive integer exists; whatever $n$ you fix, $m = n$ gives
+  $n \not> m$ (indeed $n = m$), and $m=n+1$ is larger still. No such $n$ exists.
+
+**(c)** Negate **Q** = *there exists $n$, for all $m$, $n>m$*. Flip each quantifier, negate the inside
+($n>m$ → $n \le m$): &nbsp; **(B1)**
+
+> For all $n$, there exists $m$ such that $n \le m$.
+
+*(In words: for every positive integer there is one at least as large — true, fitting the fact that Q was
+false.)*
+
+::: {.callout-warning appearance="simple"}
+**The teaching point of the whole question:** swapping ∀ and ∃ changes the meaning. P and Q use identical
+words in a different order, and one is true while the other is false.
+:::
+:::
+
+---
+
+## Question 8 **[3]**
+
+::: {.question}
+$n$ denotes a positive integer. Consider
+
+$$\textbf{(T):}\quad \text{For all } n,\; n^2 \ge n.$$
+
+&nbsp;&nbsp;(a) Write the negation of (T). **[1]**
+
+&nbsp;&nbsp;(b) Is (T) true or false? If false, give a counterexample; if true, say why no counterexample exists. **[2]**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** Flip *for all* → *there exists*, negate $n^2 \ge n$ to $n^2 < n$: &nbsp; **(B1)**
+
+> There exists a positive integer $n$ such that $n^2 < n$.
+
+**(b) True** &nbsp; **(M1 A1)** — for a positive integer $n \ge 1$, multiplying $n \ge 1$ by $n$ (positive)
+gives $n^2 \ge n$. So **no counterexample exists**; equivalently, the negation in (a) is false, since
+$n^2 < n$ would need $0 < n < 1$, impossible for a positive integer.
+
+**Marking note.** Award (b) only if the reason is general. A student who writes "$n=2$ gives $4\ge2$, so
+true" has checked one case, not proved the "for all".
+:::
+
+---
+
+## Marking summary
+
+| Q | Marks | The thing being tested |
+|---|---|---|
+| 1 | 4 | Truth of quantified statements |
+| 2 | 3 | Single negation — flip **and** negate |
+| 3 | 3 | "not all" ≠ "none" |
+| 4 | 6 | Counterexamples; the $\sqrt{x^2}=\lvert x\rvert$ trap |
+| 5 | 4 | Negating an implication / an "and" inside |
+| 6 | 4 | Negation ⟺ counterexample |
+| 7 | 5 | Order of two quantifiers |
+| 8 | 3 | Negating and settling a "for all" |
+
+**If marks are lost in one place, look at 2, 3(c) and 5.** All three test the negation rule, and 3(c) and
+5 catch the two commonest failures: turning "not all" into "none", and negating only half of a compound
+statement. A student solid on those is solid on the whole topic.
+:::

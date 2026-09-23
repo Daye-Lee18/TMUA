@@ -1,0 +1,271 @@
+---
+title: "TMUA Formula Sheet — Your Copy"
+subtitle: "Fill it in yourself. The one you write is the one you remember."
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The TMUA gives you **no formula booklet and no calculator**, so everything on this page has to come out of
+your head on the day. That is why you are writing it rather than being handed it: [a sheet you filled in
+yourself is remembered far better than one you were given]{.hl}.
+
+## How to use this
+
+**Do not sit down and fill it all in at once.** Build it up across the course:
+
+1. **After every session and every past paper**, ask one question: *did I have to stop and reconstruct a
+   formula?* If yes, it goes in the table — in your own words.
+2. **Only write what you actually needed.** A formula you have never used will not stick.
+3. **★ marks the ones that appear on almost every paper.** If nothing else is finished by October, finish
+   those.
+4. Each section has a **workspace** underneath — use it for the ones that need a diagram, an example, or
+   more than one line.
+
+::: {.callout-note appearance="simple"}
+**Where to start.** Sections 1–2 (algebra, sequences) first — those are what 2020 Paper 1 uses.
+Sections 4, 6, 7 follow the trig and calculus papers. Section 9 is Paper 2 only.
+
+Stuck? The completed version is at **[Formula Sheet](formula_sheet.qmd)** — but write your own attempt
+**first**, then check. Copying it straight across defeats the point.
+:::
+
+---
+
+## 1 · Algebra and functions &nbsp; *(MM1)*
+
+| Item | Formula / rule |
+|---|---|
+| Index laws ★ &nbsp; $a^m a^n$, &nbsp; $a^m / a^n$, &nbsp; $(a^m)^n$ | |
+| $a^0$, &nbsp; $a^{-n}$, &nbsp; $a^{1/n}$, &nbsp; $a^{m/n}$ ★ | |
+| Rationalise $\dfrac{1}{a+b\sqrt c}$ — multiply by? | |
+| Quadratic formula ★ | |
+| Discriminant $\Delta$, and the three cases ★ | |
+| Completing the square — turning point at? ★ | |
+| Sum of roots $\alpha+\beta$, &nbsp; product $\alpha\beta$ | |
+| Factor Theorem — $(x-a)$ is a factor when? | |
+| Remainder Theorem | |
+| Modulus — $\lvert x\rvert = \;?$ (two cases), and $\lvert x\rvert=\sqrt{\;?\;}$ | |
+| $\lvert A\rvert=k$; &nbsp; $\lvert A\rvert<k$; &nbsp; $\lvert A\rvert<\lvert B\rvert$ ★ | |
+| Triangle inequality $\lvert a+b\rvert \;\square\; \lvert a\rvert+\lvert b\rvert$ (and when equal) | |
+| $y=\lvert f(x)\rvert$ vs $y=f(\lvert x\rvert)$ — the two reflections | |
+| Kite area from two V/Λ moduli; &nbsp; min $\sum\lvert x-a_i\rvert$ — where is $x$? | |
+
+::: {.workspace style="min-height:6cm"}
+Section 1 — worked examples, diagrams, anything extra
+:::
+
+---
+
+## 2 · Sequences and series &nbsp; *(MM2)*
+
+| Item | Formula / rule |
+|---|---|
+| Arithmetic — $n$th term $u_n$ | |
+| Arithmetic — sum $S_n$ | |
+| $1+2+\cdots+n$ ★ | |
+| Geometric — $n$th term $u_n$ ★ | |
+| Geometric — sum $S_n$ ★ | |
+| Sum to infinity $S_\infty$, and when it exists ★ | |
+| Binomial $(1+x)^n$ ★ | |
+| $\dbinom{n}{k} = \;?$ | |
+
+::: {.callout-warning appearance="simple"}
+**Write this trap in.** The $k$th term of a geometric sequence is $ar^{\,?}$ — the 7th term is $ar^6$,
+not $ar^7$. Off-by-one here loses marks.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Section 2 — worked examples, diagrams, anything extra
+:::
+
+---
+
+## 3 · Coordinate geometry &nbsp; *(MM3)*
+
+| Item | Formula / rule |
+|---|---|
+| Gradient between two points ★ | |
+| Equation of a line through $(x_1,y_1)$ ★ | |
+| Parallel lines — condition ★ | |
+| Perpendicular lines — condition ★ | |
+| Distance between two points | |
+| Midpoint | |
+| Circle, centre $(a,b)$ radius $r$ ★ | |
+| General circle $x^2+y^2+2gx+2fy+c=0$ — centre, radius | |
+| Perpendicular distance, point to $ax+by+c=0$ | |
+| Two circles touch — the two conditions | |
+| Three circle facts (tangent, semicircle, chord) | |
+
+::: {.workspace style="min-height:6cm"}
+Section 3 — worked examples, diagrams, anything extra
+:::
+
+---
+
+## 4 · Trigonometry &nbsp; *(MM4)*
+
+**Exact values** ★ — fill in every cell:
+
+| $\theta$ | $0$ | $30^\circ$ | $45^\circ$ | $60^\circ$ | $90^\circ$ |
+|---|---|---|---|---|---|
+| $\sin\theta$ | | | | | |
+| $\cos\theta$ | | | | | |
+| $\tan\theta$ | | | | | |
+
+| Item | Formula / rule |
+|---|---|
+| The two identities the spec assumes ★ | |
+| $\sin(180^\circ-\theta)$, &nbsp; $\sin(180^\circ+\theta)$ | |
+| $\cos(180^\circ-\theta)$, &nbsp; $\cos(360^\circ-\theta)$ | |
+| Periods of $\sin$, $\cos$, $\tan$ | |
+| Range trap: $\sin 2x$ with $0\le x\le 360^\circ$ → $2x$ runs over? | |
+
+::: {.workspace style="min-height:6cm"}
+Section 4 — worked examples, diagrams, anything extra
+:::
+
+---
+
+## 5 · Exponentials and logarithms &nbsp; *(MM5)*
+
+| Item | Formula / rule |
+|---|---|
+| $y=a^x$ ★ — rewrite as a logarithm | |
+| $\log_a(xy)$ ★ | |
+| $\log_a\!\left(\tfrac xy\right)$ ★ | |
+| $\log_a(x^k)$ ★ | |
+| $\log_a a$, &nbsp; $\log_a 1$ | |
+| Change of base | |
+| Which way up? &nbsp; $a^x=b \Rightarrow x = \;?$ | |
+
+::: {.workspace style="min-height:5cm"}
+Section 5 — worked examples, the $\log_3 2$ vs $\log_2 3$ size check, anything extra
+:::
+
+---
+
+## 6 · Differentiation &nbsp; *(MM6)*
+
+| Item | Formula / rule |
+|---|---|
+| Power rule ★ | |
+| Derivative of a constant | |
+| Gradient of the tangent at a point | |
+| Gradient of the normal | |
+| Stationary points — how to find | |
+| Maximum vs minimum — how to tell | |
+| Shortest distance, curve to line — closest point is where? | |
+
+::: {.workspace style="min-height:5cm"}
+Section 6 — worked examples, diagrams, anything extra
+:::
+
+---
+
+## 7 · Integration &nbsp; *(MM7)*
+
+| Item | Formula / rule |
+|---|---|
+| Power rule ★ — and the $n$ it fails for | |
+| Definite integral $\int_a^b f$ | |
+| Area vs integral ★ — the difference | |
+| Area between two curves | |
+| Does sliding a graph sideways change the area under it? | |
+| Even $f(-x)=f(x)$ / odd $f(-x)=-f(x)$ — symmetry & $\int_{-a}^{a}$? ★ | |
+| Why is $f(\lvert x\rvert)$ **always** even (any quadratic, cubic, …)? — and the integrate-and-double trick | |
+| Floor $\lfloor x\rfloor$ / ceiling $\lceil x\rceil$ / $\{x\}$ — round which way; $\lfloor-2.3\rfloor=\;?$ | |
+| $\int_0^n\lfloor x\rfloor$, &nbsp; $\int_0^n\lceil x\rceil$, &nbsp; $\int_0^n\{x\}$ ★ | |
+| Step function integral — why is it a geometric strip sum? | |
+| Modulus integral $\int\lvert f\rvert$ — how do you handle it? | |
+
+::: {.callout-warning appearance="simple"}
+**Write this out fully** — it cost marks on 2019 Paper 1 Q10. A definite integral counts area below the
+axis as ______; an *area* question needs you to ______ at every axis-crossing.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Section 7 — worked examples, diagrams, anything extra
+:::
+
+---
+
+## 8 · Graphs and transformations &nbsp; *(MM8)*
+
+Fill in the effect on $y = \mathrm f(x)$:
+
+| Transformation | Effect on the graph |
+|---|---|
+| $\mathrm f(x) + a$ | |
+| $\mathrm f(x + a)$ | |
+| $a\,\mathrm f(x)$ | |
+| $\mathrm f(ax)$ | |
+| $-\mathrm f(x)$ | |
+| $\mathrm f(-x)$ | |
+| "For which $k$…" question ★ — the three steps | |
+
+::: {.callout-warning appearance="simple"}
+**The two that catch people** are $\mathrm f(x+a)$ and $\mathrm f(ax)$ — write *why* they do the opposite
+of what they look like.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Section 8 — worked examples, sketches, anything extra
+:::
+
+---
+
+## 9 · Logic and proof — **Paper 2 only** &nbsp; *(Section 2)*
+
+Facts that must be automatic. Fill these in as the Toolkit progresses.
+
+| Item | Write it out |
+|---|---|
+| $A$ only if $B$ means ★ &nbsp;*(S1)* | |
+| $A$ if $B$ means ★ &nbsp;*(S1)* | |
+| $A$ if and only if $B$ means &nbsp;*(S1)* | |
+| Converse of $A\Rightarrow B$ — equivalent? ★ &nbsp;*(S2)* | |
+| Contrapositive — equivalent? ★ &nbsp;*(S2)* | |
+| Inverse — equivalent? &nbsp;*(S2)* | |
+| $A$ is sufficient for $B$ ★ &nbsp;*(S3)* | |
+| $A$ is necessary for $B$ ★ &nbsp;*(S3)* | |
+| Negating *for all* / *there exists* ★ &nbsp;*(S4)* | |
+| Negation of "all X are Y" &nbsp;*(S4)* | |
+| The four proof methods &nbsp;*(S5)* | |
+| Classic invalid steps to watch for &nbsp;*(S7)* | |
+
+::: {.workspace style="min-height:6cm"}
+Section 9 — worked examples, anything extra
+:::
+
+---
+
+## The five to write down first
+
+In the exam, the moment you are told to begin, write these on your rough paper **before you look at
+question 1**. Choose the five *you* always forget — fill this in during the final week, once you know
+your own weak spots.
+
+::: {.workspace style="min-height:9cm"}
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+:::
+
+::: {.callout-important}
+## Final week
+
+Cover the right-hand column of every table and recite. Anything you cannot produce goes in the box above
+— and those five get one more pass on the morning of the test.
+:::
+
+:::

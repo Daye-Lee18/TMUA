@@ -1,0 +1,196 @@
+---
+title: "Toolkit S3 — Assignment"
+subtitle: "Necessary and sufficient"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+
+Two lines settle every question below:
+
+$$\textbf{“}A \textbf{ sufficient for } B \textbf{”} = A \Rightarrow B \qquad\qquad
+\textbf{“}A \textbf{ necessary for } B \textbf{”} = B \Rightarrow A$$
+
+When the wording is reversed (*"a necessary condition for $Q$ is $P$"*), find the **target** — it follows
+the word *for* — and the **condition**, then apply the rule.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Fluency** | translating the two words; deciding in concrete cases | 10 |
+| **B — Exam standard** | reversed wording; proving *not sufficient*; equivalence | 14 |
+| **C — Stretch** | comparing several conditions; combining both words | 8 |
+
+::: {.callout-note appearance="simple"}
+**Also due this session:** Notes on Logic and Proof, **pp. 51–55**, and re-read the complete translation
+table in the class material (Question 5's Concepts box).
+:::
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+$P$ and $Q$ are statements. Write each of the following as an implication.
+
+&nbsp;&nbsp;(a) $Q$ is **sufficient** for $P$. **[1]**
+
+&nbsp;&nbsp;(b) $Q$ is **necessary** for $P$. **[1]**
+
+&nbsp;&nbsp;(c) A **necessary** condition for $P$ is $Q$. **[1]**
+
+&nbsp;&nbsp;(d) Which **two** of (a)–(c) say the same thing? **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 2 **[3]**
+
+Let $n$ be a positive integer. For each pair, state whether the first condition is **sufficient**,
+**necessary**, **both**, or **neither** for the second. Justify each with a proof or a counterexample.
+
+&nbsp;&nbsp;(a) "$n$ is divisible by $9$" &nbsp;·&nbsp; "$n$ is divisible by $3$" **[1]**
+
+&nbsp;&nbsp;(b) "$n$ is divisible by $3$" &nbsp;·&nbsp; "$n$ is divisible by $9$" **[1]**
+
+&nbsp;&nbsp;(c) "$n$ is divisible by $2$ and by $5$" &nbsp;·&nbsp; "$n$ is divisible by $10$" **[1]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Write each of the following as an implication between $P$ and $Q$.
+
+&nbsp;&nbsp;(a) For $P$ to hold it is **necessary** that $Q$ holds. **[1]**
+
+&nbsp;&nbsp;(b) A **sufficient** condition for $P$ is $Q$. **[1]**
+
+&nbsp;&nbsp;(c) $P$ is **necessary and sufficient** for $Q$. **[1]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[5]**
+
+Let $x$ be a real number, and let the target statement $T$ be &nbsp; $x^3 > 8$.
+
+For each condition, state whether it is **sufficient**, **necessary**, **both**, or **neither** for $T$,
+with justification.
+
+&nbsp;&nbsp;(a) $x > 2$ **[2]**
+
+&nbsp;&nbsp;(b) $x > 3$ **[2]**
+
+&nbsp;&nbsp;(c) $x > 0$ **[1]**
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 5 **[5]**
+
+$n$ is a positive integer. Consider the theorem
+
+$$\text{If } n \text{ is divisible by } 6, \text{ then } n \text{ is even.} \tag{$*$}$$
+
+Which of the following, **taken individually**, is/are equivalent to $(*)$?
+
+&nbsp;&nbsp;**I** &nbsp; A necessary condition for $n$ to be even is that $n$ is divisible by $6$.
+
+&nbsp;&nbsp;**II** &nbsp; $n$ being divisible by $6$ is sufficient for $n$ to be even.
+
+&nbsp;&nbsp;**III** &nbsp; If $n$ is odd, then $n$ is not divisible by $6$.
+
+&nbsp;&nbsp;**A** I only &nbsp;&nbsp; **B** II only &nbsp;&nbsp; **C** III only &nbsp;&nbsp;
+**D** I and II &nbsp;&nbsp; **E** I and III &nbsp;&nbsp; **F** II and III &nbsp;&nbsp;
+**G** I, II and III &nbsp;&nbsp; **H** None
+
+**Name the halves and show your arrows.** **[5]**
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 6 **[4]**
+
+$ABCD$ is a quadrilateral.
+
+&nbsp;&nbsp;(a) Explain why "all four sides are equal" is a **necessary** condition for $ABCD$ to be a
+square. **[1]**
+
+&nbsp;&nbsp;(b) Show that it is **not sufficient**. **[2]**
+
+&nbsp;&nbsp;(c) State a condition that is **necessary and sufficient** for $ABCD$ to be a square. **[1]**
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+The equation $x^2 + bx + 1 = 0$, where $b$ is real, is said to be *good* if it has **two distinct real
+roots**.
+
+&nbsp;&nbsp;(a) Show that the equation is good if and only if $b^2 > 4$. **[1]**
+
+&nbsp;&nbsp;(b) For each condition below, state whether it is **sufficient**, **necessary**, **both**, or
+**neither** for the equation to be good, with justification. **[4]**
+
+&nbsp;&nbsp;&nbsp;&nbsp; (i) $b > 2$ &nbsp;&nbsp;&nbsp; (ii) $|b| > 2$ &nbsp;&nbsp;&nbsp; (iii) $b > 0$
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 8 **[3]**
+
+$A$ and $B$ are statements.
+
+&nbsp;&nbsp;(a) It is given that $A$ is necessary for $B$, **and** that $A$ is sufficient for $B$. What
+can you conclude about $A$ and $B$? **[1]**
+
+&nbsp;&nbsp;(b) A student writes: *"$A$ is necessary for $B$, so $B$ is necessary for $A$."* Is the
+student right? Justify your answer. **[2]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+Check that every "sufficient" in your working produced a **forwards** arrow and every "necessary" a
+**backwards** one. If you never reversed an arrow anywhere on this sheet, you have almost certainly
+mistranslated a "necessary".
+:::
+
+:::

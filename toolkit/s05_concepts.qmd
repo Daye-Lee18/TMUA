@@ -1,0 +1,643 @@
+---
+title: "Toolkit S5 — Proof Methods · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 2"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Why learn to *write* proofs when TMUA is multiple choice?
+
+You never write a proof on TMUA — every question is **multiple choice**. You study this for the ability
+to **judge** a proof: which argument is valid, what to assume for a contradiction, which example is a
+counterexample, where the error is, how to order a scrambled proof. Being able to *construct* the
+reasoning in your head is exactly what lets you pick the right option in seconds — the writing here is the
+training; on the day you do it mentally.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Prf1</div>
+<div class="fs-title">Proof Methods — Key Concepts</div>
+<div class="fs-sub">Four ways to establish (or destroy) a mathematical claim: <strong>direct proof</strong>, <strong>proof by cases</strong>, <strong>proof by contradiction</strong>, and <strong>disproof by counterexample</strong>. The whole skill is picking the right one on sight and running it cleanly in English sentences — no symbols required.</div>
+::::
+
+## The four methods
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Direct proof
+
+Assume the hypothesis, then reach the conclusion by a chain of **valid steps**.
+
+$$\text{"if } P \text{ then } Q\text{": assume } P,\ \text{deduce } Q$$
+
+Represent the objects generally — an even number as $2k$, an odd number as $2k+1$ — so the argument
+covers **every** case at once.
+
+[the default method: reach for it first]{.eg}
+:::
+
+::: {.fs-card}
+### Proof by cases
+
+Split the possibilities into a **complete** list of cases and prove the claim in **each** one.
+
+$$\text{every integer is even }(2k)\ \textbf{or}\ \text{odd }(2k+1)$$
+
+The cases must be **exhaustive** — together they must cover everything.
+
+[use when the statement behaves differently for even/odd, or positive/negative]{.eg}
+:::
+
+::: {.fs-card}
+### Proof by contradiction
+
+**Assume the statement is false**, then derive something impossible. The contradiction forces the
+statement to be true.
+
+$$\text{to prove } S:\ \text{assume not-}S \ \Rightarrow\ \text{something absurd}$$
+
+[the go-to for "irrational", "infinitely many", "impossible", "no largest…"]{.eg}
+:::
+
+::: {.fs-card}
+### Disproof by counterexample
+
+To show a **"for all"** statement is **false**, exhibit **one** object that satisfies the hypothesis but
+breaks the conclusion.
+
+$$\text{one counterexample kills a "for all"}$$
+
+[you can **disprove** a "for all" with an example — you can never **prove** one that way]{.eg}
+:::
+
+::::
+
+## Choosing, and the classic traps
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Which method to reach for
+
+| The claim… | Method |
+|---|---|
+| follows by straight algebra | **direct** |
+| behaves differently for even/odd, ± | **cases** |
+| says "impossible / irrational / no largest" | **contradiction** |
+| is a "for all" you suspect is **false** | **counterexample** |
+:::
+
+::: {.fs-card}
+### The traps that lose the mark
+
+- **Proving a "for all" by examples** — examples only ever *disprove*.
+- **Cases that miss a possibility** — they must be exhaustive.
+- A "contradiction" that just **restates** the assumption — it must be genuinely impossible.
+- A counterexample that **doesn't satisfy the hypothesis** — then it proves nothing.
+:::
+
+::: {.fs-card}
+### Where these show up (cross-exam)
+
+Paper 2 **Prf1** tests exactly these four. The same methods are the backbone of **STEP** and **MAT**
+long-answer proofs, and of any olympiad. On Paper 2 they appear as **multiple choice** — "which is a
+valid proof / disproof", "what must you assume for a contradiction".
+:::
+
+::::
+
+:::::
+
+::: {.callout-tip}
+## Modular arithmetic — memorise this much
+
+- $a\equiv b\pmod m$ means $a$ and $b$ leave the **same remainder** when divided by $m$ — read "$a$ is
+  **congruent** to $b$, modulo $m$", where $m$ is the **modulus**.
+- It is **not** a fifth proof method — it is the fast **language** for *proof by cases*: split by residue,
+  $\ n\equiv 0,1,\dots,m-1 \pmod m$.
+- **Shortcut:** substitute the *remainders*, not $n=mk+r$ — e.g. $n\equiv2\equiv-1\pmod3$.
+
+*The word usage (modulus / modulo / modular / congruent), the board card, and a worked shortcut are in the
+[Notes](#modular-arithmetic-the-language-of-proof-by-cases).*
+:::
+
+:::: {.fpnotes}
+
+## Facts to know cold — true or false?
+
+These are the elementary facts the Paper 2 proof questions **assume you already know** — drawn from the
+claims across the 2016–2023 papers (parity, divisibility, primes, rationality, inequalities). Decide each
+verdict yourself; the answer and a one-line proof for every statement are in
+**[Proofs of the "true or false?" facts](#proofs-of-the-true-or-false-facts)** below. **The *False* ones are
+the traps.**
+
+**Parity — odd / even**
+
+| Statement | T / F ? |
+|---|:--:|
+| The sum of two odd integers is even. | |
+| The sum of an odd and an even integer is odd. | |
+| The product of two odd integers is odd. | |
+| The product of two even integers is divisible by $4$. | |
+| The product of two consecutive integers is even. | |
+| If $n^2$ is even, then $n$ is even. | |
+| $n^2+n$ is even for every integer $n$. | |
+| The sum of three consecutive integers is always even. | |
+
+**Divisibility**
+
+| Statement | T / F ? |
+|---|:--:|
+| Every multiple of $6$ is a multiple of $3$. | |
+| The sum of any three consecutive integers is divisible by $3$. | |
+| $n^3-n$ is divisible by $6$ for every integer $n$. | |
+| Every multiple of $3$ is a multiple of $6$. | |
+| If a number is divisible by $2$ and by $4$, then it is divisible by $8$. | |
+
+**Primes**
+
+| Statement | T / F ? |
+|---|:--:|
+| $2$ is the only even prime number. | |
+| Every prime number greater than $2$ is odd. | |
+| There are infinitely many prime numbers. | |
+| $1$ is a prime number. | |
+| Every prime number is odd. | |
+| The sum of two prime numbers is always even. | |
+| $n^2+n+41$ is prime for every positive integer $n$. | |
+
+**Rational / irrational**
+
+| Statement | T / F ? |
+|---|:--:|
+| $\sqrt2$ is irrational. | |
+| The sum of a rational number and an irrational number is irrational. | |
+| The sum of two irrational numbers is always irrational. | |
+| The product of two irrational numbers is always irrational. | |
+
+**Inequalities & squares**
+
+| Statement | T / F ? |
+|---|:--:|
+| For all real $x$, $\;x^2\ge0$. | |
+| The square of any integer is a multiple of $4$, or one more than a multiple of $4$. | |
+| For all real $x$, $\;x^2>0$. | |
+| If $a<b$ then $a^2<b^2$. | |
+| $\sqrt{x^2}=x$ for all real $x$. | |
+
+## Factorisation $\Rightarrow$ primality — which implications hold?
+
+The single most-tested trap on the number-theory proofs (2022 P2 **Q7**, and the [S7 mark scheme
+B2](s07_assignment_ms.qmd)) is confusing **"the polynomial does not factorise"** with **"the value it computes
+is prime"**. These are different statements. Below are the $A\Rightarrow B$ implications that come up again and
+again — decide each verdict, then check it in the proofs section.
+
+**Polynomial factorisation vs the integer values it produces**
+
+| Statement | T / F ? |
+|---|:--:|
+| If a polynomial $P(x)$ **does not factorise** (into non-constant integer factors), then $P(n)$ is **prime** for every integer $n$. | |
+| If $P(x)$ **does factorise** as $A(x)B(x)$, then $P(n)$ is **composite** for every integer $n$. | |
+| There is an integer-coefficient polynomial of degree $\ge2$ that is **prime for every** integer $n$. | |
+
+**Prime, by definition — an implication and its converse**
+
+| Statement | T / F ? |
+|---|:--:|
+| If $N>1$ **cannot** be written as $a\times b$ with $1<a,b<N$, then $N$ is **prime**. | |
+| If $N$ is **prime**, then $N$ cannot be written as $a\times b$ with $1<a,b<N$. | |
+
+**Algebraic form $\Rightarrow$ primality (the named families)**
+
+| Statement | T / F ? |
+|---|:--:|
+| For integer $n>1$: if $n^2-1$ is prime, then $n=2$. | |
+| For integer $n>1$: if $2^n-1$ is prime (a **Mersenne** prime), then $n$ is prime. | |
+| For integer $n$: if $n$ is prime, then $2^n-1$ is prime. | |
+| For integer $n\ge1$: if $2^n+1$ is prime (a **Fermat** prime), then $n$ is a power of $2$. | |
+
+## Proofs of the "true or false?" facts
+
+Try each table above first. Then open the matching key — every statement with its verdict and a one-line
+reason (a proof for the *True* ones, a counterexample for the *False* ones).
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Parity — answers & proofs
+- Sum of two odd integers is even — **True**: $(2a+1)+(2b+1)=2(a+b+1)$.
+- Odd $+$ even is odd — **True**: $(2a+1)+2b=2(a+b)+1$.
+- Product of two odd integers is odd — **True**: $(2a+1)(2b+1)=2(2ab+a+b)+1$.
+- Product of two even integers is divisible by $4$ — **True**: $(2a)(2b)=4ab$.
+- Product of two consecutive integers is even — **True**: one of $n,\,n+1$ is even.
+- $n^2$ even $\Rightarrow n$ even — **True**: contrapositive — an odd $n=2k+1$ gives $n^2=2(2k^2+2k)+1$, odd.
+- $n^2+n$ is always even — **True**: $n^2+n=n(n+1)$, a product of consecutive integers.
+- Sum of three consecutive integers is always even — **False**: $2+3+4=9$. (It is always a multiple of $3$: $(n-1)+n+(n+1)=3n$.)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Divisibility — answers & proofs
+- Every multiple of $6$ is a multiple of $3$ — **True**: $6k=3(2k)$.
+- Sum of any three consecutive integers is divisible by $3$ — **True**: $(n-1)+n+(n+1)=3n$.
+- $n^3-n$ divisible by $6$ — **True**: $n^3-n=(n-1)\,n\,(n+1)$, three consecutive integers, so a multiple of both $2$ and $3$.
+- Every multiple of $3$ is a multiple of $6$ — **False**: $3$.
+- Divisible by $2$ and by $4$ $\Rightarrow$ divisible by $8$ — **False**: $12=4\times3$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Primes — answers & proofs
+- $2$ is the only even prime — **True**: any larger even number has $2$ as a proper factor.
+- Every prime $>2$ is odd — **True**: an even number $>2$ is divisible by $2$, so not prime.
+- Infinitely many primes — **True**: (Euclid) if $p_1,\dots,p_k$ were all of them, $p_1\cdots p_k+1$ has a prime factor not in the list.
+- $1$ is prime — **False**: a prime has exactly two distinct positive factors; $1$ has one.
+- Every prime is odd — **False**: $2$.
+- Sum of two primes is always even — **False**: $2+3=5$.
+- $n^2+n+41$ is always prime — **False**: at $n=40$, $\;40^2+40+41=1681=41^2$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Rational / irrational — answers & proofs
+- $\sqrt2$ is irrational — **True**: if $\sqrt2=\tfrac pq$ in lowest terms then $p^2=2q^2$, forcing $p$ and $q$ both even — a contradiction.
+- Rational $+$ irrational is irrational — **True**: if $r+i=s$ with $r,s$ rational, then $i=s-r$ is rational — contradiction.
+- Sum of two irrationals is always irrational — **False**: $\sqrt2+(-\sqrt2)=0$.
+- Product of two irrationals is always irrational — **False**: $\sqrt2\times\sqrt2=2$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Inequalities & squares — answers & proofs
+- $x^2\ge0$ for all real $x$ — **True**: a square is never negative.
+- Any integer square is $4k$ or $4k+1$ — **True**: $(2m)^2=4m^2$ and $(2m+1)^2=4(m^2+m)+1$.
+- $x^2>0$ for all real $x$ — **False**: $x=0$ gives $x^2=0$.
+- $a<b\Rightarrow a^2<b^2$ — **False**: $a=-3,\,b=2$ gives $a^2=9>4=b^2$.
+- $\sqrt{x^2}=x$ for all real $x$ — **False**: $\sqrt{x^2}=\lvert x\rvert$; at $x=-1$, $\sqrt{1}=1\neq-1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Factorisation $\Rightarrow$ primality — answers & proofs
+**Polynomial vs its values**
+
+- Irreducible polynomial $\Rightarrow$ prime values — **False**: $P(x)=x^2+1$ is irreducible, yet $P(3)=10=2\times5$. (This is the 2022 Q7 Line IV error — the *polynomial* is irreducible, but the *number* factorises.)
+- Factorable polynomial $\Rightarrow$ composite values — **False**: $P(x)=x^2-1=(x-1)(x+1)$, yet $P(2)=1\times3=3$ is prime (a factor collapsed to $1$). So factorisation is *sufficient but not necessary* for compositeness — see the [S3 note](s03_concepts.qmd).
+- A degree-$\ge2$ polynomial prime for all $n$ — **False**: Euler's $x^2+x+41$ is prime for $n=0,\dots,39$ but $40^2+40+41=41^2$ is composite; no non-constant polynomial is prime for **all** $n$.
+
+**Prime, by definition**
+
+- No factorisation $\Rightarrow$ prime — **True**: this is exactly the definition of a prime.
+- Prime $\Rightarrow$ no factorisation — **True**: the converse, also the definition — so the two are equivalent ($\Leftrightarrow$).
+
+**Named families**
+
+- $n^2-1$ prime $\Rightarrow n=2$ — **True**: $n^2-1=(n-1)(n+1)$; a product is prime only if the smaller factor $n-1=1$, i.e. $n=2$ (giving $3$).
+- $2^n-1$ prime $\Rightarrow n$ prime — **True**: if $n=ab$ is composite then $2^n-1$ has the proper factor $2^a-1$, so it is not prime.
+- $n$ prime $\Rightarrow 2^n-1$ prime — **False**: $n=11$ is prime but $2^{11}-1=2047=23\times89$.
+- $2^n+1$ prime $\Rightarrow n$ a power of $2$ — **True**: if $n$ has an odd factor $m>1$ then $2^{n/m}+1$ is a proper factor of $2^n+1$.
+:::
+
+
+## Notes
+
+### Direct proof
+
+A direct proof assumes the hypothesis and walks to the conclusion by valid steps. The one habit that
+makes it work is **representing the objects generally**: write "an even number" as $2k$ and "an odd
+number" as $2k+1$ for some integer $k$, so a single line of algebra settles *every* number at once. A
+worked example is worth more than the definition:
+
+::: {.example}
+[Example.]{.lbl} Prove that the sum of any two odd numbers is even.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Let the two odd numbers be $2a+1$ and $2b+1$, where $a$ and $b$ are integers. Their sum is
+$$(2a+1)+(2b+1)=2a+2b+2=2(a+b+1).$$
+Since $a+b+1$ is an integer, the sum is $2\times(\text{an integer})$, which is even.
+
+*The whole proof turns on writing each odd number as $2(\text{integer})+1$ — that is what makes it
+general rather than a check of a few cases.* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### Proof by cases
+
+When a statement behaves differently depending on the kind of number, split into a **complete** set of
+cases and prove each. The commonest split is **even or odd**. The rule you must not break: the cases have
+to be **exhaustive** — every possibility must land in one of them.
+
+::: {.example}
+[Example.]{.lbl} Prove that $n^2+n$ is even for every integer $n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Case 1 — $n$ even.** Then $n=2k$, so $n^2+n=4k^2+2k=2(2k^2+k)$, which is even.
+
+**Case 2 — $n$ odd.** Then $n=2k+1$, so $n^2+n=(2k+1)^2+(2k+1)=4k^2+6k+2=2(2k^2+3k+1)$, which is even.
+
+Every integer is even or odd, so the two cases are exhaustive and the statement holds for all $n$.
+
+*A neater one-line alternative is direct: $n^2+n=n(n+1)$ is a product of two consecutive integers, one of
+which is always even. Either proof is fine — but the cases version shows the method.* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### Modular arithmetic — the language of proof by cases {#modular-arithmetic-the-language-of-proof-by-cases}
+
+Modular arithmetic is **not** a fifth proof method; it is the fast **language** for the case split you have
+just seen. This is the full version of the "memorise this much" box up top.
+
+**The "$\equiv$" sign — two meanings.** The three-bar sign signals a stronger or more specific "sameness"
+than the ordinary equals $=$.
+
+1. **Congruence modulo $m$** *(the use all through this session):*
+   $$a\equiv b \pmod{m}\quad\text{means}\quad a\text{ and }b\text{ leave the same remainder when divided by }m.$$
+   For example $5\equiv2\pmod3$, because $5$ and $2$ both leave remainder $2$ on division by $3$.
+2. **Identity or definition:** $(x+1)^2\equiv x^2+2x+1$ is true for **every** $x$ (an identity, not an
+   equation to solve); $f(x)\equiv x^2+1$ reads "**define** $f(x)$ to be $x^2+1$".
+
+*You are never required to write $\equiv$ on TMUA, but you will see it in solutions and textbooks.*
+
+**Which word, when.** The four words share one Latin root but do different jobs:
+
+| Word | Part of speech | Meaning | Say it like |
+|---|---|---|---|
+| **modulus** | noun | the number you divide by (the base) | "$5$ is the modulus" *(plural: moduli)* |
+| **modulo** (mod) | preposition / operator | "with respect to the remainder" | "evaluate this **modulo** $5$"; "$17$ mod $5$ is $2$" |
+| **modular** | adjective | describing the whole system | "**modular** arithmetic", "modular inverse" |
+| **congruent** / congruence | adjective / noun | leaving the **same remainder** | "$17$ is **congruent** to $2$" |
+
+Read every part of $17\equiv2\ (\mathrm{mod}\ 5)$ off the board card:
+
+```
+   17  ≡  2   ( mod  5 )
+       │           └──── modulus  (noun): the base, 5
+       │         └────── modulo   (preposition): "with respect to the remainder"
+       └──────────────── congruent (adjective): "leave the same remainder"
+```
+
+**Master sentence.** *"In modular arithmetic, $17$ and $2$ are congruent modulo $5$, where $5$ is the
+modulus."* &nbsp; *(Wording: say **divisor** — never "divider", which is a partition or a compass; and
+prefer "**reduced modulo**" / "**relative to**" over the casual "clocked by".)*
+
+**Choosing your cases.** Three splits cover almost everything on TMUA:
+
+- **Even / odd:** $\ n=2k\ $ or $\ n=2k+1$.
+- **Sign:** $\ x>0,\ x=0,\ x<0\ $ (the natural split for $\lvert x\rvert$).
+- **Residue classes mod $m$:** $\ n\equiv 0,1,\dots,m-1 \pmod m\ $ — the general version of even/odd.
+
+**The Exhaustive Rule:** the cases must cover **every** possibility, none missed (overlap is harmless; a
+gap is fatal).
+
+::: {.example}
+[Example — mod as an accelerator.]{.lbl} Prove that $3$ divides $n^3-n$ for every integer $n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Split by the **remainder** of $n$ modulo $3$ instead of writing $n=3k,\ 3k+1,\ 3k+2$ and expanding:
+
+- $n\equiv0:\ \ n^3-n\equiv0-0=0.$
+- $n\equiv1:\ \ n^3-n\equiv1-1=0.$
+- $n\equiv2\equiv-1:\ \ n^3-n\equiv(-1)^3-(-1)=-1+1=0.$
+
+All three residue classes give $n^3-n\equiv0\pmod3$, and the split is exhaustive, so $3$ divides $n^3-n$
+for all $n$. $\;\blacksquare$
+
+*Notice how using $2\equiv-1$ collapses the awkward "$8-2$" into "$-1+1$" — that is the whole speed
+advantage of working with remainders.*
+:::
+
+::: {.workbox}
+
+:::
+
+### Proof by contradiction
+
+Assume the statement is **false**, then derive something impossible; the impossibility means the
+assumption was wrong, so the statement is true. It is the natural weapon for claims about
+**irrationality, impossibility, or "there is no largest…"** — where a direct construction is hopeless.
+
+::: {.example}
+[Example.]{.lbl} Prove that $\sqrt2$ is irrational.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Suppose, for contradiction, that $\sqrt2$ **is** rational. Then $\sqrt2=\dfrac{a}{b}$ for integers $a,b$
+with **no common factor** (the fraction in lowest terms), $b\neq0$.
+
+Squaring: $2=\dfrac{a^2}{b^2}$, so $a^2=2b^2$. Then $a^2$ is even, so $a$ is even; write $a=2c$. Then
+$4c^2=2b^2$, i.e. $b^2=2c^2$, so $b^2$ is even and hence $b$ is even.
+
+But now $a$ and $b$ are **both even** — they share the factor $2$ — contradicting "no common factor". The
+assumption is impossible, so $\sqrt2$ is irrational.
+
+*The engine is the fact "$a^2$ even $\Rightarrow a$ even" (itself a contradiction proof), used twice. The
+contradiction is real: we forced a common factor into a fraction we chose to have none.* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+The step "$a^2$ even $\Rightarrow a$ even" is worth doing on its own, because it is a contradiction proof
+in miniature and a favourite exam target.
+
+::: {.example}
+[Example.]{.lbl} Prove that if $n^2$ is even then $n$ is even.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Suppose $n^2$ is even but, for contradiction, $n$ is **odd**. Then $n=2k+1$, so
+$$n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1,$$
+which is **odd** — contradicting that $n^2$ is even. So $n$ cannot be odd; $n$ is even.
+
+*Assuming the opposite of the conclusion (here "$n$ odd") and reaching "$n^2$ odd" is the whole move —
+that clash with the hypothesis is the contradiction.* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### Disproof by counterexample
+
+A statement of the form **"for all … , …"** is **false** the moment a single example satisfies its
+hypothesis but breaks its conclusion. One counterexample is a complete disproof — and, crucially, the
+example must genuinely **fit the hypothesis**, or it proves nothing.
+
+The mirror-image warning: you can **never prove** a "for all" statement by checking examples, however
+many. Examples disprove; they do not prove.
+
+::: {.example}
+[Example.]{.lbl} Disprove: "for all integers $a,b$, if $a<b$ then $a^2<b^2$."
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Take $a=-3$, $b=2$. Then $a<b$ (the hypothesis holds), but $a^2=9$ and $b^2=4$, so $a^2<b^2$ is **false**.
+This single counterexample disproves the statement.
+
+*The hypothesis "$a<b$" is satisfied, so the example is legal; the negatives are exactly where squaring
+reverses the inequality. Always test negatives on claims like this.* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+::: {.example}
+[Example.]{.lbl} A student claims "$n^2+n+41$ is prime for every positive integer $n$." Show this is
+false.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+It is prime for many small $n$, but try $n=40$:
+$$40^2+40+41=1600+40+41=1681=41^2,$$
+which is **not** prime (it is $41\times41$). So $n=40$ is a counterexample and the claim is false.
+
+*Checking $n=1,2,3,\dots$ and finding primes proves nothing — a "for all" needs the general argument or a
+single counterexample. Here the value at $n=40$ is forced to have a factor of $41$.* $\;\blacksquare$
+:::
+
+::: {.callout-tip collapse="true"}
+## Tips — how to *find* the counterexample fast (a 2-step recipe)
+
+Don't test $n=1,2,3,\dots$ — the first $39$ values are all prime, so you would run out of time. For
+**any** "$f(n)$ is prime for all $n$" claim, force a factor in two steps.
+
+**Step 1 — try $n=f(0)$.**
+The constant term is $f(0)=41$. For an integer-coefficient polynomial, putting $n=f(0)$ **always** makes
+$f(n)$ a multiple of $f(0)$:
+$$f(41)=41^2+41+41=41(41+1+1)=41\times43.$$
+One counterexample in three seconds — no primality test, the $41$ factors out by eye. (You don't have to
+find $40$.)
+
+**Step 2 — group off the constant, then solve a divisibility.**
+Peel the constant $c=f(0)$ off and factor what is left:
+$$f(n)=n^2+bn+c=n(n+b)+c \qquad\bigl(\text{in general } an^2+bn+c=n(an+b)+c\bigr).$$
+To make $f(n)$ non-prime, find an $n$ that makes the term $n(n+b)$ a multiple of the constant $c$ (here
+$41$).
+
+- **The goal:** make $f(n)=n(n+1)+41$ a multiple of $41$.
+- **The rule:** since $41$ is already a multiple of $41$, the whole thing is a multiple of $41$
+  **exactly when $n(n+1)$ is a multiple of $41$**.
+- **The solution** $\bigl(n\equiv0$ or $n\equiv-1\pmod{41}\bigr)$:
+  - **Case 1:** $n$ is a multiple of $41$ &nbsp;$\to$&nbsp; $n=41$.
+  - **Case 2:** $n+1$ is a multiple of $41$ &nbsp;$\to$&nbsp; $n=40$ &nbsp;(the smallest counterexample).
+
+**If it doesn't factor:** look **mod a small number** ($2,3,5$) for an $n$ that always makes $f(n)\equiv0$.
+:::
+
+::: {.workbox}
+
+:::
+
+## Proofs of the "true or false?" facts
+
+The *why* behind every fact in the box near the top — a short proof for each **true** statement and a
+counterexample for each **false** one, in the same order.
+
+### Parity
+
+**1. The sum of two odd integers is even.** *(True)* — $(2k+1)+(2m+1)=2(k+m+1)$, a multiple of $2$.
+
+**2. The sum of an odd and an even integer is odd.** *(True)* — $(2k+1)+2m=2(k+m)+1$.
+
+**3. The product of two odd integers is odd.** *(True)* —
+$(2k+1)(2m+1)=4km+2k+2m+1=2(2km+k+m)+1$.
+
+**4. The product of two even integers is divisible by $4$.** *(True)* — $(2k)(2m)=4(km)$.
+
+**5. The product of two consecutive integers is even.** *(True)* — of $n$ and $n+1$ one is even, so the
+product is a multiple of $2$.
+
+**6. If $n^2$ is even, then $n$ is even.** *(True)* — by contrapositive: if $n=2k+1$ is odd then
+$n^2=4k^2+4k+1=2(2k^2+2k)+1$ is odd; so $n^2$ even $\Rightarrow n$ even.
+
+**7. $n^2+n$ is even for every integer $n$.** *(True)* — $n^2+n=n(n+1)$, a product of consecutive
+integers, even by (5).
+
+**8. The sum of three consecutive integers is always even.** *(False)* — $2+3+4=9$ is odd. (In general
+$n+(n+1)+(n+2)=3(n+1)$: always a multiple of $3$, not necessarily even.)
+
+### Divisibility
+
+**1. Every multiple of $6$ is a multiple of $3$.** *(True)* — $x=6k=3(2k)$.
+
+**2. The sum of any three consecutive integers is divisible by $3$.** *(True)* — $n+(n+1)+(n+2)=3(n+1)$.
+
+**3. $n^3-n$ is divisible by $6$ for every integer $n$.** *(True)* — $n^3-n=(n-1)n(n+1)$, three
+consecutive integers: divisible by $2$ and by $3$, hence by $6$.
+
+**4. Every multiple of $3$ is a multiple of $6$.** *(False)* — $9=3\times3$ is a multiple of $3$ but not of
+$6$.
+
+**5. If a number is divisible by $2$ and by $4$, then it is divisible by $8$.** *(False)* — $4$ is
+divisible by $2$ and by $4$ but not by $8$. (Divisibility by $4$ already gives divisibility by $2$, but
+not by $8$.)
+
+### Primes
+
+**1. $2$ is the only even prime number.** *(True)* — any even number $>2$ is $2k$ with $k>1$, so it has
+divisors $1,2,2k$ — not prime.
+
+**2. Every prime number greater than $2$ is odd.** *(True)* — the only even prime is $2$; every larger
+even number is divisible by $2$.
+
+**3. There are infinitely many prime numbers.** *(True)* — (Euclid) suppose $p_1,\dots,p_n$ were all the
+primes; then $N=p_1p_2\cdots p_n+1$ leaves remainder $1$ on division by each $p_i$, so it has a prime
+factor not on the list — a contradiction.
+
+**4. $1$ is a prime number.** *(False)* — a prime has exactly two positive divisors; $1$ has only one.
+
+**5. Every prime number is odd.** *(False)* — $2$ is prime and even.
+
+**6. The sum of two prime numbers is always even.** *(False)* — $2+3=5$ is odd.
+
+**7. $n^2+n+41$ is prime for every positive integer $n$.** *(False)* — $n=41$: $41^2+41+41=41(41+1+1)=
+41\times43$, composite. (See the **Tips** above for how to find this fast.)
+
+### Rational / irrational
+
+**1. $\sqrt2$ is irrational.** *(True)* — suppose $\sqrt2=a/b$ in lowest terms; then $2b^2=a^2$, so $a^2$
+is even, hence $a=2k$; then $b^2=2k^2$, so $b$ is even too — contradicting "lowest terms".
+
+**2. The sum of a rational and an irrational number is irrational.** *(True)* — if $r$ is rational and
+$r+i=s$ were rational, then $i=s-r$ is a difference of rationals, hence rational — contradiction.
+
+**3. The sum of two irrational numbers is always irrational.** *(False)* — $\sqrt2+(-\sqrt2)=0$ is
+rational.
+
+**4. The product of two irrational numbers is always irrational.** *(False)* — $\sqrt2\times\sqrt2=2$ is
+rational.
+
+### Inequalities & squares
+
+**1. For all real $x$, $\;x^2\ge0$.** *(True)* — if $x>0$, $x^2>0$; if $x=0$, $x^2=0$; if $x<0$,
+negative $\times$ negative $>0$.
+
+**2. The square of any integer is a multiple of $4$, or one more than a multiple of $4$.** *(True)* —
+even $n=2k$: $n^2=4k^2$; odd $n=2k+1$: $n^2=4(k^2+k)+1$.
+
+**3. For all real $x$, $\;x^2>0$.** *(False)* — $x=0$ gives $x^2=0$, not $>0$.
+
+**4. If $a<b$ then $a^2<b^2$.** *(False)* — $a=-3,\,b=1$: $-3<1$ but $9\not<1$.
+
+**5. $\sqrt{x^2}=x$ for all real $x$.** *(False)* — $\sqrt{x^2}=|x|$; $x=-5$ gives $\sqrt{25}=5\neq-5$.
+
+::::

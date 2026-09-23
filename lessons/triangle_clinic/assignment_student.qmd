@@ -1,0 +1,298 @@
+---
+title: "Triangle Clinic — Assignment"
+subtitle: "Hard set — the ambiguous case, the cosine-rule quadratic, acute/obtuse tests, area & circumradius, coordinate triangles"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **88 marks** · Suggested time: **110 minutes**. Every question is exam
+standard or above.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Counting & classifying** | SSA counts · acute/right/obtuse sign test · circumradius | 14 |
+| **B — Exam standard** | "uniquely determined" · cosine-rule quadratic · two-triangle ranges · coordinate area & collinearity · max area | 25 |
+| **C — Push to 9** | area-ratio SSA · circumradius from three sides · maximum area · coordinate angles · bearings · a general proof | 29 |
+| **D — Cross-exam ambiguous** | necessary/sufficient · both-acute · product sides · count-by-angle · inscribed circle | 20 |
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Counts → **a whole number** (and say none/one/two). Lengths, $\cos\theta$, areas and
+circumradii → **exact** (surd) form. Ranges → an **inequality/interval**. For the ambiguous case, always
+compare the opposite side with **both** the height $h=c\sin A$ and the adjacent side $c$.
+:::
+
+---
+
+# Section A — Counting & classifying
+
+## Question 1 **[4]**
+
+In triangle $ABC$, $AB=12$ and $\angle BAC=30^\circ$; the side $BC$ is variable. State how many triangles
+exist when
+
+&nbsp;&nbsp;(a) $BC=5$ **[1]** &nbsp;&nbsp;&nbsp; (b) $BC=6$ **[1]** &nbsp;&nbsp;&nbsp;
+(c) $BC=10$ **[1]** &nbsp;&nbsp;&nbsp; (d) $BC=13$ **[1]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 2 **[3]**
+
+Classify each triangle as acute, right-angled or obtuse, **without** finding any angle.
+
+&nbsp;&nbsp;(a) sides $4,5,6$ **[1]** &nbsp;&nbsp;&nbsp; (b) sides $6,8,10$ **[1]** &nbsp;&nbsp;&nbsp;
+(c) sides $5,5,8$ **[1]**
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 3 **[4]**
+
+A triangle has sides $x$, $x+3$ and $x+5$. Find the values of $x$ for which the triangle **exists**, and the
+values for which it is **obtuse**.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 4 **[3]**
+
+In triangle $ABC$, $BC=10$ and $\angle BAC=30^\circ$. Find the exact radius $R$ of the circle through $A$,
+$B$ and $C$.
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 5 **[5]**
+
+In triangle $PQR$, $PR=3$, $QR=p$ and $\angle RPQ=30^\circ$. Find the set of **all** values of $p$ for which
+this information **uniquely determines** the length $PQ$.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 6 **[4]**
+
+In triangle $ABC$, $\angle A=60^\circ$, $AB=3$ and $BC=7$. Show that there is exactly **one** such triangle,
+and find $AC$.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 7 **[4]**
+
+A triangle has $\angle A=30^\circ$ and the side next to $A$ equal to $10$. For which values of the side
+$a$ **opposite** $A$ are there **exactly two** triangles?
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 8 **[4]**
+
+Find the area of the triangle with vertices $A(2,1)$, $B(6,3)$ and $C(4,8)$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 9 **[4]**
+
+Find the value of $k$ for which $A(1,2)$, $B(4,k)$ and $C(7,14)$ do **not** form a triangle.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 10 **[4]**
+
+Two sides of a triangle are $9$ and $12$, meeting at an angle $\theta$.
+
+&nbsp;&nbsp;(a) Find the largest possible area, and the value of $\theta$ at which it occurs. **[2]**
+
+&nbsp;&nbsp;(b) If instead the area is $27$, find the two possible values of $\theta$. **[2]**
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Section C — Push to 9
+
+## Question 11 **[6]**
+
+A triangle $ABC$ has $AC=3$ and $BC=5$, and the angle at $B$ is $\theta$. Of the two possible triangles, the
+larger has **twice** the area of the smaller. Find $\cos\theta$ in exact form.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 12 **[5]**
+
+A triangle has sides $5$, $5$ and $6$. Find **(a)** its area and **(b)** the radius $R$ of its circumscribed
+circle. *(You may use $R=\dfrac{abc}{4\times\text{area}}$.)*
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 13 **[5]**
+
+A triangle has one side of length $10$ and a perimeter of $24$. Find the **greatest possible area**, and the
+side lengths that achieve it.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 14 **[4]**
+
+A triangle has vertices $A(0,0)$, $B(6,0)$ and $C(2,5)$.
+
+&nbsp;&nbsp;(a) Find its area. **[2]** &nbsp;&nbsp;&nbsp;
+(b) Determine whether the angle at $A$ is acute, right, or obtuse, justifying your answer. **[2]**
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 15 **[4]**
+
+Two ships leave a port at the same time: ship $X$ sails $8\,$km on a bearing of $040^\circ$, and ship $Y$
+sails $5\,$km on a bearing of $100^\circ$. Find the exact distance between the two ships. *(The setup is shown
+below.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+def brg(dist,deg):
+    a=np.radians(deg); return np.array([dist*np.sin(a),dist*np.cos(a)])
+P=np.array([0,0]); X=brg(8,40); Y=brg(5,100)
+plt.figure(figsize=(3.6,3.4))
+plt.plot([P[0],X[0]],[P[1],X[1]],'-o',color='#2b6cb0'); plt.plot([P[0],Y[0]],[P[1],Y[1]],'-o',color='#dd6b20')
+plt.annotate('port',P,textcoords='offset points',xytext=(-24,-4),fontsize=8)
+plt.annotate('X (8 km, 040°)',X,textcoords='offset points',xytext=(4,4),fontsize=8,color='#2b6cb0')
+plt.annotate('Y (5 km, 100°)',Y,textcoords='offset points',xytext=(4,-10),fontsize=8,color='#dd6b20')
+plt.annotate('N',(0,8.6),ha='center',fontsize=9); plt.arrow(0,0,0,8,head_width=0.3,color='0.6',lw=0.6,length_includes_head=True)
+plt.gca().set_aspect('equal'); plt.axis('off'); plt.xlim(-1,7); plt.ylim(-1.5,9)
+plt.tight_layout(); plt.show()
+```
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 16 **[5]**
+
+In the ambiguous case, a triangle has known angle $A$, known adjacent side $c$, and known opposite side $a$
+with $c\sin A<a<c$ (so two triangles exist). By writing the cosine rule at $A$ as a quadratic in the third
+side $b$, prove that the two possible values of $b$ are
+$$b=c\cos A\pm\sqrt{a^{2}-c^{2}\sin^{2}A}.$$
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section D — Cross-exam ambiguous case
+
+## Question 17 **[4]**
+
+In triangle $ABC$, $\angle A=30^\circ$, $AB=x^{2}$ and $BC=x$ ($x>0$).
+
+&nbsp;&nbsp;(a) Find the exact set of $x$ for which there are **two** non-congruent triangles. **[3]**
+
+&nbsp;&nbsp;(b) State whether "$0<x<3$" is a **necessary** or a **sufficient** condition for two triangles. **[1]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 18 **[4]**
+
+A triangle $ABC$ has $AB=x$, $BC=3$ and $\angle BAC=30^\circ$. Find the range of $x$ for which there are two
+non-congruent triangles **and** $\angle ABC$ is acute in **both**.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 19 **[4]**
+
+In triangle $ABC$, $\angle A=30^\circ$, $BC=(x-2)(x-5)$ and $AC=(5-x)(x-10)$. Find the complete set of $x$ for
+which there are **two** non-congruent triangles. *(Force both sides positive first.)*
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 20 **[4]**
+
+Consider triangles $ABC$ with $AB=1$, $\sin A=\tfrac12$ and $\cos C=x$. Find the **greatest** value of $x$
+for which there is **exactly one** distinct triangle.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 21 **[4]**
+
+A circle is inscribed in an equilateral triangle of side $6$. Find **(a)** the radius of the circle and
+**(b)** the exact area of the triangle.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+:::

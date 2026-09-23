@@ -1,0 +1,238 @@
+---
+title: "Toolkit S2 — Converse & Contrapositive · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 2"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Why learn this when TMUA is multiple choice?
+
+You never write a proof on TMUA — every question is **multiple choice**. But the exam tests whether you
+can **judge** a claim: which of these is the contrapositive? does the converse follow? Being able to swap
+and negate an "if … then …" correctly in your head is exactly what lets you pick the right option in
+seconds.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Arg1</div>
+<div class="fs-title">Converse & Contrapositive — Key Concepts</div>
+<div class="fs-sub">From one statement "if P then Q" you can build three relatives. The one rule that matters: the <strong>contrapositive is always equivalent</strong> to the original; the <strong>converse almost never is</strong>.</div>
+::::
+
+## The original and its three relatives
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Build them from "if $P$ then $Q$"
+
+Start from $P\Rightarrow Q$.
+
+$$\textbf{Converse:}\ \text{if } Q \text{ then } P \quad(\text{swap})$$
+$$\textbf{Inverse:}\ \text{if not }P\text{ then not }Q \quad(\text{negate both})$$
+$$\textbf{Contrapositive:}\ \text{if not }Q\text{ then not }P \quad(\text{swap **and** negate})$$
+:::
+
+::: {.fs-card}
+### Contrapositive — **always** equivalent
+
+$$\text{"if }P\text{ then }Q\text{"}\ \equiv\ \text{"if not }Q\text{ then not }P\text{"}$$
+
+Same truth value, every time. This is why **proof by contrapositive** is valid: to prove $P\Rightarrow Q$
+you may instead prove $\text{not }Q\Rightarrow\text{not }P$.
+
+[to prove "if $n^2$ even then $n$ even", prove the contrapositive "if $n$ odd then $n^2$ odd"]{.eg}
+:::
+
+::: {.fs-card}
+### Converse — almost **never** equivalent
+
+The converse is a **separate** statement, with its own truth value. A true statement can have a false
+converse.
+
+[$x>3\Rightarrow x>0$ is true, but its converse $x>0\Rightarrow x>3$ is false ($x=1$)]{.eg}
+:::
+
+::: {.fs-card}
+### The equivalence map
+
+| This form | has the same truth value as |
+|---|---|
+| **original** | **contrapositive** |
+| **converse** | **inverse** |
+
+[original & contrapositive stand or fall together; converse & inverse stand or fall together]{.eg}
+:::
+
+::::
+
+## In practice, and the trap
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Form each one fast
+
+**Converse:** swap the two halves. **Inverse:** negate both halves (keep order). **Contrapositive:**
+do both — swap *and* negate.
+
+Only the **contrapositive** is guaranteed to match the original.
+:::
+
+::: {.fs-card}
+### The trap — assuming the converse
+
+"If $P$ then $Q$" does **not** give you "if $Q$ then $P$." Treating a statement and its converse as the
+same thing is the classic Arg1 error — and if both happen to hold, that is exactly an **if and only if**.
+:::
+
+::: {.fs-card}
+### Link to necessary / sufficient
+
+$P\Rightarrow Q$ says $P$ is **sufficient** for $Q$ and $Q$ is **necessary** for $P$. The **converse**
+$Q\Rightarrow P$ swaps those roles — which is why it is a genuinely different claim.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## True or false? — test yourself
+
+Two kinds of question: *is this converse/contrapositive statement true?* and *is this rule about the
+forms correct?* Memorise the verdict; **the *False* ones are the traps.**
+
+**A. Statements and their converses / contrapositives**
+
+| Statement | T / F ? |
+|---|:--:|
+| "If $n$ is divisible by $4$, then $n$ is even." | |
+| Its **contrapositive**: "If $n$ is odd, then $n$ is not divisible by $4$." | |
+| Its **converse**: "If $n$ is even, then $n$ is divisible by $4$." | |
+| "If $x>3$ then $x>0$." | |
+| Its **contrapositive**: "If $x\le0$ then $x\le3$." | |
+| Its **converse**: "If $x>0$ then $x>3$." | |
+| "If a number is a multiple of $6$, then it is a multiple of $3$." | |
+| Its **converse**: "If a number is a multiple of $3$, then it is a multiple of $6$." | |
+
+**B. Rules about the forms**
+
+| Statement | T / F ? |
+|---|:--:|
+| A statement and its **contrapositive** always have the same truth value. | |
+| The contrapositive of "if $P$ then $Q$" is "if not $Q$ then not $P$". | |
+| The converse of "if $P$ then $Q$" is "if $Q$ then $P$". | |
+| A statement's **converse** and its **inverse** always have the same truth value. | |
+| If a statement is true, then its **contrapositive** is also true. | |
+| A statement and its **converse** always have the same truth value. | |
+| If a statement is true, then its **converse** is also true. | |
+| The contrapositive of "if $P$ then $Q$" is "if not $P$ then not $Q$". | |
+
+## Proofs of the "true or false?" facts
+
+Decide each verdict above first, then open the key.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## A. Statements and their converses / contrapositives — answers & proofs
+- "If $n$ divisible by $4$, then $n$ even." — **True**: $4k=2(2k)$.
+- Contrapositive "If $n$ odd, then $n$ not divisible by $4$." — **True**: equivalent to the true original.
+- Converse "If $n$ even, then $n$ divisible by $4$." — **False**: $6$ is even but not divisible by $4$.
+- "If $x>3$ then $x>0$." — **True**: $3>0$.
+- Contrapositive "If $x\le0$ then $x\le3$." — **True**: equivalent to the true original.
+- Converse "If $x>0$ then $x>3$." — **False**: $x=1$.
+- "If a number is a multiple of $6$, then it is a multiple of $3$." — **True**: $6k=3(2k)$.
+- Converse "If a multiple of $3$, then a multiple of $6$." — **False**: $3$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## B. Rules about the forms — answers & proofs
+- A statement and its contrapositive always have the same truth value — **True**: they are logically equivalent.
+- Contrapositive of "if $P$ then $Q$" is "if not $Q$ then not $P$" — **True**: the definition.
+- Converse of "if $P$ then $Q$" is "if $Q$ then $P$" — **True**: the definition.
+- A statement's converse and its inverse always have the same truth value — **True**: they are contrapositives of each other.
+- If a statement is true, its contrapositive is also true — **True**: equivalent statements share truth value.
+- A statement and its converse always have the same truth value — **False**: independent — "multiple of $6\Rightarrow$ multiple of $3$" is true but its converse is false.
+- If a statement is true, its converse is also true — **False**: same reason.
+- Contrapositive of "if $P$ then $Q$" is "if not $P$ then not $Q$" — **False**: that is the **inverse**.
+:::
+
+## Notes
+
+### The three relatives of "if $P$ then $Q$"
+
+From a conditional statement $P\Rightarrow Q$ you can build three others by **swapping** the two halves,
+**negating** them, or both:
+
+| Name | Form | Built by |
+|---|---|---|
+| **Original** | if $P$ then $Q$ | — |
+| **Converse** | if $Q$ then $P$ | swap |
+| **Inverse** | if not $P$ then not $Q$ | negate both |
+| **Contrapositive** | if not $Q$ then not $P$ | swap **and** negate |
+
+### The one fact that matters: the contrapositive is equivalent
+
+A statement and its **contrapositive** are logically equivalent — they are true in exactly the same
+cases. The **converse** and **inverse** are a separate pair, equivalent to each other but **not** to the
+original.
+
+::: {.example}
+[Example.]{.lbl} Write the converse and the contrapositive of "if $n$ is divisible by $4$, then $n$ is
+even", and state whether each is true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Converse** (swap): "if $n$ is even, then $n$ is divisible by $4$." **False** — $6$ is even but not
+divisible by $4$.
+
+**Contrapositive** (swap and negate): "if $n$ is not even (i.e. odd), then $n$ is not divisible by $4$."
+**True** — and it must be, because it is equivalent to the original, which is true. $\;\blacksquare$
+
+*Notice the original is true and the contrapositive is true (they always agree), while the converse is
+false — the converse is simply a different claim.*
+:::
+
+::: {.workbox}
+
+:::
+
+### Why proof by contrapositive works
+
+Because "if $P$ then $Q$" and "if not $Q$ then not $P$" are the same statement, you can prove either one.
+Often the contrapositive is the easier direction.
+
+::: {.example}
+[Example.]{.lbl} Prove that if $n^2$ is even, then $n$ is even, using the contrapositive.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+The contrapositive is: "if $n$ is **odd**, then $n^2$ is **odd**." Proving that settles the original.
+If $n=2k+1$ then $n^2=4k^2+4k+1=2(2k^2+2k)+1$, which is odd. So the contrapositive holds, and therefore so
+does the original. $\;\blacksquare$
+
+*Attacking "$n^2$ even $\Rightarrow n$ even" directly is awkward; the contrapositive "$n$ odd $\Rightarrow
+n^2$ odd" is a one-line direct proof.*
+:::
+
+::: {.workbox}
+
+:::
+
+### Do not assume the converse
+
+The commonest error in this topic is to treat "if $P$ then $Q$" as if it also gave "if $Q$ then $P$." It
+does not. If a statement **and** its converse are both true, then $P$ and $Q$ are equivalent — an **if and
+only if** — which is a stronger claim you must justify separately.
+
+::::

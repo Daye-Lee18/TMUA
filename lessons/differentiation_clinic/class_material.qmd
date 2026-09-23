@@ -1,0 +1,462 @@
+---
+title: "Differentiation Clinic"
+subtitle: "The derivative, stationary points, increasing/decreasing, and optimising over a parameter (MM6)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+This is the **in-spec MM6** bank. TMUA differentiation is never "differentiate and stop" — it is
+**differentiate, then reason**: read the *sign* of $f'$, find where $f'=0$, or **optimise a gradient as a
+parameter varies**. That last move — treating the gradient itself as a function of $a$ (or $q$) and minimising
+*that* — is the one that has caught you, so §4 is the heart of the page. Every question is a real TMUA
+question, and several are ones you got wrong.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM6 Differentiation</div>
+<div class="fs-title">Differentiate, then Reason — Exam Skim Sheet</div>
+<div class="fs-sub">Read this before you start. Every question below is one of these five moves.</div>
+::::
+
+## The five moves
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Differentiate $x^n$
+**Rewrite as powers first**: $\dfrac{1}{x^2}=x^{-2}$, $\sqrt{x}=x^{1/2}$, $\dfrac{1}{\sqrt[3]{x^2}}=x^{-2/3}$.
+
+Then $\dfrac{d}{dx}x^n=nx^{n-1}$, term by term. $f''$ is just differentiating again.
+
+[Never reach for the quotient rule if splitting the fraction works.]{.eg}
+:::
+
+::: {.fs-card}
+### 2 · Stationary points
+Solve $f'(x)=0$, then classify by the **sign change** of $f'$:
+
+$$f':+\to-\ \text{is a MAX},\qquad f':-\to+\ \text{is a MIN}.$$
+
+[Or use the sign of $f''$: $f''>0$ min, $f''<0$ max.]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · Increasing / decreasing
+It is the **sign of $f'$**, nothing else: $f'>0$ increasing, $f'<0$ decreasing.
+
+Factor $f'$ and build a sign table.
+
+[Watch odd roots of negatives: $x^{-5/3}<0$ when $x<0$.]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · Optimise over a parameter
+Asked for the *least gradient at a fixed point as $a$ varies*? Two steps:
+
+1. differentiate in $x$, substitute the point → an expression **in $a$**;
+2. minimise **that** in $a$ (complete the square).
+
+[You differentiate twice, with respect to two different letters — this is the move that catches people.]{.eg}
+:::
+
+::: {.fs-card}
+### 5 · Counting roots
+Find the turning points, evaluate $y$ at each, and count the sign changes between those heights and $\pm\infty$.
+
+[A cubic/quintic crosses once per sign change.]{.eg}
+:::
+
+::: {.fs-card}
+### 6 · Tangents & normals
+Gradient $m=f'$; normal gradient $=-1/m$.
+
+These live in the **[Coordinate geometry clinic](../coordinate_geometry_clinic/class_material.qmd)** (Q2 and Q3).
+:::
+
+::::
+
+:::::
+
+**Supplementary:** [Min/Max of Polynomials](supplementary_minmax.qmd) — where a quartic actually turns (at $\pm p/\sqrt2$, **not** the midpoint of the roots), and working backwards from a given minimum value.
+
+**On this page:** 1. The derivative itself · 2. Stationary points & max/min values · 3. Increasing /
+decreasing · 4. Optimising a gradient over a parameter · 5. Calculus to count roots. Answers are in the
+**Solution** toggles; use the **Working** box first and **give the exact value / set the question asks for**.
+
+---
+
+## 1 · The derivative itself
+
+### Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P1 Q1</span>
+
+::: {.question}
+Which of the following is an expression for the first derivative with respect to $x$ of
+$$\frac{x^3-5x^2}{2x\sqrt{x}}\;?$$
+Options: **A** $-\dfrac{\sqrt{x}}{2}$ · **B** $\dfrac{\sqrt{x}}{4}$ · **C** $\dfrac{3x-5}{4\sqrt{x}}$ · **D**
+$\dfrac{3\sqrt{x}-5}{4\sqrt{x}}$ · **E** $\dfrac{3\sqrt{x}-5}{3\sqrt{x}}$ · **F** $\dfrac{3x^2-10x}{3\sqrt{x}}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(simplify to powers of $x$ first — do not use the quotient rule)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — rewrite as $x^n$ terms, then differentiate term by term
+:::
+
+**Answer form: choose one option. Answer: C, $\dfrac{3x-5}{4\sqrt{x}}$.**
+
+*Write the denominator as a single power: $2x\sqrt{x}=2x^{3/2}$, then split the fraction.*
+$$\frac{x^3-5x^2}{2x^{3/2}}=\tfrac12\bigl(x^{3/2}-5x^{1/2}\bigr).$$
+*Now differentiate term by term:* $\dfrac{d}{dx}=\tfrac12\bigl(\tfrac32x^{1/2}-\tfrac52x^{-1/2}\bigr)
+=\tfrac34x^{1/2}-\tfrac54x^{-1/2}=\dfrac{3x-5}{4\sqrt{x}}$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P1 Q2</span>
+
+::: {.question}
+The function $f$ is given by $f(x)=\left(\dfrac{2}{x}-\dfrac{1}{2x^2}\right)^2$ for $x\neq0$. What is the value
+of $f''(1)$? *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(expand before differentiating — no product/chain rule needed)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — expand to powers of $x$, differentiate twice, evaluate at $1$
+:::
+
+**Answer form: an exact number. Answer: $5$.**
+
+*Square out first so every term is a power of $x$.*
+$$f(x)=\frac{4}{x^2}-\frac{2}{x^3}+\frac{1}{4x^4}=4x^{-2}-2x^{-3}+\tfrac14x^{-4}.$$
+*Differentiate twice.* $f'(x)=-8x^{-3}+6x^{-4}-x^{-5}$, then
+$f''(x)=24x^{-4}-24x^{-5}+5x^{-6}$. *Evaluate at $x=1$:* $f''(1)=24-24+5=5$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 2 · Stationary points & max/min values
+
+### Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q2</span>
+
+::: {.question}
+The curve $y=x^3-6x+3$ has turning points at $x=\alpha$ and $x=\beta$, where $\beta>\alpha$. Find
+$\displaystyle\int_{\alpha}^{\beta}\bigl(x^3-6x+3\bigr)\,dx$. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(find the limits with $y'=0$, then use symmetry)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y'=0$ gives $\alpha,\beta$; odd terms vanish over a symmetric interval
+:::
+
+**Answer form: an exact value. Answer: $6\sqrt{2}$.**
+
+*The turning points come from $y'=0$.* $y'=3x^2-6=0\Rightarrow x=\pm\sqrt2$, so $\alpha=-\sqrt2$, $\beta=\sqrt2$.
+*The interval $[-\sqrt2,\sqrt2]$ is symmetric, so the odd terms $x^3$ and $-6x$ integrate to $0$;* only the
+constant survives:
+$$\int_{-\sqrt2}^{\sqrt2}3\,dx=3\bigl(2\sqrt2\bigr)=6\sqrt2.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,400); y=x**3-6*x+3
+a,b=-np.sqrt(2),np.sqrt(2)
+plt.figure(figsize=(4.4,2.8))
+plt.plot(x,y,'#2b6cb0',lw=1.6)
+xf=np.linspace(a,b,200); plt.fill_between(xf,xf**3-6*xf+3,color='crimson',alpha=.18)
+plt.plot([a,b],[a**3-6*a+3,b**3-6*b+3],'ko',ms=4)
+plt.axhline(0,color='0.5',lw=.8); plt.axvline(0,color='0.5',lw=.8)
+plt.title("Turning points at x = ±√2; integrate between them",fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q12</span>
+
+::: {.question}
+The minimum value of the function $x^4-p^2x^2$ is $-9$, where $p$ is a real number. Find the minimum value of
+the function $x^2-px+6$. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(two minimisations — use the first to pin down $p^2$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — minimise a quartic (sub $u=x^2$), find $p^2$, then complete the square on the quadratic
+:::
+
+**Answer form: an exact value. Answer: $\dfrac{9}{2}$.**
+
+*For the quartic, substitute $u=x^2\ge0$: minimise $u^2-p^2u$.* Its minimum is at $u=\dfrac{p^2}{2}$, value
+$\left(\dfrac{p^2}{2}\right)^2-p^2\!\left(\dfrac{p^2}{2}\right)=-\dfrac{p^4}{4}$. *Set this to $-9$:*
+$-\dfrac{p^4}{4}=-9\Rightarrow p^4=36\Rightarrow p^2=6$.
+
+*Now the quadratic: $x^2-px+6$ has minimum $6-\dfrac{p^2}{4}$ (complete the square).* This is $6-\dfrac{6}{4}
+=\dfrac{9}{2}$ — the same whether $p=\sqrt6$ or $p=-\sqrt6$.
+
+*More on this type — including why the turning point is at $\pm p/\sqrt2$ and not at $p/2$ — in the [Min/Max of Polynomials supplement](supplementary_minmax.qmd).*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+The graph below is the graph of the **derivative** $f'(x)$ of a function $f$, with the two points where it
+meets the $x$-axis marked $P$ and $Q$. At which of $P,Q$ does $f$ have a **local minimum**? *(Give the
+letter.)*
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,4,400)
+fp=(x+1)*(x-2)/2           # derivative: zeros at -1 (+→−) and 2 (−→+)
+plt.figure(figsize=(4.8,2.8))
+plt.plot(x,fp,'#2b6cb0',lw=1.6,label="y = f '(x)")
+plt.axhline(0,color='0.5',lw=.8); plt.axvline(0,color='0.5',lw=.8)
+for xz,lab in [(-1,'P'),(2,'Q')]:
+    plt.plot(xz,0,'ko',ms=5); plt.annotate(lab,(xz,0),textcoords='offset points',xytext=(-4,9),fontsize=10)
+plt.title("Graph of f '(x)  (not f)",fontsize=8); plt.legend(fontsize=8,loc='upper center')
+plt.ylim(-2.5,3.5); plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a minimum is where $f'$ crosses zero going $-\to+$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — read the **sign change** of $f'$, not the shape of $f'$ itself
+:::
+
+**Answer form: a letter. Answer: $Q$ ($x=2$).**
+
+*Stationary points of $f$ are the zeros of $f'$, here $x=-1$ and $x=2$. Classify each by how $f'$ changes sign
+through it.* From the graph, $f'>0$ for $x<-1$, then $f'<0$ on $(-1,2)$, then $f'>0$ for $x>2$.
+
+- At $P\ (x=-1)$: $f'$ goes $+\to-$, so $f$ has a local **maximum**.
+- At $Q\ (x=2)$: $f'$ goes $-\to+$, so $f$ has a local **minimum**.
+
+*The teaching point: don't read the shape of $f'$ as if it were $f$. Where $f'$ climbs through zero, $f$
+bottoms out — so the minimum is at $Q$.*
+
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 3 · Increasing / decreasing (the sign of $f'$)
+
+### Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q18</span>
+
+::: {.question}
+The function $\dfrac{1-x}{\sqrt[3]{x^2}}$ is defined for all $x\neq0$. Find the complete set of values of $x$ for
+which the function is **decreasing**. *(Give your answer as a set / inequalities.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(differentiate, factor, then a sign table — mind the odd root)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $f'<0$ is "decreasing"; the sign of $x^{-5/3}$ flips for $x<0$
+:::
+
+**Answer form: a set of $x$-values. Answer: $x<-2$ or $x>0$** (equivalently $x\le-2$ and $x>0$).
+
+*Write in powers and differentiate.* $f(x)=x^{-2/3}-x^{1/3}$, so
+$$f'(x)=-\tfrac23x^{-5/3}-\tfrac13x^{-2/3}=-\tfrac13x^{-5/3}\bigl(2+x\bigr).$$
+*Sign table, using real cube roots so $x^{-5/3}>0$ for $x>0$ but $x^{-5/3}<0$ for $x<0$:*
+
+- **$x>0$:** $x^{-5/3}>0$ and $2+x>0$, so $f'=-\tfrac13(+)(+)<0$ — **decreasing everywhere on $x>0$**.
+- **$-2<x<0$:** $x^{-5/3}<0$ and $2+x>0$, so $f'=-\tfrac13(-)(+)>0$ — increasing.
+- **$x<-2$:** $x^{-5/3}<0$ and $2+x<0$, so $f'=-\tfrac13(-)(-)<0$ — **decreasing**.
+
+*So $f$ decreases on $x<-2$ and on $x>0$* (with a stationary point at $x=-2$).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+def f(x): return (1-x)/np.cbrt(x**2)
+xn=np.linspace(-6,-0.05,300); xp=np.linspace(0.05,6,300)
+plt.figure(figsize=(4.8,2.8))
+plt.plot(xn,f(xn),'#2b6cb0',lw=1.6); plt.plot(xp,f(xp),'#2b6cb0',lw=1.6)
+plt.axvline(-2,color='crimson',ls='--',lw=1); plt.plot(-2,f(-2),'ko',ms=4)
+plt.axhline(0,color='0.5',lw=.8); plt.axvline(0,color='0.5',lw=.8)
+plt.annotate('stationary\nat x = −2',(-2,f(-2)),textcoords='offset points',xytext=(-58,6),fontsize=8,color='crimson')
+plt.title("Decreasing where f ′ < 0: x < −2 and x > 0",fontsize=8)
+plt.ylim(-6,8); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 4 · Optimising a gradient over a parameter
+
+### Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q15</span>
+
+::: {.question}
+A curve has equation $y=(2x+a)(x-2a)^2$. As $a$ varies, find the **least possible value of the gradient of the
+curve at $x=1$**. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(differentiate in $x$, plug in $x=1$, then minimise the result in $a$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the gradient at $x=1$ is a function **of $a$**; minimise that
+:::
+
+**Answer form: an exact value. Answer: $-\dfrac{25}{4}$.**
+
+*First differentiate with respect to $x$ (product rule):*
+$$\frac{dy}{dx}=2(x-2a)^2+(2x+a)\cdot2(x-2a).$$
+*Now substitute $x=1$ to get the gradient there as a function of $a$:*
+$$\left.\frac{dy}{dx}\right|_{x=1}=2(1-2a)^2+(2+a)\cdot2(1-2a)=4a^2-14a+6.$$
+*This is a quadratic in $a$ opening upwards, so complete the square to find its least value:*
+$4a^2-14a+6=4\left(a-\tfrac{7}{4}\right)^2-\tfrac{25}{4}$. The least gradient is $-\dfrac{25}{4}$, at
+$a=\dfrac{7}{4}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+a=np.linspace(-1,4,300); g=4*a**2-14*a+6
+plt.figure(figsize=(4.4,2.6))
+plt.plot(a,g,'#2b6cb0',lw=1.6)
+amin=14/8; plt.plot(amin,4*amin**2-14*amin+6,'ko',ms=4)
+plt.annotate('least value −25/4',(amin,4*amin**2-14*amin+6),textcoords='offset points',xytext=(6,10),fontsize=8)
+plt.axhline(0,color='0.5',lw=.8)
+plt.title("Gradient at x=1 as a function of a : 4a²−14a+6",fontsize=8)
+plt.xlabel('a',fontsize=8); plt.ylabel("gradient at x=1",fontsize=8); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P1 Q7</span>
+
+::: {.question}
+A curve has equation $y=(2q-x^2)(2qx+3)$. The gradient of the curve at $x=-1$ is a function of $q$. Find the
+value of $q$ which **minimises** that gradient. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(same two-step: gradient at $x=-1$, then minimise in $q$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — reduce the gradient at $x=-1$ to a quadratic in $q$, then minimise
+:::
+
+**Answer form: an exact value. Answer: $q=\dfrac{3}{4}$.**
+
+*Differentiate in $x$ (product rule):* $\dfrac{dy}{dx}=(-2x)(2qx+3)+(2q-x^2)(2q)$. *Substitute $x=-1$:*
+$$\left.\frac{dy}{dx}\right|_{x=-1}=2(-2q+3)+(2q-1)(2q)=4q^2-6q+6.$$
+*Minimise this quadratic in $q$:* the vertex is at $q=\dfrac{6}{2\cdot4}=\dfrac{3}{4}$. (Since the $q^2$
+coefficient is positive, this is indeed a minimum.)
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 5 · Calculus to count roots
+
+### Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q13</span>
+
+::: {.question}
+How many real roots does the equation $3x^5-10x^3-120x+30=0$ have? *(Give a number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(find the turning points, check the sign of $y$ there)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a quintic crosses the axis once per sign-change between its turning-point heights
+:::
+
+**Answer form: a number. Answer: $3$.**
+
+*Find the turning points from $y'=0$.* $y'=15x^4-30x^2-120=15(x^2-4)(x^2+2)$, so $y'=0$ only at $x=\pm2$
+(the factor $x^2+2$ has no real root). *Evaluate $y$ at each turning point:*
+$$y(-2)=+254\ (\text{local max}),\qquad y(2)=-194\ (\text{local min}).$$
+*A quintic runs from $-\infty$ to $+\infty$. It climbs to a local max of $+254$ (one crossing on the way up),
+falls to a local min of $-194$ crossing zero again, then rises to $+\infty$ crossing a third time.* Since the
+local max is positive and the local min is negative, there are exactly **$3$** real roots.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3.2,3.2,500); y=3*x**5-10*x**3-120*x+30
+plt.figure(figsize=(4.6,2.8))
+plt.plot(x,y,'#2b6cb0',lw=1.6)
+plt.plot([-2,2],[3*(-2)**5-10*(-2)**3-120*(-2)+30, 3*2**5-10*2**3-120*2+30],'ko',ms=4)
+plt.axhline(0,color='crimson',lw=.9); plt.axvline(0,color='0.5',lw=.8)
+plt.annotate('local max +254',(-2,254),textcoords='offset points',xytext=(4,-4),fontsize=8)
+plt.annotate('local min −194',(2,-194),textcoords='offset points',xytext=(-40,8),fontsize=8)
+plt.ylim(-320,340); plt.title("Local max > 0 and local min < 0 ⇒ 3 crossings",fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+:::

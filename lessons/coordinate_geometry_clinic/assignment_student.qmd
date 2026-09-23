@@ -1,0 +1,198 @@
+---
+title: "Coordinate Geometry Clinic — Assignment"
+subtitle: "Straight lines, circles, two-circle configurations & circle properties (MM3)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **48 marks** · Suggested time: **65 minutes**. No calculator. Every question
+is exam standard.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Straight lines** | perpendicular lines · perpendicular bisector · normal to a curve | 10 |
+| **B — One circle** | centre & radius · "is it a circle" · point vs circle · tangent line · line-meets-circle | 14 |
+| **C — Two circles** | shortest distance · external tangency · radical axis (common chord) | 10 |
+| **D — Properties & building circles** | chord distance · circle through 3 points · tangent length · centre on a line | 14 |
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Equations of lines → $ax+by+c=0$ or $y=mx+c$. Equations of circles →
+$(x-a)^2+(y-b)^2=r^2$. Coordinates → a point. "How many / inside–on–outside" → a word or number. Lengths and
+$c$-values → **exact** (surd) form. Ranges of a constant → an **inequality**.
+:::
+
+---
+
+# Section A — Straight lines
+
+## Question 1 **[3]**
+
+Find the equation of the line through $(2,-3)$ that is **perpendicular** to $3x-2y=7$. Give your answer in the
+form $ax+by+c=0$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 2 **[3]**
+
+The points are $A(-1,4)$ and $B(5,-2)$. Find the coordinates of the point where the **perpendicular bisector**
+of $AB$ crosses the $y$-axis.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 3 **[4]**
+
+The curve has equation $y=x^2-3x$. Find the equation of the **normal** to the curve at the point $(2,-2)$, and
+state where this normal meets the $y$-axis.
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+# Section B — One circle
+
+## Question 4 **[3]**
+
+A circle has equation $x^2+y^2-6x+4y-12=0$. Find its centre and radius.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 5 **[3]**
+
+Find the complete set of values of $k$ for which
+$$x^2+y^2-2kx+4y+\bigl(2k^2+3\bigr)=0$$
+is the equation of a (real) circle. Give your answer as an inequality.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 6 **[2]**
+
+Determine whether the point $(5,1)$ lies **inside**, **on**, or **outside** the circle
+$(x-1)^2+(y+2)^2=25$. Justify your answer.
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 7 **[3]**
+
+The line $y=2x+c$ is a tangent to the circle $x^2+y^2=20$. Find the possible values of $c$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 8 **[3]**
+
+The line $y=x+k$ meets the circle $x^2+y^2=8$. Find the values of $k$ for which the line meets the circle
+(a) at two points, (b) at exactly one point (a tangent), (c) not at all.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Section C — Two circles
+
+## Question 9 **[3]**
+
+Find the shortest distance between the two circles $(x-1)^2+(y-2)^2=4$ and $(x-7)^2+(y-10)^2=9$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 10 **[3]**
+
+The circles $(x-a)^2+(y-1)^2=9$ and $(x-5)^2+(y-1)^2=4$ **touch externally**. Find the positive value of $a$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 11 **[4]**
+
+The circles $x^2+y^2=25$ and $x^2+y^2-6x-8y+21=0$ intersect at two points. Find the equation of the straight
+line through those two points (the common chord). Give your answer in the form $ax+by=c$.
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+# Section D — Properties & building circles
+
+## Question 12 **[3]**
+
+A chord of length $8$ is drawn in a circle of radius $5$. Find the perpendicular distance from the centre of the
+circle to the chord.
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 13 **[4]**
+
+Find the equation of the circle that passes through the three points $(0,0)$, $(6,0)$ and $(0,8)$.
+*(Hint: what is special about the angle at the origin?)*
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 14 **[3]**
+
+Find the length of the tangent drawn from the external point $P(7,1)$ to the circle $x^2+y^2=10$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 15 **[4]**
+
+A circle passes through the points $(1,2)$ and $(5,2)$, and its centre lies on the line $y=x$. Find the
+equation of the circle.
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+:::

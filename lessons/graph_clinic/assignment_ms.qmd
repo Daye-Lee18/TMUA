@@ -1,0 +1,420 @@
+---
+title: "Graph Clinic — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **65**.
+
+Two habits to check: on a **count**, did they cap the search with an inequality (the line can only meet the
+curve where its height is in range) and remember a **tangency** is a single solution, not zero? On a
+**sketch**, did they give the **domain**, the **asymptotes**, and the **turning points** — not just a shape?
+
+---
+
+# Section A — Reading unfamiliar curves
+
+## Question 1 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$b$ is a negative odd integer, and $a<0$.** &nbsp; **(M1 A1 A1 B1)**
+
+- **Odd $\Rightarrow b$ odd** (an odd power inside keeps the graph odd).
+- **Infinitely fast near $0$, flat outward $\Rightarrow b<0$** (then $x^{b}\to\infty$ as $x\to0$ and
+  $x^{b}\to0$ as $\lvert x\rvert\to\infty$). So $b$ is a **negative odd** integer.
+- For large $x>0$, $x^{b}\to0^{+}$ and $y\approx a\,x^{b}$; approaching the axis **from below** means $y<0$
+  there, so $a<0$.
+
+*The parity of $b$ is fixed by the symmetry, the sign of $b$ by where the wiggles bunch, and the sign of $a$
+by which side of the axis the curve settles onto.*
+:::
+
+---
+
+## Question 2 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) even; (b) odd; (c) even; (d) odd.** &nbsp; **(B1 B1 B1 B1)**
+
+Replace $x$ by $-x$: (a) $(-x)\sin(-x)=x\sin x$ — **even** (odd$\times$odd). (b) $(-x)^{2}\sin(-x)=-x^{2}\sin x$
+— **odd**. (c) $\sin((-x)^{2})=\sin(x^{2})$ — **even**. (d) $(-x)^{3}+(-x)=-(x^{3}+x)$ — **odd**.
+
+*A product is even/odd by adding the parities: odd$\times$odd $=$ even, even$\times$odd $=$ odd.*
+:::
+
+---
+
+## Question 3 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Even; $\to1$ as $\lvert x\rvert\to\infty$ (asymptote $y=1$); minimum $0$ at $x=0$; range $[0,1)$.** &nbsp;
+**(M1 A1 A1)**
+
+Write $\dfrac{x^{2}}{x^{2}+1}=1-\dfrac{1}{x^{2}+1}$. It is **even**; at $x=0$ it is $0$ (the minimum); as
+$\lvert x\rvert\to\infty$ the $\tfrac1{x^{2}+1}\to0$, so $y\to1$ from below — a horizontal asymptote $y=1$
+never reached. Range $[0,1)$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-8,8,600)
+plt.figure(figsize=(5.0,2.9)); plt.plot(x,x**2/(x**2+1),color='#2b6cb0',lw=2)
+plt.axhline(1,color='crimson',ls=':',lw=1); plt.plot(0,0,'o',color='crimson')
+plt.grid(alpha=0.25); plt.ylim(-0.2,1.2); plt.title('y = x²/(x²+1): even, min 0, asymptote y=1',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+*Splitting off the constant $1$ shows instantly that the curve rises from $0$ toward the line $y=1$.*
+:::
+
+---
+
+## Question 4 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$\cos\lvert x\rvert=\cos x$ (identical); $\lvert\cos x\rvert$ is different.** &nbsp; **(M1 A1 A1 B1)**
+
+- **$\cos\lvert x\rvert$:** because $\cos$ is **already even**, $\cos(-x)=\cos x$, so $\cos\lvert x\rvert$ is
+  the **same curve** as $\cos x$ — the $\lvert x\rvert$ changes nothing.
+- **$\lvert\cos x\rvert$:** take $\cos x$ and **flip every negative part up**. The result is a row of positive
+  humps of height $1$, touching $0$ at every odd multiple of $\tfrac\pi2$, with period $\pi$ (half the period
+  of $\cos$).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2*np.pi,2*np.pi,800)
+fig,ax=plt.subplots(1,2,figsize=(6.8,2.6))
+ax[0].plot(x,np.cos(np.abs(x)),color='#2b6cb0',lw=1.6); ax[0].set_title('y = cos|x| = cos x',fontsize=9)
+ax[1].plot(x,np.abs(np.cos(x)),color='#2b6cb0',lw=1.6); ax[1].set_title('y = |cos x|: humps, period π',fontsize=9)
+for a in ax: a.axhline(0,color='0.6',lw=0.5); a.grid(alpha=0.2); a.set_ylim(-1.2,1.2)
+plt.tight_layout(); plt.show()
+```
+
+*The "inside" modulus does nothing to an already-even function; the "outside" modulus is what folds the
+negative arches up.*
+:::
+
+---
+
+## Question 5 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Starts at $0$, passes through $(1,1)$, $\to1$ as $x\to\infty$; maximum $e^{1/e}\approx1.44$ at $x=e$.**
+&nbsp; **(M1 A1 A1)**
+
+Write $x^{1/x}=e^{(\ln x)/x}$. As $x\to0^{+}$, $\tfrac{\ln x}{x}\to-\infty$, so $y\to0$; at $x=1$, $y=1$; as
+$x\to\infty$, $\tfrac{\ln x}{x}\to0$, so $y\to1$. Differentiating the exponent, $\dfrac{\mathrm d}{\mathrm dx}
+\dfrac{\ln x}{x}=\dfrac{1-\ln x}{x^{2}}=0$ at $x=e$, giving the maximum $y=e^{1/e}$.
+
+*The single hump comes from the exponent $\tfrac{\ln x}{x}$, which rises to its own maximum at $x=e$ then
+falls back toward $0$.*
+:::
+
+---
+
+# Section B — Counting as intersections
+
+## Question 6 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Two.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+Solutions are crossings of $y=3^{x}$ (through $(0,1)$, rising steeply) and the line $y=x+3$ (through $(0,3)$,
+gradient $1$). For very negative $x$, $3^{x}\to0$ while the line $\to-\infty$, so the line is below — one
+crossing on the left (near $x\approx-2.96$). At $x=0$ the line ($3$) is above the curve ($1$); the steep
+exponential overtakes it, giving a second crossing (near $x\approx1.34$), after which $3^{x}$ stays above.
+**Two** solutions.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,3,500)
+plt.figure(figsize=(5.2,3.0)); plt.plot(x,3.0**x,color='#2b6cb0',lw=2,label='y=3ˣ'); plt.plot(x,x+3,color='crimson',lw=1.6,label='y=x+3')
+for r in [-2.961,1.335]: plt.plot(r,r+3,'ko',ms=4)
+plt.ylim(-1,10); plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.axhline(0,color='0.6',lw=0.5)
+plt.title('3ˣ = x+3: two crossings',fontsize=9); plt.tight_layout(); plt.show()
+```
+
+*An exponential meets a line at most twice; here it does so once on each side of the point where the line sits
+above the curve.*
+:::
+
+---
+
+## Question 7 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Four: $x=\pm1,\ \pm\sqrt7$.** &nbsp; **(M1 A1 A1 B1)**
+
+$\lvert x^{2}-4\rvert=3\Rightarrow x^{2}-4=\pm3$. So $x^{2}=7$ ($x=\pm\sqrt7$) or $x^{2}=1$ ($x=\pm1$) — four
+solutions.
+
+*The outer modulus splits into two quadratics; both give two real roots because $7,1>0$.*
+:::
+
+---
+
+## Question 8 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$-2<k<2$.** &nbsp; **(M1 A1 A1 B1)**
+
+$y=x^{3}-3x$ has $y'=3x^{2}-3=0$ at $x=\pm1$: a local **maximum** $y=2$ at $x=-1$ and a local **minimum**
+$y=-2$ at $x=1$. A horizontal line $y=k$ cuts the curve three times exactly when it lies strictly between the
+turning-point heights: $-2<k<2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.3,2.3,500)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,x**3-3*x,color='#2b6cb0',lw=2)
+plt.axhline(2,color='crimson',ls=':',lw=1); plt.axhline(-2,color='crimson',ls=':',lw=1)
+plt.plot(-1,2,'o',color='crimson'); plt.plot(1,-2,'o',color='crimson')
+plt.grid(alpha=0.25); plt.title('y = x³−3x: three roots when −2 < k < 2',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+*At $k=\pm2$ the line is tangent at a turning point (a repeated root), dropping the count to two.*
+:::
+
+---
+
+## Question 9 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Three.** &nbsp; **(M1 A1 A1 B1)**
+
+Write $\cos x=\tfrac{x}{5}$: crossings of $y=\cos x$ with the line $y=\tfrac{x}{5}$ (gradient $\tfrac15$). The
+line reaches $\pm1$ at $x=\pm5$, so crossings only occur for $\lvert x\rvert\le5$. Counting there gives one on
+the right (near $x\approx1.3$) and two on the left (near $x\approx-2.0,-3.8$): **three**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,1200)
+plt.figure(figsize=(5.4,3.0)); plt.plot(x,np.cos(x),color='#2b6cb0',lw=1.6,label='y=cos x'); plt.plot(x,x/5,color='crimson',lw=1.4,label='y=x/5')
+for r in [-3.837,-1.977,1.306]: plt.plot(r,np.cos(r),'ko',ms=3)
+plt.axhline(0,color='0.6',lw=0.5); plt.grid(alpha=0.2); plt.legend(fontsize=8)
+plt.title('5 cos x = x: three crossings inside |x|≤5',fontsize=9); plt.tight_layout(); plt.show()
+```
+
+*The bounding step is $\lvert x/5\rvert\le1$; outside $[-5,5]$ the line has left the strip the cosine lives
+in.*
+:::
+
+---
+
+## Question 10 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Two.** &nbsp; **(M1 A1 A1)**
+
+Both $y=x^{2}$ and $y=\cos x$ are **even**, so solutions come in $\pm$ pairs. Near $0$, $\cos x\approx1>0=x^{2}$
+at $x=0$, but $x^{2}$ overtakes $\cos x$ by $x=1$ ($1>\cos1$), giving one crossing on $x>0$ (near $x\approx0.82$)
+and its mirror on $x<0$. For $\lvert x\rvert\ge1$, $x^{2}\ge1\ge\cos x$ with equality impossible, so no more.
+**Two** solutions.
+
+*Evenness halves the work: find the positive crossing, then double it.*
+:::
+
+---
+
+# Section C — Sketching harder curves
+
+## Question 11 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Asymptotes $x=\pm2$; even; middle branch a downward hump with max $-\tfrac14$ at $x=0$; outer branches drop
+from $+\infty$ toward $0$; range $y\le-\tfrac14$ or $y>0$.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+Denominator $0$ at $x=\pm2$ (vertical asymptotes); as $\lvert x\rvert\to\infty$, $y\to0$. Even (only $x^{2}$
+appears). On $-2<x<2$ the denominator is negative, so $y<0$, largest (closest to $0$) at the ends and most
+negative at the centre: **maximum $-\tfrac14$ at $x=0$**. Outside, $y>0$, coming down from $+\infty$ near each
+asymptote toward the axis. So the range is $y\le-\tfrac14$ **or** $y>0$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.2,3.1))
+for lo,hi in [(-6,-2.03),(-1.97,1.97),(2.03,6)]:
+    x=np.linspace(lo,hi,400); plt.plot(x,1/(x**2-4),color='#2b6cb0',lw=2)
+for a in (-2,2): plt.axvline(a,color='crimson',ls=':',lw=1)
+plt.plot(0,-0.25,'o',color='crimson'); plt.axhline(0,color='0.6',lw=0.6)
+plt.ylim(-4,4); plt.grid(alpha=0.25); plt.title('y = 1/(x²−4): asymptotes x=±2, max −1/4 at 0',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+*The gap $(-\tfrac14,0]$ in the range is exactly the band between the middle-branch maximum and the horizontal
+asymptote.*
+:::
+
+---
+
+## Question 12 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$\to-\infty$ as $x\to-\infty$; maximum $\tfrac1e$ at $x=1$; $\to0^{+}$ as $x\to+\infty$.** &nbsp;
+**(M1 A1 A1 B1)**
+
+$y'=(1-x)e^{-x}=0$ at $x=1$, a maximum $y=e^{-1}=\tfrac1e$. As $x\to-\infty$, $e^{-x}\to+\infty$ and $x<0$, so
+$y\to-\infty$; as $x\to+\infty$, $e^{-x}$ beats $x$, so $y\to0^{+}$. It passes through the origin.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,7,500)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,x*np.exp(-x),color='#2b6cb0',lw=2)
+plt.plot(1,np.exp(-1),'o',color='crimson'); plt.annotate('max 1/e at x=1',(1,np.exp(-1)),textcoords='offset points',xytext=(8,4),fontsize=8,color='crimson')
+plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6); plt.ylim(-2,0.6); plt.grid(alpha=0.25)
+plt.title('y = x e⁻ˣ: max 1/e at x=1, →0 right, →−∞ left',fontsize=9); plt.tight_layout(); plt.show()
+```
+
+*The exponential decides both ends: it blows up on the left (times a negative $x$) and crushes the growth on
+the right.*
+:::
+
+---
+
+## Question 13 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**A sideways parabola: vertex $(-1,0)$, opening to the **right**, symmetric in the $x$-axis; not a function of
+$x$.** &nbsp; **(M1 A1 A1 B1)**
+
+For each $x>-1$ there are **two** $y$-values ($y=\pm\sqrt{x+1}$), so it fails the vertical-line test — not a
+function of $x$. It is $y=x^{2}$ with the roles of $x$ and $y$ swapped and shifted: vertex where $y=0$, i.e.
+$x=-1$; as $\lvert y\rvert$ grows $x$ grows, so it opens rightward; replacing $y$ by $-y$ leaves it unchanged,
+so it is symmetric in the $x$-axis.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+y=np.linspace(-3,3,400)
+plt.figure(figsize=(4.4,3.0)); plt.plot(y**2-1,y,color='#2b6cb0',lw=2)
+plt.plot(-1,0,'o',color='crimson'); plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6)
+plt.grid(alpha=0.25); plt.gca().set_aspect('equal'); plt.title('x = y²−1: sideways parabola, vertex (−1,0)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+*Swapping $x$ and $y$ turns "symmetric in the $y$-axis" into "symmetric in the $x$-axis" and turns a function
+into a non-function.*
+:::
+
+---
+
+## Question 14 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Asymptotes $y=x$ and $x=0$; odd; minimum $4$ at $x=2$, maximum $-4$ at $x=-2$.** &nbsp;
+**(M1 A1 A1 A1 B1)**
+
+For large $\lvert x\rvert$, $\tfrac4x\to0$, so the curve approaches the line $y=x$ (oblique asymptote); as
+$x\to0$, $\tfrac4x\to\pm\infty$ (vertical asymptote $x=0$). Odd ($x\mapsto-x$ negates $y$). $y'=1-\tfrac4{x^{2}}
+=0$ at $x=\pm2$: a **minimum $4$ at $x=2$** and a **maximum $-4$ at $x=-2$**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+xp=np.linspace(0.2,7,400); xn=np.linspace(-7,-0.2,400)
+plt.figure(figsize=(4.8,3.4)); plt.plot(xp,xp+4/xp,color='#2b6cb0',lw=2); plt.plot(xn,xn+4/xn,color='#2b6cb0',lw=2)
+xs=np.linspace(-7,7,50); plt.plot(xs,xs,'0.7',ls='--',lw=0.8,label='y=x')
+plt.plot(2,4,'o',color='crimson'); plt.plot(-2,-4,'o',color='crimson')
+plt.axvline(0,color='0.6',lw=0.6); plt.axhline(0,color='0.6',lw=0.6); plt.ylim(-12,12); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('y = x + 4/x: min 4 at x=2, asymptotes x=0, y=x',fontsize=9); plt.tight_layout(); plt.show()
+```
+
+*The minimum value $4=2\sqrt4$ is the AM–GM bound of $x+\tfrac4x$ for $x>0$, reached when $x=\tfrac4x$, i.e.
+$x=2$.*
+:::
+
+---
+
+## Question 15 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$\to0$ as $x\to0^{+}$; $\to\infty$ as $x\to\infty$; minimum $-\tfrac1e$ at $x=\tfrac1e$.** &nbsp;
+**(M1 A1 A1 B1)**
+
+As $x\to0^{+}$, $x\ln x\to0$ (the $x$ beats the $\ln x\to-\infty$), so the curve starts from the origin,
+dipping **below** the axis. $y'=\ln x+1=0$ at $x=\tfrac1e$, giving the minimum $y=\tfrac1e\ln\tfrac1e=-\tfrac1e$.
+For $x>1$, $\ln x>0$ so $y>0$ and grows without bound.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1e-4,3,500)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,x*np.log(x),color='#2b6cb0',lw=2)
+plt.plot(1/np.e,-1/np.e,'o',color='crimson'); plt.annotate('min −1/e at x=1/e',(1/np.e,-1/np.e),textcoords='offset points',xytext=(8,-4),fontsize=8,color='crimson')
+plt.axhline(0,color='0.6',lw=0.6); plt.grid(alpha=0.25); plt.title('y = x ln x: min −1/e at x=1/e',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+*The product $x\ln x$ tends to $0$ at the origin because the linear factor collapses faster than the
+logarithm diverges.*
+:::
+
+---
+
+## Question 16 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$y=4+\cos x$.** &nbsp; **(M1 A1 A1 M1 A1)**
+
+**Reflect in $x=\tfrac{3\pi}{4}$:** replace $x$ by $\tfrac{3\pi}{2}-x$:
+$$y=\sin\!\Bigl(\tfrac{3\pi}{2}-x\Bigr)=-\cos x.$$
+**Reflect in $y=2$:** replace $y$ by $4-y$:
+$$y=4-(-\cos x)=4+\cos x.$$
+So the result is $y=4+\cos x$ — a cosine wave lifted to oscillate about $y=4$.
+
+*A reflection in $x=k$ sends $x\mapsto2k-x$; in $y=k$ sends $y\mapsto2k-y$. Do them in the stated order.*
+:::
+
+---
+
+## Marking summary
+
+| Q | Marks | Tested |
+|---|---|---|
+| 1 | 4 | $a\sin(x^{b})$ parameters from a description |
+| 2 | 4 | even/odd by parity arithmetic |
+| 3 | 3 | bounded rational hump, asymptote & range |
+| 4 | 4 | $\cos\lvert x\rvert$ vs $\lvert\cos x\rvert$ |
+| 5 | 3 | self-power $x^{1/x}$, max at $x=e$ |
+| 6 | 5 | exponential-meets-line count |
+| 7 | 4 | $\lvert f\rvert=k$ split into two quadratics |
+| 8 | 4 | cubic level set — three roots between turning points |
+| 9 | 4 | line-meets-cosine, bounded by $\lvert x/5\rvert\le1$ |
+| 10 | 3 | even symmetry halves the count |
+| 11 | 5 | reciprocal of a quadratic; range with a gap |
+| 12 | 4 | exp hump $x e^{-x}$ |
+| 13 | 4 | sideways parabola, non-function |
+| 14 | 5 | oblique asymptote $x+\tfrac4x$ |
+| 15 | 4 | log hump $x\ln x$ |
+| 16 | 5 | double reflection $\to4+\cos x$ |
+
+**If marks are lost, look at 6, 9 and 11** — the recurring errors are missing a crossing (not bounding the
+line's reach) and forgetting the range **gap** of a reciprocal curve.
+:::

@@ -1,0 +1,429 @@
+---
+title: "Graphs Clinic · Paper 1 — Class Material"
+subtitle: "Built from the graph questions you got wrong on Set C and Set D"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+This is not a past paper — it is a **clinic**, built from the four graph questions you missed on the
+Tyler mocks. Graphs was the pattern across every wrong answer, so the point here is not to see new
+questions but to see *these* ones done properly, and to name the one skill each was testing.
+
+Graphs is not a single skill. The four questions below hit three different ones, and it helps to know
+which is which:
+
+| Skill | Question | What it asks |
+|---|---|---|
+| **Read a graph, then use it** | Q1 (was Q18), Q2 (was Q9) | the graph is given; pull a fact off it and feed it in |
+| **Sketch an unfamiliar relation** | Q3 (was Q20) | you produce the graph from an equation |
+| **Solve by drawing** | Q4 (was Q19) | draw one curve, count where it meets a line |
+
+Work them in order — the reading questions first, then the producing ones. Each closes with **where the
+wrong options come from**, because on every one of these you chose a distractor, and the distractor tells
+us exactly which step slipped.
+
+---
+
+## Question 1
+
+::: {.question}
+The diagram shows the graph of $y = f(x)$. The function $f$ attains its maximum value at $(0,3)$ and
+$f(x) > 0$ for all values of $x$.
+
+Find the difference between the maximum and minimum values of $\bigl(f(x)\bigr)^3 - 3f(x)$.
+
+&nbsp;&nbsp;**A** $0$ &nbsp;&nbsp; **B** $4$ &nbsp;&nbsp; **C** $12$ &nbsp;&nbsp; **D** $18$ &nbsp;&nbsp;
+**E** $20$
+
+```{python}
+#| fig-cap: "The given diagram: y = f(x) — maximum value 3 at (0,3), positive everywhere, tailing to 0."
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-6, 6, 400); f = 3*np.exp(-x**2/4)
+fig, ax = plt.subplots(figsize=(5.0, 3.0))
+ax.plot(x, f, color='#1f77b4', lw=2)
+ax.plot(0, 3, 'o', color='#d62728')
+ax.annotate('(0, 3)', (0, 3), (0.4, 3.05), fontsize=10, color='#d62728')
+ax.axhline(0, color='0.6', lw=0.8); ax.axvline(0, color='0.6', lw=0.8)
+ax.set_ylim(-0.5, 3.6); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title('y = f(x)', fontsize=11)
+plt.tight_layout(); plt.show()
+```
+:::
+
+The trap is to start differentiating $\bigl(f(x)\bigr)^3 - 3f(x)$ in $x$ — you cannot, you do not know
+$f$. The move is a **substitution**: [let $w = f(x)$ and read the range of $w$ off the graph]{.hl}.
+Because the graph tops out at $3$ and stays positive, $w$ runs over $0 < w \le 3$. Now the whole thing is
+just the cubic $w^3 - 3w$ on that interval, and [you are back to a standard "turning points on a closed
+interval" question]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Set C/D Q18)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — function of a function; read the range off a graph, then treat it as a cubic on an interval
+:::
+
+
+**Substitute.** Let $w = f(x)$. From the graph, $f$ has a maximum value of $3$ (at $x=0$) and is always
+positive, tailing towards $0$ far out. So as $x$ ranges over all reals, [$w$ takes every value in the
+range]{.hl} $0 < w \le 3$.
+
+The expression becomes $g(w) = w^3 - 3w$, and we want its maximum minus its minimum **for $w$ in
+$(0,3]$**.
+
+**Turning points.** Differentiate in $w$:
+$$g'(w) = 3w^2 - 3 = 0 \quad\Longrightarrow\quad w = 1 \ \ (\text{the } w=-1 \text{ root is outside } (0,3]).$$
+So $g(1) = 1 - 3 = -2$ — a minimum, since $g''(w)=6w>0$ there.
+
+**Check the ends of the interval** — a maximum on a closed interval can sit at an endpoint, not a turning
+point:
+$$g(w)\to 0 \ \text{ as } w\to 0^{+}, \qquad g(3) = 27 - 9 = 18.$$
+
+So on $(0,3]$ the curve dips to a minimum of $-2$ at $w=1$, then climbs to $18$ at the right-hand end
+$w=3$. The maximum is $18$, the minimum is $-2$, and the difference is
+$$18 - (-2) = 20,$$
+which is **option E**. $\blacksquare$
+
+```{python}
+#| fig-cap: "g(w)=w³−3w on the interval w ∈ (0,3]: minimum −2 at the turning point w=1, maximum 18 at the right endpoint w=3, so the difference is 20."
+import numpy as np
+import matplotlib.pyplot as plt
+
+CURVE = '#1f77b4'; MARK = '#d62728'; ACCENT = '#2ca02c'
+
+w = np.linspace(0, 3, 400)
+g = w**3 - 3*w
+fig, ax = plt.subplots(figsize=(5.2, 3.8))
+ax.plot(w, g, color=CURVE, lw=2)
+ax.plot(1, -2, 'o', color=MARK)
+ax.annotate(r'min $(1,-2)$', (1, -2), (1.05, -4.5), fontsize=10, color=MARK)
+ax.plot(3, 18, 'o', color=ACCENT)
+ax.annotate(r'max $(3,18)$', (3, 18), (1.7, 15), fontsize=10, color=ACCENT)
+ax.axhline(0, color='0.6', lw=0.8)
+ax.set_title(r'$g(w)=w^3-3w$ on $(0,3]$:  $18-(-2)=20$', fontsize=11)
+ax.set_xlabel('w'); ax.set_ylabel('g(w)'); ax.set_xlim(0, 3.1)
+
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **D** $18$ | Found the maximum $g(3)=18$ but took the minimum as $0$ (the $w\to0$ end) instead of the turning-point value $-2$. The turning point was missed. |
+| **C** $12$ | Used the wrong range for $w$, e.g. $[0,\,\text{something}]$, or read the max at $w=2$. |
+| **B** $4$ | Difference between the two turning-point values $g(\pm1)=\mp2$, i.e. $2-(-2)$ — forgot that $w$ cannot be negative here. |
+| **A** $0$ | Assumed the expression is constant, or cancelled $w^3-3w$ incorrectly. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+The function $f(x)$ is such that $f(0)=0$ and $xf(x)<0$ for $x\neq0$. You are given that
+$$\int_{-5}^{5} f(x)\,\mathrm dx = 2 \qquad\text{and}\qquad \int_{-5}^{5} \lvert f(x)\rvert\,\mathrm dx = 16.$$
+Find
+$$\int_{-5}^{5} f(\lvert x\rvert)\,\mathrm dx.$$
+
+&nbsp;&nbsp;**A** $-14$ &nbsp;&nbsp; **B** $-4$ &nbsp;&nbsp; **C** $0$ &nbsp;&nbsp; **D** $4$ &nbsp;&nbsp;
+**E** $14$
+:::
+
+Two conditions decode the shape before you touch an integral. $xf(x)<0$ means [$f$ and $x$ always have
+opposite signs]{.hl}: $f$ is **positive on the left** ($x<0$) and **negative on the right** ($x>0$). So
+the two given integrals are a signed area and an unsigned area — call the left lump $A$ and the right lump
+$B$. The real insight is the last one: [$f(\lvert x\rvert)$ is an even function]{.hl}, so its integral is
+just twice the right-hand half.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Set C/D Q9)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — symmetry and signed area; why $f(\lvert x\rvert)$ is an even function
+:::
+
+
+**Name the two areas.** Let $A$ be the (positive) area between the curve and the axis on $[-5,0]$, and
+$B$ the area on $[0,5]$. Because $f>0$ on the left and $f<0$ on the right,
+$$\int_{-5}^{0} f = +A, \qquad \int_{0}^{5} f = -B.$$
+
+The two given facts become a pair of simultaneous equations:
+$$\underbrace{A - B = 2}_{\int f = 2}, \qquad \underbrace{A + B = 16}_{\int |f| = 16}
+\;\Longrightarrow\; A = 9,\ \ B = 7.$$
+
+**Now the key step.** Let $g(x) = f(\lvert x\rvert)$. For any $x$, $g(-x) = f(\lvert -x\rvert) =
+f(\lvert x\rvert) = g(x)$, so [$g$ is even — symmetric about the $y$-axis]{.hl}. An even function's
+integral over a symmetric interval is twice one half:
+$$\int_{-5}^{5} f(\lvert x\rvert)\,\mathrm dx = 2\int_{0}^{5} f(\lvert x\rvert)\,\mathrm dx
+= 2\int_{0}^{5} f(x)\,\mathrm dx,$$
+because on $[0,5]$ we have $\lvert x\rvert = x$. That last integral is $-B = -7$, so the answer is
+$$2\times(-7) = -14,$$
+which is **option A**. $\blacksquare$
+
+```{python}
+#| fig-cap: "Top: the given f — positive lump A on the left, negative lump B on the right, with A−B=2 and A+B=16. Bottom: f(|x|) reflects the right-hand piece into the left, giving an even function whose integral is 2×(−B)=−14."
+import numpy as np
+import matplotlib.pyplot as plt
+
+POS = '#2ca02c'; NEG = '#d62728'; CURVE = '#1f77b4'
+
+fig, ax = plt.subplots(2, 1, figsize=(5.2, 8.0))
+
+x = np.linspace(-5, 5, 400)
+# an odd-ish f: positive for x<0, negative for x>0, f(0)=0
+f = -np.sign(x)*np.abs(x)*np.exp(-np.abs(x)/3)*2.2
+
+# --- top: f(x) ---
+ax[0].plot(x, f, color=CURVE, lw=2)
+ax[0].fill_between(x, f, 0, where=(x<0), color=POS, alpha=0.3)
+ax[0].fill_between(x, f, 0, where=(x>0), color=NEG, alpha=0.3)
+ax[0].axhline(0, color='0.5', lw=0.8); ax[0].axvline(0, color='0.5', lw=0.8)
+ax[0].text(-3.2, 1.1, 'A = 9', color=POS, fontsize=12)
+ax[0].text(2.2, -1.2, 'B = 7', color=NEG, fontsize=12)
+ax[0].set_title(r'$y=f(x)$:  $A-B=2$, $A+B=16$', fontsize=11)
+ax[0].set_xlabel('x'); ax[0].set_ylabel('f(x)')
+
+# --- bottom: f(|x|) — even, both halves are the right-hand piece ---
+g = -np.sign(np.abs(x))*np.abs(x)*np.exp(-np.abs(x)/3)*2.2  # = f(|x|): negative both sides
+ax[1].plot(x, g, color=CURVE, lw=2)
+ax[1].fill_between(x, g, 0, color=NEG, alpha=0.3)
+ax[1].axhline(0, color='0.5', lw=0.8); ax[1].axvline(0, color='0.5', lw=0.8)
+ax[1].text(-3.6, -1.2, '−B = −7', color=NEG, fontsize=11)
+ax[1].text(2.2, -1.2, '−B = −7', color=NEG, fontsize=11)
+ax[1].set_title(r'$y=f(|x|)$: even  $\Rightarrow$  $2\times(-7)=-14$', fontsize=11)
+ax[1].set_xlabel('x'); ax[1].set_ylabel('f(|x|)')
+
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **E** $+14$ | The right idea ($2\int_0^5 f$) but the **wrong sign** — took the right-hand lump as $+7$, forgetting $f<0$ on $[0,5]$. |
+| **D** $+4$ | Doubled the *given* integral: $2\times 2 = 4$. But $\int f(\lvert x\rvert) \ne 2\int f(x)$ — the left half changes. |
+| **B** $-4$ | Right magnitude idea, wrong pairing of $A$ and $B$. |
+| **C** $0$ | Assumed $f(\lvert x\rvert)$ is odd (so the integral vanishes) — it is **even**, the whole point of the question. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+::: {.question}
+Which of the following sketches shows the graph of
+$$\sin\!\left(\frac{y}{x}\right) = \frac12 \qquad\text{for } -3\pi x \le y \le 3\pi x\,?$$
+(The options are sketches A–F; several show sets of straight lines through the origin, one shows a wave.)
+:::
+
+The instinct is to picture a wave, because there is a $\sin$ in it — that is the trap, and it is why the
+wavy options are there. But $\sin$ is applied to $\tfrac{y}{x}$, not to $x$, so [treat $\tfrac{y}{x}$ as a
+single quantity]{.hl}. Solving $\sin(\text{that}) = \tfrac12$ forces $\tfrac{y}{x}$ to equal one of a
+list of **constants**, and $\tfrac{y}{x} = \text{constant}$ is a **straight line through the origin**. So
+the graph is [a fan of straight lines through the origin]{.hl}, not a curve.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Set C/D Q20)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — sketching an implicit relation; recognising a family of straight lines through the origin
+:::
+
+
+**Let $u = \dfrac{y}{x}$.** The equation is $\sin u = \tfrac12$, whose solutions are
+$$u = \frac{\pi}{6} + 2\pi k \qquad\text{or}\qquad u = \frac{5\pi}{6} + 2\pi k, \quad k\in\mathbb Z.$$
+
+Each such $u$ is a fixed number, and $\dfrac{y}{x} = u$ means $y = ux$ — [a straight line through the
+origin with gradient $u$]{.hl}. So the graph is a set of straight lines, one for each allowed $u$.
+
+**Which lines survive the restriction?** The condition $-3\pi x \le y \le 3\pi x$ says
+$-3\pi \le \dfrac{y}{x} \le 3\pi$ (and, since it needs $-3\pi x \le 3\pi x$, it holds only for
+$x>0$ — the lines live in the right-hand half only). So keep the values of $u$ with
+$\lvert u\rvert \le 3\pi \approx 9.4$:
+
+$$u = \frac{\pi}{6},\ \frac{5\pi}{6},\ \frac{13\pi}{6},\ \frac{17\pi}{6}
+\quad(\text{four with positive gradient}), \qquad
+u = -\frac{7\pi}{6},\ -\frac{11\pi}{6}\quad(\text{two with negative gradient}).$$
+
+That is **six straight lines through the origin, drawn only for $x>0$** — the sketch showing exactly that
+fan of half-lines is **option B**. $\blacksquare$
+
+```{python}
+#| fig-cap: "The graph of sin(y/x)=½ on −3πx ≤ y ≤ 3πx: six straight half-lines through the origin (gradients π/6, 5π/6, 13π/6, 17π/6 and −7π/6, −11π/6), drawn only for x>0. Not a wave."
+import numpy as np
+import matplotlib.pyplot as plt
+
+LINE = '#1f77b4'; EDGE = '#d62728'
+
+fig, ax = plt.subplots(figsize=(5.2, 5.0))
+
+gradients = [np.pi/6, 5*np.pi/6, 13*np.pi/6, 17*np.pi/6, -7*np.pi/6, -11*np.pi/6]
+xs = np.linspace(0, 1.4, 10)
+for m in gradients:
+    ax.plot(xs, m*xs, color=LINE, lw=1.8)
+
+# the bounding wedge y = ±3πx (x>0)
+ax.plot(xs, 3*np.pi*xs, '--', color=EDGE, lw=1)
+ax.plot(xs, -3*np.pi*xs, '--', color=EDGE, lw=1)
+ax.text(1.42, 3*np.pi*1.42, r'$y=3\pi x$', color=EDGE, fontsize=9, va='center')
+ax.text(1.42, -3*np.pi*1.42, r'$y=-3\pi x$', color=EDGE, fontsize=9, va='center')
+
+ax.axhline(0, color='0.6', lw=0.8); ax.axvline(0, color='0.6', lw=0.8)
+ax.set_xlim(-0.3, 2.0); ax.set_ylim(-11, 11)
+ax.set_title(r'$\sin(y/x)=\frac{1}{2}$: a fan of lines through $O$, $x>0$ only', fontsize=11)
+ax.set_xlabel('x'); ax.set_ylabel('y')
+
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **E, F** (waves) | Read the equation as $y = \tfrac12\sin(\dots)$ — treated $\sin$ as acting on $x$. But $\tfrac{y}{x}$ is the argument, so the solutions are *constants*, giving lines, not a wave. |
+| **A, C** | Lines through the origin, but drawn on **both** sides ($x<0$ too) — the restriction $-3\pi x \le y \le 3\pi x$ forces $x>0$, so the left half must be blank. |
+| **D** | Too few lines, or only positive gradients — missed the two negative-gradient lines that still fit inside the wedge. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+The equation
+$$\cos^2\!\left(4^{\sin\theta} \times 30^\circ\right) = \frac14$$
+has exactly **two** solutions in the range $0^\circ \le \theta \le x^\circ$. What is the range of all
+possible values of $x$?
+
+&nbsp;&nbsp;**A** $30 \le x < 150$ &nbsp;&nbsp; **B** $60 \le x < 180$ &nbsp;&nbsp;
+**C** $60 \le x < 390$ &nbsp;&nbsp; **D** $90 \le x < 150$ &nbsp;&nbsp; **E** $90 \le x < 390$
+:::
+
+This is the hardest kind of graph question because the graph is buried under two layers — an exponential
+inside a cosine. Peel it: [solve the outside first, then work inward]{.hl}. $\cos^2(\text{angle}) =
+\tfrac14$ means $\cos(\text{angle}) = \pm\tfrac12$, which pins the angle to a short list; each value of
+the angle then forces $4^{\sin\theta}$, and hence $\sin\theta$, and hence $\theta$. Once you have the
+solution list $\theta = 30^\circ,\,90^\circ,\,150^\circ$, the final part is pure graph-reading:
+[the letter $x$ is a moving right-hand endpoint, and you slide it until it has swept up exactly two
+solutions]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Set C/D Q19)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — solve by drawing; count where a curve meets a horizontal line, and read the counting condition
+:::
+
+
+**Peel the outer layer.** $\cos^2(\alpha) = \tfrac14 \Rightarrow \cos\alpha = \pm\tfrac12$, so the angle
+$\alpha = 4^{\sin\theta}\times 30^\circ$ must be one of $60^\circ, 120^\circ, 240^\circ, \dots$
+
+**Work inward.** On $0^\circ \le \theta \le 180^\circ$ we have $\sin\theta \in [0,1]$, so
+$4^{\sin\theta} \in [1,4]$ and the angle $\alpha = 30\cdot 4^{\sin\theta}$ lives in $[30^\circ,
+120^\circ]$. Only two target values fall in that band:
+
+- $\alpha = 60^\circ \Rightarrow 4^{\sin\theta} = 2 \Rightarrow \sin\theta = \tfrac12 \Rightarrow
+  \theta = 30^\circ \text{ or } 150^\circ.$
+- $\alpha = 120^\circ \Rightarrow 4^{\sin\theta} = 4 \Rightarrow \sin\theta = 1 \Rightarrow
+  \theta = 90^\circ.$
+
+So there are exactly three solutions in $[0^\circ,180^\circ]$: [$\theta = 30^\circ,\,90^\circ,\,
+150^\circ$]{.hl}.
+
+**Slide the endpoint.** Reading left to right, the solutions arrive at $30$, then $90$, then $150$. The
+window $[0, x]$ contains **exactly two** of them once it has passed $90$ but not yet reached $150$:
+$$90 \le x < 150,$$
+which is **option D**. (At $x=90$ the second solution is just included; at $x=150$ the third arrives and
+you would have three.) $\blacksquare$
+
+```{python}
+#| fig-cap: "y = cos²(30·4^{sinθ}) against θ on [0,180]. It meets the line y=¼ at θ=30, 90, 150. A right-hand endpoint x has exactly two solutions to its left when 90 ≤ x < 150."
+import numpy as np
+import matplotlib.pyplot as plt
+
+CURVE = '#1f77b4'; LEVEL = '#d62728'; HIT = '#2ca02c'
+
+fig, ax = plt.subplots(figsize=(5.6, 4.4))
+
+theta = np.linspace(0, 180, 800)
+s = np.sin(np.deg2rad(theta))
+alpha = 30*4.0**s                     # degrees
+y = np.cos(np.deg2rad(alpha))**2
+ax.plot(theta, y, color=CURVE, lw=2, label=r'$y=\cos^2(30\cdot 4^{\sin\theta})$')
+ax.axhline(0.25, color=LEVEL, lw=1.3, ls='--', label=r'$y=\frac{1}{4}$')
+
+for t in (30, 90, 150):
+    ax.plot(t, 0.25, 'o', color=HIT)
+    ax.annotate(fr'$\theta={t}$', (t, 0.25), (t-6, 0.33), fontsize=10, color=HIT)
+
+# shade the winning window 90 <= x < 150
+ax.axvspan(90, 150, color=HIT, alpha=0.12)
+ax.text(120, 0.9, r'$90\leq x<150$', color=HIT, fontsize=11, ha='center')
+
+ax.set_xlim(0, 180); ax.set_ylim(0, 1.02)
+ax.set_xlabel(r'$\theta$ (degrees)'); ax.set_ylabel('y')
+ax.set_xticks([0, 30, 60, 90, 120, 150, 180])
+ax.legend(loc='lower left', fontsize=9)
+ax.set_title('Three crossings; slide x to catch exactly two', fontsize=11)
+
+plt.tight_layout(); plt.show()
+```
+
+**Where the wrong options come from.**
+
+| | |
+|---|---|
+| **A** $30 \le x < 150$ | Counted from the *first* solution — but at $x=30$ there is only **one** solution, not two. Off by one crossing. |
+| **E** $90 \le x < 390$ | Right lower end, but let $\theta$ run past $180^\circ$ looking for more solutions. Beyond $180^\circ$, $\sin\theta<0$ so $4^{\sin\theta}<1$ and $\alpha<30^\circ$ — the target angles are never reached again in range. |
+| **B, C** | Started the angle list at the wrong place (e.g. took $\cos\alpha=\tfrac12$ only, missing $-\tfrac12$), shifting every solution. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The four moves, in one place
+
+Every graph question on the TMUA is one of these. Name the move before you start:
+
+1. **Read and feed** (Q1) — the graph is given; substitute $w=f(x)$ and read its range off the picture,
+   then it is an ordinary interval problem.
+2. **Decode the symmetry** (Q2) — "is it odd or even?" decides whether an integral doubles or cancels.
+   $f(\lvert x\rvert)$ is always even.
+3. **Constant ⇒ line** (Q3) — if solving forces $\tfrac{y}{x}$ (or any ratio) to equal constants, the
+   graph is straight lines through the origin, never a curve.
+4. **Draw and count** (Q4) — for "how many solutions", draw one curve and one line and count crossings;
+   a moving endpoint is just a vertical line you slide.
+:::
+
+:::

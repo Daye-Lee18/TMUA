@@ -1,0 +1,3569 @@
+---
+title: "2022 Paper 2 — Extended Practice"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The 2022 Paper 2 question types, each with its general method and a set of practice problems drawn from TMUA
+and from MAT, PAT and other papers where the same idea appears.
+
+**On this page:** 1. Right-angle conditions · 2. Necessary, sufficient & "must it be true?" · 3. Graph-matching & nested functions · 4. Converse & contrapositive · 5. Quantifiers & their order · 6. Counterexample & spot-the-error · 7. Pigeonhole · 8. Calculus · 9. Series & binomial · 10. Modulus inequalities · 11. Nested logarithms · 12. Must-hold inequalities · Supplement: triangles & polygons
+
+## 1 · Right-angle conditions
+
+*Seeds: 2022 P2 Q11, plus a real cross-exam problem (MAT 2019 Q1H).*
+
+::: {.callout-tip}
+## The method — "when is this angle $90^\circ$?"
+
+A right angle is never really a geometry fact to *see*; it is an **equation to write**. Same three moves every
+time:
+
+1. **Name the triangle at that vertex.** Call the two sides leaving the vertex the **legs**, and the side
+   opposite the **hypotenuse**.
+2. **Right angle $\Leftrightarrow$ Pythagoras:** $\ \text{leg}_1^{2}+\text{leg}_2^{2}=\text{hypotenuse}^{2}$.
+   Write it and simplify — the equation you get **is** the necessary-and-sufficient condition.
+3. **If a perpendicular drops from the right angle onto the hypotenuse, use the geometric mean.** With the
+   foot splitting the hypotenuse into $p$ and $q$ and altitude $h$:
+   $$h^{2}=pq,\qquad \text{leg}^{2}=(\text{adjacent segment})\times(\text{hypotenuse}).$$
+
+**Two shortcuts.** In coordinates, perpendicular $\Leftrightarrow$ **dot product $=0$** $\Leftrightarrow$
+**product of gradients $=-1$**. And the locus of all $P$ with $\angle APB=90^\circ$ is the **circle on $AB$ as
+diameter** (angle in a semicircle — Thales).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); B=np.array([13,0]); D=np.array([4,0]); C=np.array([4,6])
+plt.figure(figsize=(5.4,3.1))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([C[0],D[0]],[C[1],D[1]],'--',color='crimson',lw=1.5)
+u=(A-C)/np.hypot(*(A-C)); v=(B-C)/np.hypot(*(B-C)); srt=0.8
+cor=np.array([C+srt*u, C+srt*u+srt*v, C+srt*v]); plt.plot(cor[:,0],cor[:,1],color='0.4',lw=1)
+plt.plot([D[0],D[0]+0.5,D[0]+0.5],[0.5,0.5,0],color='0.4',lw=1)
+for pt,nm,off in [(A,'A',(-12,-3)),(B,'B',(6,-3)),(C,'C',(-4,8)),(D,'D',(-4,-16))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off,fontsize=10)
+plt.annotate('p',(2,0),textcoords='offset points',xytext=(-2,-15),fontsize=10,color='crimson')
+plt.annotate('q',(8.5,0),textcoords='offset points',xytext=(-2,-15),fontsize=10,color='crimson')
+plt.annotate('h',(4,3),textcoords='offset points',xytext=(6,0),fontsize=10,color='crimson')
+plt.annotate('leg',(2,3),textcoords='offset points',xytext=(-26,0),fontsize=9,color='#2b6cb0')
+plt.annotate('leg',(8.5,3),textcoords='offset points',xytext=(4,4),fontsize=9,color='#2b6cb0')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('h² = p·q   and   leg² = (adjacent segment) × hypotenuse',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- Right angle test: use **Pythagoras**, **dot product $=0$**, or **gradient product $=-1$**.
+- If an altitude from the right angle hits the hypotenuse, memorise
+  $$h^{2}=pq,\qquad \text{leg}^{2}=(\text{adjacent hypotenuse segment})(\text{whole hypotenuse}).$$
+- Locus fact: $\angle APB=90^\circ$ means $P$ lies on the **circle with $AB$ as diameter**.
+- "Necessary and sufficient" means your final condition must work in **both** directions.
+- **Extra practice:** PAT Maths and MAT Section A for circle/coordinate-geometry versions; ECAA Advanced Maths
+  for speed drills.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter. Locus → an equation. Length → exact surd. "Is it a right angle?" → yes/no
+with the check.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q11 — the seed)*
+
+::: {.question}
+Kite $PQRS$ has perpendicular diagonals meeting at $O$, with $OP=OR=x$, $OQ=y$, $OS=z$. What is the
+**necessary and sufficient** condition for $\angle SPQ$ to be a right angle?
+
+&nbsp;&nbsp;**A** $x=y=z$ &nbsp; **B** $2x=y+z$ &nbsp; **C** $x^{2}=yz$ &nbsp; **D** $y=z$ &nbsp;
+**E** $y^{2}=x^{2}+z^{2}$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x,y,z=2.0,1.0,4.0
+P,Q,R,S=np.array([-x,0]),np.array([0,-y]),np.array([x,0]),np.array([0,z])
+plt.figure(figsize=(3.2,3.9))
+poly=np.array([P,S,R,Q,P]); plt.plot(poly[:,0],poly[:,1],'-o',color='#2b6cb0')
+plt.plot([P[0],R[0]],[0,0],':',color='0.6'); plt.plot([0,0],[Q[1],S[1]],':',color='0.6')
+plt.plot([-0.35,-0.35,0],[0,0.35,0.35],color='0.4',lw=1)
+for pt,nm,off in [(P,'P',(-14,2)),(Q,'Q',(4,-12)),(R,'R',(6,2)),(S,'S',(4,6)),(np.zeros(2),'O',(6,-13))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off,fontsize=10)
+plt.annotate('x',(-x/2,0),textcoords='offset points',xytext=(0,4),fontsize=9,color='crimson')
+plt.annotate('x',(x/2,0),textcoords='offset points',xytext=(0,4),fontsize=9,color='crimson')
+plt.annotate('y',(0,-y/2),textcoords='offset points',xytext=(4,0),fontsize=9,color='crimson')
+plt.annotate('z',(0,z/2),textcoords='offset points',xytext=(4,0),fontsize=9,color='crimson')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('kite PQRS, diagonals ⊥ at O;  ∠SPQ = ?',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Move 1–2 (Pythagoras).** The sides at $P$ are $SP=\sqrt{x^{2}+z^{2}}$ and $PQ=\sqrt{x^{2}+y^{2}}$; the
+opposite side is $SQ=y+z$. If the angle at $P$ is the right angle, then $SQ$ is the hypotenuse, so Pythagoras
+is exactly the test we need:
+$$\angle SPQ=90^\circ\iff SP^{2}+PQ^{2}=SQ^{2}\iff (x^{2}+z^{2})+(x^{2}+y^{2})=(y+z)^{2}\iff x^{2}=yz.$$
+The word **necessary and sufficient** is important: the algebra above is an "if and only if", so $x^{2}=yz$
+is not merely a consequence of the right angle; it is exactly the condition for the right angle.
+
+**Move 3 (geometric mean).** There is also a very quick right-triangle fact here. $PO=x$ is the altitude from
+the right angle $P$ to the hypotenuse $SQ$, split into $OS=z$ and $OQ=y$, so the altitude rule gives
+$x^{2}=zy$ directly. Answer **C**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x,y,z=2.0,1.0,4.0
+P,Q,R,S=np.array([-x,0]),np.array([0,-y]),np.array([x,0]),np.array([0,z])
+plt.figure(figsize=(3.4,4.0))
+poly=np.array([P,S,R,Q,P]); plt.plot(poly[:,0],poly[:,1],'-o',color='#2b6cb0')
+plt.plot([P[0],R[0]],[0,0],':',color='0.6'); plt.plot([0,0],[Q[1],S[1]],':',color='0.6')
+for pt,nm in [(P,'P'),(Q,'Q'),(R,'R'),(S,'S'),(np.zeros(2),'O')]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=(6,4))
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25); plt.title('x²=yz ⟺ ∠SPQ = 90°',fontsize=9); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(compute the geometric mean)*
+
+::: {.question}
+In a right-angled triangle the altitude from the right angle meets the hypotenuse and splits it into segments
+of length $4$ and $9$. Find the altitude $h$, and the two legs.
+
+*Answer form: exact surds.*
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); B=np.array([13,0]); D=np.array([4,0]); C=np.array([4,6])
+plt.figure(figsize=(5.0,2.9))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([C[0],D[0]],[C[1],D[1]],'--',color='crimson',lw=1.4)
+u=(A-C)/np.hypot(*(A-C)); v=(B-C)/np.hypot(*(B-C)); srt=0.8
+cor=np.array([C+srt*u, C+srt*u+srt*v, C+srt*v]); plt.plot(cor[:,0],cor[:,1],color='0.4',lw=1)
+plt.plot([D[0],D[0]+0.5,D[0]+0.5],[0.5,0.5,0],color='0.4',lw=1)
+plt.annotate('4',(2,0),textcoords='offset points',xytext=(-2,-15),fontsize=10)
+plt.annotate('9',(8.5,0),textcoords='offset points',xytext=(-2,-15),fontsize=10)
+plt.annotate('h = ?',(4,3),textcoords='offset points',xytext=(6,0),fontsize=10,color='crimson')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('altitude to the hypotenuse splits it into 4 and 9 — find h and the two legs',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+The key picture is a right triangle with an altitude dropped to the hypotenuse. In that picture, the altitude
+is the geometric mean of the two pieces of the hypotenuse:
+$$h^{2}=pq=4\times9=36\Rightarrow h=6.$$
+The whole hypotenuse is $c=4+9=13$. Each leg is also a geometric mean: take the segment of the hypotenuse next
+to that leg, multiply by the whole hypotenuse, then square-root:
+$$\text{leg}_1=\sqrt{4\times13}=2\sqrt{13},\qquad \text{leg}_2=\sqrt{9\times13}=3\sqrt{13}.$$
+The final answer is therefore
+$$\boxed{h=6,\quad \text{legs }2\sqrt{13}\text{ and }3\sqrt{13}}.$$
+Quick check: $(2\sqrt{13})^2+(3\sqrt{13})^2=52+117=169=13^2$, so the lengths are consistent.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); B=np.array([13,0]); D=np.array([4,0]); C=np.array([4,6])
+plt.figure(figsize=(5.2,3.0))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([C[0],D[0]],[C[1],D[1]],'--',color='crimson',lw=1.5)
+plt.plot([D[0],D[0]+0.5,D[0]+0.5],[0.5,0.5,0],color='0.4',lw=1)
+plt.annotate('4',(2,0),textcoords='offset points',xytext=(-2,-15),fontsize=10)
+plt.annotate('9',(8.5,0),textcoords='offset points',xytext=(-2,-15),fontsize=10)
+plt.annotate('h=6',(4,3),textcoords='offset points',xytext=(6,0),fontsize=10,color='crimson')
+plt.annotate('2√13',(1.6,3),textcoords='offset points',xytext=(-34,0),fontsize=9,color='#2b6cb0')
+plt.annotate('3√13',(8.5,3),textcoords='offset points',xytext=(4,4),fontsize=9,color='#2b6cb0')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('segments 4 and 9  →  h=√(4·9)=6,  legs 2√13 and 3√13',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(the semicircle / Thales locus)*
+
+::: {.question}
+$A$ and $B$ are fixed points. Describe the set of all points $P$ for which $\angle APB=90^\circ$.
+
+&nbsp;&nbsp;**A** the perpendicular bisector of $AB$ &nbsp; **B** the circle with $AB$ as diameter &nbsp;
+**C** the circle centred at $A$ through $B$ &nbsp; **D** a single point &nbsp; **E** the line through $A$ and $B$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([-2,0]); B=np.array([2,0]); P=np.array([-0.9,np.sqrt(4-0.9**2)])
+plt.figure(figsize=(4.0,2.9))
+plt.plot(*A,'ks'); plt.plot(*B,'ks'); plt.plot(*P,'o',color='crimson')
+plt.plot([P[0],A[0]],[P[1],A[1]],color='crimson',lw=1)
+plt.plot([P[0],B[0]],[P[1],B[1]],color='crimson',lw=1)
+u=(A-P)/np.hypot(*(A-P)); v=(B-P)/np.hypot(*(B-P)); srt=0.30
+cor=np.array([P+srt*u, P+srt*u+srt*v, P+srt*v]); plt.plot(cor[:,0],cor[:,1],color='0.4',lw=1)
+for pt,nm,off in [(A,'A',(-12,-4)),(B,'B',(6,-4)),(P,'P',(-4,8))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off,fontsize=10)
+plt.annotate('∠APB = 90°',P,textcoords='offset points',xytext=(12,-12),fontsize=9,color='crimson')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('A, B fixed;  P moves keeping ∠APB = 90°.  What path does P trace?',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B.** Keep $A$ and $B$ fixed, and imagine moving $P$ around. The segment $AB$ is being viewed from
+$P$, so $\angle APB$ is the angle *subtended by $AB$* at $P$.
+
+Thales' theorem says that every point on the circle with $AB$ as diameter sees $AB$ under a right angle. The
+converse is just as useful here: if $\angle APB=90^\circ$, then $P$ must lie on that same circle. So the locus
+is **the circle with $AB$ as diameter** — centre the midpoint of $AB$, radius $\tfrac12 AB$.
+
+This is the geometric-mean condition in disguise: dropping the perpendicular from $P$ to $AB$ gives
+$h^{2}=(\text{foot to }A)(\text{foot to }B)$, exactly the circle equation.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.4,3.4))
+plt.plot(np.cos(th),np.sin(th),color='#2b6cb0')
+A=np.array([-1,0]); B=np.array([1,0])
+plt.plot(*A,'ks'); plt.plot(*B,'ks')
+plt.annotate('A',A,textcoords='offset points',xytext=(-12,-4))
+plt.annotate('B',B,textcoords='offset points',xytext=(6,-4))
+for ang,col in [(55,'crimson'),(100,'#dd6b20'),(140,'#2ca02c')]:
+    P=np.array([np.cos(np.radians(ang)),np.sin(np.radians(ang))])
+    plt.plot([P[0],A[0]],[P[1],A[1]],color=col,lw=1)
+    plt.plot([P[0],B[0]],[P[1],B[1]],color=col,lw=1)
+    plt.plot(*P,'o',color=col,ms=4)
+plt.plot([-1,1],[0,0],color='0.6',lw=0.8); plt.plot(0,0,'k+')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('every P on the circle sees AB at 90°  (AB = diameter)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(coordinate version — write the locus)*
+
+::: {.question}
+$A=(0,0)$ and $B=(8,0)$. Find the equation of the locus of points $P=(x,y)$ with $\angle APB=90^\circ$.
+
+*Answer form: an equation of a circle.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Dot-product route.** A right angle is a perpendicularity test, and in coordinates that means "dot product
+zero". From $P=(x,y)$,
+$$\vec{PA}=(-x,-y),\qquad \vec{PB}=(8-x,-y).$$
+So
+$$(-x)(8-x)+(-y)(-y)=0\Rightarrow x^{2}-8x+y^{2}=0\Rightarrow (x-4)^{2}+y^{2}=16.$$
+This is the circle on $AB$ as diameter (centre $(4,0)$, radius $4$) — matching Problem 3.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.6,3.0))
+plt.plot(4+4*np.cos(th),4*np.sin(th),color='#2b6cb0')
+A,B=np.array([0,0]),np.array([8,0]); plt.plot(*A,'ks'); plt.plot(*B,'ks')
+plt.annotate('A',A,textcoords='offset points',xytext=(-12,-2)); plt.annotate('B',B,textcoords='offset points',xytext=(6,-2))
+P=np.array([4,4]); plt.plot(*P,'o',color='crimson'); plt.annotate('P',P,textcoords='offset points',xytext=(6,4),color='crimson')
+plt.plot([P[0],A[0]],[P[1],A[1]],color='crimson',lw=1); plt.plot([P[0],B[0]],[P[1],B[1]],color='crimson',lw=1)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25); plt.title('∠APB=90° ⟺ P on (x−4)²+y²=16',fontsize=9); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(read a leg off the segments)*
+
+::: {.question}
+A right-angled triangle has legs $5$ and $12$. The altitude from the right angle meets the hypotenuse at $D$.
+Find the two segments the foot $D$ makes on the hypotenuse, and the altitude.
+
+*Answer form: three exact fractions.*
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+C=np.array([0,0]); A=np.array([0,5]); B=np.array([12,0])
+AB=B-A; t=np.dot(C-A,AB)/np.dot(AB,AB); Dp=A+t*AB
+plt.figure(figsize=(4.6,3.2))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([C[0],Dp[0]],[C[1],Dp[1]],'--',color='crimson',lw=1.4)
+plt.plot([0.7,0.7,0],[0,0.7,0.7],color='0.4',lw=1)
+for pt,nm,off in [(A,'A',(-12,2)),(B,'B',(6,-2)),(C,'C',(-13,-10)),(Dp,'D',(4,8))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off,fontsize=10)
+plt.annotate('5',(0,2.5),textcoords='offset points',xytext=(-12,0),fontsize=10,color='#2b6cb0')
+plt.annotate('12',(6,0),textcoords='offset points',xytext=(-4,-15),fontsize=10,color='#2b6cb0')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('legs 5 and 12; altitude foot D on the hypotenuse — find the segments and the altitude',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Hypotenuse $c=\sqrt{5^{2}+12^{2}}=13$. Each leg is the geometric mean of its adjacent segment and $c$, so the
+segment adjacent to a leg is $\dfrac{\text{leg}^{2}}{c}$:
+$$p=\frac{5^{2}}{13}=\frac{25}{13},\qquad q=\frac{12^{2}}{13}=\frac{144}{13}\quad\Big(p+q=\tfrac{169}{13}=13\ \checkmark\Big).$$
+Altitude $h=\sqrt{pq}=\dfrac{5\times12}{13}=\dfrac{60}{13}$ (or "area twice over": $\tfrac12\cdot5\cdot12=\tfrac12\cdot13\cdot h$).
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 6 &nbsp; *(test for a right angle — the converse)*
+
+::: {.question}
+In triangle $ABC$, the foot of the perpendicular from $A$ meets $BC$ at $D$ with $BD=2$, $DC=8$ and $AD=4$.
+Is angle $BAC$ a right angle? Justify with a single equation.
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+B=np.array([0,0]); C=np.array([10,0]); D=np.array([2,0]); A=np.array([2,4])
+plt.figure(figsize=(4.8,2.9))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([A[0],D[0]],[A[1],D[1]],'--',color='crimson',lw=1.4)
+plt.plot([D[0],D[0]+0.5,D[0]+0.5],[0.5,0.5,0],color='0.4',lw=1)
+for pt,nm,off in [(A,'A',(-2,8)),(B,'B',(-12,-4)),(C,'C',(6,-4)),(D,'D',(-2,-15))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off,fontsize=10)
+plt.annotate('2',(1,0),textcoords='offset points',xytext=(-2,-14),fontsize=9)
+plt.annotate('8',(6,0),textcoords='offset points',xytext=(-2,-14),fontsize=9)
+plt.annotate('4',(2,2),textcoords='offset points',xytext=(6,0),fontsize=9,color='crimson')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('AD ⊥ BC with BD=2, DC=8, AD=4.  Is ∠BAC = 90°?',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Use the **converse** of the geometric-mean rule: $\angle BAC=90^\circ$ **iff** the altitude to $BC$ satisfies
+$AD^{2}=BD\cdot DC$. Here
+$$AD^{2}=4^{2}=16,\qquad BD\cdot DC=2\times8=16,$$
+so $AD^{2}=BD\cdot DC$ and angle $BAC$ **is** a right angle. (If instead $AD^{2}<BD\cdot DC$ the angle would be
+obtuse; if $>$, acute — the same equation grades the angle.)
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+B=np.array([0,0]); C=np.array([10,0]); D=np.array([2,0]); A=np.array([2,4])
+plt.figure(figsize=(4.6,2.8))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([A[0],D[0]],[A[1],D[1]],'--',color='crimson')
+for pt,nm,off in [(A,'A',(0,6)),(B,'B',(-12,-4)),(C,'C',(6,-4)),(D,'D',(-2,-14))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off)
+plt.annotate('BD=2',(1,0),textcoords='offset points',xytext=(-6,4),fontsize=8)
+plt.annotate('DC=8',(6,0),textcoords='offset points',xytext=(-6,4),fontsize=8)
+plt.annotate('AD=4',(2,2),textcoords='offset points',xytext=(6,0),fontsize=8,color='crimson')
+plt.gca().set_aspect('equal'); plt.axis('off'); plt.title('AD²=BD·DC ⟹ ∠BAC = 90°',fontsize=9); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 7 &nbsp; *(MAT 2019 Q1H — real past paper)*
+
+::: {.question}
+The triangle $ABC$ is right-angled at $B$ and the side lengths are positive numbers in **geometric
+progression**. It follows that $\tan\angle BAC$ is either
+
+&nbsp;&nbsp;**(a)** $\sqrt{\dfrac{1+\sqrt5}{2}}$ or $\sqrt{\dfrac{1-\sqrt5}{2}}$ &nbsp;&nbsp;
+**(b)** $\sqrt{\dfrac{1+\sqrt3}{2}}$ or $\sqrt{\dfrac{\sqrt3-1}{2}}$ &nbsp;&nbsp;
+**(c)** $\sqrt{\dfrac{1+\sqrt5}{2}}$ or $\sqrt{\dfrac{\sqrt5-1}{2}}$ &nbsp;&nbsp;
+**(d)** $-\sqrt{\dfrac{1+\sqrt5}{2}}$ or $\sqrt{\dfrac{1+\sqrt5}{2}}$ &nbsp;&nbsp;
+**(e)** $\sqrt{\dfrac{1+\sqrt3}{2}}$ or $\sqrt{\dfrac{1-\sqrt3}{2}}$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+phi=(1+5**0.5)/2; r=phi**0.5
+B=np.array([0,0]); A=np.array([0,1]); C=np.array([r,0])
+plt.figure(figsize=(3.8,3.0))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([0,0.12,0.12],[0.12,0.12,0],color='0.4',lw=1)
+for pt,nm,off in [(A,'A',(-14,0)),(B,'B',(-14,-10)),(C,'C',(6,-4))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off,fontsize=10)
+plt.annotate('a',(0,0.5),textcoords='offset points',xytext=(-10,0),fontsize=10,color='#2b6cb0')
+plt.annotate('ar',(r/2,0),textcoords='offset points',xytext=(-4,-14),fontsize=10,color='#2b6cb0')
+plt.annotate('ar²',(r/2,0.5),textcoords='offset points',xytext=(4,4),fontsize=10,color='#2b6cb0')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('right angle at B; sides a, ar, ar² in geometric progression.  tan∠BAC = ?',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Same move: right angle $\to$ Pythagoras.** Write the sides as $a,\,ar,\,ar^{2}$ (a geometric progression).
+The right angle is at $B$, so the **hypotenuse** $AC$ is the longest side $ar^{2}$, and the legs are $a$ and
+$ar$. Pythagoras:
+$$(ar^{2})^{2}=a^{2}+(ar)^{2}\;\Rightarrow\;r^{4}=1+r^{2}\;\Rightarrow\;r^{4}-r^{2}-1=0\;\Rightarrow\;r^{2}=\frac{1+\sqrt5}{2}=\varphi\ \text{(the golden ratio)}.$$
+$\tan\angle BAC=\dfrac{\text{opposite leg}}{\text{adjacent leg}}$ is the ratio of the two legs — either $r$ or
+$\tfrac1r$, depending on which leg is opposite $A$:
+$$r=\sqrt{\varphi}=\sqrt{\tfrac{1+\sqrt5}{2}},\qquad \frac1r=\sqrt{\tfrac1\varphi}=\sqrt{\tfrac{\sqrt5-1}{2}}\quad\Big(\tfrac1\varphi=\varphi-1=\tfrac{\sqrt5-1}{2}\Big).$$
+Both are positive, so the answer is **(c)**. *(Fast elimination: a tangent of an acute angle is positive and
+real, which instantly kills (a), (d), (e); and the golden-ratio equation rules out the $\sqrt3$ option (b).)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+phi=(1+5**0.5)/2; r=phi**0.5
+B=np.array([0,0]); A=np.array([0,1]); C=np.array([r,0])   # legs AB=1, BC=√φ, hyp AC=φ
+plt.figure(figsize=(3.8,3.0))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot([0,0.12,0.12],[0.12,0.12,0],color='0.4',lw=1)   # right-angle mark at B
+for pt,nm,off in [(A,'A',(-14,0)),(B,'B',(-14,-10)),(C,'C',(6,-4))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off)
+plt.annotate('1',(0,0.5),textcoords='offset points',xytext=(-10,0),fontsize=9)
+plt.annotate('√φ',(r/2,0),textcoords='offset points',xytext=(-4,-14),fontsize=9)
+plt.annotate('φ (hyp)',(r/2,0.5),textcoords='offset points',xytext=(4,4),fontsize=9,color='#2b6cb0')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('sides 1, √φ, φ  (r²=φ);  tan∠BAC = √φ or 1/√φ',fontsize=8.5); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — right-angle conditions
+
+| Fact | Statement |
+|---|---|
+| **Pythagoras (both ways)** | $\angle$ at a vertex is $90^\circ\iff\text{leg}^2+\text{leg}^2=\text{hyp}^2$ |
+| **Altitude = geometric mean** | altitude to hypotenuse: $h^{2}=pq$ (segments $p,q$) |
+| **Leg = geometric mean** | $\text{leg}^{2}=(\text{adjacent segment})\times(\text{hypotenuse})$ |
+| **Angle grader** | $AD^{2}=BD\cdot DC\Rightarrow 90^\circ$; $\;<\Rightarrow$ obtuse; $\;>\Rightarrow$ acute |
+| **Thales locus** | $\{P:\angle APB=90^\circ\}$ = circle on $AB$ as diameter |
+| **Coordinates** | perpendicular $\iff$ dot product $=0\iff$ gradients multiply to $-1$ |
+
+**One line to carry:** a right angle is an **equation** — Pythagoras, or the geometric mean $h^{2}=pq$.
+:::
+
+---
+
+### Problem 8 &nbsp; *(ECAA Specimen — altitude to the hypotenuse)*
+
+::: {.question}
+*Adapted from ECAA Specimen, Section 1 Part A, Question 2.*
+
+In a right-angled triangle $PQR$, the hypotenuse is $PR$. The side $PQ$ has length $20$, and
+$RQ:PQ=1:2$. Find the length of the perpendicular from $Q$ to the hypotenuse $PR$.
+
+*Answer form: exact surd.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $4\sqrt5$.**
+
+**Step 1 — get the three sides.** Since $RQ:PQ=1:2$ and $PQ=20$, we have $RQ=10$. The hypotenuse is
+$$PR=\sqrt{20^2+10^2}=\sqrt{500}=10\sqrt5.$$
+
+**Step 2 — use area two ways.** If the perpendicular from $Q$ to $PR$ is $h$, then
+$$\frac12(20)(10)=\frac12(10\sqrt5)h.$$
+So
+$$100=5\sqrt5\,h\Rightarrow h=\frac{20}{\sqrt5}=4\sqrt5.$$
+
+This is the same altitude-to-hypotenuse idea as the TMUA kite question, just with ordinary side lengths.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 2 · Necessary, sufficient & "must it be true?"
+
+*Seeds: 2022 P2 Q4, Q6, Q19.*
+
+::: {.callout-tip}
+## The method — necessary, sufficient, and "must it be true?"
+
+Every one of these questions is secretly the same question: **does the arrow $P\Rightarrow Q$ hold?** Five
+steps:
+
+1. **Turn the words into an arrow.**
+   - "$P$ is **sufficient** for $Q$" means $P\Rightarrow Q$ (P is *enough*).
+   - "$P$ is **necessary** for $Q$" means $Q\Rightarrow P$ (Q can't happen without P).
+   - "**Must** $Q$ be true, given $P$?" is just "is $P\Rightarrow Q$ true?"
+   - "**Necessary and sufficient**" means $P\Leftrightarrow Q$ — *both* arrows.
+2. **To break an arrow, hunt one counterexample.** Find a single object with the hypothesis **true** and the
+   conclusion **false**. That one example settles it — no proof needed.
+3. **Reach for the most flexible / degenerate shape first.** A **rectangle** (not a square), an **isosceles**
+   case, $n=4$, $x=0$, a boundary value. These are where "equal $\Rightarrow$ regular / special" usually
+   breaks.
+4. **To confirm an arrow, prove it in general** — represent the objects generally and show it always holds.
+5. **For "necessary *and* sufficient", test the two directions separately.** One can hold while the other
+   fails.
+
+::: {.callout-note appearance="simple" icon=false}
+**Worked idea.** *"$n$ triangles of equal area from the centre $\Rightarrow$ the polygon is regular?"* Don't
+prove — **test $n=4$ first**: a non-square **rectangle** is cyclic, its four centre-triangles have equal area
+(opposite ones are congruent, and $\sin\theta=\sin(180^\circ-\theta)$ makes the adjacent pair equal too), yet
+it is not regular. Counterexample found — so it is **not** sufficient for $n=4$.
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,200)
+fig,ax=plt.subplots(1,2,figsize=(6.8,3.2))
+ax[0].plot(2*np.cos(th),1.6*np.sin(th),color='#2b6cb0')
+ax[0].plot(0.9*np.cos(th)-0.4,0.7*np.sin(th),color='#dd6b20')
+ax[0].text(-0.4,0,'P',ha='center',va='center',color='#dd6b20',fontsize=12)
+ax[0].text(1.25,1.05,'Q',ha='center',va='center',color='#2b6cb0',fontsize=12)
+ax[0].set_title('P sufficient for Q:  P ⇒ Q\n(being in P is enough to be in Q)',fontsize=9)
+ax[1].plot(2*np.cos(th),1.6*np.sin(th),color='#dd6b20')
+ax[1].plot(0.9*np.cos(th)-0.4,0.7*np.sin(th),color='#2b6cb0')
+ax[1].text(-0.4,0,'Q',ha='center',va='center',color='#2b6cb0',fontsize=12)
+ax[1].text(1.25,1.05,'P',ha='center',va='center',color='#dd6b20',fontsize=12)
+ax[1].set_title('P necessary for Q:  Q ⇒ P\n(no Q without P)',fontsize=9)
+for a in ax: a.set_aspect('equal'); a.axis('off')
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- $P$ is **sufficient** for $Q$ means $P\Rightarrow Q$: having $P$ is enough.
+- $P$ is **necessary** for $Q$ means $Q\Rightarrow P$: no $Q$ without $P$.
+- To disprove sufficiency, find $P$ true and $Q$ false.
+- To disprove necessity, find $Q$ true and $P$ false.
+- For "must be true" questions, one counterexample destroys a proposed must-hold statement.
+- **Extra practice:** TMUA Logic and Proof notes first; then FP1/FP2 proof sections and STEP Foundation for
+  more iff/counterexample practice.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter, or "necessary / sufficient / both / neither", with the counterexample or
+the proof.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q19 — the seed)*
+
+::: {.question}
+A polygon ($n\ge3$) has all vertices on a circle with the centre inside, and the radii cut it into $n$
+triangles of **equal area**. For which $n$ are these properties **sufficient** to force the polygon to be
+regular?
+
+&nbsp;&nbsp;**A** no $n$ &nbsp; **B** $n=3$ only &nbsp; **C** $n=3,4$ only &nbsp; **D** $n=3$ and $n\ge5$ only
+&nbsp; **E** all $n$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(3.6,3.6))
+plt.plot(np.cos(th),np.sin(th),color='0.7')
+angs=[90,160,215,300,20]
+pts=np.array([[np.cos(np.radians(a)),np.sin(np.radians(a))] for a in angs])
+poly=np.vstack([pts,pts[0]]); plt.plot(poly[:,0],poly[:,1],'-o',color='#2b6cb0')
+for pt in pts: plt.plot([0,pt[0]],[0,pt[1]],':',color='crimson')
+plt.plot(0,0,'ks')
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('vertices on a circle; radii cut it into n triangles (here n=5).\nWhen do equal areas force the polygon to be regular?',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B ($n=3$ only).**
+
+**Step 1 — set up the central angles.** Let $O$ be the centre and $A_1,\dots,A_n$ the consecutive vertices,
+and write $\theta_i=\angle A_iOA_{i+1}$ for the central angle of the $i$-th triangle. Since $O$ is inside,
+$0<\theta_i<180^\circ$, and one full turn gives $\theta_1+\dots+\theta_n=360^\circ$.
+
+**Step 2 — area of each slice.** Every triangle has two sides equal to the radius $R$, so
+$$\text{Area}_i=\tfrac12 R^{2}\sin\theta_i.$$
+
+**Step 3 — equal areas $\iff$ equal sines.** Equal areas mean $\sin\theta_1=\sin\theta_2=\dots=\sin\theta_n$.
+But on $0<\theta<180^\circ$, $\ \sin\theta=\sin(180^\circ-\theta)$, so each $\theta_i$ is $x$ **or**
+$180^\circ-x$ for a single value $x$. *(This ambiguity is the whole crack.)*
+
+**Step 4 — $n=3$ is forced regular.** Three angles, each $x$ or $180^\circ-x$, summing to $360^\circ$:
+
+- all three $x$: $\ 3x=360^\circ\Rightarrow x=120^\circ$ — an equilateral (regular) triangle. ✔
+- $x,x,180^\circ-x$: $\ 2x+(180^\circ-x)=360^\circ\Rightarrow x=180^\circ$ — impossible.
+- $x,180^\circ-x,180^\circ-x$: $\ x+2(180^\circ-x)=360^\circ\Rightarrow x=0^\circ$ — impossible.
+
+So the only possibility is $\theta_1=\theta_2=\theta_3=120^\circ$, hence **$n=3\Rightarrow$ necessarily regular.**
+
+**Step 5 — $n=4$ counterexample.** Take central angles $60^\circ,120^\circ,60^\circ,120^\circ$ (sum
+$360^\circ$). Since $\sin60^\circ=\sin120^\circ=\tfrac{\sqrt3}{2}$, all four triangles have the **same** area
+$\tfrac12 R^{2}\cdot\tfrac{\sqrt3}{2}$; but $60^\circ\ne120^\circ$, so the sides alternate and the polygon is
+**not** regular — it is a rectangle that is not a square.
+
+**Step 6 — $n=5$ counterexample.** Take $60^\circ,60^\circ,60^\circ,60^\circ,120^\circ$ (sum $360^\circ$).
+Again $\sin60^\circ=\sin120^\circ$, so all areas are equal, yet $60^\circ\ne120^\circ$ means the sides are not
+all equal — not a regular pentagon.
+
+**Conclusion.** Only $n=3$ forces the polygon to be regular, so the answer is **B**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+fig,ax=plt.subplots(1,2,figsize=(6.8,3.6))
+def draw(a,angs,title):
+    a.plot(np.cos(th),np.sin(th),color='0.7')
+    cum=np.cumsum([0]+angs[:-1])
+    V=np.array([[np.cos(np.radians(c)),np.sin(np.radians(c))] for c in cum])
+    poly=np.vstack([V,V[0]]); a.plot(poly[:,0],poly[:,1],'-o',color='#2b6cb0')
+    for p in V: a.plot([0,p[0]],[0,p[1]],':',color='crimson')
+    a.plot(0,0,'ks'); a.set_aspect('equal'); a.axis('off'); a.set_title(title,fontsize=8)
+draw(ax[0],[60,120,60,120],'n=4:  60°,120°,60°,120°\nsin60°=sin120° ⟹ equal areas,\nbut 60°≠120° ⟹ NOT regular\n(rectangle, not square)')
+draw(ax[1],[60,60,60,60,120],'n=5:  60°,60°,60°,60°,120°\nequal areas, yet 60°≠120°\n⟹ NOT a regular pentagon')
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2022 P2 Q6 — the seed)*
+
+::: {.question}
+A list of $n$ integers. Let $P$ be "$n$ is odd" and $Q$ be "the median of the list is one of the numbers in
+the list". Which is correct?
+
+&nbsp;&nbsp;**A** $P$ is necessary and sufficient for $Q$ &nbsp; **B** necessary, not sufficient &nbsp;
+**C** sufficient, not necessary &nbsp; **D** neither
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (sufficient, not necessary).**
+
+**Step 1 — the two arrows to test.** Sufficient asks $P\Rightarrow Q$; necessary asks $Q\Rightarrow P$.
+
+**Step 2 — is $P\Rightarrow Q$? (sufficient).** If $n$ is odd, the median is the single **middle** entry of
+the sorted list, which *is* one of the numbers. So $P\Rightarrow Q$ — **sufficient**. ✔
+
+**Step 3 — is $Q\Rightarrow P$? (necessary).** Find a counterexample: an even-length list whose median is
+still in the list. Take $1,2,2,3$ ($n=4$, even): median $=\tfrac{2+2}{2}=2$, which **is** in the list. So $Q$
+holds with $P$ false — **not necessary**. ✘
+
+So $P$ is sufficient but not necessary.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(TMUA 2022 P2 Q4 — the seed)*
+
+::: {.question}
+A circle has equation $x^{2}+2fx+y^{2}+2gy+h=0$, and $P=(p,q)$ is a point. Let $L$ be the distance from the
+**centre** of the circle to $P$. Which one set of data is, on its own, **sufficient** to find $L$?
+
+&nbsp;&nbsp;**A** $f,g,h$ &nbsp; **B** $f,g,p,q$ &nbsp; **C** $f,h,p,q$ &nbsp; **D** $g,h,p,q$ &nbsp;
+**E** none of A–D
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B ($f,g,p,q$).**
+
+**Step 1 — what does $L$ actually depend on?** $L$ is the distance from the **centre** to $P$ — so you need
+the centre and $P$, nothing else.
+
+**Step 2 — find the centre.** Completing the square, $x^{2}+2fx+y^{2}+2gy+h=0$ has centre $(-f,-g)$. So the
+centre needs only $f$ and $g$; the constant $h$ sets the **radius**, which is irrelevant to $L$.
+
+**Step 3 — assemble.** $L=\sqrt{(p+f)^{2}+(q+g)^{2}}$ needs exactly $f,g$ (centre) and $p,q$ (the point). That
+is set **B**. (Any set missing $f$ or $g$ can't locate the centre; any set carrying $h$ carries a red herring.)
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(is the condition sufficient? — a shape counterexample)*
+
+::: {.question}
+Is "a quadrilateral has **equal diagonals**" **sufficient** for it to be a **rectangle**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No — not sufficient.**
+
+**Step 1 — the arrow.** Sufficient would mean: equal diagonals $\Rightarrow$ rectangle.
+
+**Step 2 — hunt the flexible counterexample.** An **isosceles trapezium** (non-rectangular) has equal
+diagonals, yet it is not a rectangle. One counterexample kills sufficiency. (A rectangle *does* have equal
+diagonals, so "equal diagonals" is **necessary** — but not sufficient.)
+
+**Step 3 — what would be sufficient?** "Equal diagonals **that bisect each other**" forces a rectangle. The
+extra clause is exactly what the trapezium lacks.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([-2,0]); B=np.array([2,0]); C=np.array([1,2]); D=np.array([-1,2])
+plt.figure(figsize=(4.4,3.0))
+quad=np.array([A,B,C,D,A]); plt.plot(quad[:,0],quad[:,1],color='#2b6cb0',lw=2)
+plt.plot([A[0],C[0]],[A[1],C[1]],'--',color='crimson',lw=1.5)
+plt.plot([B[0],D[0]],[B[1],D[1]],'--',color='crimson',lw=1.5)
+for pt,nm,off in [(A,'A',(-12,-4)),(B,'B',(6,-4)),(C,'C',(6,2)),(D,'D',(-12,2))]:
+    plt.annotate(nm,pt,textcoords='offset points',xytext=off,fontsize=10)
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('isosceles trapezium: diagonals equal (√13 = √13)\nyet it is NOT a rectangle',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(a "one condition isn't enough" trap)*
+
+::: {.question}
+Is "$b^{2}-4ac<0$" **sufficient**, on its own, for "$ax^{2}+bx+c>0$ for all real $x$"?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No — you also need $a>0$.**
+
+**Step 1 — what does $b^{2}-4ac<0$ give?** It says the quadratic has **no real roots**, so it never touches
+the $x$-axis — it stays entirely **above** or entirely **below** it.
+
+**Step 2 — which side? That's the sign of $a$.** With $a>0$ the parabola opens up (stays above); with $a<0$ it
+opens down (stays below).
+
+**Step 3 — counterexample.** $-x^{2}-1$: here $a=-1,b=0,c=-1$, so $b^{2}-4ac=-4<0$, yet $-x^{2}-1<0$ for all
+$x$. So $b^{2}-4ac<0$ alone is **not** sufficient — the necessary-and-sufficient condition is
+$$a>0\ \textbf{and}\ b^{2}-4ac<0.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,300)
+fig,ax=plt.subplots(figsize=(5.0,2.8))
+ax.plot(x,x**2+1,color='#2b6cb0',lw=2,label='a=+1: x²+1 > 0 ✓')
+ax.plot(x,-x**2-1,color='#dd6b20',lw=2,label='a=−1: −x²−1 < 0 ✗')
+ax.axhline(0,color='0.6',lw=0.8); ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title('both have b²−4ac<0; the sign of a decides',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 6 &nbsp; *(necessary vs sufficient — tell them apart)*
+
+::: {.question}
+For the statement "$x^{2}>4$", classify the condition "$x>2$": is it **necessary**, **sufficient**, **both**,
+or **neither**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: sufficient, not necessary.**
+
+**Step 1 — sufficient? ($x>2\Rightarrow x^{2}>4$).** If $x>2$ then $x^{2}>4$ — true. So $x>2$ is
+**sufficient**. ✔
+
+**Step 2 — necessary? ($x^{2}>4\Rightarrow x>2$).** Counterexample $x=-3$: $x^{2}=9>4$ but $x>2$ is false. So
+$x>2$ is **not necessary**. ✘
+
+**Step 3 — the full picture.** $x^{2}>4\iff x>2$ **or** $x<-2$. So "$x>2$" is only *one branch* — enough to
+force $x^{2}>4$, but not required. (The necessary-and-sufficient condition is "$x>2$ or $x<-2$", i.e.
+$\lvert x\rvert>2$.)
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+::: {.callout-tip}
+## Memorise — necessary / sufficient / must it be true?
+
+| Words | Arrow |
+|---|---|
+| $P$ **sufficient** for $Q$ | $P\Rightarrow Q$ (P is enough) |
+| $P$ **necessary** for $Q$ | $Q\Rightarrow P$ (Q needs P) |
+| "**Must** $Q$ hold, given $P$?" | is $P\Rightarrow Q$ true? |
+| **Necessary and sufficient** | $P\Leftrightarrow Q$ (both arrows) |
+
+- **To break an arrow:** one counterexample (hypothesis true, conclusion false) is enough — reach for the
+  **rectangle / isosceles / $n=4$ / $x=0$ / boundary** first.
+- **Equal areas or equal sines** hide the trap $\sin\theta=\sin(180^\circ-\theta)$ — the angles can differ.
+- **"Positive for all $x$"** needs *both* $a>0$ **and** $b^{2}-4ac<0$ — one alone is never enough.
+- A condition can be **necessary but not sufficient** (equal diagonals for a rectangle) or **sufficient but
+  not necessary** ($x>2$ for $x^{2}>4$). Always test **both** directions.
+:::
+
+---
+
+## 3 · Graph-matching & nested functions
+
+*Seeds: 2022 P2 Q18, Q20, plus a real cross-exam problem (MAT 2019 Q1C).*
+
+::: {.callout-tip}
+## The method — pin a curve by its ends and its turning point
+
+Don't differentiate all the options. Fix each curve with two quick reads:
+
+1. **Endpoints** — the value or limit at each end of the domain ($x\to0$, $x\to\tfrac\pi2$, $x\to\pm\infty$).
+2. **The turning point** — roughly *where* the max/min sits. For any $t^{t}$ (or $f^{f}$) the minimum is at
+   $t=\dfrac1e\approx0.37$, value $\left(\tfrac1e\right)^{1/e}\approx0.69$; on $[0,1]$ it starts and ends at
+   $1$ (a shallow U).
+
+And if the expression is **nested or disguised, rewrite it first**: a geometric series
+$\sin^{2}x+\sin^{4}x+\dots=\dfrac{\sin^{2}x}{1-\sin^{2}x}=\tan^{2}x$; a chain of $\cos/\sin$ — track the
+**range** through each layer.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+t=np.linspace(1e-4,1,400); y=t**t
+plt.figure(figsize=(4.6,3.0)); plt.plot(t,y,color='#2b6cb0',lw=2)
+tm=1/np.e; plt.plot(tm,tm**tm,'o',color='crimson')
+plt.annotate('min ≈ 0.69\nat t = 1/e ≈ 0.37',(tm,tm**tm),textcoords='offset points',xytext=(14,-6),fontsize=9,color='crimson')
+plt.plot(0,1,'ks',ms=4); plt.plot(1,1,'ks',ms=4)
+plt.annotate('→ 1',(0,1),textcoords='offset points',xytext=(4,-1),fontsize=9)
+plt.annotate('1',(1,1),textcoords='offset points',xytext=(4,-2),fontsize=9)
+plt.ylim(0.6,1.05); plt.grid(alpha=0.25); plt.xlabel('t'); plt.ylabel('t^t')
+plt.title('The t^t template: shallow U, both ends → 1',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- The template $t^t$ on $0<t\le1$ starts near $1$, ends at $1$, and has its minimum at
+  $$t=\frac1e,\qquad t^t=\left(\frac1e\right)^{1/e}\approx0.69.$$
+- To differentiate $t^t$, do **log differentiation**: write $t^t=e^{t\ln t}$, so
+  $$(t^t)'=t^t(\ln t+1).$$
+- For nested trig maxima, track the **range after each layer**. $\cos u$ reaches $1$ only if $u=0$; $\sin u$
+  is increasing on $[-1,1]$.
+- For graph matching, endpoints and special values usually beat full algebra.
+- **Extra practice:** MAT Section A for graph matching; PAT/ENGAA Maths for functions, transformations, and
+  solution-counting.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter. "How many solutions" → a whole number.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q18 — the seed)*
+
+::: {.question}
+$P,Q,R,S$ (below) are the graphs of
+$$y=(\cos x)^{\cos x},\quad y=(\sin x)^{\sin x},\quad y=(\cos x)^{\sin x},\quad y=(\sin x)^{\cos x}$$
+on $0<x<\tfrac\pi2$, **in some order**. Which row of the table correctly identifies the graphs?
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0.001,np.pi/2-0.001,400)
+sk=[('P',np.cos(x)**np.sin(x)),('Q',np.sin(x)**np.cos(x)),
+    ('R',np.cos(x)**np.cos(x)),('S',np.sin(x)**np.sin(x))]
+fig,axes=plt.subplots(2,2,figsize=(6.6,4.6))
+for ax,(lab,y) in zip(axes.ravel(),sk):
+    ax.plot(x,y,color='#2b6cb0'); ax.set_title(lab,fontsize=12,loc='left'); ax.set_ylim(0,1.05); ax.grid(alpha=0.25)
+    ax.set_xticks([0,np.pi/6,np.pi/3,np.pi/2]); ax.set_xticklabels(['0','π/6','π/3','π/2'],fontsize=7)
+plt.tight_layout(); plt.show()
+```
+
+| | $(\cos x)^{\cos x}$ | $(\sin x)^{\sin x}$ | $(\cos x)^{\sin x}$ | $(\sin x)^{\cos x}$ |
+|:--:|:--:|:--:|:--:|:--:|
+| **A** | P | Q | R | S |
+| **B** | P | Q | S | R |
+| **C** | Q | P | R | S |
+| **D** | Q | P | S | R |
+| **E** | R | S | P | Q |
+| **F** | R | S | Q | P |
+| **G** | S | R | P | Q |
+| **H** | S | R | Q | P |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E** — $(\cos x)^{\cos x}=R$, $(\sin x)^{\sin x}=S$, $(\cos x)^{\sin x}=P$, $(\sin x)^{\cos x}=Q$.
+
+**Step 1 — endpoints.** As $x\to0$: $\cos x\to1,\ \sin x\to0$. As $x\to\tfrac\pi2$: the reverse.
+
+**Step 2 — the two simple (monotone) ones.**
+
+- $(\cos x)^{\sin x}$: $1^{0}=1\to 0^{1}=0$, so it **decreases** $1\to0$ = **P**.
+- $(\sin x)^{\cos x}$: $0^{1}=0\to 1^{0}=1$, so it **increases** $0\to1$ = **Q**.
+
+**Step 3 — the two $t^{t}$ ones (a dip to $\approx0.69$).**
+
+- $(\cos x)^{\cos x}$: $t^{t}$ with $t=\cos x$ falling $1\to0$; the dip at $t=1/e$ is reached near the
+  **right** = **R**.
+- $(\sin x)^{\sin x}$: $t^{t}$ with $t=\sin x$ rising $0\to1$; the dip is near the **left** = **S**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0.001,np.pi/2-0.001,400)
+fns=[('(cos x)^cos x = R',np.cos(x)**np.cos(x)),('(sin x)^sin x = S',np.sin(x)**np.sin(x)),
+     ('(cos x)^sin x = P',np.cos(x)**np.sin(x)),('(sin x)^cos x = Q',np.sin(x)**np.cos(x))]
+fig,axes=plt.subplots(2,2,figsize=(6.6,4.6))
+for ax,(t,y) in zip(axes.ravel(),fns):
+    ax.plot(x,y,color='#2b6cb0'); ax.set_title(t,fontsize=9); ax.set_ylim(0,1.05); ax.grid(alpha=0.25)
+    ax.set_xticks([0,np.pi/6,np.pi/3,np.pi/2]); ax.set_xticklabels(['0','π/6','π/3','π/2'],fontsize=7)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(the $t^{t}$ shape)*
+
+::: {.question}
+Sketch $y=x^{x}$ for $0<x\le1$: state its value as $x\to0^{+}$, its value at $x=1$, and where (and what) its
+minimum is.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: starts at $1$, ends at $1$, minimum $\approx0.69$ at $x=1/e\approx0.37$ — a shallow U.**
+
+**Step 1 — ends.** $x\to0^{+}$: $x^{x}=e^{x\ln x}\to e^{0}=1$ (since $x\ln x\to0$). At $x=1$: $1^{1}=1$.
+
+**Step 2 — turning point.** $\dfrac{\mathrm d}{\mathrm dx}x^{x}=x^{x}(\ln x+1)=0\Rightarrow\ln x=-1\Rightarrow
+x=\dfrac1e$. There $y=\left(\tfrac1e\right)^{1/e}\approx0.69$ — a minimum (the only stationary point).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1e-4,1,400); y=x**x
+plt.figure(figsize=(4.6,3.0)); plt.plot(x,y,color='#2b6cb0',lw=2)
+plt.plot(1/np.e,(1/np.e)**(1/np.e),'o',color='crimson')
+plt.annotate('min ≈0.69 at x=1/e',(1/np.e,(1/np.e)**(1/np.e)),textcoords='offset points',xytext=(10,-4),fontsize=9,color='crimson')
+plt.ylim(0.6,1.05); plt.grid(alpha=0.25); plt.xlabel('x'); plt.ylabel('y'); plt.title('y = xˣ on (0,1]',fontsize=10); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(count solutions from the shape)*
+
+::: {.question}
+How many solutions does $\;x^{x}=0.8\;$ have for $0<x\le1$? And $\;x^{x}=0.5$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x^{x}=0.8$ has $2$; $\;x^{x}=0.5$ has $0$.**
+
+**Step 1 — recall the shape.** On $(0,1]$, $x^{x}$ falls from $1$ to its minimum $\approx0.69$ at $x=1/e$,
+then rises back to $1$ — a U.
+
+**Step 2 — read the level line across.**
+
+- $y=0.8$ lies **between** the minimum $0.69$ and the top $1$, so it cuts the U **twice** (once on each side of
+  $x=1/e$).
+- $y=0.5$ lies **below** the minimum $0.69$, so it never meets the curve — **no** solutions.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+from scipy.optimize import brentq
+x=np.linspace(1e-4,1,400); y=x**x
+plt.figure(figsize=(4.8,3.1)); plt.plot(x,y,color='#2b6cb0',lw=2,label='y = x^x')
+plt.axhline(0.8,color='#2ca02c',ls='--',lw=1.2,label='y=0.8 → 2 solutions')
+plt.axhline(0.5,color='crimson',ls='--',lw=1.2,label='y=0.5 → 0 solutions')
+xm=1/np.e
+xL=brentq(lambda t:t**t-0.8,1e-4,xm); xR=brentq(lambda t:t**t-0.8,xm,1)
+for xi in (xL,xR): plt.plot(xi,0.8,'o',color='#2ca02c',ms=5)
+plt.plot(xm,xm**xm,'o',color='0.4',ms=4)
+plt.ylim(0.45,1.03); plt.grid(alpha=0.25); plt.xlabel('x'); plt.ylabel('y')
+plt.legend(fontsize=8,loc='upper center')
+plt.title('a level line above the min cuts twice; below the min, never',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(TMUA 2022 P2 Q20 — maxima of a nested chain)*
+
+::: {.question}
+Let $\mathrm f_1=\cos x$, $\mathrm f_2=\sin(\cos x)$, $\mathrm f_3=\cos(\sin(\cos x))$,
+$\mathrm f_4=\sin(\cos(\sin(\cos x)))$, $\mathrm f_5=\cos(\sin(\cos(\sin(\cos x))))$ (radians), with maxima
+$m_1,\dots,m_5$. Which is true?
+
+&nbsp;&nbsp;**A** all $=1$ &nbsp; **B** $0<m_5<m_4<m_3<m_2<m_1=1$ &nbsp; **C** $m_1=m_3=m_5=1,\ 0<m_2=m_4<1$
+&nbsp; **D** $m_1=m_3=m_5=1,\ 0<m_4<m_2<1$ &nbsp; **E** $m_1=m_3=1,\ 0<m_2=m_4<1,\ 0<m_5<1$ &nbsp;
+**F** $m_1=m_3=1,\ 0<m_4<m_2<1,\ 0<m_5<1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E.** Track the **range** through each layer, and use that $\cos$ hits its max $1$ only when its
+input is $0$, while $\sin$ on $[-1,1]$ is largest at $1$.
+
+**Step 1 — $m_1$.** $\cos x$ reaches $1$ (at $x=0$). $m_1=1$.
+
+**Step 2 — $m_2$.** $\cos x\in[-1,1]$; $\sin$ is increasing there, so $\max\sin(\cos x)=\sin(1)\approx0.84<1$.
+$m_2=\sin 1$.
+
+**Step 3 — $m_3$.** $\sin(\cos x)\in[-\sin1,\sin1]$, which **contains $0$**; $\cos$ of $0$ is $1$, and
+$\sin(\cos x)=0$ is achievable ($\cos x=0$). So $m_3=1$.
+
+**Step 4 — $m_4$.** $\cos(\sin(\cos x))\in[\cos1,1]$; $\sin$ of that peaks at $\sin1$. So $m_4=\sin 1=m_2$.
+
+**Step 5 — $m_5$.** Now the inner $\sin(\cos(\sin(\cos x)))\in[\sin(\cos1),\sin1]\approx[0.62,0.84]$ — it
+**never reaches $0$**, so the outer $\cos$ **cannot** reach $1$; $m_5=\cos(0.62)\approx0.81<1$.
+
+So $m_1=m_3=1$, $\ 0<m_2=m_4<1$, $\ 0<m_5<1$ — **E**.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(MAT 2019 Q1C — a disguised standard curve)*
+
+::: {.question}
+*(MAT 2019 Q1C.)* For the values of $x$ at which it converges, the graph of
+$\;y=\sin^{2}x+\sin^{4}x+\sin^{6}x+\sin^{8}x+\cdots\;$ is which of the following five graphs?
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+def seg(ax,f,asy):
+    bnds=[-180]+asy+[180]
+    for lo,hi in zip(bnds[:-1],bnds[1:]):
+        xd=np.linspace(lo+0.6,hi-0.6,500); ax.plot(xd,f(np.radians(xd)),color='#2b6cb0',lw=1.8)
+    for a in asy:
+        if -180<a<180: ax.axvline(a,color='crimson',ls=':',lw=0.8)
+    ax.set_ylim(0,4); ax.set_xlim(-180,180)
+    ax.set_xticks([-180,-90,0,90,180]); ax.set_xticklabels([-180,-90,0,90,180],fontsize=6)
+    ax.axhline(0,color='0.6',lw=0.6); ax.set_yticks([0,1]); ax.tick_params(labelsize=6)
+opts=[('(a)',lambda x:np.tan(x)**2,[-90,90]),
+      ('(b)',lambda x:np.sin(x)**2,[]),
+      ('(c)',lambda x:1/np.cos(x)**2,[-90,90]),
+      ('(d)',lambda x:1/np.sin(x)**2,[0]),
+      ('(e)',lambda x:1/np.tan(x)**2,[0])]
+fig,axes=plt.subplots(3,2,figsize=(6.4,5.6)); ax=axes.ravel()
+for i,(lab,f,asy) in enumerate(opts):
+    seg(ax[i],f,asy); ax[i].set_title(lab,fontsize=11,loc='left')
+ax[5].axis('off')
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: (a) — the graph of $y=\tan^{2}x$.**
+
+**Step 1 — recognise the geometric series.** It is geometric with first term $\sin^{2}x$ and ratio
+$\sin^{2}x$ (with $\sin^{2}x<1$):
+$$y=\frac{\sin^{2}x}{1-\sin^{2}x}=\frac{\sin^{2}x}{\cos^{2}x}=\tan^{2}x.$$
+
+**Step 2 — read off the shape.** $\tan^{2}x\ge0$, is $0$ at $x=0$ and $x=\pm180^\circ$, equals $1$ at
+$\pm45^\circ,\pm135^\circ$, and has **vertical asymptotes at $\pm90^\circ$** (where $\sin^{2}x\to1$). So the
+correct sketch touches the axis at $0$ and $\pm180^\circ$ and shoots to $+\infty$ at $\pm90^\circ$ — that is
+**(a)**.
+
+**How the distractors differ** (all are neighbouring trig squares):
+
+- **(b)** $\sin^{2}x$ — bounded between $0$ and $1$, no asymptotes.
+- **(c)** $\sec^{2}x=1/\cos^{2}x$ — same $\pm90^\circ$ asymptotes as (a), but it never touches the axis (its
+  minimum is $1$, at $0$ and $\pm180^\circ$).
+- **(d)** $\csc^{2}x=1/\sin^{2}x$ — asymptotes at $0$ and $\pm180^\circ$; minimum $1$ at $\pm90^\circ$.
+- **(e)** $\cot^{2}x=1/\tan^{2}x$ — zero at $\pm90^\circ$, with asymptotes at $0$ and $\pm180^\circ$.
+
+Only (a) both **touches the axis at $0$** and **blows up at $\pm90^\circ$**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.4,3.0))
+for lo,hi in [(-180,-90),(-90,90),(90,180)]:
+    xd=np.linspace(lo+0.5,hi-0.5,400); x=np.radians(xd)
+    plt.plot(xd,np.tan(x)**2,color='#2b6cb0',lw=2)
+for a in (-90,90): plt.axvline(a,color='crimson',ls=':',lw=1)
+plt.ylim(0,4); plt.xlim(-180,180); plt.xticks([-180,-90,0,90,180])
+plt.axhline(0,color='0.6',lw=0.8); plt.xlabel('x (degrees)'); plt.ylabel('y')
+plt.title('(a)  y = tan²x : 0 at 0, ±180; asymptotes at ±90',fontsize=10); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 6 &nbsp; *(PAT 2023 Q6 — transforming a parabola)*
+
+::: {.question}
+*Adapted from PAT 2023, Question 6.*
+
+Let $f(x)=x^2$. A new graph $y=g(x)$ is obtained by taking the parabola, stretching it vertically by scale
+factor $2$, making its line of symmetry $x=1$, and ensuring that it is never positive. Which formula is $g(x)$?
+
+&nbsp;&nbsp;**A** $-2f(x-1)$ &nbsp; **B** $-f(x-1)$ &nbsp; **C** $-2f(x+1)$ &nbsp; **D** $-f(x+1)$
+&nbsp; **E** $-f(2x-2)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A.**
+
+**Step 1 — line of symmetry.** The graph of $f(x-1)=(x-1)^2$ has vertex at $(1,0)$, so its line of symmetry is
+$x=1$. That narrows the options to **A** or **B**.
+
+**Step 2 — never positive.** A negative sign reflects the parabola in the $x$-axis, making it $\le0$ for all
+$x$. Both **A** and **B** have that.
+
+**Step 3 — vertical scale factor.** Stretching by scale factor $2$ means multiply the output by $2$. With the
+reflection included, that gives
+$$g(x)=-2(x-1)^2=-2f(x-1).$$
+So the answer is **A**.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 4 · Converse & contrapositive
+
+*Seeds: 2022 P2 Q5, Q17.*
+
+::: {.callout-tip}
+## The method — the three relatives of "if $P$ then $Q$"
+
+1. **Write the three forms.**
+   - **Converse:** swap — "if $Q$ then $P$".
+   - **Contrapositive:** swap **and** negate — "if not $Q$ then not $P$".
+   - **Inverse:** negate only — "if not $P$ then not $Q$".
+2. **A statement and its contrapositive are equivalent** — same truth value, always. They stand or fall
+   together.
+3. **The converse is independent** — it may be true or false regardless. Test it by hunting a case with $Q$
+   **true** but $P$ **false**.
+4. **In a proof, watch the arrow's direction.** To conclude "$P\Rightarrow Q$" you need exactly that arrow —
+   proving "$Q\Rightarrow$ (something)" leaves the job unfinished; you still owe its converse.
+
+::: {.callout-note appearance="simple" icon=false}
+**Worked idea.** Original: "multiple of $6\Rightarrow$ multiple of $3$" (true). Its **contrapositive** "not a
+multiple of $3\Rightarrow$ not a multiple of $6$" is also true. Its **converse** "multiple of $3\Rightarrow$
+multiple of $6$" is **false** ($3$). Equivalent partner, independent converse.
+:::
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- Original: $P\Rightarrow Q$.
+- Converse: $Q\Rightarrow P$.
+- Contrapositive: $\neg Q\Rightarrow\neg P$.
+- Inverse: $\neg P\Rightarrow\neg Q$.
+- The original and contrapositive are always equivalent. The converse and inverse are always equivalent.
+- A proof of the converse does **not** prove the original; always check the arrow direction.
+- **Extra practice:** TMUA Logic and Proof notes for the language; MAT Section B and STEP Foundation for
+  longer reasoning chains.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter, or "true / false" for each form with the reason or counterexample.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q5 — the seed)*
+
+::: {.question}
+A line $L$ passes through $(1,2)$. Let $P$ be the statement: *if the $y$-intercept of $L$ is negative, then
+the $x$-intercept of $L$ is positive.* Which of these **must** be true?
+
+&nbsp;&nbsp;**I** $P$ &nbsp;&nbsp; **II** the converse of $P$ &nbsp;&nbsp; **III** the contrapositive of $P$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I, II &nbsp; **F** I, III
+&nbsp; **G** II, III &nbsp; **H** I, II, III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F (I and III).**
+
+**Step 1 — is $P$ true?** A line through $(1,2)$ with $y$-intercept $c<0$ has slope $\dfrac{2-c}{1-0}=2-c>0$.
+Rising from $(0,c)$ with $c<0$, it crosses the axis at $x=\dfrac{-c}{2-c}>0$. So $P$ is **true**.
+
+**Step 2 — the contrapositive.** It is logically equivalent to $P$, so it is **true** too. That gives I and
+III.
+
+**Step 3 — the converse.** "$x$-intercept positive $\Rightarrow$ $y$-intercept negative." Counterexample:
+$y=-x+3$ passes through $(1,2)$, has $x$-intercept $3>0$ **and** $y$-intercept $3>0$. So the converse is
+**false**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,4,200)
+plt.figure(figsize=(4.6,3.2))
+plt.plot(x,3*x-1,color='#2b6cb0',lw=2,label='y-int −1 (P): x-int +⅓')
+plt.plot(x,-x+3,color='#dd6b20',lw=2,label='y=−x+3: x-int 3, y-int 3 (kills converse)')
+plt.plot(1,2,'ko'); plt.annotate('(1,2)',(1,2),textcoords='offset points',xytext=(6,4))
+plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.ylim(-3,5); plt.legend(fontsize=7.5); plt.xlabel('x'); plt.ylabel('y'); plt.title('lines through (1,2)',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2022 P2 Q17 — a direction error in a proof)*
+
+::: {.question}
+A student proves *"$x^{3}+ax^{2}+b=0$ has three distinct real roots **if** $27b\!\left(b+\tfrac{4a^{3}}{27}\right)<0$"* by:
+**(I)** finding the stationary points $(0,b)$ and $\left(-\tfrac{2a}{3},\,b+\tfrac{4a^{3}}{27}\right)$;
+**(II)** showing the condition puts one stationary point above the $x$-axis and one below;
+**(III)** stating *"if the cubic has three distinct real roots then one stationary point is above and one
+below"*;
+**(IV)** concluding the condition gives three distinct roots.
+Which best describes the proof?
+
+&nbsp;&nbsp;**A** completely correct &nbsp; **B** it proves the converse of the whole statement &nbsp;
+**C** wrong — II should follow III &nbsp; **D** wrong — needs the converse of the result in step II &nbsp;
+**E** wrong — needs the converse of the result in step III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E.**
+
+**Step 1 — what does the conclusion need?** To reach IV ("condition $\Rightarrow$ three roots"), the missing
+link is **"one point above and one below $\Rightarrow$ three distinct roots"**.
+
+**Step 2 — what does the student actually state?** Step III is the **reverse**: "three roots $\Rightarrow$ one
+above, one below". That's the converse of what's needed.
+
+**Step 3 — the verdict.** Every line is *true*, but the argument uses the arrow the wrong way: it needs the
+**converse of the result in step III** to close. So **E**. (Same converse trap as Q5 — a statement and its
+converse are not interchangeable.)
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(write the three forms)*
+
+::: {.question}
+For "if $n$ is a multiple of $4$, then $n$ is even", write the **converse** and the **contrapositive**, and
+say which of the three statements are true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: original true, contrapositive true, converse false.**
+
+**Step 1 — original.** "Multiple of $4\Rightarrow$ even": true ($4k=2(2k)$).
+
+**Step 2 — contrapositive** (swap and negate): "if $n$ is **odd**, then $n$ is **not** a multiple of $4$" —
+**true** (equivalent to the true original).
+
+**Step 3 — converse** (swap): "if $n$ is even, then $n$ is a multiple of $4$" — **false**: $6$ is even but
+$6=4\times1+2$ is not a multiple of $4$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(which forms are equivalent?)*
+
+::: {.question}
+Which pairs among {original, converse, inverse, contrapositive} of "if $P$ then $Q$" **always** share the
+same truth value?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: original $\equiv$ contrapositive, and converse $\equiv$ inverse.**
+
+**Step 1 — original vs contrapositive.** "if $P$ then $Q$" $\equiv$ "if not $Q$ then not $P$" — always the
+same truth value.
+
+**Step 2 — converse vs inverse.** "if $Q$ then $P$" (converse) $\equiv$ "if not $P$ then not $Q$" (inverse),
+because the inverse is the *contrapositive of the converse*.
+
+**Step 3 — the two groups are independent.** Original and converse need **not** agree — that independence is
+the whole point of these questions.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(the opposite pattern — true converse, false original)*
+
+::: {.question}
+Consider "if $x^{2}>x$ then $x>1$" (for real $x$). Is the statement true? Is its **converse** true?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: the statement is false; its converse is true.**
+
+**Step 1 — solve the hypothesis.** $x^{2}>x\iff x^{2}-x>0\iff x(x-1)>0\iff x<0\ \textbf{or}\ x>1$.
+
+**Step 2 — test the statement.** "$x^{2}>x\Rightarrow x>1$": take $x=-2$ — then $x^{2}=4>-2$ holds, but
+$x>1$ is false. So the statement is **false** (it ignored the $x<0$ branch).
+
+**Step 3 — test the converse.** "$x>1\Rightarrow x^{2}>x$": if $x>1$ then multiplying $x>1$ by $x>0$ gives
+$x^{2}>x$. **True.** So here the *converse* holds while the original fails — the mirror image of Q5.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.2,2.2,400)
+plt.figure(figsize=(4.8,3.0))
+plt.plot(x,x**2,color='#2b6cb0',lw=2,label='y=x²')
+plt.plot(x,x,color='#dd6b20',lw=2,label='y=x')
+for xv in (-2,1.6): plt.plot(xv,xv**2,'o',color='crimson')
+plt.axvspan(-2.2,0,color='crimson',alpha=0.08); plt.axvspan(1,2.2,color='crimson',alpha=0.08)
+plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.legend(fontsize=8); plt.xlabel('x'); plt.ylabel('y')
+plt.title('x²>x on the shaded x<0 or x>1',fontsize=10); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## 5 · Quantifiers & their order
+
+*Seeds: 2022 P2 Q9, Q10, Q13.*
+
+::: {.callout-tip}
+## The method — read the quantifiers left to right
+
+1. **Order is everything.** In "$\forall x\ \exists n\ \dots$" the $n$ may **depend on $x$** (you choose it
+   after seeing $x$). In "$\exists x\ \forall n\ \dots$" one single $x$ must work for **every** $n$. Swapping
+   $\forall$ and $\exists$ changes the meaning.
+2. **To break a "$\forall$"**, find **one** bad case. **To prove a "$\exists$"**, exhibit **one** witness.
+3. **"$\forall x$, if $P(x)$ then $Q(x)$" is false the moment one $x$ has $P$ true and $Q$ false** — test the
+   extremes (very large / very negative $x$).
+4. **"$\exists y$ with [expression in $y$] $<0$"**: read the expression as a **function of $y$**. If it is
+   **non-constant linear** in $y$ it takes negative values, so the $\exists$ holds; the only escape is when
+   the $y$-coefficient is $0$ (a constant).
+
+::: {.callout-note appearance="simple" icon=false}
+**Worked idea.** "$\forall x\ \exists n:\ x<n$" is **true** ($n$ depends on $x$ — pick $n=\lfloor x\rfloor+1$).
+"$\exists x\ \forall n:\ x<n$" is **true** ($x=0$). But "$\forall x\ \forall n:\ x<n$" is **false** ($x=100,n=1$).
+Same three ingredients, three different answers — all from the quantifier order.
+:::
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- $\forall x\,\exists y$ means you may choose a new $y$ after seeing $x$.
+- $\exists y\,\forall x$ means one fixed $y$ must work for every $x$.
+- To prove an existence statement, give a **witness**.
+- To break a universal statement, give a **counterexample**.
+- If an expression is linear in the existential variable, e.g. $x+y(1-x)$, then a non-zero coefficient usually
+  lets you make it as negative or positive as needed.
+- **Extra practice:** TMUA Logic and Proof notes; MAT Section B reasoning; FP1/FP2 proof sections for
+  quantifier order and witness/counterexample work.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter, with the witness or the counterexample.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q10 — the seed)*
+
+::: {.question}
+Which of these are true?
+
+&nbsp;&nbsp;**I** for all real $x$ and all positive integers $n$, $\;x<n$.
+&nbsp;&nbsp;**II** for all real $x$, there exists a positive integer $n$ with $\;x<n$.
+&nbsp;&nbsp;**III** there exists a real $x$ such that for all positive integers $n$, $\;x<n$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I, II &nbsp; **F** I, III
+&nbsp; **G** II, III &nbsp; **H** I, II, III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G (II and III).**
+
+**Step 1 — I ($\forall x\,\forall n$).** One statement for **every** $x$ and $n$ at once. Counterexample
+$x=100,\ n=1$: $100<1$ is false. So **I is false**.
+
+**Step 2 — II ($\forall x\,\exists n$).** For each $x$ you may pick an $n$ **depending on $x$**: take
+$n=\lfloor x\rfloor+1$ (or $n=1$ if $x<1$). A positive integer beyond any given $x$ always exists. **True.**
+
+**Step 3 — III ($\exists x\,\forall n$).** Need **one** $x$ below every positive integer: $x=0$ works
+($0<n$ for all $n\ge1$). **True.**
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2022 P2 Q9 — break the "for all")*
+
+::: {.question}
+$(*)$: *for all real $x$, if $x<k$ then $x^{2}<k$.* Find the complete set of $k$ for which $(*)$ is true.
+
+&nbsp;&nbsp;**A** no real numbers &nbsp; **B** $k>0$ &nbsp; **C** $k<1$ &nbsp; **D** $k\le1$ &nbsp;
+**E** $0<k<1$ &nbsp; **F** $0<k\le1$ &nbsp; **G** all real numbers
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A (no real numbers).**
+
+**Step 1 — how could $(*)$ fail?** It is a "$\forall x$" of an implication; it breaks if **one** $x$ has
+$x<k$ (hypothesis true) but $x^{2}\ge k$ (conclusion false).
+
+**Step 2 — the extreme $x$.** For **any** $k$, take $x$ very negative (say $x=k-1000$): then $x<k$ is true,
+but $x^{2}$ is enormous, so $x^{2}<k$ fails.
+
+**Step 3 — conclusion.** That single $x$ breaks the "for all" for **every** $k$. So no value of $k$ makes
+$(*)$ true.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,4,400); k=1.0
+plt.figure(figsize=(4.8,3.0))
+plt.plot(x,x**2,color='#2b6cb0',lw=2,label='y=x²')
+plt.axhline(k,color='#dd6b20',ls='--',label='y=k')
+plt.axvline(k,color='0.6',ls=':'); plt.plot(-3,9,'o',color='crimson')
+plt.annotate('x<k but x²≫k',(-3,9),textcoords='offset points',xytext=(6,-4),color='crimson',fontsize=9)
+plt.ylim(0,12); plt.legend(fontsize=8); plt.xlabel('x'); plt.ylabel('y')
+plt.title('a very negative x always breaks it',fontsize=10); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(TMUA 2022 P2 Q13 — an $\exists y$ read as a function of $y$)*
+
+::: {.question}
+$(*)$: *there exists a real $y$ such that $x-xy+y$ is negative.* For how many real $x$ is $(*)$ true?
+
+&nbsp;&nbsp;**A** none &nbsp; **B** exactly one &nbsp; **C** exactly two &nbsp; **D** all except two &nbsp;
+**E** all except one &nbsp; **F** all values
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E (all except one).**
+
+**Step 1 — group by $y$.** $x-xy+y=x+y(1-x)$ — a **linear function of $y$** with slope $(1-x)$.
+
+**Step 2 — when can it be negative?** If $x\neq1$ the slope $(1-x)\neq0$, so as $y$ runs over the reals the
+value runs over **all** reals — in particular it is negative for suitable $y$. So $(*)$ holds.
+
+**Step 3 — the exception.** If $x=1$ the expression collapses to $1+y\cdot0=1$, a constant that is **never**
+negative. So $(*)$ fails only at $x=1$ — true for **all $x$ except one**.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(swapping the order flips the truth)*
+
+::: {.question}
+Classify each as true or false: **(a)** for all real $x$, there exists a real $y$ with $y>x$; **(b)** there
+exists a real $y$ such that for all real $x$, $y>x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: (a) true, (b) false.**
+
+**Step 1 — (a) $\forall x\,\exists y$.** For each $x$ choose $y=x+1$; then $y>x$. The $y$ **depends on $x$**,
+which is allowed. **True.**
+
+**Step 2 — (b) $\exists y\,\forall x$.** Now one fixed $y$ must beat **every** real $x$. But $x=y$ (or
+$y+1$) already fails $y>x$ — there is no largest real. **False.**
+
+**Step 3 — the moral.** The only change is the order of $\forall$ and $\exists$, and it flips the answer.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(an $\exists\forall$ that *is* true)*
+
+::: {.question}
+Is this true? *There exists a real $x$ such that for all real $y$, $\;xy=y$.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: true.**
+
+**Step 1 — it's $\exists x\,\forall y$**, so one $x$ must work for **every** $y$.
+
+**Step 2 — find the witness.** $x=1$: then $xy=1\cdot y=y$ for all $y$. One $x$ handles every $y$, so the
+statement holds.
+
+**Step 3 — contrast with Problem 4(b).** An $\exists\forall$ is true exactly when a **universal element**
+exists ($x=1$ here); it is false when no single choice can cover all cases (no largest real there).
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 6 · Counterexample & spot-the-error
+
+*Seeds: 2022 P2 Q3, Q7, plus a real cross-exam problem (MAT 2022 Q1G).*
+
+::: {.callout-tip}
+## The method — one example to break it; the first line to break it
+
+1. **To disprove "for all $n$, …", give ONE $n$** with the hypothesis **true** and the conclusion **false**.
+   The example must obey the hypothesis — a case that fails the hypothesis proves nothing (a common decoy).
+2. **To find the *first* error in a proof**, read top-down and stop at the earliest line that does not follow
+   for **every** allowed value. A valid deduction *from* a false line is not the error.
+3. **The headline trap: "the polynomial can't be factorised" $\neq$ "the number is prime".** An irreducible
+   polynomial can still take composite values.
+
+::: {.callout-note appearance="simple" icon=false}
+**Worked idea.** $x^{2}+1$ is irreducible, yet $x=3$ gives $3^{2}+1=10=2\times5$ — composite. Polynomial
+irreducibility says nothing about the primality of the numbers it produces.
+:::
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- A counterexample to "$P\Rightarrow Q$" must have $P$ true and $Q$ false.
+- If the hypothesis is false, it is **not** a counterexample.
+- "Polynomial is irreducible" does not mean "every value is prime".
+- For prime claims, try values that make the expression obviously divisible by a repeated constant, such as
+  $n=40$ in $n^{2}+n+41$.
+- In spot-the-error questions, find the **first invalid implication**, not just a later false conclusion.
+- **Extra practice:** MAT Section B for proof-flaw questions; AMC 12 first 15 for quick counterexamples and
+  divisibility traps.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter, with the counterexample or the guilty line.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q3 — find the counterexample)*
+
+::: {.question}
+Statement: *if $n$ is prime, then $n^{2}+2$ is not prime.* Which of these is a **counterexample**?
+
+&nbsp;&nbsp;**I** $n=2$ &nbsp;&nbsp; **II** $n=3$ &nbsp;&nbsp; **III** $n=4$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I, II &nbsp; **F** I, III
+&nbsp; **G** II, III &nbsp; **H** I, II, III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (II only).**
+
+**Step 1 — what a counterexample needs.** $n$ **prime** (hypothesis true) **and** $n^{2}+2$ **prime**
+(conclusion false).
+
+**Step 2 — test each.**
+
+- $n=2$: prime, but $2^{2}+2=6$ is not prime — conclusion holds, so **not** a counterexample.
+- $n=3$: prime, and $3^{2}+2=11$ **is** prime — hypothesis true, conclusion false — a **counterexample**. ✔
+- $n=4$: $4$ is **not** prime, so it fails the hypothesis and cannot be a counterexample.
+
+Only **II**.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+### Problem 2 &nbsp; *(TMUA 2022 P2 Q7 — the first error)*
+
+::: {.question}
+Claim: *the difference between two consecutive positive cube numbers is always prime.* Proof:
+**(I)** $(x+1)^{3}=x^{3}+3x^{2}+3x+1$; **(II)** the difference is $3x^{2}+3x+1$; **(III)** $3x^{2}+3x+1$ has
+no integer linear factors (negative discriminant); **(IV)** therefore $3x^{2}+3x+1$ cannot be factorised for
+any positive integer $x$; **(V)** hence the difference is always prime. Best description?
+
+&nbsp;&nbsp;**A** correct, claim true &nbsp; **B** correct, but counterexamples exist &nbsp; **C** first error
+line I &nbsp; **D** line II &nbsp; **E** line III &nbsp; **F** line IV &nbsp; **G** line V
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F (first error, line IV).**
+
+**Step 1 — lines I–III are fine.** The *polynomial* $3x^{2}+3x+1$ has discriminant $9-12<0$, so it is
+**irreducible** (no integer linear factors).
+
+**Step 2 — the jump at IV.** "The polynomial doesn't factorise, so the **number** $3x^{2}+3x+1$ can never be
+factorised (is prime)." That is the irreducible-$\neq$-prime trap.
+
+**Step 3 — the counterexample.** $x=5$: $3(25)+15+1=91=7\times13$ — composite. So line IV is false (and V
+follows from it), making **IV** the first error.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(break a famous "always prime")*
+
+::: {.question}
+Give a counterexample to *"$n^{2}+n+41$ is prime for every non-negative integer $n$"*.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $n=40$ (also $n=41$).**
+
+**Step 1 — where might a "$+41$" formula fail?** When $41$ divides the value — near $n=40$ or $n=41$.
+
+**Step 2 — check.** $n=40$: $40^{2}+40+41=1681=41^{2}$ — composite. (Also $n=41$: $41^{2}+41+41=1763=41\times43$.)
+So the claim fails, e.g. at $n=40$. (This is Euler's famous prime-rich polynomial — prime for $n=0,\dots,39$,
+then it breaks.)
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(a Mersenne counterexample)*
+
+::: {.question}
+Give a counterexample to *"if $n$ is prime, then $2^{n}-1$ is prime"*.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $n=11$.**
+
+**Step 1 — hypothesis.** $n$ must be prime; $11$ is.
+
+**Step 2 — conclusion fails.** $2^{11}-1=2047=23\times89$ — composite. So $n=11$ is prime while $2^{n}-1$ is
+not: a counterexample. (Smaller primes $2,3,5,7$ all *do* give Mersenne primes, so you must go up to $11$.)
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(MAT 2022 Q1G — a genuine factorisation forces compositeness)*
+
+::: {.question}
+*(MAT 2022 Q1G.)* Given that $n^{4}+1=\left(n^{2}+\sqrt2\,n+1\right)\left(n^{2}-\sqrt2\,n+1\right)$, deduce
+for how many positive whole numbers $n$ the value $n^{4}+4$ is prime.
+
+&nbsp;&nbsp;**(a)** never &nbsp; **(b)** exactly one &nbsp; **(c)** exactly two &nbsp; **(d)** exactly three
+&nbsp; **(e)** infinitely many
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: (b) exactly one.**
+
+**Step 1 — factorise $n^{4}+4$ the same way (Sophie Germain).**
+$$n^{4}+4=(n^{2}+2)^{2}-(2n)^{2}=(n^{2}-2n+2)(n^{2}+2n+2).$$
+
+**Step 2 — a product is prime only if a factor is $1$.** The smaller factor is $n^{2}-2n+2=(n-1)^{2}+1\ge1$,
+and it equals $1$ **only at $n=1$**.
+
+**Step 3 — evaluate.** At $n=1$, $n^{4}+4=5$ (prime). For every $n\ge2$ both factors exceed $1$, so the value
+is composite. Prime for **exactly one** $n$ — **(b)**. (A genuine factorisation forces compositeness *except*
+where a factor collapses to $1$ — the flip side of Q7.)
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## 7 · Pigeonhole — "smallest $n$ that necessarily forces it"
+
+*Seed: 2022 P2 Q8.*
+
+::: {.callout-tip}
+## The method — build the boxes, then add one
+
+1. **"Smallest $n$ that *necessarily* forces $X$" is a pigeonhole question.** Group the pool into **boxes** so
+   that two items from one box give $X$ (e.g. a pair that sums to the target).
+2. **Find the largest selection that *avoids* $X$** — at most **one** item from each box, **plus** every
+   "loner" that can never form $X$ (no partner, or a self-pair that isn't two *distinct* items). Call this
+   maximum $m$.
+3. **The answer is $m+1$** — one extra item must double up in a box.
+4. **Count loners carefully** — they raise $m$, and forgetting them is the classic slip.
+
+::: {.callout-note appearance="simple" icon=false}
+**Worked idea.** Force two of $\{1,\dots,10\}$ to sum to $11$: the boxes are $(1,10),(2,9),(3,8),(4,7),(5,6)$
+— $5$ pairs, no loners. Largest safe selection $=5$ (one per pair), so $6$ items force a pair.
+:::
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- Pigeonhole answers usually follow: **make boxes → find largest safe selection → add 1**.
+- For sums, boxes are pairs with the required sum.
+- For equal remainders, boxes are remainder classes.
+- For fixed differences, boxes are pairs or chains separated by that difference.
+- Count loners carefully: they can be included safely and increase the largest safe selection.
+- **Extra practice:** AMC 12 first 15 for fast counting; MAT Section A for multiple-choice pigeonhole variants.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A whole number $n$.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q8 — the seed)*
+
+::: {.question}
+$S$ is a selection of $n$ terms from $1,4,7,\dots,70$. Let $(*)$ be: *there are two distinct terms of $S$
+summing to $74$.* What is the smallest $n$ for which $(*)$ is **necessarily** true?
+
+&nbsp;&nbsp;**A** 12 &nbsp; **B** 13 &nbsp; **C** 14 &nbsp; **D** 21 &nbsp; **E** 22 &nbsp; **F** 23
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (14).**
+
+**Step 1 — the pool.** The sequence is $3k-2$ for $k=1,\dots,24$ — **24 terms**.
+
+**Step 2 — the boxes (pairs summing to $74$).** $(4,70),(7,67),\dots,(34,40)$ — **11 pairs**.
+
+**Step 3 — the loners.** $1$ (its partner $73$ is not in the sequence) and $37$ (since $37+37$ is not two
+*distinct* terms). Two loners.
+
+**Step 4 — largest safe selection, then $+1$.** Take one from each pair plus both loners: $11+2=13$ terms with
+no pair summing to $74$. So $13$ can still avoid $(*)$, but any **14** terms force a complete pair. Smallest
+$n=\mathbf{14}$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(the same idea, small numbers)*
+
+::: {.question}
+From $\{1,2,\dots,10\}$, what is the smallest number of elements you must choose to be sure that **two of them
+sum to $11$**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 6.**
+
+**Step 1 — make the right boxes.** Two numbers sum to $11$ exactly when they come from one of these pairs:
+$$(1,10),(2,9),(3,8),(4,7),(5,6).$$
+There are **5 pairs**, and every number belongs to exactly one pair, so there are **no loners** to add on.
+
+**Step 2 — the largest safe choice.** If you choose one number from each pair, you can choose $5$ elements
+without making a sum of $11$. For example, $\{1,2,3,4,5\}$ is still safe.
+
+**Step 3 — add one more.** A $6$th element has to land in a pair that is already represented, so it completes
+a pair summing to $11$. Smallest $=\boxed{6}$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(plain pigeonhole)*
+
+::: {.question}
+How many people must be in a room to be certain that **at least two share a birth month**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 13.**
+
+**Step 1 — boxes.** The boxes are the $12$ birth months.
+
+**Step 2 — safe maximum.** With $12$ people, it is still possible that everyone has a different birth month
+(one person in each box).
+
+**Step 3 — $+1$.** The $13$th person has nowhere new to go, so some month must contain at least two people.
+Smallest $=\boxed{13}$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(pigeonhole by remainder)*
+
+::: {.question}
+From $\{1,2,\dots,50\}$, what is the smallest selection that **must** contain two numbers leaving the **same
+remainder on division by $7$**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 8.**
+
+**Step 1 — boxes.** The possible remainders on division by $7$ are
+$$0,1,2,3,4,5,6,$$
+so there are **7 boxes**. Every selected number must go into exactly one of these boxes.
+
+**Step 2 — safe maximum.** You could pick $7$ numbers with all different remainders, one from each box.
+
+**Step 3 — $+1$.** An $8$th number must repeat one of the remainders. Therefore two chosen numbers have the
+same remainder, and their difference is a multiple of $7$. Smallest $=\boxed{8}$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(pigeonhole by difference)*
+
+::: {.question}
+From $\{1,2,\dots,10\}$, what is the smallest selection that **must** contain two numbers that **differ by
+$5$**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 6.**
+
+**Step 1 — boxes.** Numbers that differ by $5$ naturally pair up:
+$$\{1,6\},\{2,7\},\{3,8\},\{4,9\},\{5,10\}.$$
+There are **5 boxes**, and there are no loners.
+
+**Step 2 — safe maximum.** You can choose one number from each box, giving $5$ numbers with no two differing
+by $5$.
+
+**Step 3 — $+1$.** A $6$th number must come from an already-used box, so it pairs with the number already
+chosen from that box. Smallest $=\boxed{6}$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 8 · Calculus — stationary points & ordering integrals
+
+*Seeds: 2022 P2 Q1, Q12, plus a real cross-exam problem (MAT 2019 Q1D).*
+
+::: {.callout-tip}
+## The method — count roots of $y'$; compare integrands pointwise
+
+**Counting stationary points**
+
+1. **Stationary points are the real roots of $y'=0$.** Differentiate, then **factor**.
+2. A **quadratic factor with negative discriminant** contributes **no** real root — so it adds no stationary
+   point. Count only the real roots.
+
+**Ordering definite integrals without evaluating**
+
+3. **If $f(x)\ge g(x)$ for every $x$ in $[a,b]$, then $\displaystyle\int_a^b f\ge\int_a^b g$.** So order the
+   **integrands pointwise** — never compute the integrals.
+4. Put everything in a **common form** first (e.g. $\left(\sqrt2\right)^{x}=2^{x/2}$), then use
+   $\sqrt x\ge x\ge x^{2}$ on $(0,1)$ and that $a^{t}$ is increasing for $a>1$.
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- Stationary points occur where $\dfrac{dy}{dx}=0$, so **differentiate, factor, then count real roots**.
+- A quadratic factor with negative discriminant contributes **no real stationary points**.
+- To compare integrals on the same interval, compare the **integrands pointwise**.
+- On $0<x<1$, higher powers are smaller: $x^3<x^2<x<\sqrt{x}$.
+- Put expressions into a common base before comparing, e.g. $(\sqrt2)^x=2^{x/2}$.
+- **Extra practice:** ECAA/ENGAA Maths for short calculus; PAT Maths for graph and area interpretation; MAT
+  Section A for compact exam-style versions.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Stationary points → a count. Ordering → a chain like $R<Q<P$.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q1 — the seed)*
+
+::: {.question}
+How many stationary points does $y=3x^{4}+4x^{3}+6x^{2}-5$ have?
+
+&nbsp;&nbsp;**A** 0 &nbsp; **B** 1 &nbsp; **C** 2 &nbsp; **D** 3 &nbsp; **E** 4
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B (1).**
+
+**Step 1 — differentiate and factor.**
+$$\frac{\mathrm dy}{\mathrm dx}=12x^{3}+12x^{2}+12x=12x\left(x^{2}+x+1\right).$$
+
+**Step 2 — count real roots.** $x=0$ is one root. The quadratic $x^{2}+x+1$ has discriminant $1-4=-3<0$, so it
+has **no** real roots. Only $x=0$ — **one** stationary point.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.6,1.1,400)
+plt.figure(figsize=(4.6,3.0)); plt.plot(x,3*x**4+4*x**3+6*x**2-5,color='#2b6cb0',lw=2)
+plt.plot(0,-5,'o',color='crimson'); plt.annotate('only turning point (0,−5)',(0,-5),textcoords='offset points',xytext=(6,10),fontsize=9,color='crimson')
+plt.grid(alpha=0.25); plt.title('a single stationary point',fontsize=10); plt.xlabel('x'); plt.ylabel('y'); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2022 P2 Q12 — order the integrals)*
+
+::: {.question}
+Place in order, smallest first: $\;P=\displaystyle\int_0^1 2^{\sqrt x}\,\mathrm dx$, $\;Q=\displaystyle\int_0^1
+2^{x}\,\mathrm dx$, $\;R=\displaystyle\int_0^1\left(\sqrt2\right)^{x}\,\mathrm dx$.
+
+&nbsp;&nbsp;**A** $P<Q<R$ &nbsp; **B** $P<R<Q$ &nbsp; **C** $Q<P<R$ &nbsp; **D** $Q<R<P$ &nbsp;
+**E** $R<P<Q$ &nbsp; **F** $R<Q<P$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F ($R<Q<P$).**
+
+**Step 1 — common form.** $R=\displaystyle\int_0^1 2^{x/2}\,\mathrm dx$, so all three are $\int_0^1 2^{(\cdot)}$.
+
+**Step 2 — compare exponents on $(0,1)$.** There $\sqrt x\ge x\ge \tfrac x2$, and $2^{t}$ is increasing, so
+$2^{\sqrt x}\ge 2^{x}\ge 2^{x/2}$ at **every** point.
+
+**Step 3 — integrate.** Pointwise order carries to the integrals: $P\ge Q\ge R$, i.e. $R<Q<P$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,1,300)
+plt.figure(figsize=(4.8,3.0))
+plt.plot(x,2**np.sqrt(x),color='#2b6cb0',lw=2,label='2^√x  (P, top)')
+plt.plot(x,2.0**x,color='#dd6b20',lw=2,label='2^x  (Q)')
+plt.plot(x,2.0**(x/2),color='#2ca02c',lw=2,label='2^(x/2)  (R, bottom)')
+plt.legend(fontsize=8); plt.xlabel('x'); plt.ylabel('y'); plt.title('integrands nested on (0,1) ⟹ R<Q<P',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+### Problem 3 &nbsp; *(count stationary points — three this time)*
+
+::: {.question}
+How many stationary points does $y=x^{4}-2x^{2}+3$ have?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 3.**
+
+**Step 1 — differentiate and factor.** $\dfrac{\mathrm dy}{\mathrm dx}=4x^{3}-4x=4x(x^{2}-1)=4x(x-1)(x+1)$.
+
+**Step 2 — count.** Real roots $x=-1,0,1$ — all distinct and real — so **three** stationary points (a
+minimum, a maximum, a minimum: the classic W-shape).
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(order integrals by the power)*
+
+::: {.question}
+Without evaluating, order $\;\displaystyle\int_0^1 x^{3}\,\mathrm dx,\ \int_0^1 x^{2}\,\mathrm dx,\ \int_0^1
+\sqrt x\,\mathrm dx$, smallest first.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $\displaystyle\int_0^1 x^{3}<\int_0^1 x^{2}<\int_0^1 \sqrt x$.**
+
+**Step 1 — compare on $(0,1)$.** For $0<x<1$, a **higher power is smaller**: $x^{3}<x^{2}<x<\sqrt x$.
+
+**Step 2 — integrate.** The pointwise order carries over, so $\int x^{3}<\int x^{2}<\int\sqrt x$. (Check:
+$\tfrac14<\tfrac13<\tfrac23$.)
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(a derivative that hides a complex pair)*
+
+::: {.question}
+How many stationary points does $y=x^{4}+4x+7$ have?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 1.**
+
+**Step 1 — differentiate.** $\dfrac{\mathrm dy}{\mathrm dx}=4x^{3}+4=4(x^{3}+1)=4(x+1)(x^{2}-x+1)$.
+
+**Step 2 — count real roots.** $x=-1$ is one. The quadratic $x^{2}-x+1$ has discriminant $1-4=-3<0$ — no real
+roots. So exactly **one** stationary point.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 6 &nbsp; *(MAT 2019 Q1D — area between two parabolas)*
+
+::: {.question}
+*(MAT 2019 Q1D.)* The area between the parabolas $y=x^{2}+2ax+a$ and $y=a-x^{2}$ equals $9$. The possible
+values of $a$ are
+
+&nbsp;&nbsp;**(a)** $a=1$ &nbsp; **(b)** $a=-3$ or $a=3$ &nbsp; **(c)** $a=-3$ &nbsp; **(d)** $a=-1$ or $a=1$
+&nbsp; **(e)** $a=1$ or $a=3$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: (b) $a=\pm3$.**
+
+**Step 1 — where do they meet?** $x^{2}+2ax+a=a-x^{2}\Rightarrow 2x^{2}+2ax=0\Rightarrow 2x(x+a)=0$, so
+$x=0$ and $x=-a$.
+
+**Step 2 — area between the curves.** The gap is $(a-x^{2})-(x^{2}+2ax+a)=-2x^{2}-2ax$. Integrate between the
+roots:
+$$\text{area}=\left|\int_{0}^{-a}(-2x^{2}-2ax)\,\mathrm dx\right|=\left|-\tfrac{a^{3}}{3}\right|=\frac{|a|^{3}}{3}.$$
+
+**Step 3 — solve.** $\dfrac{|a|^{3}}{3}=9\Rightarrow |a|^{3}=27\Rightarrow |a|=3$, so $a=\pm3$ — **(b)**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,1.5,300); a=3
+plt.figure(figsize=(4.8,3.0))
+plt.plot(x,x**2+2*a*x+a,color='#2b6cb0',lw=2,label='y=x²+2ax+a')
+plt.plot(x,a-x**2,color='#dd6b20',lw=2,label='y=a−x²')
+xs=np.linspace(-a,0,100); plt.fill_between(xs,xs**2+2*a*xs+a,a-xs**2,color='crimson',alpha=0.15)
+plt.legend(fontsize=8); plt.ylim(-8,8); plt.xlabel('x'); plt.ylabel('y'); plt.title('a=3: enclosed area = 9',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 7 &nbsp; *(STEP Foundation Assignment 2 — completing the square for extrema)*
+
+::: {.question}
+*Adapted from STEP Support Programme Foundation Assignment 2, Preparation Question 2(vi).*
+
+Write
+$$x^2-8x+21$$
+in completed-square form. Hence find its greatest and least values on $0\le x\le5$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: least $5$, greatest $21$.**
+
+**Step 1 — complete the square.**
+$$x^2-8x+21=(x-4)^2+5.$$
+
+**Step 2 — find the least value.** The square term is smallest when $x=4$, and $4$ lies inside
+$0\le x\le5$. So the least value is
+$$(4-4)^2+5=5.$$
+
+**Step 3 — check the endpoints for the greatest value.** A positive quadratic opens upwards, so on a closed
+interval its greatest value occurs at one of the endpoints:
+$$x=0:\ 21,\qquad x=5:\ 25-40+21=6.$$
+Thus the greatest value is $21$.
+
+This is a classic STEP Foundation habit: complete the square first, then check whether the vertex is inside
+the interval.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 9 · Series & binomial coefficients
+
+*Seed: 2022 P2 Q2, plus a real cross-exam problem (MAT 2023 Q1F).*
+
+::: {.callout-tip}
+## The method — coefficients multiply by convolution
+
+1. **The coefficient of $x^{n}$ in a product is a convolution:** sum, over $j+k=n$, of (coeff of $x^{j}$ in the
+   first)$\times$(coeff of $x^{k}$ in the second).
+2. **If one factor is "full", $1+x+\dots+x^{m}$ (all coefficients $1$), the coefficient of $x^{n}$ in the
+   product is just the sum of the other factor's coefficients** over the reachable degrees — each partner
+   exists exactly once.
+3. **Facts to have ready:** $(1+x)^{n}=\displaystyle\sum_k\binom nk x^{k}$; $\ \sum_k\binom nk=2^{n}$;
+   $\ 1+x+\dots+x^{m}=\dfrac{1-x^{m+1}}{1-x}$; and $(a-b)(a+b)=a^{2}-b^{2}$ to **collapse conjugate factors**.
+4. In $(1+cx)^{n}$ the coefficient of $x^{k}$ is $\binom nk c^{k}$ — don't forget the power of $c$.
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- Coefficient extraction means: list all ways the powers can add to the target power.
+- $(1+x)^n=\sum_k\binom nk x^k$ and $\sum_k\binom nk=2^n$.
+- In $(1+cx)^n$, the coefficient of $x^k$ is $\binom nk c^k$; do not forget the $c^k$.
+- "Term independent of $x$" means the exponent of $x$ is $0$.
+- Collapse conjugates before expanding: $(1-2x)(1+2x)=1-4x^2$.
+- **Extra practice:** MAT Section A and AMC 12 first 15 for coefficient extraction; STEP Foundation for
+  cleaner algebraic manipulation.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A number (or a form like $-2^{13}\times5$).
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q2 — the seed)*
+
+::: {.question}
+Find the coefficient of $x^{5}$ in $\;(1+x)^{5}\times\displaystyle\sum_{i=0}^{5}x^{i}$.
+
+&nbsp;&nbsp;**A** 1 &nbsp; **B** 5 &nbsp; **C** 16 &nbsp; **D** 25 &nbsp; **E** 32
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E (32).**
+
+**Step 1 — read the "full" factor.** $\displaystyle\sum_{i=0}^{5}x^{i}=1+x+\dots+x^{5}$ has coefficient $1$ on
+every power from $0$ to $5$.
+
+**Step 2 — pair each term to make $x^{5}$.** The $x^{k}$ term of $(1+x)^{5}$ (coefficient $\binom5k$) needs an
+$x^{5-k}$ from the sum, which exists (for $k=0,\dots,5$) with coefficient $1$.
+
+**Step 3 — add the binomial coefficients.**
+$$\sum_{k=0}^{5}\binom5k\times1=\binom50+\binom51+\dots+\binom55=2^{5}=32.$$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(sum the coefficients up to a degree)*
+
+::: {.question}
+Find the coefficient of $x^{3}$ in $\;(1+x)^{4}\,(1+x+x^{2}+x^{3}+\cdots)$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 15.**
+
+**Step 1 — use the second factor as a helper.** The second factor
+$1+x+x^{2}+x^{3}+\cdots$ contributes coefficient $1$ to every non-negative power of $x$.
+
+To make $x^{3}$ overall, a term $x^k$ from $(1+x)^4$ must be paired with $x^{3-k}$ from the long series. This
+works for $k=0,1,2,3$.
+
+**Step 2 — add them.** $\binom40+\binom41+\binom42+\binom43=1+4+6+4=15$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(don't forget the power of the coefficient)*
+
+::: {.question}
+Find the coefficient of $x^{2}$ in $\;(1+2x)^{5}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 40.**
+
+**Step 1 — general term.** In $(1+2x)^{5}$, choosing the $2x$ term exactly $k$ times gives
+$$\binom5k(2x)^k=\binom5k2^kx^k.$$
+The coefficient $2$ is part of the term, so it must also be raised to the power $k$.
+
+**Step 2 — set $k=2$.** $\binom52\,2^{2}=10\times4=40$. (Missing the $2^{2}$ and answering $10$ is the trap.)
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(a product that mixes signs)*
+
+::: {.question}
+Find the coefficient of $x^{4}$ in $\;(1+x)^{6}\,(1-x)$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $-5$.**
+
+**Step 1 — split the second factor.** Multiplying by $1-x$ means "take the original polynomial, then subtract
+a shifted copy":
+$$(1+x)^{6}(1-x)=(1+x)^{6}-x(1+x)^{6}.$$
+
+**Step 2 — take the two contributions to $x^{4}$.** From $(1+x)^{6}$: $\binom64$. From $-x(1+x)^{6}$:
+$-\binom63$ (the $x^{3}$ term shifted up).
+
+**Step 3 — combine.** $\binom64-\binom63=15-20=-5$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(the term independent of $x$)*
+
+::: {.question}
+Find the term **independent of $x$** in the expansion of $\;\left(x+\dfrac{2}{x}\right)^{4}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: 24.**
+
+**Step 1 — general term.** If we choose $\dfrac2x$ exactly $k$ times, then we choose $x$ the other $4-k$
+times:
+$$\binom4k x^{4-k}\left(\dfrac2x\right)^{k}=\binom4k 2^{k}\,x^{4-2k}.$$
+
+**Step 2 — kill the power of $x$.** "Independent of $x$" means the exponent of $x$ is $0$, so
+$4-2k=0\Rightarrow k=2$.
+
+**Step 3 — evaluate.** $\binom42\,2^{2}=6\times4=24$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 6 &nbsp; *(MAT 2023 Q1F — collapse the conjugate factors first)*
+
+::: {.question}
+*(MAT 2023 Q1F.)* The coefficient of $x^{12}$ in $\;(1-2x)^{5}(1+4x^{2})^{5}(1+2x)^{5}$ is
+
+&nbsp;&nbsp;**(a)** $-2^{13}\times5$ &nbsp; **(b)** $-2^{12}\times5$ &nbsp; **(c)** $2^{12}\times5$ &nbsp;
+**(d)** $2^{13}\times5$ &nbsp; **(e)** $0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: (a) $-2^{13}\times5$.**
+
+**Step 1 — pair the conjugates.** $(1-2x)^{5}(1+2x)^{5}=\big((1-2x)(1+2x)\big)^{5}=(1-4x^{2})^{5}$.
+
+**Step 2 — pair again.** Multiplying by $(1+4x^{2})^{5}$:
+$$(1-4x^{2})^{5}(1+4x^{2})^{5}=\big((1-4x^{2})(1+4x^{2})\big)^{5}=(1-16x^{4})^{5}.$$
+
+**Step 3 — pick out $x^{12}$.** In $(1-16x^{4})^{5}=\sum_k\binom5k(-16)^{k}x^{4k}$, the power $x^{12}$ needs
+$4k=12$, i.e. $k=3$:
+$$\binom53(-16)^{3}=10\times(-4096)=-40960=-2^{13}\times5.$$
+So **(a)**. (Spotting the two difference-of-squares collapses turns a fearsome expansion into one term.)
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 7 &nbsp; *(PAT 2022 Q6 — geometric series with $2k$)*
+
+::: {.question}
+*Adapted from PAT 2022, Question 6.*
+
+Simplify
+$$\sum_{k=0}^{n} ar^{2k}.$$
+
+&nbsp;&nbsp;**A** $\dfrac{a}{1-r^2}$ &nbsp; **B** $\dfrac{a(1-r^{2n})}{1-r}$ &nbsp;
+**C** $\dfrac{a(1-r^{2n})}{1-r^2}$ &nbsp; **D** $\dfrac{a(1-r^{2n+2})}{1-r}$ &nbsp;
+**E** $\dfrac{a(1-r^{2n+2})}{1-r^2}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E.**
+
+**Step 1 — read it as a geometric series.** The terms are
+$$a,\ ar^2,\ ar^4,\ \dots,\ ar^{2n}.$$
+So the first term is $a$, and the common ratio is $r^2$.
+
+**Step 2 — count the terms carefully.** Since $k=0,1,2,\dots,n$, there are $n+1$ terms, not $n$ terms.
+
+**Step 3 — use the finite geometric sum.**
+$$\sum_{k=0}^{n} ar^{2k}=a\frac{1-(r^2)^{n+1}}{1-r^2}
+=\frac{a(1-r^{2n+2})}{1-r^2}.$$
+So the answer is **E**. The two traps are forgetting the ratio is $r^2$, and forgetting there are $n+1$ terms.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 10 · Modulus inequalities
+
+*Seed: 2022 P2 Q14.*
+
+::: {.callout-tip}
+## The method — square it, or read it as a distance
+
+1. **$|A|<|B|\iff A^{2}<B^{2}$** — squaring is safe because both sides are $\ge0$. The $x^{2}$ terms usually
+   cancel, leaving a **linear** inequality.
+2. **Distance reading:** $|x-a|$ is the distance from $x$ to $a$. So $|x-a|<|x-b|$ means $x$ is **closer to
+   $a$ than to $b$** — i.e. $x$ lies on $a$'s side of the **midpoint** $\tfrac{a+b}{2}$.
+3. **$|x-a|<k\iff a-k<x<a+k$** (within $k$ of $a$); $\;|x-a|>k\iff x<a-k$ or $x>a+k$.
+4. **Never just delete the bars** — split into cases or square.
+
+::: {.callout-note appearance="simple" icon=false}
+**Worked idea.** $|x+5|<|x+11|$ = "closer to $-5$ than to $-11$". The midpoint is $-8$, and $-5$ is to its
+right, so the solution is $x>-8$ — no algebra needed.
+:::
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- $|x-a|$ means distance from $a$.
+- $|x-a|<|x-b|$ means "closer to $a$ than to $b$"; use the midpoint of $a$ and $b$.
+- $|u|<c$ becomes $-c<u<c$.
+- When both sides are absolute values, squaring is safe because both sides are non-negative.
+- Do not simply remove modulus signs; use distance, cases, or squaring.
+- **Extra practice:** PAT Maths and MAT Section A for modulus/graph questions; ECAA Advanced Maths for speed.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** An interval (or its length), or a count.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q14 — the seed)*
+
+::: {.question}
+Consider $\;|x+5|<|x+11|\;$ **and** $\;|x+11|<|x+1|$. The set of $x$ satisfying both is
+
+&nbsp;&nbsp;**A** no real number &nbsp; **B** exactly one point &nbsp; **C** an interval of length $1$ &nbsp;
+**D** length $2$ &nbsp; **E** length $3$ &nbsp; **F** length $4$ &nbsp; **G** length $5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (length 2).**
+
+**Step 1 — first inequality (square).** $|x+5|<|x+11|\iff(x+5)^{2}<(x+11)^{2}$. Expanding,
+$10x+25<22x+121\iff x>-8$. *(Or: closer to $-5$ than $-11$ → right of the midpoint $-8$.)*
+
+**Step 2 — second inequality.** $|x+11|<|x+1|\iff(x+11)^{2}<(x+1)^{2}\iff 22x+121<2x+1\iff x<-6$.
+
+**Step 3 — intersect.** $-8<x<-6$, an interval of length $\mathbf 2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-12,-2,400)
+plt.figure(figsize=(5.0,3.0))
+plt.plot(x,np.abs(x+5),color='#2b6cb0',label='|x+5|')
+plt.plot(x,np.abs(x+11),color='#dd6b20',label='|x+11|')
+plt.plot(x,np.abs(x+1),color='#2ca02c',label='|x+1|')
+plt.axvspan(-8,-6,color='crimson',alpha=0.12)
+plt.axvline(-8,color='0.6',ls=':'); plt.axvline(-6,color='0.6',ls=':')
+plt.legend(fontsize=8); plt.xlabel('x'); plt.ylabel('y'); plt.title('both hold on −8<x<−6',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(one modulus vs another)*
+
+::: {.question}
+Solve $\;|x-3|<|x+1|$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x>1$.**
+
+**Step 1 — distance reading.** $|x-3|$ is the distance from $x$ to $3$, and $|x+1|$ is the distance from $x$
+to $-1$. So the inequality says: "$x$ is closer to $3$ than to $-1$."
+
+The boundary between being closer to $3$ and being closer to $-1$ is their midpoint, $1$. Since $3$ lies to the
+right of that midpoint, the solution is $x>1$.
+
+**Step 2 — check by squaring.** $(x-3)^{2}<(x+1)^{2}\iff -6x+9<2x+1\iff 8<8x\iff x>1$. ✔
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(within a distance)*
+
+::: {.question}
+Solve $\;|2x-1|<5$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $-2<x<3$.**
+
+**Step 1 — unfold.** An absolute value less than $5$ means the inside is within $5$ units of $0$:
+$$|2x-1|<5\iff -5<2x-1<5.$$
+
+**Step 2 — solve the double inequality.** Add $1$: $-4<2x<6$; divide by $2$: $-2<x<3$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(the "$>$" direction)*
+
+::: {.question}
+Solve $\;|x+2|>|x-4|$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x>1$.**
+
+**Step 1 — distance reading.** $|x+2|$ is the distance from $x$ to $-2$, and $|x-4|$ is the distance from $x$
+to $4$. The inequality says $x$ is **farther** from $-2$ than from $4$, which is the same as saying $x$ is
+**closer to $4$**.
+
+The midpoint of $-2$ and $4$ is $1$. Points to the right of $1$ are closer to $4$, so $x>1$.
+
+**Step 2 — confirm by squaring.** $(x+2)^{2}>(x-4)^{2}\iff 4x+4>-8x+16\iff 12x>12\iff x>1$. ✔
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(when the $x^{2}$ does *not* cancel)*
+
+::: {.question}
+Solve $\;|3x+2|\le|x-4|$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $-3\le x\le\tfrac12$.**
+
+**Step 1 — square.** Both sides are absolute values, so they are non-negative; squaring is safe:
+$$(3x+2)^{2}\le(x-4)^{2}\iff 9x^{2}+12x+4\le x^{2}-8x+16.$$
+
+**Step 2 — one side.** $8x^{2}+20x-12\le0\iff 2x^{2}+5x-3\le0\iff(2x-1)(x+3)\le0$.
+
+**Step 3 — read the interval.** The roots are $x=-3$ and $x=\tfrac12$. Since the quadratic opens upward, it is
+$\le0$ between the roots:
+$$\boxed{-3\le x\le\tfrac12}.$$
+Here the $9x^{2}$ and $x^{2}$ do not cancel, so you get a genuine quadratic — but squaring is still the safe
+first move.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+## 11 · Nested & chained logarithms
+
+*Seed: 2022 P2 Q15, plus a real cross-exam problem (MAT 2019 Q1G).*
+
+::: {.callout-tip}
+## The method — exponent form, then the log identities
+
+1. **Turn every log into an exponent:** $\log_a b=c\iff b=a^{c}$. This is the most reliable first move.
+2. **Three identities to have ready:**
+   - **Reciprocal:** $\log_a b=\dfrac{1}{\log_b a}$.
+   - **Chain:** $\log_a b\cdot\log_b c=\log_a c$.
+   - **Cycle:** $\log_a b\cdot\log_b c\cdot\log_c a=1$.
+3. **Substitute** one relation into another to eliminate variables.
+4. **Nested log equations peel from the outside:** $\log_2(\log_3 x)=1\Rightarrow\log_3 x=2\Rightarrow x=9$.
+5. A log's **base must be $>0$ and $\ne1$** — reject any root that would make an invalid base.
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- Convert logs to powers whenever stuck: $\log_a b=c\iff a^c=b$.
+- Reciprocal rule: $\log_a b=\dfrac1{\log_b a}$.
+- Chain rule for logs: $\log_a c=\log_a b\cdot\log_b c$.
+- Cycle identity: $\log_a b\cdot\log_b c\cdot\log_c a=1$.
+- Nested logs peel from the outside inward.
+- Every log base must be positive and not equal to $1$.
+- **Extra practice:** MAT Section A for short log chains; STEP Foundation and Jacqueline Taylor questions for
+  deeper uniqueness arguments.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** An expression, a value, or a "unique / infinitely many" verdict.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q15 — the seed)*
+
+::: {.question}
+$x,y,z>1$ with $\log_x y=z$ and $\log_y z=x$. Which must hold for $\log_z x$?
+
+&nbsp;&nbsp;**A** $y$ &nbsp; **B** $\tfrac1y$ &nbsp; **C** $xy$ &nbsp; **D** $\tfrac1{xy}$ &nbsp;
+**E** $xz$ &nbsp; **F** $\tfrac1{xz}$ &nbsp; **G** $yz$ &nbsp; **H** $\tfrac1{yz}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F ($\tfrac1{xz}$).**
+
+**Step 1 — use the cycle identity.** $\log_x y\cdot\log_y z\cdot\log_z x=1$ always.
+
+**Step 2 — substitute the givens.** $\log_x y=z$ and $\log_y z=x$, so $z\cdot x\cdot\log_z x=1$.
+
+**Step 3 — solve.** $\log_z x=\dfrac{1}{xz}$.
+
+*(Exponent route, same answer: $y=x^{z}$, then $z=y^{x}=x^{xz}$, and $\log_z$ of $z=x^{xz}$ gives
+$1=xz\log_z x$.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(the reciprocal fact)*
+
+::: {.question}
+Given $\log_2 x=3$, find $x$ and $\log_x 2$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x=8$ and $\log_x 2=\tfrac13$.**
+
+**Step 1 — exponent form.** A log statement is often easiest after translating it into powers:
+$$\log_2 x=3\Rightarrow x=2^{3}=8.$$
+
+**Step 2 — reciprocal.** Swapping the base and the argument reciprocates the log:
+$$\log_8 2=\dfrac{1}{\log_2 8}=\dfrac13.$$
+So $x=8$ and $\log_x2=\log_8 2=\tfrac13$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(chain and cycle)*
+
+::: {.question}
+Given $\log_a b=2$ and $\log_b c=3$, find $\log_a c$ and $\log_c a$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $\log_a c=6$ and $\log_c a=\tfrac16$.**
+
+**Step 1 — chain.** Logs multiply neatly when the middle base/argument matches:
+$$\log_a c=\log_a b\cdot\log_b c=2\times3=6.$$
+
+**Step 2 — reciprocal.** Now reverse the direction:
+$$\log_c a=\dfrac{1}{\log_a c}=\dfrac16.$$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(peel a nested log)*
+
+::: {.question}
+Solve $\;\log_2\!\big(\log_3 x\big)=1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x=9$.**
+
+**Step 1 — undo the outer log.** Work from the outside inward. If $\log_2(\log_3 x)=1$, then the thing inside
+the outer log must be $2^1$:
+$$\log_3 x=2.$$
+
+**Step 2 — undo the inner log.** Now translate the remaining log into exponent form:
+$$\log_3 x=2\Rightarrow x=3^{2}=9.$$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(a log and its reciprocal)*
+
+::: {.question}
+Solve $\;\log_4 x+\log_x 4=2$ (for $x>1$).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x=4$.**
+
+**Step 1 — substitute $t=\log_4 x$.** The two logs are reciprocals, so
+$$\log_x4=\frac1{\log_4x}=\frac1t.$$
+The equation becomes
+$$t+\frac1t=2.$$
+
+**Step 2 — solve.** $t^{2}-2t+1=0\Rightarrow(t-1)^{2}=0\Rightarrow t=1$.
+
+**Step 3 — back to $x$.** $\log_4 x=1\Rightarrow x=4$. (The equation $t+\tfrac1t=2$ has the single solution
+$t=1$ — its minimum touches $2$ only there.)
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 6 &nbsp; *(MAT 2019 Q1G — a system of logs)*
+
+::: {.question}
+*(MAT 2019 Q1G.)* Let $a,b,c>0$. The equations
+$$\log_a b=c,\qquad \log_b a=c+\tfrac32,\qquad \log_c a=b$$
+
+&nbsp;&nbsp;**(a)** specify $a,b,c$ uniquely. &nbsp; **(b)** specify $c$ uniquely but have infinitely many
+$(a,b)$. &nbsp; **(c)** specify $c,a$ uniquely, infinitely many $b$. &nbsp; **(d)** specify $a,b$ uniquely,
+infinitely many $c$. &nbsp; **(e)** have no solutions.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: (a) — they specify $a,b,c$ uniquely.**
+
+**Step 1 — pin $c$ from the first two.** $\log_a b$ and $\log_b a$ are reciprocals, so
+$c\left(c+\tfrac32\right)=1\Rightarrow 2c^{2}+3c-2=0\Rightarrow(2c-1)(c+2)=0$, giving $c=\tfrac12$ or $c=-2$.
+
+**Step 2 — reject the invalid base.** $c$ is used as a base in $\log_c a$, and a log base must be $>0$; so
+$c=-2$ is impossible. Hence $c=\tfrac12$ **uniquely**.
+
+**Step 3 — reduce to one equation in $b$.** $\log_a b=\tfrac12\Rightarrow b=\sqrt a$, and
+$\log_c a=b\Rightarrow a=c^{\,b}=\left(\tfrac12\right)^{b}=2^{-b}$. Substituting $b=\sqrt a=\sqrt{2^{-b}}$:
+$$b=2^{-b/2}.$$
+
+**Step 4 — one solution.** The left side $b$ **increases** from $0$; the right side $2^{-b/2}$ **decreases**
+from $1$; they cross **exactly once** ($b\approx0.77$). That fixes $b$, hence $a=2^{-b}$ and $c=\tfrac12$ — all
+three **uniquely**. So **(a)**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+b=np.linspace(0,2,300)
+plt.figure(figsize=(4.6,2.8))
+plt.plot(b,b,color='#2b6cb0',lw=2,label='y=b (increasing)')
+plt.plot(b,2.0**(-b/2),color='#dd6b20',lw=2,label='y=2^(−b/2) (decreasing)')
+from scipy.optimize import brentq
+bs=brentq(lambda t:t-2**(-t/2),0.01,2); plt.plot(bs,bs,'o',color='crimson')
+plt.legend(fontsize=8); plt.xlabel('b'); plt.ylabel('y'); plt.title('b = 2^(−b/2): one crossing ⟹ unique',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 7 &nbsp; *(AMC 12A 2023 Q6 — logarithm graph and midpoint)*
+
+::: {.question}
+*Adapted from AMC 12A 2023, Problem 6.*
+
+Points $A$ and $B$ lie on the graph $y=\log_2 x$. The midpoint of $\overline{AB}$ is $(6,2)$. Find the positive
+difference between the $x$-coordinates of $A$ and $B$.
+
+&nbsp;&nbsp;**A** $2\sqrt{11}$ &nbsp; **B** $4\sqrt3$ &nbsp; **C** $8$ &nbsp; **D** $4\sqrt5$ &nbsp; **E** $9$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($4\sqrt5$).**
+
+**Step 1 — use the midpoint symmetrically.** Write the two points as
+$$A=(6+d,\,2+e),\qquad B=(6-d,\,2-e).$$
+The positive difference between their $x$-coordinates is $2d$.
+
+**Step 2 — put both points on the log graph.**
+$$2+e=\log_2(6+d),\qquad 2-e=\log_2(6-d).$$
+
+**Step 3 — add the equations.** The $e$ terms disappear:
+$$4=\log_2(6+d)+\log_2(6-d)=\log_2\big((6+d)(6-d)\big).$$
+So
+$$(6+d)(6-d)=2^4=16.$$
+
+**Step 4 — solve for $d$.**
+$$36-d^2=16\Rightarrow d^2=20\Rightarrow d=2\sqrt5.$$
+The difference in $x$-coordinates is therefore
+$$2d=4\sqrt5.$$
+
+So the exact value is $4\sqrt5$, which is **D**.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 12 · Must-hold inequalities (min / max / bounds)
+
+*Seed: 2022 P2 Q16.*
+
+::: {.callout-tip}
+## The method — one shared index, or a two-term counterexample
+
+1. **Term-wise vs aggregate.** A hypothesis like $a_n\le b_n+c_n$ holds *at each index $n$*; $\min$ and $\max$
+   are *aggregate*. The whole question is whether the aggregate is decided at **one shared index** or at
+   **different indices**.
+2. **$\max$ propagates cleanly.** If $\max a=a_m$, then $a_m\le b_m+c_m\le\max b+\max c$ — one index, then
+   enlarge each term to its own max. So $\max a\le\max b+\max c$ **must** hold.
+3. **$\min$ usually does not.** $\min b$ and $\min c$ may sit at **different** indices, so $\min b+\min c$ can
+   drop below every single $b_n+c_n$. Statements about $\min$ often fail.
+4. **To prove a "must", give a one-line index argument. To disprove it, build a counterexample** — two-term
+   sequences are almost always enough.
+5. **Squaring / other operations need a sign check** — $x\le y$ does **not** give $x^2\le y^2$ unless both
+   sides are $\ge0$.
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+## Remember for next time
+
+- Term-wise facts use one index; min/max facts may use different indices.
+- Max usually behaves well: if $a_n\le b_n+c_n$, then $\max a\le\max b+\max c$.
+- Min often fails because $\min b$ and $\min c$ may occur at different positions.
+- To prove a must-hold max/min statement, choose the index where the relevant extreme occurs.
+- To disprove one, try two-term sequences such as $b=(0,10)$ and $c=(10,0)$.
+- Squaring inequalities needs a sign check.
+- **Extra practice:** STEP Foundation and FP1/FP2 proof sections for inequality proof habits; MAT Section B
+  for reasoning-focused variants.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which of the listed statements must hold (a letter / subset), with a proof or a
+counterexample for each.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2022 P2 Q16 — the seed)*
+
+::: {.question}
+Integer sequences satisfy $a_n\le b_n+c_n$ for every $n$. Which **must** be true?
+
+&nbsp;&nbsp;**I** $\min a\le\min b+\min c$ &nbsp;&nbsp; **II** $\min a\ge\min b+\min c$ &nbsp;&nbsp;
+**III** $\max a\le\max b+\max c$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** all
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (III only).**
+
+**III holds (one shared index).** Let $\max a=a_m$. Then $a_m\le b_m+c_m\le\max b+\max c$, so
+$\max a\le\max b+\max c$.
+
+**I fails.** Take $b=(0,10)$, $c=(10,0)$, $a=(10,10)$ — each $a_n\le b_n+c_n$. Then $\min a=10$ but
+$\min b+\min c=0$, so $\min a\le\min b+\min c$ is $10\le0$, **false**.
+
+**II fails.** The hypothesis only bounds $a_n$ from **above**, so $a_n$ can be made hugely negative at some
+index; then $\min a$ is far **below** $\min b+\min c$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(term-wise domination — the case that DOES propagate)*
+
+::: {.question}
+Suppose $a_n\le b_n$ for **every** $n$. Which must be true?
+&nbsp;**I** $\min a\le\min b$ &nbsp; **II** $\max a\le\max b$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: both I and II.**
+
+**II.** Let $\max a=a_m$; then $a_m\le b_m\le\max b$.
+
+**I.** Let $\min b=b_k$; then $\min a\le a_k\le b_k=\min b$.
+
+*Why this one works and Q16 didn't:* here a **single** sequence dominates term-by-term, so both extremes
+line up. Q16's trouble came only from splitting a bound across **two** sequences whose minima sit at
+different indices.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(an operation that needs a sign check)*
+
+::: {.question}
+For real $x,y$ with $x\le y$, must $x^{2}\le y^{2}$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No.**
+
+**Counterexample.** Take $x=-3,\;y=1$. Then $x\le y$ is true, but after squaring,
+$$x^{2}=9>1=y^{2}.$$
+So the proposed statement is false.
+
+**When it *is* safe.** Squaring preserves an inequality only when the sign situation is controlled — for
+example, if both sides are $\ge0$. Without a sign guarantee, squaring can change the order.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(a must-hold identity)*
+
+::: {.question}
+For all real $x,y$, is $\;\max(x,y)+\min(x,y)=x+y\;$ always true? And express $\max(x,y)$ using $|x-y|$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: Yes; and $\max(x,y)=\tfrac12\big(x+y+|x-y|\big)$.**
+
+**Identity.** Whichever of $x,y$ is larger becomes the $\max$ and the other the $\min$, so together they are
+just $x$ and $y$ — the sum is $x+y$ regardless.
+
+**Closed form.** $|x-y|$ is the gap between them; adding half of it to the average $\tfrac{x+y}2$ lands on the
+larger, subtracting lands on the smaller: $\max=\tfrac12(x+y+|x-y|)$, $\min=\tfrac12(x+y-|x-y|)$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(equality changes which direction survives)*
+
+::: {.question}
+Now suppose $a_n=b_n+c_n$ **exactly** for every $n$. Which must be true?
+&nbsp;**I** $\min a\ge\min b+\min c$ &nbsp; **II** $\min a\le\min b+\min c$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: I only.**
+
+**I holds.** For every $n$, $b_n\ge\min b$ and $c_n\ge\min c$, so $a_n=b_n+c_n\ge\min b+\min c$. This lower
+bound holds at every index, hence for the smallest $a_n$ too: $\min a\ge\min b+\min c$.
+
+**II fails.** $\min b$ and $\min c$ may occur at different indices. Take $b=(0,10)$, $c=(10,0)$, so
+$a=(10,10)$: $\min a=10$ but $\min b+\min c=0$, and $10\le0$ is false.
+
+*Contrast with Q16:* with an **inequality** $a_n\le b_n+c_n$ the value $a_n$ can sink arbitrarily, killing
+the $\ge$ direction; forcing **equality** pins it and the $\ge$ direction is restored.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 6 &nbsp; *(triangle inequalities — a "which must hold" panel)*
+
+::: {.question}
+For all real $x,y$, which must be true?
+&nbsp;**I** $|x+y|\le|x|+|y|$ &nbsp; **II** $|x-y|\le|x|+|y|$ &nbsp; **III** $|x|-|y|\le|x-y|$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: all three.**
+
+**I — the triangle inequality.** $|x+y|\le|x|+|y|$ (a sum's size is at most the sum of the sizes).
+
+**II.** Apply I to $x$ and $-y$: $|x-y|=|x+(-y)|\le|x|+|-y|=|x|+|y|$.
+
+**III — reverse triangle inequality.** From I, $|x|=|(x-y)+y|\le|x-y|+|y|$; subtracting $|y|$ gives
+$|x|-|y|\le|x-y|$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+---
+
+## Supplement · Triangles & polygons
+
+The equal-area problem in §2 turned on one subtle point: *equal areas need not mean equal angles*, so for a
+polygon "equal in one respect" is rarely enough to be **regular**. This closing section collects the facts a
+triangle/polygon question leans on, and drills the "does equal force regular?" idea alongside standard
+angle, area and incircle work — including problems from other exams.
+
+The key facts first, then the problems.
+
+::: {.callout-tip}
+## Memorise (1) — angles in a polygon
+
+- **Interior-angle sum** of any $n$-gon: $(n-2)\times180^\circ$.
+- **Exterior angles** of any convex polygon always sum to $360^\circ$ (one full turn).
+- **Regular** $n$-gon: each interior angle $=\dfrac{(n-2)180^\circ}{n}$; each exterior angle
+  $=\dfrac{360^\circ}{n}$; **central angle** (vertex–centre–next vertex) $=\dfrac{360^\circ}{n}$.
+- **Sides from an angle:** $n=\dfrac{360^\circ}{\text{exterior angle}}$.
+
+| regular $n$-gon | 3 | 4 | 5 | 6 | 8 | 12 |
+|---|---|---|---|---|---|---|
+| interior angle | $60^\circ$ | $90^\circ$ | $108^\circ$ | $120^\circ$ | $135^\circ$ | $150^\circ$ |
+| exterior / central | $120^\circ$ | $90^\circ$ | $72^\circ$ | $60^\circ$ | $45^\circ$ | $30^\circ$ |
+:::
+
+A "regular" polygon needs **two** things at once, and only the triangle gets them for the price of one.
+
+::: {.callout-tip}
+## Memorise (2) — when does "equal" force "regular"?
+
+- **Regular** $=$ **equilateral** (all sides equal) **and** **equiangular** (all angles equal) — *both*.
+- **The triangle ($n=3$) is special:** equilateral $\iff$ equiangular $\iff$ regular; any one gives the rest.
+- **For $n\ge4$ you need both**, because each can hold without the other:
+  - a **rhombus** is equilateral but **not** equiangular;
+  - a **rectangle** is equiangular but **not** equilateral.
+- So "all sides equal $\Rightarrow$ regular" and "all angles equal $\Rightarrow$ regular" are **true for
+  triangles, false for $n\ge4$**.
+- **Cyclic polygon, equal-area slices:** each centre-triangle has area $\tfrac12R^{2}\sin\theta_i$ with
+  $\sum\theta_i=360^\circ$; equal areas force $\sin\theta_i$ equal, i.e. $\theta_i\in\{x,\,180^\circ-x\}$ —
+  which pins the polygon to **regular only when $n=3$** (see §2).
+:::
+
+The area of a polygon almost always comes back to triangles and one radius.
+
+::: {.callout-tip}
+## Memorise (3) — areas, apothem, incircle & circumcircle
+
+- **Triangle area:** $\tfrac12\,bh=\tfrac12ab\sin C=rs=\dfrac{abc}{4R}=\sqrt{s(s-a)(s-b)(s-c)}$
+  &nbsp;($r$ = inradius, $R$ = circumradius, $s=\tfrac{a+b+c}{2}$).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(6.8,3.2))
+# panel 1: 1/2 b h  and 1/2 a b sinC (angle C at bottom-left)
+C=np.array([0,0]); B=np.array([3,0]); th=np.radians(58); a=2.2
+A=np.array([a*np.cos(th),a*np.sin(th)]); F=np.array([A[0],0])
+ax[0].plot([C[0],B[0],A[0],C[0]],[C[1],B[1],A[1],C[1]],color='#2b6cb0',lw=2)
+ax[0].plot([A[0],F[0]],[A[1],F[1]],'--',color='crimson',lw=1.2)
+ax[0].plot([F[0]-0.18,F[0]-0.18,F[0]],[0,0.18,0.18],color='0.4',lw=1)
+ax[0].annotate('b (base)',((C[0]+B[0])/2,0),textcoords='offset points',xytext=(-6,-15),fontsize=9)
+ax[0].annotate('a',((C[0]+A[0])/2,(C[1]+A[1])/2),textcoords='offset points',xytext=(-14,0),fontsize=10,color='#2b6cb0')
+ax[0].annotate('h',((A[0]+F[0])/2,(A[1]+F[1])/2),textcoords='offset points',xytext=(4,0),fontsize=10,color='crimson')
+aa=np.linspace(0,th,20); ax[0].plot(0.5*np.cos(aa),0.5*np.sin(aa),color='k',lw=1)
+ax[0].annotate('C',(0.55,0.2),fontsize=10)
+ax[0].set_title('area = ½·b·h = ½·a·b·sin C',fontsize=9)
+ax[0].set_aspect('equal'); ax[0].axis('off')
+# panel 2: incircle (r) + circumcircle (R)
+P,Q,Rr=np.array([0,0]),np.array([4,0]),np.array([1.2,2.6])
+la=np.linalg.norm(Q-Rr); lb=np.linalg.norm(P-Rr); lc=np.linalg.norm(P-Q)
+I=(la*P+lb*Q+lc*Rr)/(la+lb+lc); sp=(la+lb+lc)/2; area=abs(np.cross(Q-P,Rr-P))/2; r=area/sp
+ax_,ay=P; bx,by=Q; cx,cy=Rr
+d=2*(ax_*(by-cy)+bx*(cy-ay)+cx*(ay-by))
+ox=((ax_**2+ay**2)*(by-cy)+(bx**2+by**2)*(cy-ay)+(cx**2+cy**2)*(ay-by))/d
+oy=((ax_**2+ay**2)*(cx-bx)+(bx**2+by**2)*(ax_-cx)+(cx**2+cy**2)*(bx-ax_))/d
+O=np.array([ox,oy]); R=np.linalg.norm(P-O); tt=np.linspace(0,2*np.pi,200)
+ax[1].plot([P[0],Q[0],Rr[0],P[0]],[P[1],Q[1],Rr[1],P[1]],color='#2b6cb0',lw=2)
+ax[1].plot(I[0]+r*np.cos(tt),I[1]+r*np.sin(tt),color='#dd6b20',lw=1.4)
+ax[1].plot(O[0]+R*np.cos(tt),O[1]+R*np.sin(tt),color='#2ca02c',lw=1.2)
+ax[1].plot(*I,'o',color='#dd6b20',ms=3); ax[1].plot(*O,'o',color='#2ca02c',ms=3)
+ax[1].annotate('r',I,textcoords='offset points',xytext=(2,4),fontsize=10,color='#dd6b20')
+ax[1].annotate('R',O,textcoords='offset points',xytext=(4,2),fontsize=10,color='#2ca02c')
+ax[1].set_title('area = r·s (incircle) = abc/4R (circumcircle)',fontsize=9)
+ax[1].set_aspect('equal'); ax[1].axis('off')
+plt.tight_layout(); plt.show()
+```
+
+- **Equilateral triangle**, side $a$: height $\dfrac{\sqrt3}{2}a$; area $\dfrac{\sqrt3}{4}a^{2}$;
+  inradius $r=\dfrac{a\sqrt3}{6}$; circumradius $R=\dfrac{a\sqrt3}{3}$; and $R=2r$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+a=2.0; r=a*np.sqrt(3)/6; R=a*np.sqrt(3)/3
+ang=np.radians([90,210,330]); V=np.c_[np.cos(ang),np.sin(ang)]*R
+tt=np.linspace(0,2*np.pi,200)
+plt.figure(figsize=(3.6,3.8))
+plt.plot([*V[:,0],V[0,0]],[*V[:,1],V[0,1]],color='#2b6cb0',lw=2)
+plt.plot(r*np.cos(tt),r*np.sin(tt),color='#dd6b20',lw=1.4)
+plt.plot(R*np.cos(tt),R*np.sin(tt),color='#2ca02c',lw=1.2)
+base_mid=np.array([0,-r])
+plt.plot([V[0,0],base_mid[0]],[V[0,1],base_mid[1]],'--',color='0.5',lw=1)
+plt.plot([0,0],[0,-r],color='#dd6b20',lw=2); plt.plot([0,0],[0,R],color='#2ca02c',lw=2)
+plt.plot(0,0,'ok',ms=3)
+plt.annotate('a',((V[1,0]+V[2,0])/2,V[1,1]),textcoords='offset points',xytext=(-2,-14),fontsize=10,color='#2b6cb0')
+plt.annotate('r',(0,-r/2),textcoords='offset points',xytext=(5,0),fontsize=10,color='#dd6b20')
+plt.annotate('R',(0,R/2),textcoords='offset points',xytext=(5,0),fontsize=10,color='#2ca02c')
+plt.title('equilateral: R = 2r,  height = R+r = (√3/2)a',fontsize=9)
+plt.gca().set_aspect('equal'); plt.axis('off'); plt.tight_layout(); plt.show()
+```
+
+- **Regular $n$-gon**, side $s$: **apothem** (= inradius) $=\dfrac{s}{2}\cot\dfrac{180^\circ}{n}$;
+  circumradius $R=\dfrac{s}{2}\div\sin\dfrac{180^\circ}{n}$; **area** $=\tfrac12(\text{perimeter})(\text{apothem})
+  =\dfrac{n s^{2}}{4}\cot\dfrac{180^\circ}{n}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=7; R=1.0
+vang=np.radians(-90+180/n+np.arange(n)*360/n)
+V=np.c_[np.cos(vang),np.sin(vang)]*R
+apo=R*np.cos(np.pi/n)
+tt=np.linspace(0,2*np.pi,300)
+fig,ax=plt.subplots(figsize=(4.6,4.6))
+ax.plot(R*np.cos(tt),R*np.sin(tt),color='#b8860b',lw=1.4)
+ax.plot(apo*np.cos(tt),apo*np.sin(tt),color='#4a90d9',lw=1.4)
+poly=np.vstack([V,V[0]]); ax.fill(poly[:,0],poly[:,1],color='#fdf3d7',zorder=0)
+ax.plot(poly[:,0],poly[:,1],color='#8a7320',lw=1.6)
+phi=np.radians(-90+2*360/n)
+Mid=np.array([np.cos(phi),np.sin(phi)])*apo
+Vup=np.array([np.cos(phi+np.pi/n),np.sin(phi+np.pi/n)])*R
+Vlo=np.array([np.cos(phi-np.pi/n),np.sin(phi-np.pi/n)])*R
+ax.plot(0,0,'o',color='k',ms=3)
+ax.annotate('',xy=Vup,xytext=(0,0),arrowprops=dict(arrowstyle='-|>',color='k',lw=1.6))
+ax.annotate('',xy=Mid,xytext=(0,0),arrowprops=dict(arrowstyle='-|>',color='k',lw=1.6))
+u=(Vlo-Vup); u=u/np.hypot(*u); w=-Mid/np.hypot(*Mid); s=0.09
+c=np.array([Mid+s*u,Mid+s*u+s*w,Mid+s*w]); ax.plot(c[:,0],c[:,1],color='k',lw=1)
+ax.text(*(Vup*0.55+np.array([-0.14,0.02])),'Radius',rotation=np.degrees(phi+np.pi/n)-90,fontsize=11,ha='center',va='center')
+ax.text(*(Mid*0.52+np.array([0.02,-0.11])),'Apothem',rotation=np.degrees(phi),fontsize=11,ha='center',va='center')
+ax.text(0,R+0.06,'Circumcircle',color='#8a7320',fontsize=10,ha='center')
+ax.text(0,apo-0.14,'Incircle',color='#3a72b8',fontsize=10,ha='center')
+order=np.argsort(np.abs(((np.degrees(vang)+90+180)%360)-180))
+bl,br=V[order[0]],V[order[1]]; yb=min(bl[1],br[1])-0.13
+ax.annotate('',xy=(br[0],yb),xytext=(bl[0],yb),arrowprops=dict(arrowstyle='<|-|>',color='#8a7320',lw=1.3))
+ax.text((bl[0]+br[0])/2,yb-0.11,'Side',color='#5a4d10',fontsize=11,ha='center',va='top')
+ax.set_aspect('equal'); ax.axis('off'); ax.set_xlim(-1.25,1.25); ax.set_ylim(-1.35,1.2)
+plt.tight_layout(); plt.show()
+```
+
+The **radius** (to a vertex) is the circumradius $R$, the **apothem** (to a side's midpoint, meeting it at a
+right angle) is the inradius, and they form a right triangle with half a side:
+$\text{apothem}^{2}+\left(\tfrac{s}{2}\right)^{2}=R^{2}$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Where the $n$-gon formulas come from
+
+Join the centre to every vertex: the polygon splits into $n$ identical isosceles triangles ("wedges"), each
+with apex angle $\dfrac{360^\circ}{n}$, equal sides $R$, and base $s$. Dropping the **apothem** to the base
+midpoint halves a wedge into two right triangles — one is shown here.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+s=1.0; half=np.radians(30)      # illustrated with n=6, so 180°/n = 30°
+apo=(s/2)/np.tan(half); R=(s/2)/np.sin(half)
+O=np.array([0,0]); M=np.array([0,-apo]); Vr=np.array([s/2,-apo]); Vl=np.array([-s/2,-apo])
+fig,ax=plt.subplots(figsize=(4.4,4.2))
+ax.fill([O[0],Vl[0],Vr[0]],[O[1],Vl[1],Vr[1]],color='#fdf3d7',zorder=0)
+ax.plot([O[0],Vl[0],Vr[0],O[0]],[O[1],Vl[1],Vr[1],O[1]],color='#8a7320',lw=1.8)
+ax.plot([O[0],M[0]],[O[1],M[1]],color='#4a90d9',lw=2)
+ax.plot([O[0],Vr[0]],[O[1],Vr[1]],color='#2ca02c',lw=2)
+ax.plot([M[0],M[0]+0.08,M[0]+0.08],[M[1]+0.08,M[1]+0.08,M[1]],color='k',lw=1)
+aa=np.linspace(-np.pi/2,-np.pi/2+half,20); ax.plot(0.16*np.cos(aa),0.16*np.sin(aa),color='k',lw=1)
+ax.annotate('180°/n',(0.02,-0.24),fontsize=10)
+ax.plot(*O,'ok',ms=3)
+ax.annotate('centre',O,textcoords='offset points',xytext=(-30,2),fontsize=9)
+ax.annotate('apothem  a',((O[0]+M[0])/2,(O[1]+M[1])/2),textcoords='offset points',xytext=(-58,0),fontsize=10,color='#3a72b8')
+ax.annotate('R',((O[0]+Vr[0])/2,(O[1]+Vr[1])/2),textcoords='offset points',xytext=(6,2),fontsize=11,color='#2ca02c')
+ax.annotate('s/2',((M[0]+Vr[0])/2,M[1]),textcoords='offset points',xytext=(-4,-14),fontsize=10,color='#8a7320')
+ax.annotate('vertex',Vr,textcoords='offset points',xytext=(4,-2),fontsize=8)
+ax.set_aspect('equal'); ax.axis('off'); ax.set_xlim(-0.75,0.95); ax.set_ylim(-1.15,0.15)
+ax.set_title('one wedge: right triangle with angle 180°/n,\nopp = s/2, adj = apothem, hyp = R',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+In that right triangle the centre angle is $\dfrac{180^\circ}{n}$, the **opposite** side is $\tfrac{s}{2}$, the
+**adjacent** side is the apothem $a$, and the **hypotenuse** is $R$. Reading off SOHCAHTOA:
+$$\tan\frac{180^\circ}{n}=\frac{s/2}{a}\ \Rightarrow\ a=\frac{s}{2}\cot\frac{180^\circ}{n},\qquad
+\sin\frac{180^\circ}{n}=\frac{s/2}{R}\ \Rightarrow\ R=\frac{s}{2}\div\sin\frac{180^\circ}{n}.$$
+Each wedge is a triangle of base $s$ and height $a$, and there are $n$ of them, so
+$$\text{area}=n\cdot\tfrac12 s\,a=\tfrac12(\text{perimeter})(\text{apothem})=\frac{n s^{2}}{4}\cot\frac{180^\circ}{n}.$$
+
+*Hexagon check ($n=6$): $\tfrac{180^\circ}{6}=30^\circ$, so $a=\tfrac{\sqrt3}{2}s$ and
+$R=\dfrac{s/2}{\sin30^\circ}=s$ — matching the hexagon facts below.*
+:::
+
+- **Regular hexagon**, side $s$: six equilateral triangles of side $s$; area $\dfrac{3\sqrt3}{2}s^{2}$;
+  apothem $\dfrac{\sqrt3}{2}s$; circumradius $=s$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=6; s=1.0; R=s; th=np.linspace(0,2*np.pi,n,endpoint=False)+np.pi/6
+V=np.c_[np.cos(th),np.sin(th)]*R; P=np.vstack([V,V[0]])
+apo=np.sqrt(3)/2*s
+plt.figure(figsize=(3.5,3.6))
+plt.plot(P[:,0],P[:,1],color='#2b6cb0',lw=2)
+for v in V: plt.plot([0,v[0]],[0,v[1]],color='#dd6b20',lw=1)
+mid=(V[0]+V[1])/2; plt.plot([0,mid[0]],[0,mid[1]],color='#4a90d9',lw=1.6)
+plt.plot(0,0,'ok',ms=3)
+plt.annotate('s',(V[0]+V[1])/2*1.0,textcoords='offset points',xytext=(6,4),fontsize=10,color='#2b6cb0')
+plt.annotate('R=s',(V[3]/2),textcoords='offset points',xytext=(-6,-2),fontsize=9,color='#dd6b20')
+plt.annotate('apothem',mid/2,textcoords='offset points',xytext=(2,-12),fontsize=8,color='#3a72b8')
+plt.title('regular hexagon = 6 equilateral triangles (R = s)',fontsize=8.5)
+plt.gca().set_aspect('equal'); plt.axis('off'); plt.tight_layout(); plt.show()
+```
+
+- **Incircle** touches every side, radius $=$ apothem; **circumcircle** passes through every vertex,
+  radius $=R$.
+
+- **Special right triangles:** $30\text{--}60\text{--}90$ has sides $1:\sqrt3:2$; $45\text{--}45\text{--}90$ has
+  sides $1:1:\sqrt2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(6.6,3.0))
+# 30-60-90 : right angle at origin, x-leg=√3, y-leg=1, hyp=2
+C=np.array([0,0]); B=np.array([np.sqrt(3),0]); A=np.array([0,1])
+ax[0].plot([C[0],B[0],A[0],C[0]],[C[1],B[1],A[1],C[1]],color='#2b6cb0',lw=2)
+ax[0].plot([0.12,0.12,0],[0,0.12,0.12],color='0.4',lw=1)
+ax[0].annotate('√3',(B[0]/2,0),textcoords='offset points',xytext=(-4,-14),fontsize=10)
+ax[0].annotate('1',(0,0.5),textcoords='offset points',xytext=(-12,0),fontsize=10)
+ax[0].annotate('2',((B[0]+A[0])/2,(B[1]+A[1])/2),textcoords='offset points',xytext=(4,4),fontsize=10)
+ax[0].annotate('30°',B,textcoords='offset points',xytext=(-24,4),fontsize=8)
+ax[0].annotate('60°',A,textcoords='offset points',xytext=(4,-10),fontsize=8)
+ax[0].set_title('30–60–90 : 1 : √3 : 2',fontsize=9); ax[0].set_aspect('equal'); ax[0].axis('off')
+# 45-45-90 : legs 1,1 hyp √2
+C=np.array([0,0]); B=np.array([1,0]); A=np.array([0,1])
+ax[1].plot([C[0],B[0],A[0],C[0]],[C[1],B[1],A[1],C[1]],color='#2b6cb0',lw=2)
+ax[1].plot([0.1,0.1,0],[0,0.1,0.1],color='0.4',lw=1)
+ax[1].annotate('1',(0.5,0),textcoords='offset points',xytext=(-2,-14),fontsize=10)
+ax[1].annotate('1',(0,0.5),textcoords='offset points',xytext=(-12,0),fontsize=10)
+ax[1].annotate('√2',(0.5,0.5),textcoords='offset points',xytext=(6,4),fontsize=10)
+ax[1].annotate('45°',B,textcoords='offset points',xytext=(-22,4),fontsize=8)
+ax[1].annotate('45°',A,textcoords='offset points',xytext=(4,-10),fontsize=8)
+ax[1].set_title('45–45–90 : 1 : 1 : √2',fontsize=9); ax[1].set_aspect('equal'); ax[1].axis('off')
+plt.tight_layout(); plt.show()
+```
+:::
+
+---
+
+### Problem A &nbsp; *(does "equal" force "regular"?)*
+
+::: {.question}
+Which conditions force a polygon to be **regular** — (I) all sides equal, (II) all interior angles equal,
+(III) both? Answer separately for **(a)** a triangle and **(b)** a quadrilateral.
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(6.6,3.0))
+u=1.6*np.array([1,0]); v=1.6*np.array([np.cos(np.radians(65)),np.sin(np.radians(65))])
+R=np.array([[0,0],u,u+v,v,[0,0]])
+ax[0].plot(R[:,0],R[:,1],'-o',color='#2b6cb0'); ax[0].set_aspect('equal'); ax[0].axis('off')
+ax[0].set_title('rhombus\nsides equal, angles NOT — not regular',fontsize=8.5)
+Rec=np.array([[0,0],[2.4,0],[2.4,1.2],[0,1.2],[0,0]])
+ax[1].plot(Rec[:,0],Rec[:,1],'-o',color='#2b6cb0'); ax[1].set_aspect('equal'); ax[1].axis('off')
+ax[1].set_title('rectangle\nangles equal, sides NOT — not regular',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: (a) triangle — each of (I), (II), (III) forces regular. (b) quadrilateral — only (III).**
+
+**Triangle.** Equal sides $\Rightarrow$ equal opposite angles (isosceles, applied twice) $\Rightarrow$
+equiangular; and equal angles (all $60^\circ$) $\Rightarrow$ equal sides. So for $n=3$ either condition alone
+already gives regular.
+
+**Quadrilateral.** A **rhombus** has all sides equal but unequal angles — so (I) alone fails. A **rectangle**
+has all angles equal but unequal sides — so (II) alone fails. Only (III), both together, forces a square
+(regular). This is the general rule for $n\ge4$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem B &nbsp; *(why the triangle is the special case)*
+
+::: {.question}
+Prove that a triangle with all three sides equal has all three angles equal (so, for $n=3$,
+equilateral $\Rightarrow$ regular).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Equal sides lie opposite equal angles.** In $\triangle ABC$ with $AB=AC$, the base angles opposite them are
+equal: $\angle B=\angle C$. Applying the same fact to $BA=BC$ gives $\angle A=\angle C$. Hence
+$\angle A=\angle B=\angle C$, and since they sum to $180^\circ$ each is $60^\circ$. So equilateral forces
+equiangular — the two notions coincide, which is exactly why $n=3$ needs only one of them.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem C &nbsp; *(angle $\to$ number of sides)*
+
+::: {.question}
+A regular polygon has each interior angle equal to $150^\circ$. How many sides does it have, and what is its
+central angle?
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=12; th=np.linspace(0,2*np.pi,n,endpoint=False)+np.pi/2
+V=np.c_[np.cos(th),np.sin(th)]; P=np.vstack([V,V[0]])
+plt.figure(figsize=(3.3,3.3)); plt.plot(P[:,0],P[:,1],'-o',color='#2b6cb0',ms=3)
+plt.plot([0,V[0,0]],[0,V[0,1]],':',color='crimson'); plt.plot([0,V[1,0]],[0,V[1,1]],':',color='crimson')
+plt.plot(0,0,'ks'); plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('a regular polygon with interior angle 150°',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $12$ sides (a dodecagon); central angle $30^\circ$.**
+
+**Step 1 — exterior angle.** Interior $+$ exterior $=180^\circ$, so the exterior angle is
+$180^\circ-150^\circ=30^\circ$.
+
+**Step 2 — count sides.** Exterior angles sum to $360^\circ$, so $n=\dfrac{360^\circ}{30^\circ}=12$.
+
+**Step 3 — central angle.** For a regular polygon the central angle equals the exterior angle:
+$\dfrac{360^\circ}{12}=30^\circ$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem D &nbsp; *(area of a regular hexagon)*
+
+::: {.question}
+A regular hexagon has side length $6$. Find its exact area.
+
+*Answer form: an exact surd.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $54\sqrt3$.**
+
+**Split into equilateral triangles.** The six radii cut a regular hexagon into **six equilateral triangles**
+of side $6$ (for a hexagon the circumradius equals the side). Each has area $\dfrac{\sqrt3}{4}\cdot6^{2}=9\sqrt3$,
+so the hexagon is $6\times9\sqrt3=54\sqrt3$. *(Check with the formula $\dfrac{3\sqrt3}{2}s^{2}=\dfrac{3\sqrt3}{2}\cdot36=54\sqrt3$.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=6; th=np.linspace(0,2*np.pi,n,endpoint=False)+np.pi/6
+V=np.c_[np.cos(th),np.sin(th)]*6.0; P=np.vstack([V,V[0]])
+plt.figure(figsize=(3.5,3.5)); plt.plot(P[:,0],P[:,1],'-o',color='#2b6cb0',ms=3)
+for v in V: plt.plot([0,v[0]],[0,v[1]],'-',color='#dd6b20',lw=1)
+plt.plot(0,0,'ks'); plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('hexagon (side 6) = 6 equilateral triangles → 6·9√3 = 54√3',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem E &nbsp; *(Tyler Mock TMUA, Set A — regular hexagon incircle)*
+
+::: {.question}
+A circle is drawn inside a regular hexagon so that the circle touches each side of the hexagon. What fraction
+of the hexagon is covered by the circle?
+
+&nbsp;&nbsp;**A** $\dfrac{\sqrt3\,\pi}{2}$ &nbsp; **B** $\dfrac{\sqrt3\,\pi}{6}$ &nbsp;
+**C** $\dfrac{3\sqrt3}{2\pi}$ &nbsp; **D** $\dfrac{\sqrt3}{\pi}$ &nbsp; **E** $\dfrac{2\sqrt3\,\pi}{9}$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=6; s=1.0; R=s; th=np.linspace(0,2*np.pi,n,endpoint=False)+np.pi/6
+V=np.c_[np.cos(th),np.sin(th)]*R; P=np.vstack([V,V[0]])
+apo=np.sqrt(3)/2*s; tt=np.linspace(0,2*np.pi,200)
+plt.figure(figsize=(3.3,3.3))
+plt.plot(P[:,0],P[:,1],'-',color='#2b6cb0',lw=2)
+plt.plot(apo*np.cos(tt),apo*np.sin(tt),color='#dd6b20',lw=2)
+plt.plot(0,0,'ks'); plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('circle touches every side — what fraction is covered?',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B, $\dfrac{\sqrt3\,\pi}{6}$.**
+
+**Step 1 — the circle is the incircle.** Touching every side means its radius is the **apothem**
+$=\dfrac{\sqrt3}{2}s$.
+
+**Step 2 — take the ratio.** With side $s$,
+$$\frac{\text{circle}}{\text{hexagon}}=\frac{\pi\left(\tfrac{\sqrt3}{2}s\right)^{2}}{\tfrac{3\sqrt3}{2}s^{2}}
+=\frac{\tfrac{3\pi}{4}s^{2}}{\tfrac{3\sqrt3}{2}s^{2}}=\frac{\pi}{2\sqrt3}=\frac{\sqrt3\,\pi}{6}\approx0.907.$$
+
+So about $91\%$ of the hexagon is covered — answer **B**.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem F &nbsp; *(Tyler Mock TMUA, Set D — equilateral triangle incircle)*
+
+::: {.question}
+A circle of radius $1\,$cm is inscribed inside an equilateral triangle. What is the area of the triangle?
+
+&nbsp;&nbsp;**A** $\dfrac{\sqrt3}{3}$ &nbsp; **B** $3$ &nbsp; **C** $\pi+\dfrac{\sqrt3}{3}$ &nbsp;
+**D** $3\sqrt3$ &nbsp; **E** $6\sqrt3$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+a=2*np.sqrt(3); h=np.sqrt(3)/2*a
+A=np.array([-a/2,0]); B=np.array([a/2,0]); C=np.array([0,h])
+tri=np.array([A,B,C,A]); tt=np.linspace(0,2*np.pi,200)
+plt.figure(figsize=(3.4,3.2))
+plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+plt.plot(1*np.cos(tt),1+1*np.sin(tt),color='#dd6b20',lw=2)  # incircle centre (0,1), r=1
+plt.plot(0,1,'ks',ms=3)
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('incircle radius 1 — find the area of the triangle',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D, $3\sqrt3$.**
+
+**Step 1 — inradius fixes the side.** For an equilateral triangle of side $a$, the inradius is
+$r=\dfrac{a\sqrt3}{6}$. Setting $r=1$ gives $a=\dfrac{6}{\sqrt3}=2\sqrt3$.
+
+**Step 2 — area.** $\dfrac{\sqrt3}{4}a^{2}=\dfrac{\sqrt3}{4}\left(2\sqrt3\right)^{2}=\dfrac{\sqrt3}{4}\cdot12=3\sqrt3.$
+
+*(Or use area $=rs$: here $s=\tfrac{3a}{2}=3\sqrt3$ and $r=1$, so area $=1\cdot3\sqrt3=3\sqrt3$.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+:::

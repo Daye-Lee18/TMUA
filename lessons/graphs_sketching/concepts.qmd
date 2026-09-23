@@ -1,0 +1,382 @@
+---
+title: "Graphs Clinic 2 — Sketching & Graph-Solving · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 1"
+format:
+  html:
+    toc: false
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · Applications of Mathematical Knowledge</div>
+<div class="fs-title">Sketching & Graph-Solving — Key Concepts</div>
+<div class="fs-sub">Clinic 1 was "the graph is given — move it or read it". This one is the other half: <strong>you produce the graph</strong> (sketch it) or <strong>use a graph to solve</strong> (draw and count). Two habits carry it: run the <em>sketch checklist</em>, and for "how many solutions" always <em>draw one curve and one line and count crossings</em>.</div>
+::::
+
+## Sketching a curve from scratch
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### The sketch checklist
+
+For any unfamiliar $y=f(x)$, find in this order:
+
+1. **Intercepts** — set $x=0$ (the $y$-intercept) and $y=0$ (the roots).
+2. **Repeated roots** — a **double** root *touches* the axis; a **single** root *crosses*.
+3. **Turning points** — $f'(x)=0$, or complete the square for a quadratic.
+4. **Asymptotes** — values the curve cannot reach (denominators $=0$; limits).
+5. **Ends** — behaviour as $x\to\pm\infty$.
+
+[STEP 1 / PAT: label every one of these — marks are for features, not neatness]{.eg}
+:::
+
+::: {.fs-card}
+### Polynomial shapes
+
+**Quadratic** — a parabola; $\cup$ if leading coeff $>0$, $\cap$ if $<0$.
+**Cubic** — up to two turning points; positive leading term goes $-\infty\to+\infty$.
+**Repeated root** decides touch vs cross.
+
+$$(x-a)^2:\ \text{touches at } a \qquad (x-a)^3:\ \text{flattens & crosses at } a$$
+
+[MAT Q1: "which graph could this be?" is almost always shape + roots]{.eg}
+:::
+
+::: {.fs-card}
+### Reciprocal & rational
+
+$y=\dfrac1x$, $y=\dfrac1{x^2}$, and shifts $y=\dfrac{1}{x-a}+b$.
+
+$$\text{vertical asymptote where the denominator}=0$$
+$$\text{horizontal asymptote from the value as } x\to\pm\infty$$
+
+[$y=\dfrac{1}{x-2}+1$: asymptotes $x=2$ and $y=1$]{.eg}
+:::
+
+::: {.fs-card}
+### Exponential, log, modulus, trig
+
+$y=a^{x}$ ( $>0$ always, through $(0,1)$ ) and its mirror $y=\log_a x$ (through $(1,0)$, asymptote the
+$y$-axis). $y=\lvert x\rvert$ is a V. $y=\sin x,\cos x,\tan x$ — know period, amplitude, and where they
+cross.
+
+[reading which is $e^x$ vs $\ln x$ vs $x^2$ from a picture is a PAT/ESAT staple]{.eg}
+:::
+
+::::
+
+## Recognising & solving with graphs
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Unfamiliar & implicit relations
+
+Rewrite before you sketch — the equation is often a known curve in disguise:
+
+$$\frac{y}{x}=\text{const}\Rightarrow\text{lines through }O,\quad
+xy=k\Rightarrow\text{reciprocal},\quad x^2+y^2=r^2\Rightarrow\text{circle}$$
+
+[MAT/STEP: $\sin(y/x)=\tfrac12$ forces $\tfrac{y}{x}$ to fixed values → a **fan of lines**]{.eg}
+:::
+
+::: {.fs-card}
+### Solve by drawing — count crossings
+
+To solve $f(x)=g(x)$, or to count roots: **draw the two graphs and count intersections.**
+
+[AMC 12 / MAT: "how many solutions" is a counting-crossings question in disguise]{.eg}
+:::
+
+::: {.fs-card}
+### Roots of a polynomial by turning points
+
+Count real roots of $f(x)=0$ from the **signs of the turning-point values**: a positive max and a
+negative min force **three** crossings; same sign → **one**.
+
+[so $x^3-3x=k$ has 3 roots exactly when $-2<k<2$]{.eg}
+:::
+
+::: {.fs-card}
+### Tangency
+
+A line **touches** a curve ⇔ they meet **once** ⇔ the resulting quadratic has **discriminant $0$**.
+
+[the fast route to "find $c$ so the line is a tangent" — no calculus needed]{.eg}
+:::
+
+::: {.fs-card}
+### Cubic shortcuts — 1 : $\sqrt3$ and 2 : 1
+
+Read off the **centre of symmetry** (the inflection point):
+
+$$\mathbf{1:\sqrt3}\quad \text{centre}\to\text{turning point} : \text{centre}\to\text{root}$$
+$$\mathbf{2:1}\quad \text{turning-point gap} : \text{gap to re-attaining the other's height}$$
+
+**$1:\sqrt3$ needs the centre on the $x$-axis; $2:1$ holds for any cubic.**
+
+[$y=t^3-12t$: roots $\pm2\sqrt3$, turning points $\pm2$ — no differentiation needed]{.eg}
+:::
+
+::::
+
+:::: {.fs-grid .fs-stack}
+
+::: {.fs-card}
+### Where these types show up (cross-exam)
+
+| Skill | Best drilled on |
+|---|---|
+| Sketch with asymptotes, turning points, ends | **STEP 1** curve-sketching, **PAT** |
+| "Which graph could this be?" (shape + roots) | **MAT Q1**, **ESAT** |
+| Count solutions / roots / intersections | **MAT Q1**, **AMC 12** |
+| Recognise an implicit relation (lines, circle, reciprocal) | **MAT**, **STEP 1** |
+| Read a value/gradient off a given graph | **PAT**, **ESAT** |
+
+These are the same TMUA skills, one notch harder — mine each exam for *its* version and add the graph
+questions to the personal set.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## Notes
+
+### The sketch checklist, in action
+
+A sketch is not a plot — it is the **shape and the labelled features**. Work through the same five
+points every time: intercepts, repeated roots, turning points, asymptotes, ends. Marks (on STEP, PAT, and
+any "which graph" MCQ) come from the features, so name them.
+
+The one that decides a polynomial's shape is the **multiplicity of each root**: a single factor
+$(x-a)$ crosses the axis; a squared factor $(x-a)^2$ **touches** it (a turning point sits on the axis); a
+cubed factor flattens as it crosses.
+
+```{python}
+#| fig-cap: "y=(x+1)(x−2)²: single root at x=−1 (crosses), double root at x=2 (touches). Multiplicity decides touch vs cross."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,3.4,500); y=(x+1)*(x-2)**2
+fig,ax=plt.subplots(figsize=(5.4,3.4))
+ax.plot(x,y,color='#1f77b4',lw=2)
+ax.plot(-1,0,'o',color='#d62728'); ax.annotate('x=−1 (crosses)',(-1,0),(-2.0,6),color='#d62728',fontsize=9)
+ax.plot(2,0,'o',color='#2ca02c'); ax.annotate('x=2 (touches)',(2,0),(2.05,4),color='#2ca02c',fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title(r'$y=(x+1)(x-2)^2$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+::: {.example}
+[Example.]{.lbl} Sketch $y=(x+3)(x-1)^2$, labelling the intercepts and turning points on the axis.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$y$-intercept: $x=0\Rightarrow y=(3)(1)=3$. Roots: $x=-3$ (single → **crosses**) and $x=1$ (double →
+**touches**). Positive leading term ($x^3$), so it comes up from $-\infty$, crosses at $x=-3$, rises to a
+local maximum, falls to touch the axis at $x=1$, then rises.
+
+**Answer:** crosses at $(-3,0)$, touches at $(1,0)$, through $(0,3)$; local min on the axis at $x=1$.
+:::
+
+::: {.workbox}
+
+:::
+
+### Reciprocal and rational curves — it's all about the asymptotes
+
+For $y=\dfrac{1}{x-a}+b$: the curve cannot exist where the denominator is zero, giving a **vertical
+asymptote $x=a$**; and as $x\to\pm\infty$ the fraction dies to $0$, leaving the **horizontal asymptote
+$y=b$**. Sketch the asymptotes first (dashed), then draw the two branches into the corners they allow.
+
+```{python}
+#| fig-cap: "y = 1/(x−2) + 1: vertical asymptote x=2, horizontal asymptote y=1; two branches."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(5.0,3.4))
+xl=np.linspace(-2,1.9,300); xr=np.linspace(2.1,6,300)
+ax.plot(xl,1/(xl-2)+1,color='#1f77b4',lw=2); ax.plot(xr,1/(xr-2)+1,color='#1f77b4',lw=2)
+ax.axvline(2,color='#d62728',ls='--',lw=1); ax.axhline(1,color='#d62728',ls='--',lw=1)
+ax.text(2.1,-2.4,'x=2',color='#d62728',fontsize=9); ax.text(4.4,1.15,'y=1',color='#d62728',fontsize=9)
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_ylim(-4,6); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title(r'$y=\frac{1}{x-2}+1$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+### Exponentials and logs — mirror images
+
+$y=a^{x}$ (with $a>1$) is always positive, passes through $(0,1)$, and has the $x$-axis as an asymptote
+on the left. Its inverse $y=\log_a x$ is the **reflection in $y=x$**: through $(1,0)$, with the $y$-axis
+as asymptote. Being able to *tell them apart in a picture* — and from $y=x^2$ — is a common PAT/ESAT ask.
+
+```{python}
+#| fig-cap: "y=eˣ and y=ln x are reflections in y=x; both very different from y=x²."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(5.0,3.6))
+x=np.linspace(-2,2.4,300); ax.plot(x,np.exp(x),color='#1f77b4',lw=2,label='y = eˣ')
+xp=np.linspace(0.06,3,300); ax.plot(xp,np.log(xp),color='#2ca02c',lw=2,label='y = ln x')
+xx=np.linspace(0,3,50); ax.plot(xx,xx,color='0.6',ls='--',lw=1,label='y = x')
+ax.plot(np.linspace(-2,2,100),np.linspace(-2,2,100)**2,color='#ff7f0e',lw=1.5,ls=':',label='y = x²')
+ax.axhline(0,color='0.6',lw=0.6); ax.axvline(0,color='0.6',lw=0.6)
+ax.set_xlim(-2,3); ax.set_ylim(-2.5,4); ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y')
+plt.tight_layout(); plt.show()
+```
+
+### Unfamiliar & implicit relations — rewrite, then recognise
+
+The trap on questions like $\sin\!\left(\dfrac{y}{x}\right)=\dfrac12$ is to picture a wave. But $\sin$ is
+applied to $\tfrac{y}{x}$, so solving forces $\tfrac{y}{x}$ to equal a **list of constants**, and each
+$\tfrac{y}{x}=\text{const}$ is a **straight line through the origin**. The graph is a *fan of lines*, not
+a curve. The habit: **rewrite the relation until it is a shape you know** — lines, circle, reciprocal.
+
+```{python}
+#| fig-cap: "sin(y/x)=½ over −3πx ≤ y ≤ 3πx: a fan of straight half-lines through O (x>0). Not a wave."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(5.0,3.6))
+xs=np.linspace(0,1.3,10)
+for m in [np.pi/6,5*np.pi/6,13*np.pi/6,17*np.pi/6,-7*np.pi/6,-11*np.pi/6]:
+    ax.plot(xs,m*xs,color='#1f77b4',lw=1.6)
+ax.plot(xs,3*np.pi*xs,'--',color='#d62728',lw=1); ax.plot(xs,-3*np.pi*xs,'--',color='#d62728',lw=1)
+ax.axhline(0,color='0.6',lw=0.7); ax.axvline(0,color='0.6',lw=0.7)
+ax.set_xlim(-0.2,1.7); ax.set_ylim(-11,11); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title(r'$\sin(y/x)=\frac{1}{2}$: a fan of lines through $O$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+::: {.example}
+[Example.]{.lbl} Describe the graph of $xy=4$ for $x>0$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Rewrite as $y=\dfrac{4}{x}$ — a **reciprocal curve**. For $x>0$ it is a single branch in the first
+quadrant, falling from near the $y$-axis (asymptote $x=0$) towards the $x$-axis (asymptote $y=0$),
+passing through $(2,2)$ and $(4,1)$.
+
+**Answer:** one branch of the rectangular hyperbola $y=4/x$ in the first quadrant.
+:::
+
+::: {.workbox}
+
+:::
+
+### Solve by drawing — count the crossings
+
+For "how many solutions does $f(x)=g(x)$ have", the fastest route is almost never algebra: **draw both
+graphs and count where they cross.** A **moving horizontal line** $y=k$ turns "how many roots of
+$f(x)=k$" into "how many times does the line cut the curve", and sliding $k$ shows how the count changes.
+
+```{python}
+#| fig-cap: "y=x³−3x: a horizontal line y=k cuts it 3 times when −2<k<2, twice at the tangents k=±2, once when |k|>2."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.2,2.2,400); y=x**3-3*x
+fig,ax=plt.subplots(figsize=(5.4,3.6))
+ax.plot(x,y,color='#1f77b4',lw=2,label='y=x³−3x')
+ax.axhline(1,color='#2ca02c',ls='--',lw=1.2,label='y=1  → 3 solutions')
+ax.axhline(3,color='#d62728',ls='--',lw=1.2,label='y=3  → 1 solution')
+ax.plot(-1,2,'o',color='0.4'); ax.plot(1,-2,'o',color='0.4')
+ax.annotate('max 2',(-1,2),(-2.1,2.4),fontsize=8); ax.annotate('min −2',(1,-2),(1.1,-3.4),fontsize=8)
+ax.axvline(0,color='0.6',lw=0.6)
+ax.legend(fontsize=8,loc='lower right'); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-5,6)
+plt.tight_layout(); plt.show()
+```
+
+The same picture gives the **number of real roots** of a cubic straight away: read off the local max
+($+2$) and local min ($-2$); because they have **opposite signs**, the curve crosses the axis three
+times. Equal signs would mean only one crossing. This "turning-point-sign" test is the standard way to
+count roots without solving.
+
+::: {.example}
+[Example.]{.lbl} How many real roots does $x^3-3x+1=0$ have?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$g(x)=x^3-3x+1$ has $g'(x)=3x^2-3=0\Rightarrow x=\pm1$. Then $g(-1)=3>0$ (local max) and $g(1)=-1<0$
+(local min). Opposite signs, so the curve crosses the axis **three** times.
+
+**Answer:** $3$ real roots.
+:::
+
+::: {.workbox}
+
+:::
+
+### Tangency — one intersection, discriminant zero
+
+A line **touches** a curve when they meet at exactly **one** point. Substitute the line into the curve;
+you get a quadratic, and "one solution" means its **discriminant is $0$**. This is far quicker than
+differentiating, and it is the standard "find the value that makes it a tangent" method.
+
+::: {.example}
+[Example.]{.lbl} Find the values of $c$ for which $y=2x+c$ is a tangent to $y=x^2$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Set equal: $x^2=2x+c\Rightarrow x^2-2x-c=0$. Tangent ⇔ one root ⇔ discriminant $0$:
+$$(-2)^2-4(1)(-c)=0\Rightarrow 4+4c=0\Rightarrow c=-1.$$
+
+**Answer:** $c=-1$.
+:::
+
+::: {.workbox}
+
+:::
+
+### Cubic shortcuts — the $1:\sqrt3$ and $2:1$ rules
+
+Every cubic is **point-symmetric about its inflection** (its "centre"). Two ratio facts fall out of that
+symmetry and can save all the calculus.
+
+Take $y=t^3-12t=t(t^2-12)$: roots at $t=0,\pm2\sqrt3$, and turning points (from $y'=3t^2-12=0$) at
+$t=\pm2$. Its centre is the origin.
+
+```{python}
+#| fig-cap: "y = t³ − 12t. From the centre (origin): centre→turning point (2) : centre→root (2√3) = 1:√3. And turning-point gap (−2 to 2 = 4) : gap on to re-attaining the max height (2 to 4 = 2) = 2:1."
+import numpy as np, matplotlib.pyplot as plt
+t=np.linspace(-4,4,600); y=t**3-12*t
+fig,ax=plt.subplots(figsize=(5.8,4.0))
+ax.plot(t,y,color='#1f77b4',lw=2)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+# roots
+for r in (0,2*np.sqrt(3),-2*np.sqrt(3)): ax.plot(r,0,'o',color='#d62728',ms=6)
+ax.annotate('root 2√3',(2*np.sqrt(3),0),(2.6,-11),color='#d62728',fontsize=9)
+# turning points
+ax.plot(-2,16,'o',color='#2ca02c'); ax.plot(2,-16,'o',color='#2ca02c')
+ax.annotate('max (−2, 16)',(-2,16),(-3.9,17),color='#2ca02c',fontsize=9)
+ax.annotate('min (2, −16)',(2,-16),(0.3,-22),color='#2ca02c',fontsize=9)
+# 2:1 — y=16 regained at t=4
+ax.axhline(16,color='0.7',ls=':',lw=1)
+ax.plot(4,16,'o',color='#ff7f0e'); ax.annotate('(4, 16)',(4,16),(3.1,19),color='#ff7f0e',fontsize=9)
+ax.set_xlabel('t'); ax.set_ylabel('y'); ax.set_xticks([-4,-2,0,2,4]); ax.set_ylim(-26,26)
+ax.set_title(r'$y=t^3-12t$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+**The $1:\sqrt3$ rule** — *centre → turning point* : *centre → root*. Here $2:2\sqrt3=1:\sqrt3$. So you can
+place the turning point **without differentiating**: divide the root distance by $\sqrt3$, giving
+$2\sqrt3/\sqrt3=2$.
+
+::: {.callout-warning appearance="simple"}
+**$1:\sqrt3$ works only when the centre of symmetry sits on the $x$-axis** (so the three roots are
+symmetric, $-r,\,0,\,r$). For $y=t^3-12t$ the centre is the origin, on the axis — fine. **Shift it
+vertically**, say $y=t^3-12t+5$, and the centre moves to $(0,5)$: the roots become
+$\approx-3.66,\,0.42,\,3.23$ — no longer symmetric — and $1:\sqrt3$ **fails**.
+:::
+
+**The $2:1$ rule** — *gap between the turning points* : *gap on to where the curve re-attains the other
+turning point's height*. Here the turning points are $2$ apart on each side of the centre (gap $-2\to2=4$),
+and the max height $16$ is regained at $t=4$ (gap $2\to4=2$): $4:2=2:1$. Because it comes from the
+**point-symmetry alone**, this rule holds for **every** cubic, shifted or not — and it is exactly the
+shortcut for the "function-of-a-function on an interval" questions in **Graphs Clinic 1** (where does
+$w^3-3w$ come back to a given height?).
+
+::::

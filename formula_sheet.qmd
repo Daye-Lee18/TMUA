@@ -1,0 +1,343 @@
+---
+title: "TMUA Formula Sheet"
+subtitle: "Reference copy — the completed version. Fill in your own first."
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The TMUA provides **no formula booklet and no calculator**, so every formula here must be *recalled*,
+not looked up. Build this sheet up as the course goes (it is started in session 5 and finalised in
+session 16), and memorise it in passes in the final week. Nothing here is outside the specification —
+if a formula is not on this page, the test will not assume you know it.
+
+A memorisation order that works: **know cold** the ones marked ★ (they appear on almost every paper);
+be **fluent** with the rest; and for the two or three you always forget, write them at the very top of
+your rough paper the moment the test starts, before you read a single question.
+
+---
+
+## 1 · Algebra and functions (MM1)
+
+**Indices** ★
+$$a^m a^n = a^{m+n}, \qquad \frac{a^m}{a^n} = a^{m-n}, \qquad (a^m)^n = a^{mn},$$
+$$a^0 = 1, \qquad a^{-n} = \frac{1}{a^n}, \qquad a^{1/n} = \sqrt[n]{a}, \qquad a^{m/n} = \left(\sqrt[n]{a}\right)^m .$$
+
+**Surds** ★ — rationalise by multiplying by the conjugate:
+$$\frac{1}{a + b\sqrt{c}} \times \frac{a - b\sqrt{c}}{a - b\sqrt{c}} = \frac{a - b\sqrt{c}}{a^2 - b^2 c} .$$
+
+**Quadratics.** For $ax^2 + bx + c = 0$: ★
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \qquad \text{discriminant } \Delta = b^2 - 4ac .$$
+
+$$\Delta > 0 \Rightarrow \text{two real roots}, \qquad \Delta = 0 \Rightarrow \text{one (repeated)}, \qquad \Delta < 0 \Rightarrow \text{none}.$$
+
+**Completing the square** ★ — the vertex form gives the turning point for free:
+$$a x^2 + bx + c = a\left(x + \tfrac{b}{2a}\right)^2 + \left(c - \tfrac{b^2}{4a}\right), \qquad \text{turning point at } x = -\tfrac{b}{2a}.$$
+
+**Sum and product of roots** (for $ax^2+bx+c=0$, roots $\alpha,\beta$):
+$$\alpha + \beta = -\frac{b}{a}, \qquad \alpha\beta = \frac{c}{a}.$$
+
+**Factor / Remainder Theorem.** $\;(x-a)$ is a factor of $f(x) \iff f(a)=0$; the remainder on
+dividing $f(x)$ by $(x-a)$ is $f(a)$.
+
+**Modulus (absolute value)** ★ — $\lvert x\rvert = x$ if $x\ge0$, else $-x$; $\;\lvert x\rvert=\sqrt{x^2}$
+(never negative); $\;\lvert x-a\rvert =$ distance from $x$ to $a$.
+$$\lvert A\rvert = k \iff A = \pm k, \qquad \lvert A\rvert < k \iff -k < A < k, \qquad \lvert A\rvert < \lvert B\rvert \iff A^2 < B^2 .$$
+$$\text{Triangle inequality: } \lvert a+b\rvert \le \lvert a\rvert + \lvert b\rvert \quad(\text{equality when } a,b \text{ have the same sign}).$$
+
+- $y=\lvert f(x)\rvert$ reflects the below-axis part **up**; $y=f(\lvert x\rvert)$ mirrors the **right half**
+  (even function).
+- Two V/Λ moduli enclose a **kite** — area $=\tfrac12 d_1 d_2$ (product of the diagonals, halved).
+- $\displaystyle\min_x \sum_i \lvert x-a_i\rvert$ is reached with $x$ **between the two middle points**.
+
+---
+
+## 2 · Sequences and series (MM2)
+
+**Arithmetic** (first term $a$, common difference $d$):
+$$u_n = a + (n-1)d, \qquad S_n = \frac{n}{2}\big(2a + (n-1)d\big) = \frac{n}{2}(a + \ell).$$
+
+**Sum of the first $n$ integers** ★
+$$1 + 2 + \cdots + n = \frac{n(n+1)}{2}.$$
+
+**Geometric** (first term $a$, common ratio $r$): ★
+$$u_n = a r^{n-1}, \qquad S_n = \frac{a(1 - r^n)}{1 - r} \;(r \ne 1), \qquad S_\infty = \frac{a}{1-r} \;\text{for } |r| < 1.$$
+
+**Binomial expansion** ($n$ a positive integer): ★
+$$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k, \qquad \binom{n}{k} = \frac{n!}{k!\,(n-k)!}, \qquad \binom{n}{1} = n.$$
+$$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^{k}.$$
+
+---
+
+## 3 · Coordinate geometry (MM3)
+
+**Straight line** ★
+$$\text{gradient } m = \frac{y_2 - y_1}{x_2 - x_1}, \qquad y - y_1 = m(x - x_1).$$
+Parallel: $m_1 = m_2$. &nbsp; Perpendicular: $m_1 m_2 = -1$. ★
+
+**Distance and midpoint**
+$$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}, \qquad M = \left(\tfrac{x_1+x_2}{2}, \tfrac{y_1+y_2}{2}\right).$$
+
+**Circle** ★ — centre $(a,b)$, radius $r$:
+$$(x-a)^2 + (y-b)^2 = r^2.$$
+General form $x^2 + y^2 + 2gx + 2fy + c = 0$ has centre $(-g,-f)$ and radius $\sqrt{g^2+f^2-c}$.
+
+**Circle facts.** The tangent is perpendicular to the radius at the point of contact; the angle in a
+semicircle is a right angle; the perpendicular from the centre bisects a chord.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+fig, ax = plt.subplots(3, 1, figsize=(4.2, 12.0))
+th = np.linspace(0, 2*np.pi, 400)
+
+def right_angle(a, p, b, size=0.22):
+    """draw a small square at the right angle located at p, between directions p->a and p->b"""
+    u = np.array(a) - np.array(p); u = u/np.hypot(*u)
+    v = np.array(b) - np.array(p); v = v/np.hypot(*v)
+    c = np.array(p)
+    pts = [c + size*u, c + size*u + size*v, c + size*v]
+    return plt.Polygon(pts, closed=False, fill=False, ec='k', lw=1.2)
+
+# 1 — tangent perpendicular to radius
+a = ax[0]
+a.plot(np.cos(th), np.sin(th), color=ROOT_CLR, lw=2)
+a.plot(0, 0, 'o', color=ROOT_CLR, ms=4)
+P = (np.cos(0.9), np.sin(0.9))
+a.plot([0, P[0]], [0, P[1]], color=ROOT_CLR, lw=1.8)           # radius
+tdir = np.array([-P[1], P[0]])                                  # tangent direction
+a.plot([P[0]-1.1*tdir[0], P[0]+1.1*tdir[0]],
+       [P[1]-1.1*tdir[1], P[1]+1.1*tdir[1]], color=ASYM_CLR, lw=2)
+a.plot(*P, 'o', color=ASYM_CLR, ms=5)
+a.add_patch(right_angle((0,0), P, (P[0]+tdir[0], P[1]+tdir[1])))
+a.text(0.30, 0.34, 'radius', color=ROOT_CLR, fontsize=8.5, rotation=42)
+a.set_title('tangent $\\perp$ radius', fontsize=10)
+
+# 2 — angle in a semicircle is a right angle
+a = ax[1]
+a.plot(np.cos(th), np.sin(th), color=ROOT_CLR, lw=2)
+A, B = (-1, 0), (1, 0)
+a.plot([A[0], B[0]], [A[1], B[1]], color=ROOT_CLR, lw=1.8)      # diameter
+C = (np.cos(1.9), np.sin(1.9))
+a.plot([A[0], C[0]], [A[1], C[1]], color=ASYM_CLR, lw=2)
+a.plot([B[0], C[0]], [B[1], C[1]], color=ASYM_CLR, lw=2)
+for pt in (A, B, C): a.plot(*pt, 'o', color=ASYM_CLR, ms=5)
+a.add_patch(right_angle(A, C, B))
+a.text(-0.15, -0.22, 'diameter', color=ROOT_CLR, fontsize=8.5)
+a.set_title('angle in a semicircle $=90^\\circ$', fontsize=10)
+
+# 3 — perpendicular from centre bisects a chord
+a = ax[2]
+a.plot(np.cos(th), np.sin(th), color=ROOT_CLR, lw=2)
+a.plot(0, 0, 'o', color=ROOT_CLR, ms=4)
+yc = 0.45
+A, B = (-np.sqrt(1-yc**2), yc), (np.sqrt(1-yc**2), yc)
+a.plot([A[0], B[0]], [A[1], B[1]], color=ASYM_CLR, lw=2)        # chord
+M = (0, yc)
+a.plot([0, M[0]], [0, M[1]], color=ROOT_CLR, lw=1.8)           # perpendicular from centre
+for pt in (A, B): a.plot(*pt, 'o', color=ASYM_CLR, ms=5)
+a.plot(*M, 'o', color=YINT_CLR, ms=6)
+a.add_patch(right_angle((0,0), M, B))
+# equal-length ticks on the two halves of the chord
+for x0 in (-0.5*np.sqrt(1-yc**2), 0.5*np.sqrt(1-yc**2)):
+    a.plot([x0-0.03, x0+0.03], [yc+0.09, yc+0.09], color=YINT_CLR, lw=1.5)
+a.text(0.30, 0.12, 'equal', color=YINT_CLR, fontsize=8.5)
+a.set_title('$\\perp$ from centre bisects chord', fontsize=10)
+
+for a in ax:
+    a.set_aspect('equal'); a.axis('off'); a.set_xlim(-1.25, 1.25); a.set_ylim(-1.25, 1.25)
+plt.tight_layout(); plt.show()
+```
+
+**Perpendicular distance** from $(x_0,y_0)$ to the line $ax+by+c=0$:
+$$d = \frac{|a x_0 + b y_0 + c|}{\sqrt{a^2 + b^2}}.$$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Why — the perpendicular-distance formula
+
+The vector $\mathbf n = (a,\,b)$ is **perpendicular to the line** $ax+by+c=0$ *(the coefficients of $x$
+and $y$ are always a normal direction)*. So the distance from $P=(x_0,y_0)$ to the line is the length of
+$P$'s displacement from the line, measured **along $\mathbf n$**.
+
+Take any point $Q=(x_1,y_1)$ **on the line**, so that $ax_1+by_1+c=0$. Project the vector $\vec{QP}$ onto
+the unit normal $\hat{\mathbf n} = \dfrac{(a,b)}{\sqrt{a^2+b^2}}$:
+
+$$d = \left|\vec{QP}\cdot\hat{\mathbf n}\right|
+= \frac{\left|a(x_0-x_1) + b(y_0-y_1)\right|}{\sqrt{a^2+b^2}}
+= \frac{\left|(ax_0+by_0) - (ax_1+by_1)\right|}{\sqrt{a^2+b^2}} .$$
+
+But $Q$ is on the line, so $ax_1+by_1 = -c$. Substituting,
+
+$$d = \frac{\left|ax_0 + by_0 + c\right|}{\sqrt{a^2+b^2}} . \qquad \blacksquare$$
+
+*The choice of $Q$ never appears in the answer — every point on the line gives the same $-c$.*
+:::
+
+**Two circles touch** (exactly one common point) when the distance between centres is $r_1 + r_2$
+(externally) or $|r_1 - r_2|$ (internally).
+
+---
+
+## 4 · Trigonometry (MM4)
+
+**Exact values** ★ — know this row cold:
+
+| $\theta$ | $0$ | $30^\circ$ | $45^\circ$ | $60^\circ$ | $90^\circ$ |
+|---|---|---|---|---|---|
+| $\sin$ | $0$ | $\tfrac12$ | $\tfrac{\sqrt2}{2}$ | $\tfrac{\sqrt3}{2}$ | $1$ |
+| $\cos$ | $1$ | $\tfrac{\sqrt3}{2}$ | $\tfrac{\sqrt2}{2}$ | $\tfrac12$ | $0$ |
+| $\tan$ | $0$ | $\tfrac{\sqrt3}{3}$ | $1$ | $\sqrt3$ | — |
+
+**Identities** ★ — these two are the *only* ones the spec assumes:
+$$\sin^2\theta + \cos^2\theta = 1, \qquad \tan\theta = \frac{\sin\theta}{\cos\theta}.$$
+
+**Symmetries** (for solving equations over an interval):
+$$\sin(180^\circ - \theta) = \sin\theta, \qquad \cos(360^\circ - \theta) = \cos\theta,$$
+$$\sin(180^\circ + \theta) = -\sin\theta, \qquad \cos(180^\circ - \theta) = -\cos\theta.$$
+Periods: $\sin,\cos$ repeat every $360^\circ$; $\tan$ every $180^\circ$.
+
+::: {.callout-note appearance="simple"}
+**Range trap.** If an equation is in $\sin 2x$ (or $\cos 2x$) and $x$ runs over $[0^\circ, 360^\circ]$,
+then $2x$ runs over $[0^\circ, 720^\circ]$ — **two full turns**, so expect twice as many solutions.
+:::
+
+---
+
+## 5 · Exponentials and logarithms (MM5)
+
+**Definition** ★
+$$y = a^x \iff x = \log_a y \quad (a>0,\ a\ne 1).$$
+
+**Laws of logarithms** ★
+$$\log_a(xy) = \log_a x + \log_a y, \qquad \log_a\!\left(\tfrac{x}{y}\right) = \log_a x - \log_a y,$$
+$$\log_a(x^k) = k\log_a x, \qquad \log_a a = 1, \qquad \log_a 1 = 0.$$
+
+**Change of base**
+$$\log_a x = \frac{\log_b x}{\log_b a}.$$
+
+::: {.callout-note appearance="simple"}
+**Which way up?** $a^x = b \Rightarrow x = \log_a b$, **not** $\log_b a$. Sanity check with size:
+$\log_3 2 < 1$ (because $2<3$), while $\log_2 3 > 1$.
+:::
+
+---
+
+## 6 · Differentiation (MM6)
+
+**Power rule** ★
+$$\frac{\mathrm d}{\mathrm dx}\left(x^n\right) = n x^{n-1}, \qquad \frac{\mathrm d}{\mathrm dx}(k) = 0.$$
+Differentiate sums term by term. Often you must **simplify first** (e.g. split a fraction into powers of $x$).
+
+**Uses.**
+- Gradient of the curve at a point $=$ value of $\dfrac{\mathrm dy}{\mathrm dx}$ there.
+- **Tangent** has gradient $\dfrac{\mathrm dy}{\mathrm dx}$; **normal** has gradient $-1\big/\dfrac{\mathrm dy}{\mathrm dx}$.
+- **Stationary points**: solve $\dfrac{\mathrm dy}{\mathrm dx} = 0$. Then $\dfrac{\mathrm d^2 y}{\mathrm dx^2} > 0 \Rightarrow$ minimum, $< 0 \Rightarrow$ maximum.
+- **Shortest distance** from a curve to a line: the closest point is where the tangent is **parallel to the line**.
+
+---
+
+## 7 · Integration (MM7)
+
+**Power rule** ★
+$$\int x^n \,\mathrm dx = \frac{x^{n+1}}{n+1} + C \quad (n \ne -1).$$
+
+**Definite integral** ★
+$$\int_a^b f(x)\,\mathrm dx = \big[F(x)\big]_a^b = F(b) - F(a).$$
+
+**Area vs integral.** ★ A definite integral is a **signed** area — regions below the axis count as
+**negative**. To find an actual **area**, split at every axis-crossing and make each piece positive.
+
+**Area between two curves** (upper $-$ lower, over their intersection):
+$$A = \int_{x_1}^{x_2} \big(y_{\text{top}} - y_{\text{bottom}}\big)\,\mathrm dx.$$
+
+**Translation.** Shifting a graph sideways does not change the area under it:
+$\int_{0}^{1} f(x+1)\,\mathrm dx = \int_{1}^{2} f(u)\,\mathrm du.$
+
+**Even & odd symmetry** ★ — an **even** function ($f(-x)=f(x)$) is symmetric about the **$y$-axis**; an
+**odd** function ($f(-x)=-f(x)$) is symmetric about the **origin**. So
+$$\int_{-a}^{a} f_{\text{even}}(x)\,\mathrm dx = 2\int_{0}^{a} f_{\text{even}}(x)\,\mathrm dx, \qquad \int_{-a}^{a} f_{\text{odd}}(x)\,\mathrm dx = 0.$$
+**$f(\lvert x\rvert)$ is *always* even.** Replacing $x$ by $\lvert x\rvert$ makes **any** curve — quadratic,
+cubic, or anything else — symmetric about the $y$-axis, because $\lvert -x\rvert = \lvert x\rvert$. Its graph
+is the $x\ge0$ half mirrored to the left, so you can **integrate over $x\ge0$ and double** (as in $x^2-2\lvert
+x\rvert-8$).
+
+**Floor, ceiling & step functions** ★ — $\lfloor x\rfloor$ rounds **down** ($\lfloor-2.3\rfloor=-3$),
+$\lceil x\rceil$ rounds **up**, $\{x\}=x-\lfloor x\rfloor\in[0,1)$. Each is **constant on every unit
+interval**, so its integral is a **sum of strips**:
+$$\int_0^n \lfloor x\rfloor\,\mathrm dx = \frac{n(n-1)}{2}, \qquad \int_0^n \lceil x\rceil\,\mathrm dx = \frac{n(n+1)}{2}, \qquad \int_0^n \{x\}\,\mathrm dx = \frac{n}{2}.$$
+When the strip heights scale by a fixed factor, the total is a **geometric series** — e.g.
+$\displaystyle\int_0^{99} 2^{\lceil x\rceil}\,\mathrm dx = \sum_{n=1}^{99} 2^n = 2^{100}-2.$
+
+**Modulus integral.** Split at every point where an inside changes sign, and integrate each piece with the
+sign it takes there — $\int\lvert f\rvert$ is a true (non-negative) area.
+
+---
+
+## 8 · Graphs and transformations (MM8)
+
+For $y = f(x)$:
+
+| Transformation | Effect |
+|---|---|
+| $f(x) + a$ | up by $a$ |
+| $f(x + a)$ | left by $a$ |
+| $a\,f(x)$ | stretch $\times a$ vertically |
+| $f(ax)$ | stretch $\times \tfrac1a$ horizontally |
+| $-f(x)$ | reflect in the $x$-axis |
+| $f(-x)$ | reflect in the $y$-axis |
+
+**Shapes to know on sight:** $y = x^2$ (parabola), $y = x^3$ (cubic), $y = \tfrac1x$ and $y = \tfrac{1}{x^2}$
+(reciprocals, with asymptotes), $y = a^x$ (exponential), $y = \sqrt{x}$.
+
+**"For which $k$…" questions** ★ — rearrange to $g(x) = k$, sketch $y = g(x)$, and count how many times
+the horizontal line $y = k$ crosses it. The turning-point values of $g$ are the boundaries.
+
+---
+
+## 9 · Logic and proof — Paper 2 only (Section 2)
+
+Not formulae, but the facts you must have automatic. There is no symbol notation on the test — it is all
+in words.
+
+**Statement forms.** ★
+$$A \Rightarrow B \;=\; \text{"if } A \text{ then } B\text{"} \;=\; \text{"} A \text{ only if } B\text{"} \;=\; \text{"} B \text{ if } A\text{".}$$
+The bare **"if"** introduces the *forcing* statement: "$A$ **if** $B$" means $B \Rightarrow A$.
+
+**Converse and contrapositive.** ★
+$$\text{statement } A\Rightarrow B; \quad \text{converse } B \Rightarrow A \text{ (not equivalent)}; \quad \text{contrapositive } (\text{not }B)\Rightarrow(\text{not }A) \text{ (always equivalent)}.$$
+
+**Necessary and sufficient.** ★ "$P$ is **sufficient** for $Q$" means $P \Rightarrow Q$; "$P$ is
+**necessary** for $Q$" means $Q \Rightarrow P$.
+
+**Negating quantifiers.** ★
+$$\text{not}(\text{for all } x,\ P) \;=\; \text{there exists } x \text{ with not } P;$$
+$$\text{not}(\text{there exists } x,\ P) \;=\; \text{for all } x,\ \text{not } P.$$
+The negation of "**all** X are Y" is "**some** X is **not** Y" — *not* "no X is Y".
+
+**Proof methods.** Direct; by cases; by contradiction (assume the negation, derive an absurdity);
+disproof by a single counterexample.
+
+**Classic invalid steps to watch for** (Err2): "$ab = ac \Rightarrow b = c$" (false if $a=0$);
+"$\sin A = \sin B \Rightarrow A = B$"; squaring both sides (not reversible); dividing by a quantity that
+might be zero; dropping half of a two-sided inequality.
+
+---
+
+::: {.callout-important}
+## The five to write down first, before reading any question
+
+Whatever you *always* forget goes here — a suggested starter set:
+
+1. Quadratic formula and $\Delta = b^2 - 4ac$.
+2. $S_\infty = \dfrac{a}{1-r}$ for $|r|<1$, and $S_n = \dfrac{a(1-r^n)}{1-r}$.
+3. The exact-value trig table (the $30/45/60$ row).
+4. $\sin^2\theta + \cos^2\theta = 1$.
+5. Perpendicular distance $\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$.
+:::
+
+:::

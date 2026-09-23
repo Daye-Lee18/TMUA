@@ -1,0 +1,96 @@
+---
+title: "이우성 — TMUA"
+subtitle: "Oxford Maths applicant · TMUA 16 Oct 2026 · papers, audits & shared clinics"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+A separate workspace for **이우성 (Lee Woosung)**, sharing the clinic library on this site. The focus is his
+**own sat papers** — each one archived with the question source, the mark scheme, and an **error audit** (what
+he missed → which topic → the fix) so any question can be pulled up in class.
+
+::: {.callout-important}
+## Profile
+
+- **Applying to:** Oxford — Mathematics
+- **Sitting:** TMUA, **16 October 2026** (computer-based, Pearson VUE)
+- **Now:** ~14/20 on both papers, stuck. **~4 weeks out**, so the plan is **pace first** (finish the paper) +
+  **confirm-don't-guess** on Paper 2, alongside the priority clinics below.
+:::
+
+---
+
+## Mock-exam banks — where the papers come from
+
+See the **[mock-exam banks](../../index.qmd)** on the common home page (MAT, JZ Maths, Tyler / tmua.io, PMT MAT solutions).
+
+---
+
+## Papers he has sat
+
+| Date | Paper | Score | Source | Audit |
+|---|---|---|---|---|
+| 2026-09-16 | Practice Set (MAT-style) — **Paper 1 + Paper 2** | 14/20 · 14/20 | his marked script | **[Error audit](set_2026-09-16.qmd)** |
+| 2026-09-04 | Mock 1 (Paper 1) + Mock 2 (**JZ Mock A** Paper 2) | — | his marked scripts | **[Error audit](set_2026-09-04.qmd)** |
+| — | JZ Mocks **A · B · C — Paper 2** | — | [JZ Maths](https://jzmaths.com/papers) | *sat; scripts not yet shared* |
+
+---
+
+## What the papers show (headline)
+
+Scores sit at **14/20 on both papers** and the pattern is consistent:
+
+1. **Time management is the main leak.** On both 09/16 papers he rushed or blanked the last stretch
+   (Q16–20: "ran out of time", one question skipped, several "educated guess"). Roughly 4–6 marks per paper
+   are lost to the clock, not to ability. → a **timing drill** (last 5 questions in 15 min) matters more than
+   new content.
+2. **Paper 2 (reasoning) — he second-guesses.** Many "C or D?", "B?", "E??" — he reaches the right region but
+   cannot *confirm*. → drill **verification methods** (test a value, check a boundary), not more theory.
+3. **Topic gaps** — the **09/04 audit** sharpened these. Almost every wrong/flagged question sits in one of
+   three areas: **coordinate geometry (circles & the plane)**, **differentiation / stationary points**, and
+   **range / max–min of rational & trig functions**. Below those: logs, ceiling integrals, and trig in
+   unfamiliar form. See the **[09/04 error audit](set_2026-09-04.qmd)** for the question-by-question map.
+
+His weak list overlaps ~90 % with the existing clinics, so lessons should **reuse** them rather than rebuild.
+
+::: {.callout-tip}
+## The three sessions to run next (Session 1 = Triangles, done last week ✓)
+
+1. **Coordinate geometry — circles & the plane.** His loudest gap: on 09/04 Paper 1 the two wrong questions
+   and both flagged ones were circles/geometry (100 concentric circles, tangent lines, distances, regions).
+   → **[Coordinate geometry clinic](../../lessons/coordinate_geometry_clinic/class_material.qmd)**.
+2. **Differentiation & stationary points.** Five graded/flagged items across both 09/04 papers, all "find the
+   turning points, then reason" (Mock 2 Q1, Q14; Paper 1 tangents; 09/16 P2 Q18).
+   → **[Differentiation clinic](../../lessons/differentiation_clinic/class_material.qmd)** §2 + §4, plus the
+   **[min/max of polynomials supplement](../../lessons/differentiation_clinic/supplementary_minmax.qmd)**
+   (where a quartic actually turns, and classifying a stationary point that is *not* a turning point — the
+   idea behind his Mock 2 Q14).
+3. **Range & max–min + confirm-don't-guess.** The $y$-as-parameter method (Mock 2 Q13 rational-in-$\cos x$, Q9
+   discriminant), run as a **verify-before-committing** drill, closed with a **timed last-5-in-15-min** block.
+   → **[Range clinic](../../lessons/range_clinic/class_material.qmd)**.
+:::
+
+---
+
+## Clinic library — in priority order
+
+Re-ordered after the **09/04 audit** by how much each costs him. **#0 Triangles is done** (last week). The
+next three (**#1–#3**) are the priority sessions; work down from there.
+
+| # | Clinic | Why — from his papers | Class material | Assignment |
+|---|---|---|---|---|
+| **✓ 0** | **Triangles — the ambiguous case** | *done last week* — P2 Q11 "educated guess" (two triangles, range of $x$) | **[Open](../../lessons/triangle_clinic/class_material.qmd)** | **[Questions](../../lessons/triangle_clinic/assignment_student.qmd)** · [MS](../../lessons/triangle_clinic/assignment_ms.qmd) |
+| **1** | **Coordinate geometry — circles & the plane** | **his loudest gap:** 09/04 P1 **B✗** (100 circles — now Q13 in the clinic), **J⚠** (tangent lines), **J′⚠** (distances); P2 Q10⚠ (regions); 09/16 P1 Q7⚠ | **[Open](../../lessons/coordinate_geometry_clinic/class_material.qmd)** — 23 | **[Questions](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** (15) · [MS](../../lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
+| **2** | **Differentiation & stationary points** | five graded/flagged: P2 **Q1⚠, Q2, Q14⚠**; P1 tangents; 09/16 P2 Q18⚠ — "turning points, then reason" | **[Open](../../lessons/differentiation_clinic/class_material.qmd)** — 9 · **[Supplement: min/max of polynomials](../../lessons/differentiation_clinic/supplementary_minmax.qmd)** | **[Questions](../../lessons/differentiation_clinic/assignment_student.qmd)** (14) · [MS](../../lessons/differentiation_clinic/assignment_ms.qmd) |
+| **3** | **Range & the $y$-parameter method** | P2 **Q13⚠** (max of rational-in-$\cos x$), **Q9⚠** (discriminant); 09/16 P1 Q2, Q18 — run as a *confirm-don't-guess* drill | **[Open](../../lessons/range_clinic/class_material.qmd)** | — |
+| **4** | **Logarithms** (+ extension) | P2 Q18⚠ (log system), Q12; P1 H, 09/16 P1 Q9 | **[Log](../../lessons/log_clinic/class_material.qmd)** · **[Log extension](../../lessons/log_extension_clinic/class_material.qmd)** (simultaneous log/exp, quadratic-in-$a^x$) | — |
+| **5** | **Floor & ceiling** | P2 **Q19✗** — $\int\lceil x\rceil2^{\lceil x\rceil}$ is a step integral, not by-parts | **[Open](../../lessons/floor_ceiling_clinic/class_material.qmd)** | — |
+| **6** | **Trigonometry** | P1 $\sin5\theta$, $\sin^2$ sums; P2 Q20 counting; 09/16 P1 Q6 ordering | **[Open](../../lessons/trig_clinic/class_material.qmd)** | **[Questions](../../lessons/trig_clinic/assignment_student.qmd)** · [MS](../../lessons/trig_clinic/assignment_ms.qmd) |
+| **7** | **Unfamiliar graphs** | P1 H′ ($\log_2$ of a trig expression); P2 symmetry & transformations | **[Concepts](../../lessons/graph_clinic/concepts.qmd)** · **[Open](../../lessons/graph_clinic/class_material.qmd)** | **[Questions](../../lessons/graph_clinic/assignment_student.qmd)** · [MS](../../lessons/graph_clinic/assignment_ms.qmd) |
+| **8** | **Paper 2 reasoning** | P2 Q1/Q5/Q11 "reached it, couldn't confirm" — necessary/sufficient, edge cases | **[Open](../../lessons/selfstudy2_paper2_reasoning/practice.qmd)** | — |
+| **9** | **Modulus** | supporting — he handled the mock modulus items; keep sharp | **[Open](../../lessons/modulus_clinic/class_material.qmd)** | **[Questions](../../lessons/modulus_clinic/assignment_student.qmd)** · [MS](../../lessons/modulus_clinic/assignment_ms.qmd) |
+
+*(Bigger than any single clinic: his **pace** — last 5 questions in 15 min — and, on Paper 2, **confirming**
+an answer instead of guessing. Drill those alongside #1–#3.)*

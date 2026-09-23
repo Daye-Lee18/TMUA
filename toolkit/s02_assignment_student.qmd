@@ -1,0 +1,199 @@
+---
+title: "Toolkit S2 — Assignment"
+subtitle: "Converse and contrapositive"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+
+For every question the routine is the same: **name the halves $P$ and $Q$, write the statement as one
+arrow, then classify** — reverse only is the *converse*, negate only is the *inverse*, and negate
+*and* reverse is the *contrapositive*.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Fluency** | forming the three rearrangements; judging their truth | 10 |
+| **B — Exam standard** | equivalence under exam wording; proof by contrapositive | 14 |
+| **C — Stretch** | auditing a proof; negating compound statements | 8 |
+
+::: {.callout-note appearance="simple"}
+**Also due this session:** Notes on Logic and Proof, **pp. 43–49**, plus **ten statements of your own**
+with their converses and contrapositives (see the class material).
+:::
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+Consider: **If $n$ is divisible by $10$, then $n$ is divisible by $5$.**
+
+&nbsp;&nbsp;(a) Write down the converse. **[1]**
+
+&nbsp;&nbsp;(b) Write down the contrapositive. **[1]**
+
+&nbsp;&nbsp;(c) Write down the inverse. **[1]**
+
+&nbsp;&nbsp;(d) State which of the four statements (original, converse, contrapositive, inverse) are
+**true**. **[1]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 2 **[3]**
+
+Assume this statement is **true**:
+
+> *If a number is a multiple of $9$, then its digits sum to a multiple of $9$.*
+
+For each of the following, state whether it **must be true**, **must be false**, or **cannot be
+determined**.
+
+&nbsp;&nbsp;(a) If a number's digits do not sum to a multiple of $9$, it is not a multiple of $9$. **[1]**
+
+&nbsp;&nbsp;(b) If a number's digits sum to a multiple of $9$, it is a multiple of $9$. **[1]**
+
+&nbsp;&nbsp;(c) A number is a multiple of $9$ and its digits sum to $7$. **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Let $x$ be a real number. Write the **negation** of each statement.
+
+&nbsp;&nbsp;(a) $x > 5$ **[1]**
+
+&nbsp;&nbsp;(b) $2 \le x < 7$ **[1]**
+
+&nbsp;&nbsp;(c) $x$ is positive **and** $x$ is an integer **[1]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[4]**
+
+Let $a$ be an integer. Consider: **If $a$ is a multiple of $4$, then $a$ is even.**
+
+&nbsp;&nbsp;(a) Write the contrapositive. **[1]**
+
+&nbsp;&nbsp;(b) Is the contrapositive true? Explain how you know **without** proving it directly. **[1]**
+
+&nbsp;&nbsp;(c) Write the converse, and determine whether it is true. **[2]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 5 **[5]**
+
+Let $n$ be an integer. Prove that **if $n^2$ is divisible by $3$, then $n$ is divisible by $3$.**
+
+&nbsp;&nbsp;(a) Write down the contrapositive of the statement. **[1]**
+
+&nbsp;&nbsp;(b) Prove the contrapositive. *(Hint: an integer not divisible by $3$ can be written as
+$3k+1$ or $3k+2$ — two cases.)* **[3]**
+
+&nbsp;&nbsp;(c) Explain why this proves the original. **[1]**
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 6 **[5]**
+
+$n$ is a positive integer. Consider the theorem
+
+$$\text{If } n \text{ is divisible by } 9, \text{ then } n \text{ is divisible by } 3. \tag{$*$}$$
+
+Which of the following, **taken individually**, is/are equivalent to $(*)$?
+
+&nbsp;&nbsp;**I** &nbsp; If $n$ is not divisible by $3$, then $n$ is not divisible by $9$.
+
+&nbsp;&nbsp;**II** &nbsp; If $n$ is divisible by $3$, then $n$ is divisible by $9$.
+
+&nbsp;&nbsp;**III** &nbsp; $n$ is divisible by $9$ only if $n$ is divisible by $3$.
+
+&nbsp;&nbsp;**A** I only &nbsp;&nbsp; **B** II only &nbsp;&nbsp; **C** III only &nbsp;&nbsp;
+**D** I and II &nbsp;&nbsp; **E** I and III &nbsp;&nbsp; **F** II and III &nbsp;&nbsp;
+**G** I, II and III &nbsp;&nbsp; **H** None
+
+**Name the halves and show your arrows.** State also, for each of I–III, whether it is *true* — and note
+whether truth and equivalence agree. **[5]**
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+A student is asked to prove: **if $n^2$ is odd, then $n$ is odd.**
+
+The student writes:
+
+> *"Suppose $n$ is odd. Then $n = 2k+1$, so $n^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$, which is odd.
+> Therefore if $n^2$ is odd, then $n$ is odd."*
+
+&nbsp;&nbsp;(a) Is the algebra correct? **[1]**
+
+&nbsp;&nbsp;(b) Is the **proof** correct? State precisely what the student assumed, what they concluded,
+and what was required. **[3]**
+
+&nbsp;&nbsp;(c) If the proof is wrong, write a correct one. **[1]**
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 8 **[3]**
+
+$P$ and $Q$ are statements. It is given that **$P$ only if $Q$** is true.
+
+&nbsp;&nbsp;(a) Write this as an implication. **[1]**
+
+&nbsp;&nbsp;(b) Write its contrapositive as an implication. **[1]**
+
+&nbsp;&nbsp;(c) A student claims: *"since $P$ only if $Q$, it follows that $Q$ only if $P$."* Is the
+student right? Justify your answer. **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+For every question, check that you wrote **arrows** somewhere. If an answer has no arrow in the working,
+you had no way to tell a converse from a contrapositive — and that is precisely what is being marked.
+:::
+
+:::

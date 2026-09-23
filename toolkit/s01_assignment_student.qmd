@@ -1,0 +1,207 @@
+---
+title: "Toolkit S1 — Assignment"
+subtitle: "Statement forms · if / A if B / A only if B / if and only if"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+
+For every question the method is the same: **rewrite the sentence as "if … then …" first**, then read off
+which way the arrow points. Do not try to reason about the meaning in English — that is how arrows get
+flipped by accident.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Fluency** | translating the four forms; *and / or / not* | 10 |
+| **B — Exam standard** | deciding what follows; equivalence | 14 |
+| **C — Stretch** | chains of *if and only if*; multi-statement reasoning | 8 |
+
+::: {.callout-note appearance="simple"}
+**Also due this session** (from the class material):
+
+- **Notes on Logic and Proof, pp. 24–34** — work the church-bells tables yourself before reading theirs.
+- **Tyler Mock Set A, Paper 1** — 75 minutes, timed, no calculator. *(Paper 1 practice, to keep calculation
+  speed moving while the logic settles.)*
+:::
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+$P$ and $Q$ are statements. Write each of the following using $\Rightarrow$ or $\Leftrightarrow$.
+
+&nbsp;&nbsp;(a) $Q$ only if $P$ **[1]**
+
+&nbsp;&nbsp;(b) $Q$ if $P$ **[1]**
+
+&nbsp;&nbsp;(c) $P$ if and only if $Q$ **[1]**
+
+&nbsp;&nbsp;(d) If $Q$ then $P$ **[1]**
+
+*Answer form: an implication such as $P \Rightarrow Q$.*
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 2 **[3]**
+
+Let $n = 30$. State whether each is **true** or **false**.
+
+&nbsp;&nbsp;(a) $n$ is divisible by $4$ **or** $n$ is divisible by $5$. **[1]**
+
+&nbsp;&nbsp;(b) $n$ is divisible by $5$ **and** $n$ is divisible by $6$. **[1]**
+
+&nbsp;&nbsp;(c) $n$ is **not** divisible by $9$. **[1]**
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Let $n$ be a positive integer. For each statement, decide whether it is **true** or **false**, and give a
+counterexample for any that is false.
+
+&nbsp;&nbsp;(a) $n$ is divisible by $10$ **only if** $n$ is divisible by $5$. **[1]**
+
+&nbsp;&nbsp;(b) $n$ is divisible by $10$ **if** $n$ is divisible by $5$. **[1]**
+
+&nbsp;&nbsp;(c) $n^2$ is even **if and only if** $n$ is even. **[1]**
+
+*Answer form: true or false, plus a counterexample where false.*
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[4]**
+
+Assume this statement is **true**:
+
+> *If a shape is a square, then it has four equal sides.*
+
+State what, if anything, you can conclude in each case. Write "nothing" where nothing follows.
+
+&nbsp;&nbsp;(a) The shape is a square. **[1]**
+
+&nbsp;&nbsp;(b) The shape has four equal sides. **[1]**
+
+&nbsp;&nbsp;(c) The shape does **not** have four equal sides. **[1]**
+
+&nbsp;&nbsp;(d) The shape is **not** a square. **[1]**
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 5 **[4]**
+
+For a real number $x$, consider the statement
+
+> $x > 3$ **only if** $x^2 > 9$.
+
+&nbsp;&nbsp;(a) Rewrite the statement in the form "if … then …". **[1]**
+
+&nbsp;&nbsp;(b) Is the statement true? Justify your answer. **[1]**
+
+&nbsp;&nbsp;(c) Write down the statement obtained by replacing "only if" with "if". Is *that* statement
+true? If not, give a counterexample. **[2]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 6 **[6]**
+
+In this question, $n$ is a positive integer. Consider the theorem
+
+$$\text{If } n \text{ is divisible by } 12, \text{ then } n \text{ is divisible by } 4. \tag{$*$}$$
+
+Which of the following, **taken individually**, is/are equivalent to $(*)$?
+
+&nbsp;&nbsp;**I** &nbsp; If $n$ is divisible by $4$, then $n$ is divisible by $12$.
+
+&nbsp;&nbsp;**II** &nbsp; $n$ is divisible by $12$ **only if** $n$ is divisible by $4$.
+
+&nbsp;&nbsp;**III** &nbsp; $n$ is **not** divisible by $4$ **only if** $n$ is **not** divisible by $12$.
+
+&nbsp;&nbsp;**A** I only &nbsp;&nbsp; **B** II only &nbsp;&nbsp; **C** III only &nbsp;&nbsp;
+**D** I and II &nbsp;&nbsp; **E** II and III &nbsp;&nbsp; **F** I and III &nbsp;&nbsp;
+**G** I, II and III &nbsp;&nbsp; **H** None of them
+
+**Name the two halves $P$ and $Q$ before you start.** Show your arrows. **[6]**
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+Here is an attempt to solve the inequality $x^4 - 10x^2 + 9 < 0$.
+
+> $x^4 - 10x^2 + 9 < 0$
+> **I** &nbsp; if and only if &nbsp; $(x^2-1)(x^2-9) < 0$
+> **II** &nbsp; if and only if &nbsp; $1 < x^2 < 9$
+> **III** &nbsp; if and only if &nbsp; $1 < x < 3$
+
+&nbsp;&nbsp;(a) State which line contains the **first** error, or say that the argument is completely
+correct. **[1]**
+
+&nbsp;&nbsp;(b) Justify your answer, and give the correct solution set. **[4]**
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 8 **[3]**
+
+Let $A$ and $B$ be statements. A student writes:
+
+> "Since $A \Rightarrow B$ is true, and $B$ is true, it follows that $A$ is true."
+
+&nbsp;&nbsp;(a) Is the student's reasoning valid? **[1]**
+
+&nbsp;&nbsp;(b) Give a concrete example, using statements about integers, that shows what goes wrong (or
+explain why nothing goes wrong). **[2]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+Check every answer against the **one rule**: could you rewrite the sentence as "if … then …", and does
+your arrow match? For Questions 6 and 7 in particular, an answer without arrows written down is an answer
+you cannot check.
+:::
+
+:::

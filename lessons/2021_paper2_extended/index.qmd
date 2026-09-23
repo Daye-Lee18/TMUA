@@ -1,0 +1,1561 @@
+---
+title: "2021 Paper 2 — Extended Practice"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The 2021 Paper 2 question types, each with its general method and a set of practice problems drawn from TMUA
+and from MAT, PAT and other papers where the same idea appears.
+
+**On this page:** 1. Integration & iterated functions · 2. Coordinate geometry — squares & bisecting lines · 3. Circles · 4. Necessary, sufficient & existence · 5. Counterexamples · 6. Converse & spot-the-error · 7. Implications about functions · 8. Regions in the plane · 9. Logs & exponentials · 10. Modulus graphs · 11. Trig — ambiguous case & modulus counting
+
+## 1 · Integration & iterated functions
+
+*Seeds: 2021 P2 Q1, Q20.*
+
+::: {.callout-tip}
+## The method — rewrite as powers, integrate, then mind the lower limit
+
+1. **Write every term as a power of $x$:** $\sqrt x=x^{1/2}$, $\dfrac1{x^{2}}=x^{-2}$. Then
+   $\displaystyle\int x^{n}\,\mathrm dx=\dfrac{x^{n+1}}{n+1}$ (for $n\ne-1$).
+2. **Evaluate $[F(x)]_a^b=F(b)-F(a)$** — the commonest slip is the sign at the **lower** limit (subtracting a
+   negative *adds*).
+3. **For a piecewise or iterated function, find the pattern first.** Compute $\mathrm f_1,\mathrm f_2,\mathrm
+   f_3$ **separately on each sign region** ($x\ge0$ and $x<0$), spot the rule, then integrate each piece.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A number.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q1 — the seed)*
+
+::: {.question}
+Find $\displaystyle\int_{1}^{4}\left(3\sqrt{x}+\frac{4}{x^{2}}\right)\mathrm dx$.
+
+&nbsp;&nbsp;**A** $-0.75$ &nbsp; **B** $7.125$ &nbsp; **C** $11$ &nbsp; **D** $17$ &nbsp; **E** $18$ &nbsp;
+**F** $21.875$ &nbsp; **G** $34.5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($17$).**
+
+**Step 1 — powers.** $3\sqrt x=3x^{1/2}$ and $\dfrac4{x^{2}}=4x^{-2}$.
+
+**Step 2 — integrate.** $\displaystyle\int 3x^{1/2}\,\mathrm dx=2x^{3/2}$ and $\displaystyle\int 4x^{-2}\,
+\mathrm dx=-4x^{-1}$, so the antiderivative is $2x^{3/2}-\dfrac4x$.
+
+**Step 3 — evaluate (watch the lower limit).**
+$$\left[2x^{3/2}-\tfrac4x\right]_1^4=\big(2\cdot8-1\big)-\big(2-4\big)=15-(-2)=17.$$
+The lower limit gives $2\cdot1^{3/2}-\tfrac41=-2$, and subtracting $-2$ **adds** $2$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2021 P2 Q20 — an iterated modulus function)*
+
+::: {.question}
+$\mathrm f_1(x)=\lvert x\rvert$ and $\mathrm f_{n+1}(x)=\lvert \mathrm f_n(x)+x\rvert$ for $n\ge1$. Find
+$\displaystyle\int_{-1}^{1}\mathrm f_{99}(x)\,\mathrm dx$.
+
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $0.5$ &nbsp; **C** $1$ &nbsp; **D** $49.5$ &nbsp; **E** $50$ &nbsp;
+**F** $99$ &nbsp; **G** $99.5$ &nbsp; **H** $100$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($50$).** Split by the sign of $x$ — the modulus behaves completely differently on each side.
+
+**Step 1 — the side $x\ge0$.** Here $\lvert x\rvert=x$, so $\mathrm f_1=x$, $\mathrm f_2=\lvert
+x+x\rvert=2x$, $\mathrm f_3=\lvert 2x+x\rvert=3x$, … i.e. $\mathrm f_n=nx$. So $\mathrm f_{99}=99x$ and
+$\displaystyle\int_0^1 99x\,\mathrm dx=\left[\tfrac{99}{2}x^{2}\right]_0^1=49.5$.
+
+**Step 2 — the side $x<0$.** Here $\lvert x\rvert=-x$, so $\mathrm f_1=-x$, $\mathrm f_2=\lvert
+-x+x\rvert=0$, $\mathrm f_3=\lvert 0+x\rvert=-x$, $\mathrm f_4=0$, … it alternates $-x,0,-x,0,\dots$. Since
+$99$ is odd, $\mathrm f_{99}=-x$, and $\displaystyle\int_{-1}^{0}(-x)\,\mathrm dx=\left[-\tfrac{x^{2}}2
+\right]_{-1}^{0}=0.5$.
+
+**Step 3 — add.** $49.5+0.5=50$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,1,400)
+def f(n,xv):
+    v=np.abs(xv)
+    for _ in range(n-1): v=np.abs(v+xv)
+    return v
+plt.figure(figsize=(5.0,3.2))
+for n,c in [(1,'#2b6cb0'),(2,'#dd6b20'),(3,'#2ca02c')]:
+    plt.plot(x,[f(n,xv) for xv in x],color=c,label=f'f{n}(x)')
+plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('on x≥0: fₙ = n·x;  on x<0: fₙ alternates −x, 0',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a mixed-power integral)*
+
+::: {.question}
+Find $\displaystyle\int_{1}^{4}\left(2x-\frac1{\sqrt x}\right)\mathrm dx$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $13$.**
+
+$\dfrac1{\sqrt x}=x^{-1/2}$, whose integral is $2x^{1/2}$. So the antiderivative is $x^{2}-2\sqrt x$:
+$$\left[x^{2}-2\sqrt x\right]_1^4=(16-4)-(1-2)=12-(-1)=13.$$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(area between two curves)*
+
+::: {.question}
+Find the area enclosed between $y=2x$ and $y=x^{2}$.
+
+*Answer form: a number.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $\dfrac43$.**
+
+**Step 1 — where they meet.** $2x=x^{2}\Rightarrow x=0$ or $x=2$; between them the line $2x$ is **above** the
+parabola.
+
+**Step 2 — integrate (upper $-$ lower).**
+$$\int_0^2\big(2x-x^{2}\big)\,\mathrm dx=\left[x^{2}-\tfrac{x^{3}}3\right]_0^2=4-\tfrac83=\tfrac43.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-0.5,2.5,200)
+plt.figure(figsize=(4.4,3.2))
+plt.plot(x,2*x,color='#2b6cb0',label='y=2x'); plt.plot(x,x**2,color='#dd6b20',label='y=x²')
+xf=np.linspace(0,2,100); plt.fill_between(xf,2*xf,xf**2,color='#2ca02c',alpha=0.15)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.title('area between y=2x and y=x² is 4/3',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — integration
+
+- **Power rule:** $\displaystyle\int x^{n}\,\mathrm dx=\dfrac{x^{n+1}}{n+1}$ ($n\ne-1$); rewrite roots and
+  reciprocals as powers first.
+- **Definite integral:** $[F]_a^b=F(b)-F(a)$ — subtracting a negative lower value **adds**.
+- **Area between curves:** $\displaystyle\int(\text{upper}-\text{lower})\,\mathrm dx$ between the intersection
+  points.
+- **Iterated / piecewise function:** find the pattern on each sign region **separately**, then integrate each
+  piece.
+:::
+
+---
+
+## 2 · Coordinate geometry — squares & bisecting lines
+
+*Seeds: 2021 P2 Q2, Q7, plus a real cross-exam problem (Tyler Mock TMUA, Set D).*
+
+::: {.callout-tip}
+## The method — diagonals bisect at right angles; a bisecting line hits the centre
+
+1. **Diagonals of a square (or rhombus) bisect each other at $90^\circ$.** So the other diagonal passes
+   through the **midpoint** of the given one, with slope the **negative reciprocal**.
+2. **The far vertex is the reflection of the near one in the centre:** $B=2M-D$ (the midpoint $M$ is the
+   average of *both* diagonals' endpoints).
+3. **A straight line bisects the area of a circle or a square only if it passes through that shape's centre.**
+   To bisect two shapes at once, join their two centres.
+4. **Perpendicular $\iff$ product of slopes $=-1$.**
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** An equation, a coordinate, or a value.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q2 — the seed)*
+
+::: {.question}
+$A(0,2)$ and $C(4,0)$ are opposite vertices of the square $ABCD$. What is the equation of the line through
+$B$ and $D$?
+
+&nbsp;&nbsp;**A** $y=-2x+5$ &nbsp; **B** $y=-\tfrac12x-3$ &nbsp; **C** $y=-\tfrac12x+2$ &nbsp; **D** $y=x$
+&nbsp; **E** $y=2x-3$ &nbsp; **F** $y=2x+2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($y=2x-3$).**
+
+**Step 1 — $BD$ is the other diagonal.** It passes through the midpoint of $AC$, which is
+$M=\left(\tfrac{0+4}2,\tfrac{2+0}2\right)=(2,1)$.
+
+**Step 2 — slope.** Slope of $AC$ is $\dfrac{0-2}{4-0}=-\tfrac12$, so $BD$ (perpendicular) has slope $2$.
+
+**Step 3 — line.** $y-1=2(x-2)\Rightarrow y=2x-3$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,2]); C=np.array([4,0]); M=(A+C)/2
+half=np.linalg.norm(C-A)/2; u=np.array([1,2])/np.sqrt(5)
+B=M+half*u; D=M-half*u
+plt.figure(figsize=(4.4,4.0))
+sq=np.array([A,B,C,D,A]); plt.plot(sq[:,0],sq[:,1],'-o',color='#2b6cb0')
+for P,nm in [(A,'A'),(B,'B'),(C,'C'),(D,'D')]:
+    plt.annotate(nm,P,textcoords='offset points',xytext=(6,6),fontsize=11)
+xs=np.linspace(-1,5,10); plt.plot(xs,2*xs-3,'--',color='crimson',label='y=2x−3 (BD)')
+plt.plot([A[0],C[0]],[A[1],C[1]],':',color='0.5',label='AC')
+plt.plot(*M,'ks'); plt.annotate('(2,1)',M,textcoords='offset points',xytext=(6,-12),fontsize=9)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2021 P2 Q7 — one line bisects both)*
+
+::: {.question}
+A circle has equation $(x-9)^{2}+(y+2)^{2}=4$; a square has vertices $(1,0),(1,2),(-1,2),(-1,0)$. A straight
+line bisects the area of **both**. Where does it cross the $x$-axis?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $4.5$ &nbsp; **E** $5$ &nbsp; **F** $6$
+&nbsp; **G** not unique &nbsp; **H** no such line
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B ($x=3$).**
+
+**Step 1 — a bisecting line hits the centre.** A line halves a circle's area only through its centre
+$(9,-2)$, and halves the square's area only through the square's centre $(0,1)$.
+
+**Step 2 — join the two centres.** Slope $=\dfrac{-2-1}{9-0}=-\tfrac13$, so $y=1-\tfrac13x$.
+
+**Step 3 — cross the $x$-axis.** $0=1-\tfrac13x\Rightarrow x=3$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,200)
+plt.figure(figsize=(6.0,2.8))
+plt.plot(9+2*np.cos(th),-2+2*np.sin(th),color='#2b6cb0')
+sq=np.array([[1,0],[1,2],[-1,2],[-1,0],[1,0]]); plt.plot(sq[:,0],sq[:,1],color='#2b6cb0')
+plt.plot(0,1,'ks'); plt.plot(9,-2,'ks')
+plt.annotate('(0,1)',(0,1),textcoords='offset points',xytext=(5,5))
+plt.annotate('(9,−2)',(9,-2),textcoords='offset points',xytext=(5,5))
+xs=np.linspace(-2,11,20); plt.plot(xs,1-xs/3,'--',color='crimson')
+plt.plot(3,0,'o',color='crimson'); plt.annotate('x=3',(3,0),textcoords='offset points',xytext=(4,6),color='crimson')
+plt.axhline(0,color='0.6',lw=0.7); plt.gca().set_aspect('equal'); plt.grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set D — a rhombus)*
+
+::: {.question}
+$A(-2,4)$ and $C(6,0)$ are opposite vertices of the rhombus $ABCD$, and vertex $D$ lies on the $y$-axis. Find
+the coordinates of vertex $B$.
+
+&nbsp;&nbsp;**A** $(2,-6)$ &nbsp; **B** $(4,-5)$ &nbsp; **C** $(6,10)$ &nbsp; **D** $(5,8)$ &nbsp;
+**E** $(4,6)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($(4,6)$).**
+
+**Step 1 — the diagonal $BD$.** It is the perpendicular bisector of $AC$. Midpoint $M=(2,2)$; slope of $AC$
+is $-\tfrac12$, so $BD$ has slope $2$: $\ y-2=2(x-2)\Rightarrow y=2x-2$.
+
+**Step 2 — find $D$.** $D$ is on the $y$-axis ($x=0$): $y=2(0)-2=-2$, so $D=(0,-2)$.
+
+**Step 3 — reflect through the centre.** $B$ and $D$ are symmetric about $M$, so
+$B=2M-D=(4,4)-(0,-2)=(4,6)$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(find the other diagonal)*
+
+::: {.question}
+$A(1,1)$ and $C(5,3)$ are opposite vertices of a square. Find the equation of the other diagonal.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $y=-2x+8$.**
+
+Midpoint $M=(3,2)$; slope of $AC$ is $\dfrac{3-1}{5-1}=\tfrac12$, so the other diagonal has slope $-2$:
+$\ y-2=-2(x-3)\Rightarrow y=-2x+8$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — squares, rhombi & bisecting lines
+
+- **Diagonals bisect each other at $90^\circ$:** the other diagonal runs through the midpoint with the
+  **negative-reciprocal** slope.
+- **Opposite vertex by reflection:** $B=2M-D$, where $M$ is the shared midpoint.
+- **A line bisecting a circle or square must pass through its centre;** to bisect two shapes, join the two
+  centres.
+- **Perpendicular $\iff$ slopes multiply to $-1$.**
+:::
+---
+
+## 3 · Circles
+
+*Seed: 2021 P2 Q15, plus a real cross-exam problem (Tyler Mock TMUA, Set C).*
+
+::: {.callout-tip}
+## The method — complete the square to read the centre and radius
+
+1. **$x^{2}+ax+y^{2}+by+c=0$ has centre $\left(-\tfrac a2,-\tfrac b2\right)$** and radius $r$ with
+   $r^{2}=\tfrac{a^{2}+b^{2}}4-c$ (complete the square in $x$ and in $y$).
+2. **Tangent to a line $\iff$ distance from centre to the line $=r$.** To the $y$-axis ($x=0$) the distance
+   is $\lvert\text{$x$-coordinate of centre}\rvert$; to the $x$-axis it is the $y$-coordinate.
+3. **A chord at distance $d$ from the centre** cuts off a segment; the central angle $\theta$ satisfies
+   $\cos\tfrac\theta2=\tfrac dR$, and the **segment area** is $\tfrac12R^{2}(\theta-\sin\theta)$.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A condition, or an exact area/length.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q15 — the seed)*
+
+::: {.question}
+The circle $x^{2}+ax+y^{2}+by+c=0$ ($a,b,c\ne0$) is tangent to the $y$-axis. What is the necessary and
+sufficient condition?
+
+&nbsp;&nbsp;**A** $a^{2}=4c$ &nbsp; **B** $b^{2}=4c$ &nbsp; **C** $\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}4-c}$
+&nbsp; **D** $\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}4-c}$ &nbsp; **E** $-\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}4-c}$
+&nbsp; **F** $-\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}4-c}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B ($b^{2}=4c$).**
+
+**Step 1 — centre and radius.** Centre $\left(-\tfrac a2,-\tfrac b2\right)$, and $r^{2}=\tfrac{a^{2}+b^{2}}4-c$.
+
+**Step 2 — tangency to the $y$-axis.** The distance from the centre to $x=0$ is $\left\lvert\tfrac a2\right
+\rvert$, and tangency needs this to equal $r$: $\ \left(\tfrac a2\right)^{2}=r^{2}$.
+
+**Step 3 — simplify.** $\dfrac{a^{2}}4=\dfrac{a^{2}+b^{2}}4-c\Rightarrow 0=\dfrac{b^{2}}4-c\Rightarrow
+b^{2}=4c$. *(Squaring removes the sign trap in options C and E.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(read a circle from its equation)*
+
+::: {.question}
+Find the centre and radius of $\;x^{2}-6x+y^{2}+8y+9=0$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: centre $(3,-4)$, radius $4$.**
+
+Complete the square: $(x-3)^{2}-9+(y+4)^{2}-16+9=0\Rightarrow(x-3)^{2}+(y+4)^{2}=16$. So centre $(3,-4)$,
+$r=4$. *(Check with the formula: centre $(-\tfrac{-6}2,-\tfrac 82)=(3,-4)$; $r^{2}=\tfrac{36+64}4-9=25-9=16$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set C — a circular segment)*
+
+::: {.question}
+The line $y=2$ divides the circle $x^{2}+y^{2}=8$ into two segments. Find the area of the **smaller**
+segment.
+
+&nbsp;&nbsp;**A** $2\pi-4$ &nbsp; **B** $\pi$ &nbsp; **C** $2\pi$ &nbsp; **D** $\tfrac{\pi}2-1$ &nbsp;
+**E** $16\pi-32$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,200); R=np.sqrt(8)
+plt.figure(figsize=(3.6,3.6))
+plt.plot(R*np.cos(th),R*np.sin(th),color='#2b6cb0')
+plt.axhline(2,color='crimson',lw=1.2)
+xf=np.linspace(-2,2,100); plt.fill_between(xf,2,np.sqrt(8-xf**2),color='#2ca02c',alpha=0.2)
+plt.plot(0,0,'ks'); plt.gca().set_aspect('equal'); plt.grid(alpha=0.25)
+plt.title('smaller segment: above the chord y=2',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A ($2\pi-4$).**
+
+**Step 1 — the geometry.** Centre $O=(0,0)$, radius $R=\sqrt8=2\sqrt2$. The chord $y=2$ is at distance $d=2$
+from $O$.
+
+**Step 2 — central angle.** $\cos\tfrac\theta2=\dfrac dR=\dfrac2{2\sqrt2}=\dfrac1{\sqrt2}\Rightarrow
+\tfrac\theta2=45^\circ\Rightarrow\theta=\tfrac\pi2$.
+
+**Step 3 — segment area.** $\tfrac12R^{2}(\theta-\sin\theta)=\tfrac12\cdot8\left(\tfrac\pi2-1\right)=
+4\left(\tfrac\pi2-1\right)=2\pi-4.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — circles
+
+- **From $x^{2}+ax+y^{2}+by+c=0$:** centre $\left(-\tfrac a2,-\tfrac b2\right)$,
+  $r^{2}=\tfrac{a^{2}+b^{2}}4-c$.
+- **Tangent to a line $\iff$ distance(centre, line) $=r$;** to the $y$-axis the distance is $\lvert
+  x\text{-coord of centre}\rvert$.
+- **Chord at distance $d$:** central angle from $\cos\tfrac\theta2=\tfrac dR$; **segment area**
+  $\tfrac12R^{2}(\theta-\sin\theta)$.
+:::
+
+---
+
+## 4 · Necessary, sufficient & existence
+
+*Seeds: 2021 P2 Q3, Q6, Q8, Q9, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — "necessary" means *every* case; test both arrows
+
+1. **"$X$ is necessary for $Y$" means $Y\Rightarrow X$** — $X$ must hold in **every** case that gives $Y$. One
+   case where $Y$ holds but $X$ fails kills necessity.
+2. **"$X$ is sufficient for $Y$" means $X\Rightarrow Y$.** One case with $X$ true and $Y$ false kills
+   sufficiency.
+3. **For existence of a root**, two reliable sufficient conditions: an **odd-degree** polynomial always has a
+   real root; and a **sign change** $\mathrm f(u)\mathrm f(v)<0$ forces one (intermediate value).
+4. **Rolle:** if $\mathrm p(a)=\mathrm p(b)$ there is a stationary point strictly between — sufficient for a
+   turning point, but **not** necessary.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A letter, or a Yes/No triple.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q3 — the seed)*
+
+::: {.question}
+A student is chosen at random from a class (all equally likely). Which is/are **necessary** for the
+probability of wearing glasses to equal $\tfrac4{15}$? &nbsp;&nbsp;**I** exactly $11$ do not wear glasses
+&nbsp; **II** the number of students is divisible by $3$ &nbsp; **III** the class has $30$ students, $8$ wear
+glasses &nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (II only).**
+
+If $g$ of $n$ wear glasses, $\dfrac gn=\dfrac4{15}\Rightarrow 15g=4n$, so $n$ is a multiple of $15$ and $g$ a
+multiple of $4$: $(g,n)=(4,15),(8,30),(12,45),\dots$
+
+- **II necessary:** every such $n$ is a multiple of $15$, hence divisible by $3$ — always. ✔
+- **I not necessary:** non-glasses $=\tfrac{11n}{15}$ is $11$ only when $n=15$ (for $n=30$ it is $22$).
+- **III not necessary:** that is just one particular case.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2021 P2 Q6 — neither direction)*
+
+::: {.question}
+$P$: $\mathrm f(x)=0$ for exactly three real $x$. &nbsp; $Q$: $\mathrm f'(x)=0$ for exactly two real $x$.
+&nbsp;&nbsp;**A** $P$ necessary, not sufficient &nbsp; **B** sufficient, not necessary &nbsp; **C** necessary
+and sufficient &nbsp; **D** neither
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (neither).**
+
+- **Not sufficient ($P\not\Rightarrow Q$):** a degree-$5$ polynomial can have three roots yet **four** turning
+  points.
+- **Not necessary ($Q\not\Rightarrow P$):** a cubic with a repeated root has two turning points but only
+  **two** distinct roots.
+
+One counterexample in each direction settles it.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(TMUA 2021 P2 Q8 — Rolle)*
+
+::: {.question}
+$(*)$: there is a $c$ with $a<c<b$ and $\mathrm p'(c)=0$. Is "$\mathrm p(a)=\mathrm p(b)$" necessary /
+sufficient for $(*)$? &nbsp;&nbsp;**A** both &nbsp; **B** necessary, not sufficient &nbsp; **C** sufficient,
+not necessary &nbsp; **D** neither
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (sufficient, not necessary).**
+
+- **Sufficient:** if $\mathrm p(a)=\mathrm p(b)$, Rolle's theorem gives a stationary point strictly between. ✔
+- **Not necessary:** a turning point can sit in $(a,b)$ with $\mathrm p(a)\ne\mathrm p(b)$ (any $\mathrm p$
+  with a single turning point there and unequal end-values). ✘
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(TMUA 2021 P2 Q9 — sufficient for a real root)*
+
+::: {.question}
+Which is/are **sufficient** for $\mathrm f(x)=0$ to have a real solution? &nbsp;&nbsp;**I** $\mathrm
+f(x)=px^{3}+qx^{2}+rx+s$ with $p\ne0$ &nbsp; **II** $\mathrm f'(t)=0$ for some real $t$ &nbsp; **III**
+$\mathrm f(u)\mathrm f(v)<0$ for some real $u,v$ &nbsp;&nbsp;(Yes/No triple, **A**–**H**)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F (I yes, II no, III yes).**
+
+- **I sufficient:** an odd-degree polynomial runs from $-\infty$ to $+\infty$, so it must cross $0$. ✔
+- **II not sufficient:** a turning point need not reach the axis — $\mathrm f(x)=x^{2}+1$ has $\mathrm
+  f'(0)=0$ but no real root. ✘
+- **III sufficient:** a sign change forces a crossing (intermediate value). ✔
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(Tyler Mock TMUA, Set A — "necessary" again)*
+
+::: {.question}
+A child is chosen at random from a group (all equally likely). Which is/are **necessary** for the probability
+of having a pet to equal $\tfrac49$? &nbsp;&nbsp;**I** exactly $5$ children have no pet &nbsp; **II** the
+group size is divisible by $4$ &nbsp; **III** the number with a pet is divisible by $3$ &nbsp;&nbsp;(**A**
+none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A (none).**
+
+$\dfrac gn=\dfrac49\Rightarrow 9g=4n$, so $n$ is a multiple of $9$ and $g$ a multiple of $4$:
+$(g,n)=(4,9),(8,18),(12,27),(16,36),\dots$
+
+- **I:** those without a pet $=\tfrac{5n}9$ is $5$ only when $n=9$. Not necessary.
+- **II:** $n$ is a multiple of $9$, **not** forced to be a multiple of $4$ ($n=9$). Not necessary.
+- **III:** $g=4,8,12,\dots$ is not always a multiple of $3$ ($g=4$). Not necessary.
+
+*(Contrast Problem 1: there $n$ was a multiple of $15$, so "divisible by $3$" **was** necessary. Here the
+denominator is $9$, so the listed conditions all fail.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — necessary / sufficient / existence
+
+- **Necessary $=$ must hold in every case** ($Y\Rightarrow X$); **sufficient $=$ enough on its own**
+  ($X\Rightarrow Y$). Test each direction; one counterexample breaks an arrow.
+- **Root exists if:** odd degree, **or** a sign change $\mathrm f(u)\mathrm f(v)<0$.
+- **Rolle:** equal end-values $\Rightarrow$ a stationary point between (sufficient, not necessary).
+:::
+
+---
+
+## 5 · Counterexamples
+
+*Seeds: 2021 P2 Q4, Q10, plus a real cross-exam problem (Tyler Mock TMUA, Set C).*
+
+::: {.callout-tip}
+## The method — a "for all" claim dies to one clean counterexample
+
+1. **To disprove "for all $\dots$", find one case with the hypothesis true and the conclusion false.** Then
+   **confirm the other candidates are *not* counterexamples** (their conclusion actually holds).
+2. **Reach for edge cases:** repeated factors, small values, a prime equal to a listed factor, boundary
+   numbers.
+3. **Vacuous truth:** "if $P$ then $Q$" is automatically true wherever $P$ is false — those can never be
+   counterexamples.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which cases are counterexamples, or a count.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q4 — the seed)*
+
+::: {.question}
+Claim: *if $a$ is a factor of $bc$, then $a$ is a factor of $b$ or of $c$* (positive integers). Which give a
+counterexample? &nbsp;&nbsp;**I** $a=5,b=10,c=20$ &nbsp; **II** $a=8,b=4,c=4$ &nbsp; **III** $a=6,b=7,c=12$
+&nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (II only).** A counterexample needs $a$ to divide $bc$ **but** neither $b$ nor $c$.
+
+- **II:** $bc=16$ and $8$ divides $16$; but $8$ divides neither $4$ nor $4$. **Counterexample.** ✔
+- **I:** $5$ already divides $b=10$, so the conclusion holds — not a counterexample.
+- **III:** $6$ already divides $c=12$ — not a counterexample.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2021 P2 Q10 — smallest counterexample)*
+
+::: {.question}
+The sequence is $u_1=15,u_2=21,u_3=30,u_4=37,u_5=44,u_6=51,u_7=59$. Statement $(*)$: *if $n$ is prime, then
+$u_n$ is a multiple of $3$ or of $5$.* What is the smallest $n$ giving a counterexample?
+&nbsp;&nbsp;**A** $1$ &nbsp; **B** $2$ &nbsp; **C** $3$ &nbsp; **D** $4$ &nbsp; **E** $5$ &nbsp; **F** $6$
+&nbsp; **G** $7$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($n=5$).**
+
+Only **prime** $n$ can break $(*)$. $n=2$: $u_2=21=3\times7$ ✓. $n=3$: $u_3=30$ ✓. $n=5$: $u_5=44=4\times11$
+— not a multiple of $3$ and not of $5$, so $(*)$ **fails**. Smallest is $n=5$. *($n=1$ is not prime, so the
+"if prime" makes it vacuously true — never a counterexample.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set C — count the counterexamples)*
+
+::: {.question}
+$(*)$: *every prime number $n$ can be written as the sum of two square numbers.* How many counterexamples are
+there with $0<n<40$? &nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$ &nbsp;
+**E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($6$).**
+
+Check each prime below $40$ for $n=a^{2}+b^{2}$:
+
+- **works:** $2=1+1$, $5=1+4$, $13=4+9$, $17=1+16$, $29=4+25$, $37=1+36$.
+- **fails (counterexamples):** $3,\ 7,\ 11,\ 19,\ 23,\ 31$ — six of them.
+
+*(A prime is a sum of two squares exactly when it is $2$ or leaves remainder $1$ on division by $4$; the
+failures are the primes leaving remainder $3$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — counterexamples
+
+- **One case (hypothesis true, conclusion false) disproves a "for all" claim** — then check the other
+  candidates really aren't counterexamples.
+- **Favourite breakers:** repeated factors, a prime equal to a listed divisor, boundary/small values.
+- **Vacuous cases** (hypothesis false) are never counterexamples.
+- **Prime $=$ sum of two squares $\iff$ prime is $2$ or $\equiv1\pmod4$.**
+:::
+---
+
+## 6 · Converse & spot-the-error
+
+*Seeds: 2021 P2 Q5, Q11.*
+
+::: {.callout-tip}
+## The method — find the *first* broken line; watch the square-root sign
+
+1. **Every line of a proof must follow from the previous one for *all* the stated cases.** The error is the
+   **first** line that can fail; a later absurd result (like "$0=4$") is the *consequence*, not the error.
+2. **A square root is never negative:** $\sqrt{x^{2}}=\lvert x\rvert$, not $x$. So $\cos x=\sqrt{1-\sin^{2}x}$
+   holds only where $\cos x\ge0$ — the honest statement is $\lvert\cos x\rvert=\sqrt{1-\sin^{2}x}$.
+3. **A proof that starts from the *conclusion* and derives the *hypothesis* has proved the converse** — a
+   different statement. Correct algebra in the wrong direction is still the wrong proof.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** The first error line, or which description fits.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q5 — the seed)*
+
+::: {.question}
+On which line is the **first** error?
+
+- **A** $\sin^{2}x+\cos^{2}x=1$ for all $x$.
+- **B** Therefore $\cos x=\sqrt{1-\sin^{2}x}$ for all $x$.
+- **C** Hence $1+\cos x=1+\sqrt{1-\sin^{2}x}$ for all $x$.
+- **D** Thus $(1+\cos x)^{2}=\left(1+\sqrt{1-\sin^{2}x}\right)^{2}$ for all $x$.
+- **E** Substituting $x=\pi$ gives $0=4$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B.**
+
+A square root is never negative, so $\cos x=\sqrt{1-\sin^{2}x}$ only holds where $\cos x\ge0$. At $x=\pi$,
+$\cos\pi=-1$ but $\sqrt{1-\sin^{2}\pi}=+1$ — so line **B** already fails. (The correct statement is
+$\lvert\cos x\rvert=\sqrt{1-\sin^{2}x}$.) The "$0=4$" on line E is just the consequence of the lost sign.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2021 P2 Q11 — proving the converse)*
+
+::: {.question}
+Asked to show *if $a^{2}-4b^{3}\ge0$ then real $x,y$ exist with $a=xy(x+y),\,b=xy$*, a student writes:
+$(\mathrm I)\ (x-y)^{2}\ge0$; $(\mathrm{II})\ x^{2}+y^{2}-2xy\ge0$; $(\mathrm{III})\ (x+y)^{2}-4xy\ge0$;
+$(\mathrm{IV})\ x^{2}y^{2}(x+y)^{2}-4x^{3}y^{3}\ge0$; $(\mathrm V)\ a^{2}-4b^{3}\ge0$. Which best describes
+it? &nbsp;&nbsp;**A** completely correct &nbsp; **B** incorrect, but correct if reversed &nbsp; **C**
+incorrect, but proves the converse &nbsp; **D** error in (II) &nbsp; **E** error in (III) &nbsp; **F** error
+in (IV)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (incorrect, but proves the converse).**
+
+Every line is **true**, but the argument runs the **wrong way**: it starts from $(x-y)^{2}\ge0$ (assuming
+$x,y$ exist) and ends at $a^{2}-4b^{3}\ge0$. That proves "*if such $x,y$ exist, then $a^{2}-4b^{3}\ge0$*" —
+the **converse** of what was asked. So the attempt is incorrect, yet it has correctly proved the converse.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(the classic hidden division by zero)*
+
+::: {.question}
+Find the first wrong step. Let $a=b$. Then $(\mathrm I)\ a^{2}=ab$; $(\mathrm{II})\ a^{2}-b^{2}=ab-b^{2}$;
+$(\mathrm{III})\ (a-b)(a+b)=b(a-b)$; $(\mathrm{IV})\ a+b=b$; $(\mathrm V)\ 2b=b$, so $2=1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: line IV.**
+
+Going from III to IV divides both sides by $(a-b)$. But $a=b$, so $a-b=0$ — dividing by zero is illegal. Every
+earlier line is fine; the error is the **cancellation** at line IV.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(state the converse — is it true?)*
+
+::: {.question}
+Statement: *if a quadrilateral is a square, then its diagonals are equal.* Write the converse, and say whether
+it is true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: converse is "if the diagonals are equal, then it is a square" — false.**
+
+The converse swaps hypothesis and conclusion. It is false: an **isosceles trapezium** (or a rectangle) has
+equal diagonals but is not a square. *(The original statement is true; a true statement can have a false
+converse — they are independent.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — converse & errors
+
+- **Find the first line that fails for some allowed case;** later absurdities are consequences, not the error.
+- **$\sqrt{x^{2}}=\lvert x\rvert$** — a root is never negative; $\cos x=\sqrt{1-\sin^{2}x}$ only where
+  $\cos x\ge0$.
+- **Never divide by a factor that can be zero** (e.g. $a-b$ when $a=b$).
+- **Deriving the hypothesis from the conclusion proves the converse** — a different statement, independent of
+  the original.
+:::
+
+---
+
+## 7 · Implications about functions
+
+*Seed: 2021 P2 Q12.*
+
+::: {.callout-tip}
+## The method — integration keeps order; differentiation does not
+
+1. **Integration preserves $\ge$:** if $f\ge g$ then $\displaystyle\int_0^x f\ge\int_0^x g$ (more area under
+   the higher curve).
+2. **Differentiation does *not* preserve $\ge$:** a higher curve can have a **smaller** slope, so $f\ge g$
+   does **not** give $f'\ge g'$.
+3. **$f'\ge g'$ does not give $f\ge g$:** equal slopes still allow different constants ($f=x$, $g=x+1$).
+4. **To break an implication, sketch two simple lines/curves** that satisfy the hypothesis but fail the
+   conclusion.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which statements are true.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q12 — the seed)*
+
+::: {.question}
+Which statements about polynomials $f,g$ is/are true? &nbsp;&nbsp;**I** if $f\ge g$ on $x\ge0$ then
+$\int_0^x f\ge\int_0^x g$ on $x\ge0$ &nbsp; **II** if $f\ge g$ on $x\ge0$ then $f'\ge g'$ on $x\ge0$ &nbsp;
+**III** if $f'\ge g'$ on $x\ge0$ then $f\ge g$ on $x\ge0$ &nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B (I only).**
+
+- **I true:** integrating a pointwise inequality keeps it — the running area under the bigger function stays
+  bigger.
+- **II false:** a bigger function can fall more steeply. Near $0$ take $f=2,\ g=x$: $f\ge g$ there, but
+  $f'=0<1=g'$.
+- **III false:** equal (or larger) slopes leave the constant free. $f=x,\ g=x+1$ have $f'=g'$ but $f<g$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2,100)
+fig,ax=plt.subplots(1,2,figsize=(6.6,2.9))
+ax[0].plot(x,2+0*x,color='#2b6cb0',label='f=2'); ax[0].plot(x,x,color='#dd6b20',label='g=x')
+ax[0].set_title('II fails: f≥g but f′<g′',fontsize=9); ax[0].legend(fontsize=8); ax[0].grid(alpha=0.25)
+ax[1].plot(x,x,color='#2b6cb0',label='f=x'); ax[1].plot(x,x+1,color='#dd6b20',label='g=x+1')
+ax[1].set_title('III fails: f′=g′ but f<g',fontsize=9); ax[1].legend(fontsize=8); ax[1].grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(does a bigger derivative mean a bigger function?)*
+
+::: {.question}
+True or false: *if $f'(x)>g'(x)$ for all $x\ge0$ and $f(0)=g(0)$, then $f(x)>g(x)$ for all $x>0$.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: True.**
+
+Let $h=f-g$. Then $h(0)=0$ and $h'=f'-g'>0$ for $x\ge0$, so $h$ is strictly increasing from $0$ — hence
+$h(x)>0$, i.e. $f>g$, for all $x>0$. *(The extra hypothesis $f(0)=g(0)$ is exactly what was missing in the
+seed's statement III — pin the constant and the implication becomes true.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(order under integration)*
+
+::: {.question}
+Given $0\le g(x)\le f(x)$ for all $x\in[0,2]$ and $\int_0^2 f=5$, what can you say about $\int_0^2 g$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $0\le\int_0^2 g\le5$.**
+
+Integration preserves both inequalities: $0\le g$ gives $\int_0^2 g\ge0$, and $g\le f$ gives $\int_0^2
+g\le\int_0^2 f=5$. So the integral of $g$ lies between $0$ and $5$ (nothing sharper is forced).
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — implications about functions
+
+- **Integration preserves $\ge$** (and $\le$, and $\ge0$): $f\ge g\Rightarrow\int f\ge\int g$.
+- **Differentiation does not** — a higher curve may be less steep.
+- **$f'\ge g'$ alone does not give $f\ge g$;** you also need the values to agree somewhere (e.g. $f(0)=g(0)$).
+- **To break a function implication, two straight lines usually suffice.**
+:::
+
+---
+
+## 8 · Regions in the plane
+
+*Seed: 2021 P2 Q13.*
+
+::: {.callout-tip}
+## The method — "below both" is an intersection; test by trying to break it
+
+1. **$y<f(x)$ and $y<g(x)$ means the point lies below *both* curves** — the region is the overlap, and it
+   usually runs **downward without bound**.
+2. **"True for every point of $R$" fails as soon as you find one point of $R$ that breaks it** — and an
+   unbounded region gives lots of room to break bounds on $x$ or $y$.
+3. **A product of two large negatives is large positive** — so "$(\dots)(\dots)<k$" can fail badly on an
+   unbounded region.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which statements hold for every point.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q13 — the seed)*
+
+::: {.question}
+Region $R$: $\;y-x<3\;$ and $\;y-x^{2}<1$. Which is/are true for **every** point of $R$? &nbsp;&nbsp;**I**
+$-1<x<2$ &nbsp; **II** $(y-x)(y-x^{2})<3$ &nbsp; **III** $y<5$ &nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A (none).**
+
+$R$ is everything **below both** $y=x+3$ and $y=x^{2}+1$ (which meet at $x=-1$ and $x=2$); it extends
+downward forever.
+
+- **I false:** any $x$ is allowed — just take $y$ small enough (e.g. $x=10,\ y=-1000$ is in $R$).
+- **II false:** with $y$ very negative both factors $y-x$ and $y-x^{2}$ are large **negative**, so their
+  product is large **positive** — far above $3$.
+- **III false:** for large $x$ a point can still have large $y$ (e.g. $x=10,\ y=12$ satisfies both).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,4,400)
+plt.figure(figsize=(4.8,3.8))
+plt.plot(x,x+3,color='#2b6cb0',label='y=x+3'); plt.plot(x,x**2+1,color='#dd6b20',label='y=x²+1')
+X,Y=np.meshgrid(np.linspace(-3,4,400),np.linspace(-6,10,400))
+plt.contourf(X,Y,((Y-X<3)&(Y-X**2<1)).astype(int),levels=[0.5,1],colors=['#c6f6d5'],alpha=0.7)
+plt.ylim(-6,10); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('R lies below both curves — unbounded below',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(is the point inside?)*
+
+::: {.question}
+For the region $y>x^{2}-4$ and $y<2x+1$, decide whether $(0,0)$ and $(3,5)$ lie inside.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $(0,0)$ yes; $(3,5)$ no.**
+
+- $(0,0)$: is $0>0-4$? yes. Is $0<0+1$? yes. **Inside.**
+- $(3,5)$: is $5>9-4=5$? **no** (needs strictly greater). So $(3,5)$ is **not** inside (it lies on the
+  parabola boundary).
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(bounded or unbounded?)*
+
+::: {.question}
+Is the region $y\ge x^{2}$ and $y\le 4$ bounded? What are the extreme $x$-values?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: bounded; $-2\le x\le2$.**
+
+$y\ge x^{2}$ and $y\le4$ force $x^{2}\le y\le4$, so $x^{2}\le4$, i.e. $-2\le x\le2$, and $0\le y\le4$. The
+region is the finite area between the parabola and the line $y=4$ — **bounded**, unlike the seed's region.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — regions
+
+- **$y<f$ and $y<g$ $=$ below both** (intersection), usually **unbounded below**.
+- **To disprove "true for every point", exhibit one point of the region that breaks it.**
+- **Two large negatives multiply to a large positive** — watch product conditions on unbounded regions.
+- **"Below a line, above a parabola" (or vice versa) is often bounded** — solve the two together to find the
+  $x$-range.
+:::
+---
+
+## 9 · Logs & exponentials
+
+*Seeds: 2021 P2 Q14, Q17, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — substitute to linearise, then use the log laws
+
+1. **Turn an exp/log system linear by substitution:** let $a=2^{x}\;(>0)$ and $b=\log_2 y$ (any real). Solve
+   the linear equations, then **impose $a>0$** at the end.
+2. **Log laws:** $\log_b(x^{k})=k\log_b x$, $\ \log_b(xy)=\log_b x+\log_b y$, and change of base
+   $\log_b x=\dfrac{\log x}{\log b}$.
+3. **Nested logs:** put the inner expression $=t$ and work outward.
+4. **A vertical shift of a log is a horizontal stretch:** $\log_{10}x-c=\log_{10}\!\big(x/10^{c}\big)$.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A range, a value, or which ordering holds.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q14 — the seed)*
+
+::: {.question}
+For real $p$: $\;p\,2^{x}+\log_2 y=2\;$ and $\;2^{x}+\log_2 y=1$. What is the complete range of $p$ for a real
+solution $(x,y)$? &nbsp;&nbsp;**A** $p<1$ &nbsp; **B** $p\ne1$ &nbsp; **C** $p>1$ &nbsp; **D** $p<1$ or $p>2$
+&nbsp; **E** $p\ne1$ and $p<2$ &nbsp; **F** $1<p<2$ &nbsp; **G** $p>2$ &nbsp; **H** all real $p$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C ($p>1$).**
+
+**Step 1 — substitute.** Let $a=2^{x}\;(>0)$ and $b=\log_2 y$. The system becomes $pa+b=2,\ a+b=1$.
+
+**Step 2 — subtract.** $(p-1)a=1$, so $a=\dfrac1{p-1}$.
+
+**Step 3 — impose $a>0$.** Since $2^{x}>0$, we need $\dfrac1{p-1}>0$, i.e. $p>1$. Then $b=1-a$ gives a valid
+$y=2^{b}>0$. *(If $p=1$ the equations are inconsistent; if $p<1$ then $a<0$, impossible.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2021 P2 Q17 — ordering two log functions)*
+
+::: {.question}
+For $x>1$: $\;\mathrm f(x)=\log_2\!\big(\log_2\sqrt x\big)$ and $\;\mathrm g(x)=\log_2\!\big(\sqrt{\log_2
+x}\big)$. Which holds for **all** $x>1$? &nbsp;&nbsp;**A** $0\le f\le g$ or $g\le f\le0$ &nbsp; **B** $0\le
+g\le f$ or $f\le g\le0$ &nbsp; **C** $\tfrac12\le f\le g$ or $g\le f\le\tfrac12$ &nbsp; **D** $\tfrac12\le
+g\le f$ or $f\le g\le\tfrac12$ &nbsp; **E** $1\le f\le g$ or $g\le f\le1$ &nbsp; **F** $1\le g\le f$ or $f\le
+g\le1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F.**
+
+**Step 1 — substitute $t=\log_2 x\;(>0)$, $L=\log_2 t$.**
+$$\mathrm f=\log_2\!\big(\tfrac12\log_2 x\big)=\log_2\tfrac t2=L-1,\qquad
+\mathrm g=\log_2\!\big(t^{1/2}\big)=\tfrac12\log_2 t=\tfrac L2.$$
+
+**Step 2 — compare.** $\mathrm f-\mathrm g=\tfrac L2-1$, which is $0$ at $L=2$, i.e. $t=4$, $x=16$.
+
+**Step 3 — either side of $x=16$.** For $x>16$: $L>2$, so $\mathrm g=\tfrac L2>1$ and $\mathrm f>\mathrm g$,
+giving $1\le g\le f$. For $1<x<16$: $\mathrm g<1$ and $\mathrm f<\mathrm g$, giving $f\le g\le1$. Both are
+option **F**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1.6,120,600)
+f=np.log2(np.log2(np.sqrt(x))); g=np.log2(np.sqrt(np.log2(x)))
+plt.figure(figsize=(5.2,3.2))
+plt.plot(x,f,color='#2b6cb0',label='f(x)'); plt.plot(x,g,color='#dd6b20',label='g(x)')
+plt.axhline(1,color='0.6',lw=0.8,ls=':'); plt.axvline(16,color='crimson',lw=0.9,ls='--')
+plt.annotate('cross at x=16, value 1',(16,1),textcoords='offset points',xytext=(8,-16),color='crimson',fontsize=8)
+plt.xscale('log'); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('f and g swap order at x=16, bound 1',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set A — a shift as a stretch)*
+
+::: {.question}
+The graph of $y=\log_{10}x$ is translated $2$ units in the **negative $y$-direction**. This is the same as a
+stretch parallel to the $x$-axis of factor $k$. Find $k$. &nbsp;&nbsp;**A** $0.01$ &nbsp; **B** $\log_{10}2$
+&nbsp; **C** $0.5$ &nbsp; **D** $\log_2 10$ &nbsp; **E** $100$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($k=100$).**
+
+**Step 1 — write the shift.** Down $2$: $\;y=\log_{10}x-2$.
+
+**Step 2 — absorb the $-2$ into the log.** $2=\log_{10}100$, so
+$\log_{10}x-2=\log_{10}x-\log_{10}100=\log_{10}\!\dfrac{x}{100}$.
+
+**Step 3 — read it as a stretch.** $\log_{10}\!\dfrac x{100}$ is $\mathrm f\!\left(\dfrac x{100}\right)$ with
+$\mathrm f(x)=\log_{10}x$ — a horizontal stretch of factor $\mathbf{100}$. *(Shifting a log vertically is
+secretly scaling $x$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(log-law simplification)*
+
+::: {.question}
+Simplify $\;\log_2 40-\log_2 5\;$, and solve $\;2^{x+1}=8$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $3$; and $x=2$.**
+
+$\log_2 40-\log_2 5=\log_2\dfrac{40}{5}=\log_2 8=3$. And $2^{x+1}=8=2^{3}\Rightarrow x+1=3\Rightarrow x=2$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — logs & exponentials
+
+- **Substitute $a=2^{x}\,(>0)$, $b=\log_2 y$** to linearise; impose $a>0$ at the end.
+- **$\log_b(xy)=\log_b x+\log_b y$, $\ \log_b(x^{k})=k\log_b x$, $\ \log_b x=\dfrac{\log x}{\log b}$.**
+- **Nested logs:** substitute the inner expression and work outward.
+- **Vertical shift $=$ horizontal stretch:** $\log_{10}x-c=\log_{10}\!\big(x/10^{c}\big)$.
+:::
+
+---
+
+## 10 · Modulus graphs
+
+*Seed: 2021 P2 Q16, plus real cross-exam problems (Tyler Mock TMUA, Sets A and D).*
+
+::: {.callout-tip}
+## The method — draw the corners, then read intersections and areas
+
+1. **$y=\lvert f(x)\rvert$ reflects the part of $f$ *below* the axis up above it;** $\;y=f(\lvert x\rvert)$
+   mirrors the right-hand half across the $y$-axis.
+2. **$y=x\lvert x\rvert$ is $x^{2}$ for $x\ge0$ and $-x^{2}$ for $x<0$** — an odd, strictly increasing
+   S-curve (same family as $x^{3}$); a straight line meets it in **$1$, $2$, or $3$** points.
+3. **$\lvert ax\rvert+\lvert y\rvert=c$ is a diamond (rhombus)** with vertices on the axes; area $=\tfrac12
+   d_1 d_2$ from its diagonals.
+4. **For areas/intersections, split the range at every modulus corner** and handle each piece with the sign
+   the modulus takes there.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A list of possible counts, or an exact area.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q16 — the seed)*
+
+::: {.question}
+$p,q$ real; $\;x\lvert x\rvert=px+q\;$ has exactly $k$ distinct real solutions. What is the complete list of
+possible $k$? &nbsp;&nbsp;**A** $0,1,2$ &nbsp; **B** $0,1,2,3$ &nbsp; **C** $0,1,2,3,4$ &nbsp; **D** $0,2,4$
+&nbsp; **E** $1,2,3$ &nbsp; **F** $1,2,3,4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($1,2,3$).**
+
+**Step 1 — the shape of $y=x\lvert x\rvert$.** It is $x^{2}$ for $x\ge0$ and $-x^{2}$ for $x<0$: strictly
+increasing, flat at the origin, steep far out — the $x^{3}$ family.
+
+**Step 2 — a line versus that curve.** Because $x\lvert x\rvert$ outgrows any straight line at both ends,
+there is **always at least one** crossing, so $k\ge1$. When $p>0$ the difference $x\lvert x\rvert-px-q$ can
+have two turning points, allowing up to **three** crossings.
+
+**Step 3 — collect.** So $k\in\{1,2,3\}$ — never $0$, never $4$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,400); y=x*np.abs(x)
+plt.figure(figsize=(5.0,3.8))
+plt.plot(x,y,color='black',lw=2,label='y = x|x|')
+plt.plot(x,0*x+2,'--',color='#2b6cb0',label='1 solution (y=2)')
+plt.plot(x,2*x-1,'--',color='#dd6b20',label='2 solutions (y=2x−1)')
+plt.plot(x,3*x,'--',color='crimson',label='3 solutions (y=3x)')
+plt.ylim(-9,9); plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('a line meets y=x|x| in 1, 2 or 3 points',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(Tyler Mock TMUA, Set A — area between two modulus graphs)*
+
+::: {.question}
+Find the area between the curves $y=\lvert x-1\rvert$ and $y=3-\lvert x\rvert$. &nbsp;&nbsp;**A** $1$ &nbsp;
+**B** $\tfrac32$ &nbsp; **C** $3$ &nbsp; **D** $4$ &nbsp; **E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($4$).**
+
+**Step 1 — the two shapes.** $y=\lvert x-1\rvert$ is a V with vertex $(1,0)$; $y=3-\lvert x\rvert$ is an
+upside-down V ($\Lambda$) with vertex $(0,3)$.
+
+**Step 2 — where they meet.** For $x\ge1$: $x-1=3-x\Rightarrow x=2$. For $x<0$: $1-x=3+x\Rightarrow x=-1$. So
+they cross at $x=-1$ and $x=2$, with $3-\lvert x\rvert$ on top between.
+
+**Step 3 — integrate (upper $-$ lower), splitting at the corners $x=0,1$.**
+$$\int_{-1}^{0}(2+2x)\,\mathrm dx+\int_{0}^{1}2\,\mathrm dx+\int_{1}^{2}(4-2x)\,\mathrm dx=1+2+1=4.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,3,400)
+plt.figure(figsize=(4.6,3.2))
+plt.plot(x,np.abs(x-1),color='#2b6cb0',label='y=|x−1|')
+plt.plot(x,3-np.abs(x),color='#dd6b20',label='y=3−|x|')
+xf=np.linspace(-1,2,100); plt.fill_between(xf,np.abs(xf-1),3-np.abs(xf),color='#2ca02c',alpha=0.15)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.title('enclosed area = 4',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set D — a modulus diamond)*
+
+::: {.question}
+Find the area enclosed by the graph of $\;\lvert 2x\rvert+\lvert y\rvert=2$. &nbsp;&nbsp;**A** $2\sqrt5$
+&nbsp; **B** $4$ &nbsp; **C** $2\sqrt2$ &nbsp; **D** $\tfrac52$ &nbsp; **E** $\sqrt2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B ($4$).**
+
+**Step 1 — find the corners.** On the $x$-axis ($y=0$): $\lvert 2x\rvert=2\Rightarrow x=\pm1$. On the
+$y$-axis ($x=0$): $\lvert y\rvert=2\Rightarrow y=\pm2$. So the graph is a diamond with vertices $(\pm1,0)$ and
+$(0,\pm2)$.
+
+**Step 2 — area from the diagonals.** Horizontal diagonal $=2$, vertical diagonal $=4$, so area
+$=\tfrac12 d_1 d_2=\tfrac12\cdot2\cdot4=4$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+V=np.array([[1,0],[0,2],[-1,0],[0,-2],[1,0]])
+plt.figure(figsize=(3.4,3.4))
+plt.plot(V[:,0],V[:,1],color='#2b6cb0'); plt.fill(V[:,0],V[:,1],color='#2ca02c',alpha=0.15)
+plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25)
+plt.title('|2x|+|y|=2 : diamond, area 4',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(solve a modulus equation)*
+
+::: {.question}
+Solve $\;\lvert x-2\rvert=3$, and state how many solutions $\;\lvert x^{2}-4\rvert=3\;$ has.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x=5$ or $x=-1$; and $\lvert x^{2}-4\rvert=3$ has $4$ solutions.**
+
+$\lvert x-2\rvert=3\Rightarrow x-2=\pm3\Rightarrow x=5$ or $x=-1$.
+
+For $\lvert x^{2}-4\rvert=3$: either $x^{2}-4=3\Rightarrow x^{2}=7\Rightarrow x=\pm\sqrt7$, or
+$x^{2}-4=-3\Rightarrow x^{2}=1\Rightarrow x=\pm1$. Four solutions in all.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — modulus graphs
+
+- **$\lvert f(x)\rvert$:** flip the below-axis part up; **$f(\lvert x\rvert)$:** mirror the right half to the
+  left.
+- **$y=x\lvert x\rvert$** is the $x^{3}$-shaped S-curve; a line meets it in $1$, $2$ or $3$ points.
+- **$\lvert ax\rvert+\lvert y\rvert=c$ is a diamond;** area $=\tfrac12 d_1 d_2$.
+- **Split at every corner**; $\lvert A\rvert=k$ gives $A=\pm k$.
+:::
+
+---
+
+## 11 · Trigonometry — ambiguous case & modulus counting
+
+*Seeds: 2021 P2 Q18, Q19.*
+
+::: {.callout-tip}
+## The method — sine gives two angles; a surd product hides a modulus
+
+1. **From $\sin\theta$ you get two candidate angles, $\theta$ and $180^\circ-\theta$.** In a triangle the
+   angle sum $<180^\circ$ rules some combinations out — this is the **ambiguous SSA case**.
+2. **A conjugate surd product collapses to a modulus:** $\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}=
+   \sqrt{1-\sin^{2}\theta}=\lvert\cos\theta\rvert$.
+3. **Count by quadrant using signs,** and don't forget the axis values ($90^\circ,180^\circ,\dots$).
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A count, or which cases occur.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2021 P2 Q18 — the seed)*
+
+::: {.question}
+A student picks $0<x<y<1$ and tries to draw triangle $ABC$ with $AB=1$, $\sin A=x$, $\sin B=y$. Which is/are
+correct? &nbsp;&nbsp;**I** some $x,y$ give exactly **one** triangle &nbsp; **II** some give exactly **two**
+&nbsp; **III** some give exactly **three** (congruent counted as the same) &nbsp;&nbsp;(**A** none $\dots$
+**H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (II only) — it is always exactly two.**
+
+Each of $A,B$ could be acute or obtuse. Write $\alpha=\arcsin x,\ \beta=\arcsin y$ (both acute, $\alpha<\beta$
+since $x<y$):
+
+| $A$ | $B$ | $A+B$ | valid? |
+|---|---|---|---|
+| $\alpha$ | $\beta$ | $<180^\circ$ | ✓ |
+| $\alpha$ | $180^\circ-\beta$ | $180^\circ-(\beta-\alpha)<180^\circ$ | ✓ |
+| $180^\circ-\alpha$ | $\beta$ | $180^\circ+(\beta-\alpha)>180^\circ$ | ✗ |
+| $180^\circ-\alpha$ | $180^\circ-\beta$ | $>180^\circ$ | ✗ |
+
+Because $x<y$ strictly, the first two rows are always valid and distinct and the last two always fail — so
+there are **always exactly two** triangles. Only **II**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2021 P2 Q19 — a surd product that is really a modulus)*
+
+::: {.question}
+For $\theta\in\{1^\circ,2^\circ,\dots,360^\circ\}$, for how many is
+$\;\sin\theta\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}+\cos\theta\sqrt{1+\cos\theta}\,\sqrt{1-\cos\theta}=0$?
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $4$ &nbsp; **E** $93$ &nbsp; **F** $182$
+&nbsp; **G** $271$ &nbsp; **H** $360$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F ($182$).**
+
+**Step 1 — collapse the surds.** $\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}=\lvert\cos\theta\rvert$ and
+$\sqrt{1+\cos\theta}\,\sqrt{1-\cos\theta}=\lvert\sin\theta\rvert$, so the expression is
+$$\sin\theta\lvert\cos\theta\rvert+\cos\theta\lvert\sin\theta\rvert.$$
+
+**Step 2 — sign by quadrant.** This is $+2\sin\theta\cos\theta>0$ in Q1, $-2\sin\theta\cos\theta<0$ in Q3, and
+$0$ in **Q2 and Q4** (the two terms cancel) and on the axes.
+
+**Step 3 — count integer degrees.** Q2: $91^\circ\!-\!179^\circ$ ($89$); Q4: $271^\circ\!-\!359^\circ$
+($89$); axes $90^\circ,180^\circ,270^\circ,360^\circ$ ($4$). Total $89+89+4=182$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,360,1441); r=np.radians(th)
+val=np.sin(r)*np.abs(np.cos(r))+np.cos(r)*np.abs(np.sin(r))
+plt.figure(figsize=(6.0,2.8))
+plt.plot(th,val,color='#2b6cb0'); plt.axhline(0,color='crimson',lw=0.9)
+for a,b in [(90,180),(270,360)]: plt.axvspan(a,b,color='#c6f6d5',alpha=0.6)
+plt.xticks(range(0,361,90)); plt.grid(alpha=0.25)
+plt.title('sinθ|cosθ| + cosθ|sinθ| : zero on Q2, Q4 and the axes',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(count solutions of a modulus-trig equation)*
+
+::: {.question}
+How many solutions does $\;\lvert\sin x\rvert=\tfrac12\;$ have for $0\le x\le2\pi$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $4$.**
+
+$\lvert\sin x\rvert=\tfrac12$ means $\sin x=\tfrac12$ **or** $\sin x=-\tfrac12$. In $[0,2\pi]$: $\sin
+x=\tfrac12$ at $x=\tfrac\pi6,\tfrac{5\pi}6$; $\sin x=-\tfrac12$ at $x=\tfrac{7\pi}6,\tfrac{11\pi}6$. Four in
+all. *(Taking the modulus doubles the usual two solutions of $\sin x=\tfrac12$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — trig ambiguity & modulus
+
+- **$\sin\theta$ gives two angles** $\theta,\,180^\circ-\theta$; the triangle angle-sum picks which survive
+  (ambiguous SSA).
+- **$\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}=\lvert\cos\theta\rvert$** — a conjugate surd product is a
+  modulus.
+- **$\sin\theta\lvert\cos\theta\rvert+\cos\theta\lvert\sin\theta\rvert=0$ on Q2, Q4 and the axes.**
+- **$\lvert\sin x\rvert=k$** has twice as many solutions as $\sin x=k$.
+:::
+
+:::

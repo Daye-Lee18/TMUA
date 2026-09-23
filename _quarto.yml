@@ -12,8 +12,6 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Curriculum"
-        href: curriculum.qmd
       - text: "The Test"
         href: about/format.qmd
       - text: "Papers"
@@ -24,6 +22,12 @@ website:
         href: toolkit/index.qmd
       - text: "Phrasebook"
         href: phrasebook.qmd
+      - text: "Formula Sheet"
+        menu:
+          - text: "Blank — fill it in yourself"
+            href: formula_sheet_blank.qmd
+          - text: "Completed reference copy"
+            href: formula_sheet.qmd
 
 format:
   html:

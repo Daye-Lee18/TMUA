@@ -1,0 +1,309 @@
+---
+title: "Toolkit S1 — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks are shown as **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
+
+Each solution carries the *reasoning* as well as the answer — the italic sentences are the bit worth
+saying aloud while marking, because they are what the student actually needs to hear.
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+::: {.question}
+$P$ and $Q$ are statements. Write each of the following using $\Rightarrow$ or $\Leftrightarrow$.
+&nbsp;&nbsp;(a) $Q$ only if $P$ &nbsp; (b) $Q$ if $P$ &nbsp; (c) $P$ if and only if $Q$ &nbsp; (d) If $Q$ then
+$P$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** $Q \Rightarrow P$ &nbsp; **(B1)**
+
+*"Only if" keeps the order as written: the half in front of "only if" is the one that gets forced.*
+
+**(b)** $P \Rightarrow Q$ &nbsp; **(B1)**
+
+*The bare "if" introduces the forcer, so the arrow starts at $P$ even though $P$ is written second.*
+
+**(c)** $P \Leftrightarrow Q$ &nbsp; **(B1)**
+
+**(d)** $Q \Rightarrow P$ &nbsp; **(B1)**
+
+**Note for marking.** (a) and (d) come out identical — worth pointing out, because *"$Q$ only if $P$"* and
+*"if $Q$ then $P$"* look quite different in English.
+:::
+
+---
+
+## Question 2 **[3]**
+
+::: {.question}
+Let $n=30$. State whether each is **true** or **false**. &nbsp;&nbsp;(a) $n$ is divisible by $4$ **or** by
+$5$. &nbsp; (b) $n$ is divisible by $5$ **and** by $6$. &nbsp; (c) $n$ is **not** divisible by $9$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+$30 = 2 \times 3 \times 5$.
+
+**(a) True** &nbsp; **(B1)** — $30$ is not divisible by $4$, but it **is** divisible by $5$.
+*"Or" only needs one side.*
+
+**(b) True** &nbsp; **(B1)** — $30 = 5\times 6$, so both halves hold. *"And" needs both, and here it gets both.*
+
+**(c) True** &nbsp; **(B1)** — $30 \div 9$ is not an integer, so "not divisible by $9$" is true.
+
+**Common error.** Marking (a) false on the grounds that the first half fails. One true half is enough for
+*or*.
+:::
+
+---
+
+## Question 3 **[3]**
+
+::: {.question}
+Let $n$ be a positive integer. Decide **true**/**false**, with a counterexample for any false one.
+&nbsp;&nbsp;(a) $n$ is divisible by $10$ **only if** $n$ is divisible by $5$. &nbsp; (b) $n$ is divisible by
+$10$ **if** $n$ is divisible by $5$. &nbsp; (c) $n^2$ is even **if and only if** $n$ is even.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) True** &nbsp; **(B1)**
+
+Rewrite: *if $n$ is divisible by $10$, then $n$ is divisible by $5$.* Every multiple of ten is
+$10k = 5(2k)$. ✓
+
+**(b) False**, counterexample $n = 5$ (or $15$, $25$, …) &nbsp; **(B1)**
+
+*Bare "if", so swap*: this claims *if $n$ is divisible by $5$ then $n$ is divisible by $10$*, and $5$ is a
+counterexample.
+
+**(c) True** &nbsp; **(B1)**
+
+Both directions hold:
+
+- ($\Rightarrow$) if $n$ is even, $n = 2k$, so $n^2 = 4k^2$ is even.
+- ($\Leftarrow$) if $n$ is odd, $n = 2k+1$, so $n^2 = 4k^2+4k+1$ is odd — so $n^2$ even forces $n$ even.
+
+*The second direction is proved by contrapositive, which is the natural move whenever "$n$ is odd" is
+easier to work with than "$n$ is not even".*
+
+**Award the mark in (b) only if a counterexample is given** — "false" alone is not a justification.
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[4]**
+
+::: {.question}
+Assume true: *if a shape is a square, then it has four equal sides.* State what follows (write "nothing"
+where nothing does). &nbsp;&nbsp;(a) The shape is a square. &nbsp; (b) It has four equal sides. &nbsp;
+(c) It does **not** have four equal sides. &nbsp; (d) It is **not** a square.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) It has four equal sides.** &nbsp; **(B1)** *— the promise, used forwards.*
+
+**(b) Nothing.** &nbsp; **(B1)**
+
+*A rhombus has four equal sides and is not a square. Knowing the back half tells you nothing.*
+
+**(c) It is not a square.** &nbsp; **(B1)**
+
+*If it were a square it would have four equal sides; it doesn't, so it can't be. This is the
+contrapositive — the one deduction that is always free.*
+
+**(d) Nothing.** &nbsp; **(B1)**
+
+*A rhombus again: not a square, yet four equal sides. The statement says nothing about non-squares.*
+
+**Marking note.** (b) and (d) are the two that matter. A student who answers anything other than "nothing"
+for either has not yet understood that implication is one-way — send them back to the church-bells table.
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.question}
+For a real number $x$, consider "*$x>3$ **only if** $x^2>9$*". &nbsp;&nbsp;(a) Rewrite it as "if … then …".
+&nbsp; (b) Is it true? Justify. &nbsp; (c) Replace "only if" with "if" — is *that* statement true? If not,
+give a counterexample.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** *If $x > 3$, then $x^2 > 9$.* &nbsp; **(B1)**
+
+**(b) True.** &nbsp; **(B1)**
+
+*If $x > 3$ then $x$ is positive and bigger than $3$, so squaring preserves the inequality: $x^2 > 9$.*
+
+**(c)** The new statement is *$x > 3$ **if** $x^2 > 9$*, i.e. **if $x^2 > 9$ then $x > 3$**. &nbsp; **(M1)**
+
+**False**, counterexample $x = -4$: then $x^2 = 16 > 9$ but $x = -4 \not> 3$. &nbsp; **(A1)**
+
+*This is the same trap as $x=3$ / $x^2=9$: squaring throws away the sign, so the reverse implication fails
+on the negatives. The correct reverse statement would be $x^2>9 \Rightarrow |x|>3$.*
+:::
+
+---
+
+## Question 6 **[6]**
+
+::: {.question}
+$n$ a positive integer; theorem $(*)$: *if $n$ is divisible by $12$ then $n$ is divisible by $4$*. Which,
+taken individually, is/are equivalent to $(*)$? &nbsp;&nbsp;**I** if $n$ divisible by $4$ then by $12$;
+&nbsp; **II** $n$ divisible by $12$ **only if** by $4$; &nbsp; **III** $n$ **not** divisible by $4$ **only
+if** $n$ **not** divisible by $12$. &nbsp; (Options **A**–**H**.)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer — **E** (II and III)
+
+Let $P$ = "$n$ is divisible by $12$" and $Q$ = "$n$ is divisible by $4$". Then
+
+$$(*) \;=\; P \Rightarrow Q . \qquad \textbf{(M1 for naming and writing } (*) \textbf{ as an arrow)}$$
+
+**I.** "If $n$ divisible by $4$, then $n$ divisible by $12$" is $Q \Rightarrow P$ — the **converse**.
+Not equivalent. &nbsp; **(B1)**
+
+*It is also false in fact ($n=8$), but the reason it fails the question is structural: a statement and its
+converse are different claims.*
+
+**II.** "$P$ **only if** $Q$" is $P \Rightarrow Q$ — this is $(*)$ itself. **Equivalent.** &nbsp; **(B1)**
+
+**III.** "$\text{not } Q$ **only if** $\text{not } P$" — apply the rule, keeping the order:
+$$\text{not } Q \Rightarrow \text{not } P ,$$
+which is the **contrapositive** of $(*)$. **Equivalent.** &nbsp; **(M1 A1)**
+
+**So II and III only — option E.** &nbsp; **(A1)**
+
+::: {.callout-warning appearance="simple"}
+**The distinction being tested.** Statement III negates **and** reverses — that is a contrapositive, and
+it is always equivalent. Compare the class-material question (2023 Q11), where the distractor negated both
+halves but **did not** reverse the arrow, giving the *inverse*, which is **not** equivalent. Students who
+learned "negation means contrapositive" will get one of these two questions wrong.
+:::
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+::: {.question}
+An attempt to solve $x^4-10x^2+9<0$: &nbsp; **I** iff $(x^2-1)(x^2-9)<0$; &nbsp; **II** iff $1<x^2<9$;
+&nbsp; **III** iff $1<x<3$. &nbsp;&nbsp;(a) Which line has the **first** error (or is it correct)? &nbsp;
+(b) Justify, and give the correct solution set.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer — the first error is in **line III**
+
+**(a)** Line **III**. &nbsp; **(B1)**
+
+**(b)** Checking each line in turn:
+
+**Line I** ✓ — $x^4 - 10x^2 + 9 = (x^2-1)(x^2-9)$ is an identity, true for every $x$, so the step is
+reversible. &nbsp; **(M1)**
+
+**Line II** ✓ — check both directions. &nbsp; **(M1)**
+
+- ($\Rightarrow$) If $(x^2-1)(x^2-9)<0$ the factors have opposite signs. Either $x^2>1$ and $x^2<9$
+  (giving $1<x^2<9$ ✓), or $x^2<1$ and $x^2>9$ — **impossible**. So $1<x^2<9$.
+- ($\Leftarrow$) If $1<x^2<9$ then $x^2-1>0$ and $x^2-9<0$, so the product is
+  $(\text{positive})\times(\text{negative}) < 0$. ✓
+
+**Line III** ✗ — and again, take the directions one at a time. &nbsp; **(A1)**
+
+- ($\Leftarrow$) If $1<x<3$ then squaring gives $1<x^2<9$. ✓ *This direction is fine — which is exactly
+  why the line looks convincing.*
+- ($\Rightarrow$) If $1<x^2<9$, does $1<x<3$ follow? **No**: $x=-2$ gives $x^2=4$, so line II holds
+  (and indeed $x^4-10x^2+9=-15<0$), but $-2$ does not satisfy $1<x<3$. ✗
+
+One direction survives, the other fails — so the lines are not equivalent and "if and only if" is a false
+claim.
+
+Correct conclusion: $1 < |x| < 3$, so the solution set is
+
+$$(-3,\,-1) \;\cup\; (1,\,3). \qquad \textbf{(A1)}$$
+
+**Teaching point.** The error is *not* that a case was dropped carelessly — it is that
+$\sqrt{x^2} = |x|$, not $x$. Line III silently assumes $x > 0$.
+:::
+
+---
+
+## Question 8 **[3]**
+
+::: {.question}
+A student writes: "*Since $A\Rightarrow B$ is true, and $B$ is true, it follows that $A$ is true.*"
+&nbsp;&nbsp;(a) Is the reasoning valid? &nbsp; (b) Give a concrete integer example showing what goes wrong (or
+explain why nothing does).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) No — the reasoning is invalid.** &nbsp; **(B1)**
+
+*Knowing $A \Rightarrow B$ and $B$ tells you nothing about $A$. This is the church-bells row 3 again: the
+back half being true does not force the front half.*
+
+**(b)** Any correct counterexample, e.g. &nbsp; **(M1 A1)**
+
+- Let $A$ = "$n$ is divisible by $4$" and $B$ = "$n$ is even".
+- $A \Rightarrow B$ is **true** (every multiple of $4$ is even).
+- Take $n = 6$: then $B$ is **true** ($6$ is even), but $A$ is **false** ($6$ is not divisible by $4$).
+
+So $A \Rightarrow B$ and $B$ can both hold while $A$ fails. &nbsp; $\blacksquare$
+
+::: {.callout-note appearance="simple"}
+**Name for it.** This invalid pattern is called *affirming the consequent*. The **valid** partner is
+*modus tollens*: from $A \Rightarrow B$ and **not $B$**, you may correctly conclude **not $A$**. The
+student had the right idea but used the wrong end of the implication.
+:::
+:::
+
+---
+
+## Marking summary
+
+| Q | Marks | The thing being tested |
+|---|---|---|
+| 1 | 4 | Mechanical translation of the four forms |
+| 2 | 3 | *And / or / not*, especially inclusive *or* |
+| 3 | 3 | True/false with counterexamples; both directions of an "iff" |
+| 4 | 4 | **The two "nothing" rows** — one-way implication |
+| 5 | 4 | "Only if" vs "if"; the squaring trap |
+| 6 | 6 | Converse vs contrapositive, under exam wording |
+| 7 | 5 | Reversibility of each step in an "iff" chain |
+| 8 | 3 | Affirming the consequent |
+
+**If the student loses marks in only one place, look first at Question 4(b) and 4(d).** Those two answers
+predict everything else in this topic: a student who is comfortable saying "nothing follows" has understood
+implication, and one who is not will keep flipping arrows for the rest of Paper 2.
+
+:::

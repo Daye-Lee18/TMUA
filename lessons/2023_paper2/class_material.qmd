@@ -1,0 +1,667 @@
+---
+title: "2023 Paper 2 — Mark Scheme"
+subtitle: "Answer key + full worked solution for all 20 questions · verified against the official mark scheme"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+A TMUA Paper 2 is two halves in one paper: **Section 1** is applications (the same mathematics as Paper 1)
+and **Section 2** is mathematical reasoning (the Arg / Prf / Err codes — toolkit S1–S7). Work each question
+first, then open its **Solution**. Every solution is written as a numbered chain of steps with an English
+sentence at each transition.
+
+## Topic map
+
+| Q | Ans | What it tests | Toolkit / topic |
+|---|:--:|---|---|
+| 1 | **H** | Surd equation via algebraic fractions | *Application* — algebra |
+| 2 | **F** | Difference of two integrals, $(a+b)^2-(a-b)^2$ | *Application* — calculus |
+| **3** | **C** | Counterexample to $\sqrt{x^{y}}=x^{\sqrt y}$ | **Prf1 — counterexample (S5)** |
+| **4** | **G** | Evaluate a proof (consecutive odd primes) | **Err — spot the error (S7)** |
+| **5** | **A** | Is $R$ necessary / sufficient for an integral | **Arg2 — necessary & sufficient (S3)** |
+| 6 | **F** | Which equations share the solution-count of $a^{x}=x$ | *Application* — exp/logs |
+| **7** | **E** | Necessary-not-sufficient gradient/intercept | **Arg2 + coordinate geometry (S3)** |
+| 8 | **D** | Lines dividing a triangle into two (one right-angled) | *Application* — geometry reasoning |
+| **9** | **D** | Statement, converse, contrapositive (pentagon) | **Arg1 — converse & contrapositive (S2)** |
+| **10** | **A** | Evaluate an inequality proof (completing the square) | **Err — spot the error (S7)** |
+| **11** | **G** | Equivalent statement forms of a theorem | **Arg1 — statement forms (S1)** |
+| **12** | **C** | "sufficient / only if" on a trig solution count | **Arg2 + trigonometry (S3)** |
+| **13** | **C** | One statement sufficient for exactly three others | **Arg2 — sufficient (S3)** |
+| **14** | **F** | Three lines; perpendicular ⇒ third parallel to $y=x$ | **Arg1 + coordinate geometry (S1)** |
+| 15 | **B** | Value of a recurring binary number | *Application* — geometric series |
+| 16 | **B** | Fibonacci-like sequence, hcf reasoning | *Application* — sequences / number theory |
+| 17 | **F** | Integral of a ceiling (step) function | *Application* — calculus / series |
+| 18 | **D** | Quartic with four distinct real roots | *Application* — algebra |
+| 19 | **H** | Roots of $f$ and of $x\,f''(x)$ | *Application* — calculus |
+| 20 | **D** | An integral built from $f(x)$ and $f(\lvert x\rvert)$ | *Application* — calculus reasoning |
+
+---
+
+## Question 1
+
+Given $\dfrac{1}{\sqrt x-6}-\dfrac{1}{\sqrt x+6}=\dfrac{3}{11}$, what is the value of $x$? &nbsp;&nbsp;
+**A** $2\sqrt{15}$ &nbsp; **B** $4\sqrt5$ &nbsp; **C** $5\sqrt2$ &nbsp; **D** $\sqrt{58}$ &nbsp; **E** $50$
+&nbsp; **F** $58$ &nbsp; **G** $60$ &nbsp; **H** $80$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer H
+**H.**
+
+**Step 1 — Combine the fractions.** With a common denominator,
+$$\frac{1}{\sqrt x-6}-\frac{1}{\sqrt x+6}=\frac{(\sqrt x+6)-(\sqrt x-6)}{(\sqrt x-6)(\sqrt x+6)}=\frac{12}{x-36},$$
+using $(\sqrt x-6)(\sqrt x+6)=x-36$.
+
+**Step 2 — Solve.**
+$$\frac{12}{x-36}=\frac{3}{11}\ \Rightarrow\ 12\cdot 11=3(x-36)\ \Rightarrow\ 132=3x-108\ \Rightarrow\ x=80.$$
+*The surds vanish because the denominators are a difference of squares — always try that first.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+Evaluate $\displaystyle\int_{9}^{16}\left(\tfrac{1}{\sqrt x}+\sqrt x\right)^{2}\mathrm dx-\int_{9}^{16}
+\left(\tfrac{1}{\sqrt x}-\sqrt x\right)^{2}\mathrm dx$. &nbsp;&nbsp; **A** 0 &nbsp; **B** 2 &nbsp; **C** 4
+&nbsp; **D** 7 &nbsp; **E** 14 &nbsp; **F** 28 &nbsp; **G** 75 &nbsp; **H** 175
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+**F.**
+
+**Step 1 — Use $(a+b)^2-(a-b)^2=4ab$.** With $a=\tfrac1{\sqrt x}$ and $b=\sqrt x$,
+$$\left(\tfrac1{\sqrt x}+\sqrt x\right)^{2}-\left(\tfrac1{\sqrt x}-\sqrt x\right)^{2}=4\cdot\tfrac1{\sqrt x}
+\cdot\sqrt x=4.$$
+
+**Step 2 — Integrate the constant.**
+$$\int_{9}^{16}4\,\mathrm dx=4(16-9)=28.$$
+*Never expand the squares — the identity turns the whole thing into a one-line constant integral.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+Claim: for all positive reals $x,y$, $\sqrt{x^{y}}=x^{\sqrt y}$. Which is/are a counterexample? &nbsp;&nbsp;
+**I** $x=1,y=16$ &nbsp; **II** $x=2,y=8$ &nbsp; **III** $x=3,y=4$ &nbsp;&nbsp; (options **A** none … **H** all)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer C
+
+[*(Prf1 · counterexample — S5)*]{style="color:#7a5195"}
+**C** (II only).
+
+**Step 1 — Rewrite both sides.** $\sqrt{x^{y}}=x^{y/2}$, so the claim is $x^{y/2}=x^{\sqrt y}$. For $x\neq1$
+this holds only when $\tfrac y2=\sqrt y$, i.e. $y=4$; and for $x=1$ both sides are $1$.
+
+**Step 2 — Test each.** A counterexample needs the two sides **unequal**.
+
+- **I** ($x=1$): both sides $=1$ — equal, not a counterexample.
+- **II** ($x=2,y=8$): $2^{8/2}=2^{4}=16$ but $2^{\sqrt8}\approx 7.1$ — **unequal**, a counterexample.
+- **III** ($x=3,y=4$): $3^{4/2}=9$ and $3^{\sqrt4}=3^{2}=9$ — equal ($y=4$), not a counterexample.
+
+So only **II**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+A student's attempt to answer *"the largest number of consecutive odd integers that are all prime"* runs
+I–VII (see paper) and concludes the answer is two. Best description? &nbsp;&nbsp; **A** correct … **H** first
+error line VII.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer G
+
+[*(Err — spot the error — S7)*]{style="color:#7a5195"}
+**G** (first error line VI).
+
+**Step 1 — Check the claim.** $3,5,7$ are three consecutive odd integers, all prime, so the answer "two"
+is wrong — the attempt is incorrect.
+
+**Step 2 — Find the first error.** Lines I–V are all correct (one of any three consecutive odd integers is
+a multiple of $3$). Line **VI** says "one of the integers is a multiple of $3$, **so not prime**" — but the
+multiple of $3$ can be $3$ **itself**, which **is** prime (as in $3,5,7$). That unjustified "so not prime"
+is the first error.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+$R$: $k$ is an integer multiple of $\pi$. &nbsp; $S$: $\displaystyle\int_{0}^{k}\sin 2x\,\mathrm dx=0$. Which
+is true? &nbsp;&nbsp; **A** necessary and sufficient &nbsp; **B** necessary, not sufficient &nbsp;
+**C** sufficient, not necessary &nbsp; **D** neither
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer A
+
+[*(Arg2 · necessary & sufficient — S3)*]{style="color:#7a5195"}
+**A.**
+
+**Step 1 — Do the integral.**
+$$\int_{0}^{k}\sin 2x\,\mathrm dx=\left[-\tfrac12\cos 2x\right]_{0}^{k}=\frac{1-\cos 2k}{2}.$$
+
+**Step 2 — Solve $S$.** $\dfrac{1-\cos 2k}{2}=0\Rightarrow\cos 2k=1\Rightarrow 2k=2n\pi\Rightarrow k=n\pi$
+— exactly "$k$ is an integer multiple of $\pi$".
+
+**Conclusion.** $S\Leftrightarrow R$, so $R$ is **necessary and sufficient** for $S$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+For $a>1$, $(*)$: $a^{x}=x$. Which equations must have the **same number of real solutions** as $(*)$?
+&nbsp;&nbsp; **I** $\log_a x=x$ &nbsp; **II** $a^{2x}=x^{2}$ &nbsp; **III** $a^{2x}=2x$ &nbsp;&nbsp;
+(options **A** none … **H** all)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+**F** (I and III).
+
+**I — same equation in disguise.** $\log_a x=x\Rightarrow x=a^{x}$ (exponentiate). That is exactly $(*)$,
+so the solutions are identical. ✓
+
+**III — a substitution.** Put $u=2x$; then $a^{2x}=2x$ becomes $a^{u}=u$, which is $(*)$ in $u$. Since
+$u=2x$ is a one-to-one relabelling, the number of solutions is unchanged. ✓
+
+**II — an extra root sneaks in.** $a^{2x}=x^{2}$ means $(a^{x})^{2}=x^{2}$, i.e. $a^{x}=\lvert x\rvert$
+(as $a^{x}>0$). For $x\geq0$ this is $(*)$; but for $x<0$ it also asks $a^{x}=-x$, and since $a^{x}\to0$
+while $-x\to+\infty$, there is always **one more** solution with $x<0$. So II has more solutions. ✗
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,4,400); a=1.3
+plt.figure(figsize=(5.0,3.4))
+plt.plot(x,a**x,label='y = a^x  (a=1.3)',color='#2b6cb0')
+plt.plot(x,x,label='y = x',color='#dd6b20')
+plt.plot(x,-x,'--',label='y = −x (the extra branch in II)',color='crimson')
+plt.ylim(-1,5); plt.axhline(0,color='0.6',lw=0.6); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('II asks a^x = |x|, adding a solution where a^x meets −x (x<0)')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+The line $ax+by=c$ ($a,b,c\neq0$). Which is **necessary but not sufficient** for a positive gradient
+**and** a positive $y$-intercept? &nbsp;&nbsp; **A**–**D** (sign conditions) &nbsp; **E** $a$ and $c$ have
+opposite signs &nbsp; **F** $a$ and $c$ have the same sign
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer E
+
+[*(Arg2 + coordinate geometry — S3)*]{style="color:#7a5195"}
+**E.**
+
+**Step 1 — Translate the two requirements.** In the form $y=-\tfrac ab x+\tfrac cb$, the gradient is
+$-\tfrac ab$ and the $y$-intercept is $\tfrac cb$. We need
+$$-\tfrac ab>0\ \ (\text{so }\tfrac ab<0)\qquad\text{and}\qquad \tfrac cb>0.$$
+
+**Step 2 — Extract a sign relation.** From $\tfrac ab<0$ and $\tfrac cb>0$, dividing gives
+$\tfrac{a}{c}<0$, so **$a$ and $c$ have opposite signs** — this is *necessary*.
+
+**Step 3 — Why not sufficient.** Opposite signs of $a,c$ fix $\tfrac ac$ but say nothing about the sign of
+$b$, so they do not guarantee both original conditions. Hence **necessary but not sufficient**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+A (non-right) triangle. Count the straight lines dividing it into two triangles, **at least one**
+right-angled. Can the student draw one with exactly **1** (I), exactly **2** (II), exactly **3** (III) such
+lines? &nbsp;&nbsp; (options **A** none … **H** all)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer D
+**D** (III only). In fact **every** non-right triangle has **exactly three** such lines.
+
+**Step 1 — What a dividing line is.** To cut a triangle into two triangles the line must run from a
+**vertex to a point on the opposite side** (a *cevian*). Any other cut leaves a quadrilateral.
+
+**Step 2 — When a cevian makes a right-angled piece.** The right angle can only be
+(i) at the foot on the opposite side — that forces the cevian to be an **altitude**; or
+(ii) at the vertex it starts from — possible only if that vertex angle exceeds $90^\circ$.
+(A base angle stays as the original acute angle, so it can't become the right angle.)
+
+**Step 3 — Count.**
+
+- **Acute triangle:** all three altitude feet lie inside the opposite sides, so the **three altitudes** each
+  split it into two right triangles — and no vertex exceeds $90^\circ$, so nothing else. **Exactly 3.**
+- **Obtuse triangle:** only the altitude from the obtuse vertex has its foot inside the opposite side
+  (1 line); and the obtuse vertex admits **two** cevians making a right angle there (one perpendicular to
+  each side). **Again exactly 3.**
+
+So the count is always $3$: statement III holds, and **1 or 2 is impossible**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); B=np.array([4,0]); C=np.array([1.3,2.6])   # acute triangle
+def foot(P,Q,R):  # foot of perpendicular from R onto line PQ
+    d=Q-P; t=np.dot(R-P,d)/np.dot(d,d); return P+t*d
+plt.figure(figsize=(4.4,3.4))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0')
+for P,Q,R,nm in [(B,C,A,'A'),(A,C,B,'B'),(A,B,C,'C')]:
+    F=foot(P,Q,R); plt.plot([R[0],F[0]],[R[1],F[1]],'--',color='crimson',lw=1)
+for P,nm in [(A,'A'),(B,'B'),(C,'C')]:
+    plt.annotate(nm,P,textcoords='offset points',xytext=(4,4))
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('Acute triangle: the 3 altitudes are the 3 dividing lines',fontsize=9)
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+Pentagon $P$. $(*)$: *if at least one interior angle is $108^\circ$, then all the interior angles form an
+arithmetic sequence.* Which are true? &nbsp;&nbsp; **I** $(*)$ &nbsp; **II** the contrapositive of $(*)$
+&nbsp; **III** the converse of $(*)$ &nbsp;&nbsp; (options **A** none … **H** all)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer D
+
+[*(Arg1 · converse & contrapositive — S2)*]{style="color:#7a5195"}
+**D** (III only).
+
+**Step 1 — $(*)$ and its contrapositive are FALSE.** A pentagon can have one angle $108^\circ$ without the
+angles forming an arithmetic sequence — e.g. $108^\circ,100^\circ,100^\circ,116^\circ,116^\circ$ (sum
+$540^\circ$). So $(*)$ is false, and its **contrapositive** (always equivalent) is false too. That kills I
+and II together.
+
+**Step 2 — The converse is TRUE.** Converse: *if the angles form an arithmetic sequence, then one is
+$108^\circ$.* A $5$-term arithmetic sequence has sum $5\times(\text{middle term})$, and the interior angles
+of a pentagon sum to $540^\circ$, so the **middle** term is $540/5=108^\circ$. Hence one angle is always
+$108^\circ$. **III is true.**
+
+*Key: I and II share a truth value (equivalent), so any answer with exactly one of them — like III only —
+must have both false.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+An attempt to solve $x^{4}-2x^{2}-3<0$ by completing the square (lines I–VI, see paper). Which is true?
+&nbsp;&nbsp; **A** completely correct &nbsp; **B**–**G** first error in line I–VI
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer A
+
+[*(Err — spot the error — S7)*]{style="color:#7a5195"}
+**A** — the argument is completely correct.
+
+**Step 1 — Check each "if and only if".** I adds $4$ to both sides; II writes $x^{4}-2x^{2}+1=(x^{2}-1)^2$;
+III is $\lvert x^{2}-1\rvert<2$, i.e. $-2<x^{2}-1<2$.
+
+**Step 2 — The one that looks suspicious (III→IV).** IV keeps only $x^{2}-1<2$ and drops "$-2<x^{2}-1$".
+That is legal here because $x^{2}-1\geq-1>-2$ **always**, so the dropped half is automatically true — the
+lines stay equivalent.
+
+**Step 3 — Finish.** V is $x^{2}<3$; VI is $-\sqrt3<x<\sqrt3$. And indeed
+$x^{4}-2x^{2}-3=(x^{2}-3)(x^{2}+1)<0\Leftrightarrow x^{2}<3$. Every step holds, so **A**.
+
+*Not every "spot the error" question has an error.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+Theorem $(*)$: *if $2^{k}+1$ is prime, then $k$ is a power of $2$* ($k$ a positive integer). Which of I, II,
+III, taken individually, is equivalent to $(*)$? (Yes/No triple, rows **A**–**H**.)
+
+- **I** if $k$ is a power of $2$ then $2^{k}+1$ is prime
+- **II** $2^{k}+1$ is not prime **only if** $k$ is not a power of $2$
+- **III** a **sufficient** condition for $k$ to be a power of $2$ is that $2^{k}+1$ is prime
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer G
+
+[*(Arg1 · statement forms — S1)*]{style="color:#7a5195"}
+**G** (No, No, Yes).
+
+Write $(*)$ as $P\Rightarrow Q$ with $P=$ "$2^{k}+1$ prime", $Q=$ "$k$ a power of $2$".
+
+- **I** is $Q\Rightarrow P$ — the **converse**. Not equivalent. **No.**
+- **II** "$\lnot P$ only if $\lnot Q$" means $\lnot P\Rightarrow\lnot Q$ — the **inverse**, which is
+  equivalent to the converse, **not** to $(*)$. **No.**
+- **III** "$P$ is sufficient for $Q$" means $P\Rightarrow Q$ — that is $(*)$ itself. **Yes.**
+
+*The only equivalent restatement is the contrapositive $\lnot Q\Rightarrow\lnot P$ — none of these three is
+that, except III which is just $(*)$ reworded with the word "sufficient".*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+$\sin x\cos^{2}x=p^{2}\sin x$ has $n$ distinct solutions in $0\leq x\leq2\pi$. Which is/are true? &nbsp;&nbsp;
+**I** $n=3$ is **sufficient** for $p>1$ &nbsp; **II** $n=7$ **only if** $-1<p<1$ &nbsp;&nbsp;
+**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** I and II
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer C
+
+[*(Arg2 + trigonometry — S3)*]{style="color:#7a5195"}
+**C** (II only).
+
+**Step 1 — Factorise.** $\sin x\cos^{2}x-p^{2}\sin x=\sin x\,(\cos^{2}x-p^{2})=0$, so $\sin x=0$ **or**
+$\cos^{2}x=p^{2}$.
+
+**Step 2 — Count.** $\sin x=0$ always gives $x=0,\pi,2\pi$ — **3** solutions. Then $\cos^{2}x=p^{2}$:
+
+- $\lvert p\rvert\geq1$: no new solutions (either impossible, or $\cos x=\pm1$ already counted) $\Rightarrow n=3$;
+- $0<\lvert p\rvert<1$: $\cos x=\pm\lvert p\rvert$ gives $4$ new solutions $\Rightarrow n=7$;
+- $p=0$: $\cos x=0$ gives $2$ new $\Rightarrow n=5$.
+
+**Step 3 — Judge the statements.**
+
+- **I:** $n=3$ occurs for all $\lvert p\rvert\geq1$ (e.g. $p=-2$ or $p=1$), so it does **not** force $p>1$.
+  **False.**
+- **II:** $n=7$ occurs exactly when $0<\lvert p\rvert<1$, which lies inside $-1<p<1$. So $n=7\Rightarrow
+  -1<p<1$. **True.**
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+Which **one** statement is a **sufficient** condition for **exactly three** of the other four? &nbsp;&nbsp;
+**A** $x\geq0$ &nbsp; **B** $x=1$ &nbsp; **C** $x=0$ or $x=1$ &nbsp; **D** $x\geq0$ or $x\leq1$ &nbsp;
+**E** $x\geq0$ and $x\leq1$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer C
+
+[*(Arg2 · sufficient — S3)*]{style="color:#7a5195"}
+**C.** First note **D** ($x\geq0$ or $x\leq1$) is true for *every* real $x$.
+
+Test **C** ($x=0$ or $x=1$) as the hypothesis — does it imply each other statement?
+
+- **A** ($x\geq0$): both $0$ and $1$ are $\geq0$ — **yes**.
+- **B** ($x=1$): fails at $x=0$ — **no**.
+- **D** (all reals): **yes**.
+- **E** ($0\leq x\leq1$): both $0,1$ lie in $[0,1]$ — **yes**.
+
+So **C** implies exactly three others (A, D, E) but not B. *(Checking the rest: A implies only D; B implies
+all four; E implies A and D; D implies none — so C is the unique answer.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+Lines $ax+by+c=0$, $bx+cy+a=0$, $cx+ay+b=0$ ($a,b,c\neq0$). Which is correct? &nbsp;&nbsp; **F** if two of
+the lines are perpendicular, then the third is parallel to $y=x$. *(and other options)*
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+
+[*(Arg1 + coordinate geometry — S1)*]{style="color:#7a5195"}
+**F.**
+
+**Step 1 — Write the three gradients.**
+$$m_1=-\frac ab,\qquad m_2=-\frac bc,\qquad m_3=-\frac ca.$$
+
+**Step 2 — Their product is fixed.**
+$$m_1 m_2 m_3=\left(-\frac ab\right)\left(-\frac bc\right)\left(-\frac ca\right)=-\frac{abc}{abc}=-1.$$
+
+**Step 3 — Use perpendicularity.** If two of the lines are perpendicular, the product of *their* two
+gradients is $-1$. Since all three multiply to $-1$, the remaining gradient is $\dfrac{-1}{-1}=1$ — so the
+third line has gradient $1$, i.e. is **parallel to $y=x$**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 15
+
+What is the value of the recurring base-$2$ number $0.\dot0\dot01\dot1=0.001100110011\ldots$? &nbsp;&nbsp;
+**A** $\tfrac13$ &nbsp; **B** $\tfrac15$ &nbsp; **C** $\tfrac1{15}$ &nbsp; **D** $\tfrac2{15}$ &nbsp;
+**E** $\tfrac4{15}$ &nbsp; **F** $\tfrac3{16}$ &nbsp; **G** $\tfrac5{16}$ &nbsp; **H** $\tfrac6{31}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer B
+**B** ($\tfrac15$).
+
+**Step 1 — Repeating block.** The block "$0011$" repeats, with period $4$. Its value as a binary integer is
+$0\cdot2^{3}+0\cdot2^{2}+1\cdot2+1=3$.
+
+**Step 2 — Sum the geometric series.** A block of length $4$ repeating just after the point gives
+$$0.\overline{0011}_2=\frac{3}{2^{4}-1}=\frac{3}{15}=\frac15.$$
+*(This is the base-$2$ version of the base-$10$ rule "$0.\overline{d_1\ldots d_k}=\dfrac{\text{block}}{10^{k}-1}$".)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+$u_1=a,\ u_2=b,\ u_{n+2}=u_n+u_{n+1}$, with $a,b$ positive integers and $\gcd(a,b)=7$. Which **must** be
+true? &nbsp;&nbsp; **I** $u_{2023}$ is a multiple of $7$ &nbsp; **II** if $u_1$ is not a factor of $u_2$
+then $u_1$ is not a factor of $u_n$ for any $n>1$ &nbsp; **III** $\gcd(u_1,u_5)=7$ &nbsp;&nbsp; (options
+**A** none … **H** all)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer B
+**B** (I only).
+
+**Step 1 — Every term is a multiple of $7$.** Since $\gcd(a,b)=7$, both $a$ and $b$ are multiples of $7$;
+and a sum of multiples of $7$ is a multiple of $7$. By the recurrence, all $u_n$ are multiples of $7$. So
+**I is true**.
+
+**Step 2 — III fails.** $u_5=2a+3b$, so $\gcd(u_1,u_5)=\gcd(a,2a+3b)=\gcd(a,3b)$. Take $a=21,\,b=7$
+($\gcd=7$): then $u_5=63$ and $\gcd(21,63)=21\neq7$. **III false.**
+
+**Step 3 — II fails.** The coefficient of $b$ in $u_4=a+2b$ is $2$. Take $a=14,\,b=7$: $u_1=14$ does **not**
+divide $u_2=7$, yet $u_4=14+14=28$ **is** divisible by $14$. **II false.**
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+$\lceil x\rceil$ is $x$ rounded **up** to the nearest integer. Find $\displaystyle\int_{0}^{99}
+2^{\lceil x\rceil}\,\mathrm dx$. &nbsp;&nbsp; **A** $2^{99}$ &nbsp; **B** $2^{99}-1$ &nbsp; **C**
+$2^{99}-2$ &nbsp; **D** $2^{100}$ &nbsp; **E** $2^{100}-1$ &nbsp; **F** $2^{100}-2$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+**F** ($2^{100}-2$).
+
+**Step 1 — The integrand is a step function.** For $x$ in $(n-1,\,n]$, $\lceil x\rceil=n$, so
+$2^{\lceil x\rceil}=2^{n}$ on each unit interval $(n-1,n]$, $n=1,2,\dots,99$.
+
+**Step 2 — Add the strips (each width $1$).**
+$$\int_{0}^{99}2^{\lceil x\rceil}\,\mathrm dx=\sum_{n=1}^{99}2^{n}\cdot 1=2^{1}+2^{2}+\dots+2^{99}
+=2^{100}-2,$$
+using $2+2^{2}+\dots+2^{99}=2\!\left(2^{99}-1\right)=2^{100}-2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.0,3.0))
+for n in range(1,6):
+    plt.plot([n-1,n],[2**n,2**n],color='#2b6cb0',lw=2)
+    plt.plot([n,n],[2**n,2**(n+1)],color='#2b6cb0',lw=0.6,ls=':')
+plt.xticks(range(0,6)); plt.xlabel('x'); plt.ylabel('2^⌈x⌉')
+plt.grid(alpha=0.25); plt.title('2^⌈x⌉ is constant 2ⁿ on each interval (n−1, n]')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+$x^{4}+bx^{2}+c=0$ has four distinct real roots **if and only if** which condition? &nbsp;&nbsp;
+**A** $b^{2}>4c$ &nbsp; **B** $b^{2}<4c$ &nbsp; **C** $c>0$ and $b>2\sqrt c$ &nbsp; **D** $c>0$ and
+$b<-2\sqrt c$ &nbsp; **E** $c<0$ and $b<0$ &nbsp; **F** $c<0$ and $b>0$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer D
+**D.**
+
+**Step 1 — Substitute $u=x^{2}$.** The equation becomes $u^{2}+bu+c=0$. Four distinct real $x$ need **two
+distinct positive** roots $u$ (each positive $u$ gives $x=\pm\sqrt u$).
+
+**Step 2 — Conditions for two distinct positive roots.**
+$$\text{distinct real: } b^{2}-4c>0;\qquad \text{sum } -b>0\ (b<0);\qquad \text{product } c>0.$$
+
+**Step 3 — Combine.** With $c>0$, "$b<0$ and $b^{2}>4c$" is exactly $b<-2\sqrt c$. So the condition is
+**$c>0$ and $b<-2\sqrt c$**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.4,2.4,400)
+plt.figure(figsize=(4.8,3.2))
+plt.plot(x,x**4-5*x**2+4,color='#2b6cb0')   # b=-5,c=4: b<-2√4=-4, c>0
+for r in [-2,-1,1,2]: plt.plot(r,0,'o',color='crimson')
+plt.axhline(0,color='0.6',lw=0.7); plt.grid(alpha=0.25)
+plt.title('b=−5, c=4 (b<−2√c): four distinct real roots ±1, ±2')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+$f$ is a non-constant polynomial and $g(x)=x\,f''(x)$; $f=0$ for exactly $M$ real $x$, $g=0$ for exactly
+$N$ real $x$. Which are possible? &nbsp;&nbsp; **I** $M<N$ &nbsp; **II** $M=N$ &nbsp; **III** $M>N$
+&nbsp;&nbsp; (options **A** none … **H** all)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer H
+**H** (all three). $g=0$ means $x=0$ **or** $f''(x)=0$; give one example of each case.
+
+- **$M<N$:** $f(x)=x^{4}+1$ has $M=0$ real roots; $f''=12x^{2}$, so $g=12x^{3}$ has the single root $x=0$,
+  giving $N=1$. Here $0<1$.
+- **$M=N$:** $f(x)=x^{2}$ has $M=1$ ($x=0$); $f''=2\neq0$, so $g=2x$ has $N=1$.
+- **$M>N$:** $f(x)=x^{4}-5x^{2}+4$ has $M=4$ (roots $\pm1,\pm2$); $f''=12x^{2}-10$, so
+  $g=x(12x^{2}-10)$ has roots $0,\pm\sqrt{10/12}$, giving $N=3$. Here $4>3$.
+
+All three orderings occur, so **H**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+$f$ a real polynomial; for $p<q$, $\displaystyle I_{p,q}=\int_{p}^{q}\Big[(f(x))^{2}-(f(\lvert
+x\rvert))^{2}\Big]\mathrm dx$. Which **must** be true? &nbsp;&nbsp; **1** $I_{p,q}=0$ only if $0<p$ &nbsp;
+**2** $f'(x)<0$ for all $x$ only if $I_{p,q}<0$ for all $p<q<0$ &nbsp; **3** $I_{p,q}>0$ only if $p<0$
+&nbsp;&nbsp; (options **A** none … **H** all)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer D
+**D** (3 only).
+
+**Step 1 — The integrand vanishes for $x\geq0$.** When $x\geq0$, $\lvert x\rvert=x$, so
+$(f(x))^{2}-(f(\lvert x\rvert))^{2}=0$. Only the part of $[p,q]$ with $x<0$ (where $f(\lvert
+x\rvert)=f(-x)$) can contribute.
+
+**Step 2 — Statement 3 is TRUE.** If $p\geq0$ the whole interval is in $x\geq0$, so $I_{p,q}=0$; thus
+$I_{p,q}>0$ is impossible unless $p<0$. So $I_{p,q}>0\Rightarrow p<0$. ✓
+
+**Step 3 — Statements 1 and 2 fail.**
+
+- **1:** if $f$ is **even** then $f(x)=f(-x)$, the integrand is $0$ everywhere and $I_{p,q}=0$ even with
+  $p<0$ — so "$I_{p,q}=0$ only if $0<p$" is false.
+- **2:** take $f(x)=-x$ (so $f'=-1<0$ for all $x$). Then $(f(x))^{2}=x^{2}=(f(-x))^{2}$, the integrand is
+  $0$, and $I_{p,q}=0$, not $<0$. So the implication fails.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+:::

@@ -1,0 +1,399 @@
+---
+title: "Logarithms — Extension Clinic"
+subtitle: "Quadratics in aˣ, quadratics in log x, simultaneous log/exp systems, and log–log linearisation (MM5)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+This extends the [Log clinic](../log_clinic/class_material.qmd) with the four log-and-exponential patterns that
+have cost you the most marks — every one of them is really a **substitution** in disguise. Nothing here uses
+$e$ or $\ln$ (both out of the TMUA spec); everything stays with $a^x$ and $\log_a$. Four of these questions are
+ones you got wrong, so they anchor the page.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM5 Logs &amp; exponentials</div>
+<div class="fs-title">Spot the Hidden Quadratic — Exam Skim Sheet</div>
+<div class="fs-sub">Read this before you start; come back whenever a question stalls.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · A "quadratic in $a^x$"
+If you see $a^{2x}$ (or $a^x$ twice), substitute $u=a^x$ ($u>0$). Solve the
+quadratic in $u$, then convert back with $x=\log_a u$. The **sum of the $x$-roots** is
+$\log_a u_1+\log_a u_2=\log_a(u_1u_2)$, and $u_1u_2$ is just the **product of roots** of the quadratic — you
+rarely need the roots individually.
+:::
+
+::: {.fs-card}
+### 2 · A "quadratic in $\log x$"
+If $\log x$ appears squared (or to the 4th power), substitute $L=\log_a x$.
+Watch the log laws first: $\log_a\!\frac1x=-\log_a x=-L$, $\log_a(x^k)=kL$.
+:::
+
+::: {.fs-card}
+### 3 · A simultaneous log/exp system
+Take one equation out of log form ($\log_a N=c\Rightarrow N=a^c$;
+$\log_a N=0\Rightarrow N=1$); substitute $A=a^x,\ B=a^y$ to linearise; use the **difference of squares**
+$A^2-B^2=(A-B)(A+B)$ when you see it.
+:::
+
+::: {.fs-card}
+### 4 · Log–log / log–linear linearisation
+Take logs of a proposed law and see which plot is a **straight line**:
+$$y=Ax^n\ \Rightarrow\ \log y=\log A+n\log x\quad(\log y\text{ vs }\log x\text{ is straight, gradient }n),$$
+$$y=Aa^{x}\ \Rightarrow\ \log y=\log A+(\log a)\,x\quad(\log y\text{ vs }x\text{ is straight}).$$
+Read $n$ (or $\log a$) off the **gradient** and $\log A$ off the **intercept**.
+:::
+
+::::
+
+:::::
+
+**On this page:** 1. Quadratics in $a^x$ · 2. Quadratics in $\log x$ · 3. Simultaneous log/exp systems · 4.
+Log–log linearisation. Answers are in the **Solution** toggles; use the **Working** box and **state the exact
+value/form asked for**.
+
+---
+
+## 1 · Quadratics in $a^x$
+
+### Question 1 · anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA specimen · P1 Q11</span>
+
+::: {.question}
+Find the sum of the roots of the equation $2^{2x}-8\cdot2^{x}+15=0$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute $u=2^x$ — the sum of $x$-roots is $\log_2(\text{product of }u)$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $u=2^x$ turns it into a quadratic; $x_1+x_2=\log_2(u_1u_2)$
+:::
+
+**Answer form: an exact value. Answer: $\log_2 15$** $\left(=\dfrac{\log_{10}15}{\log_{10}2}\right)$.
+
+*Let $u=2^x$ ($u>0$). Since $2^{2x}=(2^x)^2=u^2$,* the equation is $u^2-8u+15=0$, so $u=3$ or $u=5$. *Then
+$x=\log_2 3$ or $\log_2 5$, and the sum is*
+$$\log_2 3+\log_2 5=\log_2(3\cdot5)=\log_2 15.$$
+*(Shortcut: the product of the quadratic's roots is $15$, so the sum of the $x$-values is $\log_2 15$ without
+finding either root.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+This is the specimen-paper Q11 you got wrong. The whole trick is seeing $2^{2x}$ as $(2^x)^2$ and letting
+$u=2^x$; after that it is a GCSE quadratic.
+:::
+
+---
+
+### Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P1 Q15</span>
+
+::: {.question}
+Find the sum of the real solutions of the equation $3^{x}-\bigl(\sqrt3\bigr)^{x+4}+20=0$. *(Give the exact
+value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(rewrite everything to one base, then substitute)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\sqrt3=3^{1/2}$, so set $u=3^{x/2}$
+:::
+
+**Answer form: an exact value. Answer: $2\log_3 20$.**
+
+*Write both terms with base $3$: $3^x=\bigl(3^{x/2}\bigr)^2$ and
+$\bigl(\sqrt3\bigr)^{x+4}=3^{(x+4)/2}=3^{x/2}\cdot3^{2}=9\cdot3^{x/2}$.* Let $u=3^{x/2}$ ($u>0$):
+$u^2-9u+20=0\Rightarrow u=4\text{ or }5$. *Then $\tfrac{x}{2}=\log_3 u$, so $x=2\log_3 4$ or $2\log_3 5$, and*
+$$\text{sum}=2\log_3 4+2\log_3 5=2\log_3 20.$$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 2 · Quadratics in $\log x$
+
+### Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P1 Q15</span>
+
+::: {.question}
+Find the positive difference between the two real values of $x$ for which
+$$\bigl(\log_2 x\bigr)^{4}+12\left(\log_2\tfrac1x\right)^{2}-2^{6}=0.$$
+*(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a quadratic in $L^2$, where $L=\log_2 x$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log_2\frac1x=-\log_2 x$, so everything is a power of $L=\log_2 x$
+:::
+
+**Answer form: an exact value. Answer: $\dfrac{15}{4}$.**
+
+*Let $L=\log_2 x$. Since $\log_2\frac1x=-L$, we have $\left(\log_2\frac1x\right)^2=L^2$, and $2^6=64$:*
+$$L^4+12L^2-64=0.$$
+*This is a quadratic in $w=L^2$: $w^2+12w-64=0\Rightarrow(w-4)(w+16)=0$.* Only $w=4$ is allowed ($w=L^2\ge0$),
+so $L=\pm2$, i.e. $x=2^{2}=4$ or $x=2^{-2}=\tfrac14$. The positive difference is $4-\tfrac14=\dfrac{15}{4}$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P1 Q11</span>
+
+::: {.question}
+Find the sum of the real values of $x$ that satisfy the simultaneous equations
+$$\log_3\bigl(xy^2\bigr)=1,\qquad (\log_3 x)(\log_3 y)=-3.$$
+*(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute $a=\log_3 x,\ b=\log_3 y$ — a linear + a product equation)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — turn both equations into equations in $a=\log_3 x$ and $b=\log_3 y$
+:::
+
+**Answer form: an exact value. Answer: $\dfrac{244}{9}$** $\left(=27\tfrac19\right)$.
+
+*Let $a=\log_3 x$, $b=\log_3 y$. Then $\log_3(xy^2)=a+2b=1$ and $ab=-3$.* Substituting $a=1-2b$:
+$(1-2b)b=-3\Rightarrow 2b^2-b-3=0\Rightarrow(2b-3)(b+1)=0$, so $b=\tfrac32$ (giving $a=-2$) or $b=-1$ (giving
+$a=3$). *Converting back, $x=3^{a}=3^{-2}=\tfrac19$ or $x=3^{3}=27$,* and the sum is
+$\tfrac19+27=\dfrac{244}{9}$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 3 · Simultaneous log / exponential systems
+
+### Question 5 · anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q16</span>
+
+::: {.question}
+Given the simultaneous equations
+$$\log_{10}2+\log_{10}(y-1)=2\log_{10}x,\qquad \log_{10}(y+3-3x)=0,$$
+find the values of $y$. *(Give the exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(clear the logs, substitute the linear one, solve a quadratic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log N=0\Rightarrow N=1$; combine logs on each side, then eliminate
+:::
+
+**Answer form: exact values. Answer: $y=7\pm3\sqrt3$.**
+
+*Combine the first equation: $\log_{10}\!\bigl(2(y-1)\bigr)=\log_{10}(x^2)$, so $2(y-1)=x^2$.* *The second gives
+$y+3-3x=1$ (since $\log_{10}N=0\Rightarrow N=1$), i.e. $y=3x-2$.* Substitute:
+$$2(3x-2-1)=x^2\Rightarrow x^2-6x+6=0\Rightarrow x=3\pm\sqrt3.$$
+*Both are positive, so both are valid (check $y-1>0$).* Then $y=3x-2=3(3\pm\sqrt3)-2=7\pm3\sqrt3$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+This is 2016 Paper 1 Q16, which you got wrong. The two moves are: "$\log N=0\Rightarrow N=1$" for the second
+equation, and combining the first into a single log so you can drop the $\log$ from both sides.
+:::
+
+---
+
+### Question 6 · anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P1 Q14</span>
+
+::: {.question}
+Given the simultaneous equations
+$$2^{x}+3\cdot2^{y}=3,\qquad 2^{2x}-9\cdot2^{2y}=6,$$
+with solution $x=p,\ y=q$, find the value of $p-q$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute $A=2^x,\ B=2^y$ and use the difference of squares)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $A^2-9B^2=(A-3B)(A+3B)$ turns the second equation linear
+:::
+
+**Answer form: an exact value. Answer: $\log_2 15$.**
+
+*Let $A=2^x,\ B=2^y$: $A+3B=3$ and $A^2-9B^2=6$.* Factor the second:
+$(A-3B)(A+3B)=6$, and since $A+3B=3$, this gives $A-3B=2$. *Adding to $A+3B=3$: $2A=5\Rightarrow A=\tfrac52$, then
+$3B=\tfrac12\Rightarrow B=\tfrac16$.* So $p=\log_2\tfrac52$, $q=\log_2\tfrac16$, and
+$$p-q=\log_2\frac{5/2}{1/6}=\log_2 15.$$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+This is 2017 Paper 1 Q14, which you got wrong. Spotting $A^2-9B^2$ as a difference of squares is the entire
+question — it converts a nasty second equation into the linear $A-3B=2$.
+:::
+
+---
+
+## 4 · Log–log linearisation
+
+### Question 7 · anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA specimen · P1 Q14</span>
+
+::: {.question}
+$a$, $b$, $x$ and $y$ are real and positive; $a$ and $b$ are constants, and $x$ and $y$ are related. A graph of
+$\log y$ against $\log x$ is drawn. For which one of the following relationships is this graph a **straight
+line**?
+**A** $y^{b}=a^{x}$ · **B** $y=ab^{x}$ · **C** $y^2=a+x^{b}$ · **D** $y=ax^{b}$ · **E** $y^{x}=a^{b}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(take logs — a power law is the one that linearises)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log y$ vs $\log x$ is straight $\iff$ $y$ is a **power** of $x$
+:::
+
+**Answer form: choose one option. Answer: D, $y=ax^{b}$.**
+
+*Take $\log$ of $y=ax^b$:* $\log y=\log a+b\log x$. *Writing $Y=\log y$ and $X=\log x$, this is $Y=(\log
+a)+bX$ — a straight line* with gradient $b$ and intercept $\log a$. The others do **not** give a linear relation
+between $\log y$ and $\log x$: option **B** ($y=ab^x$) is straight for $\log y$ vs $x$, not vs $\log x$; the
+rest mix the variables.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1,100,200); a,b=2.0,1.5; y=a*x**b
+fig,ax=plt.subplots(1,2,figsize=(6.4,2.6))
+ax[0].plot(x,y,'#2b6cb0',lw=1.6); ax[0].set_title('y = a·xᵇ  (curved)',fontsize=8)
+ax[0].set_xlabel('x',fontsize=8); ax[0].set_ylabel('y',fontsize=8)
+ax[1].plot(np.log10(x),np.log10(y),'crimson',lw=1.6)
+ax[1].set_title('log y vs log x  (straight, gradient b)',fontsize=8)
+ax[1].set_xlabel('log x',fontsize=8); ax[1].set_ylabel('log y',fontsize=8)
+for a_ in ax: a_.grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+::: {.callout-note appearance="simple"}
+This is the specimen-paper Q14 you got wrong. Remember the two "straight-line" laws: **power law $y=Ax^n$** →
+$\log y$ vs $\log x$; **exponential law $y=Aa^x$** → $\log y$ vs $x$.
+:::
+
+---
+
+### Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P1 Q14</span>
+
+::: {.question}
+The line $y=mx+4$ passes through the points $(3,\log_2 p)$ and $(\log_2 p,\,4)$. What are the possible values of
+$p$? *(Give the exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(put both points on the line; let $L=\log_2 p$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — substitute each point into $y=mx+4$, then $p=2^{L}$
+:::
+
+**Answer form: exact values. Answer: $p=1$ and $p=16$.**
+
+*Let $L=\log_2 p$. Both points satisfy $y=mx+4$:* from $(3,L)$, $L=3m+4$; from $(L,4)$, $4=mL+4\Rightarrow
+mL=0$. *So $m=0$ or $L=0$.*
+
+- $m=0$: the first equation gives $L=4$, so $p=2^{4}=16$ (line $y=4$, through $(3,4)$ and $(4,4)$ ✓).
+- $L=0$: then $p=2^{0}=1$, and $m=\tfrac{L-4}{3}=-\tfrac43$ (line through $(3,0)$ and $(0,4)$ ✓).
+
+So $p=1$ or $p=16$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 9
+
+::: {.question}
+Two positive variables $P$ and $t$ obey a law of the form $P=At^{n}$. When $\log_{10}P$ is plotted against
+$\log_{10}t$, the graph is a straight line through $(0,2)$ with gradient $3$. Find the constants $A$ and $n$.
+*(Give exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(read the gradient and intercept off the linear form)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log P=\log A+n\log t$: gradient $=n$, intercept $=\log A$
+:::
+
+**Answer form: exact values. Answer: $A=100$, $n=3$.**
+
+*Take logs: $\log_{10}P=\log_{10}A+n\log_{10}t$.* Comparing with a straight line $Y=(\text{intercept})+(\text{gradient})X$
+where $Y=\log_{10}P$ and $X=\log_{10}t$: the **gradient** is $n=3$, and the **intercept** is $\log_{10}A=2$, so
+$A=10^{2}=100$. Hence $P=100\,t^{3}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+X=np.linspace(0,3,50); Y=2+3*X
+plt.figure(figsize=(4.2,2.6))
+plt.plot(X,Y,'crimson',lw=1.8)
+plt.plot(0,2,'ko',ms=5); plt.annotate('intercept (0, 2)\n→ log A = 2 → A = 100',(0,2),textcoords='offset points',xytext=(12,-6),fontsize=8)
+plt.annotate('gradient 3 → n = 3',(1.5,6.5),fontsize=8)
+plt.xlabel('log₁₀ t',fontsize=8); plt.ylabel('log₁₀ P',fontsize=8)
+plt.grid(alpha=0.25); plt.title('log P vs log t: a straight line',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+:::

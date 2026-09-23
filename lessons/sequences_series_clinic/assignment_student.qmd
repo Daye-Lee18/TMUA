@@ -1,0 +1,161 @@
+---
+title: "Sequences, Series & Binomial Clinic — Assignment"
+subtitle: "Arithmetic & geometric progressions, sum to infinity, recurrences & the binomial expansion (MM2)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **41 marks** · Suggested time: **55 minutes**. No calculator. Every question
+is exam standard.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — AP & GP basics** | find $a,d,r$ · a finite sum | 12 |
+| **B — Sum to infinity & recurrences** | convergent GP · a recurrence in closed form | 8 |
+| **C — Binomial** | coefficient / constant term · a product of brackets · finding $n$ | 13 |
+| **D — Harder** | $n$th term from $S_n$ · two conditions on a GP | 8 |
+
+::: {.callout-note appearance="simple"}
+**Answer form.** $a,d,r,n$ and sums → **exact** values. Sum to infinity → use $\dfrac{a}{1-r}$ **only** if
+$|r|<1$ (otherwise say it does not exist). Coefficients → an exact number. Where two ratios are possible, give
+**both**.
+:::
+
+---
+
+# Section A — AP & GP basics
+
+## Question 1 **[3]**
+
+An arithmetic progression has $5$th term $17$ and $12$th term $45$. Find its first term and common difference.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 2 **[3]**
+
+A geometric progression has first term $18$ and sum to infinity $24$. Find the common ratio.
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 3 **[3]**
+
+Find the sum of the first $20$ terms of the arithmetic progression with first term $3$ and common difference
+$5$.
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 4 **[3]**
+
+A geometric progression has $3$rd term $12$ and $6$th term $96$. Find the sum of its first $8$ terms.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Section B — Sum to infinity & recurrences
+
+## Question 5 **[4]**
+
+A geometric progression with **positive** terms has $2$nd term $6$ and $4$th term $\dfrac23$. Find its sum to
+infinity.
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 6 **[4]**
+
+A sequence is defined by $u_1=5$ and $u_{n+1}=3u_n-4$ for $n\ge1$. Find a closed formula for $u_n$, and hence
+find $u_6$.
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+# Section C — Binomial
+
+## Question 7 **[3]**
+
+Find the coefficient of $x^3$ in the expansion of $(2-x)^7$.
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 8 **[3]**
+
+Find the constant term in the expansion of $\left(2x+\dfrac1x\right)^6$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 9 **[4]**
+
+Find the coefficient of $x^2$ in the expansion of $(1+x)(1-2x)^5$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 10 **[3]**
+
+In the expansion of $(1+3x)^n$ the coefficient of $x$ is $12$. Find the value of $n$.
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+# Section D — Harder
+
+## Question 11 **[4]**
+
+The sum of the first $n$ terms of an arithmetic progression is $S_n=n^2+4n$. Find the $20$th term.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 12 **[4]**
+
+A geometric progression has the sum of its first two terms equal to $9$ and a sum to infinity equal to $25$.
+Find the possible values of the common ratio.
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+:::

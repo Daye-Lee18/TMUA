@@ -1,0 +1,352 @@
+---
+title: "Parametric & Locus Clinic"
+subtitle: "Eliminating the parameter, curves you have to recognise, and loci from a condition"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+::: {.callout-warning}
+## Reference only — beyond the TMUA spec
+
+Parametric equations and general loci are **not in the TMUA specification** (MM3 covers only straight lines and
+circles). This page is kept as **MAT-style enrichment** and is **not linked from either student's hub**. For the
+lines and circles TMUA actually asks, use the **[Coordinate geometry clinic](../coordinate_geometry_clinic/class_material.qmd)**.
+:::
+
+TMUA/MAT hide familiar curves behind a **parameter** ($x=f(t),\,y=g(t)$) or behind a **geometric condition**
+("the point moves so that …"). The skill is to **eliminate the parameter** or **translate the condition** into
+a Cartesian equation you recognise — a line, circle, parabola or hyperbola — and then read it. This clinic
+drills exactly that; it was built from the parametric/locus questions that catch people out (e.g. the
+"$(y-1)\cos\theta=(x+1)\sin\theta$ inside a disc" type).
+
+::: {.callout-tip}
+## Start here — the two moves
+
+**Eliminate the parameter.** Solve one equation for the parameter and substitute; or combine the two using an
+identity. The identities that do most of the work:
+
+- $\cos^2\theta+\sin^2\theta=1$ → **circles/ellipses** ($x=a\cos\theta,\ y=b\sin\theta$).
+- $\sec^2\theta-\tan^2\theta=1$ → **hyperbolas** ($x=a\sec\theta,\ y=b\tan\theta$).
+- a double-angle ($\cos2\theta=2\cos^2\theta-1$) → a **parabola** in disguise.
+
+**Translate a locus condition** into an equation in $x,y$:
+
+- **equidistant from two points** → the **perpendicular bisector** (a line);
+- **$PA=k\cdot PB$** ($k\ne1$) → an **Apollonius circle**;
+- **a relation holding for some parameter value** (e.g. a $\theta$) → often a **family of lines through a
+  fixed point**.
+
+Always note the **range** the parameter forces (a parametric curve can be only *part* of the full Cartesian
+curve).
+:::
+
+**On this page:** 1. Eliminating the parameter · 2. Loci from a condition · 3. A parametric family meets a
+region
+
+---
+
+## 1 · Eliminating the parameter
+
+### Question 1
+
+::: {.question}
+A curve is given by $x=3\cos\theta,\ y=3\sin\theta$. Find its Cartesian equation and describe it.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a circle in disguise)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — use $\cos^2\theta+\sin^2\theta=1$
+:::
+
+**Answer: $x^{2}+y^{2}=9$ — a circle, centre $O$, radius $3$.**
+
+$\left(\tfrac{x}{3}\right)^{2}+\left(\tfrac{y}{3}\right)^{2}=\cos^{2}\theta+\sin^{2}\theta=1$, so
+$x^{2}+y^{2}=9$. As $\theta$ runs over $[0,2\pi)$ the whole circle is traced.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+A curve is given by $x=t+1,\ y=t^{2}-1$. Find its Cartesian equation.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a parabola)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — solve for $t$, then substitute
+:::
+
+**Answer: $y=x^{2}-2x$ (i.e. $y=(x-1)^{2}-1$).**
+
+From the first, $t=x-1$; substitute: $y=(x-1)^{2}-1=x^{2}-2x$. A parabola with vertex $(1,-1)$. (Here $t$ can
+be any real number, so the *whole* parabola is covered.)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 3
+
+::: {.question}
+A curve is given by $x=2\sec\theta,\ y=\tan\theta$. Find its Cartesian equation.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a hyperbola)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — use $\sec^{2}\theta-\tan^{2}\theta=1$
+:::
+
+**Answer: $\dfrac{x^{2}}{4}-y^{2}=1$ — a hyperbola.**
+
+$\left(\tfrac{x}{2}\right)^{2}-y^{2}=\sec^{2}\theta-\tan^{2}\theta=1$, so $\dfrac{x^{2}}{4}-y^{2}=1$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(-1.3,1.3,300)
+plt.figure(figsize=(4.6,3.0))
+for s in (1,-1):
+    plt.plot(s*2/np.cos(th), np.tan(th),color='#2b6cb0',lw=2)
+plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6); plt.grid(alpha=0.25)
+plt.xlim(-8,8); plt.ylim(-4,4); plt.title('x=2secθ, y=tanθ:  x²/4 − y² = 1',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+A curve is given by $x=\cos\theta,\ y=\cos2\theta$. Find its Cartesian equation **and** the range of $x$ it
+actually covers.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a double angle hides a parabola — mind the range)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\cos2\theta=2\cos^{2}\theta-1$; then restrict $x$
+:::
+
+**Answer: $y=2x^{2}-1$, but only for $-1\le x\le1$.**
+
+$y=\cos2\theta=2\cos^{2}\theta-1=2x^{2}-1$. Since $x=\cos\theta\in[-1,1]$, the curve is just the **arc** of the
+parabola $y=2x^{2}-1$ between $x=-1$ and $x=1$ — not the whole parabola.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+xf=np.linspace(-2,2,400); xa=np.linspace(-1,1,300)
+plt.figure(figsize=(4.6,3.0))
+plt.plot(xf,2*xf**2-1,'0.7',ls='--',lw=1,label='full parabola')
+plt.plot(xa,2*xa**2-1,color='#2b6cb0',lw=2.5,label='traced arc (−1≤x≤1)')
+plt.axhline(0,color='0.6',lw=0.6); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('x=cosθ, y=cos2θ:  y=2x²−1 on [−1,1]',fontsize=9); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 2 · Loci from a condition
+
+### Question 5
+
+::: {.question}
+A point $P(x,y)$ moves so that it is **equidistant** from $A(0,0)$ and $B(4,0)$. Find the equation of its
+locus.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(equidistant — a line)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — set the two squared distances equal; the squares cancel
+:::
+
+**Answer: $x=2$ (the perpendicular bisector of $AB$).**
+
+$PA^{2}=PB^{2}\Rightarrow x^{2}+y^{2}=(x-4)^{2}+y^{2}\Rightarrow0=-8x+16\Rightarrow x=2$. The $x^{2}$ and
+$y^{2}$ cancel, leaving a straight line — the perpendicular bisector.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+A point $P$ moves so that $PA=2\,PB$, where $A(0,0)$ and $B(3,0)$. Show the locus is a circle, and find its
+centre and radius.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the ratio locus — an Apollonius circle)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $PA=k\,PB$ with $k\ne1$: square, and the $x^{2},y^{2}$ **survive** → a circle
+:::
+
+**Answer: $(x-4)^{2}+y^{2}=4$ — centre $(4,0)$, radius $2$.**
+
+$PA=2PB\Rightarrow PA^{2}=4PB^{2}$:
+$$x^{2}+y^{2}=4\big[(x-3)^{2}+y^{2}\big]\Rightarrow x^{2}+y^{2}=4x^{2}-24x+36+4y^{2}.$$
+So $3x^{2}-24x+3y^{2}+36=0\Rightarrow x^{2}-8x+y^{2}+12=0\Rightarrow(x-4)^{2}+y^{2}=4$. Because $k\ne1$, the
+squared terms do **not** cancel — the locus is a circle (an *Apollonius circle*), centre $(4,0)$, radius $2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.4,3.0)); plt.plot(4+2*np.cos(th),2*np.sin(th),color='#2b6cb0',lw=2)
+plt.plot(0,0,'ks',ms=5); plt.plot(3,0,'ks',ms=5); plt.plot(4,0,'o',color='crimson',ms=4)
+plt.annotate('A',(0,0),textcoords='offset points',xytext=(-10,4)); plt.annotate('B',(3,0),textcoords='offset points',xytext=(-4,6))
+plt.axhline(0,color='0.6',lw=0.6); plt.grid(alpha=0.25); plt.gca().set_aspect('equal')
+plt.title('PA = 2 PB:  circle centre (4,0), r=2',fontsize=9); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 7
+
+::: {.question}
+For a fixed real $\theta$, the equation $(y-1)\cos\theta=(x+1)\sin\theta$ is a straight line. Describe the
+**family** of these lines as $\theta$ varies, and name the one point common to them all.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a relation that is really a family of lines)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — rearrange to $\dfrac{y-1}{x+1}=\tan\theta$; a fixed point emerges
+:::
+
+**Answer: they are all the lines through the fixed point $(-1,1)$; its gradient is $\tan\theta$.**
+
+Where $\cos\theta\ne0$, divide: $\dfrac{y-1}{x+1}=\tan\theta$, i.e. $y-1=\tan\theta\,(x+1)$ — a line of
+gradient $\tan\theta$ through $(-1,1)$. Every value of $\theta$ gives another line through that same point
+(and $\theta=\tfrac\pi2$ gives the vertical line $x=-1$). So the family is **all lines through $(-1,1)$**.
+
+*Spotting the fixed point is the whole trick: substituting $x=-1,\ y=1$ makes both sides $0$ for every
+$\theta$.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 3 · A parametric family meets a region
+
+### Question 8
+
+::: {.question}
+Continuing Question 7: for how many points $(x,y)$ **inside or on** the disc $x^{2}+y^{2}\le4$ does there
+exist a $\theta$ with $(y-1)\cos\theta=(x+1)\sin\theta$? What does the family of lines look like inside the
+disc?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(lines through a point inside a disc)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a fixed point **inside** a circle: every line through it is a chord
+:::
+
+**Answer: every point of the disc works; the lines are all the chords through $(-1,1)$.**
+
+From Q7, a point satisfies the relation for some $\theta$ exactly when it lies on **some** line through
+$(-1,1)$ — and every point of the plane lies on the line joining it to $(-1,1)$. The fixed point itself is
+**inside** the disc, since $(-1)^{2}+1^{2}=2<4$. So each line through $(-1,1)$ cuts the disc in a **chord**,
+and sweeping $\theta$ sweeps the whole disc. Hence **all** points of $x^{2}+y^{2}\le4$ qualify.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.0,4.0)); plt.plot(2*np.cos(th),2*np.sin(th),color='#2b6cb0',lw=2)
+P=np.array([-1,1])
+for a in np.linspace(0,np.pi,9):
+    d=np.array([np.cos(a),np.sin(a)])
+    # line through P in direction d meets circle r=2 where |P+t d|²=4
+    ts=np.roots([1,2*P@d,P@P-4])
+    pts=[P+t*d for t in ts if np.isreal(t)]
+    if len(pts)==2: plt.plot([pts[0][0],pts[1][0]],[pts[0][1],pts[1][1]],color='crimson',lw=0.7,alpha=0.7)
+plt.plot(*P,'o',color='black',ms=5); plt.annotate('(−1,1)',P,textcoords='offset points',xytext=(4,4),fontsize=8)
+plt.gca().set_aspect('equal'); plt.axis('off'); plt.title('chords through (−1,1) sweep the disc',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — parametric & locus
+
+- **Eliminate the parameter:** solve-and-substitute, or combine with an identity —
+  $\cos^2+\sin^2=1$ (circle/ellipse), $\sec^2-\tan^2=1$ (hyperbola), a double angle (parabola). **Check the
+  range** the parameter forces; you may get only an arc.
+- **Equidistant from two points** → perpendicular bisector (a **line**; squares cancel).
+- **$PA=k\,PB$, $k\ne1$** → an **Apollonius circle** (squares survive).
+- **A relation true "for some $\theta$"** often factors into a **family of lines through a fixed point** —
+  find the point by making both sides vanish.
+- **A fixed point inside a circle** ⇒ every line through it is a **chord**.
+:::
+
+:::

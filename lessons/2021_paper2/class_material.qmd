@@ -1,0 +1,660 @@
+---
+title: "2021 Paper 2 — Worked Solutions"
+subtitle: "All 20 questions · topic-mapped to the toolkit"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+A TMUA Paper 2 is two halves in one paper: **Section 1** is applications (the same mathematics as Paper 1)
+and **Section 2** is mathematical reasoning (the Arg / Prf / Err codes — toolkit S1–S7). Work each question
+first, then open its **Solution**. Nine of the twenty (Q3, 4, 5, 6, 8, 9, 10, 11, 12) are pure Section-2
+reasoning — that is where the toolkit is used directly.
+
+## Topic map
+
+| Q | What it tests | Toolkit / topic |
+|---|---|---|
+| 1 | Definite integration | *Application* — calculus |
+| 2 | Line through the other diagonal of a square | *Application* — coordinate geometry |
+| **3** | Which condition is **necessary** for a probability | **Arg2 — necessary & sufficient (S3)** |
+| **4** | Counterexample to a divisibility claim | **Prf1 — counterexample (S5)** |
+| **5** | First error in a $\sin/\cos$ argument | **Err1 — spot the error (S7)** |
+| **6** | Is $P$ necessary / sufficient for $Q$? | **Arg2 — necessary & sufficient (S3)** |
+| 7 | Line bisecting a circle and a square | *Application* — circles / geometry |
+| **8** | Necessary / sufficient for a turning point | **Arg2 — necessary & sufficient (S3)** |
+| **9** | Which conditions are **sufficient** for a real root | **Arg2 — sufficient (S3)** |
+| **10** | Smallest counterexample in a sequence | **Prf1 — counterexample (S5)** |
+| **11** | An attempt that proves the **converse** | **Arg1 — converse (S2) + Err (S7)** |
+| **12** | Which implications about $f,g$ are true | **Arg1 — implications (S1/S2)** |
+| 13 | Statements true for every point of a region | *Application* — regions (graph) |
+| 14 | Range of $p$ for a real solution | *Application* — logs / exponentials |
+| 15 | Circle tangent to the $y$-axis | *Application* — circles |
+| 16 | Number of solutions of $x\lvert x\rvert=px+q$ | *Application* — modulus graphs |
+| 17 | Ordering two logarithmic functions | *Application* — functions / logs |
+| 18 | How many triangles fit the data | *Application* — trig (ambiguous case) |
+| 19 | Counting $\theta$ over $1^\circ\!\dots\!360^\circ$ | *Application* — trig counting |
+| 20 | An iterated function, then integrate | *Application* — functions / calculus |
+
+---
+
+## Question 1
+
+Find the value of $\displaystyle\int_{1}^{4}\left(3\sqrt{x}+\frac{4}{x^{2}}\right)\mathrm{d}x$.
+
+&nbsp;&nbsp;**A** $-0.75$ &nbsp; **B** $7.125$ &nbsp; **C** $11$ &nbsp; **D** $17$ &nbsp; **E** $18$ &nbsp;
+**F** $21.875$ &nbsp; **G** $34.5$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**D.** Integrate term by term: $\int 3x^{1/2}=2x^{3/2}$ and $\int 4x^{-2}=-4x^{-1}$, so the antiderivative
+is $2x^{3/2}-\dfrac4x$. Evaluate:
+$$\left[2x^{3/2}-\tfrac4x\right]_1^4=\left(2\cdot8-1\right)-\left(2-4\right)=15-(-2)=17.$$
+*The only slip is dropping the sign on the lower limit — $2\cdot1^{3/2}-4/1=-2$, and subtracting a negative
+adds.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+$A(0,2)$ and $C(4,0)$ are opposite vertices of the square $ABCD$. What is the equation of the straight line
+through $B$ and $D$?
+
+&nbsp;&nbsp;**A** $y=-2x+5$ &nbsp; **B** $y=-\tfrac12x-3$ &nbsp; **C** $y=-\tfrac12x+2$ &nbsp;
+**D** $y=x$ &nbsp; **E** $y=2x-3$ &nbsp; **F** $y=2x+2$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**E.** $BD$ is the **other diagonal**. In a square the diagonals bisect each other at right angles, so $BD$
+passes through the midpoint of $AC$, which is $(2,1)$, and is perpendicular to $AC$. The slope of $AC$ is
+$\dfrac{0-2}{4-0}=-\tfrac12$, so the slope of $BD$ is $2$. Hence $y-1=2(x-2)$, i.e. $y=2x-3$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,2]); C=np.array([4,0]); M=(A+C)/2
+# B,D = centre ± half-diagonal along direction (1,2)/sqrt5
+half=np.linalg.norm(C-A)/2
+u=np.array([1,2])/np.sqrt(5)
+B=M+half*u; D=M-half*u
+fig,ax=plt.subplots(figsize=(4.6,4.6))
+sq=np.array([A,B,C,D,A])
+ax.plot(sq[:,0],sq[:,1],'-o',color='#2b6cb0')
+for P,name in [(A,'A'),(B,'B'),(C,'C'),(D,'D')]:
+    ax.annotate(name,P,textcoords='offset points',xytext=(6,6),fontsize=11)
+xs=np.linspace(-1,5,10); ax.plot(xs,2*xs-3,'--',color='crimson',label='y=2x-3 (BD)')
+ax.plot([A[0],C[0]],[A[1],C[1]],':',color='0.5',label='AC')
+ax.plot(*M,'ks'); ax.annotate('(2,1)',M,textcoords='offset points',xytext=(6,-12),fontsize=10)
+ax.set_aspect('equal'); ax.grid(alpha=0.25); ax.legend(fontsize=9); ax.set_title('Square ABCD and diagonal BD')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+A student is chosen at random from a class; each is equally likely. Which of the following is/are
+**necessary** for the probability that the student wears glasses to equal $\dfrac{4}{15}$?
+
+&nbsp;&nbsp;**I** Exactly $11$ students do not wear glasses. &nbsp;&nbsp; **II** The number of students is
+divisible by $3$. &nbsp;&nbsp; **III** The class contains $30$ students, and $8$ wear glasses.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Arg2 · necessary — S3)*]{style="color:#7a5195"}
+**C.** If $g$ wear glasses out of $n$, then $\dfrac gn=\dfrac{4}{15}$ forces $15g=4n$, so $n$ is a multiple
+of $15$ (and $g$ a multiple of $4$): $(g,n)=(4,15),(8,30),(12,45),\dots$
+
+- **II is necessary:** every such $n$ is a multiple of $15$, hence divisible by $3$ — always true.
+- **I is not necessary:** non-glasses $=n-g=\tfrac{11n}{15}$, which is $11$ only when $n=15$ (for $n=30$ it
+  is $22$).
+- **III is not necessary:** that is just one particular case.
+
+*"Necessary" means it must hold in **every** case that gives $\tfrac{4}{15}$ — only II passes that test.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+Claim: *if $a$ is a factor of $bc$, then $a$ is a factor of $b$ or $a$ is a factor of $c$* (for positive
+integers). Which provide a counterexample? &nbsp;&nbsp;**I** $a=5,b=10,c=20$ &nbsp;&nbsp; **II**
+$a=8,b=4,c=4$ &nbsp;&nbsp; **III** $a=6,b=7,c=12$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Prf1 · counterexample — S5)*]{style="color:#7a5195"}
+**C.** A counterexample needs $a$ to divide $bc$ **but** to divide neither $b$ nor $c$.
+
+- **II:** $bc=16$, and $8$ divides $16$; but $8$ divides neither $4$ nor $4$. **Counterexample.**
+- **I:** $5$ divides $b=10$ already, so the claim's conclusion holds; not a counterexample.
+- **III:** $6$ divides $c=12$ already; not a counterexample.
+
+So only **II**. *One good counterexample settles a "for all" claim — but you must also confirm the others
+really are not counterexamples.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+On which line is the **first** error?
+
+&nbsp;&nbsp;**A** $\sin^{2}x+\cos^{2}x=1$ for all $x$.
+&nbsp;&nbsp;**B** Therefore $\cos x=\sqrt{1-\sin^{2}x}$ for all $x$.
+&nbsp;&nbsp;**C** Hence $1+\cos x=1+\sqrt{1-\sin^{2}x}$ for all $x$.
+&nbsp;&nbsp;**D** Thus $(1+\cos x)^{2}=\left(1+\sqrt{1-\sin^{2}x}\right)^{2}$ for all $x$.
+&nbsp;&nbsp;**E** Substituting $x=\pi$ gives $0=4$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Err1 · spot the error — S7)*]{style="color:#7a5195"}
+**B.** $\sqrt{\;}$ is never negative, so $\cos x=\sqrt{1-\sin^{2}x}$ only holds where $\cos x\geq0$. At
+$x=\pi$, $\cos\pi=-1$ but $\sqrt{1-\sin^{2}\pi}=+1$. The correct statement is $\lvert\cos
+x\rvert=\sqrt{1-\sin^{2}x}$. *The absurd "$0=4$" in line E is the consequence, not the error — the sign was
+lost back at B.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+$P$: $\mathrm{f}(x)=0$ for exactly three real $x$. &nbsp; $Q$: $\mathrm{f}'(x)=0$ for exactly two real
+$x$. Which is correct?
+
+&nbsp;&nbsp;**A** $P$ necessary, not sufficient &nbsp; **B** $P$ sufficient, not necessary &nbsp;
+**C** $P$ necessary and sufficient &nbsp; **D** $P$ neither necessary nor sufficient
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Arg2 · necessary & sufficient — S3)*]{style="color:#7a5195"}
+**D.** Neither implication holds.
+
+- *Not sufficient:* $P$ does not force $Q$ — a degree-5 polynomial can have three roots yet four turning
+  points.
+- *Not necessary:* $Q$ can hold without $P$ — a cubic with a repeated root has two turning points but only
+  two distinct roots.
+
+*So $P$ is neither necessary nor sufficient for $Q$; the skill is producing one counterexample in each
+direction.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+A circle has equation $(x-9)^{2}+(y+2)^{2}=4$. A square has vertices $(1,0),(1,2),(-1,2),(-1,0)$. A
+straight line bisects both areas. What is the $x$-coordinate where this line meets the $x$-axis?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $4.5$ &nbsp; **E** $5$ &nbsp; **F** $6$
+&nbsp; **G** not unique &nbsp; **H** no such line
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**B.** A line bisects a circle's area only if it passes through the **centre**; likewise it bisects a
+square's area only through the square's **centre**. So the line must pass through both centres:
+$(9,-2)$ and $(0,1)$. Its slope is $\dfrac{-2-1}{9-0}=-\tfrac13$, so $y=1-\tfrac13x$. Setting $y=0$ gives
+$x=3$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(6.0,3.2))
+th=np.linspace(0,2*np.pi,200)
+ax.plot(9+2*np.cos(th),-2+2*np.sin(th),color='#2b6cb0')
+sq=np.array([[1,0],[1,2],[-1,2],[-1,0],[1,0]]); ax.plot(sq[:,0],sq[:,1],color='#2b6cb0')
+ax.plot(0,1,'ks'); ax.plot(9,-2,'ks')
+ax.annotate('(0,1)',(0,1),textcoords='offset points',xytext=(5,5))
+ax.annotate('(9,-2)',(9,-2),textcoords='offset points',xytext=(5,5))
+xs=np.linspace(-2,11,20); ax.plot(xs,1-xs/3,'--',color='crimson')
+ax.plot(3,0,'o',color='crimson'); ax.annotate('x=3',(3,0),textcoords='offset points',xytext=(4,6),color='crimson')
+ax.axhline(0,color='0.6',lw=0.7); ax.set_aspect('equal'); ax.grid(alpha=0.25)
+ax.set_title('A line bisects both areas ⟺ it joins the two centres')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+$(*)$: there is a $c$ with $a<c<b$ such that $\mathrm{p}'(c)=0$. Which is true?
+
+&nbsp;&nbsp;**A** $\mathrm p(a)=\mathrm p(b)$ is necessary and sufficient for $(*)$ &nbsp; **B** necessary,
+not sufficient &nbsp; **C** sufficient, not necessary &nbsp; **D** not necessary and not sufficient
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Arg2 · necessary & sufficient — S3)*]{style="color:#7a5195"}
+**C.** If $\mathrm p(a)=\mathrm p(b)$ then Rolle's theorem gives a stationary point strictly between — so the
+condition is **sufficient**. But a stationary point can sit in $(a,b)$ without the end-values being equal
+(e.g. any $\mathrm p$ with a turning point there and $\mathrm p(a)\neq\mathrm p(b)$) — so it is **not
+necessary**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+Which of I, II, III is/are **sufficient** for $\mathrm f(x)=0$ to have a real solution? &nbsp;&nbsp;**I**
+$\mathrm f(x)=px^{3}+qx^{2}+rx+s$ with $p\neq0$. &nbsp;&nbsp; **II** $\mathrm f'(t)=0$ for some real $t$.
+&nbsp;&nbsp; **III** $\mathrm f(u)\,\mathrm f(v)<0$ for some real $u,v$. &nbsp; (Answer is a Yes/No triple —
+row **A**–**H**.)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Arg2 · sufficient — S3)*]{style="color:#7a5195"}
+**C** (I yes, II no, III yes).
+
+- **I sufficient:** a cubic has odd degree, so it always crosses zero — a real root exists.
+- **II not sufficient:** a turning point does not force a root ($\mathrm f(x)=x^{2}+1$ has
+  $\mathrm f'(0)=0$ but no real root).
+- **III sufficient:** if $\mathrm f$ changes sign it must cross zero (intermediate-value idea).
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+The sequence starts $u_1=15,u_2=21,u_3=30,u_4=37,u_5=44,u_6=51,u_7=59$. Statement $(*)$: *if $n$ is prime,
+then $u_n$ is a multiple of $3$ or a multiple of $5$.* Smallest $n$ giving a counterexample?
+
+&nbsp;&nbsp;**A** 1 &nbsp; **B** 2 &nbsp; **C** 3 &nbsp; **D** 4 &nbsp; **E** 5 &nbsp; **F** 6 &nbsp; **G** 7
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Prf1 · counterexample — S5)*]{style="color:#7a5195"}
+**E.** Only prime $n$ can break $(*)$. $n=2$: $u_2=21=3\times7$ ✓. $n=3$: $u_3=30$ ✓. $n=5$: $u_5=44=4\times
+11$ — not a multiple of $3$ and not of $5$, so $(*)$ **fails**. The smallest counterexample is $n=5$.
+*($n=1$ is not prime, so the implication is vacuously true there — not a counterexample.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+Asked to show *if $a^{2}-4b^{3}\geq0$ then real $x,y$ exist with $a=xy(x+y),\,b=xy$*, a student writes:
+$(\mathrm{I})\ (x-y)^{2}\geq0$; $(\mathrm{II})\ x^{2}+y^{2}-2xy\geq0$; $(\mathrm{III})\ (x+y)^{2}-4xy\geq0$;
+$(\mathrm{IV})\ x^{2}y^{2}(x+y)^{2}-4x^{3}y^{3}\geq0$; $(\mathrm{V})\ a^{2}-4b^{3}\geq0$. Which best
+describes the attempt?
+
+&nbsp;&nbsp;**A** completely correct &nbsp; **B** incorrect, but correct if reversed &nbsp; **C** incorrect,
+but proves the converse &nbsp; **D** error in (II) &nbsp; **E** error in (III) &nbsp; **F** error in (IV)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Arg1 converse — S2 · + Err — S7)*]{style="color:#7a5195"}
+**C.** Every line is true, but the argument runs the **wrong way**: starting from $(x-y)^2\geq0$ and ending
+at $a^2-4b^3\geq0$ proves "*if such $x,y$ exist, then $a^2-4b^3\geq0$" — the **converse** of what was asked.
+So the attempt is incorrect, but it has correctly proved the converse. *A true converse is a different
+statement (S2); presenting it as the answer is the direction error of S7.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+Which statements about polynomials $f,g$ is/are true? &nbsp;&nbsp;**I** If $f\geq g$ on $x\geq0$ then
+$\int_0^x f\geq\int_0^x g$ on $x\geq0$. &nbsp;&nbsp; **II** If $f\geq g$ on $x\geq0$ then $f'\geq g'$ on
+$x\geq0$. &nbsp;&nbsp; **III** If $f'\geq g'$ on $x\geq0$ then $f\geq g$ on $x\geq0$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Arg1 · implications — S1/S2)*]{style="color:#7a5195"}
+**B** (I only). Integrating preserves $\geq$, so **I** is true. **II** is false — a larger function can have
+a smaller slope (e.g. $f=2,\,g=x$ near $0$). **III** is false — equal slopes allow different constants
+(e.g. $f=x,\,g=x+1$ have $f'=g'$ but $f<g$).
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+Region $R$: $\;y-x<3\;$ and $\;y-x^{2}<1$. Which is/are true for **every** point of $R$? &nbsp;&nbsp;**I**
+$-1<x<2$ &nbsp;&nbsp; **II** $(y-x)(y-x^{2})<3$ &nbsp;&nbsp; **III** $y<5$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**A** (none). $R$ is the set below **both** $y=x+3$ and $y=x^{2}+1$ (they meet at $x=-1$ and $x=2$), and it
+extends downward without bound.
+
+- **I false:** any $x$ is allowed — just take $y$ small enough.
+- **II false:** both factors can be large **negative** (take $y$ very negative), making the product large
+  positive, well above $3$.
+- **III false:** for large $x$ a point can have large $y$ (e.g. $x=10,\,y=12$ satisfies both).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,4,400)
+fig,ax=plt.subplots(figsize=(5.2,4.2))
+ax.plot(x,x+3,color='#2b6cb0',label='y = x+3')
+ax.plot(x,x**2+1,color='#dd6b20',label='y = x²+1')
+# shade region below both, on a grid
+X,Y=np.meshgrid(np.linspace(-3,4,400),np.linspace(-6,10,400))
+R=(Y-X<3)&(Y-X**2<1)
+ax.contourf(X,Y,R,levels=[0.5,1],colors=['#c6f6d5'],alpha=0.7)
+ax.set_ylim(-6,10); ax.grid(alpha=0.25); ax.legend(fontsize=9)
+ax.set_title('Region R lies below both curves (unbounded below)')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+Simultaneous equations, $p$ real: $\;p\,2^{x}+\log_2 y=2\;$ and $\;2^{x}+\log_2 y=1$. Complete range of $p$
+for a real solution $(x,y)$?
+
+&nbsp;&nbsp;**A** $p<1$ &nbsp; **B** $p\neq1$ &nbsp; **C** $p>1$ &nbsp; **D** $p<1$ or $p>2$ &nbsp;
+**E** $p\neq1$ and $p<2$ &nbsp; **F** $p>1$ and $p<2$ &nbsp; **G** $p>2$ &nbsp; **H** all real $p$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**C.** Put $a=2^{x}\;(>0)$ and $b=\log_2 y$ (any real). The system is $pa+b=2,\;a+b=1$. Subtracting:
+$(p-1)a=1$, so $a=\dfrac{1}{p-1}$. A real solution needs $a>0$ (since $2^{x}>0$), which forces $p-1>0$,
+i.e. $p>1$. Then $b=1-a$ gives a valid $y=2^{b}>0$. *(If $p=1$ the equations are inconsistent; if $p<1$
+then $a<0$, impossible.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 15
+
+A circle $x^{2}+ax+y^{2}+by+c=0$ ($a,b,c\neq0$). Necessary and sufficient condition to be tangent to the
+$y$-axis?
+
+&nbsp;&nbsp;**A** $a^{2}=4c$ &nbsp; **B** $b^{2}=4c$ &nbsp; **C** $\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$
+&nbsp; **D** $\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$ &nbsp; **E**
+$-\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$ &nbsp; **F** $-\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**B.** Completing the square, the centre is $\left(-\tfrac a2,-\tfrac b2\right)$ and the radius satisfies
+$r^{2}=\tfrac{a^{2}+b^{2}}{4}-c$. Tangency to $x=0$ means the distance from the centre to the $y$-axis
+equals the radius: $\left(\tfrac a2\right)^{2}=r^{2}$. So
+$$\frac{a^{2}}{4}=\frac{a^{2}+b^{2}}{4}-c\ \Longrightarrow\ 0=\frac{b^{2}}{4}-c\ \Longrightarrow\
+b^{2}=4c.$$
+*The distance uses the $x$-coordinate of the centre, so the $b$-terms are what survive — squaring removes
+the sign trap in C/E.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+$p,q$ real; $\;x\lvert x\rvert=px+q\;$ has exactly $k$ distinct real solutions. Complete list of possible
+$k$?
+
+&nbsp;&nbsp;**A** $0,1,2$ &nbsp; **B** $0,1,2,3$ &nbsp; **C** $0,1,2,3,4$ &nbsp; **D** $0,2,4$ &nbsp;
+**E** $1,2,3$ &nbsp; **F** $1,2,3,4$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**E.** The curve $y=x\lvert x\rvert$ is $x^{2}$ for $x\geq0$ and $-x^{2}$ for $x<0$: strictly increasing,
+with an inflection at the origin (flat near $0$, steep far out) — the same shape family as $y=x^{3}$. A
+straight line meets such a curve in **1, 2, or 3** points. Since $x\lvert x\rvert$ outgrows any line at both
+ends, there is always at least one crossing, so $k\geq1$; and the two turning points of
+$x\lvert x\rvert-px-q$ (present only when $p>0$) allow up to three. Hence $k\in\{1,2,3\}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,400); y=x*np.abs(x)
+fig,ax=plt.subplots(figsize=(5.2,4.2))
+ax.plot(x,y,color='black',lw=2,label='y = x|x|')
+ax.plot(x,0*x+2,'--',color='#2b6cb0',label='1 solution (y=2)')
+ax.plot(x,2*x-1,'--',color='#dd6b20',label='2 solutions (y=2x-1)')
+ax.plot(x,3*x,'--',color='crimson',label='3 solutions (y=3x)')
+ax.set_ylim(-9,9); ax.axhline(0,color='0.6',lw=0.7); ax.axvline(0,color='0.6',lw=0.7)
+ax.grid(alpha=0.25); ax.legend(fontsize=8); ax.set_title('A line meets y=x|x| in 1, 2 or 3 points')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+For $x>1$: $\;\mathrm f(x)=\log_2\!\big(\log_2\sqrt{x}\big)$ and $\;\mathrm g(x)=\log_2\!\big(\sqrt{\log_2
+x}\big)$. Which holds for **all** $x>1$?
+
+&nbsp;&nbsp;**A** $0\leq f\leq g$ or $g\leq f\leq0$ &nbsp; **B** $0\leq g\leq f$ or $f\leq g\leq0$ &nbsp;
+**C** $\tfrac12\leq f\leq g$ or $g\leq f\leq\tfrac12$ &nbsp; **D** $\tfrac12\leq g\leq f$ or $f\leq
+g\leq\tfrac12$ &nbsp; **E** $1\leq f\leq g$ or $g\leq f\leq1$ &nbsp; **F** $1\leq g\leq f$ or $f\leq g\leq1$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**F.** Let $t=\log_2 x\;(>0)$ and $L=\log_2 t$. Then
+$$\mathrm f=\log_2\!\big(\tfrac12\log_2 x\big)=\log_2\tfrac t2=L-1,\qquad
+\mathrm g=\log_2\!\big(t^{1/2}\big)=\tfrac12\log_2 t=\tfrac L2.$$
+So $\mathrm f-\mathrm g=\tfrac L2-1$, which is $0$ at $L=2$ (i.e. $t=4$, $x=16$). For $x>16$: $L>2$, so
+$\mathrm g=\tfrac L2>1$ and $\mathrm f>\mathrm g$, giving $1\leq g\leq f$. For $1<x<16$: $\mathrm g<1$ and
+$\mathrm f<\mathrm g$, giving $f\leq g\leq1$. Either way option **F** holds.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1.6,120,600)
+f=np.log2(np.log2(np.sqrt(x))); g=np.log2(np.sqrt(np.log2(x)))
+fig,ax=plt.subplots(figsize=(5.4,3.6))
+ax.plot(x,f,color='#2b6cb0',label='f(x)'); ax.plot(x,g,color='#dd6b20',label='g(x)')
+ax.axhline(1,color='0.6',lw=0.8,ls=':'); ax.axvline(16,color='crimson',lw=0.9,ls='--')
+ax.annotate('cross at x=16, value 1',(16,1),textcoords='offset points',xytext=(8,-16),color='crimson',fontsize=9)
+ax.set_xscale('log'); ax.grid(alpha=0.25); ax.legend(fontsize=9); ax.set_title('f and g swap order at x=16, bound 1')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+A student picks $0<x<y<1$ and tries to draw triangle $ABC$ with $AB=1$, $\sin A=x$, $\sin B=y$. Which is/are
+correct? &nbsp;&nbsp;**I** some $x,y$ give exactly **one** triangle &nbsp;&nbsp; **II** some give exactly
+**two** &nbsp;&nbsp; **III** some give exactly **three** (congruent triangles counted as the same).
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I,II &nbsp; **F** I,III
+&nbsp; **G** II,III &nbsp; **H** I,II,III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**C** (II only). Each of $A,B$ could be acute or obtuse. Writing $\alpha=\arcsin x,\ \beta=\arcsin y$
+(both acute, $\alpha<\beta$ since $x<y$):
+
+| $A$ | $B$ | $A+B$ | valid? |
+|---|---|---|---|
+| $\alpha$ | $\beta$ | $<180^\circ$ | ✓ |
+| $\alpha$ | $180^\circ-\beta$ | $180^\circ+(\alpha-\beta)<180^\circ$ | ✓ |
+| $180^\circ-\alpha$ | $\beta$ | $180^\circ+(\beta-\alpha)>180^\circ$ | ✗ |
+| $180^\circ-\alpha$ | $180^\circ-\beta$ | $>180^\circ$ | ✗ |
+
+Because $x<y$ strictly, the first two rows are always valid and distinct, and the last two always fail. So
+there are **always exactly two** triangles — never one, never three. Hence only **II**. *(This is the
+ambiguous-case idea from the trig clinic: $\sin$ leaves two possible angles, but the angle-sum rules one
+combination out.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+$\theta\in\{1^\circ,2^\circ,\dots,360^\circ\}$. For how many is
+$\sin\theta\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}+\cos\theta\sqrt{1+\cos\theta}\,\sqrt{1-\cos\theta}=0$?
+
+&nbsp;&nbsp;**A** 0 &nbsp; **B** 1 &nbsp; **C** 2 &nbsp; **D** 4 &nbsp; **E** 93 &nbsp; **F** 182 &nbsp;
+**G** 271 &nbsp; **H** 360
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**F.** Since $\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}=\sqrt{1-\sin^{2}\theta}=\lvert\cos\theta\rvert$ and
+similarly $\sqrt{1+\cos\theta}\,\sqrt{1-\cos\theta}=\lvert\sin\theta\rvert$, the expression is
+$$\sin\theta\lvert\cos\theta\rvert+\cos\theta\lvert\sin\theta\rvert.$$
+This is $0$ exactly in **quadrants 2 and 4** (the two terms cancel there) and on the axes; it is
+$+2\sin\theta\cos\theta>0$ in Q1 and $-2\sin\theta\cos\theta<0$ in Q3. Counting integer degrees:
+$91^\circ\!-\!179^\circ$ ($89$ values) $+\;271^\circ\!-\!359^\circ$ ($89$) $+$ axes $90,180,270,360$ ($4$)
+$=182$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,360,1441); r=np.radians(th)
+val=np.sin(r)*np.abs(np.cos(r))+np.cos(r)*np.abs(np.sin(r))
+fig,ax=plt.subplots(figsize=(6.2,3.0))
+ax.plot(th,val,color='#2b6cb0')
+ax.axhline(0,color='crimson',lw=0.9)
+for q0,q1 in [(90,180),(270,360)]:
+    ax.axvspan(q0,q1,color='#c6f6d5',alpha=0.6)
+ax.set_xticks(range(0,361,90)); ax.grid(alpha=0.25)
+ax.set_title('Expression = sinθ|cosθ| + cosθ|sinθ|  (zero on the shaded quadrants + axes)')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+$\mathrm f_1(x)=\lvert x\rvert$ and $\mathrm f_{n+1}(x)=\lvert \mathrm f_n(x)+x\rvert$ for $n\geq1$. Find
+$\displaystyle\int_{-1}^{1}\mathrm f_{99}(x)\,\mathrm dx$.
+
+&nbsp;&nbsp;**A** 0 &nbsp; **B** 0.5 &nbsp; **C** 1 &nbsp; **D** 49.5 &nbsp; **E** 50 &nbsp; **F** 99 &nbsp;
+**G** 99.5 &nbsp; **H** 100
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**E.** Split by sign of $x$.
+
+- **$x\geq0$:** $\mathrm f_1=x$, $\mathrm f_2=\lvert x+x\rvert=2x$, and in general $\mathrm f_n(x)=nx$. So
+  $\mathrm f_{99}=99x$ and $\int_0^1 99x\,\mathrm dx=49.5$.
+- **$x<0$:** $\mathrm f_1=-x$, $\mathrm f_2=\lvert -x+x\rvert=0$, $\mathrm f_3=\lvert 0+x\rvert=-x$, … so it
+  alternates $-x,0,-x,0,\dots$; $\mathrm f_{99}$ (odd index) $=-x$, and $\int_{-1}^{0}(-x)\,\mathrm dx=0.5$.
+
+Total $=49.5+0.5=50$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,1,400)
+def f(n,xv):
+    v=np.abs(xv)
+    for _ in range(n-1): v=np.abs(v+xv)
+    return v
+fig,ax=plt.subplots(figsize=(5.2,3.4))
+for n,c in [(1,'#2b6cb0'),(2,'#dd6b20'),(3,'crimson')]:
+    ax.plot(x,[f(n,xv) for xv in x],color=c,label=f'f{n}(x)')
+ax.grid(alpha=0.25); ax.legend(fontsize=9)
+ax.set_title('Building f_n: for x≥0 it is nx; for x<0 it alternates −x, 0')
+plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+:::

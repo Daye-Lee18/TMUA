@@ -1,0 +1,575 @@
+---
+title: "Trig Clinic · Paper 1 — Class Problems"
+subtitle: "22 problems — the weakest topic on 2018 (P1 Q6·Q18, P2 Q4·Q14). Solve fast."
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Trigonometry was the single biggest gap on 2018 — four wrong across the two papers. This clinic drills the
+three things they tested: **solving & counting** trig equations, **trig graphs** (period, symmetry,
+range), and **triangles** (sine/cosine rule, the ambiguous case). Work in two fast batches; the real 2018
+questions are marked. Question types are drawn from **MAT / AMC / STEP**.
+
+::: {.callout-tip}
+## The habits to recall
+
+- **Counting:** as $x$ runs over the interval, the inside runs over a **stretched** one ($u=2x$ gives
+  *two* periods on $[0,2\pi]$). A **squared** equation $\cos^2=k^2$ splits into $\cos=\pm k$. For a
+  messy equation, **draw two graphs and count crossings**.
+- **Graphs:** $y=a\sin(bx+c)+d$ has amplitude $|a|$, period $\frac{2\pi}{b}$, range $[d-|a|,\,d+|a|]$;
+  **lines of symmetry** run through every peak and trough (argument $=\frac\pi2+k\pi$).
+- **Triangles:** cosine rule for (two sides + included angle) or (three sides); sine rule otherwise —
+  and sine rule can give the **ambiguous case** (0, 1, or 2 triangles).
+:::
+
+---
+
+# Part 1 — Solving & counting equations
+
+## Question 1
+
+::: {.question}
+How many solutions does $\sin x=\tfrac12$ have for $0\le x<360^\circ$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$x=30^\circ,150^\circ$ — **2**. (A positive sine value is hit twice per turn, once in each of the first two
+quadrants.) $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+How many solutions does $\sin 2x=\tfrac12$ have for $0\le x\le 2\pi$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**C (4).** As $x:0\to2\pi$, the angle $2x:0\to4\pi$ — **two** full periods — and $\sin=\frac12$ twice per
+period. $x=\frac{\pi}{12},\frac{5\pi}{12},\frac{13\pi}{12},\frac{17\pi}{12}$. $\;\blacksquare$
+
+*The trap is "2": the doubled angle squeezes two periods into $[0,2\pi]$.*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+::: {.question}
+How many solutions does $\;2\sin^2 x+\sin x-1=0\;$ have for $0\le x<360^\circ$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Factor as a quadratic in $\sin x$: $(2\sin x-1)(\sin x+1)=0$, so $\sin x=\tfrac12$ ($x=30^\circ,150^\circ$)
+or $\sin x=-1$ ($x=270^\circ$). Total **3**. $\;\blacksquare$
+
+*Don't drop $\sin x=-1$; it gives one solution (a single touch at the bottom of the curve).*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+How many solutions does $\cos^2 x=\tfrac14$ have for $0\le x\le 2\pi$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\cos^2x=\frac14\Rightarrow\cos x=\pm\frac12$. Each value gives two solutions: $\cos x=\frac12$
+($\frac\pi3,\frac{5\pi}3$) and $\cos x=-\frac12$ ($\frac{2\pi}3,\frac{4\pi}3$). Total **4**. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+::: {.question}
+How many solutions does $\tan^2 x=3$ have for $0\le x<2\pi$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\tan x=\pm\sqrt3$, giving $x=\frac\pi3,\frac{2\pi}3,\frac{4\pi}3,\frac{5\pi}3$ — **4**. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+::: {.question}
+How many solutions does $\sin x=\cos x$ have for $0\le x\le 2\pi$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Divide by $\cos x$: $\tan x=1$, so $x=\frac\pi4,\frac{5\pi}4$ — **2**. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+::: {.question}
+The non-zero real number $c$ is such that $\cos x=c$ has **two** solutions for $0<x<\frac{3\pi}{2}$. How
+many solutions does $\cos^2 2x=c^2$ have in $0<x<\frac{3\pi}{2}$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $6$ &nbsp; **E** $7$ &nbsp; **F** $8$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(2018 Paper 2 Q4)*]{style="color:#7a5195"}
+**D (6).** "Two solutions" forces $-1<c<0$ (a positive $c$ is met once). Split: $\cos2x=\pm c$, two levels
+in $(-1,1)$. With $u=2x$ running over $(0,3\pi)$ — one and a half periods — each level is met **3** times,
+so $3+3=6$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.question}
+Find the number of solutions of $\;x\sin 2x=\cos 2x\;$ with $0\le x\le 2\pi$.
+
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $3$ &nbsp; **E** $4$
+:::
+
+Don't solve it — **draw both sides and count crossings**.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(2018 Paper 1 Q6)*]{style="color:#7a5195"}
+**E (4).** Plot $y=x\sin2x$ (growing amplitude) and $y=\cos2x$ (oscillating between $\pm1$); they meet 4
+times.
+
+```{python}
+#| fig-cap: "y = x·sin2x and y = cos2x cross 4 times on [0, 2π]."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2*np.pi,2000); y1=x*np.sin(2*x); y2=np.cos(2*x)
+fig,ax=plt.subplots(figsize=(5.6,3.2))
+ax.plot(x,y1,color='#1f77b4',lw=2,label='y = x·sin2x'); ax.plot(x,y2,color='#d62728',lw=2,label='y = cos2x')
+d=y1-y2; s=np.sign(d); idx=np.where(s[:-1]*s[1:]<0)[0]
+for i in idx:
+    xi=x[i]-d[i]*(x[i+1]-x[i])/(d[i+1]-d[i]); ax.plot(xi,np.cos(2*xi),'o',color='#2ca02c')
+ax.axhline(0,color='0.6',lw=0.7); ax.legend(fontsize=8,loc='upper left'); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title('4 crossings',fontsize=11); plt.tight_layout(); plt.show()
+```
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Part 2 — Trig graphs
+
+## Question 9
+
+::: {.question}
+State the amplitude and period of $\;y=3\sin 2x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Amplitude $3$; period $\dfrac{2\pi}{2}=\pi$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+::: {.question}
+State the maximum value of $\;y=2\sin x+1$, and the smallest positive $x$ at which it occurs.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Max of $\sin x$ is $1$, so max is $2(1)+1=3$, at $x=\frac\pi2$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+::: {.question}
+What is the smallest positive value of $a$ for which the line $x=a$ is a line of symmetry of the graph of
+$\;y=\sin\!\Bigl(2x-\dfrac{4\pi}{3}\Bigr)$?
+
+&nbsp;&nbsp;**A** $\dfrac{\pi}{12}$ &nbsp; **B** $\dfrac{5\pi}{12}$ &nbsp; **C** $\dfrac{7\pi}{12}$ &nbsp;
+**D** $\dfrac{11\pi}{12}$ &nbsp; **E** $\dfrac{19\pi}{12}$
+:::
+
+A sine curve is symmetric about every vertical line through a **peak or trough** — where the argument is
+$\frac\pi2+k\pi$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(2018 Paper 1 Q18)*]{style="color:#7a5195"}
+**B.** $2x-\frac{4\pi}{3}=\frac\pi2+k\pi\Rightarrow x=\frac{11\pi}{12}+\frac{k\pi}{2}$. Taking $k=-1$
+gives the smallest positive value $x=\frac{5\pi}{12}$.
+
+```{python}
+#| fig-cap: "y = sin(2x − 4π/3): the line x = 5π/12 passes through a trough — a line of symmetry."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2*np.pi,1400)
+fig,ax=plt.subplots(figsize=(5.6,3.0))
+ax.plot(x,np.sin(2*x-4*np.pi/3),color='#1f77b4',lw=2)
+ax.axvline(5*np.pi/12,color='#d62728',ls='--',lw=1.3); ax.plot(5*np.pi/12,-1,'o',color='#2ca02c')
+ax.annotate('x = 5π/12',(5*np.pi/12,-1),(5*np.pi/12+0.3,-0.5),color='#d62728',fontsize=9)
+ax.axhline(0,color='0.6',lw=0.6); ax.set_ylim(-1.4,1.3); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title('symmetry through a trough',fontsize=11); plt.tight_layout(); plt.show()
+```
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+::: {.question}
+The graph of $y=\sin\!\left(x-\dfrac{\pi}{3}\right)$ is drawn for $0\le x\le 2\pi$. What is the smallest
+positive value of $x$ at which it crosses the $x$-axis?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Zeros where the argument is a multiple of $\pi$: $x-\frac\pi3=0\Rightarrow x=\frac\pi3$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+::: {.question}
+State the range of $\;y=5-3\cos x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\cos x\in[-1,1]$, so $-3\cos x\in[-3,3]$ and $y\in[5-3,\,5+3]=[2,8]$. $\;\blacksquare$
+
+*The $-3$ flips the extremes: $y$ is largest when $\cos x=-1$.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+::: {.question}
+How many vertical asymptotes does $y=\tan x$ have for $0<x<2\pi$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\tan x$ blows up where $\cos x=0$: $x=\frac\pi2,\frac{3\pi}2$ — **2** asymptotes. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# Part 3 — Triangles
+
+## Question 15
+
+::: {.question}
+In triangle $ABC$, $AB=5$, $AC=7$ and angle $BAC=60^\circ$. Find the exact length of $BC$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Cosine rule (angle between the two known sides):
+$BC^2=5^2+7^2-2(5)(7)\cos60^\circ=74-35=39$, so $BC=\sqrt{39}$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+::: {.question}
+A triangle has sides $3$, $5$ and $7$. Find its largest angle.
+:::
+
+The largest angle is **opposite the longest side** ($7$).
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\cos\theta=\dfrac{3^2+5^2-7^2}{2(3)(5)}=\dfrac{9+25-49}{30}=\dfrac{-15}{30}=-\tfrac12$, so
+$\theta=120^\circ$. $\;\blacksquare$
+
+*A negative cosine flags an obtuse angle — a quick sanity check.*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+::: {.question}
+A triangle has two sides of length $6$ and $8$ with an included angle of $30^\circ$. Find its area.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Area $=\tfrac12 ab\sin C=\tfrac12(6)(8)\sin30^\circ=\tfrac12(48)(\tfrac12)=12$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+::: {.question}
+In triangle $ABC$, angle $A=30^\circ$, $a=5$ and $b=8$. Find $\sin B$, and state how many triangles are
+possible.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the ambiguous case)*]{style="color:#7a5195"}
+Sine rule: $\dfrac{\sin B}{b}=\dfrac{\sin A}{a}\Rightarrow \sin B=\dfrac{8\sin30^\circ}{5}=\dfrac{4}{5}$.
+
+Since $\sin B=0.8<1$, there are **two** possible angles $B\approx53^\circ$ or $127^\circ$, and both give a
+valid triangle ($A+B<180^\circ$ in each case). So **two triangles** — the ambiguous case.
+
+```{python}
+#| fig-cap: "SSA: with a fixed angle A and sides a,b, the side a can swing to two positions B₁, B₂ — two triangles."
+import numpy as np, matplotlib.pyplot as plt
+A=np.deg2rad(30); b=8; a=5
+fig,ax=plt.subplots(figsize=(5.2,3.0))
+# vertex A at origin, one side along a ray at angle A; C at distance b along the ray
+C=np.array([b*np.cos(A),b*np.sin(A)])
+ax.plot([0,4*np.cos(A)*3],[0,4*np.sin(A)*3],color='0.6',lw=1)  # ray
+ax.plot([0,9],[0,0],color='0.3',lw=1.5)  # base line (where B lies)
+# circle centre C radius a meets base at two points
+xc,yc=C; disc=a**2-yc**2
+x1=xc-np.sqrt(disc); x2=xc+np.sqrt(disc)
+for xB,lab,col in [(x1,'B₁','#d62728'),(x2,'B₂','#2ca02c')]:
+    ax.plot([xc,xB],[yc,0],'--',color=col,lw=1.6); ax.plot(xB,0,'o',color=col); ax.annotate(lab,(xB,0),(xB-0.1,-0.5),color=col,fontsize=10)
+ax.plot(0,0,'ko'); ax.annotate('A',(0,0),(-0.4,-0.5),fontsize=10)
+ax.plot(*C,'ko'); ax.annotate('C',C,(xc-0.1,yc+0.2),fontsize=10)
+ax.annotate('b=8',(xc/2,yc/2),(xc/2-0.6,yc/2+0.3),fontsize=9)
+ax.set_xlim(-1,9.5); ax.set_ylim(-1.3,5); ax.axis('off'); ax.set_aspect('equal')
+ax.set_title('two triangles (SSA ambiguous)',fontsize=10); plt.tight_layout(); plt.show()
+```
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+::: {.question}
+A triangle $ABC$ has $AB=\sqrt7\,a$, $BC=2a$ and angle $BAC=\theta$. Two triangles can be drawn, and the
+areas of the larger and smaller are in the ratio $3:1$. Find $\cos\theta$.
+
+&nbsp;&nbsp;**A** $\dfrac{2}{\sqrt7}$ &nbsp; **B** $\dfrac{\sqrt3}{\sqrt7}$ &nbsp; **C** $\dfrac{4}{\sqrt7}$
+&nbsp; **D** $\dfrac37$ &nbsp; **E** $\dfrac47$
+:::
+
+Let $AC=x$ (the ambiguous side). Cosine rule at $A$ gives a **quadratic in $x$** with two roots — the two
+triangles; the area ratio fixes their ratio.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(ambiguous case → cosθ; the type you missed)*]{style="color:#7a5195"}
+**A.** Cosine rule at $A$: $(2a)^2=(\sqrt7a)^2+x^2-2(\sqrt7a)x\cos\theta$, i.e.
+$$x^2-2\sqrt7a\cos\theta\,x+3a^2=0.$$
+The two roots $x_1,x_2$ are the two triangles; areas $\tfrac12(\sqrt7a)x\sin\theta$ are in ratio
+$x_1:x_2=3:1$. So $x_1=3x_2$, and product $x_1x_2=3a^2\Rightarrow 3x_2^2=3a^2\Rightarrow x_2=a,\ x_1=3a$.
+Sum: $x_1+x_2=4a=2\sqrt7a\cos\theta\Rightarrow\cos\theta=\dfrac{4a}{2\sqrt7a}=\dfrac{2}{\sqrt7}$.
+$\;\blacksquare$
+
+*Two triangles ⟺ the quadratic has two positive roots; sum and product of roots do the work — no need to
+solve for $x$ explicitly.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Part 4 — Push to 9 (harder)
+
+## Question 20
+
+::: {.question}
+The equation $\;\cos^2\!\bigl(4^{\sin\theta}\times30^\circ\bigr)=\tfrac14\;$ has exactly **two** solutions
+in the range $0^\circ\le\theta\le x^\circ$. Find the range of possible values of $x$.
+
+&nbsp;&nbsp;**A** $30\le x<150$ &nbsp; **B** $60\le x<180$ &nbsp; **C** $60\le x<390$ &nbsp;
+**D** $90\le x<150$ &nbsp; **E** $90\le x<390$
+:::
+
+Peel it: solve $\cos^2=\tfrac14$ first, then work **inward** to $\theta$; finally slide the endpoint $x$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(layered counting — MAT/STEP level)*]{style="color:#7a5195"}
+**D.** $\cos^2(\alpha)=\frac14\Rightarrow\alpha=60^\circ$ or $120^\circ$ (in range). On $[0,180^\circ]$,
+$\sin\theta\in[0,1]$ so $\alpha=30\cdot4^{\sin\theta}\in[30,120]$.
+$\alpha=60\Rightarrow4^{\sin\theta}=2\Rightarrow\sin\theta=\tfrac12\Rightarrow\theta=30,150$;
+$\alpha=120\Rightarrow\sin\theta=1\Rightarrow\theta=90$. So solutions arrive at $\theta=30,90,150$ — the
+window $[0,x]$ holds exactly two when $90\le x<150$.
+
+```{python}
+#| fig-cap: "y = cos²(30·4^{sinθ}) meets y = ¼ at θ = 30, 90, 150; two solutions when 90 ≤ x < 150."
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,180,800); a=30*4.0**np.sin(np.deg2rad(th)); y=np.cos(np.deg2rad(a))**2
+fig,ax=plt.subplots(figsize=(5.6,3.0))
+ax.plot(th,y,color='#1f77b4',lw=2); ax.axhline(0.25,color='#d62728',ls='--',lw=1.2,label='y=1/4')
+for t in (30,90,150): ax.plot(t,0.25,'o',color='#2ca02c')
+ax.axvspan(90,150,color='#2ca02c',alpha=0.12)
+ax.set_xticks([0,30,60,90,120,150,180]); ax.set_xlabel('θ'); ax.set_ylabel('y')
+ax.legend(fontsize=8); ax.set_title('three crossings; catch exactly two',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 21
+
+::: {.question}
+In triangle $ABC$, angle $A=30^\circ$, $a=3$ and $b=8$. How many such triangles exist?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the ambiguous case with no solution)*]{style="color:#7a5195"}
+Sine rule: $\sin B=\dfrac{8\sin30^\circ}{3}=\dfrac{4}{3}>1$ — impossible. So **no triangle** exists.
+$\;\blacksquare$
+
+*When $\sin B$ comes out greater than $1$, the side is too short to reach — zero triangles. The three SSA
+outcomes are $0$, $1$, or $2$.*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## Question 22
+
+::: {.question}
+How many solutions does $\;\sin x=1-\cos^2 x\;$ have for $0\le x\le 2\pi$?
+:::
+
+Use the identity to turn it into a quadratic in $\sin x$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$1-\cos^2x=\sin^2x$, so $\sin x=\sin^2x\Rightarrow\sin x(1-\sin x)=0$. Then $\sin x=0$
+($x=0,\pi,2\pi$) or $\sin x=1$ ($x=\frac\pi2$). Total **4** solutions. $\;\blacksquare$
+
+*Bring everything to one side and factor — dividing by $\sin x$ would lose the $\sin x=0$ solutions.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## What to take away
+
+**Counting:** stretch the interval for $\sin/\cos$ of $bx$; split $\cos^2=k^2$ into $\pm$; draw-and-count
+for messy equations. **Graphs:** amplitude/period/range off the form; symmetry through peaks and troughs.
+**Triangles:** cosine rule for SAS/SSS, sine rule otherwise — and check the **ambiguous case** ($0$, $1$,
+or $2$ triangles) whenever you are given two sides and a non-included angle.
+:::
+
+:::

@@ -1,0 +1,1858 @@
+---
+title: "2023 Paper 2 — Extended Practice"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The 2023 Paper 2 question types, each with its general method and a set of practice problems drawn from TMUA
+and from MAT, PAT and other papers where the same idea appears.
+
+**On this page:** 1. Surds & algebraic fractions · 2. Counterexamples to index laws · 3. Spot the error in a proof · 4. Necessary, sufficient & "only if" · 5. Lines & gradients · 6. Converse, contrapositive & statement forms · 7. Counting real solutions · 8. Definite integrals & clever evaluation · 9. Dividing figures · 10. Sequences & series · 11. Polynomials & roots
+
+## 1 · Surds & algebraic-fraction equations
+
+*Seed: 2023 P2 Q1.*
+
+::: {.callout-tip}
+## The method — make the surds cancel, then solve
+
+1. **Combine over a common denominator.** A product of conjugate surds collapses by the difference of
+   squares: $(\sqrt x-6)(\sqrt x+6)=x-36$ — the surd disappears, leaving an ordinary equation.
+2. **To rationalise a single surd denominator, multiply by the conjugate:**
+   $\dfrac{1}{\sqrt a-\sqrt b}\cdot\dfrac{\sqrt a+\sqrt b}{\sqrt a+\sqrt b}=\dfrac{\sqrt a+\sqrt b}{a-b}$.
+3. **For an equation with roots, isolate one root and square** — then check for extra (false) roots the
+   squaring can introduce.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A value, or an exact surd.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q1 — the seed)*
+
+::: {.question}
+Given $\;\dfrac{1}{\sqrt x-6}-\dfrac{1}{\sqrt x+6}=\dfrac{3}{11}\;$, find $x$.
+
+&nbsp;&nbsp;**A** $2\sqrt{15}$ &nbsp; **B** $4\sqrt5$ &nbsp; **C** $5\sqrt2$ &nbsp; **D** $\sqrt{58}$ &nbsp;
+**E** $50$ &nbsp; **F** $58$ &nbsp; **G** $60$ &nbsp; **H** $80$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: H ($x=80$).**
+
+**Step 1 — combine.** With a common denominator,
+$$\frac{1}{\sqrt x-6}-\frac{1}{\sqrt x+6}=\frac{(\sqrt x+6)-(\sqrt x-6)}{(\sqrt x-6)(\sqrt x+6)}=\frac{12}{x-36},$$
+because $(\sqrt x-6)(\sqrt x+6)=x-36$ — the surds cancel.
+
+**Step 2 — solve.** $\dfrac{12}{x-36}=\dfrac{3}{11}\Rightarrow 132=3(x-36)\Rightarrow 132=3x-108\Rightarrow x=80.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(rationalise)*
+
+::: {.question}
+Write $\;\dfrac{1}{\sqrt5-\sqrt3}\;$ with a rational denominator.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $\dfrac{\sqrt5+\sqrt3}{2}$.**
+
+Multiply by the conjugate $\dfrac{\sqrt5+\sqrt3}{\sqrt5+\sqrt3}$:
+$$\frac{1}{\sqrt5-\sqrt3}=\frac{\sqrt5+\sqrt3}{(\sqrt5)^2-(\sqrt3)^2}=\frac{\sqrt5+\sqrt3}{5-3}=\frac{\sqrt5+\sqrt3}{2}.$$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a root in a fraction)*
+
+::: {.question}
+Solve $\;\dfrac{\sqrt x}{\sqrt x-2}=3\;$ for $x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x=9$.**
+
+**Step 1 — clear the fraction.** $\sqrt x=3(\sqrt x-2)=3\sqrt x-6$, so $6=2\sqrt x$, giving $\sqrt x=3$.
+
+**Step 2 — square.** $x=9$. (Check: $\tfrac{3}{3-2}=3$. ✔)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(isolate and square)*
+
+::: {.question}
+Solve $\;\sqrt{x+7}-\sqrt x=1\;$ for $x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $x=9$.**
+
+**Step 1 — isolate one root, then square.** $\sqrt{x+7}=1+\sqrt x\Rightarrow x+7=1+2\sqrt x+x$.
+
+**Step 2 — solve the leftover root.** $6=2\sqrt x\Rightarrow\sqrt x=3\Rightarrow x=9$. (Check:
+$\sqrt{16}-\sqrt9=4-3=1$. ✔)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(conjugates add up)*
+
+::: {.question}
+Simplify $\;\dfrac{1}{\sqrt7+\sqrt5}+\dfrac{1}{\sqrt7-\sqrt5}\;$ to an exact surd.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $\sqrt7$.**
+
+Over the common denominator $(\sqrt7+\sqrt5)(\sqrt7-\sqrt5)=7-5=2$,
+$$\frac{(\sqrt7-\sqrt5)+(\sqrt7+\sqrt5)}{2}=\frac{2\sqrt7}{2}=\sqrt7.$$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — surds
+
+- **Conjugate product:** $(\sqrt a-\sqrt b)(\sqrt a+\sqrt b)=a-b$ — the move that kills a surd denominator.
+- **Rationalise** by multiplying top and bottom by the conjugate.
+- **Root equations:** isolate one root, square, and **check** — squaring can create false roots.
+- $(\sqrt x)^2=x$ for $x\ge0$; and $\sqrt{x^2}=\lvert x\rvert$, not $x$.
+:::
+
+---
+
+## 2 · Counterexamples to index "laws"
+
+*Seed: 2023 P2 Q3, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — one bad case kills a "law"
+
+1. **Rewrite both sides in a common form** (same base, or same exponent). A claimed identity is genuine only
+   if the two forms agree for *all* allowed values.
+2. **Find where they could differ,** then test a value there. A single case with the two sides **unequal** is
+   a counterexample — no more work needed.
+3. **Avoid degenerate test values.** $x=1$, $x=0$, or $a=b=2$ often make a *false* law look true
+   ($1^{\text{anything}}=1$; and $2+2=2\times2$). Pick values that break the coincidence.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which of the listed cases are counterexamples.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q3 — the seed)*
+
+::: {.question}
+Claim: for all positive reals $x,y$, $\;\sqrt{x^{y}}=x^{\sqrt y}$. Which is/are a counterexample?
+&nbsp;&nbsp;**I** $x=1,y=16$ &nbsp; **II** $x=2,y=8$ &nbsp; **III** $x=3,y=4$
+&nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (II only).**
+
+**Step 1 — put both sides in one form.** $\sqrt{x^{y}}=x^{y/2}$, so the claim reads $x^{y/2}=x^{\sqrt y}$. For
+$x\ne1$ this needs $\tfrac y2=\sqrt y$, i.e. $y=4$; for $x=1$ both sides are $1$.
+
+**Step 2 — test each** (a counterexample needs the two sides **unequal**):
+
+- **I** $x=1$: both sides $=1$ — equal, not a counterexample.
+- **II** $x=2,y=8$: $2^{4}=16$ but $2^{\sqrt8}\approx7.1$ — **unequal**, a counterexample.
+- **III** $x=3,y=4$: $3^{2}=9=3^{\sqrt4}$ — equal ($y=4$), not a counterexample.
+
+So only **II**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(a power of a power)*
+
+::: {.question}
+Is $\;(x^{a})^{b}=x^{a+b}\;$ true for all positive $x$ and all $a,b$? If not, give a counterexample.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No.** The real law is $(x^{a})^{b}=x^{ab}$.
+
+$(x^{a})^{b}=x^{ab}$, which equals $x^{a+b}$ only when $ab=a+b$. Take $x=2,a=2,b=3$: $(2^{2})^{3}=2^{6}=64$
+but $2^{a+b}=2^{5}=32$. So it fails.
+
+*(Watch the trap $a=b=2$: there $ab=a+b=4$, so both sides are $16$ and the false law looks true.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a product of powers)*
+
+::: {.question}
+Is $\;x^{a}\cdot x^{b}=x^{ab}\;$ true for all positive $x$ and all $a,b$? If not, give a counterexample.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No.** The real law is $x^{a}\cdot x^{b}=x^{a+b}$.
+
+$x^{a}x^{b}=x^{a+b}$, equal to $x^{ab}$ only when $a+b=ab$. Take $x=2,a=1,b=3$: $2^{1}\cdot2^{3}=16$ but
+$2^{ab}=2^{3}=8$. Fails.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(the "square root is linear" trap)*
+
+::: {.question}
+Is $\;\sqrt{x+y}=\sqrt x+\sqrt y\;$ true for all positive $x,y$? If not, give a counterexample.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: No.**
+
+Take $x=y=1$: $\sqrt{x+y}=\sqrt2\approx1.41$ but $\sqrt x+\sqrt y=2$. Unequal, so it fails. (Squaring the
+right side gives $x+y+2\sqrt{xy}$, which exceeds $x+y$ whenever $x,y>0$ — the cross term is the culprit.)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(Tyler Mock TMUA, Set A — a range-restricted claim)*
+
+::: {.question}
+Consider: *no positive integer $N$ less than $20$ can be written as the sum of two non-prime integers greater
+than $1$.* Which is/are a counterexample?
+&nbsp;&nbsp;**I** $N=8$ &nbsp; **II** $N=13$ &nbsp; **III** $N=24$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I and II only &nbsp; **C** II and III only &nbsp; **D** I and III only
+&nbsp; **E** all
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B (I and II only).**
+
+A counterexample must satisfy the hypothesis — $N<20$ — **and** be a sum of two non-primes $>1$.
+
+- **I** $N=8=4+4$: both $4$ are non-prime and $>1$, and $8<20$. **Counterexample.**
+- **II** $N=13=4+9$: both non-prime $>1$, and $13<20$. **Counterexample.**
+- **III** $N=24$: even though $24=4+20$ etc., $24$ is **not** less than $20$, so it is outside the claim — it
+  cannot be a counterexample.
+
+So **I and II only**. *(The trap is III: a value must first meet the hypothesis before it can break the
+conclusion.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — index laws (and the fake ones)
+
+- **Real laws:** $x^{a}x^{b}=x^{a+b}$; $\;(x^{a})^{b}=x^{ab}$; $\;\dfrac{x^{a}}{x^{b}}=x^{a-b}$;
+  $\;x^{0}=1$; $\;x^{-a}=\dfrac1{x^{a}}$; $\;x^{1/n}=\sqrt[n]{x}$.
+- **Fake laws** (each false): $x^{a}x^{b}=x^{ab}$; $(x^{a})^{b}=x^{a+b}$; $\sqrt{x+y}=\sqrt x+\sqrt y$;
+  $\log(x+y)=\log x+\log y$.
+- **One counterexample kills a universal claim.** A value must meet the hypothesis first; and avoid
+  degenerate tests ($x=0,1$; $a=b=2$) that hide a false law.
+:::
+
+---
+
+## 3 · Spot the error in a proof
+
+*Seeds: 2023 P2 Q4, Q10, plus a real cross-exam problem (Tyler Mock TMUA, Set D).*
+
+::: {.callout-tip}
+## The method — is the claim even true, then find the first bad step
+
+1. **Decide whether the CLAIM is true first** — hunt a counterexample. If the claim is **false**, some
+   deduction must be wrong; if it is **true**, either a step has an unjustified leap or the proof is fine.
+2. **Walk the lines in order;** the first line whose $\Rightarrow$ (or $\Leftrightarrow$) is not justified is
+   the answer.
+3. **Classic gaps:** "$d$ divides one of them, **so** it is not prime" (the divisor could **be** that prime);
+   dividing by a quantity that can be **zero**; "not divisible by $p$, **so** prime".
+4. **Not every attempt has an error** — "completely correct" is a real option.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** "Correct", or the first faulty line.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q4 — the seed)*
+
+::: {.question}
+A student attempts: *"What is the largest number of consecutive odd integers that are all prime?"* Their
+attempt is:
+
+- **I** — There are two consecutive odd integers that are prime (for example $17,19$).
+- **II** — Any three consecutive odd integers can be written as $n-2,\,n,\,n+2$ for some $n$.
+- **III** — If $n$ is one more than a multiple of $3$, then $n+2$ is a multiple of $3$.
+- **IV** — If $n$ is two more than a multiple of $3$, then $n-2$ is a multiple of $3$.
+- **V** — The only other possibility is that $n$ is a multiple of $3$.
+- **VI** — In each case, one of the integers is a multiple of $3$, so not prime.
+- **VII** — Therefore the largest number of consecutive odd integers that are all prime is two.
+
+Which best describes the attempt? &nbsp;&nbsp;**A** completely correct &nbsp; **B** first error line I &nbsp;
+**C** line II &nbsp; **D** line III &nbsp; **E** line IV &nbsp; **F** line V &nbsp; **G** line VI &nbsp;
+**H** line VII
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G — the first error is line VI.**
+
+**Step 1 — the claim is false.** $3,5,7$ are three consecutive odd integers, all prime. So "two" is wrong,
+and some line must fail.
+
+**Step 2 — find it.** Lines I–V are fine (one of three consecutive odd integers *is* a multiple of $3$).
+Line **VI** then says that multiple "is not prime" — but the multiple of $3$ can be $3$ **itself**, which
+**is** prime (exactly the $3,5,7$ case). That unjustified "so not prime" is the first error.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2023 P2 Q10 — when there is no error)*
+
+::: {.question}
+Here is an attempt to solve $x^{4}-2x^{2}-3<0$ by completing the square:
+
+$$x^{4}-2x^{2}-3<0$$
+
+- **I** — if and only if $x^{4}-2x^{2}+1<4$
+- **II** — if and only if $(x^{2}-1)^{2}<4$
+- **III** — if and only if $-2<x^{2}-1<2$
+- **IV** — if and only if $x^{2}-1<2$
+- **V** — if and only if $x^{2}<3$
+- **VI** — if and only if $-\sqrt3<x<\sqrt3$
+
+Which is true? &nbsp;&nbsp;**A** completely correct &nbsp; **B** first error line I &nbsp; **C** line II
+&nbsp; **D** line III &nbsp; **E** line IV &nbsp; **F** line V &nbsp; **G** line VI
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A — the argument is completely correct.**
+
+**Step 1 — check the routine lines.** I adds $4$ to both sides; II recognises $x^{4}-2x^{2}+1=(x^{2}-1)^{2}$;
+III is $\lvert x^{2}-1\rvert<2$; V and VI solve $x^{2}<3$. All fine.
+
+**Step 2 — the one that looks suspicious (III $\to$ IV).** Line IV drops "$-2<x^{2}-1$" and keeps only
+"$x^{2}-1<2$". That is **legal**, because $x^{2}-1\ge-1>-2$ for every real $x$, so the dropped half is
+automatically true — the lines stay equivalent.
+
+**Step 3 — confirm.** $x^{4}-2x^{2}-3=(x^{2}-3)(x^{2}+1)<0\Leftrightarrow x^{2}<3\Leftrightarrow
+-\sqrt3<x<\sqrt3$. Every step holds. *(Not every "spot the error" question has an error.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set D — infinitely many primes)*
+
+::: {.question}
+A student attempts to prove there are infinitely many prime numbers:
+
+- **I** — Assume there are finitely many primes, and let the largest be $p$.
+- **II** — Let $n=2p+1$, so that $n>p$.
+- **III** — Consider $n=2p+1$: this is not divisible by $p$.
+- **IV** — Therefore $n$ is also a prime number.
+- **V** — This contradicts the assumption, so there are infinitely many primes.
+
+Which best describes the proof? &nbsp;&nbsp;**A** statement false, error line I &nbsp; **B** false, error
+line II &nbsp; **C** true, error line III &nbsp; **D** true, error line IV &nbsp; **E** true, error line V
+&nbsp; **F** true and completely correct
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D — the statement is true, but line IV is wrong.**
+
+**Step 1 — the theorem is true** (there *are* infinitely many primes), so this is a "true statement, flawed
+proof" case.
+
+**Step 2 — find the leap.** Lines I–III are fine: $2p+1\equiv1\pmod p$, so indeed not divisible by $p$. But
+line **IV** — "not divisible by $p$, therefore prime" — is false: $n$ could be divisible by a **smaller**
+prime. Concretely $p=7$ gives $n=15=3\times5$, not prime. So the error is line **IV**.
+
+*(A correct fix multiplies all known primes and adds $1$; being divisible by none of them is what forces a
+new prime.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(the "$1=2$" proof)*
+
+::: {.question}
+"Proof that $1=2$": let $a=b$. Then *(I)* $a^{2}=ab$; *(II)* $a^{2}-b^{2}=ab-b^{2}$; *(III)*
+$(a+b)(a-b)=b(a-b)$; *(IV)* $a+b=b$; *(V)* $2b=b$, so $2=1$. Where is the first error?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: line IV.**
+
+Lines I–III are valid algebra. Line **IV** divides both sides by $(a-b)$ — but $a=b$ makes $a-b=0$, and
+dividing by $0$ is not allowed. Every later line inherits the mistake. *(Whenever a proof cancels a factor,
+check it cannot be zero.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — spotting the error
+
+- **Test the claim first.** A quick counterexample tells you whether you are looking for a wrong deduction
+  (false claim) or a harmless gap / no error (true claim).
+- **The answer is the first unjustified step,** not the first line that *looks* odd — a step that drops a
+  term or an inequality may be perfectly legal.
+- **Recurring traps:** "$d$ divides one of them $\Rightarrow$ not prime" (it could be $3$ itself);
+  "not divisible by $p\Rightarrow$ prime"; dividing by a factor that can be $0$.
+- **"Completely correct" is a valid answer.**
+:::
+---
+
+## 4 · Necessary, sufficient & "only if"
+
+*Seeds: 2023 P2 Q5, Q12, Q13, plus real cross-exam problems (Tyler Mock TMUA, Sets B and D).*
+
+::: {.callout-tip}
+## The method — turn the words into arrows, test each direction
+
+1. **Translate.**
+   - "$P$ is **sufficient** for $Q$" $=P\Rightarrow Q$.
+   - "$P$ is **necessary** for $Q$" $=Q\Rightarrow P$.
+   - "$Q$ **only if** $P$" $=Q\Rightarrow P$ (**"only if" is necessary**).
+   - "**necessary and sufficient**" $=P\Leftrightarrow Q$.
+2. **Test the two directions separately.** One counterexample (hypothesis true, conclusion false) breaks an
+   arrow.
+3. **For "which is sufficient for exactly $k$ of the others",** check each implication in a small grid — the
+   catch is usually a statement that is true for *all* $x$ (implied by everything) or one that is very narrow
+   (implies everything).
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A letter, or "necessary / sufficient / both / neither".
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q5 — the seed)*
+
+::: {.question}
+$R$: "$k$ is an integer multiple of $\pi$". &nbsp; $S$: $\displaystyle\int_{0}^{k}\sin 2x\,\mathrm dx=0$.
+Which holds? &nbsp;&nbsp;**A** necessary and sufficient &nbsp; **B** necessary, not sufficient &nbsp;
+**C** sufficient, not necessary &nbsp; **D** neither
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A (necessary and sufficient).**
+
+**Step 1 — do the integral.** $\displaystyle\int_{0}^{k}\sin 2x\,\mathrm dx=\left[-\tfrac12\cos2x\right]_0^k
+=\dfrac{1-\cos2k}{2}$.
+
+**Step 2 — solve $S$.** $\dfrac{1-\cos2k}{2}=0\Rightarrow\cos2k=1\Rightarrow2k=2n\pi\Rightarrow k=n\pi$ —
+exactly "$k$ is an integer multiple of $\pi$", which is $R$.
+
+So $S\Leftrightarrow R$: $R$ is **necessary and sufficient** for $S$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2023 P2 Q12 — "only if")*
+
+::: {.question}
+$\sin x\cos^{2}x=p^{2}\sin x$ has $n$ distinct solutions in $0\le x\le2\pi$. Which is/are true?
+&nbsp;&nbsp;**I** $n=3$ is **sufficient** for $p>1$ &nbsp; **II** $n=7$ **only if** $-1<p<1$
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** I and II
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C (II only).**
+
+**Step 1 — factorise.** $\sin x\,(\cos^{2}x-p^{2})=0$, so $\sin x=0$ **or** $\cos^{2}x=p^{2}$.
+
+**Step 2 — count.** $\sin x=0$ gives $x=0,\pi,2\pi$ — always $3$ solutions. Then $\cos^{2}x=p^{2}$:
+$\lvert p\rvert\ge1\Rightarrow$ no new solutions ($n=3$); $\,0<\lvert p\rvert<1\Rightarrow$ four new ($n=7$);
+$\,p=0\Rightarrow$ two new ($n=5$).
+
+**Step 3 — judge.**
+
+- **I:** $n=3$ happens for **every** $\lvert p\rvert\ge1$ (e.g. $p=1$ or $p=-2$), so it does not force
+  $p>1$. **False.**
+- **II:** $n=7$ happens exactly when $0<\lvert p\rvert<1$, and that lies inside $-1<p<1$. So
+  $n=7\Rightarrow-1<p<1$. **True.**
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(TMUA 2023 P2 Q13 — sufficient for exactly three)*
+
+::: {.question}
+Which **one** statement is a **sufficient** condition for **exactly three** of the other four?
+&nbsp;&nbsp;**A** $x\ge0$ &nbsp; **B** $x=1$ &nbsp; **C** $x=0$ or $x=1$ &nbsp; **D** $x\ge0$ or $x\le1$ &nbsp;
+**E** $x\ge0$ and $x\le1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C.**
+
+First spot that **D** ($x\ge0$ or $x\le1$) is true for **every** real $x$. Now test **C** ($x=0$ or $x=1$) as
+the hypothesis:
+
+- **A** ($x\ge0$): both $0,1\ge0$ — **yes**.
+- **B** ($x=1$): fails at $x=0$ — **no**.
+- **D** (all reals): **yes**.
+- **E** ($0\le x\le1$): both $0,1$ lie in $[0,1]$ — **yes**.
+
+So **C** implies exactly three (A, D, E) but not B. *(A implies only D; B implies all four; E implies A and D;
+D implies none — so C is the unique "exactly three".)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set B — a root in an interval)*
+
+::: {.question}
+For a polynomial $p(x)$ and reals $a<b$, let $(*)$ be "there exists $c$ with $a<c<b$ and $p(c)=0$". The
+condition $p(a)\,p(b)<0$ is:
+&nbsp;&nbsp;**A** necessary and sufficient &nbsp; **B** neither &nbsp; **C** necessary, not sufficient &nbsp;
+**D** sufficient, not necessary
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (sufficient, not necessary).**
+
+**Sufficient?** $p(a)p(b)<0$ means $p(a),p(b)$ have opposite signs; a polynomial is continuous, so by the
+intermediate value theorem it crosses $0$ somewhere in $(a,b)$. So $(*)$ holds — **sufficient**. ✔
+
+**Necessary?** A root need not come from a sign change. Take $p(x)=(x-c)^{2}$ with $a<c<b$: then $p(c)=0$ so
+$(*)$ holds, yet $p(a),p(b)>0$ give $p(a)p(b)>0$. So the condition can fail while $(*)$ is true — **not
+necessary**. ✘
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(Tyler Mock TMUA, Set D — sufficient for all four)*
+
+::: {.question}
+For real $x$, which one statement is a **sufficient** condition for **all** of the other four?
+&nbsp;&nbsp;**A** $x=-1$ or $x=1$ &nbsp; **B** $-1\le x\le1$ &nbsp; **C** $x\ge-1$ or $x\le1$ &nbsp;
+**D** $x\le1$ &nbsp; **E** $x^{2}\le1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A.**
+
+The one that implies all the others must be the **narrowest**. Test **A** ($x\in\{-1,1\}$):
+
+- **B** ($-1\le x\le1$): both $-1,1$ lie in $[-1,1]$ — **yes**.
+- **C** ($x\ge-1$ or $x\le1$): true for all reals — **yes**.
+- **D** ($x\le1$): $-1\le1$ and $1\le1$ — **yes**.
+- **E** ($x^{2}\le1$): $(-1)^{2}=1^{2}=1\le1$ — **yes**.
+
+So **A** implies all four. *(No other option does: B and E fail to force $x\in\{-1,1\}$; D and C are far too
+wide.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — necessary / sufficient / only if
+
+| Words | Arrow |
+|---|---|
+| $P$ **sufficient** for $Q$ | $P\Rightarrow Q$ |
+| $P$ **necessary** for $Q$ | $Q\Rightarrow P$ |
+| "$Q$ **only if** $P$" | $Q\Rightarrow P$ |
+| **necessary and sufficient** | $P\Leftrightarrow Q$ |
+
+- **Test both directions separately** — one counterexample breaks an arrow.
+- **Sign change $\Rightarrow$ root** (intermediate value theorem), but a **root need not give a sign change**
+  (a squared factor) — so $p(a)p(b)<0$ is sufficient, not necessary, for a root in $(a,b)$.
+- **"Sufficient for all others"** $\to$ the narrowest statement; **"true for all $x$"** $\to$ implied by
+  everything.
+:::
+---
+
+## 5 · Lines & gradients — necessary and sufficient
+
+*Seeds: 2023 P2 Q7, Q14, plus real cross-exam problems (Tyler Mock TMUA, Sets A and C).*
+
+::: {.callout-tip}
+## The method — read the gradient and intercept, then use $\perp\iff$ product $=-1$
+
+1. **Put a line in $y=mx+c$ form.** From $ax+by=c$: $\;y=-\dfrac ab x+\dfrac cb$, so gradient $=-\dfrac ab$,
+   $y$-intercept $=\dfrac cb$.
+2. **Parallel $\iff$ equal gradients; perpendicular $\iff$ product of gradients $=-1$.**
+3. **Turn each requirement into a sign/relation condition,** then ask whether it is *necessary*, *sufficient*,
+   or both.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A letter, a value, or an equation.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q7 — the seed)*
+
+::: {.question}
+The line $ax+by=c$ is drawn, where $a,b,c$ are non-zero real constants. Which one is **necessary** but
+**not sufficient** for the line to have a **positive gradient and a positive $y$-intercept**?
+
+&nbsp;&nbsp;**A** $\dfrac cb>0$ and $\dfrac ab<0$ &nbsp; **B** $\dfrac cb<0$ and $\dfrac ab>0$ &nbsp;
+**C** $a>b>c$ &nbsp; **D** $a<b<c$ &nbsp; **E** $a$ and $c$ have opposite signs &nbsp; **F** $a$ and $c$ have
+the same sign
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($a$ and $c$ have opposite signs).**
+
+**Step 1 — translate.** Gradient $=-\dfrac ab>0\Rightarrow\dfrac ab<0$; $y$-intercept $=\dfrac cb>0$. So the
+two conditions together are exactly **option A** — that is **necessary and sufficient**, hence not the answer.
+
+**Step 2 — extract what is merely necessary.** Dividing $\dfrac ab<0$ by $\dfrac cb>0$ gives $\dfrac ac<0$, so
+**$a$ and $c$ have opposite signs** — forced by the requirements, hence **necessary**.
+
+**Step 3 — but not sufficient.** Opposite signs of $a,c$ fix $\dfrac ac$ but say nothing about the sign of
+$b$, so they don't guarantee both original conditions. **Necessary but not sufficient** — E.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2023 P2 Q14 — three lines)*
+
+::: {.question}
+Three lines are given by $ax+by+c=0$, $bx+cy+a=0$, $cx+ay+b=0$, where $a,b,c$ are non-zero reals. Which one is
+correct?
+
+- **A** if two of the lines are parallel, then all three are parallel.
+- **B** if two of the lines are parallel, then the third is perpendicular to the other two.
+- **C** if two of the lines are parallel, then the third is parallel to $y=x$.
+- **D** if two of the lines are parallel, then the third is perpendicular to $y=x$.
+- **E** if two of the lines are perpendicular, then all three meet at a point.
+- **F** if two of the lines are perpendicular, then the third is parallel to $y=x$.
+- **G** if two of the lines are perpendicular, then the third is perpendicular to $y=x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F.**
+
+**Step 1 — the three gradients.** $m_1=-\dfrac ab,\ m_2=-\dfrac bc,\ m_3=-\dfrac ca$.
+
+**Step 2 — their product is fixed.**
+$m_1m_2m_3=\left(-\dfrac ab\right)\left(-\dfrac bc\right)\left(-\dfrac ca\right)=-\dfrac{abc}{abc}=-1$.
+
+**Step 3 — use perpendicularity.** If two lines are perpendicular, the product of *their* gradients is $-1$.
+Since all three multiply to $-1$, the remaining gradient is $\dfrac{-1}{-1}=1$ — so that line is **parallel to
+$y=x$**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set A — a parallel line)*
+
+::: {.question}
+The line joining $(p,\,p-1)$ and $(1-p,\,2p)$ is parallel to $2x+3y+1=0$. Find $p$.
+&nbsp;&nbsp;**A** $-1$ &nbsp; **B** $\tfrac23$ &nbsp; **C** $\tfrac54$ &nbsp; **D** $2$ &nbsp; **E** $5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: E ($p=5$).**
+
+**Step 1 — the target gradient.** $2x+3y+1=0\Rightarrow y=-\tfrac23x-\tfrac13$, gradient $-\tfrac23$.
+
+**Step 2 — the joining line's gradient.** $\dfrac{2p-(p-1)}{(1-p)-p}=\dfrac{p+1}{1-2p}$.
+
+**Step 3 — parallel means equal gradients.** $\dfrac{p+1}{1-2p}=-\dfrac23\Rightarrow3(p+1)=-2(1-2p)\Rightarrow
+3p+3=-2+4p\Rightarrow p=5.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set C — a perpendicular line)*
+
+::: {.question}
+The line $l$ has equation $3y+x=15$. A second line is perpendicular to $l$ and passes through $(0,-3)$. Find
+the area enclosed by the two lines and the $y$-axis.
+&nbsp;&nbsp;**A** $4\tfrac15$ &nbsp; **B** $8$ &nbsp; **C** $9\tfrac35$ &nbsp; **D** $12$ &nbsp;
+**E** $19\tfrac15$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,4,100)
+plt.figure(figsize=(4.4,3.4))
+plt.plot(x,-x/3+5,color='#2b6cb0',label='l: 3y+x=15')
+plt.plot(x,3*x-3,color='#dd6b20',label='perp through (0,−3)')
+plt.axvline(0,color='0.6',lw=0.8)
+xi=2.4; yi=4.2
+tri=np.array([[0,5],[0,-3],[xi,yi],[0,5]])
+plt.fill(tri[:,0],tri[:,1],color='#2ca02c',alpha=0.15)
+plt.plot(0,5,'ko',ms=3); plt.plot(0,-3,'ko',ms=3); plt.plot(xi,yi,'ko',ms=3)
+plt.legend(fontsize=8); plt.grid(alpha=0.25); plt.gca().set_aspect('equal')
+plt.title('triangle on the y-axis (base 8, height 2.4)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C ($9\tfrac35$).**
+
+**Step 1 — the two lines.** $l:\ y=-\tfrac13x+5$ (gradient $-\tfrac13$). Perpendicular gradient $=3$, through
+$(0,-3)$: $\ y=3x-3$.
+
+**Step 2 — the triangle.** On the $y$-axis the lines cut $(0,5)$ and $(0,-3)$; they meet where
+$-\tfrac13x+5=3x-3\Rightarrow x=\tfrac{12}{5},\ y=\tfrac{21}{5}$.
+
+**Step 3 — area.** Base along the $y$-axis $=5-(-3)=8$; height $=$ the $x$-coordinate of the meeting point
+$=\tfrac{12}{5}$. Area $=\tfrac12\cdot8\cdot\tfrac{12}{5}=\tfrac{48}{5}=9\tfrac35$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(build the perpendicular condition)*
+
+::: {.question}
+The line through $(2,3)$ and $(k,7)$ is perpendicular to $y=2x$. Find $k$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $k=-6$.**
+
+Perpendicular to gradient $2$ means gradient $-\tfrac12$. So $\dfrac{7-3}{k-2}=-\tfrac12\Rightarrow
+\dfrac{4}{k-2}=-\tfrac12\Rightarrow k-2=-8\Rightarrow k=-6.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — lines & gradients
+
+- From $ax+by=c$: **gradient $=-\dfrac ab$**, **$y$-intercept $=\dfrac cb$**.
+- **Parallel $\iff$ equal gradients**; **perpendicular $\iff$ product of gradients $=-1$**.
+- A product of gradients equal to $-1$ (e.g. $m_1m_2m_3=-1$) lets one perpendicular pair **force** the
+  remaining gradient.
+- **$y=x$ has gradient $1$**; a line "parallel to $y=x$" just means gradient $1$.
+:::
+---
+
+## 6 · Converse, contrapositive & statement forms
+
+*Seeds: 2023 P2 Q9, Q11, plus a real cross-exam problem (Tyler Mock TMUA, Set D).*
+
+::: {.callout-tip}
+## The method — four forms, and which share a truth value
+
+For a statement $P\Rightarrow Q$:
+
+1. **Converse** $Q\Rightarrow P$; **inverse** $\lnot P\Rightarrow\lnot Q$; **contrapositive**
+   $\lnot Q\Rightarrow\lnot P$.
+2. **Original $\equiv$ contrapositive** (always the same truth value); **converse $\equiv$ inverse** (same as
+   each other), and independent of the original.
+3. **Word dictionary:** "$P$ **only if** $Q$" $=P\Rightarrow Q$; "$P$ **if** $Q$" $=Q\Rightarrow P$;
+   "**sufficient**" $=\Rightarrow$; "**necessary**" $=\Leftarrow$.
+4. Because the four forms **pair up** by truth value, an answer that makes exactly one of a pair true is
+   impossible — a fast elimination.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Which statements are true / equivalent (a letter or Yes/No triple).
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q9 — the seed)*
+
+::: {.question}
+Pentagon. $(*)$: *if at least one interior angle is $108^\circ$, then all the interior angles form an
+arithmetic sequence.* Which are true? &nbsp;&nbsp;**I** $(*)$ &nbsp; **II** its contrapositive &nbsp;
+**III** its converse &nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (III only).**
+
+**Step 1 — $(*)$ and its contrapositive are false.** A pentagon can have one $108^\circ$ angle without the
+angles being arithmetic, e.g. $108^\circ,100^\circ,100^\circ,116^\circ,116^\circ$ (sum $540^\circ$). So $(*)$
+is false, and its contrapositive — always equivalent — is false too. That kills **I** and **II** together.
+
+**Step 2 — the converse is true.** Converse: *if the angles are arithmetic, then one is $108^\circ$.* A
+$5$-term arithmetic sequence sums to $5\times(\text{middle})$, and pentagon angles sum to $540^\circ$, so the
+middle term is $\tfrac{540}{5}=108^\circ$. Hence one angle is always $108^\circ$. **III true.**
+
+*(I and II share a truth value, so any answer with exactly one of them is impossible.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2023 P2 Q11 — statement forms)*
+
+::: {.question}
+Theorem $(*)$: *if $2^{k}+1$ is prime, then $k$ is a power of $2$.* Which of I, II, III is equivalent to
+$(*)$? &nbsp;&nbsp;**I** if $k$ is a power of $2$ then $2^{k}+1$ is prime &nbsp; **II** $2^{k}+1$ is not
+prime **only if** $k$ is not a power of $2$ &nbsp; **III** a **sufficient** condition for $k$ to be a power
+of $2$ is that $2^{k}+1$ is prime &nbsp;&nbsp;(Yes/No triple, **A**–**H**)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G (No, No, Yes).**
+
+Write $(*)$ as $P\Rightarrow Q$ with $P=$ "$2^{k}+1$ prime", $Q=$ "$k$ a power of $2$".
+
+- **I** is $Q\Rightarrow P$ — the **converse**. Not equivalent. **No.**
+- **II** "$\lnot P$ only if $\lnot Q$" means $\lnot P\Rightarrow\lnot Q$ — the **inverse**, equivalent to the
+  converse, not to $(*)$. **No.**
+- **III** "$P$ is sufficient for $Q$" means $P\Rightarrow Q$ — that is $(*)$ itself. **Yes.**
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set D — the $6n\pm1$ theorem)*
+
+::: {.question}
+$P$ is the set of primes greater than $3$, and $(*)$: *every member of $P$ can be written as $6n\pm1$.* Which
+of I, II, III is equivalent to $(*)$? &nbsp;&nbsp;**I** a number is not in $P$ **only if** it cannot be
+written as $6n\pm1$ &nbsp; **II** a **sufficient** condition to be in $P$ is that it can be written as
+$6n\pm1$ &nbsp; **III** if a number cannot be written as $6n\pm1$ then it is not in $P$ &nbsp;&nbsp;(Yes/No
+triple, **A**–**H**)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: G (No, No, Yes).**
+
+Write $(*)$ as $Q\Rightarrow R$ with $Q=$ "in $P$", $R=$ "of the form $6n\pm1$".
+
+- **I** "$\lnot Q$ only if $\lnot R$" means $\lnot Q\Rightarrow\lnot R$ — the **inverse**, equivalent to the
+  converse $R\Rightarrow Q$, not to $(*)$. **No.**
+- **II** "$R$ is sufficient for $Q$" means $R\Rightarrow Q$ — the **converse**. **No.**
+- **III** "$\lnot R\Rightarrow\lnot Q$" is the **contrapositive** — equivalent to $(*)$. **Yes.**
+
+Same shape as the previous problem: only the contrapositive (III) survives.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(name the four forms)*
+
+::: {.question}
+For "if $4$ divides $n$ then $n$ is even" (statement about a positive integer $n$), write the converse, the
+inverse and the contrapositive, and say which of the four are true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: original and contrapositive are true; converse and inverse are false.**
+
+- **Original:** if $4$ divides $n$ then $n$ is even — **true**.
+- **Converse:** if $n$ is even then $4$ divides $n$ — **false** ($n=6$).
+- **Inverse:** if $4$ does not divide $n$ then $n$ is not even — **false** ($n=6$).
+- **Contrapositive:** if $n$ is odd then $4$ does not divide $n$ — **true** (equivalent to the original).
+
+The two true ones are the original and its contrapositive; the two false ones are the converse and inverse —
+each pair shares a truth value.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — the four forms
+
+| Form | Symbol | Truth value |
+|---|---|---|
+| Original | $P\Rightarrow Q$ | — |
+| Converse | $Q\Rightarrow P$ | $\equiv$ inverse |
+| Inverse | $\lnot P\Rightarrow\lnot Q$ | $\equiv$ converse |
+| Contrapositive | $\lnot Q\Rightarrow\lnot P$ | $\equiv$ original |
+
+- **Original $\equiv$ contrapositive**; **converse $\equiv$ inverse** — the forms pair up, so "exactly one of a
+  pair true" is impossible.
+- **Dictionary:** "only if" $=\Rightarrow$; "if" $=\Leftarrow$; "sufficient" $=\Rightarrow$;
+  "necessary" $=\Leftarrow$.
+- The **only** equivalent restatement of a theorem is its **contrapositive**.
+:::
+---
+
+## 7 · Counting real solutions
+
+*Seed: 2023 P2 Q6, plus a real cross-exam problem (Tyler Mock TMUA, Set B).*
+
+::: {.callout-tip}
+## The method — count where two graphs cross
+
+1. **Read "how many solutions of $f(x)=g(x)$" as "how many times do $y=f$ and $y=g$ cross".** Sketch both.
+2. **Monotonic pieces meet at most once** — use shape and derivatives to bound the count.
+3. **A one-to-one substitution (e.g. $u=2x$) relabels the solutions** — the *number* is unchanged.
+4. **Taking $\lvert\cdot\rvert$ or squaring can add a branch** (an extra solution). Check the new branch on
+   its own.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A whole number, or which transformed equations match.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q6 — the seed)*
+
+::: {.question}
+For $a>1$, $(*)$: $a^{x}=x$. Which equations must have the **same number of real solutions** as $(*)$?
+&nbsp;&nbsp;**I** $\log_a x=x$ &nbsp; **II** $a^{2x}=x^{2}$ &nbsp; **III** $a^{2x}=2x$
+&nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F (I and III).**
+
+- **I:** $\log_a x=x\Rightarrow x=a^{x}$ — exactly $(*)$, same solutions. ✔
+- **III:** put $u=2x$; then $a^{2x}=2x$ becomes $a^{u}=u$, which is $(*)$ in $u$. A one-to-one relabelling, so
+  the count is unchanged. ✔
+- **II:** $a^{2x}=x^{2}$ means $(a^{x})^{2}=x^{2}$, i.e. $a^{x}=\lvert x\rvert$. For $x\ge0$ that is $(*)$;
+  but for $x<0$ it also asks $a^{x}=-x$, and since $a^{x}\to0$ while $-x\to+\infty$ there is **one extra**
+  negative solution. So II has more. ✘
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(read the count off a sketch)*
+
+::: {.question}
+How many real solutions does $\;x^{2}=2^{x}\;$ have?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $3$.**
+
+$y=x^{2}$ and $y=2^{x}$ cross at the two obvious points $x=2$ and $x=4$ (both give $4=4$ and $16=16$), and
+once more at a **negative** $x\approx-0.77$, where the upward parabola meets the small positive tail of
+$2^{x}$. Three crossings in all.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,5,400)
+plt.figure(figsize=(5.0,3.2))
+plt.plot(x,x**2,color='#2b6cb0',label='y = x²')
+plt.plot(x,2.0**x,color='#dd6b20',label='y = 2ˣ')
+for r in [-0.767,2,4]: plt.plot(r,r**2,'o',color='crimson')
+plt.ylim(0,18); plt.legend(fontsize=8); plt.grid(alpha=0.25)
+plt.title('x² = 2ˣ : three crossings (−0.77, 2, 4)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(how the count depends on the base)*
+
+::: {.question}
+How many real solutions does $\;a^{x}=x\;$ have, for $a>1$? Illustrate with $a=2$ and with $a=1.2$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $0$, $1$ or $2$, split at $a=e^{1/e}\approx1.44$.**
+
+The line $y=x$ meets $y=a^{x}$ in $0$, $1$ or $2$ points as the base grows. For $a>e^{1/e}$ the exponential
+outruns the line everywhere ($a=2$: **no** solutions); at $a=e^{1/e}$ they just touch (**one**); for
+$1<a<e^{1/e}$ they cross **twice** ($a=1.2$: two solutions).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,8,400)
+fig,ax=plt.subplots(1,2,figsize=(6.6,3.0))
+ax[0].plot(x,2.0**x,color='#dd6b20',label='y=2ˣ'); ax[0].plot(x,x,color='#2b6cb0',label='y=x')
+ax[0].set_ylim(-1,8); ax[0].set_title('a=2 : no solutions',fontsize=9); ax[0].legend(fontsize=8); ax[0].grid(alpha=0.25)
+ax[1].plot(x,1.2**x,color='#dd6b20',label='y=1.2ˣ'); ax[1].plot(x,x,color='#2b6cb0',label='y=x')
+ax[1].set_ylim(-1,8); ax[1].set_title('a=1.2 : two solutions',fontsize=9); ax[1].legend(fontsize=8); ax[1].grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set B — factorise, then count)*
+
+::: {.question}
+How many solutions does $\;\sin 2x+\sin^{2}x=1\;$ have for $0\le x\le2\pi$?
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $6$ &nbsp; **E** $8$ &nbsp;
+**F** infinitely many
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C ($4$).**
+
+**Step 1 — turn everything into $\sin,\cos$.** $\sin2x=2\sin x\cos x$ and $\sin^{2}x-1=-\cos^{2}x$, so
+$$2\sin x\cos x+\sin^{2}x-1=0\ \Rightarrow\ 2\sin x\cos x-\cos^{2}x=0\ \Rightarrow\ \cos x\,(2\sin x-\cos x)=0.$$
+
+**Step 2 — count each factor.** $\cos x=0$ gives $x=\tfrac\pi2,\tfrac{3\pi}2$ (two). $\tan x=\tfrac12$ gives
+one solution in each half-turn — two more. Total $\mathbf4$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(one crossing only)*
+
+::: {.question}
+How many real solutions does $\;\cos x=x\;$ have?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $1$.**
+
+For $x>1$, $\cos x\le1<x$; for $x<-1$, $\cos x\ge-1>x$. So any solution lies in $[-1,1]$, where $y=x$ rises
+from $-1$ to $1$ while $y=\cos x$ falls gently from $\cos(-1)$ to $\cos1$ — one crossing, at
+$x\approx0.739$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — counting solutions
+
+- **Solutions of $f=g$ are crossings of $y=f$ and $y=g$** — sketch both.
+- **A monotonic piece crosses a line at most once**; use shape/derivatives to bound the count.
+- **A one-to-one substitution preserves the number of solutions;** $\lvert x\rvert$ or squaring can **add a
+  branch**.
+- **$a^{x}=x$** has $0$, $1$ or $2$ real solutions, split at $a=e^{1/e}\approx1.44$.
+:::
+---
+
+## 8 · Definite integrals & clever evaluation
+
+*Seeds: 2023 P2 Q2, Q17, Q20, plus real cross-exam problems (Tyler Mock TMUA, Sets A and C).*
+
+::: {.callout-tip}
+## The method — fix the integrand before you integrate
+
+1. **Simplify with algebra/identities first — never expand blindly.** The star identity is
+   $(a+b)^{2}-(a-b)^{2}=4ab$, which turns a scary difference into a constant.
+2. **A step function ($\lfloor x\rfloor,\lceil x\rceil$) is constant on each unit interval,** so the integral
+   is a **sum of rectangular strips** — usually a geometric or arithmetic series.
+3. **Symmetry:** for $x\ge0$, $f(\lvert x\rvert)=f(x)$, so $f(x)^{2}-f(\lvert x\rvert)^{2}=0$ there — only the
+   $x<0$ part of the range can contribute.
+4. **To rank integrals without computing,** order the integrands pointwise or bound them (e.g.
+   $\sqrt{\sin x}\ge\sin x$, and $\int_0^{\pi/2}\sin x=\int_0^{\pi/2}\cos x=1$).
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A number or exact expression; or which integral is largest.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q2 — the seed)*
+
+::: {.question}
+Evaluate $\displaystyle\int_{9}^{16}\!\left(\tfrac1{\sqrt x}+\sqrt x\right)^{2}\mathrm dx-\int_{9}^{16}\!
+\left(\tfrac1{\sqrt x}-\sqrt x\right)^{2}\mathrm dx$.
+&nbsp;&nbsp;**A** 0 &nbsp; **B** 2 &nbsp; **C** 4 &nbsp; **D** 7 &nbsp; **E** 14 &nbsp; **F** 28 &nbsp;
+**G** 75 &nbsp; **H** 175
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F (28).**
+
+**Step 1 — the identity.** With $a=\tfrac1{\sqrt x},\ b=\sqrt x$,
+$(a+b)^{2}-(a-b)^{2}=4ab=4\cdot\tfrac1{\sqrt x}\cdot\sqrt x=4$.
+
+**Step 2 — integrate the constant.** $\displaystyle\int_{9}^{16}4\,\mathrm dx=4(16-9)=28.$ *(Expanding the
+squares would waste the whole trick.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2023 P2 Q17 — a step function)*
+
+::: {.question}
+$\lceil x\rceil$ is $x$ rounded **up** to the nearest integer. Find $\displaystyle\int_{0}^{99}2^{\lceil
+x\rceil}\,\mathrm dx$. &nbsp;&nbsp;**A** $2^{99}$ &nbsp; **B** $2^{99}-1$ &nbsp; **C** $2^{99}-2$ &nbsp;
+**D** $2^{100}$ &nbsp; **E** $2^{100}-1$ &nbsp; **F** $2^{100}-2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: F ($2^{100}-2$).**
+
+**Step 1 — the integrand is a step function.** On $(n-1,\,n]$, $\lceil x\rceil=n$, so $2^{\lceil x\rceil}=2^{n}$
+is constant there ($n=1,\dots,99$).
+
+**Step 2 — add the strips (width $1$).**
+$$\int_{0}^{99}2^{\lceil x\rceil}\,\mathrm dx=\sum_{n=1}^{99}2^{n}=2+2^{2}+\dots+2^{99}=2\!\left(2^{99}-1\right)=2^{100}-2.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.0,3.0))
+for n in range(1,6):
+    plt.plot([n-1,n],[2**n,2**n],color='#2b6cb0',lw=2)
+    plt.plot([n,n],[2**n,2**(n+1)],color='#2b6cb0',lw=0.6,ls=':')
+plt.xticks(range(0,6)); plt.xlabel('x'); plt.ylabel('2^⌈x⌉'); plt.grid(alpha=0.25)
+plt.title('constant 2ⁿ on each interval (n−1, n]',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(TMUA 2023 P2 Q20 — symmetry)*
+
+::: {.question}
+$f$ is a real polynomial; for $p<q$, $\displaystyle I_{p,q}=\int_{p}^{q}\!\Big[f(x)^{2}-f(\lvert
+x\rvert)^{2}\Big]\mathrm dx$. Which **must** be true? &nbsp;&nbsp;**1** $I_{p,q}=0$ only if $0<p$ &nbsp;
+**2** $f'(x)<0$ for all $x$ only if $I_{p,q}<0$ for all $p<q<0$ &nbsp; **3** $I_{p,q}>0$ only if $p<0$
+&nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (3 only).**
+
+**Key — the integrand vanishes for $x\ge0$.** There $\lvert x\rvert=x$, so $f(x)^{2}-f(\lvert
+x\rvert)^{2}=0$; only the part of $[p,q]$ with $x<0$ can contribute.
+
+- **3 is true:** if $p\ge0$ the whole range has $x\ge0$, so $I_{p,q}=0$ — then $I_{p,q}>0$ forces $p<0$. ✔
+- **1 is false:** $I_{p,q}=0$ can happen with $p<0$ (e.g. a symmetric cancellation), so it does not force
+  $0<p$.
+- **2 is false:** $f'<0$ everywhere controls $f$'s shape but the sign of the $x<0$ contribution depends on
+  $f(x)^{2}$ vs $f(-x)^{2}$, which need not make $I_{p,q}<0$ throughout.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set A — rank without computing)*
+
+::: {.question}
+Which of these has the **largest** value? (You are not expected to compute them.)
+&nbsp;&nbsp;**A** $\displaystyle\int_{0}^{\pi/2}\cos x\,\mathrm dx$ &nbsp;
+**B** $\displaystyle\int_{0}^{\pi/2}\cos^{2}x\,\mathrm dx$ &nbsp;
+**C** $\displaystyle\int_{0}^{\pi/2}\sqrt{\sin x}\,\mathrm dx$ &nbsp;
+**D** $\displaystyle\int_{0}^{\pi/2}\sin^{4}x\,\mathrm dx$ &nbsp;
+**E** $\displaystyle\int_{0}^{\pi/2}\Big(1-\tfrac{2x}{\pi}\Big)\mathrm dx$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: C.**
+
+**Step 1 — a free benchmark.** On $[0,\tfrac\pi2]$, $\int\cos x=\int\sin x=1$ (equal by symmetry). So **A**
+$=1$.
+
+**Step 2 — compare each to $1$.** Since $0\le\sin x\le1$ there, $\sqrt{\sin x}\ge\sin x$, so **C**
+$=\int\sqrt{\sin x}>\int\sin x=1$. Meanwhile $\cos^{2}x\le\cos x$ and $\sin^{4}x\le1$ and the line in **E** has
+integral $\tfrac\pi4<1$ — all **at most $1$**.
+
+So only **C** exceeds $1$; it is the largest.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(Tyler Mock TMUA, Set C — a floor-function integral)*
+
+::: {.question}
+Evaluate $\displaystyle\int_{\pi/2}^{\pi} x\lfloor x\rfloor\,\mathrm dx$, where $\lfloor x\rfloor$ is $x$
+rounded **down**. &nbsp;&nbsp;**A** $\tfrac{26}{3}$ &nbsp; **B** $\tfrac{11\pi^{2}}{8}-\tfrac{13}{2}$ &nbsp;
+**C** $\tfrac{11\pi^{2}}{8}$ &nbsp; **D** $\tfrac{7\pi^{3}}{24}$ &nbsp; **E** $\tfrac{7\pi^{3}}{24}-\tfrac{13}{8}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B ($\tfrac{11\pi^{2}}{8}-\tfrac{13}{2}$).**
+
+**Step 1 — split where $\lfloor x\rfloor$ jumps.** On $[\tfrac\pi2,\pi]\approx[1.57,3.14]$: $\lfloor
+x\rfloor=1$ on $[\tfrac\pi2,2)$, $\;=2$ on $[2,3)$, $\;=3$ on $[3,\pi]$.
+
+**Step 2 — integrate $x\lfloor x\rfloor$ piece by piece** (using $\int x\,\mathrm dx=\tfrac{x^{2}}2$):
+$$\int_{\pi/2}^{2}\!x\,\mathrm dx+2\!\int_{2}^{3}\!x\,\mathrm dx+3\!\int_{3}^{\pi}\!x\,\mathrm dx
+=\Big(2-\tfrac{\pi^{2}}8\Big)+2\cdot\tfrac52+3\cdot\tfrac{\pi^{2}-9}{2}.$$
+
+**Step 3 — collect.** $=2-\tfrac{\pi^{2}}8+5+\tfrac{3\pi^{2}-27}{2}=\dfrac{11\pi^{2}}{8}-\dfrac{13}{2}.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — integral tricks
+
+- **$(a+b)^{2}-(a-b)^{2}=4ab$** — collapses a difference of squared brackets to a constant.
+- **Step functions** ($\lfloor x\rfloor,\lceil x\rceil$): constant on each unit interval $\Rightarrow$ integral
+  $=$ sum of strips (geometric/arithmetic series).
+- **$f(\lvert x\rvert)=f(x)$ for $x\ge0$**, so such an integrand contributes only where $x<0$.
+- **Rank integrals by their integrands:** $\sqrt{\sin x}\ge\sin x$, and $\int_0^{\pi/2}\sin x=\int_0^{\pi/2}
+  \cos x=1$ is a handy benchmark.
+:::
+---
+
+## 9 · Dividing figures & geometry reasoning
+
+*Seed: 2023 P2 Q8, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — a cut into two triangles is a cevian; count by triangle type
+
+1. **To split a triangle into two *triangles*, the cut must run from a vertex to a point on the opposite side
+   (a *cevian*).** Any other straight cut leaves a quadrilateral.
+2. **A right-angled piece can only come from** (i) the foot on the opposite side — an **altitude**; or (ii) the
+   starting vertex — possible only if that vertex angle exceeds $90^\circ$.
+3. **Count by type.** Acute: three altitude feet lie inside, so **3**; obtuse: one altitude foot inside plus
+   two right-angle cevians from the obtuse vertex, again **3**.
+4. **To divide a region into equal areas, integrate and set the part equal to half the total.**
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A count, or an equation for the dividing value.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q8 — the seed)*
+
+::: {.question}
+A (non-right) triangle. Counting straight lines that divide it into two triangles with **at least one**
+right-angled, can the count be exactly $1$ (I), exactly $2$ (II), exactly $3$ (III)?
+&nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D (III only) — every non-right triangle has exactly three such lines.**
+
+**Step 1 — the cut is a cevian** (vertex to opposite side), else a quadrilateral appears.
+
+**Step 2 — where the right angle sits.** Either at the foot (the cevian is an **altitude**) or at the starting
+vertex (needs that angle $>90^\circ$).
+
+**Step 3 — count.** *Acute:* all three altitude feet fall inside, giving **3**; no vertex exceeds $90^\circ$,
+so nothing else. *Obtuse:* only the altitude from the obtuse vertex lands inside (1), and the obtuse vertex
+gives **two** right-angle cevians (one perpendicular to each adjacent side) — again **3**. So the count is
+always $3$: only III.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); B=np.array([4,0]); C=np.array([1.3,2.6])
+def foot(P,Q,R):
+    d=Q-P; t=np.dot(R-P,d)/np.dot(d,d); return P+t*d
+plt.figure(figsize=(4.2,3.2))
+tri=np.array([A,B,C,A]); plt.plot(tri[:,0],tri[:,1],color='#2b6cb0',lw=2)
+for P,Q,R in [(B,C,A),(A,C,B),(A,B,C)]:
+    F=foot(P,Q,R); plt.plot([R[0],F[0]],[R[1],F[1]],'--',color='crimson',lw=1)
+for P,nm in [(A,'A'),(B,'B'),(C,'C')]:
+    plt.annotate(nm,P,textcoords='offset points',xytext=(4,4))
+plt.gca().set_aspect('equal'); plt.axis('off')
+plt.title('acute triangle: the 3 altitudes are the 3 dividing lines',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(altitudes of an obtuse triangle)*
+
+::: {.question}
+In an **obtuse** triangle, how many of the three altitudes have their foot **inside** the opposite side?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $1$.**
+
+Only the altitude dropped from the **obtuse** vertex lands inside the opposite side. The other two altitudes
+fall on the **extensions** of their opposite sides (outside the triangle), because the obtuse angle pushes the
+feet beyond the endpoints. *(This is exactly why the obtuse case still totals three dividing lines: $1$
+interior altitude $+\,2$ right-angle cevians from the obtuse vertex.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a median halves the area)*
+
+::: {.question}
+Explain why a **median** of a triangle divides it into two triangles of **equal area**.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: the two halves share the same height and have equal bases.**
+
+A median from $A$ hits the midpoint $M$ of $BC$, so $BM=MC$. Triangles $ABM$ and $ACM$ have these equal bases
+and the **same** height (the perpendicular distance from $A$ to line $BC$). Equal base $\times$ equal height
+$\Rightarrow$ equal area. *(So the three medians cut the triangle into six equal-area pieces.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set A — divide a region into equal areas)*
+
+::: {.question}
+The line $y=c$ divides the region between $y=x$ and $y=\sqrt x$ into two equal areas. Which equation does $c$
+satisfy? &nbsp;&nbsp;**A** $6c^{4}-8c^{3}+1=0$ &nbsp; **B** $3c^{4}-4c^{3}+1=0$ &nbsp;
+**C** $2c^{3}-3c^{2}+1=0$ &nbsp; **D** $4c^{3}-6c^{2}+1=0$
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,1,200)
+plt.figure(figsize=(4.0,3.2))
+plt.plot(x,np.sqrt(x),color='#2b6cb0',label='y=√x')
+plt.plot(x,x,color='#dd6b20',label='y=x')
+plt.fill_between(x,x,np.sqrt(x),color='#2ca02c',alpha=0.12)
+plt.axhline(0.5,color='crimson',ls='--',lw=1); plt.text(0.02,0.53,'y=c',color='crimson',fontsize=9)
+plt.legend(fontsize=8); plt.gca().set_aspect('equal'); plt.grid(alpha=0.25)
+plt.title('region between y=x and y=√x, split by y=c',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($4c^{3}-6c^{2}+1=0$).**
+
+**Step 1 — describe by horizontal strips.** At height $y$ ($0\le y\le1$) the region runs from $x=y^{2}$
+(on $y=\sqrt x$) to $x=y$ (on $y=x$); its width is $y-y^{2}$. Total area
+$\displaystyle\int_{0}^{1}(y-y^{2})\,\mathrm dy=\tfrac12-\tfrac13=\tfrac16$.
+
+**Step 2 — set the lower part to half.** $\displaystyle\int_{0}^{c}(y-y^{2})\,\mathrm dy=\tfrac{c^{2}}2-
+\tfrac{c^{3}}3=\tfrac12\cdot\tfrac16=\tfrac1{12}$.
+
+**Step 3 — clear denominators.** Multiply by $12$: $6c^{2}-4c^{3}=1$, i.e. $\boxed{4c^{3}-6c^{2}+1=0}$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — dividing figures
+
+- **A cut into two triangles is a cevian** (vertex $\to$ opposite side).
+- **A right-angled piece $\Rightarrow$ an altitude** (foot on the side) or a cevian from a vertex whose angle
+  $>90^\circ$; every non-right triangle gives **exactly three**.
+- **A median splits a triangle into two equal areas** (same height, equal bases); the three medians make six
+  equal pieces.
+- **Divide a region into equal areas** by integrating and setting the part $=\tfrac12$(total).
+:::
+---
+
+## 10 · Sequences & series
+
+*Seeds: 2023 P2 Q15, Q16, plus a real cross-exam problem (Tyler Mock TMUA, Set A).*
+
+::: {.callout-tip}
+## The method — series sums, and divisibility down a recurrence
+
+1. **A recurring "decimal" in base $b$** with a $k$-digit repeating block equals
+   $\dfrac{\text{block value}}{b^{k}-1}$ (the base-$b$ version of $0.\overline{d_1\dots d_k}=\frac{\text{block}}{10^{k}-1}$).
+2. **Geometric series:** $a+ar+\dots+ar^{n-1}=\dfrac{a(r^{n}-1)}{r-1}$; if $\lvert r\rvert<1$, the infinite sum
+   is $\dfrac{a}{1-r}$.
+3. **Arithmetic series:** sum $=(\text{number of terms})\times(\text{mean})$, and the mean is the **middle
+   term** (for an odd number of terms).
+4. **Divisibility in a recurrence:** if every seed shares a factor $d$ and each term is a sum of earlier ones,
+   **every** term is a multiple of $d$.
+5. **Telescoping:** write a difference as consecutive steps and let them collapse.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A value or a fraction.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q15 — the seed)*
+
+::: {.question}
+What is the value of the recurring base-$2$ number $0.\dot0\dot01\dot1=0.001100110011\ldots$?
+&nbsp;&nbsp;**A** $\tfrac13$ &nbsp; **B** $\tfrac15$ &nbsp; **C** $\tfrac1{15}$ &nbsp; **D** $\tfrac2{15}$
+&nbsp; **E** $\tfrac4{15}$ &nbsp; **F** $\tfrac3{16}$ &nbsp; **G** $\tfrac5{16}$ &nbsp; **H** $\tfrac6{31}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B ($\tfrac15$).**
+
+**Step 1 — the block.** "$0011$" repeats (period $4$); as a binary integer it is
+$0\cdot8+0\cdot4+1\cdot2+1=3$.
+
+**Step 2 — apply the rule.** A $4$-digit block just after the point gives
+$0.\overline{0011}_2=\dfrac{3}{2^{4}-1}=\dfrac{3}{15}=\dfrac15.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2023 P2 Q16 — divisibility down a recurrence)*
+
+::: {.question}
+$u_1=a,\ u_2=b,\ u_{n+2}=u_n+u_{n+1}$, with $a,b$ positive integers and $\gcd(a,b)=7$. Which **must** hold?
+&nbsp;&nbsp;**I** $u_{2023}$ is a multiple of $7$ &nbsp; **II** if $u_1$ is not a factor of $u_2$ then $u_1$
+is not a factor of $u_n$ for any $n>1$ &nbsp; **III** $\gcd(u_1,u_5)=7$ &nbsp;&nbsp;(**A** none $\dots$
+**H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: B (I only).**
+
+- **I:** $\gcd(a,b)=7$ makes $a,b$ multiples of $7$, and a sum of multiples of $7$ is a multiple of $7$; by
+  the recurrence **every** $u_n$ is. **True.**
+- **III:** $u_5=2a+3b$, so $\gcd(u_1,u_5)=\gcd(a,3b)$. Take $a=21,b=7$: $\gcd(21,63)=21\ne7$. **False.**
+- **II:** take $a=14,b=7$: $u_1=14$ does not divide $u_2=7$, yet $u_4=a+2b=28$ **is** divisible by $14$.
+  **False.**
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(a recurring decimal)*
+
+::: {.question}
+Write the recurring decimal $0.\overline{27}=0.272727\ldots$ as a fraction in lowest terms.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $\dfrac3{11}$.**
+
+A $2$-digit block gives $0.\overline{27}=\dfrac{27}{10^{2}-1}=\dfrac{27}{99}=\dfrac{3}{11}.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set A — a telescoping recurrence)*
+
+::: {.question}
+A sequence satisfies $A_n=A_{n-1}+(-1)^{n+1}n^{2}$. Find $A_{31}-A_{29}$.
+&nbsp;&nbsp;**A** $30$ &nbsp; **B** $45$ &nbsp; **C** $57$ &nbsp; **D** $61$ &nbsp; **E** $90$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($61$).**
+
+**Telescope two steps.**
+$A_{31}-A_{29}=(A_{31}-A_{30})+(A_{30}-A_{29})=(-1)^{32}\,31^{2}+(-1)^{31}\,30^{2}=31^{2}-30^{2}.$
+
+Difference of squares: $31^{2}-30^{2}=(31-30)(31+30)=61.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(the middle term is the mean)*
+
+::: {.question}
+An arithmetic sequence has $2n+1$ terms. Show its sum equals $(2n+1)\times(\text{middle term})$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: pair the ends inward.**
+
+Let the middle term be $m$. In an arithmetic sequence, terms equidistant from the middle average to $m$
+(one is $m-kd$, the other $m+kd$). Pairing the $2n+1$ terms this way, each pair averages $m$, and the lone
+middle term is $m$, so the mean of all terms is $m$. Hence sum $=(2n+1)\times m$. *(This is why a pentagon's
+five arithmetic angles have middle term $\tfrac{540^\circ}{5}=108^\circ$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — sequences & series
+
+- **Recurring block in base $b$:** value $=\dfrac{\text{block}}{b^{k}-1}$ (base $10$: over $10^{k}-1$).
+- **Geometric:** finite $\dfrac{a(r^{n}-1)}{r-1}$; infinite $\dfrac{a}{1-r}$ for $\lvert r\rvert<1$.
+- **Arithmetic:** sum $=$ terms $\times$ mean; **mean $=$ middle term** (odd count).
+- **Shared factor propagates:** all seeds divisible by $d$ $\Rightarrow$ every term is.
+- **Telescope** consecutive differences; $\,m^{2}-(m-1)^{2}=2m-1$.
+:::
+---
+
+## 11 · Polynomials & roots
+
+*Seeds: 2023 P2 Q18, Q19, plus real cross-exam problems (Tyler Mock TMUA, Sets C and D).*
+
+::: {.callout-tip}
+## The method — substitute, factor, count
+
+1. **Biquadratic $x^{4}+bx^{2}+c$: put $u=x^{2}$.** Four distinct real $x$ $\iff$ the quadratic $u^{2}+bu+c$
+   has **two distinct positive** roots — i.e. discriminant $b^{2}-4c>0$, sum $-b>0$, product $c>0$.
+2. **Factor theorem:** $(x-r)$ divides $p(x)$ $\iff p(r)=0$; to find unknown coefficients, divide out the known
+   factor and **match coefficients**.
+3. **A quadratic from its turning point** $(h,k)$ is $a(x-h)^{2}+k$ — one more point fixes $a$.
+4. **Roots of a built polynomial:** $g=x\,f''(x)=0$ means $x=0$ **or** $f''(x)=0$; count via degrees.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A condition, a value, or an expression.
+:::
+
+---
+
+### Problem 1 &nbsp; *(TMUA 2023 P2 Q18 — the seed)*
+
+::: {.question}
+$x^{4}+bx^{2}+c=0$ has four distinct real roots **iff** which condition?
+&nbsp;&nbsp;**A** $b^{2}>4c$ &nbsp; **B** $b^{2}<4c$ &nbsp; **C** $c>0$ and $b>2\sqrt c$ &nbsp; **D** $c>0$ and
+$b<-2\sqrt c$ &nbsp; **E** $c<0$ and $b<0$ &nbsp; **F** $c<0$ and $b>0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: D ($c>0$ and $b<-2\sqrt c$).**
+
+**Step 1 — substitute $u=x^{2}$.** $u^{2}+bu+c=0$ must have **two distinct positive** roots (each positive
+$u$ gives $x=\pm\sqrt u$).
+
+**Step 2 — conditions.** distinct real: $b^{2}-4c>0$; sum $-b>0$ (so $b<0$); product $c>0$.
+
+**Step 3 — combine.** With $c>0$, "$b<0$ and $b^{2}>4c$" is exactly $b<-2\sqrt c$. So $c>0$ and
+$b<-2\sqrt c$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.4,2.4,400)
+plt.figure(figsize=(4.8,3.0))
+plt.plot(x,x**4-5*x**2+4,color='#2b6cb0')   # b=-5, c=4: b<-2√4=-4
+for r in [-2,-1,1,2]: plt.plot(r,0,'o',color='crimson')
+plt.axhline(0,color='0.6',lw=0.7); plt.grid(alpha=0.25)
+plt.title('b=−5, c=4 (b<−2√c): four distinct roots ±1, ±2',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 2 &nbsp; *(TMUA 2023 P2 Q19 — roots of a built polynomial)*
+
+::: {.question}
+$f$ is a non-constant polynomial and $g(x)=x\,f''(x)$; $f=0$ for exactly $M$ real $x$, $g=0$ for exactly $N$.
+Which orderings are possible? &nbsp;&nbsp;**I** $M<N$ &nbsp; **II** $M=N$ &nbsp; **III** $M>N$
+&nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: H (all three).** $g=0$ means $x=0$ **or** $f''(x)=0$ — pick an $f$ for each case.
+
+- **$M<N$:** $f=x^{4}+1$ has $M=0$; $f''=12x^{2}$, so $g=12x^{3}$ has only $x=0$, $N=1$. ($0<1$.)
+- **$M=N$:** $f=x^{2}$ has $M=1$; $f''=2$, so $g=2x$ has $N=1$.
+- **$M>N$:** $f=x^{4}-5x^{2}+4$ has $M=4$ (roots $\pm1,\pm2$); $f''=12x^{2}-10$, so $g=x(12x^{2}-10)$ has
+  $N=3$. ($4>3$.)
+
+All three occur, so **H**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 3 &nbsp; *(Tyler Mock TMUA, Set D — factor theorem)*
+
+::: {.question}
+Given that $2x^{2}+11x+5$ is a factor of $ax^{3}-17x^{2}+bx-15$, find $a+b$.
+&nbsp;&nbsp;**A** $-40$ &nbsp; **B** $-28$ &nbsp; **C** $-4$ &nbsp; **D** $4$ &nbsp; **E** $28$ &nbsp;
+**F** $40$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A ($-40$).**
+
+**Step 1 — the missing factor.** A cubic $=$ (quadratic)$\times$(linear): $ax^{3}-17x^{2}+bx-15=
+(2x^{2}+11x+5)(cx+d)$.
+
+**Step 2 — match the easy ends.** Constant: $5d=-15\Rightarrow d=-3$. The $x^{3}$ term: $2c=a$.
+
+**Step 3 — the $x^{2}$ term pins $c$.** $2d+11c=-17\Rightarrow-6+11c=-17\Rightarrow c=-1$, so $a=2c=-2$.
+
+**Step 4 — read $b$.** $x$-term: $b=11d+5c=11(-3)+5(-1)=-38$. Hence $a+b=-2+(-38)=-40.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 4 &nbsp; *(Tyler Mock TMUA, Set C — quadratic from a turning point)*
+
+::: {.question}
+$f$ is a quadratic through $(0,1)$ with a turning point at $(-1,-1)$. Find $f(x)$.
+&nbsp;&nbsp;**A** $2x^{2}+4x+1$ &nbsp; **B** $2x^{2}+5x+2$ &nbsp; **C** $3x^{2}+5x+1$ &nbsp;
+**D** $-2x^{2}+1$ &nbsp; **E** $-x^{2}+x+1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: A ($2x^{2}+4x+1$).**
+
+**Step 1 — vertex form.** Turning point $(-1,-1)$: $f(x)=a(x+1)^{2}-1$.
+
+**Step 2 — use $(0,1)$.** $a(1)-1=1\Rightarrow a=2$.
+
+**Step 3 — expand.** $f(x)=2(x+1)^{2}-1=2x^{2}+4x+1.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Problem 5 &nbsp; *(build a four-root condition)*
+
+::: {.question}
+For which $b$ does $\;x^{4}-bx^{2}+9=0\;$ have four distinct real roots?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Answer: $b>6$.**
+
+Put $u=x^{2}$: $u^{2}-bu+9=0$ needs two distinct positive roots. Product $=9>0$ (automatic); discriminant
+$b^{2}-36>0\Rightarrow\lvert b\rvert>6$; sum $=b>0$. Together: $b>6$. *(At $b=6$ the roots coincide — only
+two distinct $x$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — polynomials & roots
+
+- **Biquadratic $x^{4}+bx^{2}+c$:** four distinct real roots $\iff$ $u^{2}+bu+c$ has two distinct **positive**
+  roots ($b^{2}-4c>0$, $\,-b>0$, $\,c>0$).
+- **Factor theorem:** $(x-r)$ divides $p(x)\iff p(r)=0$; divide out a known factor and **match coefficients**.
+- **Quadratic from turning point $(h,k)$:** $a(x-h)^{2}+k$, one point fixes $a$.
+- **$x\,f''(x)=0$:** $x=0$ or $f''=0$ — count roots from the degree of $f''$.
+:::
+
+:::

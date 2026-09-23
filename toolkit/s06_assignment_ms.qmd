@@ -1,0 +1,127 @@
+---
+title: "Toolkit S6 — Scrambled Proofs · Mark Scheme"
+subtitle: "6 real TMUA Paper 2 proofs — self-contained, scaffolded ordering"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+For each proof: the goal, the correct order (by the shuffled letters), and a **step-by-step** account of
+why each line sits where it does. The method is always the same — **anchor the ends** (the opening
+"Let / Suppose / given" and the final conclusion), then order the middle so that **every line is justified
+by the ones above it**. A note flags which proofs are sound and which you will return to in Session 7 to
+find the flaw.
+
+---
+
+### 1. &nbsp; Order: **b, e, d, a, c** &nbsp; *(TMUA 2022 P2 Q7)*
+
+**Proof of:** *the difference between two consecutive positive cubes is always prime.*
+
+**Step 1 — anchor the ends.** The opening must state a fact to build on — the expansion $(x+1)^3=\dots$
+(**b**); the closing is the claim "…is always prime" (**c**).
+
+**Step 2 — order the middle by dependency.**
+
+- **b** — expand $(x+1)^3$.
+- **e** — use that expansion to write the difference of consecutive cubes as $3x^2+3x+1$ (needs **b**).
+- **d** — note $3x^2+3x+1$ has no linear factors (talks about the expression from **e**).
+- **a** — conclude it "cannot be factorised" (rests on **d**).
+- **c** — therefore the difference is prime.
+
+**Flag:** this proof is **flawed** — you meet it again in S7 (2022 Q7): step **a/IV** wrongly turns
+"irreducible polynomial" into "prime value" ($x=5$ gives $91=7\times13$). Ordering it correctly is still
+valid practice.
+
+### 2. &nbsp; Order: **d, b, f, e, g, a, c** &nbsp; *(TMUA 2023 P2 Q4)*
+
+**Proof of:** *the largest run of consecutive odd integers that are all prime is two.*
+
+**Step 1 — anchor the ends.** Open with the example that two consecutive odd primes exist (**d**); close
+with the final claim (**c**).
+
+**Step 2 — dependency order.**
+
+- **d** — there are two consecutive odd primes (e.g. $17,19$).
+- **b** — write any three consecutive odd integers as $n-2,\,n,\,n+2$.
+- **f**, then **e** — the two residue cases ($n$ one/two more than a multiple of $3$).
+- **g** — the remaining case ($n$ itself a multiple of $3$).
+- **a** — "in each case one integer is a multiple of $3$" — must come **after** all three cases.
+- **c** — conclude the run is at most two.
+
+**Flag:** **flawed** at **a/VI** in S7 (a multiple of $3$ can be $3$ itself, which is prime — the triple
+$3,5,7$).
+
+### 3. &nbsp; Order: **d, b, f, e, a, c** &nbsp; *(TMUA 2023 P2 Q10)*
+
+**Proof of:** *$x^4-2x^2-3<0 \Leftrightarrow -\sqrt3<x<\sqrt3$* (by completing the square).
+
+**Step 1 — anchor.** Open by completing the square (**d**); close with the interval (**c**).
+
+**Step 2 — dependency order.**
+
+- **d** — $x^4-2x^2+1<4$.
+- **b** — rewrite the left side as $(x^2-1)^2<4$ (needs **d**).
+- **f** — unfold to $-2<x^2-1<2$.
+- **e** — drop the always-true left half, leaving $x^2-1<2$.
+- **a** — simplify to $x^2<3$.
+- **c** — read off $-\sqrt3<x<\sqrt3$.
+
+**Flag:** **completely correct** — a good model of a clean chain of equivalences.
+
+### 4. &nbsp; Order: **b, d, e, a, c** &nbsp; *(TMUA 2018 P2 Q13)*
+
+**Proof of:** *if $\tan\theta>0$ then $\sin\theta+\cos\theta>1$.* (Opens with "Suppose $\tan\theta>0$".)
+
+**Step 1 — anchor.** After the "Suppose", the first worked line is **b**; the conclusion is **c**.
+
+**Step 2 — dependency order.**
+
+- **b** — from $\tan\theta>0$ deduce $\sin\theta\cos\theta>0$.
+- **d** — hence $1+2\sin\theta\cos\theta>1$ (needs **b**).
+- **e** — rewrite $1$ as $\sin^2\theta+\cos^2\theta$, giving $\sin^2\theta+2\sin\theta\cos\theta+\cos^2\theta>1$.
+- **a** — factorise to $(\sin\theta+\cos\theta)^2>1$.
+- **c** — conclude $\sin\theta+\cos\theta>1$.
+
+**Flag:** **flawed** at the last step **c/V** in S7: $(\,\cdot\,)^2>1$ gives $\sin\theta+\cos\theta>1$
+**or** $<-1$ (lost $\pm$).
+
+### 5. &nbsp; Order: **b, f, d, a, e, c** &nbsp; *(TMUA 2017 P2 Q18)*
+
+**Proof of:** *solving $\left(\tfrac14\right)^n<\left(\tfrac1{32}\right)^{10}$.*
+
+**Step 1 — anchor.** Open with the given inequality (**b**); close with the range of $n$ (**c**).
+
+**Step 2 — dependency order.**
+
+- **b** — start from the inequality.
+- **f** — take $\log_{1/2}$ of both sides.
+- **d** — bring the powers down in front.
+- **a** — divide to isolate $n$.
+- **e** — evaluate the logs to a number.
+- **c** — state the range.
+
+**Flag:** **flawed** at step **f** in S7: $\log_{1/2}$ is decreasing, so the inequality should reverse.
+
+### 6. &nbsp; Order: **c, f, d, g, a, e, b** &nbsp; *(TMUA 2018 P2 Q9)*
+
+**Proof of:** *solving $4x\sqrt{2x-1}=10x-5$.*
+
+**Step 1 — anchor.** Open with the equation (**c**); close with the roots (**b**).
+
+**Step 2 — dependency order.**
+
+- **c** — the original equation.
+- **f** — write $10x-5=5(2x-1)$.
+- **d** — square both sides.
+- **g** — divide by $(2x-1)$.
+- **a** — expand.
+- **e** — factorise.
+- **b** — read off $x=\tfrac58,\tfrac52$.
+
+**Flag:** **flawed** at step **g** in S7: dividing by $(2x-1)$ loses the root $x=\tfrac12$.
+
+:::

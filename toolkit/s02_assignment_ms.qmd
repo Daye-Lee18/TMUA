@@ -1,0 +1,310 @@
+---
+title: "Toolkit S2 — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
+
+The italic sentences are the reasoning to say aloud while marking. Throughout, insist the student
+**writes arrows** — an answer with no arrow in the working cannot be checked, by them or by you.
+
+---
+
+# Section A — Fluency
+
+## Question 1 **[4]**
+
+::: {.question}
+Consider *if $n$ is divisible by $10$ then $n$ is divisible by $5$*. Write the (a) converse, (b)
+contrapositive, (c) inverse; and (d) state which of the four (original, converse, contrapositive, inverse)
+are **true**.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+Let $A$ = "$n$ is divisible by $10$", $B$ = "$n$ is divisible by $5$". Original: $A \Rightarrow B$.
+
+**(a) Converse** ($B \Rightarrow A$): *If $n$ is divisible by $5$, then $n$ is divisible by $10$.* &nbsp; **(B1)**
+
+**(b) Contrapositive** (not $B \Rightarrow$ not $A$): *If $n$ is **not** divisible by $5$, then $n$ is
+**not** divisible by $10$.* &nbsp; **(B1)**
+
+**(c) Inverse** (not $A \Rightarrow$ not $B$): *If $n$ is **not** divisible by $10$, then $n$ is **not**
+divisible by $5$.* &nbsp; **(B1)**
+
+**(d)** The **original** and the **contrapositive** are true; the **converse** and the **inverse** are
+false. &nbsp; **(B1)**
+
+*Counterexample for both false ones: $n = 5$ — divisible by $5$ but not by $10$.*
+
+**Marking note.** The pattern (original ✓, contrapositive ✓, converse ✗, inverse ✗) is the standard one,
+and the two ✗s always share a counterexample — because converse and inverse are contrapositives of each
+other.
+:::
+
+---
+
+## Question 2 **[3]**
+
+::: {.question}
+Assume true: *if a number is a multiple of $9$, then its digits sum to a multiple of $9$*. For each, state
+**must be true / must be false / cannot be determined**. &nbsp;&nbsp;(a) if the digits do not sum to a
+multiple of $9$, the number is not a multiple of $9$; &nbsp; (b) if the digits sum to a multiple of $9$,
+the number is a multiple of $9$; &nbsp; (c) a number is a multiple of $9$ and its digits sum to $7$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) Must be true** &nbsp; **(B1)** — this is the **contrapositive**, always equivalent to a true
+statement.
+
+**(b) Cannot be determined** &nbsp; **(B1)** — this is the **converse**.
+
+::: {.callout-warning appearance="simple"}
+**Expect an argument here.** The converse *is* in fact a true theorem about digit sums. But the question
+asks what follows **from the given statement**, and a converse never follows. *"True in mathematics"* and
+*"deducible from what you were given"* are different things — and Paper 2 tests the second.
+:::
+
+**(c) Must be false** &nbsp; **(B1)** — a multiple of $9$ whose digits sum to $7$ would be a case where
+the hypothesis holds and the conclusion fails, which is precisely what the true statement forbids.
+
+*This is what a counterexample would look like — so if one existed, the original statement would be false.*
+:::
+
+---
+
+## Question 3 **[3]**
+
+::: {.question}
+Let $x$ be real. Write the **negation** of each. &nbsp;&nbsp;(a) $x>5$; &nbsp; (b) $2\le x<7$; &nbsp;
+(c) $x$ is positive **and** $x$ is an integer.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** $x \le 5$ &nbsp; **(B1)** &nbsp; *— not $x<5$. The boundary case moves to the other side.*
+
+**(b)** $x < 2$ **or** $x \ge 7$ &nbsp; **(B1)**
+
+*Negating a two-sided inequality gives an **or**, not an **and** — there is no number that is both below
+$2$ and above $7$, so an "and" here would be impossible.*
+
+**(c)** $x$ is **not** positive **or** $x$ is **not** an integer &nbsp; **(B1)**
+
+*Negating an "and" produces an "or". Accept "$x \le 0$ or $x$ is not an integer".*
+
+**Common error:** answering (c) with "*$x$ is negative and not an integer*" — over-negated in two ways
+(both halves forced, and "not positive" narrowed to "negative", losing $x=0$).
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 4 **[4]**
+
+::: {.question}
+$a$ an integer; *if $a$ is a multiple of $4$, then $a$ is even*. &nbsp;&nbsp;(a) Write the contrapositive.
+&nbsp; (b) Is it true — argued **without** a fresh direct proof? &nbsp; (c) Write the converse and decide
+if it is true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) Contrapositive:** *If $a$ is **not** even (i.e. $a$ is odd), then $a$ is **not** a multiple of $4$.*
+&nbsp; **(B1)**
+
+**(b) True** &nbsp; **(B1)** — *because the original is true, and a statement and its contrapositive are
+logically equivalent. No separate proof is needed.*
+
+**Award the mark only if the reason is the equivalence**, not a fresh proof. That is the point of the part.
+
+**(c) Converse:** *If $a$ is even, then $a$ is a multiple of $4$.* &nbsp; **(M1)**
+
+**False**, counterexample $a = 2$ (even, not a multiple of $4$). &nbsp; **(A1)**
+
+*So here the original and its contrapositive are true while the converse is false — the ordinary
+situation, and a useful contrast with Question 6 where the converse is also true.*
+:::
+
+---
+
+## Question 5 **[5]**
+
+::: {.question}
+$n$ an integer. Prove *if $n^2$ is divisible by $3$ then $n$ is divisible by $3$*. &nbsp;&nbsp;(a) Write the
+contrapositive. &nbsp; (b) Prove it (an integer not divisible by $3$ is $3k+1$ or $3k+2$). &nbsp; (c)
+Explain why that proves the original.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) Contrapositive:** *If $n$ is **not** divisible by $3$, then $n^2$ is **not** divisible by $3$.*
+&nbsp; **(B1)**
+
+**(b) Proof.** Suppose $n$ is not divisible by $3$. Then $n = 3k+1$ or $n = 3k+2$ for some integer $k$.
+&nbsp; **(M1 — both cases identified)**
+
+**Case 1:** $n = 3k+1$.
+$$n^2 = 9k^2 + 6k + 1 = 3\left(3k^2 + 2k\right) + 1 ,$$
+which leaves remainder $1$, so is not divisible by $3$. &nbsp; **(A1)**
+
+**Case 2:** $n = 3k+2$.
+$$n^2 = 9k^2 + 12k + 4 = 3\left(3k^2 + 4k + 1\right) + 1 ,$$
+which also leaves remainder $1$, so is not divisible by $3$. &nbsp; **(A1)**
+
+In both cases $n^2$ is not divisible by $3$. $\blacksquare$
+
+**(c)** A statement and its contrapositive are equivalent, so proving the contrapositive proves the
+original. &nbsp; **(B1)**
+
+::: {.callout-note appearance="simple"}
+**Why the contrapositive was essential here.** Starting from "$n^2$ is divisible by $3$" gives
+$n^2 = 3m$, from which nothing about $n$ follows without deeper number theory. Starting from the negation
+gives a **formula for $n$** ($3k+1$ or $3k+2$) that you can square. Whenever the negation supplies a
+formula and the original does not, take the contrapositive.
+
+**Both cases are required** for full marks — a student who does only $3k+1$ has proved half of it.
+:::
+:::
+
+---
+
+## Question 6 **[5]**
+
+::: {.question}
+$n$ a positive integer; $(*)$: *if $n$ is divisible by $9$ then $n$ is divisible by $3$*. Which, taken
+individually, is/are equivalent to $(*)$? &nbsp;&nbsp;**I** if $n$ not divisible by $3$ then not by $9$;
+&nbsp; **II** if $n$ divisible by $3$ then by $9$; &nbsp; **III** $n$ divisible by $9$ only if by $3$.
+&nbsp; (Options **A**–**H**; also note for each whether it is *true*.)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer — **E** (I and III)
+
+Let $P$ = "$n$ is divisible by $9$", $Q$ = "$n$ is divisible by $3$". Then $(*) = P \Rightarrow Q$.
+&nbsp; **(M1 for naming and writing the arrow)**
+
+**I.** "not $Q \Rightarrow$ not $P$" — negated **and** reversed: the **contrapositive**.
+**Equivalent** ✓, and **true**. &nbsp; **(B1)**
+
+**II.** "$Q \Rightarrow P$" — reversed only: the **converse**. **Not equivalent** ✗, and also **false**
+(e.g. $n=3$ is divisible by $3$ but not by $9$). &nbsp; **(B1)**
+
+**III.** "$P$ **only if** $Q$" is $P \Rightarrow Q$ — the original restyled. **Equivalent** ✓, and
+**true**. &nbsp; **(B1)**
+
+**Answer: E.** &nbsp; **(A1)**
+
+::: {.callout-warning appearance="simple"}
+**The comparison to draw in class.** Here the converse is **false**, so truth and equivalence happen to
+agree, and a careless student still gets the right answer. In the **class material's Question 6** the
+converse was **true** — and there, reasoning by truth gives the wrong answer.
+
+Put the two side by side and the lesson lands: *equivalence is about the arrows, and truth is a
+distraction that sometimes happens to be harmless.*
+:::
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[5]**
+
+::: {.question}
+A student "proves" *if $n^2$ is odd then $n$ is odd* by writing: "Suppose $n$ is odd; then $n=2k+1$, so
+$n^2=2(2k^2+2k)+1$ is odd; therefore if $n^2$ is odd then $n$ is odd." &nbsp;&nbsp;(a) Is the algebra
+correct? &nbsp; (b) Is the **proof** correct — state what was assumed, concluded, and required. &nbsp;
+(c) If wrong, write a correct proof.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) Yes, the algebra is correct.** &nbsp; **(B1)** — $(2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$, which is odd.
+
+**(b) No, the proof is not correct.** &nbsp; **(M1)**
+
+- **Assumed:** $n$ is odd.
+- **Concluded:** $n^2$ is odd.
+- So what was proved is $(n \text{ odd}) \Rightarrow (n^2 \text{ odd})$. &nbsp; **(A1)**
+- **Required:** $(n^2 \text{ odd}) \Rightarrow (n \text{ odd})$.
+
+The student has proved the **converse** of what was asked. A converse is not equivalent to the original,
+so nothing about the required statement has been established. &nbsp; **(A1)**
+
+*Both statements happen to be true — but proving one does not prove the other, and that is the error.*
+
+**(c) Correct proof** — use the contrapositive, *if $n$ is even then $n^2$ is even*: &nbsp; **(B1)**
+
+Suppose $n$ is even, so $n = 2k$. Then $n^2 = 4k^2 = 2(2k^2)$, which is even. Since a statement and its
+contrapositive are equivalent, the original follows. $\blacksquare$
+
+::: {.callout-note appearance="simple"}
+**The tell to teach.** A genuine proof by contrapositive **starts from a negation** — "suppose $n$ is
+*even*". This student's argument contains no negation anywhere, which is the giveaway that they proved the
+converse. Ask any student claiming "contrapositive": *where is your negation?*
+:::
+:::
+
+---
+
+## Question 8 **[3]**
+
+::: {.question}
+$P,Q$ statements; it is given that "**$P$ only if $Q$**" is true. &nbsp;&nbsp;(a) Write it as an
+implication. &nbsp; (b) Write its contrapositive as an implication. &nbsp; (c) A student claims "since $P$
+only if $Q$, it follows that $Q$ only if $P$." Right? Justify.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a)** $P \Rightarrow Q$ &nbsp; **(B1)** — *"only if" keeps the order.*
+
+**(b)** not $Q \Rightarrow$ not $P$ &nbsp; **(B1)**
+
+**(c) No, the student is wrong.** &nbsp; **(B1)**
+
+*"$Q$ only if $P$" means $Q \Rightarrow P$, which is the **converse** of the given statement. A converse
+does not follow from the original.*
+
+Accept any concrete counterexample, e.g. $P$ = "$n$ is divisible by $10$", $Q$ = "$n$ is divisible by
+$5$": then "$P$ only if $Q$" is true, but "$Q$ only if $P$" is false ($n=5$).
+
+*If both did happen to hold, the two statements together would form an "if and only if" — but that has to
+be earned, never assumed.*
+:::
+
+---
+
+## Marking summary
+
+| Q | Marks | The thing being tested |
+|---|---|---|
+| 1 | 4 | Forming all three rearrangements; the ✓✓✗✗ pattern |
+| 2 | 3 | "True in maths" vs "follows from what's given" |
+| 3 | 3 | Negating inequalities and "and" |
+| 4 | 4 | **Using equivalence instead of re-proving** |
+| 5 | 5 | Proof by contrapositive, with case work |
+| 6 | 5 | Equivalence vs truth, under exam wording |
+| 7 | 5 | Auditing a proof: assumed vs required |
+| 8 | 3 | "Only if" both ways round |
+
+**If marks are lost in one place, look at 4(b) and 7(b).** Question 4(b) asks whether the student will
+*use* the equivalence rather than re-prove it, and 7(b) asks whether they can spot a converse dressed as a
+proof. Those two answers predict how the rest of Paper 2 will go.
+:::

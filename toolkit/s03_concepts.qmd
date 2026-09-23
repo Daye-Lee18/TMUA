@@ -1,0 +1,371 @@
+---
+title: "Toolkit S3 — Necessary & Sufficient · Concepts"
+subtitle: "Everything you need on one page · TMUA Paper 2"
+format:
+  html:
+    toc: false
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Why learn this when TMUA is multiple choice?
+
+You never write a proof on TMUA — every question is **multiple choice**. But the exam tests whether you
+can **judge** a claim: is this condition necessary, sufficient, both, or neither? Turning the words into
+an **arrow** in your head — and knowing which way it points — is exactly what lets you pick the right
+option in seconds.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Arg2</div>
+<div class="fs-title">Necessary & Sufficient — Key Concepts</div>
+<div class="fs-sub">The most-tested pair of words on Paper 2. Everything reduces to one question: <strong>which way does the arrow point?</strong> Sufficient points <em>away</em> from the condition; necessary points <em>towards</em> it.</div>
+::::
+
+## The two words
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Sufficient — "enough"
+
+**"$P$ is sufficient for $Q$"** means
+$$P \Rightarrow Q.$$
+$P$ being true is **enough** to guarantee $Q$. The arrow points **away from** the condition $P$.
+
+[$x>3$ is sufficient for $x>0$ — but not the only way to have $x>0$]{.eg}
+:::
+
+::: {.fs-card}
+### Necessary — "required"
+
+**"$P$ is necessary for $Q$"** means
+$$Q \Rightarrow P.$$
+$Q$ cannot hold **without** $P$; $P$ is **required**. The arrow points **towards** the condition $P$.
+
+[$x>0$ is necessary for $x>3$ — required, but not enough on its own]{.eg}
+:::
+
+::: {.fs-card}
+### Necessary **and** sufficient
+
+Both arrows — an **if and only if**:
+$$P \Leftrightarrow Q.$$
+$P$ and $Q$ are two names for the same thing.
+
+[$f''(x)\ge0$ everywhere is necessary **and** sufficient for $f$ to be convex]{.eg}
+:::
+
+::: {.fs-card}
+### Which way — and the link to *if / only if*
+
+$$\text{"}P\text{ only if }Q\text{"} \equiv Q \text{ is necessary for } P$$
+$$\text{"}P\text{ if }Q\text{"} \equiv Q \text{ is sufficient for } P$$
+
+[**S**ufficient = arrow **S**tarts at the condition; **N**ecessary = arrow e**N**ds at it]{.eg}
+:::
+
+::::
+
+## In practice, and the trap
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Turn the words into an arrow — fast
+
+"A **sufficient** condition for $Q$ is $P$" → $P\Rightarrow Q$.
+"A **necessary** condition for $Q$ is $P$" → $Q\Rightarrow P$.
+
+Read off the option, draw the arrow, check it against the maths.
+:::
+
+::: {.fs-card}
+### The trap: sufficient ≠ necessary
+
+One direction does **not** give the other. $x>3\Rightarrow x>0$, so $x>3$ is **sufficient** for $x>0$ but
+**not necessary** ($x=1$ works too). Deciding "which of the two (or both, or neither)" is the whole
+question.
+:::
+
+::: {.fs-card}
+### Where it shows up (cross-exam)
+
+Paper 2 **Arg2** — usually **applied to real maths**: $f'(a)=0$ for a maximum, $f''\ge0$ for convexity,
+"$a>0$ **and** $b^2-4ac<0$" for a positive-definite quadratic. The same wording appears on **MAT** and
+**STEP**.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## True or false? — test yourself
+
+The Paper 2 questions ask *is this condition necessary, sufficient, both, or neither?* — and *is this
+rule about the words correct?* Memorise the verdict on each; **the *False* ones are the traps.**
+
+**A. Necessary / sufficient claims**
+
+| Statement | T / F ? |
+|---|:--:|
+| $x>3$ is **sufficient** for $x>0$. | |
+| $x>0$ is **necessary** for $x>3$. | |
+| "$n$ divisible by $4$" is **sufficient** for "$n$ even". | |
+| "$n$ even" is **necessary** for "$n$ divisible by $4$". | |
+| A triangle being equilateral is **sufficient** for it to be isosceles. | |
+| For a differentiable $f$, "$f'(a)=0$" is **necessary** for a local maximum at $a$. | |
+| "$f''(x)\ge0$ for all $x$" is **necessary and sufficient** for $f$ to be convex. | |
+| For a twice-differentiable $f$, "$f''(a)=0$" is **necessary** for a point of inflection at $a$. | |
+| "$f'(a)=0$" is **necessary** for a turning point (maximum or minimum) at $a$. | |
+| $x>3$ is **necessary** for $x>0$. | |
+| "$n$ divisible by $4$" is **necessary** for "$n$ even". | |
+| A triangle being isosceles is **sufficient** for it to be equilateral. | |
+| "$f'(a)=0$" is **sufficient** for a local maximum at $a$. | |
+| "$f'(a)=0$" is **sufficient** for a turning point at $a$. | |
+| "$f''(a)=0$" is **sufficient** for a point of inflection at $a$. | |
+| For "$ax^2+bx+c>0$ for all real $x$", the condition "$b^2-4ac<0$" **alone** is sufficient. | |
+
+**B. Rules about the words**
+
+| Statement | T / F ? |
+|---|:--:|
+| "$P$ is necessary for $Q$" means $Q\Rightarrow P$. | |
+| "$P$ is sufficient for $Q$" means $P\Rightarrow Q$. | |
+| "$P$ only if $Q$" means $Q$ is necessary for $P$. | |
+| "$P$ if $Q$" means $Q$ is sufficient for $P$. | |
+| If $P$ is **sufficient** for $Q$, then $P$ is also **necessary** for $Q$. | |
+
+## Proofs of the "true or false?" facts
+
+Decide each verdict above first, then open the key.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## A. Necessary / sufficient claims — answers & proofs
+- $x>3$ **sufficient** for $x>0$ — **True**: $x>3\Rightarrow x>0$.
+- $x>0$ **necessary** for $x>3$ — **True**: $x>3\Rightarrow x>0$, so $x>0$ is required.
+- "$n$ div by $4$" **sufficient** for "$n$ even" — **True**: divisible by $4\Rightarrow$ even.
+- "$n$ even" **necessary** for "$n$ div by $4$" — **True**: divisible by $4\Rightarrow$ even.
+- equilateral **sufficient** for isosceles — **True**: all three sides equal $\Rightarrow$ at least two equal.
+- $f'(a)=0$ **necessary** for a local maximum — **True**: a differentiable max is stationary.
+- $f''(x)\ge0$ everywhere **necessary & sufficient** for convex — **True**: the standard equivalence.
+- $f''(a)=0$ **necessary** for an inflection — **True**: at an inflection $f''$ changes sign, so it passes through $0$.
+- $f'(a)=0$ **necessary** for a turning point — **True**: a turning point is stationary.
+- $x>3$ **necessary** for $x>0$ — **False**: $x=1$ has $x>0$ but not $x>3$.
+- "$n$ div by $4$" **necessary** for "$n$ even" — **False**: $6$ is even but not divisible by $4$.
+- isosceles **sufficient** for equilateral — **False**: an isosceles triangle need not be equilateral.
+- $f'(a)=0$ **sufficient** for a local maximum — **False**: also a minimum ($x^2$) or inflection ($x^3$) at $0$.
+- $f'(a)=0$ **sufficient** for a turning point — **False**: $x^3$ is stationary at $0$ but not a turning point.
+- $f''(a)=0$ **sufficient** for an inflection — **False**: $x^4$ has $f''(0)=0$ but $f''=12x^2$ never changes sign — a minimum.
+- "$b^2-4ac<0$" **alone** sufficient for $ax^2+bx+c>0$ (all $x$) — **False**: also need $a>0$; with $a<0$ it stays entirely below the axis.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## B. Rules about the words — answers & proofs
+- "$P$ necessary for $Q$" means $Q\Rightarrow P$ — **True**: the definition.
+- "$P$ sufficient for $Q$" means $P\Rightarrow Q$ — **True**: the definition.
+- "$P$ only if $Q$" means $Q$ necessary for $P$ — **True**: "$P$ only if $Q$" is $P\Rightarrow Q$.
+- "$P$ if $Q$" means $Q$ sufficient for $P$ — **True**: "$P$ if $Q$" is $Q\Rightarrow P$.
+- If $P$ is sufficient for $Q$, then $P$ is also necessary for $Q$ — **False**: sufficient and necessary are **different directions**; one never implies the other.
+:::
+
+## Notes
+
+### Sufficient: $P\Rightarrow Q$ — "enough"
+
+"$P$ is a **sufficient** condition for $Q$" means that **whenever $P$ holds, $Q$ must hold** — $P$ is
+*enough* to force $Q$. In symbols (which you never have to write), $P\Rightarrow Q$. There may be **other**
+ways to get $Q$ too; sufficient does not mean *only*.
+
+::: {.example}
+[Example.]{.lbl} Is "$x>3$" sufficient for "$x>0$"? Is it necessary?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Sufficient — yes:** if $x>3$ then certainly $x>0$ ($P\Rightarrow Q$). **Necessary — no:** $x=1$ has
+$x>0$ without $x>3$, so $x>3$ is not required. So "$x>3$" is *sufficient but not necessary* for "$x>0$".
+$\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### Necessary: $Q\Rightarrow P$ — "required"
+
+"$P$ is a **necessary** condition for $Q$" means **$Q$ cannot happen without $P$** — every time $Q$ holds,
+$P$ must already hold. That is $Q\Rightarrow P$ (the arrow points **towards** the condition). Necessary
+does not mean *enough*: $P$ may hold in cases where $Q$ does not.
+
+```{python}
+#| fig-cap: "P ⇒ Q pictured as P inside Q: P is sufficient for Q (enough), and Q is necessary for P (required)."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(4.8,3.2))
+t=np.linspace(0,2*np.pi,200)
+ax.plot(2.4+2.4*np.cos(t),2.4*np.sin(t),color='#1f77b4',lw=2)     # big circle Q
+ax.plot(1.7+1.1*np.cos(t),1.1*np.sin(t),color='#d62728',lw=2)     # small circle P inside
+ax.text(1.5,0,'P',fontsize=13,color='#d62728',ha='center',va='center',fontweight='bold')
+ax.text(3.9,1.6,'Q',fontsize=13,color='#1f77b4',ha='center',va='center',fontweight='bold')
+ax.text(2.4,-3.0,'P ⇒ Q :  P sufficient for Q,  Q necessary for P',ha='center',fontsize=10)
+ax.set_xlim(-0.4,5.2); ax.set_ylim(-3.4,2.8); ax.axis('off'); ax.set_aspect('equal')
+plt.tight_layout(); plt.show()
+```
+
+*The picture is the fastest check: "$P$ inside $Q$" is the single fact $P\Rightarrow Q$, and it reads
+**both** ways at once — $P$ sufficient for $Q$, $Q$ necessary for $P$.*
+
+### Necessary **and** sufficient: $P\Leftrightarrow Q$
+
+When $P$ is **both**, the two conditions are equivalent — an *if and only if*. This is where the
+calculus conditions live.
+
+::: {.example}
+[Example.]{.lbl} Is "$f''(x)\ge0$ for all $x$" necessary, sufficient, or both, for a (twice-differentiable)
+function $f$ to be **convex**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Both — necessary and sufficient.** Convex means the chord lies on or above the curve; for a
+twice-differentiable function this holds **exactly when** $f''(x)\ge0$ everywhere. Each implies the other,
+so $P\Leftrightarrow Q$. (This is the 2018 Paper 2 Q18 answer.) $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### The classic trap — $f'(a)=0$ and a maximum
+
+::: {.example}
+[Example.]{.lbl} Is "$f'(a)=0$" necessary, sufficient, or both, for a differentiable $f$ to have a **local
+maximum** at $x=a$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Necessary but not sufficient.** If a differentiable $f$ has a local maximum at $a$, then $f'(a)=0$ must
+hold (necessary). But $f'(a)=0$ alone is not enough — it also happens at a minimum ($x^2$ at $0$) and an
+inflection ($x^3$ at $0$). So it is necessary, not sufficient. $\;\blacksquare$
+
+*This "necessary but not sufficient" pattern — a required condition that does not settle the matter — is
+the single most common Arg2 answer.*
+:::
+
+::: {.workbox}
+
+:::
+
+### The same trap one derivative up — $f''(a)=0$ and an inflection
+
+The stationary-point idea repeats one derivative higher, and it is exactly what
+[Self-study 2](../../lessons/selfstudy2_paper2_reasoning/practice.qmd) tests. A **point of inflection** is
+where the curve changes concavity — where $f''$ **changes sign**. For a twice-differentiable $f$ that forces
+$f''(a)=0$ at the inflection, so "$f''(a)=0$" is *necessary*; but on its own it is not *enough*.
+
+::: {.example}
+[Example.]{.lbl} Is "$f''(a)=0$" necessary, sufficient, or both, for a (twice-differentiable) $f$ to have a
+**point of inflection** at $x=a$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Necessary but not sufficient.** At an inflection $f''$ changes sign, and being continuous it must pass
+through $0$, so $f''(a)=0$ is **required**. But it is not enough: $f(x)=x^{4}$ has $f''(x)=12x^{2}$, so
+$f''(0)=0$, yet $x=0$ is a **minimum** — $f''$ stays $\ge0$ and never changes sign. The extra ingredient that
+makes it sufficient is "$f''(a)=0$ **and** $f''$ changes sign at $a$".
+
+```{python}
+#| fig-cap: "Both have f''(0)=0. Left: y=x⁴ — f''=12x² never changes sign, so x=0 is a minimum, NOT an inflection. Right: y=x³ — f''=6x changes sign, so x=0 is a genuine inflection."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; M='#d62728'; I='#2ca02c'
+fig,(ax1,ax2)=plt.subplots(2,1,figsize=(5.4,6.0))
+x=np.linspace(-1.4,1.4,400)
+ax1.plot(x,x**4,color=C,lw=2); ax1.plot(0,0,'o',color=M)
+ax1.annotate("f''(0)=0 but a minimum\n(f'' = 12x² never changes sign)",(0,0),(0.02,0.9),fontsize=9,color=M)
+ax1.axhline(0,color='0.6',lw=0.8); ax1.axvline(0,color='0.6',lw=0.8)
+ax1.set_title(r'$y=x^4$ — NOT an inflection',fontsize=11); ax1.set_ylabel('y')
+ax2.plot(x,x**3,color=C,lw=2); ax2.plot(0,0,'o',color=I)
+ax2.annotate("f''(0)=0 and f'' = 6x\nchanges sign → inflection",(0,0),(-1.35,1.0),fontsize=9,color=I)
+ax2.axhline(0,color='0.6',lw=0.8); ax2.axvline(0,color='0.6',lw=0.8)
+ax2.set_title(r'$y=x^3$ — genuine inflection',fontsize=11); ax2.set_xlabel('x'); ax2.set_ylabel('y')
+plt.tight_layout(); plt.show()
+```
+
+*Line them up with the stationary-point rule: "$f'(a)=0$" is necessary for a **turning point** (not
+sufficient — $x^3$ is stationary but not a turning point), and "$f''(a)=0$" is necessary for an **inflection**
+(not sufficient — $x^4$). Both need a **sign change** of the derivative to become sufficient.* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+### Reference — the stationary / inflection family, as necessary + sufficient
+
+The whole calculus family fits one pattern: a **derivative equals $0$** is the *necessary* half, and a
+**sign change** is the *sufficient* top-up that names the type. Read the table with that lens — the third
+column is exactly "what you must add to the necessary condition to make it sufficient".
+
+| Type | Necessary condition | Sufficient top-up (sign change) | Graph meaning | Example |
+|---|---|---|---|---|
+| **Stationary point** | $f'(a)=0$ | *(none — the sign behaviour then decides which sub-type)* | tangent is horizontal | $y=x^2,\ y=x^3$ at $0$ |
+| **Local max / min** | $f'(a)=0$ | $f'$ **changes sign**: $+\!\to\!-$ (max), $-\!\to\!+$ (min) | curve turns around | $y=-x^2$ (max), $y=x^2$ (min) |
+| **Point of inflection** | $f''(a)=0$ (or $f''$ undefined) | $f''$ **changes sign** (concavity flips) | concave $\leftrightarrow$ convex | $y=x^3$ at $0$, $y=\sin x$ at $\pi$ |
+| **Stationary inflection** | $f'(a)=0$ **and** $f''(a)=0$ | $f'$ keeps its sign, $f''$ **changes sign** | horizontal tangent, curve passes straight through | $y=x^3$ at $0$, $y=(x-1)^3$ at $1$ |
+| **Non-stationary inflection** | $f'(a)\neq0$ **and** $f''(a)=0$ | $f''$ **changes sign** | concavity flips, tangent not horizontal | $y=x^3+x$ at $0$, $y=\sin x$ at $0$ |
+
+::: {.callout-tip appearance="simple"}
+**The one takeaway.** "$f'(a)=0$" and "$f''(a)=0$" are only ever **necessary** — they locate a *candidate*.
+What makes them **sufficient**, and tells you *which* feature it is, is always a **change of sign** of the
+relevant derivative. That is why every Arg2 answer here is "necessary but not sufficient".
+:::
+
+### Sufficient, not necessary — factorisation and composite values
+
+The [S7 "spot the error" question B2](s07_assignment_ms.qmd) is, underneath, an **Arg2** question in disguise:
+a *sufficient* condition mistaken for a *necessary* one. Take $P=$ "the polynomial $p(x)$ factorises into two
+non-constant integer factors" and $Q=$ "the value $p(n)$ is composite".
+
+::: {.example}
+[Example.]{.lbl} Is $P$ ("$p(x)$ factorises") necessary, sufficient, or both, for $Q$ ("$p(n)$ is composite")?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**Sufficient — yes.** If $p(x)=a(x)\,b(x)$ with both factors non-constant, then $p(n)=a(n)\,b(n)$ is a genuine
+product; for all large $n$ both factors exceed $1$ in size, so the value is composite. Factorising the
+polynomial is **enough** to kill primality.
+
+**Necessary — no.** An **irreducible** polynomial can still take composite values:
+
+- $x^{2}+1$ is irreducible, yet at $x=3$ it gives $3^{2}+1=10=2\times5$.
+- $3x^{2}+3x+1$ is irreducible ($D=9-12=-3<0$), yet at $x=5$ it gives $75+15+1=91=7\times13$ — the difference
+  $6^{3}-5^{3}$.
+
+So $P$ is **sufficient but not necessary** for $Q$.
+
+::: {.keyline}
+$$\text{polynomial factorises}\ \Longrightarrow\ \text{its integer values are composite (for large }n)\quad(\textbf{sufficient})$$
+$$\text{value is composite}\ \nRightarrow\ \text{the polynomial factorises}\quad(\textbf{not necessary})$$
+:::
+
+*This is exactly the S7 B2 slip. The student argued "the polynomial does **not** factorise, therefore the value
+is **not** composite (so it is prime)" — that is $\lnot P\Rightarrow\lnot Q$, the contrapositive of
+$Q\Rightarrow P$, which treats $P$ as **necessary** for $Q$. But $P$ is only **sufficient**. Reading a
+sufficient condition as a necessary one is the whole mistake.* $\;\blacksquare$
+:::
+
+::: {.workbox}
+
+:::
+
+::::

@@ -9,6 +9,20 @@ mixed into the same session, because they test genuinely different things.
 | Paper | Booklet |
 |---|---|
 | **2019 Paper 1** | **[Class material](2019_paper1/class_material.qmd)** — all 20 questions, with working space (prints one question per page) |
+| **2020 Paper 1** | **[Class material](2020_paper1/class_material.qmd)** — all 20 questions, with timing flags and working space |
+| **2016 Paper 1** | **[Class material](2016_paper1/class_material.qmd)** — the hard/long questions + "how to start a long question" (for freezing on long problems) |
+| **2021 Paper 2** | **[Worked solutions](2021_paper2/class_material.qmd)** — all 20 questions, each with a Solution toggle, Working box, and graphs; mapped to their toolkit topic (Arg / Prf / Err) |
+| **2022 Paper 2** | **[Mark scheme](2022_paper2/class_material.qmd)** — answer key + full worked solution for all 20 questions (reasoning-heavy: 12 Section-2); answers verified vs official key |
+| **2023 Paper 2** | **[Mark scheme](2023_paper2/class_material.qmd)** — answer key + full worked solution for all 20 questions; answers verified vs official key |
+| **2020 Paper 2** | **[Worked solutions](2020_paper2/class_material.qmd)** — all 20 questions (reasoning-heavy: 13 Section-2), each with a Solution toggle, Working box, and graphs; topic mapped |
+| **Graphs Clinic (all wrong Qs)** | **[Class material](graphs_clinic/class_material.qmd)** — the four graph questions missed on Set C/D, done properly; the four graph "moves" |
+| **S7 · Graphs Clinic 1** | **[Concepts](graphs_transformations/concepts.qmd)** · **[Class material](graphs_transformations/class_material.qmd)** — transformations & function-of-a-function · **[Assignment](graphs_transformations/assignment_student.qmd)** · [MS](graphs_transformations/assignment_ms.qmd) |
+| **S9 · Graphs Clinic 2** | **[Concepts](graphs_sketching/concepts.qmd)** · **[Class material](graphs_sketching/class_material.qmd)** — sketching & graph-solving; 20 exam-standard questions (sketch, then draw-and-count), each with a Solution toggle, Working box, and graph |
+| **Self-study 1** | **[Practice](selfstudy1_integration_trig/practice.qmd)** — 10 problems: integration-in-a-sum (F/G type) + trig counting & symmetry (2018 P1 Q6/Q15/Q18 types) |
+| **Self-study 2** | **[Practice](selfstudy2_paper2_reasoning/practice.qmd)** — 10 problems: Paper 2 reasoning (counterexamples, necessary/sufficient, roots under transformation, trig counting — 2018 P2 Q4/Q6/Q15/Q18 types) |
+| **Self-study 3** | **[Practice](selfstudy3_paper2_2016_2017/practice.qmd)** — 9 wrong questions from 2016 P2 (Q8/Q9/Q13/Q20) & 2017 P2 (Q4/Q8/Q11/Q13/Q18): inequalities, congruence, remainders, complete reasoning, area; cross-linked to S3/S5/S7 |
+| **Self-study 4** | **[Practice](selfstudy4_paper2_2022_2023/practice.qmd)** — 5 wrong questions from 2022 P2 (Q7/Q10) & 2023 P2 (Q6/Q8/Q9): proof error, quantifier order, solution-counts under reflection, triangle-dividing lines, converse of a false statement; cross-linked to S2/S4/S5/S7 |
+| **Trig Clinic** | **[Class problems](trig_clinic/class_material.qmd)** — 22: solving & counting, graphs & symmetry, sine/cosine rule & ambiguous case (2018 P1 Q6·Q18, P2 Q4, + the ambiguous-case cosθ type) |
 
 ## What the class material is
 

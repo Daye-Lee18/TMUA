@@ -1,0 +1,681 @@
+---
+title: "Floor & Ceiling Clinic — Class Material"
+subtitle: "Step functions: reading them, integrating them, summing them"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The floor $\lfloor x\rfloor$ and ceiling $\lceil x\rceil$ turn a smooth expression into a **staircase** —
+constant on each unit interval, jumping by $1$ at the integers. Almost every TMUA/MAT question about them is
+really "add up the steps", and this clinic drills exactly that, from the TMUA papers and the MAT.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · Floor, ceiling &amp; fractional part</div>
+<div class="fs-title">Step Functions — Exam Skim Sheet</div>
+<div class="fs-sub">On each interval between consecutive integers the bracket is a constant. Everything follows from that.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Floor $\lfloor x\rfloor$
+Round **down** — the largest integer $\le x$.
+
+$\lfloor 3.7\rfloor=3$, and — the trap — $\lfloor-2.3\rfloor=\mathbf{-3}$ (further from $0$, **not** $-2$).
+:::
+
+::: {.fs-card}
+### 2 · Ceiling $\lceil x\rceil$
+Round **up** — the smallest integer $\ge x$.
+
+$\lceil3.2\rceil=4$, $\lceil-2.3\rceil=-2$.
+:::
+
+::: {.fs-card}
+### 3 · Fractional part
+$\{x\}=x-\lfloor x\rfloor$, always in $[0,1)$.
+
+[It is what the floor threw away.]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · How the two relate
+For a **non-integer**, $\lceil x\rceil=\lfloor x\rfloor+1$.
+
+At an integer they are **equal**.
+:::
+
+::: {.fs-card}
+### 5 · The one idea
+Between consecutive integers the bracket is **constant**, so the graph is a **staircase** and an integral is a **sum of rectangular strips**.
+
+[Turn every step integral into $\sum(\text{height}\times\text{width})$.]{.eg}
+:::
+
+::::
+
+:::::
+
+::: {.callout-tip}
+## How to attack **any** floor/ceiling problem
+
+| If you are asked to… | The reliable move | Section |
+|---|---|---|
+| **evaluate** $\lfloor x\rfloor,\lceil x\rceil,\{x\}$ | round down / up; watch negatives | §1 |
+| **integrate** $\int\lfloor x\rfloor$, $\int g(\lfloor x\rfloor)$ | constant on each unit strip → **sum the strip areas** | §2 |
+| a strip sum that **grows geometrically** | it's a **geometric series** $\dfrac{a}{1-r}$ or $\dfrac{a(r^n-1)}{r-1}$ | §2 |
+| a **finite sum** $\sum\lfloor f(k)\rfloor$ | group the $k$ that share the same floor value | §3 |
+| **count solutions** of an equation with $\lfloor x\rfloor$ | write $\lfloor x\rfloor=n$ (integer) and solve on each strip | §3 |
+
+**One idea covers all of it:** *the bracket is constant on each unit interval — replace it by that constant
+and add up.*
+:::
+
+**On this page:** 1. Reading floor, ceiling & fractional part · 2. Integrating step functions · 3. Sums &
+counting · 4. Harder step integrals
+
+---
+
+## 1 · Reading floor, ceiling & fractional part
+
+### Question 1
+
+::: {.question}
+Evaluate $\lfloor3.7\rfloor$, $\lceil3.7\rceil$, $\lfloor-2.3\rfloor$, $\lceil-2.3\rceil$, and $\{-2.3\}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(warm-up — mind the negatives)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — round down / up correctly, especially for negatives
+:::
+
+**Answer: $3,\ 4,\ -3,\ -2,\ 0.7$.**
+
+- $\lfloor3.7\rfloor=3$ (down), $\lceil3.7\rceil=4$ (up).
+- $\lfloor-2.3\rfloor=\mathbf{-3}$ — "down" means **more negative** (the largest integer $\le-2.3$ is $-3$).
+- $\lceil-2.3\rceil=-2$ (the smallest integer $\ge-2.3$).
+- $\{-2.3\}=(-2.3)-\lfloor-2.3\rfloor=(-2.3)-(-3)=0.7$ — a fractional part is always in $[0,1)$, even for
+  negatives.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 2 · Integrating step functions
+
+::: {.callout-tip}
+## Concept — an integral of a bracket is a sum of strips
+
+On $[n,\,n+1)$, $\lfloor x\rfloor=n$ (and on $(n-1,\,n]$, $\lceil x\rceil=n$) — a **constant**. So
+$\displaystyle\int$ of a bracket is a **sum of rectangles**: width $\times$ (the constant value). Two standard
+results:
+$$\int_0^n\lfloor x\rfloor\,\mathrm dx=0+1+\dots+(n-1)=\frac{n(n-1)}2,\qquad
+\int_0^n\lceil x\rceil\,\mathrm dx=1+2+\dots+n=\frac{n(n+1)}2.$$
+:::
+
+### Question 2
+
+::: {.question}
+Find $\displaystyle\int_0^5\lfloor x\rfloor\,\mathrm dx$ and $\displaystyle\int_0^5\lceil x\rceil\,\mathrm dx$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the two fundamental step integrals)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — build $\int\lfloor x\rfloor$ and $\int\lceil x\rceil$ from strips
+:::
+
+**Answer: $10$ and $15$.**
+
+$\lfloor x\rfloor$ takes the values $0,1,2,3,4$ on the five unit strips $[0,1),\dots,[4,5)$, so the integral is
+$0+1+2+3+4=10=\tfrac{5\cdot4}2$. Meanwhile $\lceil x\rceil$ takes $1,2,3,4,5$ on $(0,1],\dots,(4,5]$, giving
+$1+2+3+4+5=15=\tfrac{5\cdot6}2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(6.6,2.9))
+for n in range(5):
+    ax[0].plot([n,n+1],[n,n],color='#2b6cb0',lw=2); ax[0].fill_between([n,n+1],[n,n],color='#2b6cb0',alpha=0.12)
+    ax[1].plot([n,n+1],[n+1,n+1],color='#dd6b20',lw=2); ax[1].fill_between([n,n+1],[n+1,n+1],color='#dd6b20',alpha=0.12)
+ax[0].set_title('⌊x⌋: strips 0,1,2,3,4 → 10',fontsize=9); ax[1].set_title('⌈x⌉: strips 1,2,3,4,5 → 15',fontsize=9)
+for a in ax: a.set_xlim(0,5); a.grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 3
+
+::: {.question}
+Evaluate $\displaystyle\int_{\pi/2}^{\pi}x\lfloor x\rfloor\,\mathrm dx$. &nbsp;&nbsp;**A** $\tfrac{26}3$
+&nbsp; **B** $\tfrac{11\pi^2}8-\tfrac{13}2$ &nbsp; **C** $\tfrac{11\pi^2}8$ &nbsp; **D** $\tfrac{7\pi^3}{24}$
+&nbsp; **E** $\tfrac{7\pi^3}{24}-\tfrac{13}8$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set C — a variable coefficient)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\int x\lfloor x\rfloor$: split where the floor jumps, integrate $x$ on each piece
+:::
+
+**Answer: B ($\tfrac{11\pi^2}8-\tfrac{13}2$).**
+
+**Step 1 — where does $\lfloor x\rfloor$ jump?** On $[\tfrac\pi2,\pi]\approx[1.57,3.14]$: $\lfloor
+x\rfloor=1$ on $[\tfrac\pi2,2)$, $=2$ on $[2,3)$, $=3$ on $[3,\pi]$.
+
+**Step 2 — integrate $x\lfloor x\rfloor$ piece by piece** (only the *constant* floor changes, the $x$ is
+ordinary):
+$$\int_{\pi/2}^{2}\!x\,\mathrm dx+2\!\int_{2}^{3}\!x\,\mathrm dx+3\!\int_{3}^{\pi}\!x\,\mathrm dx
+=\Big(2-\tfrac{\pi^2}8\Big)+2\cdot\tfrac52+3\cdot\tfrac{\pi^2-9}2.$$
+
+**Step 3 — collect.** $=2-\tfrac{\pi^2}8+5+\tfrac{3\pi^2-27}2=\dfrac{11\pi^2}8-\dfrac{13}2.$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+Find $\displaystyle\int_{0}^{99}2^{\lceil x\rceil}\,\mathrm dx$. &nbsp;&nbsp;**A** $2^{99}$ &nbsp;
+**B** $2^{99}-1$ &nbsp; **C** $2^{99}-2$ &nbsp; **D** $2^{100}$ &nbsp; **E** $2^{100}-1$ &nbsp;
+**F** $2^{100}-2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(TMUA 2023 P2 Q17 — a geometric strip sum)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $2^{\lceil x\rceil}$ is constant on each strip; the strips form a geometric series
+:::
+
+**Answer: F ($2^{100}-2$).**
+
+**Step 1 — constant on each strip.** On $(n-1,\,n]$, $\lceil x\rceil=n$, so $2^{\lceil x\rceil}=2^{n}$ is
+constant there ($n=1,\dots,99$), each strip of width $1$.
+
+**Step 2 — sum the geometric series.**
+$$\int_{0}^{99}2^{\lceil x\rceil}\,\mathrm dx=\sum_{n=1}^{99}2^{n}=2+2^{2}+\dots+2^{99}=2\!\left(2^{99}-1
+\right)=2^{100}-2.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.0,3.0))
+for n in range(1,6):
+    plt.plot([n-1,n],[2**n,2**n],color='#2b6cb0',lw=2)
+    plt.plot([n,n],[2**n,2**(n+1)],color='#2b6cb0',lw=0.6,ls=':')
+plt.xticks(range(0,6)); plt.xlabel('x'); plt.ylabel('2^⌈x⌉'); plt.grid(alpha=0.25)
+plt.title('constant 2ⁿ on (n−1, n]; strips double each step',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+Define $\mathrm f(x)=\left(\tfrac34\right)^{\lfloor\log_2 x\rfloor}$ for $0<x<2$, and $\mathrm f(x)=0$
+otherwise. Find $\displaystyle\int_0^2\mathrm f(x)\,\mathrm dx$. &nbsp;&nbsp;**(a)** $1$ &nbsp; **(b)** $2$
+&nbsp; **(c)** $3$ &nbsp; **(d)** $4$ &nbsp; **(e)** $5$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2023 Q1J — a floor inside a log)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lfloor\log_2 x\rfloor$ is constant on $[2^m,2^{m+1})$; strips form a geometric series
+:::
+
+**Answer: (c) $3$.**
+
+**Step 1 — where is the floor constant?** $\lfloor\log_2 x\rfloor=m$ exactly on $x\in[2^{m},2^{m+1})$. For
+$0<x<2$ this uses $m=0,-1,-2,\dots$, and $\mathrm f$ is the constant $\left(\tfrac34\right)^{m}$ there.
+
+**Step 2 — strip areas.** The interval for $m=-k$ ($k\ge0$) is $[2^{-k},2^{-k+1})$, width $2^{-k}$, height
+$\left(\tfrac43\right)^{k}$; area $=\left(\tfrac43\right)^{k}2^{-k}=\left(\tfrac23\right)^{k}$.
+
+**Step 3 — geometric series.** $\displaystyle\int_0^2\mathrm f=\sum_{k=0}^{\infty}\left(\tfrac23\right)^{k}
+=\dfrac1{1-\frac23}=3.$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(5.0,3.0))
+for k in range(0,6):
+    lo,hi=2.0**(-k),2.0**(-k+1); h=(4/3)**k
+    plt.plot([lo,hi],[h,h],color='#2b6cb0',lw=2)
+plt.xlim(0,2); plt.xlabel('x'); plt.ylabel('f(x)'); plt.grid(alpha=0.25)
+plt.title('constant on each interval; strip areas (2/3)^k sum to 3',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+Find $\displaystyle\int_0^4\{x\}\,\mathrm dx$, where $\{x\}$ is the fractional part of $x$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the fractional part)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\{x\}=x-\lfloor x\rfloor$ repeats the same sawtooth on every unit interval
+:::
+
+**Answer: $2$.**
+
+On each unit interval $[n,n+1)$, $\{x\}=x-n$ runs from $0$ up to $1$ — a triangle of area $\tfrac12$. There are
+$4$ such identical triangles on $[0,4]$, so $\displaystyle\int_0^4\{x\}\,\mathrm dx=4\times\tfrac12=2$. *(In
+general $\int_0^n\{x\}\,\mathrm dx=\tfrac n2$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 3 · Sums & counting
+
+### Question 7
+
+::: {.question}
+Evaluate $\displaystyle\sum_{k=1}^{10}\big\lfloor\sqrt k\big\rfloor$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a finite floor sum)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — group the terms that share the same floor value
+:::
+
+**Answer: $19$.**
+
+Group by the value of $\lfloor\sqrt k\rfloor$:
+
+- $\lfloor\sqrt k\rfloor=1$ for $k=1,2,3$ (since $1\le\sqrt k<2$) — that's $3$ terms of $1$.
+- $\lfloor\sqrt k\rfloor=2$ for $k=4,\dots,8$ ($2\le\sqrt k<3$) — $5$ terms of $2$.
+- $\lfloor\sqrt k\rfloor=3$ for $k=9,10$ — $2$ terms of $3$.
+
+Total $=3(1)+5(2)+2(3)=3+10+6=19$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+How many real solutions does $\;\lfloor x\rfloor=x^{2}-2\;$ have?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(count solutions with a floor)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — set $\lfloor x\rfloor=n$ (an integer), solve on each strip, keep the ones that land in it
+:::
+
+**Answer: $2$.**
+
+**Step 1 — the right side must be an integer.** $\lfloor x\rfloor$ is an integer, so $x^{2}-2=n$ for some
+integer $n$, i.e. $x=\pm\sqrt{n+2}$; and this must satisfy $\lfloor x\rfloor=n$.
+
+**Step 2 — test each strip.** Try small $n$:
+
+- $n=-1$: $x^{2}=1\Rightarrow x=\pm1$. Need $\lfloor x\rfloor=-1$: $x=-1$ gives $\lfloor-1\rfloor=-1$ ✔;
+  $x=1$ gives $\lfloor1\rfloor=1\ne-1$ ✘.
+- $n=0$: $x=\pm\sqrt2\approx\pm1.41$. Need $\lfloor x\rfloor=0$: neither works ($\lfloor1.41\rfloor=1$,
+  $\lfloor-1.41\rfloor=-2$).
+- $n=2$: $x=\pm2$. Need $\lfloor x\rfloor=2$: $x=2$ gives $\lfloor2\rfloor=2$ ✔; $x=-2$ ✘.
+- other $n$ give no landing root.
+
+So the solutions are $x=-1$ and $x=2$ — **two**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.5,2.5,1000)
+plt.figure(figsize=(4.8,3.2))
+plt.plot(x,x**2-2,color='#2b6cb0',lw=2,label='y=x²−2')
+xs=np.linspace(-3,3,1000); plt.plot(xs,np.floor(xs),color='#dd6b20',lw=1.5,label='y=⌊x⌋',drawstyle='steps-post')
+for r in (-1,2): plt.plot(r,r**2-2,'o',color='crimson')
+plt.ylim(-3,5); plt.xlim(-2.5,2.5); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('⌊x⌋ = x²−2 meets at x=−1 and x=2',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+---
+
+## 4 · Harder step integrals
+
+::: {.callout-tip}
+## Concept — harder brackets, same idea
+
+The staircase move still works when the bracket is **squared** ($\lfloor x\rfloor^{2}$), **multiplied by a
+variable** ($x\lfloor x\rfloor$, $\lfloor x\rfloor\{x\}$), or **applied to a curved inside** ($\lceil
+x^{2}\rceil$, $\lfloor\log_2 x\rfloor$). The only new skill: for a curved inside, **split where the inside
+crosses each integer** — those split points may be **irrational** ($\sqrt2$, $\sqrt3$, …). On each piece the
+bracket is a constant; integrate the rest of the integrand there.
+:::
+
+### Question 9
+
+::: {.question}
+Find $\displaystyle\int_{0}^{4}\lfloor x\rfloor^{2}\,\mathrm dx$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the bracket squared)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lfloor x\rfloor^{2}$ is $0,1,4,9,\dots$ on the strips
+:::
+
+**Answer: $14$.**
+
+On the strips $[0,1),[1,2),[2,3),[3,4)$ the value $\lfloor x\rfloor^{2}$ is $0^{2},1^{2},2^{2},3^{2}$, each
+over width $1$:
+$$\int_0^4\lfloor x\rfloor^{2}\,\mathrm dx=0+1+4+9=14.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+plt.figure(figsize=(4.8,2.8))
+for n in range(4):
+    plt.plot([n,n+1],[n**2,n**2],color='#2b6cb0',lw=2); plt.fill_between([n,n+1],[n**2,n**2],color='#2b6cb0',alpha=0.12)
+plt.xlim(0,4); plt.grid(alpha=0.25); plt.title('⌊x⌋²: strips 0,1,4,9 → 14',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 10
+
+::: {.question}
+Find $\displaystyle\int_{0}^{n}2^{\lfloor x\rfloor}\,\mathrm dx$ (for a positive integer $n$), and evaluate it
+at $n=5$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the floor version of the geometric strip sum)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $2^{\lfloor x\rfloor}$ vs $2^{\lceil x\rceil}$ — which power on which strip?
+:::
+
+**Answer: $2^{n}-1$; at $n=5$ it is $31$.**
+
+On $[k,\,k+1)$, $\lfloor x\rfloor=k$, so $2^{\lfloor x\rfloor}=2^{k}$ for $k=0,1,\dots,n-1$:
+$$\int_0^n 2^{\lfloor x\rfloor}\,\mathrm dx=\sum_{k=0}^{n-1}2^{k}=2^{n}-1.$$
+*(Compare $\int_0^{n}2^{\lceil x\rceil}=\sum_{k=1}^{n}2^{k}=2^{n+1}-2$: the **ceiling** starts one power
+higher because $\lceil x\rceil$ takes $1,\dots,n$ instead of $0,\dots,n-1$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 11
+
+::: {.question}
+Find $\displaystyle\int_{1}^{16}\big\lfloor\log_2 x\big\rfloor\,\mathrm dx$. &nbsp;&nbsp;**A** $15$ &nbsp;
+**B** $26$ &nbsp; **C** $34$ &nbsp; **D** $42$ &nbsp; **E** $49$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a floor of a log — widths that grow)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lfloor\log_2 x\rfloor=k$ on $[2^{k},2^{k+1})$, so the strips **widen**
+:::
+
+**Answer: C ($34$).**
+
+$\lfloor\log_2 x\rfloor=k$ on $[2^{k},2^{k+1})$, a strip of **width $2^{k}$**. On $[1,16)$:
+
+| interval | $[1,2)$ | $[2,4)$ | $[4,8)$ | $[8,16)$ |
+|---|---|---|---|---|
+| value $k$ | $0$ | $1$ | $2$ | $3$ |
+| width | $1$ | $2$ | $4$ | $8$ |
+
+$$\int_1^{16}\lfloor\log_2 x\rfloor\,\mathrm dx=0\cdot1+1\cdot2+2\cdot4+3\cdot8=0+2+8+24=34.$$
+
+**Where the wrong options come from.** Using width $1$ for every strip (as if the integers were evenly
+spaced) gives $0+1+2+3=6$, then scaling wrongly — the point is the widths **double** each time.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 12
+
+::: {.question}
+Find $\displaystyle\int_{-2}^{3}\lfloor x\rfloor\,\mathrm dx$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a negative range — the sign trap)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lfloor x\rfloor$ on negative strips is $-1,-2,\dots$
+:::
+
+**Answer: $0$.**
+
+Read the value on each unit strip (careful with the negatives — $\lfloor x\rfloor=-2$ on $[-2,-1)$):
+$$\underbrace{-2}_{[-2,-1)}+\underbrace{-1}_{[-1,0)}+\underbrace{0}_{[0,1)}+\underbrace{1}_{[1,2)}+
+\underbrace{2}_{[2,3)}=0.$$
+The negative strips cancel the positive ones exactly. *(Note this is **not** an odd function: $\lfloor
+x\rfloor$ has no symmetry — you must read each strip.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 13
+
+::: {.question}
+Find $\displaystyle\int_{0}^{2}\big\lceil x^{2}\big\rceil\,\mathrm dx$. &nbsp;&nbsp;**A** $4$ &nbsp;
+**B** $7-\sqrt2-\sqrt3$ &nbsp; **C** $7$ &nbsp; **D** $10-\sqrt2-\sqrt3$ &nbsp; **E** $\tfrac{8}3$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a ceiling of a curve — irrational split points)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lceil x^{2}\rceil$ jumps where $x^{2}$ passes an integer, at $x=\sqrt1,\sqrt2,\sqrt3$
+:::
+
+**Answer: B ($7-\sqrt2-\sqrt3$).**
+
+**Step 1 — where does $\lceil x^{2}\rceil$ jump?** It changes each time $x^{2}$ passes an integer, i.e. at
+$x=1,\sqrt2,\sqrt3$ (and $x=2$ ends the range). On $0<x^{2}\le n$ the ceiling is $n$:
+
+| interval | $(0,1]$ | $(1,\sqrt2]$ | $(\sqrt2,\sqrt3]$ | $(\sqrt3,2]$ |
+|---|---|---|---|---|
+| $\lceil x^{2}\rceil$ | $1$ | $2$ | $3$ | $4$ |
+| width | $1$ | $\sqrt2-1$ | $\sqrt3-\sqrt2$ | $2-\sqrt3$ |
+
+**Step 2 — add value $\times$ width.**
+$$1(1)+2(\sqrt2-1)+3(\sqrt3-\sqrt2)+4(2-\sqrt3)=1+2\sqrt2-2+3\sqrt3-3\sqrt2+8-4\sqrt3=7-\sqrt2-\sqrt3.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+seg=[(0,1,1),(1,np.sqrt(2),2),(np.sqrt(2),np.sqrt(3),3),(np.sqrt(3),2,4)]
+plt.figure(figsize=(5.0,3.0))
+xx=np.linspace(0,2,300); plt.plot(xx,xx**2,color='0.7',ls='--',label='y=x²')
+for lo,hi,h in seg:
+    plt.plot([lo,hi],[h,h],color='#2b6cb0',lw=2); plt.fill_between([lo,hi],[h,h],color='#2b6cb0',alpha=0.1)
+for c in (np.sqrt(2),np.sqrt(3)): plt.axvline(c,color='crimson',ls=':',lw=0.8)
+plt.xlim(0,2); plt.ylim(0,4.5); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.title('⌈x²⌉ jumps at x=1, √2, √3 (irrational widths)',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 14
+
+::: {.question}
+Find $\displaystyle\int_{0}^{4}\lfloor x\rfloor\{x\}\,\mathrm dx$, where $\{x\}=x-\lfloor x\rfloor$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(floor times fractional part)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — on each strip $\lfloor x\rfloor$ is constant and $\{x\}$ is a fresh ramp $0\to1$
+:::
+
+**Answer: $3$.**
+
+On $[k,\,k+1)$, $\lfloor x\rfloor=k$ (constant) and $\{x\}=x-k$ ramps from $0$ to $1$, so the strip
+contributes $k\displaystyle\int_0^1 t\,\mathrm dt=\tfrac{k}2$. Summing $k=0,1,2,3$:
+$$\int_0^4\lfloor x\rfloor\{x\}\,\mathrm dx=\tfrac02+\tfrac12+\tfrac22+\tfrac32=3.$$
+*(In general $\int_0^n\lfloor x\rfloor\{x\}\,\mathrm dx=\tfrac12\cdot\tfrac{n(n-1)}2=\tfrac{n(n-1)}4$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 15
+
+::: {.question}
+Find $\displaystyle\int_{0}^{1}\lfloor5x\rfloor\,\mathrm dx$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a scaled floor)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\lfloor 5x\rfloor$ jumps at every fifth, giving five thin strips
+:::
+
+**Answer: $2$.**
+
+$\lfloor5x\rfloor$ takes the values $0,1,2,3,4$ on the five strips $[0,\tfrac15),[\tfrac15,\tfrac25),\dots,
+[\tfrac45,1)$, each of width $\tfrac15$:
+$$\int_0^1\lfloor5x\rfloor\,\mathrm dx=\tfrac15(0+1+2+3+4)=\tfrac{10}5=2.$$
+*(In general $\int_0^1\lfloor nx\rfloor\,\mathrm dx=\tfrac1n\cdot\tfrac{n(n-1)}2=\tfrac{n-1}2$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — floor & ceiling
+
+- **$\lfloor x\rfloor$ rounds down** (careful: $\lfloor-2.3\rfloor=-3$); **$\lceil x\rceil$ rounds up**;
+  $\{x\}=x-\lfloor x\rfloor\in[0,1)$; for non-integers $\lceil x\rceil=\lfloor x\rfloor+1$.
+- **Constant on each unit strip** $\Rightarrow$ integral $=$ **sum of strips**:
+  $\int_0^n\lfloor x\rfloor=\tfrac{n(n-1)}2$, $\int_0^n\lceil x\rceil=\tfrac{n(n+1)}2$,
+  $\int_0^n\{x\}=\tfrac n2$.
+- **Strips that scale by a fixed factor** form a **geometric series** ($\sum2^{n}$, $\sum(2/3)^{k}$).
+- **Finite floor sums:** group the terms sharing one floor value.
+- **Equations:** put $\lfloor x\rfloor=n$ (integer), solve per strip, keep roots that land in their strip.
+:::
+
+:::

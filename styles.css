@@ -178,3 +178,209 @@ body, .solutions, .solutions p, .solutions li, .solutions td, .solutions th,
 .solutions mjx-container {
   color: #000 !important;
 }
+
+/* ---------- Blank formula sheet: tables you write into ---------- */
+
+/* Give every empty cell room to write in, on screen and on paper. */
+.solutions table td:empty {
+  min-width: 12rem;
+  height: 3.2rem;
+}
+
+@media print {
+  /* Taller still on paper, and rule every cell so it reads as a form. */
+  .solutions table td:empty { height: 4.2cm; }
+  .solutions table td, .solutions table th {
+    border: 1px solid #999;
+    vertical-align: top;
+  }
+  /* Keep a section and its table together on one page where possible. */
+  .solutions table { break-inside: auto; page-break-inside: auto; }
+  .solutions table tr { break-inside: avoid; page-break-inside: avoid; }
+}
+
+
+/* ===== Concepts-page styles (formula-sheet cards + textbook notes), ported for clinic concepts pages ===== */
+/* ---------- Textbook-style notes (Edexcel-FP1 look) ---------- */
+.fpnotes {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: #000;
+  max-width: 46rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+.fpnotes,
+.fpnotes p, .fpnotes li, .fpnotes td, .fpnotes th,
+.fpnotes h2, .fpnotes h3, .fpnotes mjx-container { color: #000 !important; }
+.fpnotes h2 {
+  border-top: 2px solid #000;
+  padding-top: 0.6rem;
+  margin: 2.6rem 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.fpnotes h3 { font-weight: 700; margin: 1.6rem 0 0.5rem; font-size: 1.14rem; }
+/* Worked example: a quiet left rule, italic bold "Example./Solution." labels. */
+.fpnotes .example {
+  margin: 1rem 0 1.4rem;
+  padding: 0.1rem 0 0.1rem 1rem;
+  border-left: 2px solid #cfcfcf;
+}
+.fpnotes .lbl { font-style: italic; font-weight: 700; }
+/* Answer toggle sits tight above its working box. */
+.fpnotes .callout { margin: 0.5rem 0 0.4rem; }
+/* Always-visible working box under each example. */
+.fpnotes .workbox {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 0.45rem 0.8rem 0.55rem;
+  margin: 0.3rem 0 1.4rem;
+  background: #fcfcfc;
+  min-height: 4.5rem;   /* blank space for the student to work in */
+}
+@media print { .fpnotes .workbox { min-height: 5cm; } }
+/* Blank cells in an fpnotes table are for the student to fill in. */
+.fpnotes table td:empty { min-width: 6rem; height: 2.6rem; }
+@media print { .fpnotes table td:empty { height: 3.4cm; border: 1px solid #999; } }
+.fpnotes .workbox::before {
+  content: "Working";
+  display: block;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+/* Key result stated on its own line. */
+.fpnotes .keyline { display: block; margin: 0.5rem 0; font-weight: 600; }
+.fpnotes table { font-size: 0.98rem; margin: 0.6rem 0 1rem; }
+.fpnotes th { border-bottom: 1.5px solid #000; font-weight: 700; }
+.fpnotes td { border-bottom: 1px solid #ddd; }
+
+/* ============================================================
+   Revision / formula sheet — styled to read like a printed
+   exam-board formulae booklet (clean sans, boxed results,
+   two-column cards). Scoped under .formulasheet so it never
+   touches the .solutions booklets or other courses.
+   ============================================================ */
+.formulasheet {
+  font-family: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+  color: #000;
+  max-width: 60rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.formulasheet,
+.formulasheet p,
+.formulasheet li,
+.formulasheet td,
+.formulasheet th,
+.formulasheet h1,
+.formulasheet h2,
+.formulasheet h3,
+.formulasheet mjx-container {
+  color: #000 !important;
+}
+
+/* Title band — echoes the teal of the AQA cover, kept subtle. */
+.formulasheet .fs-head {
+  border-top: 6px solid #0b5563;
+  border-bottom: 1px solid #000;
+  padding: 0.6rem 0 0.7rem;
+  margin-bottom: 1.2rem;
+}
+.formulasheet .fs-head .fs-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0b5563;
+  font-weight: 700;
+}
+.formulasheet .fs-head .fs-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0.15rem 0 0.1rem;
+}
+.formulasheet .fs-head .fs-sub {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Section headers — uppercase rule, like a formulae booklet. */
+.formulasheet h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.2rem;
+  margin: 1.6rem 0 0.8rem;
+}
+
+/* Single-column card grid — cards stack vertically so nothing runs off the
+   right edge and it prints cleanly on A4. */
+.formulasheet .fs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+@media (max-width: 640px) {
+  .formulasheet .fs-grid { grid-template-columns: 1fr; }
+}
+/* Force a single, full-width column of cards (used where the maths is wide). */
+.formulasheet .fs-grid.fs-stack { grid-template-columns: 1fr; }
+
+.formulasheet .fs-card {
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 0.55rem 0.75rem 0.65rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  background: #fff;
+}
+.formulasheet .fs-card h3 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #cfcfcf;
+}
+/* Key results sit on a faint tint so they read as "the formula".
+   Box the display-math span only (one clean block per formula group);
+   never the inner mjx-container, or it double-boxes. */
+.formulasheet .fs-card .math.display {
+  display: block;
+  background: #f4f7f7;
+  border-left: 3px solid #0b5563;
+  padding: 0.3rem 0.55rem;
+  margin: 0.45rem 0;
+  border-radius: 2px;
+  overflow-x: auto;
+}
+.formulasheet .fs-card .math.display:empty { display: none; }
+.formulasheet .fs-card p { margin: 0.3rem 0; }
+.formulasheet .eg {
+  font-style: italic;
+  color: #333;
+  font-size: 0.82rem;
+}
+.formulasheet .eg::before {
+  content: "e.g. ";
+  font-style: normal;
+  font-weight: 700;
+  color: #0b5563;
+}
+
+/* Print: A4, tight margins, no site furniture, cards never split. */
+@media print {
+  .formulasheet { max-width: 100%; font-size: 10.5pt; }
+  .formulasheet .fs-grid { gap: 0.5rem; }
+  .formulasheet .fs-card { break-inside: avoid; page-break-inside: avoid; }
+  .formulasheet h2 { break-after: avoid; page-break-after: avoid; }
+  nav, .navbar, #quarto-sidebar, #quarto-margin-sidebar, .toc, #TOC,
+  .nav-footer, footer { display: none !important; }
+  a { color: #000; text-decoration: none; }
+}

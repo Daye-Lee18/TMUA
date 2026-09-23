@@ -1,0 +1,200 @@
+---
+title: "Toolkit S5 — Assignment"
+subtitle: "Proof methods — 36 problems · direct, cases, contradiction, counterexample, error-spotting, long reasoning"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**A large, deliberately hard set** — work through as many as you can, fast. Difficulty is upper-medium to
+high; some ideas repeat on purpose (that is how they become mechanical). Question types are drawn from
+**TMUA Paper 2 (Prf/Err)**, **MAT**, **STEP 1**, and **BMO/AMC** number theory, plus the **2018 Paper 2**
+questions themselves. Argue in **English sentences** — no symbols required.
+
+| Section | Focus | # |
+|---|---|---|
+| **A** | Direct proofs (divisibility, consecutive integers) | 6 |
+| **B** | Proof by cases (parity, mod $n$) | 6 |
+| **C** | Proof by contradiction (irrationality, infinitude) | 6 |
+| **D** | Counterexamples — incl. **calculus claims** | 8 |
+| **E** | Spot the error (MCQ) | 5 |
+| **F** | Long multi-step reasoning (Paper 2 length) | 5 |
+
+::: {.callout-note appearance="simple"}
+**Recall.** algebra → **direct** · even/odd or mod → **cases** · "irrational / infinite / no largest" →
+**contradiction** · a doubtful "for all" → **counterexample**. Never prove a "for all" by examples.
+:::
+
+---
+
+# Section A — Direct proofs
+
+**A1.** Prove that the product of any three consecutive integers is divisible by $6$.
+
+**A2.** Prove that if $n$ is an odd integer, then $n^2-1$ is divisible by $8$.
+
+**A3.** Prove that the product of any **four** consecutive integers is divisible by $24$.
+
+**A4.** Prove that $n^3+(n+1)^3+(n+2)^3$ is divisible by $9$ for every integer $n$.
+
+**A5.** Prove that $3^{2n}-1$ is divisible by $8$ for every positive integer $n$.
+
+**A6.** Prove that for all integers $a$ and $b$, $\;a^2+b^2\;$ is **never** of the form $4k+3$.
+
+::: {.workspace style="min-height:12cm"}
+Working
+:::
+
+---
+
+# Section B — Proof by cases
+
+**B1.** Prove that $n^2+n$ is even for every integer $n$.
+
+**B2.** Prove that the square of any integer is of the form $4k$ or $4k+1$.
+
+**B3.** Prove that $\lvert x\rvert\ge x$ and $\lvert x\rvert\ge -x$ for every real $x$ (hence $\lvert
+x\rvert\ge0$).
+
+**B4.** Prove that $n^3-n$ is divisible by $3$ for every integer $n$, using the cases $n\equiv0,1,2
+\pmod3$.
+
+**B5.** Prove that the last digit of a perfect square is always one of $0,1,4,5,6,9$.
+
+**B6.** Prove that if the product of two integers is odd, then both integers are odd.
+
+::: {.workspace style="min-height:12cm"}
+Working
+:::
+
+---
+
+# Section C — Proof by contradiction
+
+**C1.** Prove that $\sqrt2$ is irrational.
+
+**C2.** Prove that $\sqrt3$ is irrational. (You may use: if $n^2$ is divisible by $3$ then $n$ is
+divisible by $3$.)
+
+**C3.** Prove that there is no smallest positive rational number.
+
+**C4.** Prove that there are infinitely many prime numbers.
+
+**C5.** Prove that $\sqrt2+\sqrt3$ is irrational. *(Hint: consider $\bigl(\sqrt2+\sqrt3\bigr)^2$.)*
+
+**C6.** Prove that $\log_2 3$ is irrational.
+
+::: {.workspace style="min-height:12cm"}
+Working
+:::
+
+---
+
+# Section D — Counterexamples
+
+For each, decide whether it is true; if false, give an explicit counterexample.
+
+**D1.** Every odd integer greater than $1$ is prime.
+
+**D2.** $n^2+n+41$ is prime for every positive integer $n$.
+
+**D3.** $2^{n}-1$ is prime for every integer $n\ge2$.
+
+**D4.** $2^{n}+1$ is prime for every positive integer $n$.
+
+**D5.** If $p$ is prime, then $2^{p}-1$ is prime.
+
+**D6.** If $f'(x)>0$ for all real $x$, then $f(x)>0$ for all real $x$.
+
+**D7.** If $f'(a)=0$, then $f$ has a local maximum or a local minimum at $x=a$.
+
+**D8.** The sum of two irrational numbers is always irrational.
+
+::: {.workspace style="min-height:12cm"}
+Working
+:::
+
+---
+
+# Section E — Spot the error
+
+**E1.** A "proof" that $2=1$: *Let $a=b$. Then $a^2=ab$, so $a^2-b^2=ab-b^2$, i.e. $(a-b)(a+b)=b(a-b)$;
+dividing by $(a-b)$ gives $a+b=b$, so $2b=b$, hence $2=1$.* The error is:
+
+&nbsp;&nbsp;**A** $a^2=ab$ is wrong &nbsp; **B** the factorisation is wrong &nbsp; **C** dividing by
+$(a-b)=0$ &nbsp; **D** nothing
+
+**E2.** To solve $\sqrt{x+2}=x$ a student squares: $x+2=x^2$, so $(x-2)(x+1)=0$, and gives $x=2$ **and**
+$x=-1$. What is wrong?
+
+&nbsp;&nbsp;**A** the factorisation &nbsp; **B** $x=-1$ fails the original equation (squaring added it)
+&nbsp; **C** $x=2$ is wrong &nbsp; **D** nothing
+
+**E3.** Which pair is a **counterexample** to "if $\sin A=\sin B$ then $A=B$" (for $0^\circ\le A,B\le
+180^\circ$)?
+
+&nbsp;&nbsp;**A** $A=30^\circ,B=60^\circ$ &nbsp; **B** $A=30^\circ,B=150^\circ$ &nbsp;
+**C** $A=45^\circ,B=45^\circ$ &nbsp; **D** none exists
+
+**E4.** A student "proves" that $n^2-n+11$ is prime for all positive integers $n$ by checking
+$n=1,2,3,4,5$ (all prime). The argument is invalid because:
+
+&nbsp;&nbsp;**A** the checks are wrong &nbsp; **B** examples cannot prove a "for all" &nbsp;
+**C** the statement is true &nbsp; **D** $n=1$ is not allowed
+
+**E5.** Which single fact shows "$a^2=b^2\Rightarrow a=b$" is false?
+
+&nbsp;&nbsp;**A** $2^2=4$ &nbsp; **B** $(-3)^2=3^2$ but $-3\neq3$ &nbsp; **C** $0^2=0$ &nbsp;
+**D** it is true
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+# Section F — Long multi-step reasoning *(Paper 2 length)*
+
+**F1.** *(2018 Paper 2 Q15.)* $f(x)=x^3+3qx^2+2$, where $q$ is a real constant, and $f(x)=0$ has **3
+distinct real roots**. For each of the following, decide — **with reasons** — whether it **necessarily**
+has 3 distinct real roots.
+
+&nbsp;&nbsp;**I** $f(x)+1=0$ &nbsp;&nbsp; **II** $f(x+1)=0$ &nbsp;&nbsp; **III** $f(-x)-1=0$
+
+**F2.** *(2018 Paper 2 Q18.)* $f$ is a polynomial defined for all real $x$. Find a **necessary** condition
+for
+$$\frac{f(a)+f(b)}{2}\ge f\!\left(\frac{a+b}{2}\right)\quad\text{to hold for all real }a<b,$$
+and justify why it must hold.
+
+**F3.** Let $S$ be the statement: *"For every positive integer $n$, if $n$ is a multiple of $6$ then $n$
+is a multiple of $3$."*
+&nbsp;(a) Prove $S$. &nbsp;(b) Write the negation of $S$. &nbsp;(c) Does a counterexample to $S$ exist?
+Explain.
+
+**F4.** A student writes the following "proof" that **every integer is even**:
+
+> *"Let $n$ be any integer. Write $n=2m$ for some number $m$. Then $n$ is twice $m$, so $n$ is even."*
+
+Identify the invalid step and explain why it fails.
+
+**F5.** (a) Prove that for a positive integer $n$, **$n$ is even if and only if $n^2$ is even** (both
+directions). &nbsp;(b) Hence prove that $\sqrt2$ is irrational.
+
+::: {.workspace style="min-height:12cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+For every **"for all"** you *proved* (A, B, most of C, F1–F5), check you argued **generally**, not by
+examples. For every one you *disproved* (D, E3, E5), check your counterexample genuinely **fits the
+hypothesis**. Those two checks are exactly where the Paper 2 marks are.
+:::
+
+:::

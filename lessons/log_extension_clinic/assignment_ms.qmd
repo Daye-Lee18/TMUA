@@ -1,0 +1,149 @@
+---
+title: "Logarithms — Extension Clinic — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **39**.
+
+Two habits to check: after substituting $u=a^x$, did they **reject $u\le0$** (an exponential can't be
+negative)? On a log-equation, did they **check the domain** (arguments of logs must be positive) before
+committing to a root?
+
+---
+
+# Section A — Quadratic in $a^x$
+
+## Question 1 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=1$ and $x=2$.** &nbsp; **(M1 A1 A1)**
+
+*Let $u=2^x$ ($u>0$): $u^2-6u+8=0$* **(M1)** $\Rightarrow(u-2)(u-4)=0$, so $u=2$ or $u=4$ **(A1)**. Then
+$2^x=2\Rightarrow x=1$ and $2^x=4\Rightarrow x=2$ **(A1)**.
+:::
+
+## Question 2 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$3$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Let $u=3^x$: $u^2-12u+27=0\Rightarrow(u-3)(u-9)=0$, so $u=3$ or $9$* **(M1 A1)**. Then $x=\log_3 3=1$ and
+$x=\log_3 9=2$ **(A1)**, and the sum is $1+2=3$ **(A1)**. *(Shortcut: sum $=\log_3(3\cdot9)=\log_3 27=3$.)*
+:::
+
+## Question 3 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=2$.** &nbsp; **(M1 A1 A1)**
+
+*$4^x=(2^x)^2$; let $u=2^x$: $u^2-3u-4=0$* **(M1)** $\Rightarrow(u-4)(u+1)=0$. Reject $u=-1$ (impossible, as
+$2^x>0$), so $u=4$ **(A1)** $\Rightarrow x=2$ **(A1)**.
+:::
+
+---
+
+# Section B — Quadratic in $\log x$
+
+## Question 4 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=3$ and $x=27$.** &nbsp; **(M1 A1 A1)**
+
+*Let $L=\log_3 x$: $L^2-4L+3=0\Rightarrow(L-1)(L-3)=0$* **(M1)**, so $L=1$ or $3$ **(A1)**. Then $x=3^1=3$ and
+$x=3^3=27$ **(A1)**.
+:::
+
+## Question 5 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=\sqrt2$ and $x=4$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Let $L=\log_2 x$: $2L^2-5L+2=0$* **(M1)** $\Rightarrow(2L-1)(L-2)=0$ **(A1)**, so $L=\tfrac12$ or $2$ **(A1)**.
+Then $x=2^{1/2}=\sqrt2$ or $x=2^2=4$ **(A1)**.
+:::
+
+---
+
+# Section C — Simultaneous log/exp systems
+
+## Question 6 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=8,\ y=4$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Add and subtract the two equations.* Adding: $2\log_2 x=6\Rightarrow\log_2 x=3\Rightarrow x=8$ **(M1 A1)**.
+Subtracting (or back-substituting): $\log_2 y=2\Rightarrow y=4$ **(A1 A1)**.
+:::
+
+## Question 7 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=4,\ y=1$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Equate exponents (same base $2$).* From $2^x=8\cdot2^y=2^{y+3}$: $x=y+3$ **(M1 A1)**. From
+$2^{2x}=2^{y+7}$: $2x=y+7$ **(A1)**. Solving $2(y+3)=y+7\Rightarrow y=1$, so $x=4$ **(A1)**.
+:::
+
+## Question 8 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$A=1000,\ b=\sqrt{10}$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Take logs of $P=Ab^{t}$:* $\log_{10}P=\log_{10}A+(\log_{10}b)\,t$ **(M1)** — a straight line in $t$. Comparing:
+the **intercept** is $\log_{10}A=3\Rightarrow A=10^3=1000$ **(A1 A1)**; the **gradient** is
+$\log_{10}b=\tfrac12\Rightarrow b=10^{1/2}=\sqrt{10}$ **(A1)**.
+:::
+
+---
+
+# Section D — Linearisation
+
+## Question 9 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$n=\dfrac34,\ A=4$.** &nbsp; **(M1 A1 A1)**
+
+*On a $\log_2 y$-vs-$\log_2 x$ plot the gradient is $n$.*
+$n=\dfrac{\log_2 32-\log_2 4}{\log_2 16-\log_2 1}=\dfrac{5-2}{4-0}=\dfrac34$ **(M1 A1)**. From $y=Ax^n$ at
+$(1,4)$: $4=A\cdot1^n\Rightarrow A=4$ **(A1)**.
+:::
+
+## Question 10 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=5$.** &nbsp; **(M1 A1 A1)**
+
+*Combine the logs, then clear:* $\log_5\bigl(x(x-4)\bigr)=1\Rightarrow x(x-4)=5$ **(M1)** $\Rightarrow
+x^2-4x-5=0\Rightarrow(x-5)(x+1)=0$ **(A1)**. Reject $x=-1$ (needs $x>4$ for the logs to exist), so $x=5$
+**(A1)**.
+:::
+
+## Question 11 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=16$.** &nbsp; **(M1 A1 A1 A1)**
+
+*Write $\log_4 x$ in base $2$: $\log_4 x=\dfrac{\log_2 x}{\log_2 4}=\dfrac12\log_2 x$* **(M1 A1)**. The equation
+becomes $\log_2 x=2+\tfrac12\log_2 x\Rightarrow\tfrac12\log_2 x=2$ **(A1)**, so $\log_2 x=4\Rightarrow x=16$
+**(A1)**.
+:::
+
+:::

@@ -1,0 +1,332 @@
+---
+title: "Self-study 1 — Integration-in-a-Sum & Trig Graph-Counting"
+subtitle: "10 problems on the types you asked for (2018 Paper 1 Q6/Q15 style)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Ten problems on the two types you flagged: the **integral-inside-a-sum** functions $F(n)$/$G(n)$ (2018
+Q15 / the Q17 type), and **counting solutions of a trig equation by drawing** (2018 Q6), plus the
+**line-of-symmetry** question (2018 Q18). Attempt each in the space, then check the worked solution.
+
+::: {.callout-tip}
+## The two patterns to recall
+
+**The F/G type — three steps.**
+1. **Integrate.** $F(n)=\dfrac1n\displaystyle\int_0^n(\text{a straight line})\,\mathrm dx$ — the integral
+   is just the **area of a triangle/trapezium**, so $F(n)$ comes out **linear in $n$** (like $\frac n2$).
+2. **Sum.** $G(n)=\displaystyle\sum F(r)$ is then a multiple of the **triangular number**
+   $\dfrac{n(n+1)}{2}$.
+3. **Inequality.** "$G(n)\lessgtr K$" becomes "$n(n+1)\lessgtr$ number" — test the integers around
+   $\sqrt{K}$.
+
+**Counting solutions.** Draw the two graphs (or one curve and one line) and **count the crossings**. A
+line of symmetry of a sine curve sits at each **peak and trough** (where the argument is $\frac\pi2+k\pi$).
+:::
+
+---
+
+# Part A — Integration inside a sum (the F/G type)
+
+Throughout, $n$ is a positive integer.
+
+## Question A1
+
+::: {.question}
+$F(n)=\dfrac1n\displaystyle\int_0^n(n-x)\,\mathrm dx.$ &nbsp; Find $F(n)$ in terms of $n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$$\int_0^n(n-x)\,\mathrm dx=\Bigl[nx-\tfrac{x^2}{2}\Bigr]_0^n=n^2-\tfrac{n^2}{2}=\tfrac{n^2}{2}.$$
+So $F(n)=\dfrac1n\cdot\dfrac{n^2}{2}=\boxed{\dfrac n2}$.
+
+*The integral is the area of a right-angled triangle, base $n$ and height $n$: $\frac12 n^2$. Dividing by
+$n$ gives $\frac n2$.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question A2
+
+::: {.question}
+With $F(n)=\dfrac n2$ from A1, and $G(n)=\displaystyle\sum_{r=1}^{n}F(r)$, find $G(n)$ in terms of $n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$$G(n)=\sum_{r=1}^{n}\frac r2=\frac12\sum_{r=1}^{n}r=\frac12\cdot\frac{n(n+1)}{2}=\boxed{\dfrac{n(n+1)}{4}}.$$
+
+*The sum of $F(r)=\frac r2$ is half the triangular number $\frac{n(n+1)}{2}$.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question A3 &nbsp; *(the 2018-style exam question)*
+
+::: {.question}
+With $G(n)=\dfrac{n(n+1)}{4}$, find the **smallest** positive integer $n$ such that $G(n)>150$.
+
+&nbsp;&nbsp;**A** $22$ &nbsp; **B** $23$ &nbsp; **C** $24$ &nbsp; **D** $25$ &nbsp; **E** $26$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$G(n)>150\Rightarrow \dfrac{n(n+1)}{4}>150\Rightarrow n(n+1)>600.$ Since $\sqrt{600}\approx24.5$, test:
+$$n=24:\ 24\times25=600\ (\text{not }>600),\qquad n=25:\ 25\times26=650>600.$$
+Smallest is $n=25$ — **D**.
+
+*"$n(n+1)>600$" — test the integer just above $\sqrt{600}$. $n=24$ gives exactly $600$, which is not
+strictly greater, so it must be $25$.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question A4
+
+::: {.question}
+$F(n)=\dfrac1n\displaystyle\int_0^n\!\Bigl(n-\tfrac32x\Bigr)\mathrm dx$ and $G(n)=\displaystyle\sum_{r=0}^{n}F(r)$.
+Find the **largest** positive integer $n$ such that $G(n)<69$.
+
+&nbsp;&nbsp;**A** $20$ &nbsp; **B** $21$ &nbsp; **C** $22$ &nbsp; **D** $23$ &nbsp; **E** $24$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$$\int_0^n\!\Bigl(n-\tfrac32x\Bigr)\mathrm dx=\Bigl[nx-\tfrac34x^2\Bigr]_0^n=n^2-\tfrac34n^2=\tfrac14n^2
+\ \Rightarrow\ F(n)=\frac n4.$$
+$$G(n)=\sum_{r=0}^{n}\frac r4=\frac14\cdot\frac{n(n+1)}{2}=\frac{n(n+1)}{8}.$$
+$G(n)<69\Rightarrow n(n+1)<552.$ Test: $n=22:\ 22\times23=506<552$; $n=23:\ 23\times24=552$ (not $<552$).
+Largest is $n=22$ — **C**.
+
+*Starting the sum at $r=0$ changes nothing — $F(0)=0$.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question A5
+
+::: {.question}
+$F(n)=\dfrac1n\displaystyle\int_0^n(2n-2x)\,\mathrm dx$ and $G(n)=\displaystyle\sum_{r=1}^{n}F(r)$. Find
+the **smallest** $n$ with $G(n)>100$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\int_0^n(2n-2x)\,\mathrm dx=[2nx-x^2]_0^n=2n^2-n^2=n^2$, so $F(n)=n$. Then
+$$G(n)=\sum_{r=1}^n r=\frac{n(n+1)}{2}>100\Rightarrow n(n+1)>200.$$
+$n=13:\ 182$; $n=14:\ 210>200$. Smallest is $n=14$. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question A6
+
+::: {.question}
+$F(n)=\dfrac1n\displaystyle\int_0^n(n+x)\,\mathrm dx$ and $G(n)=\displaystyle\sum_{r=1}^{n}F(r)$. Find the
+**smallest** $n$ with $G(n)\ge300$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\int_0^n(n+x)\,\mathrm dx=\bigl[nx+\tfrac{x^2}{2}\bigr]_0^n=n^2+\tfrac{n^2}{2}=\tfrac32n^2$, so
+$F(n)=\tfrac32 n$. Then
+$$G(n)=\sum_{r=1}^n\frac{3r}{2}=\frac32\cdot\frac{n(n+1)}{2}=\frac{3n(n+1)}{4}\ge300\Rightarrow n(n+1)\ge400.$$
+$n=19:\ 380$; $n=20:\ 420\ge400$. Smallest is $n=20$. $\;\blacksquare$
+
+*Here the integrand $n+x$ makes a **trapezium** (area $\frac32n^2$), not a triangle — same three steps.*
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question A7 &nbsp; *(reverse — solve for $n$)*
+
+::: {.question}
+With $F(n)=\dfrac n2$ and $G(n)=\dfrac{n(n+1)}{4}$ (as in A1–A2), find the value of $n$ for which
+$G(n)=60$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\dfrac{n(n+1)}{4}=60\Rightarrow n(n+1)=240.$ Since $15\times16=240$, $n=15$. $\;\blacksquare$
+
+*Recognise $240$ as a product of consecutive integers: $\sqrt{240}\approx15.5$, so try $15\times16$.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Part B — Trig: counting solutions & symmetry
+
+## Question B1 &nbsp; *(2018 Paper 1 Q6)*
+
+::: {.question}
+Find the number of solutions of $\;x\sin 2x=\cos 2x\;$ with $0\le x\le 2\pi$.
+
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $3$ &nbsp; **E** $4$
+:::
+
+Don't solve algebraically — **draw both sides and count where they cross**. The line-like $y=x\sin2x$
+grows in amplitude; $y=\cos2x$ just oscillates between $\pm1$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Plot $y=x\sin 2x$ and $y=\cos 2x$ on $[0,2\pi]$ and count intersections — there are **4** — so the answer
+is **E**.
+
+```{python}
+#| fig-cap: "y = x·sin2x and y = cos2x on [0, 2π] cross 4 times."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2*np.pi,2000)
+y1=x*np.sin(2*x); y2=np.cos(2*x)
+fig,ax=plt.subplots(figsize=(5.8,3.6))
+ax.plot(x,y1,color='#1f77b4',lw=2,label='y = x·sin2x')
+ax.plot(x,y2,color='#d62728',lw=2,label='y = cos2x')
+# mark intersections
+d=y1-y2; s=np.sign(d); idx=np.where(s[:-1]*s[1:]<0)[0]
+for i in idx:
+    xi=x[i]-d[i]*(x[i+1]-x[i])/(d[i+1]-d[i]); ax.plot(xi,np.cos(2*xi),'o',color='#2ca02c')
+ax.axhline(0,color='0.6',lw=0.7)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.legend(fontsize=8,loc='upper left')
+ax.set_title('4 crossings → 4 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The growing amplitude of $x\sin2x$ means it only reaches up to meet $\cos2x$ a few times near the start;
+counting off the picture is far faster than solving.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question B2
+
+::: {.question}
+Find the number of solutions of $\;\sin 2x=\dfrac12\;$ with $0\le x\le 2\pi$.
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$ &nbsp; **E** $6$
+:::
+
+As $x$ runs $0\to2\pi$, the input $2x$ runs $0\to4\pi$ — [**two full turns**]{.hl}, so $\sin$ hits $\frac12$
+twice per turn.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+$\sin2x=\frac12$. Over $0\le x\le2\pi$ the angle $2x$ covers $[0,4\pi]$ — two periods — and in each period
+$\sin$ equals $\frac12$ **twice**, giving $2\times2=\mathbf 4$ — **C**.
+$$2x=\tfrac\pi6,\ \tfrac{5\pi}6,\ \tfrac{13\pi}6,\ \tfrac{17\pi}6\ \Rightarrow\ x=\tfrac{\pi}{12},\tfrac{5\pi}{12},\tfrac{13\pi}{12},\tfrac{17\pi}{12}.$$
+
+```{python}
+#| fig-cap: "y = sin2x meets y = ½ four times on [0, 2π] (two full periods of sin2x)."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2*np.pi,1600)
+fig,ax=plt.subplots(figsize=(5.8,3.2))
+ax.plot(x,np.sin(2*x),color='#1f77b4',lw=2,label='y = sin2x')
+ax.axhline(0.5,color='#d62728',lw=1.3,ls='--',label='y = ½')
+for xi in (np.pi/12,5*np.pi/12,13*np.pi/12,17*np.pi/12): ax.plot(xi,0.5,'o',color='#2ca02c')
+ax.axhline(0,color='0.6',lw=0.7)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.legend(fontsize=8,loc='lower left'); ax.set_ylim(-1.2,1.3)
+ax.set_title('4 solutions',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The trap is answering "2". The doubled angle $2x$ squeezes **two** periods into $[0,2\pi]$, doubling the
+count.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question B3 &nbsp; *(2018 Paper 1 Q18)*
+
+::: {.question}
+What is the smallest positive value of $a$ for which the line $x=a$ is a line of symmetry of the graph of
+$\;y=\sin\!\Bigl(2x-\dfrac{4\pi}{3}\Bigr)$?
+
+&nbsp;&nbsp;**A** $\dfrac{\pi}{12}$ &nbsp; **B** $\dfrac{5\pi}{12}$ &nbsp; **C** $\dfrac{7\pi}{12}$ &nbsp;
+**D** $\dfrac{11\pi}{12}$ &nbsp; **E** $\dfrac{19\pi}{12}$
+:::
+
+A sine curve is symmetric about every vertical line through a **peak or trough** — where the argument
+equals $\dfrac\pi2+k\pi$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+Peaks and troughs occur where the argument is $\frac\pi2+k\pi$:
+$$2x-\frac{4\pi}{3}=\frac\pi2+k\pi\ \Rightarrow\ 2x=\frac{11\pi}{6}+k\pi\ \Rightarrow\ x=\frac{11\pi}{12}+\frac{k\pi}{2}.$$
+Taking $k=-1$ gives $x=\dfrac{11\pi}{12}-\dfrac{6\pi}{12}=\dfrac{5\pi}{12}$ — the smallest positive value.
+So **B**.
+
+```{python}
+#| fig-cap: "y = sin(2x − 4π/3): the line x = 5π/12 passes through a trough — a line of symmetry."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0,2*np.pi,1600)
+fig,ax=plt.subplots(figsize=(5.8,3.2))
+ax.plot(x,np.sin(2*x-4*np.pi/3),color='#1f77b4',lw=2)
+ax.axvline(5*np.pi/12,color='#d62728',lw=1.3,ls='--')
+ax.plot(5*np.pi/12,-1,'o',color='#2ca02c')
+ax.annotate('x = 5π/12\n(trough)',(5*np.pi/12,-1),(5*np.pi/12+0.3,-0.4),color='#d62728',fontsize=9)
+ax.axhline(0,color='0.6',lw=0.7)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-1.4,1.3)
+ax.set_title('line of symmetry through a trough',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Lines of symmetry are at the maxima and minima, spaced **half a period** ($\frac\pi2$) apart. Find any
+one from "argument $=\frac\pi2+k\pi$", then step down by $\frac\pi2$ to the smallest positive.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## What to take away
+
+**F/G type:** integrate (it's a triangle/trapezium area) → sum (a multiple of $\frac{n(n+1)}2$) →
+solve $n(n+1)\lessgtr K$ by testing integers near $\sqrt K$.
+**Trig counting:** draw and count crossings; a doubled angle $2x$ gives **two** periods on $[0,2\pi]$.
+**Symmetry:** peaks and troughs, where the argument is $\frac\pi2+k\pi$.
+:::
+
+:::

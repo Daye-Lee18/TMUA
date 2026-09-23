@@ -1,0 +1,285 @@
+---
+title: "Completing the Square Clinic"
+subtitle: "Vertex form, maxima/minima, ranges, and quadratics with a parameter (MM1)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Completing the square is the single most useful move on a quadratic: it hands you the **vertex**, the
+**maximum or minimum value**, the **range**, and — with the discriminant — the number of roots and the "always
+positive" conditions. TMUA loves to hide a **parameter** inside, so the vertex value becomes a function of $k$
+that you then optimise or set to a target. That is the skill you got caught on (a "completing-the-square with a
+parameter" question), so §Q4, Q7 and Q8 are the ones to nail.
+
+::: {.callout-tip}
+## Start here — the one identity
+
+$$ax^2+bx+c=a\left(x+\frac{b}{2a}\right)^2+\left(c-\frac{b^2}{4a}\right).$$
+
+- **Vertex** at $x=-\dfrac{b}{2a}$; the bracket value there is $c-\dfrac{b^2}{4a}$.
+- If $a>0$ the vertex is a **minimum**; if $a<0$ it is a **maximum**. The **range** of $y=ax^2+bx+c$ is
+  $y\ge(\text{min})$ or $y\le(\text{max})$.
+- **Always positive** ($ax^2+bx+c>0$ for all $x$) needs $a>0$ **and** discriminant $b^2-4ac<0$.
+- **Equal (repeated) roots** need $b^2-4ac=0$.
+
+When there is a **parameter** $k$, complete the square in $x$ first (treat $k$ as a constant); the minimum value
+is then an expression in $k$ — optimise it, or set it equal to the target the question gives.
+:::
+
+**On this page:** basic vertex form → ranges → **quadratics with a parameter**. Answers are in the **Solution**
+toggles; use the **Working** box and **state the exact value / inequality asked for**.
+
+---
+
+### Question 1
+
+::: {.question}
+Write $x^2+6x+11$ in the form $(x+p)^2+q$, and state its minimum value. *(Give exact numbers.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(halve the $x$-coefficient)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $(x+p)^2+q$ with $p=\tfrac{b}{2}$
+:::
+
+**Answer form: exact numbers. Answer: $(x+3)^2+2$, minimum value $2$.**
+
+$x^2+6x+11=(x+3)^2-9+11=(x+3)^2+2$. *The squared term is $\ge0$ and is $0$ at $x=-3$,* so the minimum value is
+$2$ (at $x=-3$).
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+Express $2x^2-8x+3$ in the form $a(x+b)^2+c$, and hence state the minimum value and where it occurs. *(Give
+exact numbers.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(factor the leading coefficient out of the $x$-terms first)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — take out $a$ before completing the square
+:::
+
+**Answer form: exact numbers. Answer: $2(x-2)^2-5$; minimum $-5$ at $x=2$.**
+
+$2x^2-8x+3=2(x^2-4x)+3=2\bigl((x-2)^2-4\bigr)+3=2(x-2)^2-5$. *Since $a=2>0$, this is a minimum:* value $-5$,
+at $x=2$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 3
+
+::: {.question}
+The minimum value of $x^2+kx+9$ is $5$. Find the positive value of $k$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the minimum value is $c-\tfrac{b^2}{4a}$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — set the completed-square constant equal to the given minimum
+:::
+
+**Answer form: an exact value. Answer: $k=4$.**
+
+*Completing the square, $x^2+kx+9=\left(x+\tfrac{k}{2}\right)^2+9-\tfrac{k^2}{4}$, so the minimum value is
+$9-\tfrac{k^2}{4}$.* Set this to $5$: $9-\tfrac{k^2}{4}=5\Rightarrow k^2=16\Rightarrow k=\pm4$; the positive
+value is $k=4$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+The minimum value of $x^2-2kx+3k$ is $2$. Find the possible values of $k$. *(Give the exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the minimum value becomes a quadratic in $k$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — complete the square in $x$ (with $k$ constant), then solve the resulting equation in $k$
+:::
+
+**Answer form: exact values. Answer: $k=1$ and $k=2$.**
+
+*Complete the square in $x$: $x^2-2kx+3k=(x-k)^2-k^2+3k$, so the minimum value is $3k-k^2$.* Set this to $2$:
+$$3k-k^2=2\Rightarrow k^2-3k+2=0\Rightarrow(k-1)(k-2)=0,$$
+so $k=1$ or $k=2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+k=np.linspace(-1,4,200); m=3*k-k**2
+plt.figure(figsize=(4.2,2.6))
+plt.plot(k,m,'#2b6cb0',lw=1.6); plt.axhline(2,color='crimson',ls='--',lw=1)
+for kk in [1,2]: plt.plot(kk,3*kk-kk**2,'ko',ms=4)
+plt.annotate('min value = 2',(3,2.05),fontsize=8,color='crimson',ha='center')
+plt.xlabel('k',fontsize=8); plt.ylabel('minimum value  3k − k²',fontsize=8)
+plt.grid(alpha=0.25); plt.title('The minimum value is itself a function of k',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 5
+
+::: {.question}
+Find the greatest value of $5-4x-x^2$, and the value of $x$ at which it occurs. *(Give exact numbers.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a negative $x^2$ coefficient means a maximum)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — factor out $-1$, complete the square; $a<0$ gives a maximum
+:::
+
+**Answer form: exact numbers. Answer: greatest value $9$, at $x=-2$.**
+
+$5-4x-x^2=-(x^2+4x)+5=-\bigl((x+2)^2-4\bigr)+5=-(x+2)^2+9$. *The squared term is $\ge0$, so $-(x+2)^2\le0$ with
+equality at $x=-2$;* the greatest value is $9$, at $x=-2$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+The function is $f(x)=x^2-6x+1$ for all real $x$. State the range of $f$. *(Give it as an inequality.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the range starts at the minimum value)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — an upward parabola over all of $\mathbb{R}$ has range $y\ge(\text{min})$
+:::
+
+**Answer form: an inequality. Answer: $f(x)\ge-8$** (i.e. the range is $[-8,\infty)$).
+
+*Complete the square: $x^2-6x+1=(x-3)^2-8$, so the minimum value is $-8$ at $x=3$.* Since the parabola opens
+upward and $x$ ranges over all reals, $f$ takes every value from $-8$ up: $f(x)\ge-8$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1,7,200); y=x**2-6*x+1
+plt.figure(figsize=(4.0,2.6))
+plt.plot(x,y,'#2b6cb0',lw=1.6); plt.plot(3,-8,'ko',ms=4)
+plt.axhline(-8,color='crimson',ls='--',lw=1)
+plt.annotate('minimum (3, −8)',(3,-8),textcoords='offset points',xytext=(6,-2),fontsize=8)
+plt.grid(alpha=0.25); plt.title('Range: y ≥ −8',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 7
+
+::: {.question}
+Find the set of values of $k$ for which $x^2+kx+k+3>0$ for **all** real $x$. *(Give an inequality.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*("always positive" $\Rightarrow$ no real roots)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $a>0$ already; the extra condition is discriminant $<0$
+:::
+
+**Answer form: an inequality. Answer: $-2<k<6$.**
+
+*The parabola opens upward ($a=1>0$), so it stays strictly above the axis exactly when it has no real roots,
+i.e. discriminant $<0$:*
+$$k^2-4(k+3)<0\Rightarrow k^2-4k-12<0\Rightarrow(k-6)(k+2)<0.$$
+This holds between the roots: $-2<k<6$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+The equation $x^2+kx+(k+3)=0$ has equal (repeated) roots. Find the possible values of $k$. *(Give the exact
+values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(equal roots $\Rightarrow$ discriminant $=0$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the boundary case of Q7: $b^2-4ac=0$
+:::
+
+**Answer form: exact values. Answer: $k=6$ and $k=-2$.**
+
+*Equal roots require the discriminant to vanish:* $k^2-4(k+3)=0\Rightarrow k^2-4k-12=0\Rightarrow(k-6)(k+2)=0$,
+so $k=6$ or $k=-2$. *(These are exactly the boundary values of Q7 — outside $[-2,6]$ the quadratic dips below
+the axis and gains two roots.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+:::

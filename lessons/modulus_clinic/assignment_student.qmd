@@ -1,0 +1,212 @@
+---
+title: "Modulus Clinic — Assignment"
+subtitle: "Hard set — equations & inequalities, |f| vs f(|x|), x|x|, modulus integrals, diamonds & distances"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **71 marks** · Suggested time: **90 minutes**. This set spans both clinics —
+the basic moves (Clinic 1) and the harder combinations (Clinic 2).
+
+> **A modulus splits into cases at its corner.** $\lvert A\rvert=B$ needs $B\ge0$ and $A=\pm B$;
+> $\lvert A\rvert=\lvert B\rvert$ needs $A=\pm B$; $\lvert A\rvert<k$ is $-k<A<k$.
+
+> **$\lvert f(x)\rvert$** flips the below-axis part **up**; **$f(\lvert x\rvert)$** mirrors the right half in
+> the $y$-axis (always even). A **sum of $\lvert x-a_i\rvert$** is least at the **median** of the $a_i$.
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Equations & inequalities** | case-splitting · $\lvert A\rvert=\lvert B\rvert$ · "for all $k$" counts · modulus-quadratic | 20 |
+| **B — Graphs, $x\lvert x\rvert$ & regions** | $\lvert f\rvert$ vs $f(\lvert x\rvert)$ · $x\lvert x\rvert$ counting · diamonds & their areas | 23 |
+| **C — Integrals, distances & nesting** | split-at-the-corner integrals · even symmetry · distance sums · kites · nested modulus · triangle inequality | 28 |
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Equations → **list every solution** (and reject any that fail its case). Inequalities →
+**interval notation**. "How many solutions" → **a whole number**. Areas → **exact value**. Sketches → label
+every corner, root and turning point.
+:::
+
+---
+
+# Section A — Equations & inequalities
+
+## Question 1 **[4]**
+
+Solve, checking each root in the original equation.
+
+&nbsp;&nbsp;(a) $\;\lvert 2x-5\rvert=x+1$ **[2]** &nbsp;&nbsp;&nbsp; (b) $\;\lvert x-3\rvert=2x$ **[2]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 2 **[4]**
+
+Solve $\;\lvert 3x+2\rvert\ge\lvert x-4\rvert$, giving your answer in interval notation.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 3 **[4]**
+
+Find the **product** of the distinct real solutions of $\;\lvert x^{2}-2x\rvert=\lvert x-2\rvert$.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 4 **[4]**
+
+State, with reasons, how many solutions the equation $\;\lvert x+3\rvert+\lvert x-1\rvert=k$ has in the three
+cases $k<4$, $k=4$, and $k>4$.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 5 **[4]**
+
+Solve $\;\lvert x^{2}-4\rvert<3$, giving your answer in interval notation.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Section B — Graphs, x|x| & regions
+
+## Question 6 **[6]**
+
+Let $f(x)=x^{2}-4x+3$.
+
+&nbsp;&nbsp;(a) Sketch $\;y=\lvert f(x)\rvert$, labelling the roots and the turning point. **[2]**
+
+&nbsp;&nbsp;(b) Sketch $\;y=f(\lvert x\rvert)$, labelling the roots and the turning points. **[2]**
+
+&nbsp;&nbsp;(c) How many solutions does $\;\lvert f(x)\rvert=\tfrac12$ have? **[2]**
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 7 **[5]**
+
+Solve $\;x\lvert x\rvert=2x-1$, and state how many real solutions there are.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 8 **[4]**
+
+How many real solutions does $\;\lvert x-1\rvert+\lvert x+2\rvert=3x$ have? Find them.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 9 **[4]**
+
+Sketch the curve $\;\lvert x-1\rvert+\lvert y+2\rvert=3$ and find the exact area it encloses.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10 **[4]**
+
+Find the exact area of the region defined by $\;\lvert 2x\rvert+\lvert y\rvert\le8$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# Section C — Integrals, distances & nesting
+
+## Question 11 **[5]**
+
+Evaluate $\;\displaystyle\int_{-2}^{3}\lvert x^{2}-x-2\rvert\,\mathrm dx$.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 12 **[5]**
+
+Using the symmetry of the integrand, evaluate $\;\displaystyle\int_{-2}^{2}\lvert x^{2}-1\rvert\,\mathrm dx$.
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 13 **[5]**
+
+Find the least possible value of $\;\lvert x-1\rvert+\lvert x-4\rvert+\lvert x-6\rvert+\lvert x-9\rvert$, and
+the set of $x$ at which it occurs.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 14 **[4]**
+
+Find the exact area enclosed between the graphs of $\;y=\lvert x-2\rvert$ and $\;y=6-\lvert x-2\rvert$.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 15 **[5]**
+
+How many real solutions does $\;\big\lvert\,\lvert x-2\rvert-3\,\big\rvert=1$ have? Find them.
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 16 **[4]**
+
+&nbsp;&nbsp;(a) Show that $\;\lvert x-1\rvert+\lvert x-5\rvert\ge4$ for all real $x$, and state exactly when
+equality holds. **[3]**
+
+&nbsp;&nbsp;(b) Hence solve $\;\lvert x-1\rvert+\lvert x-5\rvert=4$. **[1]**
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+:::

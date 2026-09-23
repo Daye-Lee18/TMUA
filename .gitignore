@@ -3,6 +3,7 @@ _resources/**/*.pdf
 
 # Quarto build
 _output/
+**/*_files/
 .quarto/
 /.luarc.json
 
@@ -12,3 +13,7 @@ __pycache__/
 
 /.quarto/
 **/*.quarto_ipynb
+**/*.quarto_ipynb_*
+
+# Supplementary practice papers (academy ladder) — not redistributed
+_resources/supplementary/

@@ -1,0 +1,361 @@
+---
+title: "Self-study 4 — Paper 2 Reasoning (2022 & 2023, Q6–Q10)"
+subtitle: "The questions you missed: 2022 Paper 2 (Q7, Q10) and 2023 Paper 2 (Q6, Q8, Q9)"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Five real Paper 2 questions you got wrong across the **2022** and **2023** papers (Q6–Q10). Every one is a
+*reasoning* question: a proof error, a quantifier order, a converse that quietly turns out true, a
+solution-count preserved under a reflection, a geometry count that is **always** the same. Each solution says
+**why**, flags the exact slip, and links to the full mark scheme and the toolkit session that drills it.
+
+::: {.callout-tip}
+## The five slips these test
+
+- **Irreducible ≠ prime value** (2022 Q7): a polynomial not factorising says nothing about whether the
+  *number* it produces is prime.
+- **Quantifier order** (2022 Q10): "for each $x$ there is an $n$" (the $n$ may depend on $x$) is very
+  different from "one $n$ works for all $x$".
+- **Reflection preserves the count** (2023 Q6): $y=\log_a x$ is $y=a^x$ mirrored in $y=x$, so each meets the
+  line $y=x$ the same number of times.
+- **Count is always 3** (2023 Q8): every non-right triangle has *exactly* three dividing lines — so "exactly
+  1" and "exactly 2" are impossible.
+- **A converse can be true** (2023 Q9): the statement is false, but its converse is forced true by a hidden
+  average.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** MCQ → one letter. All answer letters are the **official** ones; each links to the full
+worked solution in that paper's **[Mark scheme](../2022_paper2/class_material.qmd)**.
+:::
+
+---
+
+# 2022 Paper 2
+
+## Question 7
+
+::: {.question}
+Consider the claim: *the difference between two consecutive positive cube numbers is always prime.* Here is an
+attempted proof:
+
+&nbsp;&nbsp;**I** &nbsp; $(x+1)^{3}=x^{3}+3x^{2}+3x+1$.
+&nbsp;&nbsp;**II** &nbsp; Taking $x$ a positive integer, the difference of consecutive cubes is $(x+1)^{3}-x^{3}=3x^{2}+3x+1$.
+&nbsp;&nbsp;**III** &nbsp; It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer coefficients, because its discriminant is negative.
+&nbsp;&nbsp;**IV** &nbsp; Therefore for every positive integer value of $x$, the integer $3x^{2}+3x+1$ cannot be factorised.
+&nbsp;&nbsp;**V** &nbsp; Hence the difference between two consecutive cube numbers will always be prime.
+
+Which best describes this proof? &nbsp; **A** correct, claim true &nbsp; **B** correct, but counterexamples
+exist &nbsp; **C** first error line I &nbsp; **D** line II &nbsp; **E** line III &nbsp; **F** line IV &nbsp;
+**G** line V
+:::
+
+Look for the **first** line that does not follow. Lines I–III are fine; watch the jump from *polynomial* to
+[*integer value*]{.hl} at IV.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — F (first error on line IV)
+
+[*(answer F)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — spot the first error in a "difference of cubes is prime" proof · **spot the error (S7)**
+:::
+
+
+- **Line III is true:** the *polynomial* $3x^{2}+3x+1$ has discriminant $9-12=-3<0$, so it does not split into
+  integer linear factors — it is **irreducible**.
+- **Line IV is the false leap:** "the polynomial doesn't factorise, so the **number** $3x^{2}+3x+1$ can never
+  be factorised (is prime)." Irreducible polynomial $\neq$ prime values. **Counterexample:** $x=5$ gives
+  $3(25)+15+1=91=7\times13$ — composite. (This is the difference $6^{3}-5^{3}=91$.)
+- **Line V is *not* the first error:** it follows correctly *from* IV (if the value could never be factorised
+  it would indeed always be prime). The error was already made at IV.
+
+*Your slip: you picked **G (line V)** — the conclusion looks wrong, so it seems the guilty line. But V is a
+valid deduction from IV; the flaw is the polynomial-to-number jump at **IV**. **Full solution:
+[2022 P2 MS · Q7](../2022_paper2/class_material.qmd). Toolkit: [S7](../../toolkit/s07_assignment_ms.qmd),
+[S5 — factorisation ⇒ primality](../../toolkit/s05_concepts.qmd).***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+::: {.question}
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; For **all** real numbers $x$ and for **all** positive integers $n$, $\;x<n$.
+&nbsp;&nbsp;**II** &nbsp; For **all** real numbers $x$, **there exists** a positive integer $n$ such that $\;x<n$.
+&nbsp;&nbsp;**III** &nbsp; **There exists** a real number $x$ such that for **all** positive integers $n$, $\;x<n$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp; **E** I and II only
+&nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+The whole question is **which quantifier comes first**: in II the $n$ may [depend on $x$]{.hl}; in III one
+$x$ must beat **every** $n$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — G (II and III only)
+
+[*(answer G)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the order of quantifiers · **quantifiers (S4)**
+:::
+
+
+- **I — false.** It claims *every* real is below *every* positive integer. Take $x=100,\ n=1$: $100<1$ is
+  false.
+- **II — true.** For each real $x$ you may choose an $n$ **depending on $x$**: take $n=\lfloor x\rfloor+1$
+  (or $n=1$ if $x<1$). A positive integer larger than any given $x$ always exists.
+- **III — true.** You need **one** real $x$ below *all* positive integers: take $x=0$ (indeed any $x\le0$).
+  Then $x<n$ for every positive integer $n$.
+
+So II and III hold — **G**.
+
+*Your slip: you doubted **II**. "$\forall x\,\exists n$" only asks that **some** $n$ work for each $x$, and a
+different $n$ for a different $x$ is allowed — that is exactly the Archimedean property. Do not confuse it
+with I ("one statement for all $x,n$ at once"). **Full solution: [2022 P2 MS · Q10](../2022_paper2/class_material.qmd).
+Toolkit: [S4 — quantifiers & order](../../toolkit/s04_concepts.qmd).***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# 2023 Paper 2
+
+## Question 6
+
+::: {.question}
+Let $a$ be real with $a>1$, and consider $(*)$: $\;a^{x}=x$. Which of the following equations **must** have the
+**same number** of real solutions as $(*)$, for every such $a$?
+
+&nbsp;&nbsp;**I** &nbsp; $\log_a x=x$ &nbsp;&nbsp; **II** &nbsp; $a^{2x}=x^{2}$ &nbsp;&nbsp; **III** &nbsp; $a^{2x}=2x$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp; **E** I and II only
+&nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+$(*)$ itself has $0$, $1$ or $2$ solutions depending on $a$. For each option, ask whether it always matches
+that count — a [reflection or a substitution]{.hl} keeps the count; an extra branch changes it.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — F (I and III only)
+
+[*(answer F)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — which equations share the solution-count of $a^{x}=x$ · **graphs of exp / log**
+:::
+
+
+- **I ($\log_a x=x$) — same count.** $y=\log_a x$ is the reflection of $y=a^{x}$ in the line $y=x$. Since
+  $y=x$ is the mirror itself, the points where $y=a^{x}$ meets $y=x$ reflect **one-to-one** onto the points
+  where $y=\log_a x$ meets $y=x$. Same number, always. ✔
+- **II ($a^{2x}=x^{2}$) — different count.** $a^{2x}=(a^{x})^{2}=x^{2}\Leftrightarrow a^{x}=\lvert x\rvert$,
+  i.e. $a^{x}=x$ (for $x\ge0$) **or** $a^{x}=-x$ (for $x<0$). The extra branch $a^{x}=-x$ always has
+  **exactly one** solution, so II has *one more* solution than $(*)$. ✘
+- **III ($a^{2x}=2x$) — same count.** Put $u=2x$: it becomes $a^{u}=u$, the very form of $(*)$, and $x\mapsto
+  2x$ is a bijection. Same number, always. ✔
+
+So I and III — **F**.
+
+```{python}
+#| fig-cap: "y=aˣ and y=log_a x are reflections in y=x, so each meets the line y=x the same number of times (here a=1.4: two intersections each, mirrored). Equation II adds the branch aˣ=−x (one extra solution)."
+import numpy as np, matplotlib.pyplot as plt
+a=1.4
+x=np.linspace(-1,6,400); xp=np.linspace(0.03,6,400)
+fig,ax=plt.subplots(figsize=(5.2,4.4))
+ax.plot(x,a**x,color='#2b6cb0',lw=2,label='y=aˣ')
+ax.plot(xp,np.log(xp)/np.log(a),color='#dd6b20',lw=2,label='y=log_a x')
+ax.plot(x,x,color='0.5',ls='--',lw=1.2,label='y=x')
+# intersections of a^x=x
+from scipy.optimize import brentq
+r1=brentq(lambda t:a**t-t,1.5,3); r2=brentq(lambda t:a**t-t,3,6)
+for r in (r1,r2):
+    ax.plot(r,r,'o',color='#2b6cb0',ms=6); ax.plot(r,r,'o',mfc='none',mec='#dd6b20',ms=11)
+ax.set_aspect('equal'); ax.set_xlim(-1,6); ax.set_ylim(-1,6)
+ax.axhline(0,color='0.8',lw=.6); ax.axvline(0,color='0.8',lw=.6)
+ax.legend(fontsize=8,loc='upper left'); ax.set_xlabel('x'); ax.set_ylabel('y')
+ax.set_title('I: same intersections with y=x, mirrored',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+
+*Your slip: you excluded **I**, thinking the domain $x>0$ of $\log_a x$ changes the count. But $a^{x}=x$
+already forces $x>0$ (since $a^{x}>0$), so no solution is lost — the reflection is exact. **Full solution:
+[2023 P2 MS · Q6](../2023_paper2/class_material.qmd).***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+::: {.question}
+A student draws a triangle that is acute-angled or obtuse-angled but **not** right-angled, and counts the
+straight lines that divide it into two triangles, **at least one** of which is right-angled. Which is/are
+true?
+
+&nbsp;&nbsp;**I** &nbsp; A triangle can be drawn with exactly **1** such line.
+&nbsp;&nbsp;**II** &nbsp; … exactly **2** such lines.
+&nbsp;&nbsp;**III** &nbsp; … exactly **3** such lines.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp; **E** I and II only
+&nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+Such a line is a **cevian** (vertex to the opposite side). A right angle appears either at its **foot** (the
+line is an *altitude* — valid only if the foot lands inside the side) or at the **vertex** (the line makes
+$90^\circ$ with a side there — possible only where the [angle exceeds $90^\circ$]{.hl}).
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — D (III only)
+
+[*(answer D)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — count the lines splitting a triangle into two, one right-angled · **geometry reasoning**
+:::
+
+
+Count the valid lines for each shape:
+
+- **Acute triangle:** all three **altitudes** have their feet **inside** the opposite side, and each splits
+  the triangle into two right-angled triangles → **3 lines**. No angle exceeds $90^\circ$, so there are no
+  vertex-right-angle lines. Exactly **3**.
+- **Obtuse triangle** (obtuse at $V$): only the altitude **from $V$** has an interior foot (the other two
+  altitudes' feet fall *outside* the triangle) → **1**; and at the obtuse vertex $V$ you can draw **two**
+  cevians making $90^\circ$ with each of its sides → **2**. Total **3**.
+
+So **every** allowed triangle has **exactly 3** such lines. Hence a triangle with exactly $3$ exists (III
+true), but **none** with exactly $1$ or exactly $2$ (I, II false) — **D**.
+
+```{python}
+#| fig-cap: "Both cases give exactly 3 dividing lines. Left (acute): the three altitudes, feet inside each side. Right (obtuse at C): the altitude from C plus two cevians from C that make a right angle with CA and CB."
+import numpy as np, matplotlib.pyplot as plt
+def foot(V,P,Q):
+    P=np.array(P,float);Q=np.array(Q,float);V=np.array(V,float)
+    t=((V-P)@(Q-P))/((Q-P)@(Q-P)); return P+t*(Q-P)
+def perp_to_side_hit(C,S,P,Q):
+    # cevian from C perpendicular to side CS (S a vertex), hitting line PQ (the base y=0 here)
+    C=np.array(C,float);S=np.array(S,float)
+    d=S-C; dirp=np.array([-d[1],d[0]])
+    if dirp[1]>0: dirp=-dirp           # point downward toward base
+    t=(0-C[1])/dirp[1]; return C+t*dirp
+fig,(ax1,ax2)=plt.subplots(2,1,figsize=(5.0,7.2))
+# acute
+A,B,C=np.array([0,0]),np.array([4,0]),np.array([1.6,2.7])
+tri=np.array([A,B,C,A]); ax1.plot(tri[:,0],tri[:,1],'k',lw=2)
+for V,P,Q in [(A,B,C),(B,A,C),(C,A,B)]:
+    ax1.plot([V[0],foot(V,P,Q)[0]],[V[1],foot(V,P,Q)[1]],color='#2b6cb0',lw=1.6)
+    ax1.plot(*foot(V,P,Q),'o',color='#dd6b20',ms=4)
+ax1.set_title('Acute: 3 altitudes',fontsize=10); ax1.set_aspect('equal'); ax1.axis('off')
+# obtuse at C
+A,B,C=np.array([0,0]),np.array([5,0]),np.array([0.5,1.3])
+tri=np.array([A,B,C,A]); ax2.plot(tri[:,0],tri[:,1],'k',lw=2)
+ax2.plot([C[0],foot(C,A,B)[0]],[C[1],foot(C,A,B)[1]],color='#2b6cb0',lw=1.6)   # altitude from C
+for S in (A,B):
+    D=perp_to_side_hit(C,S,A,B)
+    ax2.plot([C[0],D[0]],[C[1],D[1]],color='#2ca02c',lw=1.6)
+    ax2.plot(*D,'o',color='#2ca02c',ms=4)
+ax2.plot(*foot(C,A,B),'o',color='#dd6b20',ms=4)
+ax2.set_title('Obtuse at C: 1 altitude + 2 cevians',fontsize=10); ax2.set_aspect('equal'); ax2.axis('off')
+plt.tight_layout(); plt.show()
+```
+
+*Your slip: you picked **H (I, II and III)**, assuming $1$, $2$ and $3$ are all reachable. The count is
+**always** $3$, so only III can happen. **Full solution: [2023 P2 MS · Q8](../2023_paper2/class_material.qmd).***
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+::: {.question}
+Consider the statement about a pentagon $P$:
+
+&nbsp;&nbsp;$(*)$ &nbsp; *If at least one of the interior angles in $P$ is $108^\circ$, then all the interior
+angles in $P$ form an arithmetic sequence.*
+
+Which of the following is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; The statement $(*)$.
+&nbsp;&nbsp;**II** &nbsp; The contrapositive of $(*)$.
+&nbsp;&nbsp;**III** &nbsp; The converse of $(*)$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp; **E** I and II only
+&nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+A statement and its **contrapositive** always share a truth value; the **converse** is independent — test it
+by [writing the arithmetic sequence out]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — D (III only)
+
+[*(answer D)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a statement, its contrapositive, and its converse · **converse & contrapositive (S2)**
+:::
+
+
+- **I — $(*)$ is false.** Angles of a pentagon sum to $540^\circ$. Take $100^\circ,102^\circ,108^\circ,110^\circ,120^\circ$
+  (sum $540^\circ$): one angle is $108^\circ$, yet $100,102,108,110,120$ is **not** an arithmetic sequence
+  (differences $2,6,2,10$). So $(*)$ fails.
+- **II — the contrapositive is false too.** A statement and its contrapositive are **logically equivalent**,
+  so it has the same (false) truth value as $(*)$.
+- **III — the converse is true.** Converse: *"if all interior angles form an arithmetic sequence, then at
+  least one is $108^\circ$."* Write the five angles as $a-2d,\,a-d,\,a,\,a+d,\,a+2d$; their sum is $5a=540^\circ$,
+  so $a=108^\circ$. The **middle** angle is $108^\circ$ — so at least one angle is $108^\circ$. ✔
+
+Only III — **D**.
+
+*Your slip: you picked **A (none)**, assuming all three fail. The converse is forced true because a $5$-term
+arithmetic sequence summing to $540^\circ$ has middle term $540/5=108$. Always check a converse by building
+the object, not by guessing. **Full solution: [2023 P2 MS · Q9](../2023_paper2/class_material.qmd).
+Toolkit: [S2 — converse & contrapositive](../../toolkit/s02_concepts.qmd).***
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## What to take away
+
+- **Proof errors:** the first error is the earliest line that doesn't follow — a valid deduction *from* a
+  false line (2022 Q7, line V) is not itself the error.
+- **Quantifiers:** "$\forall x\,\exists n$" lets $n$ depend on $x$; "$\exists x\,\forall n$" needs one $x$ for
+  all $n$. Order is everything (2022 Q10).
+- **Symmetry & substitution keep a solution-count**; an extra $\pm$ branch changes it (2023 Q6).
+- **Sometimes the count is fixed:** every non-right triangle has exactly 3 such lines (2023 Q8).
+- **A false statement can have a true converse** — test the converse directly (2023 Q9).
+- Cross-links: **S2** (converse/contrapositive), **S4** (quantifiers), **S5/S7** (factorisation ⇒ primality,
+  spot the error).
+:::
+
+:::

@@ -1,0 +1,284 @@
+---
+title: "Mock 1 · Paper 1 — Worked Solutions"
+subtitle: "Answer key + full method for every question"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Answer key.** 1 B · 2 D · 3 C · 4 B · 5 B · 6 C · 7 D · 8 D · 9 A · 10 B ·
+11 D · 12 C · 13 C · 14 D · 15 B · 16 C · 17 B · 18 B · 19 B · 20 D
+
+Mark each question, then read the method for any you missed **or** got slowly — TMUA is as much about the
+short route as the answer.
+
+---
+
+## Question 1 — **B** $\;4$
+
+$27^{2/3}=(\sqrt[3]{27})^{2}=3^{2}=9$, and $2^{4}=16$, $6^{2}=36$. So $\dfrac{9\times16}{36}=\dfrac{144}{36}=4$.
+
+*Do the cube root before the square — $27^{2/3}$ is $9$, not $27^2$ then rooted. Distractor **E** ($16$)
+forgets to divide by $36$ properly.*
+
+---
+
+## Question 2 — **D** $\;3+\sqrt3$
+
+Multiply top and bottom by the conjugate $3+\sqrt3$:
+$$\frac{6}{3-\sqrt3}\cdot\frac{3+\sqrt3}{3+\sqrt3}=\frac{6(3+\sqrt3)}{9-3}=\frac{6(3+\sqrt3)}{6}=3+\sqrt3.$$
+
+*The denominator becomes $3^2-(\sqrt3)^2=6$ — a difference of two squares, which is the whole point of the
+conjugate. Distractor **B** used $3-\sqrt3$ (wrong sign).*
+
+---
+
+## Question 3 — **C** $\;-2<k<6$
+
+No real roots means discriminant $<0$:
+$$k^{2}-4(k+3)<0 \;\Rightarrow\; k^{2}-4k-12<0 \;\Rightarrow\; (k-6)(k+2)<0 \;\Rightarrow\; -2<k<6.$$
+
+*A $\cup$-shaped quadratic in $k$ is below zero **between** its roots — so the answer is the interval, not
+the outside. Distractor **A** is the "outside" set (the sign flipped).*
+
+---
+
+## Question 4 — **B** $\;-5$
+
+Complete the square: $3x^{2}+12x+7=3(x^{2}+4x)+7=3(x+2)^{2}-12+7=3(x+2)^{2}-5$. The squared term is at
+least $0$, so the minimum is $-5$ (at $x=-2$).
+
+*Factor the $3$ out of the first two terms **before** completing the square; the $-12$ comes from
+$3\times(-4)$. Distractor **C** ($-12$) forgot to add the $+7$ back.*
+
+---
+
+## Question 5 — **B** $\;2$
+
+$x^{2}-2kx+5=(x-k)^{2}+5-k^{2}$, so the minimum value is $5-k^{2}$. Set $5-k^{2}=1\Rightarrow k^{2}=4
+\Rightarrow k=\pm2$; the positive value is $k=2$.
+
+*The minimum of a completed square $(x-k)^2+c$ is just $c$. Take the positive root as asked.*
+
+---
+
+## Question 6 — **C** $\;(1,6)$
+
+$+1$ is outside → height rises by $1$: $5\to6$. $f(2x)$ is inside → the maximum occurs when the input to
+$f$ is $2$, i.e. $2x=2\Rightarrow x=1$.
+
+*Inside changes act on $x$ and go by the reciprocal: solve "input $=$ old input". Distractor **D**
+$(4,6)$ doubled $x$ instead of halving it.*
+
+---
+
+## Question 7 — **D** $\;-9$
+
+Let $w=f(x)$, so $w\in[1,4]$. Then $g(w)=w^{2}-6w=(w-3)^{2}-9$. The vertex $w=3$ lies in $[1,4]$, so the
+minimum is $g(3)=-9$.
+
+```{python}
+#| fig-cap: "g(w)=w²−6w on [1,4]: minimum −9 at the vertex w=3 (inside the interval); the endpoints give −5 and −8."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; M='#d62728'
+w=np.linspace(1,4,300); g=w**2-6*w
+fig,ax=plt.subplots(figsize=(5.0,3.4))
+ax.plot(w,g,color=C,lw=2)
+ax.plot(3,-9,'o',color=M); ax.annotate('(3, −9) min',(3,-9),(2.0,-7.5),color=M,fontsize=9)
+ax.plot(1,-5,'o',color='0.5'); ax.plot(4,-8,'o',color='0.5')
+ax.set_xlabel('w'); ax.set_ylabel('g(w)'); ax.set_title(r'$g(w)=w^2-6w$ on $[1,4]$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The vertex is inside the range, so it beats both endpoints — always check whether the turning point lies
+in the interval before trusting an endpoint. Distractor **C** ($-8$) stopped at the endpoint $w=4$.*
+
+---
+
+## Question 8 — **D** $\;3$
+
+Factor: $2\sin^{2}x+\sin x-1=(2\sin x-1)(\sin x+1)=0$. So $\sin x=\tfrac12$ (giving $x=30^\circ,150^\circ$)
+or $\sin x=-1$ (giving $x=270^\circ$). That is **3** solutions.
+
+*Treat it as a quadratic in $\sin x$. Do not lose $\sin x=-1$ — it contributes one solution. $\sin
+x=\tfrac12$ gives two because $\tfrac12$ is hit twice in a full turn.*
+
+---
+
+## Question 9 — **A** $\;\sqrt{39}$
+
+Cosine rule with the angle between the two known sides:
+$$BC^{2}=5^{2}+7^{2}-2(5)(7)\cos60^\circ=25+49-70\cdot\tfrac12=74-35=39,\qquad BC=\sqrt{39}.$$
+
+*Use the cosine rule because the given angle sits **between** the two given sides. Distractor **B**
+($\sqrt{74}$) dropped the $-2ab\cos C$ term.*
+
+---
+
+## Question 10 — **B** $\;5$
+
+Complete the square in $x$ and $y$: $(x-3)^{2}-9+(y+2)^{2}-4-12=0\Rightarrow(x-3)^{2}+(y+2)^{2}=25$. So
+$r=\sqrt{25}=5$.
+
+*Radius is $\sqrt{25}$, not $25$ — distractor **E** gives $r^2$. Centre is $(3,-2)$.*
+
+---
+
+## Question 11 — **D** $\;c=\pm5$
+
+Write the line as $2x-y+c=0$. A tangent touches when the distance from the centre $(0,0)$ equals the
+radius $\sqrt5$:
+$$\frac{|c|}{\sqrt{2^{2}+(-1)^{2}}}=\sqrt5\;\Rightarrow\;\frac{|c|}{\sqrt5}=\sqrt5\;\Rightarrow\;|c|=5\;\Rightarrow\;c=\pm5.$$
+
+*The perpendicular-distance test is far faster than substituting and setting the discriminant to zero.
+Two tangents are possible — one each side — so keep both signs.*
+
+---
+
+## Question 12 — **C** $\;820$
+
+$S_{20}=\dfrac{20}{2}\bigl(2(3)+(20-1)(4)\bigr)=10\,(6+76)=10\times82=820.$
+
+*Use $S_n=\tfrac{n}{2}(2a+(n-1)d)$; the common slip is $(n-1)=19$, not $20$. Distractor **D** doubled the
+sum.*
+
+---
+
+## Question 13 — **C** $\;32$
+
+$|r|=\tfrac34<1$, so it converges: $S_\infty=\dfrac{a}{1-r}=\dfrac{8}{1-\tfrac34}=\dfrac{8}{\tfrac14}=32.$
+
+*Dividing by $\tfrac14$ multiplies by $4$. Distractor **B** ($24$) used $1-r$ in the numerator by mistake.*
+
+---
+
+## Question 14 — **D** $\;720$
+
+The $x^{2}$ term is $\displaystyle\binom{5}{2}(2)^{3}(3x)^{2}=10\cdot8\cdot9\,x^{2}=720x^{2}$, so the
+coefficient is $720$.
+
+*Every term of $(a+b)^5$ is $\binom{5}{r}a^{5-r}b^{r}$; for $x^2$ take $r=2$, so $a=2$ keeps power $3$.
+Don't forget the $2^{3}$ — distractor **A** ($90=10\cdot9$) dropped it.*
+
+---
+
+## Question 15 — **B** $\;x=4$
+
+Combine: $\log_{2}\bigl(x(x-2)\bigr)=3\Rightarrow x(x-2)=2^{3}=8\Rightarrow x^{2}-2x-8=0\Rightarrow
+(x-4)(x+2)=0$. So $x=4$ or $x=-2$; reject $x=-2$ because $\log_2(x)$ needs $x>0$.
+
+*The domain kills the negative root: you cannot take $\log$ of a negative number, so $x=-2$ is discarded.
+Distractor **E** keeps the invalid root.*
+
+---
+
+## Question 16 — **C** $\;1$
+
+Let $u=3^{x}$: $u^{2}-4u+3=0\Rightarrow(u-1)(u-3)=0\Rightarrow u=1$ or $u=3$. Then $3^{x}=1\Rightarrow x=0$
+and $3^{x}=3\Rightarrow x=1$. Sum $=0+1=1$.
+
+*Spot the hidden quadratic in $3^x$ — that is the short route. Both $u$ values are positive, so both give
+valid $x$.*
+
+---
+
+## Question 17 — **B** $\;x=-1$
+
+$y'=3x^{2}-6x-9=3(x-3)(x+1)=0\Rightarrow x=3$ or $x=-1$. Test $y''=6x-6$: at $x=-1$, $y''=-12<0$ → local
+**maximum**; at $x=3$, $y''=12>0$ → local minimum.
+
+```{python}
+#| fig-cap: "y=x³−3x²−9x+5: local maximum at x=−1, local minimum at x=3."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; MX='#2ca02c'; MN='#d62728'
+x=np.linspace(-3,5,400); y=x**3-3*x**2-9*x+5
+fig,ax=plt.subplots(figsize=(5.2,3.6))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(-1,10,'o',color=MX); ax.annotate('local max (x=−1)',(-1,10),(-2.9,14),color=MX,fontsize=9)
+ax.plot(3,-22,'o',color=MN); ax.annotate('local min (x=3)',(3,-22),(0.2,-20),color=MN,fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title(r'$y=x^3-3x^2-9x+5$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*For a positive-leading cubic the **left** turning point is the maximum — a quick sanity check on the
+second-derivative test. Distractor **E** ($x=3$) named the minimum.*
+
+---
+
+## Question 18 — **B** $\;\tfrac43$
+
+The curves meet where $x^{2}=2x\Rightarrow x=0,2$. Between them the line is above the curve, so
+$$\text{area}=\int_{0}^{2}(2x-x^{2})\,\mathrm dx=\Bigl[x^{2}-\tfrac{x^{3}}{3}\Bigr]_{0}^{2}=4-\tfrac{8}{3}=\tfrac{4}{3}.$$
+
+```{python}
+#| fig-cap: "Region between y=2x (line) and y=x² (curve), from x=0 to x=2; area = 4/3."
+import numpy as np, matplotlib.pyplot as plt
+L='#2ca02c'; Cv='#1f77b4'
+x=np.linspace(-0.4,2.6,300)
+fig,ax=plt.subplots(figsize=(5.0,3.6))
+ax.plot(x,2*x,color=L,lw=2,label='y=2x')
+ax.plot(x,x**2,color=Cv,lw=2,label='y=x²')
+xs=np.linspace(0,2,100); ax.fill_between(xs,2*xs,xs**2,color='#ffd27f',alpha=0.6)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.legend(fontsize=8); ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title('Area between the curves',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*Integrate (upper − lower) between the intersection points; getting the order wrong just flips the sign.
+Distractor **D** ($\tfrac83$) integrated only $x^2$ or forgot the subtraction.*
+
+---
+
+## Question 19 — **B** $\;0$
+
+For an **odd** function $f(-x)=-f(x)$, so the graph has rotational symmetry about the origin and the areas
+on $[-3,0]$ and $[0,3]$ cancel: $\displaystyle\int_{-3}^{3} f(x)\,\mathrm dx=0$.
+
+*This is the symmetry shortcut — no value of the integral is needed beyond "odd over a symmetric
+interval $=0$". (Had $f$ been **even**, the answer would be $2\times5=10$; distractor **D** is that trap.)*
+
+---
+
+## Question 20 — **D** $\;3$
+
+Let $g(x)=x^{3}-3x+1$. Turning points: $g'(x)=3x^{2}-3=0\Rightarrow x=\pm1$. Then $g(-1)=-1+3+1=3>0$
+(local max) and $g(1)=1-3+1=-1<0$ (local min). The curve rises to $+3$, falls to $-1$, then rises again —
+crossing the axis **three** times.
+
+```{python}
+#| fig-cap: "y=x³−3x+1: local max +3 at x=−1, local min −1 at x=1 — opposite signs, so three real roots."
+import numpy as np, matplotlib.pyplot as plt
+C='#1f77b4'; MX='#2ca02c'; MN='#d62728'
+x=np.linspace(-2.2,2.2,400); y=x**3-3*x+1
+fig,ax=plt.subplots(figsize=(5.2,3.6))
+ax.plot(x,y,color=C,lw=2)
+ax.plot(-1,3,'o',color=MX); ax.annotate('max +3',(-1,3),(-2.1,4.2),color=MX,fontsize=9)
+ax.plot(1,-1,'o',color=MN); ax.annotate('min −1',(1,-1),(1.1,-2.6),color=MN,fontsize=9)
+ax.axhline(0,color='0.6',lw=0.8); ax.axvline(0,color='0.6',lw=0.8)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_title(r'$y=x^3-3x+1$',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+*The count of real roots follows from the **signs of the turning-point values**: a positive max and a
+negative min force three crossings. If both had the same sign there would be only one.*
+
+---
+
+## Where the marks were lost — a quick map
+
+| If you missed… | the lesson is |
+|---|---|
+| 6, 7, 17, 20 | **graphs & functions** — transformations, function-of-a-function, turning points, root-counting |
+| 8, 9 | **trigonometry** — quadratic-in-$\sin$, cosine rule |
+| 3, 4, 5 | **quadratics** — discriminant and completing the square |
+| 18, 19 | **integration** — area between curves, symmetry |
+
+Every wrong or slow question goes into the personal set; the graph ones (6, 7, 17, 20) are exactly what
+the clinics are drilling.
+
+:::

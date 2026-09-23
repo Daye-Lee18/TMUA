@@ -14,6 +14,22 @@ title: "The Test"
 The two papers are sat one after the other. Questions carry equal weight, there is **no penalty for a
 wrong answer**, there is **no formulae booklet**, and **calculators are not allowed**.
 
+::: {.callout-warning}
+## There is no break between the papers
+
+UAT-UK's test-day rules say it plainly: *"There are no breaks between modules or papers of your test."*
+Paper 2 begins the moment Paper 1 ends, so you are in the chair for **150 minutes without stopping**.
+
+If you leave the room — for the toilet, for anything — **the clock keeps running**: *"the test cannot be
+paused. You will lose time when out of the room."* (The only exception is a pause-the-clock break
+granted through an approved access arrangement.)
+
+This matters more than it sounds. Paper 2 is the harder half to concentrate on — logic and proof, in
+unfamiliar language — and you meet it **already 75 minutes tired**. So every mock has to be sat the
+same way: both papers, back to back, no break. Practising them as two separate 75-minute sessions
+trains something the real test does not ask for.
+:::
+
 That works out at **3 minutes 45 seconds per question**. This is the single most important number on
 this page: the questions are not individually hard for a strong A-Level student, but the direct,
 grind-it-out method is almost always too slow. Paper 1 rewards spotting the shortcut — symmetry, a

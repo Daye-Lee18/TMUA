@@ -1,0 +1,953 @@
+---
+title: "Triangle Clinic"
+subtitle: "The ambiguous case, the cosine-rule sign test, areas & the sine rule, and coordinate triangles"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+The favourite TMUA/MAT triangle question is the **ambiguous (SSA) case**: one **angle**, the side **next to**
+it, and the side **opposite** it — *how many* triangles, or for which sizes is it **unique**? That is §1–§3.
+But the same papers also test the **cosine-rule sign test** (is a triangle acute, right, or obtuse?), **area
+and the sine rule** (including the circumradius), and **triangles on the coordinate grid**. This clinic drills
+all of them, from the TMUA papers, the MAT, and the mocks.
+
+::: {.callout-important}
+## Summary — read the question first, then pick the tool
+
+| If the question asks… | Use this |
+|---|---|
+| **How many triangles?** (none / one / two) — or "for which sizes is it unique / are there two?" | the **hypotenuse–perpendicular** count. Known angle $A$, adjacent side $c$ (the **"hypotenuse"**), opposite side $a$ (the **swinging** side); height $h=c\sin A$ (the **"perpendicular"**). Then **$a<h$ none · $a=h$ one · $h<a<c$ two · $a\ge c$ one**. |
+| **Acute, right-angled, or obtuse?** | the **cosine rule as a sign test**. Compare the **longest** side$^2$ with the sum of the other two squares: **$>$ acute · $=$ right · $<$ obtuse** (equivalently, the sign of $\cos$ of the largest angle). |
+| **Find a missing side / angle / area** | **cosine rule** (a side from two sides + the included angle, or an angle from three sides) · **sine rule** $\dfrac{a}{\sin A}=2R$ · **area** $=\tfrac12 bc\sin A$. |
+
+So: *"how many triangles"* → the perpendicular/hypotenuse distances; *"what kind of triangle"* → the cosine-rule sign test.
+:::
+
+::: {.callout-tip}
+## In one picture — the swinging side, the "perpendicular", the "hypotenuse"
+
+Think of the right triangle you drop from $B$ onto the ray. The **adjacent side $c$** is its **hypotenuse**
+(the longest, slanted side) and the **height $h=c\sin A$** is its **perpendicular** (the shortest reach — the
+foot of the drop). Let the **swinging side** be $a$ (the arc of radius $a$ from $B$). Then:
+
+| How many triangles | When (in words) |
+|---|---|
+| **One** | $a$ **equals the perpendicular** ($a=h$, a right angle) **or** $a$ **equals or beats the hypotenuse** ($a\ge c$) |
+| **Two** | $a$ is **between them**: $\text{perpendicular}<a<\text{hypotenuse}$, i.e. $h<a<c$ |
+| **None** | $a$ is **shorter than the perpendicular** (the shortest possible reach): $a<h$ |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(area from coordinates)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the shoelace formula (no need to find side lengths or angles)
+:::
+
+**Answer: $11$.**
+
+$$\text{Area}=\tfrac12\big|\,1(3-7)+5(7-1)+2(1-3)\,\big|=\tfrac12\big|\,-4+30-4\,\big|=\tfrac12\cdot22=11.$$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); ang=np.radians(35); c=6.0
+B=np.array([c,0]); h=c*np.sin(ang)
+ray=np.array([np.cos(ang),np.sin(ang)])
+F=(B@ray)*ray                      # foot of perpendicular from B onto the ray
+plt.figure(figsize=(4.6,2.6))
+plt.plot([A[0],9*ray[0]],[A[1],9*ray[1]],color='#2b6cb0',lw=1)   # ray from A
+plt.plot([A[0],B[0]],[A[1],B[1]],'k',lw=1.6)                     # AB (hypotenuse c)
+plt.plot([B[0],F[0]],[B[1],F[1]],color='crimson',lw=1.6)        # perpendicular h
+plt.plot(*A,'ks',ms=4); plt.plot(*B,'ks',ms=4)
+plt.annotate('A',A,textcoords='offset points',xytext=(-10,-2))
+plt.annotate('B',B,textcoords='offset points',xytext=(6,-2))
+plt.annotate('c = AB  (the "hypotenuse")',(c/2,-0.05),textcoords='offset points',xytext=(-30,-14),fontsize=8)
+plt.annotate('h = c·sinA\n(the "perpendicular")',((B[0]+F[0])/2,(B[1]+F[1])/2),textcoords='offset points',xytext=(8,-6),fontsize=8,color='crimson')
+th=np.linspace(0,np.pi,100); plt.plot(B[0]+h*np.cos(th),B[1]+h*np.sin(th),'0.6',ls='--',lw=0.8)
+plt.xlim(-1,9); plt.ylim(-1.2,5); plt.gca().set_aspect('equal'); plt.axis('off')
+plt.tight_layout(); plt.show()
+```
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM4 Triangles</div>
+<div class="fs-title">The Ambiguous Case — Exam Skim Sheet</div>
+<div class="fs-sub">Two sides and a non-included angle: how many triangles actually exist?</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · The set-up
+You know an angle $A$, the side $c$ **next to** it ($AB$), and the side $a$ **opposite** it ($BC$).
+
+Draw the ray from $A$ at angle $A$ — the third vertex $C$ must lie on it. Swing an **arc of radius $a$** centred at $B$ and count the cuts.
+:::
+
+::: {.fs-card}
+### 2 · The one quantity that decides it
+The **height** $h=c\sin A$ — the shortest distance from $B$ to the ray.
+
+[Compare $a$ with **both** $h$ and $c$. Comparing with only one is the usual mistake.]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · The count
+| Condition | Triangles |
+|---|---|
+| $a<h=c\sin A$ | **none** (the arc falls short) |
+| $a=h$ | **one** (right angle at $C$) |
+| $h<a<c$ | **two** (the arc cuts twice) |
+| $a\ge c$ | **one** (the far cut lands behind $A$) |
+:::
+
+::: {.fs-card}
+### 4 · Read it back
+**Unique** exactly when $a=h$ **or** $a\ge c$; **two** when $h<a<c$; **impossible** when $a<h$.
+
+[If the known angle is **obtuse**, $c<h$ is impossible and only $a>c$ works — always one triangle.]{.eg}
+:::
+
+::::
+
+:::::
+
+::: {.callout-tip}
+## The method — three questions, every time
+
+1. **Which side is *opposite* the known angle?** Call it $a$. **Which is *next to* it?** Call it $c$.
+2. **Compute the height $h=c\sin A$.**
+3. **Compare $a$ with $h$ and with $c$** and read the table: $a<h$ none, $a=h$ one, $h<a<c$ two, $a\ge c$ one.
+:::
+
+**On this page:** 1. Counting triangles (SSA) · 2. "Uniquely determined" · 3. Ranges & the cosine-rule
+quadratic · 4. Acute, right, or obtuse · 5. Area, the sine rule & the circumradius · 6. Triangles on the
+coordinate grid
+
+---
+
+## 1 · Counting triangles (SSA)
+
+### Question 1
+
+::: {.question}
+Triangle $ABC$ has $AB=10\,$cm and $\angle BAC=60^\circ$. Which statements are true? &nbsp;&nbsp;**I** no
+triangle if $BC=7$ &nbsp; **II** exactly one triangle if $BC=5\sqrt3$ &nbsp; **III** exactly two triangles if
+$BC=12$ &nbsp;&nbsp;(**A** none $\dots$ **H** all)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA — the classic count)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — height $=c\sin A$; compare the opposite side to $h$ and to $c$
+:::
+
+**Answer: E (I and II only).**
+
+**Set-up.** The known angle is at $A$; the side next to it is $c=AB=10$, and the side opposite it is
+$a=BC$. The height is $h=c\sin A=10\sin60^\circ=5\sqrt3\approx8.66$, and $c=10$.
+
+- **I — $BC=7$:** $7<h=5\sqrt3$, so the arc falls short — **no triangle**. **True.**
+- **II — $BC=5\sqrt3$:** $a=h$ exactly, the right-angle case — **one triangle**. **True.**
+- **III — $BC=12$:** $12\ge c=10$, so $a\ge c$ — **one** triangle, not two. **False.**
+
+So I and II only.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); B=np.array([10,0]); ang=np.radians(60)
+ray=np.array([np.cos(ang),np.sin(ang)])
+fig,ax=plt.subplots(1,3,figsize=(7.2,2.6))
+for k,(a,title) in enumerate([(7,'BC=7: none'),(5*np.sqrt(3),'BC=5√3: one'),(12,'BC=12: one')]):
+    ax[k].plot([A[0],14*ray[0]],[A[1],14*ray[1]],color='#2b6cb0',lw=1)   # ray AC
+    ax[k].plot([A[0],B[0]],[A[1],B[1]],color='k',lw=1.5)                  # AB
+    th=np.linspace(0,np.pi,200); ax[k].plot(B[0]+a*np.cos(th),B[1]+a*np.sin(th),color='crimson',lw=1,ls='--')
+    # intersections of ray (dist t) with circle centre B radius a: |t*ray - B|=a
+    tt=np.roots([1,-2*B@ray,B@B-a*a]); tt=[t for t in tt if np.isreal(t) and t>1e-9]
+    for t in np.real(tt): ax[k].plot(t*ray[0],t*ray[1],'o',color='crimson',ms=5)
+    ax[k].plot(*A,'ks',ms=3); ax[k].plot(*B,'ks',ms=3)
+    ax[k].set_xlim(-2,15); ax[k].set_ylim(-1,11); ax[k].set_aspect('equal'); ax[k].axis('off'); ax[k].set_title(title,fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 2
+
+::: {.question}
+A triangle $ABC$ has $AB=3a$, $BC=b$ and $\angle BAC=45^\circ$ ($a,b>0$). For which $b$ can **two distinct**
+triangles be drawn? &nbsp;&nbsp;**A** $b<3a$ &nbsp; **B** $a<b<3a$ &nbsp; **C** $\tfrac{3}{\sqrt2}a<b<3a$
+&nbsp; **D** $b>\tfrac32 a$ &nbsp; **E** $b>\tfrac{\sqrt3}2 a$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set C — for which sizes are there two?)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — two triangles $\iff h<a<c$; find the band for the opposite side
+:::
+
+**Answer: C ($\tfrac{3}{\sqrt2}a<b<3a$).**
+
+The known angle is at $A$; the side next to it is $c=AB=3a$, and the side opposite it is $a_{\text{opp}}=BC=b$.
+The height is $h=c\sin A=3a\sin45^\circ=\dfrac{3a}{\sqrt2}=\dfrac{3\sqrt2}{2}a$. Two triangles occur exactly on
+the middle band $h<b<c$:
+$$\frac{3}{\sqrt2}a<b<3a.$$
+*(Below $\tfrac{3}{\sqrt2}a$: none; at $\tfrac{3}{\sqrt2}a$: one right-angled; at or above $3a$: one.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 2 · "Uniquely determined"
+
+### Question 3
+
+::: {.question}
+In triangle $PQR$, $PR=2$, $QR=p$ and $\angle RPQ=30^\circ$. What is the set of **all** $p$ for which this
+information **uniquely determines** the length $PQ$? &nbsp;&nbsp;**A** $p=1$ &nbsp; **B** $p=\sqrt3$ &nbsp;
+**C** $1\le p<2$ &nbsp; **D** $\sqrt3\le p<2$ &nbsp; **E** $p=1$ or $p\ge2$ &nbsp; **F** $p=\sqrt3$ or
+$p\ge2$ &nbsp; **G** $p<2$ &nbsp; **H** $p\ge2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(TMUA 2018 P2 Q14)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — "uniquely determines" $=$ exactly one triangle: $a=h$ **or** $a\ge c$
+:::
+
+**Answer: E ($p=1$ or $p\ge2$).**
+
+**Set-up.** The known angle is at $P$; the side next to it is $c=PR=2$, and the side opposite it is $a=QR=p$
+(the unknown is $PQ$). Height $h=c\sin P=2\sin30^\circ=1$, and $c=2$.
+
+**Count with the table.**
+
+- $p<1$: $a<h$ — **no** triangle.
+- $p=1$: $a=h$ — **one** (unique). ✔
+- $1<p<2$: $h<a<c$ — **two** triangles, so $PQ$ is **not** unique.
+- $p\ge2$: $a\ge c$ — **one** (unique). ✔
+
+So the length is uniquely determined exactly when $p=1$ or $p\ge2$.
+
+**Check by the cosine rule.** $p^{2}=2^{2}+PQ^{2}-2\cdot2\cdot PQ\cos30^\circ\Rightarrow PQ=\sqrt3\pm\sqrt{p^{2}
+-1}$. Two positive values exist for $1<p<2$; the smaller one $\sqrt3-\sqrt{p^{2}-1}$ turns negative once
+$p\ge2$, leaving one; at $p=1$ the $\pm$ coincide. Same answer.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+A triangle has $\angle A=30^\circ$ and the side next to $A$ of length $8$. Let $a$ be the side opposite $A$.
+State, in terms of $a$, exactly when there are **no** triangles, **one**, and **two**.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the "no triangle / one / two" boundaries)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — read the three boundary values $h$ and $c$ straight off
+:::
+
+**Answer: none for $a<4$; one for $a=4$ or $a\ge8$; two for $4<a<8$.**
+
+Height $h=8\sin30^\circ=4$; the adjacent side is $c=8$. Reading the table:
+
+- **$a<4$:** $a<h$ — no triangle.
+- **$a=4$:** $a=h$ — one (right angle).
+- **$4<a<8$:** $h<a<c$ — two triangles.
+- **$a\ge8$:** $a\ge c$ — one triangle.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 3 · Ranges & the cosine-rule quadratic
+
+::: {.callout-tip}
+## Concept — the cosine rule turns "how many triangles" into "how many positive roots"
+
+Writing the cosine rule at the known angle makes a **quadratic in the unknown side**:
+$$a^{2}=b^{2}+c^{2}-2bc\cos A\ \Longrightarrow\ b^{2}-(2c\cos A)\,b+(c^{2}-a^{2})=0.$$
+The number of triangles $=$ the number of **positive** roots $b$. Product of roots $=c^{2}-a^{2}$, sum
+$=2c\cos A$: if $a\ge c$ the product is $\le0$, so exactly **one** positive root; two positive roots need
+$a<c$ **and** a positive discriminant (which is the $a>h$ condition).
+:::
+
+### Question 5
+
+::: {.question}
+A triangle has $\angle A=45^\circ$ and the side next to $A$ equal to $6$. For which values of the opposite
+side $a$ are there **exactly two** triangles?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(for which $a$ are there two triangles?)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — two triangles $\iff h<a<c$
+:::
+
+**Answer: $3\sqrt2<a<6$.**
+
+Height $h=6\sin45^\circ=3\sqrt2\approx4.24$; adjacent side $c=6$. Two triangles occur exactly on the middle
+band $h<a<c$, i.e. $3\sqrt2<a<6$. *(At $a=3\sqrt2$ it is one right-angled triangle; at $a=6$ the second
+solution collapses to the degenerate $b=0$, leaving one.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+In triangle $ABC$, $\angle A=60^\circ$, $AB=5$ and $BC=7$. How many such triangles are there, and find $AC$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(count the positive roots)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — solve the cosine-rule quadratic and keep positive roots
+:::
+
+**Answer: exactly one, with $AC=8$.**
+
+The known angle is at $A$; opposite it is $a=BC=7$, next to it is $c=AB=5$. Since $a=7\ge c=5$, the table
+gives **one** triangle. Confirm with the cosine rule (quadratic in $b=AC$):
+$$7^{2}=5^{2}+b^{2}-2\cdot5\cdot b\cos60^\circ\Rightarrow b^{2}-5b-24=0\Rightarrow(b-8)(b+3)=0.$$
+Only $b=8>0$ is valid (the product of roots $c^{2}-a^{2}=25-49<0$ guarantees a single positive root). So
+$AC=8$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 7
+
+::: {.question}
+A triangle $ABC$ has $AB=\sqrt7\,a$, $BC=2a$ and $\angle BAC=\theta$. Of the **two** possible triangles, the
+larger and smaller areas are in the ratio $3:1$. Find $\cos\theta$. &nbsp;&nbsp;**A** $\tfrac2{\sqrt7}$
+&nbsp; **B** $\tfrac{\sqrt3}{\sqrt7}$ &nbsp; **C** $\tfrac4{\sqrt7}$ &nbsp; **D** $\tfrac37$ &nbsp;
+**E** $\tfrac47$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set D — two triangles with an area ratio)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the two $AC$ lengths are the roots of the cosine-rule quadratic; area $\propto AC$
+:::
+
+**Answer: A ($\tfrac2{\sqrt7}$).**
+
+**Step 1 — the two $AC$ lengths are the roots of a quadratic.** Cosine rule at $A$ (with $b=AC$):
+$$(2a)^{2}=(\sqrt7 a)^{2}+b^{2}-2\sqrt7 a\,b\cos\theta\Rightarrow b^{2}-\big(2\sqrt7 a\cos\theta\big)b+3a^{2}=0.$$
+So the two lengths $b_1,b_2$ satisfy $b_1b_2=3a^{2}$ and $b_1+b_2=2\sqrt7 a\cos\theta$.
+
+**Step 2 — use the area ratio.** Area $=\tfrac12\,AB\cdot AC\sin\theta$, so area $\propto AC$; the ratio $3:1$
+means $b_1=3b_2$. Then $b_1b_2=3b_2^{2}=3a^{2}\Rightarrow b_2=a$, $b_1=3a$.
+
+**Step 3 — read $\cos\theta$ off the sum.** $b_1+b_2=4a=2\sqrt7 a\cos\theta\Rightarrow\cos\theta=\dfrac4{2\sqrt7}
+=\dfrac2{\sqrt7}$. *(Check: the discriminant is $(2\sqrt7\cdot\tfrac2{\sqrt7})^{2}-12=16-12=4>0$, so two
+triangles really exist.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+A triangle $ABC$ is drawn with $AC=5\,$cm and $BC=11\,$cm and the angle at $B$ equal to $\theta$. Of the two
+possible triangles, the larger has **double** the area of the smaller. What is $\cos\theta$?
+&nbsp;&nbsp;**A** $\tfrac{10}{11}$ &nbsp; **B** $\tfrac{3\sqrt{12}}{11}$ &nbsp; **C** $\tfrac{\sqrt{13}}{11}$
+&nbsp; **D** $\tfrac{\sqrt6}{5}$ &nbsp; **E** $\tfrac{3\sqrt6}{25}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA — area ratio $2:1$, angle at $B$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — set the cosine rule at the **known** angle; the unknown side is the variable; area $\propto$ it
+:::
+
+**Answer: B ($\tfrac{3\sqrt{12}}{11}=\tfrac{6\sqrt3}{11}$).**
+
+**Step 1 — cosine rule at the known angle $B$, unknown side $AB=c$.** The side **opposite** $B$ is $AC=5$;
+the side **next to** $B$ that we know is $BC=11$:
+$$5^{2}=c^{2}+11^{2}-2\cdot c\cdot11\cos\theta\ \Rightarrow\ c^{2}-(22\cos\theta)c+96=0.$$
+The two roots $c_1,c_2$ are the two possible $AB$ lengths, with $c_1c_2=96$ and $c_1+c_2=22\cos\theta$.
+
+**Step 2 — use the area ratio.** Area $=\tfrac12\,AB\cdot BC\sin\theta\propto AB$, so "larger $=2\times$ smaller"
+means $c_1=2c_2$. Then $c_1c_2=2c_2^{2}=96\Rightarrow c_2=\sqrt{48}=4\sqrt3$, $c_1=8\sqrt3$.
+
+**Step 3 — read $\cos\theta$ off the sum.** $c_1+c_2=12\sqrt3=22\cos\theta\Rightarrow
+\cos\theta=\dfrac{12\sqrt3}{22}=\dfrac{6\sqrt3}{11}=\dfrac{3\sqrt{12}}{11}$. *(Discriminant
+$(22\cos\theta)^{2}-4\cdot96=48>0$, so two triangles really exist.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 9
+
+::: {.question}
+A triangle $ABC$ has $AC=5$, $BC=7$ and the angle at $B$ equal to $\theta$. Of the two possible triangles,
+the larger has **three times** the area of the smaller. Find $\cos\theta$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(area ratio $3:1$ — same method, cleaner numbers)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — product of roots $=BC^2-AC^2$; ratio fixes the two roots; sum gives $\cos\theta$
+:::
+
+**Answer: $\cos\theta=\dfrac{4\sqrt2}{7}$.**
+
+Cosine rule at $B$ (unknown $AB=c$, opposite side $AC=5$, adjacent known side $BC=7$):
+$$5^{2}=c^{2}+7^{2}-2\cdot c\cdot7\cos\theta\ \Rightarrow\ c^{2}-(14\cos\theta)c+24=0,$$
+so $c_1c_2=24$ and $c_1+c_2=14\cos\theta$. Area $\propto AB$, so "$3\times$" gives $c_1=3c_2$; then
+$3c_2^{2}=24\Rightarrow c_2=2\sqrt2$, $c_1=6\sqrt2$. Hence $c_1+c_2=8\sqrt2=14\cos\theta\Rightarrow
+\cos\theta=\dfrac{8\sqrt2}{14}=\dfrac{4\sqrt2}{7}$. *(Discriminant $=(14\cos\theta)^2-4\cdot24=32>0$ ✓.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 10
+
+::: {.question}
+*(MAT 2023 Q1H.)* Which isosceles triangle has the **largest** area? &nbsp;&nbsp;**(a)** sides $10,10,1$
+&nbsp; **(b)** $10,10,5$ &nbsp; **(c)** $10,10,10$ &nbsp; **(d)** $10,10,15$ &nbsp; **(e)** $10,10,19$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(MAT 2023 Q1H — largest triangle area)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — area $=\tfrac12 bc\sin A$; for fixed equal sides, area peaks near the near-equilateral base
+:::
+
+**Answer: (d) $10,10,15$.**
+
+With base $x$ and equal sides $10$, the height is $\sqrt{100-(x/2)^{2}}$, so the area is
+$$A(x)=\tfrac12\,x\sqrt{100-\tfrac{x^{2}}4}.$$
+Maximise $A^{2}=\tfrac{x^{2}}4\left(100-\tfrac{x^{2}}4\right)$: writing $u=\tfrac{x^{2}}4$, this is $u(100-u)$,
+largest at $u=50$, i.e. $x=\sqrt{200}\approx14.1$. The closest option is $x=15$, giving area $\approx49.6$
+(against $43.3$ for the equilateral $x=10$). So **(d)**. *(A common wrong guess is the equilateral (c) — but
+a slightly wider base is still taller-enough to beat it.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 4 · Acute, right, or obtuse
+
+::: {.callout-tip}
+## Concept — the cosine rule is a sign test for the biggest angle
+
+The largest angle sits opposite the **longest** side. If the longest side is $\ell$ and the other two are
+$p,q$, then $\cos(\text{largest angle})=\dfrac{p^{2}+q^{2}-\ell^{2}}{2pq}$, so the sign of
+$p^{2}+q^{2}-\ell^{2}$ decides everything:
+
+- $p^{2}+q^{2}>\ell^{2}$ $\Rightarrow$ largest angle **acute** $\Rightarrow$ triangle **acute**;
+- $p^{2}+q^{2}=\ell^{2}$ $\Rightarrow$ **right**-angled;
+- $p^{2}+q^{2}<\ell^{2}$ $\Rightarrow$ largest angle **obtuse** $\Rightarrow$ triangle **obtuse**.
+
+You never need the angle itself — just compare $\ell^{2}$ with $p^{2}+q^{2}$.
+:::
+
+### Question 11
+
+::: {.question}
+A triangle has sides $x$, $x+2$ and $x+4$. For which $x$ does such a triangle **exist**, and for which of
+those is it **obtuse**?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(for which sizes is it obtuse?)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — triangle inequality for existence, then the sign of (sum of squares $-$ longest$^2$)
+:::
+
+**Answer: it exists for $x>2$, and is obtuse for $2<x<6$.**
+
+**Exists (triangle inequality).** The tightest condition is the two shorter sides beating the longest:
+$x+(x+2)>x+4\Rightarrow x>2$.
+
+**Obtuse?** The longest side is $x+4$, so test the sign of $x^{2}+(x+2)^{2}-(x+4)^{2}$:
+$$x^{2}+(x+2)^{2}-(x+4)^{2}=x^{2}-4x-12=(x-6)(x+2).$$
+For $x>2$ this is negative exactly when $x<6$. So the triangle is **obtuse for $2<x<6$**, right-angled at
+$x=6$ (sides $6,8,10$), and acute for $x>6$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 12
+
+::: {.question}
+Is the triangle with sides $6$, $7$ and $9$ acute, right-angled, or obtuse? &nbsp;&nbsp;**A** acute
+&nbsp; **B** right-angled &nbsp; **C** obtuse
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(one quick sign test)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — only the longest side matters; compare its square to the sum of the other two squares
+:::
+
+**Answer: A (acute).**
+
+The largest angle is opposite the longest side, $9$. Compare $9^{2}=81$ with $6^{2}+7^{2}=36+49=85$. Since
+$85>81$, we have $p^{2}+q^{2}>\ell^{2}$, so the largest angle is **acute** — and if the biggest angle is
+acute, all are. *(Its cosine is $\tfrac{85-81}{2\cdot6\cdot7}=\tfrac{4}{84}>0$, about $87.3^\circ$ — acute,
+but only just.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 5 · Area, the sine rule & the circumradius
+
+::: {.callout-tip}
+## Concept — three tools for area and angles
+
+- **Area $=\tfrac12\,bc\sin A$** (two sides and the angle *between* them). For fixed $b,c$ this is largest
+  when $A=90^\circ$ (since $\sin A\le1$).
+- A **given area** fixes $\sin A$, and $\sin A=k$ has **two** angles in a triangle ($A$ and $180^\circ-A$) —
+  the area version of the ambiguous case.
+- **Sine rule / circumradius:** $\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$, where $R$ is the
+  radius of the circle through all three vertices.
+:::
+
+### Question 13
+
+::: {.question}
+Two sides of a triangle are $8$ and $10$, meeting at an angle $\theta$. **(i)** What is the largest possible
+area, and at what $\theta$? **(ii)** If instead the area is $20$, find the two possible values of $\theta$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(largest area, then a fixed area)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — area $=\tfrac12 bc\sin\theta$: maximised at $\theta=90^\circ$; a set area gives two angles
+:::
+
+**Answer: (i) largest area $40$ at $\theta=90^\circ$; (ii) $\theta=30^\circ$ or $150^\circ$.**
+
+Area $=\tfrac12\cdot8\cdot10\sin\theta=40\sin\theta$.
+
+- **(i)** $\sin\theta\le1$, so the area is at most $40$, reached when $\sin\theta=1$, i.e. $\theta=90^\circ$.
+- **(ii)** $40\sin\theta=20\Rightarrow\sin\theta=\tfrac12$. In a triangle $0<\theta<180^\circ$, so
+  $\theta=30^\circ$ **or** $\theta=150^\circ$ — a wide thin triangle and a squat one, same area.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 14
+
+::: {.question}
+In triangle $ABC$, $BC=7$ and $\angle BAC=60^\circ$. Find the radius $R$ of the circle through $A$, $B$ and
+$C$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the circumradius from one side and its angle)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\dfrac{a}{\sin A}=2R$; only the side and its *opposite* angle are needed
+:::
+
+**Answer: $R=\dfrac{7}{\sqrt3}=\dfrac{7\sqrt3}{3}\approx4.04$.**
+
+$BC=a$ is the side **opposite** the known angle $A=60^\circ$, so the sine rule gives
+$$2R=\frac{a}{\sin A}=\frac{7}{\sin60^\circ}=\frac{7}{\tfrac{\sqrt3}2}=\frac{14}{\sqrt3}
+\ \Rightarrow\ R=\frac{7}{\sqrt3}=\frac{7\sqrt3}{3}.$$
+*(Notice the other two sides never enter — one side and the angle facing it fix the circumradius.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 6 · Triangles on the coordinate grid
+
+::: {.callout-tip}
+## Concept — area and collinearity from coordinates
+
+For vertices $(x_1,y_1),(x_2,y_2),(x_3,y_3)$ the **shoelace** area is
+$$\text{Area}=\tfrac12\big|\,x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\,\big|.$$
+The three points are **collinear** (no triangle) exactly when that bracket is $0$ — equivalently, when the
+slopes between them agree.
+:::
+
+### Question 15
+
+::: {.question}
+Find the area of the triangle with vertices $A(1,1)$, $B(5,3)$ and $C(2,7)$.
+:::
+
+```{python}
+#| fig-align: center
+import matplotlib.pyplot as plt
+P=[(1,1),(5,3),(2,7)]; lbl=['A(1,1)','B(5,3)','C(2,7)']
+plt.figure(figsize=(3.4,3.2))
+xs=[p[0] for p in P]+[P[0][0]]; ys=[p[1] for p in P]+[P[0][1]]
+plt.plot(xs,ys,'-o',color='#2b6cb0')
+for (x,y),t in zip(P,lbl): plt.annotate(t,(x,y),textcoords='offset points',xytext=(6,4),fontsize=8)
+plt.grid(alpha=0.3); plt.gca().set_aspect('equal'); plt.xlim(0,7); plt.ylim(0,8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 16
+
+::: {.question}
+For which value of $k$ do the points $A(1,1)$, $B(3,5)$ and $C(5,k)$ **fail** to form a triangle?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the collinear / degenerate case)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — no triangle $\iff$ shoelace bracket $=0$ $\iff$ equal slopes
+:::
+
+**Answer: $k=9$.**
+
+The points fail to form a triangle when they are collinear, i.e. when $C$ lies on line $AB$. The slope of
+$AB$ is $\dfrac{5-1}{3-1}=2$, so the line is $y-1=2(x-1)$, i.e. $y=2x-1$. At $x=5$ this gives $y=9$, so
+$k=9$. *(Check with the shoelace bracket: $1(5-k)+3(k-1)+5(1-5)=2k-18=0\Rightarrow k=9$.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 7 · From the mocks & cross-exam — more of the ambiguous case
+
+These are every same-type question in the practice banks (JZ Maths mocks, Tyler mocks) — the exact patterns the
+live test reuses. All answers are python-verified.
+
+### Question 17
+
+::: {.topic}
+Topic — find the exact two-triangle set, then read off the **necessary** condition (the weakest interval that
+must hold)
+:::
+
+::: {.question}
+In triangle $ABC$, $\angle A=30^\circ$, $AB=2x^{2}$ and $BC=3x$ ($x>0$). Given that there are **exactly two**
+non-congruent triangles, which condition can be **deduced**? &nbsp;&nbsp;**A** $2<x<\tfrac72$ &nbsp;
+**B** $\tfrac53<x<5$ &nbsp; **C** $1<x<4$ &nbsp; **D** $\tfrac12<x<\tfrac52$ &nbsp; **E** $0<x<2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(JZ Maths Mock C, Paper 2 Q11 — "which can be deduced?")*]{style="color:#7a5195"}
+**Answer: C ($1<x<4$).**
+
+Known angle at $A$: adjacent $c=AB=2x^{2}$, opposite $a=BC=3x$. Height $h=c\sin A=2x^{2}\cdot\tfrac12=x^{2}$.
+Two triangles occur exactly on the band $h<a<c$:
+$$x^{2}<3x<2x^{2}\ \Longrightarrow\ x<3\ \text{and}\ x>\tfrac32,\qquad\text{so}\quad \tfrac32<x<3.$$
+The question asks what can be **deduced** — a *necessary* condition, i.e. the interval that must hold whenever
+$\tfrac32<x<3$. Only **$1<x<4$** contains $\left(\tfrac32,3\right)$, so **C** is the one that can always be
+deduced. *(This is the trap: the exact set is $\tfrac32<x<3$, but the question wants the option it implies —
+the weakest true statement.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 18
+
+::: {.question}
+In triangle $ABC$, $AB=t$, $BC=10$ and $\angle BAC=45^\circ$ ($t>0$). For which values of $t$ is the length
+$AC$ **uniquely determined**? &nbsp;&nbsp;**A** $0<t\le10$ &nbsp; **B** $0<t<10\sqrt2$ &nbsp;
+**C** $0<t\le10$ or $t=10\sqrt2$ &nbsp; **D** $t=10\sqrt2$ &nbsp; **E** $t>10$ &nbsp; **F** $0<t\le10\sqrt2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(JZ Maths Mock D, Paper 2 Q9 — uniquely determined)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — "$AC$ uniquely determined" $=$ exactly one triangle: $a\ge c$ **or** $a=h$
+:::
+
+**Answer: C ($0<t\le10$ or $t=10\sqrt2$).**
+
+Known angle at $A$: adjacent $c=AB=t$, opposite $a=BC=10$. Height $h=c\sin A=\dfrac{t}{\sqrt2}$.
+
+- $t\le10$: then $a=10\ge c=t$, so $a\ge c$ — **one** triangle.
+- $10<t<10\sqrt2$: then $h<a<c$ ($\tfrac t{\sqrt2}<10<t$) — **two** triangles.
+- $t=10\sqrt2$: $a=h$ — **one** (right angle).
+- $t>10\sqrt2$: $a<h$ — **none**.
+
+So $AC$ is unique exactly when $0<t\le10$ or $t=10\sqrt2$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 19
+
+::: {.question}
+A triangle $ABC$ has $AB=x$, $BC=2$ and $\angle BAC=30^\circ$. Find the range of $x$ for which there are two
+non-congruent triangles **and** $\angle ABC$ is acute in **both**. &nbsp;&nbsp;**A** $0<x<2$ &nbsp;
+**B** $2<x<4$ &nbsp; **C** $2<x<2\sqrt3$ &nbsp; **D** $2\sqrt3<x<4$ &nbsp; **E** $x>2\sqrt3$ &nbsp;
+**F** $0<x<2\sqrt3$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(JZ Maths Mock C, Paper 1 Q19 — two triangles with an extra acute condition)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — two-triangle band $h<a<c$, then cut it down by "$\angle ABC$ acute in **both**"
+:::
+
+**Answer: D ($2\sqrt3<x<4$).**
+
+Adjacent $c=AB=x$, opposite $a=BC=2$, $h=x\sin30^\circ=\tfrac x2$. Two triangles need $h<a<c$:
+$\tfrac x2<2<x\Rightarrow2<x<4$. In the ambiguous case the two triangles have angles at $B$ of $\beta$ and
+$180^\circ-\beta$, so **both** are acute only once the obtuse partner has gone — this happens above the value
+where one triangle is right-angled at $B$, namely $x=2\sqrt3$. Hence $2\sqrt3<x<4$. *(Check: at $x=3.5$ the two
+$AC$-roots give $\angle B\approx$ two acute values; at $x=3$ one $\angle B$ is obtuse.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 20
+
+::: {.question}
+In triangle $ABC$, $\angle A=30^\circ$, $BC=(x-2)(x-3)$ and $AC=(3-x)(x-8)$. Find the complete set of $x$ for
+which there are **two** non-congruent triangles. &nbsp;&nbsp;**A** $3<x<4$ &nbsp; **B** $3<x<5$ &nbsp;
+**C** $3<x<8$ &nbsp; **D** $4<x<5$ &nbsp; **E** $4<x<8$ &nbsp; **F** $5<x<8$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(JZ Maths Mock A, Paper 1 Q19 — sides given as products)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — first force both given sides **positive**, then apply $h<a<c$
+:::
+
+**Answer: D ($4<x<5$).**
+
+The opposite side $a=BC=(x-2)(x-3)$ and the adjacent side $b=AC=(3-x)(x-8)$ must both be **positive**:
+$(x-2)(x-3)>0\Rightarrow x<2$ or $x>3$; $(3-x)(x-8)>0\Rightarrow3<x<8$. Together: $3<x<8$. Now two triangles
+need $h<a<b$ with $h=b\sin30^\circ=\tfrac b2$, i.e. $\tfrac b2<a<b$. Solving these two inequalities on
+$3<x<8$ gives $4<x<5$. *(Both boundary values make $a=\tfrac b2$ or $a=b$ — the one-triangle limits.)*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Question 21
+
+::: {.question}
+Consider triangles $ABC$ with $AB=1$, $\sin A=\tfrac13$ and $\cos C=x$. What is the **greatest** value of $x$
+for which there is **exactly one** distinct triangle? &nbsp;&nbsp;**A** $\tfrac13$ &nbsp;
+**B** $\tfrac{\sqrt2}{3}$ &nbsp; **C** $\tfrac23$ &nbsp; **D** $\tfrac{2\sqrt2}{3}$ &nbsp;
+**E** $\tfrac{1+\sqrt2}{3}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(JZ Maths Mock E, Paper 2 Q8 — count by the two values of a known angle)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\sin A=\tfrac13$ gives $A=\alpha$ **or** $180^\circ-\alpha$; count how many keep the angle sum valid
+:::
+
+**Answer: D ($\tfrac{2\sqrt2}{3}$).**
+
+$\sin A=\tfrac13$ leaves two possibilities, $A=\alpha$ or $A=180^\circ-\alpha$, where $\alpha=\arcsin\tfrac13$.
+For a fixed $C$ (with $\cos C=x$), a choice of $A$ gives a triangle only if $A+C<180^\circ$. The acute
+$A=\alpha$ always works; the obtuse $A=180^\circ-\alpha$ works only if $C<\alpha$. So there are **two**
+triangles when $C<\alpha$ and **one** when $C\ge\alpha$. "Exactly one" needs $C\ge\alpha$, i.e.
+$\cos C\le\cos\alpha$; the greatest such $x$ is
+$$x=\cos\alpha=\sqrt{1-\sin^{2}\alpha}=\sqrt{1-\tfrac19}=\frac{2\sqrt2}{3}.$$
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 22
+
+::: {.question}
+A circle of radius $1\,$cm is inscribed inside an equilateral triangle. What is the exact area of the triangle?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Tyler Mock TMUA, Set D — inscribed circle)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the inradius of an equilateral triangle is $\dfrac{a}{2\sqrt3}$; invert to get the side, then the area
+:::
+
+**Answer: $3\sqrt3\ \text{cm}^{2}$.**
+
+For an equilateral triangle of side $a$, the inradius is $r=\dfrac{a}{2\sqrt3}$. With $r=1$, $a=2\sqrt3$. Then
+the area is $\dfrac{\sqrt3}{4}a^{2}=\dfrac{\sqrt3}{4}\cdot12=3\sqrt3$. *(Equivalently, area $=r\cdot s$ with
+semiperimeter $s=\tfrac{3a}{2}=3\sqrt3$ and $r=1$: area $=3\sqrt3$.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Memorise — the ambiguous case
+
+- Known **angle $A$**, **adjacent** side $c$, **opposite** side $a$. Height $h=c\sin A$.
+- **$a<h$ none · $a=h$ one · $h<a<c$ two · $a\ge c$ one.** Unique $\iff a=h$ or $a\ge c$.
+- **Cosine rule $\Rightarrow$** quadratic $b^{2}-(2c\cos A)b+(c^{2}-a^{2})=0$; triangles $=$ **positive
+  roots**. Product $c^{2}-a^{2}\le0$ (i.e. $a\ge c$) forces exactly one.
+- **Obtuse known angle:** only $a>c$ works — always one.
+:::
+
+::: {.callout-tip}
+## Memorise — the other triangle tools
+
+- **Acute/right/obtuse:** compare the **longest** side$^2$ with the sum of the other two squares —
+  $p^2+q^2>\ell^2$ acute, $=$ right, $<$ obtuse. (Triangle exists $\iff$ the two shorter sides beat the
+  longest.)
+- **Area $=\tfrac12 bc\sin A$**; for fixed $b,c$ it is largest at $A=90^\circ$. A given area gives
+  $\sin A=k$, hence **two** angles $A$ and $180^\circ-A$.
+- **Sine rule:** $\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$ (circumradius).
+- **Coordinates:** area $=\tfrac12\big|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\big|$; it is $0$ $\iff$ the
+  points are collinear (no triangle).
+:::
+
+:::

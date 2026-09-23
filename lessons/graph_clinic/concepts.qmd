@@ -1,0 +1,1066 @@
+---
+title: "Unfamiliar Graphs — Master Formula & Strategy Sheet"
+subtitle: "Read any graph with a fixed procedure · TMUA Paper 1"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · Applications of Mathematical Knowledge</div>
+<div class="fs-title">Unfamiliar Graphs — Exam Skim Sheet</div>
+<div class="fs-sub">Use this box for a quick check before the exam. The explanations and worked reasoning begin below it.</div>
+::::
+
+## The 6-step scan
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Domain
+- denominator: $\ne 0$
+- logarithm: argument $>0$
+- even root: radicand $\ge0$
+
+[Mark excluded $x$-values before sketching.]{.eg}
+:::
+
+::: {.fs-card}
+### 2 · Ends & asymptotes
+Check $x\to\pm\infty$ and both sides of every excluded value. Compare the dominant terms.
+
+[$f(x)-(mx+c)\to0$ gives the asymptote $y=mx+c$.]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · Symmetry
+$f(-x)=f(x)$: even, reflect in the $y$-axis.
+
+$f(-x)=-f(x)$: odd, rotate $180^\circ$ about the origin.
+:::
+
+::: {.fs-card}
+### 4 · Intercepts & sign
+$y$-intercept: evaluate $f(0)$ only if $0$ is in the domain.  
+$x$-intercepts: solve $f(x)=0$. Test the sign on each valid interval.
+:::
+
+::: {.fs-card}
+### 5 · Turning points
+Solve $f'(x)=0$ and also check points where $f'$ is undefined but $f$ exists. Decide whether each point is a max, min, or neither.
+:::
+
+::: {.fs-card}
+### 6 · Special behaviour
+Look for rapid oscillation, modulus corners, removable holes, endpoints, and useful local approximations.
+
+[$\sin u\sim u$ and $e^u\sim1+u$ as $u\to0$.]{.eg}
+:::
+
+::::
+
+## Pattern keys
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### $y=a\sin(x^b)$
+For a non-zero **integer** $b$:
+
+- $b$ even/odd $\Rightarrow$ graph even/odd;
+- $b>0$: calm at $0$; oscillations tighten outwards if $b>1$;
+- $b<0$: undefined and infinitely busy at $0$, flat at the ends;
+- $a<0$: reflect in the $x$-axis.
+:::
+
+::: {.fs-card}
+### Modulus
+$f(|x|)$: keep the right half and reflect it left.  
+$|f(x)|$: reflect every negative $y$-value upwards.
+:::
+
+::: {.fs-card}
+### Reciprocal inside
+$\sin(1/x)$: bounded but infinitely oscillatory near $0$.  
+$x\sin(1/x)$: squeezed to $0$ near $0$; tends to $1$ as $|x|\to\infty$.
+:::
+
+::: {.fs-card}
+### Growth order
+As $x\to\infty$ (with $k>0$, $a>1$), the **spec-safe** hierarchy is
+$$\log_a x\ll x^k\ll a^x.$$
+*MAT extension: $\ln x$ behaves like $\log_a x$, and $x^x$ tops the list.*
+
+[In a quotient, compare numerator and denominator.]{.eg}
+:::
+
+::: {.fs-card}
+### Rewrite disguises
+$x^x=e^{x\ln x}$.  
+$\sin^2x+\sin^4x+\cdots=\tan^2x$ where the geometric series converges.
+:::
+
+::: {.fs-card}
+### MCQ shortcut
+Use the cheapest discriminator: domain, symmetry, one limit, one intercept, or one test value. Eliminate before doing a full sketch.
+:::
+
+::::
+
+:::::
+
+::: {.callout-warning appearance="simple"}
+## Scope — some of this goes beyond the TMUA specification
+
+The TMUA syllabus (MM5) covers only $y=a^x$ and the laws of $\log_a$ — a **general base**, with the
+**change-of-base formula not examined** — and its only exponential graph is $y=k^x$. It does **not** include
+the number $e$, the exponential $e^x$, or the natural logarithm $\ln x$. So the parts that use $\ln x$, $e^x$,
+$x^x$ or $e^{e^x}$ — the tail of the growth order, the log/exponential humps, and Drills 1 and 5 — are
+**MAT-level extensions**, kept because TMUA's "unfamiliar graph" questions reward exactly this reading skill.
+Each has a spec-safe core: the growth order is $\log_a x\ll x^k\ll a^x$, and base-$2$ or base-$10$ examples
+stand in for the natural-log ones.
+:::
+
+# Notes
+
+## 1 · Domain — decide where the graph is allowed to exist
+
+The domain is the set of real $x$-values for which the formula produces a real, defined value. Do this **before** finding intercepts or limits: there is no graph outside the domain.
+
+For a fraction, its denominator cannot be zero. For example,
+$$f(x)=\frac1{x^2-1}$$
+is defined only when $x\ne-1,1$. These two values divide the graph into three separate intervals. They are candidates for vertical asymptotes, but an excluded value need not be an asymptote: in
+$$g(x)=\frac{x^2-1}{x-1}=x+1\qquad(x\ne1),$$
+the factor cancels and leaves a **hole** at $(1,2)$ instead.
+
+The pictures distinguish the two possibilities. A denominator that remains zero after simplification produces an infinite wall; a cancelled factor produces one missing point.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "An excluded input may give a vertical asymptote (left) or only a removable hole (right)."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 2, figsize=(8, 3.1))
+
+for interval in [np.linspace(-3, -1.03, 500), np.linspace(-0.97, 0.97, 500), np.linspace(1.03, 3, 500)]:
+    ax[0].plot(interval, 1/(interval**2-1), color='#2b6cb0', lw=1.7)
+ax[0].axvline(-1, color='crimson', ls='--', lw=1, label='vertical asymptotes')
+ax[0].axvline(1, color='crimson', ls='--', lw=1)
+ax[0].set_ylim(-6, 6); ax[0].set_title(r'$y=1/(x^2-1)$')
+
+x = np.linspace(-2.5, 3, 500)
+ax[1].plot(x, x+1, color='#2b6cb0', lw=1.7)
+ax[1].plot(1, 2, marker='o', ms=8, mfc='white', mec='crimson', mew=1.7)
+ax[1].set_ylim(-2, 5); ax[1].set_title(r'$y=(x^2-1)/(x-1)$, $x\ne1$')
+
+for a in ax:
+    a.axhline(0, color='0.55', lw=0.7); a.axvline(0, color='0.55', lw=0.7)
+    a.grid(alpha=0.18); a.set_xlabel('$x$'); a.set_ylabel('$y$')
+plt.tight_layout(); plt.show()
+```
+
+For a real logarithm, the entire expression inside the logarithm must be **strictly positive**, not merely non-negative:
+$$\ln(g(x))\text{ is defined exactly when }g(x)>0.$$
+Thus $\ln(x-2)$ has domain $x>2$. At $x=2$ the argument is $0$, and $\ln0$ is undefined; for $x<2$ the argument is negative, so there is no real value. By contrast, $\ln(x^2-1)$ requires $x^2-1>0$, giving $x<-1$ or $x>1$.
+
+For an even root, the expression under the root may be zero but cannot be negative:
+$$\sqrt{g(x)}\text{ is defined exactly when }g(x)\ge0.$$
+For example, $\sqrt{4-x^2}$ requires $-2\le x\le2$. The equality cases are included because $\sqrt0=0$. If the root is in a denominator, zero must be excluded as well: $1/\sqrt{4-x^2}$ requires $-2<x<2$. Odd roots such as $\sqrt[3]{x}$ accept negative inputs and impose no such restriction.
+
+The graph of $\ln(x-2)$ exists only to the right of $x=2$ and has a vertical asymptote there. The graph of $\sqrt{4-x^2}$ is the upper semicircle $x^2+y^2=4$: it includes the endpoints $(-2,0)$ and $(2,0)$ because zero is permitted inside a square root.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Strict inequality for a logarithm (left); inclusive endpoints for an even root (right)."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 2, figsize=(8, 3.1))
+x1 = np.linspace(2.02, 7, 700)
+ax[0].plot(x1, np.log(x1-2), color='#2b6cb0', lw=1.8)
+ax[0].axvline(2, color='crimson', ls='--', lw=1)
+ax[0].set_title(r'$y=\ln(x-2)$: $x>2$')
+x2 = np.linspace(-2, 2, 700)
+ax[1].plot(x2, np.sqrt(4-x2**2), color='#2b6cb0', lw=1.8)
+ax[1].scatter([-2,2], [0,0], color='#2b6cb0', s=28, zorder=3)
+ax[1].set_title(r'$y=\sqrt{4-x^2}$: $-2\leq x\leq2$')
+for a in ax:
+    a.axhline(0, color='0.55', lw=0.7); a.axvline(0, color='0.55', lw=0.7)
+    a.grid(alpha=0.18); a.set_xlabel('$x$'); a.set_ylabel('$y$')
+plt.tight_layout(); plt.show()
+```
+
+When several restrictions occur together, all of them must hold simultaneously. For instance,
+$$h(x)=\frac{\ln(x-1)}{\sqrt{4-x}}$$
+needs $x-1>0$ and $4-x>0$ (strict here because the square root is the denominator). Its domain is therefore $1<x<4$.
+
+## 2 · Ends, asymptotes, intercepts, and sign
+
+Once the valid intervals are known, examine the behaviour at every boundary of each interval. This includes $x\to\infty$, $x\to-\infty$, and the left- and right-hand limits at excluded finite values. The two sides can behave differently: for $1/(x-1)$, the value tends to $-\infty$ as $x\to1^-$ and to $+\infty$ as $x\to1^+$.
+
+A vertical asymptote $x=c$ occurs when the function becomes unbounded on at least one side of $c$. A horizontal asymptote $y=L$ occurs when $f(x)\to L$ at one or both infinite ends. A slant asymptote $y=mx+c$ occurs when
+$$f(x)-(mx+c)\to0.$$
+For example, take
+$$f(x)=\frac{x^2+1}{x}=x+\frac1x.$$
+The proposed slant line is $y=x$, so subtract it:
+$$f(x)-x=\frac1x\longrightarrow0\qquad(x\to\pm\infty).$$
+The vertical distance between the curve and the line therefore shrinks to zero at both ends. This makes $y=x$ the **slant asymptote at infinity**.
+
+However, that is not the only useful way to build the sketch. The dominant term changes with the region being examined:
+
+- **Near $x=0$**, the term $1/x$ dominates while $x\to0$. Indeed,
+  $$f(x)-\frac1x=x\longrightarrow0qquad(x\to0).$$
+  Thus the curve looks almost like $y=1/x$ close to the origin. Use the reciprocal curve as the **local model** and make a small adjustment of $x$. In the usual school definition, $y=1/x$ is not called an asymptote because it is not a straight line; the actual vertical asymptote is $x=0$.
+- **For large $|x|$**, the term $x$ dominates while $1/x\to0$. Thus the curve looks almost like $y=x$, which is the slant asymptote.
+
+So there is no single base graph that is best everywhere. Sketch from $y=1/x$ near $0$, and from $y=x$ at the far ends, then join the information using the turning points and sign.
+
+The subtraction test is important. Merely having $f(x)/x\to1$ does not always make $y=x$ an asymptote: for example, $(x+\sqrt{x})/x\to1$, but $(x+\sqrt{x})-x=\sqrt{x}\to\infty$, so the gap from the line does not shrink.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Use different comparison graphs in different regions: $1/x$ near zero and $x$ at the far ends."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 2, figsize=(9, 3.7))
+
+for interval in [np.linspace(-1.5, -0.12, 700), np.linspace(0.12, 1.5, 700)]:
+    ax[0].plot(interval, interval+1/interval, color='#2b6cb0', lw=1.8)
+    ax[0].plot(interval, 1/interval, color='#dd6b20', ls='--', lw=1.4)
+ax[0].axvline(0, color='crimson', ls=':', lw=1.2, label=r'vertical asymptote $x=0$')
+ax[0].plot([], [], color='#2b6cb0', lw=1.8, label=r'$x+1/x$')
+ax[0].plot([], [], color='#dd6b20', ls='--', lw=1.4, label=r'local model $1/x$')
+ax[0].set_xlim(-1.5,1.5); ax[0].set_ylim(-9,9); ax[0].set_title('Near $x=0$')
+
+for interval in [np.linspace(-8, -0.15, 900), np.linspace(0.15, 8, 900)]:
+    ax[1].plot(interval, interval+1/interval, color='#2b6cb0', lw=1.8)
+x = np.linspace(-8, 8, 600)
+ax[1].plot(x, x, color='crimson', ls='--', lw=1.4, label=r'slant asymptote $y=x$')
+ax[1].set_xlim(-8,8); ax[1].set_ylim(-10,10); ax[1].set_title(r'As $|x|\to\infty$')
+
+for a in ax:
+    a.axhline(0, color='0.6', lw=0.7); a.axvline(0, color='0.6', lw=0.7)
+    a.set_xlabel('$x$'); a.set_ylabel('$y$'); a.grid(alpha=0.18); a.legend(fontsize=7)
+plt.tight_layout(); plt.show()
+```
+
+For rational functions, first cancel any common factors and then compare the highest powers. The three common cases are:
+
+1. **Denominator degree higher:**
+   $$\frac{2x+1}{x^2+1}\sim\frac{2x}{x^2}=\frac2x\to0,$$
+   so the horizontal asymptote is $y=0$.
+2. **Degrees equal:**
+   $$\frac{3x^2+1}{x^2+2}\sim\frac{3x^2}{x^2}=3,$$
+   so the horizontal asymptote is the ratio of the leading coefficients, $y=3$.
+3. **Numerator degree exactly one higher:** polynomial division gives
+   $$\frac{x^2+1}{x-1}=x+1+\frac2{x-1}.$$
+   Since $2/(x-1)\to0$, the slant asymptote is $y=x+1$. The same function also has a vertical asymptote at $x=1$.
+
+The three graphs are stacked vertically so that each curve can be compared clearly with its own asymptote.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The three degree comparisons for rational functions."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(3, 1, figsize=(7, 9))
+
+x = np.linspace(-8, 8, 1400)
+ax[0].plot(x, (2*x+1)/(x**2+1), color='#2b6cb0', lw=1.7)
+ax[0].axhline(0, color='crimson', ls='--', lw=1.2, label=r'$y=0$')
+ax[0].set_title(r'deg(top) < deg(bottom): $(2x+1)/(x^2+1)$')
+
+ax[1].plot(x, (3*x**2+1)/(x**2+2), color='#2b6cb0', lw=1.7)
+ax[1].axhline(3, color='crimson', ls='--', lw=1.2, label=r'$y=3$')
+ax[1].set_title(r'equal degrees: $(3x^2+1)/(x^2+2)$')
+
+for interval in [np.linspace(-8, 0.94, 900), np.linspace(1.06, 8, 900)]:
+    ax[2].plot(interval, (interval**2+1)/(interval-1), color='#2b6cb0', lw=1.7)
+ax[2].plot(x, x+1, color='crimson', ls='--', lw=1.2, label=r'$y=x+1$')
+ax[2].axvline(1, color='0.4', ls=':', lw=1, label=r'$x=1$')
+ax[2].set_ylim(-12,12)
+ax[2].set_title(r'deg(top) = deg(bottom) + 1: $(x^2+1)/(x-1)$')
+
+for a in ax:
+    a.axhline(0, color='0.65', lw=0.6); a.axvline(0, color='0.65', lw=0.6)
+    a.set_xlim(-8,8); a.set_xlabel('$x$'); a.set_ylabel('$y$')
+    a.grid(alpha=0.16); a.legend(fontsize=8, loc='best')
+plt.tight_layout(); plt.show()
+```
+
+Find the $y$-intercept by evaluating $f(0)$ **only when $0$ belongs to the domain**. Find $x$-intercepts by solving $f(x)=0$ and rejecting any solutions outside the domain. On each interval separated by roots and excluded points, test one convenient value to determine the sign. A zero of even multiplicity usually makes the graph touch the axis and turn back; a zero of odd multiplicity makes it cross.
+
+For example,
+$$p(x)=(x+2)(x-1)^2$$
+has $p(0)=2$, so its $y$-intercept is $(0,2)$. It has a simple root at $x=-2$, where the sign changes and the graph crosses the axis, and a double root at $x=1$, where the sign does not change and the graph only touches the axis.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "A simple root crosses the axis; a double root touches it and turns back."
+import numpy as np, matplotlib.pyplot as plt
+x = np.linspace(-3.2, 2.4, 900)
+y = (x+2)*(x-1)**2
+fig, ax = plt.subplots(figsize=(6.2, 3.7))
+ax.plot(x, y, color='#2b6cb0', lw=1.8)
+ax.scatter([-2,0,1], [0,2,0], color='crimson', s=30, zorder=3)
+ax.annotate('crosses', (-2,0), (-2.8,4), arrowprops={'arrowstyle':'->'}, fontsize=8)
+ax.annotate('touches', (1,0), (1.35,4), arrowprops={'arrowstyle':'->'}, fontsize=8)
+ax.axhline(0, color='0.55', lw=0.8); ax.axvline(0, color='0.55', lw=0.8)
+ax.set_ylim(-3,10); ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.grid(alpha=0.16)
+plt.tight_layout(); plt.show()
+```
+
+## 3 · Symmetry and turning behaviour
+
+To test symmetry, substitute $-x$ into the whole formula. If $f(-x)=f(x)$ throughout a domain symmetric about $0$, the graph is even and the left half mirrors the right. If $f(-x)=-f(x)$, it is odd and has rotational symmetry about the origin. If neither identity holds, do not force a symmetry.
+
+For example, $f(x)=x^2+1$ is even because
+$$f(-x)=(-x)^2+1=x^2+1=f(x),$$
+whereas $g(x)=x^3-x$ is odd because
+$$g(-x)=(-x)^3-(-x)=-x^3+x=-g(x).$$
+
+Stationary points satisfy $f'(x)=0$, but not every stationary point is a turn. The sign of $f'$ must change from $+$ to $-$ for a local maximum and from $-$ to $+$ for a local minimum. If the sign does not change, the curve merely flattens; $x^3$ at the origin is the standard example. Also inspect points where $f'$ does not exist but $f$ does: $|x|$ has a minimum at its corner even though its derivative is undefined there.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Top: even and odd symmetry. Bottom: a stationary non-turn and a non-differentiable minimum."
+import numpy as np, matplotlib.pyplot as plt
+x = np.linspace(-2.2, 2.2, 700)
+fig, ax = plt.subplots(2, 2, figsize=(8, 6))
+plots = [
+    (x, x**2+1, r'$x^2+1$: even', (0,5.5)),
+    (x, x**3-x, r'$x^3-x$: odd', (-8,8)),
+    (x, x**3, r'$x^3$: stationary, no turn', (-8,8)),
+    (x, np.abs(x), r'$|x|$: minimum, but $f\prime(0)$ undefined', (-0.3,2.5)),
+]
+for a, (xd, yd, title, ylim) in zip(ax.flat, plots):
+    a.plot(xd, yd, color='#2b6cb0', lw=1.8); a.scatter([0], [yd[len(yd)//2]], s=22, color='crimson', zorder=3)
+    a.axhline(0, color='0.6', lw=0.7); a.axvline(0, color='0.6', lw=0.7)
+    a.set_ylim(*ylim); a.set_title(title, fontsize=9); a.grid(alpha=0.16)
+plt.tight_layout(); plt.show()
+```
+
+## 4 · Oscillation and the family $y=a\sin(x^b)$
+
+Here the parity shortcut assumes that $b$ is a non-zero integer. Then $(-x)^b=x^b$ for even $b$ and $(-x)^b=-x^b$ for odd $b$; since sine is odd, $\sin(x^b)$ is correspondingly even or odd. For non-integer $b$, negative $x$ may not even lie in the real domain, so the even/odd rule cannot automatically be used.
+
+When $b>0$, $x^b\to0$ near the origin. Since $\sin u\sim u$ for small $u$,
+$$a\sin(x^b)\sim ax^b,$$
+so the graph is calm near $0$. Farther out, the phase $x^b$ runs through more multiples of $2\pi$, producing repeated oscillations. For $b>1$ these oscillations become closer together as $|x|$ grows.
+
+When $b<0$, write $b=-n$ with $n>0$. The function is undefined at $x=0$, and $x^b$ becomes unbounded there. Sine therefore oscillates infinitely often between $-1$ and $1$ near the origin; it has no limit there. At large $|x|$, however, $x^b\to0$, so
+$$a\sin(x^b)\sim ax^b\to0.$$
+The magnitude $|a|$ sets the amplitude, so the range is $[-|a|,|a|]$. The sign of $a$ sets the vertical orientation: changing $a$ to $-a$ reflects the entire graph in the $x$-axis. For negative $b$, the side from which the tails approach $0$ also depends on whether $b$ is even or odd.
+
+There are therefore **eight representative cases**: two signs of $a$, two signs of $b$, and two parities of $b$. The graphs below use $a=\pm1$ so that only the reflection changes. A single colour is used throughout because colour does not encode another mathematical variable.
+
+```{python}
+#| fig-align: center
+#| fig-cap: 'The eight cases of $a\sin(x^b)$. Columns show even/odd $b$; rows separate the signs of $a$ and $b$.'
+import numpy as np, matplotlib.pyplot as plt
+xp = np.linspace(-3, 3, 6000)
+xn_left = np.linspace(-3, -0.04, 8000)
+xn_right = np.linspace(0.04, 3, 8000)
+blue = '#2b6cb0'
+fig, ax = plt.subplots(4, 2, figsize=(8, 10.5))
+cases = [
+    (0, 0,  1,  2, r'$a=1,\ b=2$ (even)'),
+    (0, 1,  1,  3, r'$a=1,\ b=3$ (odd)'),
+    (1, 0, -1,  2, r'$a=-1,\ b=2$ (even)'),
+    (1, 1, -1,  3, r'$a=-1,\ b=3$ (odd)'),
+    (2, 0,  1, -2, r'$a=1,\ b=-2$ (even; $x=0$ excluded)'),
+    (2, 1,  1, -3, r'$a=1,\ b=-3$ (odd; $x=0$ excluded)'),
+    (3, 0, -1, -2, r'$a=-1,\ b=-2$ (even; $x=0$ excluded)'),
+    (3, 1, -1, -3, r'$a=-1,\ b=-3$ (odd; $x=0$ excluded)'),
+]
+for row, col, amplitude, power, title in cases:
+    axy = ax[row, col]
+    if power > 0:
+        axy.plot(xp, amplitude*np.sin(xp**power), color=blue, lw=1.2)
+    else:
+        for xd in (xn_left, xn_right):
+            axy.plot(xd, amplitude*np.sin(xd.astype(float)**power), color=blue, lw=0.5)
+    axy.set_title(title, fontsize=8.5)
+    axy.axhline(0, color='0.6', lw=0.5)
+    axy.axvline(0, color='0.7', lw=0.5, ls=':')
+    axy.set_xlim(-3, 3); axy.set_ylim(-1.3, 1.3)
+    axy.set_yticks([-1, 0, 1])
+plt.tight_layout(); plt.show()
+```
+
+The related function $\sin(1/x)$ is bounded but has no limit as $x\to0$: it keeps oscillating through the full interval $[-1,1]$.
+
+### What is the squeeze theorem?
+
+Suppose that, near $x=c$,
+$$g(x)\le f(x)\le h(x),$$
+and that both outside functions approach the same number:
+$$g(x)\to L
+\qquad\text{and}\qquad
+h(x)\to L.$$
+Then the middle function has nowhere else to go, so
+$$f(x)\to L.$$
+
+For $f(x)=x\sin(1/x)$, start from the fact that $|\sin(1/x)|\le1$. Multiplying by $|x|$ gives
+$$|x\sin(1/x)|\le|x|,$$
+which is equivalent to the two-sided bound
+$$-|x|\le x\sin(1/x)\le|x|.$$
+As $x\to0$, both $-|x|$ and $|x|$ approach $0$. The oscillating curve is trapped between them, so the squeeze theorem gives
+$$\boxed{x\sin(1/x)\to0}.$$
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The oscillating curve is squeezed between $y=-|x|$ and $y=|x|$, and both boundaries meet at the origin."
+import numpy as np, matplotlib.pyplot as plt
+x_left = np.linspace(-0.5, -0.002, 10000)
+x_right = np.linspace(0.002, 0.5, 10000)
+fig, ax = plt.subplots(figsize=(6.4, 4))
+for x in (x_left, x_right):
+    ax.plot(x, x*np.sin(1/x), color='#2b6cb0', lw=0.8)
+x = np.linspace(-0.5, 0.5, 700)
+ax.plot(x, np.abs(x), color='crimson', ls='--', lw=1.4, label=r'$y=|x|$')
+ax.plot(x, -np.abs(x), color='crimson', ls='--', lw=1.4, label=r'$y=-|x|$')
+ax.scatter([0], [0], color='black', s=24, zorder=4)
+ax.axhline(0, color='0.6', lw=0.6); ax.axvline(0, color='0.6', lw=0.6)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.set_title(r'$x\sin(1/x)$ near $x=0$')
+ax.grid(alpha=0.16); ax.legend(fontsize=8, loc='upper left')
+plt.tight_layout(); plt.show()
+```
+
+Defining the missing value to be $f(0)=0$ fills the removable gap and makes this extended function continuous. At the other end, $\sin(1/x)\sim1/x$, so $x\sin(1/x)\to1$ as $x\to\pm\infty$.
+
+## 5 · Modulus and other standard disguises
+
+The position of the modulus matters. In $f(|x|)$, every negative input is first changed to a positive one, so the right-hand half of the original graph is copied to the left; the result is always even. In $|f(x)|$, the input is unchanged but every negative output becomes positive, so portions below the $x$-axis are reflected upwards. For example, $\sin|x|$ can still be negative, whereas $|\sin x|$ cannot.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "An inside modulus changes the inputs (left); an outside modulus changes the outputs (right)."
+import numpy as np, matplotlib.pyplot as plt
+x = np.linspace(-2*np.pi, 2*np.pi, 1200)
+fig, ax = plt.subplots(1, 2, figsize=(8, 3.1))
+ax[0].plot(x, np.sin(np.abs(x)), color='#2b6cb0', lw=1.7)
+ax[0].set_title(r'$y=\sin|x|$: may be negative')
+ax[1].plot(x, np.abs(np.sin(x)), color='#2b6cb0', lw=1.7)
+ax[1].set_title(r'$y=|\sin x|$: never negative')
+for a in ax:
+    a.axhline(0, color='0.6', lw=0.7); a.axvline(0, color='0.6', lw=0.7)
+    a.set_ylim(-1.25,1.25); a.set_xlabel('$x$'); a.set_ylabel('$y$'); a.grid(alpha=0.16)
+plt.tight_layout(); plt.show()
+```
+
+Algebraic rewriting often turns an unfamiliar expression into a familiar curve. The infinite geometric series
+$$\sin^2x+\sin^4x+\sin^6x+\cdots$$
+has first term and ratio $\sin^2x$, so it converges only when $|\sin x|<1$. On that domain its sum is
+$$\frac{\sin^2x}{1-\sin^2x}=\tan^2x.$$
+At $x=\pi/2+k\pi$, the original series diverges and $\tan^2x$ is also undefined. Always carry the convergence condition with the rewritten formula.
+
+For a self-power, use logarithms:
+$$x^x=e^{x\ln x}\qquad(x>0).$$
+This form makes limits and differentiation much easier, but the real-valued domain shown here matters; $x^x$ for negative $x$ is not defined as a real function on a whole interval. For example, logarithmic differentiation gives
+$$\frac{dy}{dx}=x^x(\ln x+1).$$
+Since $x^x>0$, the only stationary point occurs when $\ln x+1=0$, so $x=1/e$. The derivative changes from negative to positive there, giving the minimum
+$$\left(\frac1e\right)^{1/e}=e^{-1/e}.$$
+
+Two other standard examples are $\ln x/x$ and $x^2e^{-x}$. Their derivatives are
+$$\left(\frac{\ln x}{x}\right)'=\frac{1-\ln x}{x^2},
+\qquad
+(x^2e^{-x})'=xe^{-x}(2-x).$$
+Therefore $\ln x/x$ has its maximum $1/e$ at $x=e$, while $x^2e^{-x}$ has a local maximum $4/e^2$ at $x=2$ on the positive side.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Three unfamiliar-looking expressions reduced to one-turn shapes by rewriting or differentiating."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(3, 1, figsize=(7, 8.5))
+x1 = np.linspace(0.03, 3.2, 900)
+ax[0].plot(x1, x1**x1, color='#2b6cb0', lw=1.8)
+ax[0].scatter([1/np.e], [np.exp(-1/np.e)], color='crimson', s=28, zorder=3)
+ax[0].set_title(r'$y=x^x$: minimum at $x=1/e$')
+x2 = np.linspace(0.04, 10, 1000)
+ax[1].plot(x2, np.log(x2)/x2, color='#2b6cb0', lw=1.8)
+ax[1].scatter([np.e], [1/np.e], color='crimson', s=28, zorder=3)
+ax[1].set_ylim(-2.2,0.6); ax[1].set_title(r'$y=\ln x/x$: maximum at $x=e$')
+x3 = np.linspace(-1.5, 9, 1000)
+ax[2].plot(x3, x3**2*np.exp(-x3), color='#2b6cb0', lw=1.8)
+ax[2].scatter([0,2], [0,4/np.e**2], color='crimson', s=28, zorder=3)
+ax[2].set_ylim(-0.3,3.2); ax[2].set_title(r'$y=x^2e^{-x}$: positive-side maximum at $x=2$')
+for a in ax:
+    a.axhline(0, color='0.6', lw=0.7); a.axvline(0, color='0.6', lw=0.7)
+    a.set_xlabel('$x$'); a.set_ylabel('$y$'); a.grid(alpha=0.16)
+plt.tight_layout(); plt.show()
+```
+
+Some relations are not functions of $x$. The equation $|x|+|y|=k$ ($k>0$) is a diamond with vertices $(\pm k,0)$ and $(0,\pm k)$, while $x=y^2-1$ is a sideways parabola. Use the symmetry of the relation and remember that a vertical line may meet it more than once.
+
+For $k=2$, the diamond can be drawn one quadrant at a time from $y=2-x$ and then reflected. For the sideways parabola, solving for $y$ gives
+$$y=\pm\sqrt{x+1},$$
+so most vertical lines with $x>-1$ meet the relation twice. That is exactly why it fails the vertical-line test.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Two relations that are not functions of $x$: a diamond and a sideways parabola."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 2, figsize=(8, 3.3))
+t = np.linspace(0, 2, 400)
+ax[0].plot(t, 2-t, color='#2b6cb0', lw=1.8)
+ax[0].plot(-t, 2-t, color='#2b6cb0', lw=1.8)
+ax[0].plot(t, t-2, color='#2b6cb0', lw=1.8)
+ax[0].plot(-t, t-2, color='#2b6cb0', lw=1.8)
+ax[0].set_title(r'$|x|+|y|=2$')
+y = np.linspace(-2.4, 2.4, 600)
+ax[1].plot(y**2-1, y, color='#2b6cb0', lw=1.8)
+ax[1].set_title(r'$x=y^2-1$')
+for a in ax:
+    a.axhline(0, color='0.6', lw=0.7); a.axvline(0, color='0.6', lw=0.7)
+    a.set_aspect('equal', adjustable='box'); a.set_xlabel('$x$'); a.set_ylabel('$y$'); a.grid(alpha=0.16)
+plt.tight_layout(); plt.show()
+```
+
+The diamond and the circle are in fact two members of a single **family**, the *superellipses* (Lamé curves)
+$$|x|^{k}+|y|^{k}=1\qquad(k>0).$$
+Every member passes through $(\pm1,0)$ and $(0,\pm1)$ and is symmetric in both axes, so only the "fatness"
+along the diagonal changes. Setting $x=y$ in the equation gives $2|x|^{k}=1$, so the point where the curve
+crosses the $45^\circ$ line is
+$$\left(2^{-1/k},\,2^{-1/k}\right),$$
+and $2^{-1/k}$ grows steadily from $0$ towards $1$ as $k$ increases. Reading that one coordinate tells you the
+whole shape:
+
+- $0<k<1$: the sides **cave inward** — a concave, star-like curve (the case $k=\tfrac23$ is the *astroid*);
+- $k=1$: the straight-sided **diamond** $|x|+|y|=1$ (diagonal point $2^{-1}=0.5$);
+- $k=2$: the **circle** $x^{2}+y^{2}=1$ (diagonal point $2^{-1/2}\approx0.71$);
+- $k>2$: the sides **bulge outward**, approaching a rounded square;
+- $k\to\infty$: the diagonal point $\to1$, so the curve fills the whole **unit square** $|x|\le1,\ |y|\le1$
+  (and $k\to0^{+}$ collapses it onto the two axes).
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The superellipse family |x|^k+|y|^k=1: caves in (k<1), diamond (k=1), circle (k=2), bulges toward a square (k>2)."
+import numpy as np, matplotlib.pyplot as plt
+def se(k,n=2000):
+    t=np.linspace(0,2*np.pi,n)
+    return np.sign(np.cos(t))*np.abs(np.cos(t))**(2/k), np.sign(np.sin(t))*np.abs(np.sin(t))**(2/k)
+plt.figure(figsize=(4.8,4.8))
+for k,c,lab in [(0.5,'#2ca02c','k=1/2  (caves in)'),(1,'#dd6b20','k=1  (diamond)'),
+                (2,'#2b6cb0','k=2  (circle)'),(4,'crimson','k=4  (toward a square)')]:
+    x,y=se(k); plt.plot(x,y,color=c,lw=1.8,label=lab)
+plt.plot([-1,1,1,-1,-1],[-1,-1,1,1,-1],color='0.6',ls=':',lw=1.1,label='k → ∞  (unit square)')
+plt.gca().set_aspect('equal'); plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6)
+plt.grid(alpha=0.2); plt.legend(fontsize=7.5,loc='upper right')
+plt.xlim(-1.3,1.3); plt.ylim(-1.3,1.3); plt.title('|x|^k + |y|^k = 1',fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+## 6 · Asymptotic dominance — which term wins?
+
+As $x\to\infty$, for fixed $k>0$ and $a>1$,
+$$\ln x\ll x^k\ll a^x\ll x^x.$$
+The symbol $p(x)\ll q(x)$ means $p(x)/q(x)\to0$. Thus any positive power eventually beats a logarithm, any exponential with base greater than $1$ eventually beats a fixed power, and $x^x=e^{x\ln x}$ eventually beats an ordinary exponential $a^x=e^{x\ln a}$.
+
+Use this hierarchy only after checking the direction of the limit and the domain. It describes $x\to+\infty$; behaviour as $x\to-\infty$ may differ or may not be real-defined. Constants, signs, and cancellation can also change the final conclusion.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The growth race on a logarithmic y-axis."
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1.01,7,400)
+plt.figure(figsize=(5.4,3.2))
+plt.semilogy(x,np.log(x),label='ln x',color='#2ca02c',lw=2)
+plt.semilogy(x,x**2,label='x²',color='#1f77b4',lw=2)
+plt.semilogy(x,2.0**x,label='2ˣ',color='#dd6b20',lw=2)
+plt.semilogy(x,x**x,label='xˣ',color='crimson',lw=2)
+plt.grid(alpha=0.3,which='both'); plt.legend(fontsize=8,loc='upper left')
+plt.xlabel('x'); plt.title('ln x  ≪  xᵏ  ≪  aˣ  ≪  xˣ',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+
+## 7 · How to use this in a question
+
+For a multiple-choice graph question, do not automatically perform a complete analysis. First compare the options and seek one feature that separates them: a forbidden $x$-value, symmetry, an end limit, an intercept, or the sign at a convenient input. One decisive check is safer and faster than four rough sketches.
+
+For the number of solutions of $f(x)=g(x)$, view the equation as intersections of the curves $y=f(x)$ and $y=g(x)$. First restrict where intersections are possible. For example, $\sin x=kx$ can have solutions only where $|kx|\le1$, because $|\sin x|\le1$. Then count crossings inside that bounded region. A tangency counts as one solution even though the curves do not cross through each other.
+
+For instance, with $k=0.2$, every solution of $\sin x=0.2x$ must lie in $|x|\le5$. The graph shows three intersections in that interval: one at the origin and one symmetric pair. In the second picture, $y=\ln x$ and $y=x/e$ touch at $x=e$; the contact point counts as one solution.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Count crossings, including a tangency as one intersection."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 2, figsize=(8, 3.3))
+x = np.linspace(-5, 5, 1200)
+ax[0].plot(x, np.sin(x), color='#2b6cb0', lw=1.7, label=r'$y=\sin x$')
+ax[0].plot(x, 0.2*x, color='crimson', ls='--', lw=1.4, label=r'$y=0.2x$')
+ax[0].set_title('three intersections'); ax[0].legend(fontsize=8)
+x2 = np.linspace(0.12, 7, 900)
+ax[1].plot(x2, np.log(x2), color='#2b6cb0', lw=1.7, label=r'$y=\ln x$')
+ax[1].plot(x2, x2/np.e, color='crimson', ls='--', lw=1.4, label=r'$y=x/e$')
+ax[1].scatter([np.e], [1], color='black', s=24, zorder=4)
+ax[1].set_title(r'one solution: tangency at $x=e$'); ax[1].legend(fontsize=8)
+for a in ax:
+    a.axhline(0, color='0.6', lw=0.7); a.axvline(0, color='0.6', lw=0.7)
+    a.set_xlabel('$x$'); a.set_ylabel('$y$'); a.grid(alpha=0.16)
+plt.tight_layout(); plt.show()
+```
+
+Finally, distinguish “stationary” from “turning”. If $f'(x)\ge0$ throughout its domain, the function is non-decreasing. It may flatten where $f'(x)=0$, but it cannot turn down unless the derivative becomes negative. This is why $y=x+\sin x$ keeps rising even at points where its derivative $1+\cos x$ is zero.
+
+---
+
+## Concept drills
+
+These are short checks on the method. Try each one before opening its solution. The separate class-material page contains the full past-paper and mock problem bank.
+
+### Drill 1 — end behaviour by dominance
+
+Without differentiating, decide the limit of each expression as $x\to\infty$:
+
+1. $\dfrac{x^5}{e^x}$
+2. $\dfrac{\ln x}{\sqrt{x}}$
+3. $\dfrac{2^x}{x^x}$
+4. $x^2e^{-x}$
+
+*(MAT extension — these use $e$ and $\ln$, which are beyond the TMUA spec.)*
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+All four limits are $0$.
+
+1. The exponential $e^x$ beats the power $x^5$.
+2. The positive power $\sqrt{x}=x^{1/2}$ beats $\ln x$.
+3. The self-power $x^x$ beats the fixed-base exponential $2^x$.
+4. Rewrite it as $x^2/e^x$; the exponential wins again.
+
+In a quotient, name the faster-growing term and note whether it is in the numerator or denominator.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1,7,400)
+plt.figure(figsize=(5.0,3.0))
+plt.semilogy(x,np.log(x),label='ln x',color='#2ca02c',lw=2)
+plt.semilogy(x,x**5,label='x⁵',color='#1f77b4',lw=2)
+plt.semilogy(x,np.exp(x),label='eˣ',color='#dd6b20',lw=2)
+plt.semilogy(x,x**x,label='xˣ',color='crimson',lw=2)
+plt.grid(alpha=0.3,which='both'); plt.legend(fontsize=8,loc='upper left')
+plt.xlabel('x'); plt.title('growth race (log axis):  ln x ≪ x⁵ ≪ eˣ ≪ xˣ',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 2 — the three switches of $a\sin(x^b)$
+
+For non-zero integers $a$ and $b$, a graph of $y=a\sin(x^b)$ is **even**, is calm near $0$ with oscillations tightening outwards, and leaves the origin **downwards**. State the sign of $a$ and the sign and parity of $b$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Even symmetry means that $b$ is even. Calm at $0$ with tightening oscillations outwards means $b>1$. Leaving the origin downwards means $a<0$. Therefore $b$ is a positive even integer and $a<0$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,4000)
+plt.figure(figsize=(5.0,2.7)); plt.plot(x,-np.sin(x**2),color='#2b6cb0',lw=1.4)
+plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.7',lw=0.5,ls=':')
+plt.title('a matching graph, y=−sin(x²):  even · calm@0 · leaves DOWN',fontsize=9)
+plt.yticks([]); plt.xticks([]); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 3 — spot the disguise
+
+Identify the standard curve
+$$y=\sin^2x+\sin^4x+\sin^6x+\cdots,$$
+where $|\sin x|<1$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+This is a geometric series with first term and common ratio both equal to $\sin^2x$. Hence
+$$y=\frac{\sin^2x}{1-\sin^2x}=\frac{\sin^2x}{\cos^2x}=\tan^2x.$$
+It has zeros at $x=k\pi$ and vertical asymptotes at $x=\pi/2+k\pi$, where $k\in\mathbb Z$. Those asymptote values are excluded because the original geometric series does not converge when $|\sin x|=1$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4.9,4.9,6000)
+y=np.tan(x)**2; y[np.abs(np.cos(x))<0.04]=np.nan
+plt.figure(figsize=(5.2,3.0)); plt.plot(x,y,color='#2b6cb0',lw=1.8)
+for a in [-3*np.pi/2,-np.pi/2,np.pi/2,3*np.pi/2]: plt.axvline(a,color='crimson',ls=':',lw=1)
+plt.ylim(0,6); plt.axhline(0,color='0.6',lw=0.6); plt.grid(alpha=0.2)
+plt.title('the disguise is y = tan²x: zeros at 0,±π; asymptotes at ±π/2,±3π/2',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 4 — cheapest discriminator
+
+Which of the five graphs $A$–$E$ below is $y=\dfrac{x}{x^2+1}$? Name the two quickest checks that decide it.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,900)
+fig,ax=plt.subplots(3,2,figsize=(6.2,6.6))
+def base(a): a.axhline(0,color='0.6',lw=0.6); a.axvline(0,color='0.7',lw=0.5,ls=':'); a.set_xticks([]); a.set_yticks([])
+ax[0][0].plot(x,x/(x**2+1),color='#2b6cb0',lw=1.8); ax[0][0].set_ylim(-0.7,0.7); ax[0][0].set_title('A',loc='left',fontsize=11)
+ax[0][1].plot(x,1/(x**2+1),color='#2b6cb0',lw=1.8); ax[0][1].set_ylim(-0.15,1.15); ax[0][1].set_title('B',loc='left',fontsize=11)
+for lo,hi in [(-6,-1.05),(-0.95,0.95),(1.05,6)]:
+    xx=np.linspace(lo,hi,300); ax[1][0].plot(xx,xx/(xx**2-1),color='#2b6cb0',lw=1.8)
+ax[1][0].set_ylim(-6,6); ax[1][0].set_title('C',loc='left',fontsize=11)
+ax[1][1].plot(x,x**3/(x**2+1),color='#2b6cb0',lw=1.8); ax[1][1].set_ylim(-8,8); ax[1][1].set_title('D',loc='left',fontsize=11)
+ax[2][0].plot(x,-x/(x**2+1),color='#2b6cb0',lw=1.8); ax[2][0].set_ylim(-0.7,0.7); ax[2][0].set_title('E',loc='left',fontsize=11)
+for a in [ax[0][0],ax[0][1],ax[1][0],ax[1][1],ax[2][0]]: base(a)
+ax[2][1].axis('off')
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer: A.** Two checks are enough.
+
+**Check 1 — symmetry.** $y=\dfrac{x}{x^2+1}$ is **odd** (replacing $x$ by $-x$ negates $y$), so it must have $180^\circ$ symmetry about the origin. This removes the even bump **B**.
+
+**Check 2 — the ends.** For large $|x|$, $y\approx\dfrac1x\to0$, so the graph must **decay to the $x$-axis** with no vertical blow-up. This removes **C** (vertical asymptotes at $x=\pm1$) and **D** (grows without bound).
+
+That leaves **A** and **E**, both odd and decaying. **Tie-breaker:** near the origin $y\approx x$, so for small $x>0$ the curve leaves **upward** — that is **A**, not **E** (which leaves downward). Only now, if needed, is it worth locating the maximum $\tfrac12$ at $x=1$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,600)
+plt.figure(figsize=(5.0,2.9)); plt.plot(x,x/(x**2+1),color='#2b6cb0',lw=2)
+plt.plot(1,0.5,'o',color='crimson'); plt.plot(-1,-0.5,'o',color='crimson')
+plt.axhline(0,color='0.6',lw=0.6); plt.axvline(0,color='0.6',lw=0.6); plt.grid(alpha=0.25)
+plt.title('Option A — y = x/(x²+1): odd, decays to 0, max ½ at x=1',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 5 — counting intersections and tangency
+
+How many real solutions does
+$$\ln x=cx$$
+have when $c>0$? What is special about $c=1/e$?
+
+*(MAT extension — an $e$/$\ln$ example, beyond the TMUA spec; the same idea works with any base.)*
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Divide by $x>0$ and consider $g(x)=\ln x/x$. It has a single maximum value $1/e$ at $x=e$. Therefore:
+
+- if $0<c<1/e$, there are two solutions;
+- if $c=1/e$, there is one solution at $x=e$ and the curves are tangent;
+- if $c>1/e$, there are no solutions.
+
+The tangency is the boundary at which the number of intersections changes.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(2,1,figsize=(5.2,5.4))
+# view 1: the two curves y=ln x and the line y=cx
+x=np.linspace(0.05,12,600)
+ax[0].plot(x,np.log(x),color='#2b6cb0',lw=2,label='y=ln x')
+for c,col,ls,lab in [(1/np.e,'crimson','-','y=x/e  (c=1/e, tangent): 1'),(0.15,'0.6','--','c<1/e: 2'),(0.5,'green','--','c>1/e: 0')]:
+    ax[0].plot(x,c*x,color=col,ls=ls,lw=1.3,label=lab)
+ax[0].plot(np.e,1,'ko',ms=4); ax[0].set_ylim(-2,3); ax[0].grid(alpha=0.25); ax[0].axhline(0,color='0.6',lw=0.5); ax[0].legend(fontsize=7)
+ax[0].set_title('ln x = cx: line y=cx tangent to y=ln x at x=e',fontsize=8.5)
+# view 2: divide by x — g(x)=ln x / x meets the horizontal line y=c
+xg=np.linspace(0.05,15,800); g=np.log(xg)/xg
+ax[1].plot(xg,g,color='#2b6cb0',lw=2,label='y=(ln x)/x')
+ax[1].axhline(1/np.e,color='crimson',lw=1.3,label='y=1/e (tangent): 1')
+ax[1].axhline(0.2,color='0.6',ls='--',lw=1.1,label='y=c<1/e: 2')
+ax[1].axhline(0.5,color='green',ls='--',lw=1.1,label='y=c>1/e: 0')
+ax[1].plot(np.e,1/np.e,'o',color='crimson'); ax[1].annotate('max 1/e at x=e',(np.e,1/np.e),textcoords='offset points',xytext=(10,-2),fontsize=7.5)
+ax[1].set_ylim(-1,0.6); ax[1].grid(alpha=0.25); ax[1].axhline(0,color='0.6',lw=0.5); ax[1].legend(fontsize=7)
+ax[1].set_title('same equation as (ln x)/x = c: a level line cuts the single hump',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 6 — the walls (domain)
+
+State the domain, and any vertical asymptotes, of each:
+
+1. $\dfrac{1}{x^2-4}$
+2. $\ln(x-3)$
+3. $\sqrt{x-2}$
+4. $\dfrac{1}{\sqrt{4-x^2}}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. Denominator $=0$ at $x=\pm2$, so the domain is $x\ne\pm2$ with **vertical asymptotes at $x=\pm2$**.
+2. A logarithm needs a **positive** argument: $x-3>0$, so the domain is $x>3$ with a **vertical asymptote at $x=3$**.
+3. An even (square) root needs a **non-negative** argument: $x-2\ge0$, so the domain is $x\ge2$. This is a boundary **endpoint**, not an asymptote — the graph simply starts at $(2,0)$.
+4. Here both rules apply: $4-x^2>0$ (root argument positive, *and* the denominator non-zero), so the domain is $-2<x<2$ with **vertical asymptotes at $x=\pm2$**.
+
+A $\log$ argument must be $>0$ and an even-root argument must be $\ge0$; a denominator must be $\ne0$. Those three conditions are exactly where the walls are.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(2,1,figsize=(5.0,5.0))
+x1=np.linspace(3.02,9,600); ax[0].plot(x1,np.log(x1-3),color='#2b6cb0',lw=1.8)
+ax[0].axvline(3,color='crimson',ls='--',lw=1); ax[0].set_title('y=ln(x−3): wall x=3 (argument must be > 0)',fontsize=8.5)
+x2=np.linspace(-1.98,1.98,600); ax[1].plot(x2,1/np.sqrt(4-x2**2),color='#2b6cb0',lw=1.8)
+for a in (-2,2): ax[1].axvline(a,color='crimson',ls='--',lw=1)
+ax[1].set_ylim(0,6); ax[1].set_title('y=1/√(4−x²): walls x=±2 (radicand > 0 in a denominator)',fontsize=8.5)
+for a in ax: a.axhline(0,color='0.6',lw=0.6); a.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 7 — asymptotes: horizontal, oblique, vertical
+
+Find every asymptote of each:
+
+1. $\dfrac{2x^2+1}{x^2-1}$
+2. $\dfrac{x^2+1}{x}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. As $x\to\pm\infty$ the leading terms dominate, so $y\to\dfrac{2x^2}{x^2}=2$: a **horizontal asymptote $y=2$**. The denominator vanishes at $x=\pm1$: **vertical asymptotes $x=\pm1$**.
+2. Split it: $\dfrac{x^2+1}{x}=x+\dfrac1x$. For large $|x|$ the $\tfrac1x$ dies, so it hugs the line $y=x$: an **oblique asymptote $y=x$**. As $x\to0$ the $\tfrac1x$ blows up: a **vertical asymptote $x=0$**.
+
+Equal top-and-bottom degree gives a horizontal asymptote (ratio of leading coefficients); top degree one higher gives an oblique one (do the division).
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(2,1,figsize=(5.0,5.2))
+for lo,hi in [(-4,-1.03),(-0.97,0.97),(1.03,4)]:
+    xx=np.linspace(lo,hi,400); ax[0].plot(xx,(2*xx**2+1)/(xx**2-1),color='#2b6cb0',lw=1.7)
+ax[0].axhline(2,color='green',ls=':',lw=1.3)
+for a in (-1,1): ax[0].axvline(a,color='crimson',ls='--',lw=1)
+ax[0].set_ylim(-8,10); ax[0].set_title('(2x²+1)/(x²−1):  horizontal y=2, vertical x=±1',fontsize=8.5)
+xp=np.linspace(0.15,5,400); xn=np.linspace(-5,-0.15,400)
+ax[1].plot(xp,xp+1/xp,color='#2b6cb0',lw=1.7); ax[1].plot(xn,xn+1/xn,color='#2b6cb0',lw=1.7)
+xs=np.linspace(-5,5,50); ax[1].plot(xs,xs,'0.6',ls='--',lw=0.9)
+ax[1].axvline(0,color='crimson',ls='--',lw=1); ax[1].set_ylim(-8,8)
+ax[1].set_title('(x²+1)/x = x+1/x:  oblique y=x, vertical x=0',fontsize=8.5)
+for a in ax: a.axhline(0,color='0.6',lw=0.6); a.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 8 — even, odd, or neither
+
+Classify each as even, odd, or neither:
+
+1. $x^4-3x^2$
+2. $x^3-x$
+3. $x^2+x$
+4. $x\cos x$
+5. $e^{-x^2}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Replace $x$ by $-x$: **1.** even (only even powers). **2.** odd (only odd powers). **3.** neither (mixes an even and an odd term). **4.** odd (odd $\times$ even). **5.** even, since $(-x)^2=x^2$.
+
+A sum is even/odd only if **every** term is; a product follows the parity rule odd$\times$odd $=$ even, even$\times$odd $=$ odd.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3,3,500)
+fig,ax=plt.subplots(3,1,figsize=(4.8,6.0))
+ax[0].plot(x,x**4-3*x**2,color='#2b6cb0',lw=1.7); ax[0].set_title('x⁴−3x²: EVEN (mirror in the y-axis)',fontsize=8.5)
+ax[1].plot(x,x**3-x,color='#2b6cb0',lw=1.7); ax[1].set_title('x³−x: ODD (180° about the origin)',fontsize=8.5)
+ax[2].plot(x,x**2+x,color='#2b6cb0',lw=1.7); ax[2].set_title('x²+x: NEITHER (no symmetry)',fontsize=8.5)
+for a in ax: a.axhline(0,color='0.6',lw=0.6); a.axvline(0,color='0.7',lw=0.5,ls=':'); a.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 9 — the sign between the roots
+
+Without plotting, give the sign of $y=(x-1)(x+2)(x-3)$ on each interval between its roots.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The roots are $x=-2,1,3$. Test one point in each interval (or track sign changes from the right):
+
+| interval | $x<-2$ | $-2<x<1$ | $1<x<3$ | $x>3$ |
+|---|---|---|---|---|
+| sign of $y$ | $-$ | $+$ | $-$ | $+$ |
+
+The sign flips at **every** simple root; between two consecutive roots it cannot change, so one test point fixes the whole interval.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3.2,4,600); y=(x-1)*(x+2)*(x-3)
+plt.figure(figsize=(5.2,3.0)); plt.plot(x,y,color='#2b6cb0',lw=2)
+for r in (-2,1,3): plt.plot(r,0,'o',color='crimson')
+plt.axhline(0,color='0.6',lw=0.7); plt.grid(alpha=0.25); plt.ylim(-20,20)
+plt.title('(x−1)(x+2)(x−3): sign −, +, −, + across roots −2, 1, 3',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 10 — stationary is not the same as turning
+
+For $y=x+\sin x$: where is $y'=0$, and why does the graph never actually turn downward?
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$y'=1+\cos x=0$ where $\cos x=-1$, i.e. $x=\pi,3\pi,5\pi,\dots$ But $\cos x\ge-1$ means $y'\ge0$ **everywhere**, so the function is non-decreasing. At those points it merely **flattens** (a horizontal point of inflection) and then keeps rising — it is stationary but not a turning point.
+
+A turning point needs $y'$ to actually **change sign**; a point where $y'=0$ but keeps its sign is a flat inflection.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2*np.pi,3*np.pi,700)
+plt.figure(figsize=(5.2,3.0)); plt.plot(x,x+np.sin(x),color='#2b6cb0',lw=2)
+plt.plot(x,x,'0.7',ls='--',lw=0.8,label='y=x')
+for k in [-1,1,3]: plt.plot(k*np.pi,k*np.pi,'o',color='crimson',ms=4)
+plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.axhline(0,color='0.6',lw=0.5); plt.axvline(0,color='0.6',lw=0.5)
+plt.title('y=x+sin x: always rising; flat (not turning) at π, 3π, …',fontsize=8.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 11 — a modulus inside versus outside
+
+Contrast $y=\cos|x|$ and $y=|\cos x|$. Which one is just $\cos x$?
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$\cos|x|=\cos x$ exactly, because $\cos$ is **already even** — putting $|x|$ inside changes nothing. So that one *is* $\cos x$.
+
+$|\cos x|$ is different: it takes $\cos x$ and **flips every below-axis arch upward**, giving a row of positive humps of period $\pi$ that touch $0$ at each odd multiple of $\tfrac\pi2$ and are never negative.
+
+Inside a modulus mirrors the right half into the left (always even); an outside modulus folds the negative parts up.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2*np.pi,2*np.pi,800)
+fig,ax=plt.subplots(2,1,figsize=(5.2,4.6))
+ax[0].plot(x,np.cos(np.abs(x)),color='#2b6cb0',lw=1.7); ax[0].set_title('y=cos|x|  =  cos x   (cos is already even)',fontsize=9)
+ax[1].plot(x,np.abs(np.cos(x)),color='#2b6cb0',lw=1.7); ax[1].set_title('y=|cos x|: arches folded up, period π, never below 0',fontsize=9)
+for a in ax: a.axhline(0,color='0.6',lw=0.6); a.grid(alpha=0.2); a.set_ylim(-1.2,1.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+### Drill 12 — where does the oscillation live?
+
+Describe $y=x^2\sin\dfrac1x$ near $x=0$ and far out, and compare it with $y=\sin\dfrac1x$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$\sin\dfrac1x$ oscillates infinitely fast as $x\to0$ (the inside $\tfrac1x$ blows up) and settles toward $0$ far out. Multiplying by $x^2$ **damps** it hard: since $\left|x^2\sin\dfrac1x\right|\le x^2$, the whole thing is squeezed to $0$ at the origin (still wiggling, but inside a shrinking $\pm x^2$ envelope). Far out, $x^2\sin\tfrac1x\approx x^2\cdot\tfrac1x=x$, so it grows like the line $y=x$.
+
+"Bounded function of a blow-up" tells you *where* it is busy; a multiplying power tells you the wildness there is **tamed**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,2,20000); x=x[np.abs(x)>1e-3]
+fig,ax=plt.subplots(2,1,figsize=(5.2,4.8))
+ax[0].plot(x,np.sin(1/x),color='#2b6cb0',lw=0.6); ax[0].set_title('y=sin(1/x): infinitely busy at 0, calm far out',fontsize=9)
+ax[1].plot(x,x**2*np.sin(1/x),color='#2b6cb0',lw=0.8)
+ax[1].plot(x,x**2,'0.7',lw=0.7,ls='--'); ax[1].plot(x,-x**2,'0.7',lw=0.7,ls='--')
+ax[1].set_title('y=x²sin(1/x): damped to 0 inside the ±x² envelope',fontsize=9)
+for a in ax: a.axhline(0,color='0.6',lw=0.5); a.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+# Solving insights — the techniques to reach for {#solving-insights}
+
+A short catalogue of the tools these graphs reward: *when you see X, reach for Y.* Most appear in the notes
+and drills above; this collects them in one place so you carry them into **any** graph question.
+
+1. **Read the ends by the winning term (dominance).** As $x\to\pm\infty$, the fastest-growing term decides
+   whether $y\to0$ or $y\to\pm\infty$ — usually with no calculus. Use $\ln x\ll x^{k}\ll a^{x}\ll x^{x}$ and,
+   in a quotient, name the winner: winner on the bottom $\Rightarrow0$, winner on top $\Rightarrow\pm\infty$.
+   *(§6)*
+2. **First derivative for the slope's tendency.** $y'>0$ rising, $y'<0$ falling, $y'=0$ stationary. And
+   $y'\ge0$ *everywhere* means the curve only **flattens** at those points, never turning down — a stationary
+   point is not automatically a turning point. *(§3, §5; Drill 10)*
+3. **Squeeze (sandwich) a bounded factor.** If $\lvert f\rvert\le g$ and $g\to0$, then $f\to0$. This is the
+   clean way to tame $x\sin\tfrac1x$ or $x^{2}\sin\tfrac1x$: a **bounded** (often periodic) factor times
+   something that decays is pinned to $0$. *(§4; Drills 3, 12)*
+4. **Approximate near a point.** For small $\theta$, $\sin\theta\approx\theta$ and $e^{\theta}\approx1+\theta$.
+   Near the origin $y\approx a\,x^{b}$, which fixes the leaving direction and, for $b<0$, the side each tail
+   approaches. *(§4; Drills 1, 2)*
+5. **Check symmetry first.** Even ($f(-x)=f(x)$) or odd ($f(-x)=-f(x)$) halves the work and, on a
+   multiple-choice, often eliminates every wrong option in one line. *(§3; Drills 4, 8)*
+6. **Rewrite a disguise before sketching.** A geometric series collapses ($\sum\sin^{2n}x=\tan^{2}x$); a
+   self-power linearises ($x^{x}=e^{x\ln x}$); a squared bracket becomes a modulus. The "unfamiliar" curve is
+   then one you already know. *(§5; Drill 3)*
+7. **Count solutions as intersections; a tangency is the boundary.** Turn $f(x)=g(x)$ into two curves meeting
+   (or one curve $=$ a level line), **bound** where they can meet, and count crossings. The count changes
+   exactly where the curves are tangent (a repeated root). *(§7; Drill 5)*
+8. **Tell an asymptote from a hole.** A zero of the denominator that **survives** cancellation is a vertical
+   asymptote; a factor that **cancels** leaves a single missing point (a hole). Decide the sign on each side of
+   an asymptote separately. *(§1, §2; Drills 6, 7)*
+9. **Modulus: inside mirrors, outside folds.** $f(\lvert x\rvert)$ copies the right half to the left (always
+   even); $\lvert f(x)\rvert$ flips the below-axis part up (never negative). *(§5; Drill 11)*
+10. **A bounded rational hump has a genuine max/min.** When the denominator never vanishes, the curve is
+    bounded; pin the extreme value with $y'=0$, or by treating $y$ as a parameter and forcing the equation in
+    $x$ to have a real root (discriminant $\ge0$). *(§3, §5; Drill 4)*

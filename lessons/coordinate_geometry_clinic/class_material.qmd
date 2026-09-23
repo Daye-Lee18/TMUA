@@ -1,0 +1,1199 @@
+---
+title: "Coordinate Geometry Clinic"
+subtitle: "Straight lines and circles — the in-spec MM3 toolkit, built from real TMUA questions"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+This is the **in-spec** coordinate-geometry bank. The TMUA specification (MM3) covers exactly two objects:
+**straight lines** (MM3.1) and **circles** (MM3.2 equations, MM3.3 properties) — nothing parametric, no general
+loci. Questions are grouped so that **everything using the same idea sits together**: work straight down and
+each one reuses the move you have just practised.
+
+The anchor is **Q2 — the "normal to a curve" question you left in the 2018 paper**, and **Q3 is the same trap
+two years earlier.** Those two are the highest-value drills on the page.
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM3 Coordinate Geometry</div>
+<div class="fs-title">Lines &amp; Circles — Exam Skim Sheet</div>
+<div class="fs-sub">Everything the questions below need. Read it first; come back to it whenever a question stalls.</div>
+::::
+
+## Lines, circles, and where a point sits
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · Straight line
+$y-y_1=m(x-x_1)$, or $ax+by+c=0$.
+
+- gradient $m=\dfrac{y_2-y_1}{x_2-x_1}$
+- parallel $\Rightarrow m_1=m_2$; perpendicular $\Rightarrow m_1m_2=-1$
+- midpoint $\left(\dfrac{x_1+x_2}{2},\dfrac{y_1+y_2}{2}\right)$
+
+[Perpendicular bisector = through the midpoint, gradient $-1/m$.]{.eg}
+:::
+
+::: {.fs-card}
+### 2 · Circle
+$(x-a)^2+(y-b)^2=r^2$ → centre $(a,b)$, radius $r$.
+
+Expanded $x^2+y^2+2gx+2fy+c=0$ → centre $(-g,-f)$, $r^2=g^2+f^2-c$.
+
+[A **real** circle needs $r^2>0$ — that is where "find the values of $p$" questions come from.]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · Where is a point?
+**vs a line** $ax+by+c=0$: substitute. $=0$ → **on** the line; $\ne0$ → **off** it. (No discriminant — it is not a quadratic.)
+
+**vs a circle**: compare the distance from the **centre** with $r$ — less → inside, equal → on, greater → outside.
+:::
+
+::: {.fs-card}
+### 4 · The two distances
+Point to point: $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$.
+
+Point $(x_1,y_1)$ to line $ax+by+c=0$:
+$$d=\frac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^2+b^2}}$$
+
+[This second one does most of the work on circle–line questions.]{.eg}
+:::
+
+::::
+
+## Line meets circle — two ways to count the points
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 5 · Geometric (fast)
+Compare $d$ = distance from the **centre to the line** with the radius $r$:
+
+| Test | Points |
+|---|---|
+| $d<r$ | **2** |
+| $d=r$ | **1** (tangent) |
+| $d>r$ | **0** |
+
+[Far less algebra — use this one in the exam unless the question forces the other.]{.eg}
+:::
+
+::: {.fs-card}
+### 6 · Algebraic (discriminant)
+Substitute the line into the circle → a **quadratic in $x$**. Then:
+
+| Test | Points |
+|---|---|
+| $D>0$ | **2** |
+| $D=0$ | **1** (tangent) |
+| $D<0$ | **0** |
+
+[Works even when the centre is not the origin — just expand and collect.]{.eg}
+:::
+
+::: {.fs-card}
+### 7 · Tangent condition
+$y=mx+c$ is a tangent to $x^2+y^2=a^2$ **exactly when**
+$$c^2=a^2\bigl(1+m^2\bigr).$$
+
+[It is nothing but $d=r$, squared.]{.eg}
+:::
+
+::::
+
+## Two circles — the whole picture
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 8 · Counting by distance
+Centres $d$ apart, radii $r_1\ge r_2$:
+
+| Situation | Test | Points |
+|---|---|---|
+| Separate | $d>r_1+r_2$ | 0 |
+| Touch externally | $d=r_1+r_2$ | 1 |
+| Overlap | $r_1-r_2<d<r_1+r_2$ | 2 |
+| Touch internally | $d=r_1-r_2$ | 1 |
+| One inside the other | $d<r_1-r_2$ | 0 |
+
+[Identical circles ($d=0$, $r_1=r_2$): infinitely many.]{.eg}
+:::
+
+::: {.fs-card}
+### 9 · Counting algebraically
+**Subtract** the two circle equations: $x^2$ and $y^2$ cancel, leaving a **line** — the **common chord**
+(radical axis). Substitute that line into either circle and read $D$: $D>0,\,=0,\,<0$ → 2, 1, 0 points.
+
+[For **equal radii** the common chord is the perpendicular bisector of the centres.]{.eg}
+:::
+
+::: {.fs-card}
+### 10 · Distances between circles
+For two **separate** circles:
+
+- shortest gap $=d-r_1-r_2$
+- greatest distance between a point on each $=d+r_1+r_2$
+:::
+
+::: {.fs-card}
+### 11 · MM3.3 circle facts
+- the perpendicular from the centre **bisects a chord**
+- a tangent is **perpendicular to the radius** at the point of contact
+- the angle in a **semicircle** is a right angle
+
+[Half-chord, radius and centre-distance form a right triangle — Pythagoras finishes it.]{.eg}
+:::
+
+::::
+
+:::::
+
+**On this page:** 1. Straight lines · 2. One circle · 3. Where is the point · 4. Line meets circle ·
+5. Two circles — how many points · 6. Distances between circles · 7. The common chord · 8. Common tangents &
+harder. Every answer — and its diagram — is in a collapsible **Solution**; try each
+with the **Working** box first, and **state your answer in the form the question asks for**.
+
+---
+
+# 1 · Straight lines
+
+### Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P1 Q3</span>
+
+::: {.question}
+The perpendicular bisector of the line segment joining the points $(2,6)$ and $(5,4)$ cuts the $x$-axis at the
+point with $x$-coordinate equal to what? *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(perpendicular bisector → line → x-intercept)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — midpoint + perpendicular gradient, then set $y=0$
+:::
+
+**Answer form: an exact number. Answer: $x=\dfrac16$.**
+
+*The bisector passes through the midpoint, so find that first.* Midpoint $M=\left(\tfrac72,5\right)$.
+*Its gradient is the negative reciprocal of the segment's, because the bisector is perpendicular.* Segment
+gradient $=\dfrac{4-6}{5-2}=-\dfrac23$, so the bisector has gradient $\dfrac32$.
+
+Line: $y-5=\dfrac32\left(x-\tfrac72\right)$. *Set $y=0$ to meet the $x$-axis.*
+$-5=\dfrac32\left(x-\tfrac72\right)\Rightarrow x-\tfrac72=-\tfrac{10}{3}\Rightarrow x=\tfrac72-\tfrac{10}{3}=\dfrac16.$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+P=np.array([2,6]); Q=np.array([5,4]); M=(P+Q)/2
+xs=np.linspace(-1,7,50)
+plt.figure(figsize=(4.2,3.0))
+plt.plot([P[0],Q[0]],[P[1],Q[1]],'k',lw=1.6,marker='o',ms=4)
+plt.plot(xs,5+1.5*(xs-3.5),color='crimson',lw=1.3,ls='--')
+plt.plot(*M,'o',color='#2b6cb0',ms=5); plt.plot(1/6,0,'o',color='crimson',ms=5)
+plt.annotate('(2, 6)',P,textcoords='offset points',xytext=(6,4))
+plt.annotate('(5, 4)',Q,textcoords='offset points',xytext=(6,-2))
+plt.annotate('M',M,textcoords='offset points',xytext=(-12,2),color='#2b6cb0')
+plt.annotate('x = 1/6',(1/6,0),textcoords='offset points',xytext=(6,-12),color='crimson',fontsize=8)
+plt.axhline(0,color='0.6',lw=0.8); plt.axvline(0,color='0.6',lw=0.8)
+plt.xlim(-1,7); plt.ylim(-2,8); plt.grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 2 · the anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P1 Q11</span> {#anchor}
+
+::: {.question}
+The line $y=mx+5$, where $m>0$, is **normal** to the curve $y=10-x^2$ at the point $(p,q)$. What is the value
+of $p$? *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(differentiate → perpendicular gradient → solve)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — normal gradient $=-1/(\text{tangent gradient})$, then use "point lies on both"
+:::
+
+**Answer form: an exact value. Answer: $p=\dfrac{3\sqrt2}{2}$.**
+
+*The line's gradient $m$ is the normal gradient, so it is the negative reciprocal of the tangent gradient.*
+$\dfrac{dy}{dx}=-2x$, so at $x=p$ the tangent gradient is $-2p$ and the normal gradient is $m=\dfrac{1}{2p}$.
+
+*The point $(p,q)$ lies on the line, so its $y$-value from the line must match its $y$-value from the curve.*
+On the line, $q=mp+5=\dfrac{1}{2p}\cdot p+5=\dfrac12+5=\dfrac{11}{2}$. On the curve, $q=10-p^2$. Hence
+$10-p^2=\dfrac{11}{2}\Rightarrow p^2=\dfrac92\Rightarrow p=\dfrac{3}{\sqrt2}=\dfrac{3\sqrt2}{2}$
+*(take the positive root because $m=\tfrac1{2p}>0$ forces $p>0$).*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-4,4,400); p=3*np.sqrt(2)/2; m=1/(2*p)
+plt.figure(figsize=(4.2,3.0))
+plt.plot(x,10-x**2,color='#2b6cb0',lw=1.6,label=r'$y=10-x^2$')
+plt.plot(x,m*x+5,color='crimson',lw=1.3,ls='--',label=r'$y=mx+5$ (normal)')
+plt.plot(p,10-p**2,'ko',ms=5)
+plt.annotate('(p, q)',(p,10-p**2),textcoords='offset points',xytext=(6,4),fontsize=8)
+plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.ylim(-4,12); plt.xlim(-4,4); plt.legend(fontsize=8,loc='lower center')
+plt.grid(alpha=0.2); plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note appearance="simple"}
+This is the exact 2018 Paper 1 Q11 you left blank. The trap is doing the calculus and then forgetting that
+$(p,q)$ has to satisfy **both** equations — that second line is the whole question.
+:::
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 3 · the same trap, two years earlier &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q3</span>
+
+::: {.question}
+A line is drawn **normal** to the curve $y=\dfrac{2}{x^2}$ at the point where $x=1$. This line cuts the $x$-axis
+at $P$ and the $y$-axis at $Q$. Find the length $PQ$. *(Give an exact surd.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(exactly the same method as Q2 — differentiate, flip, then use both intercepts)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — normal gradient $=-1/(\text{tangent gradient})$; then find the two axis intercepts and use Pythagoras
+:::
+
+**Answer form: an exact surd. Answer: $PQ=\dfrac{7\sqrt{17}}{4}$.**
+
+*Differentiate to get the tangent gradient at $x=1$.* $y=2x^{-2}\Rightarrow\dfrac{dy}{dx}=-4x^{-3}$, so at $x=1$ the
+tangent gradient is $-4$ and the **normal** gradient is $\dfrac14$. The point is $(1,2)$.
+
+*Write the normal, then read off both intercepts.* Normal: $y-2=\dfrac14(x-1)$, i.e. $y=\dfrac14x+\dfrac74$.
+Setting $y=0$ gives $P=(-7,0)$; setting $x=0$ gives $Q=\left(0,\dfrac74\right)$. *Then Pythagoras on the right
+triangle $OPQ$:* $PQ=\sqrt{7^2+\left(\tfrac74\right)^2}=\sqrt{\dfrac{784+49}{16}}=\dfrac{\sqrt{833}}{4}=\dfrac{7\sqrt{17}}{4}.$
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0.35,3,300)
+plt.figure(figsize=(4.2,3.0))
+plt.plot(x,2/x**2,color='#2b6cb0',lw=1.6,label=r'$y=2/x^2$')
+xs=np.linspace(-8,3,50); plt.plot(xs,0.25*xs+7/4,color='crimson',lw=1.3,ls='--',label='normal at (1,2)')
+plt.plot(1,2,'ko',ms=4); plt.plot(-7,0,'o',color='crimson',ms=5); plt.plot(0,7/4,'o',color='crimson',ms=5)
+plt.annotate('P(−7,0)',(-7,0),textcoords='offset points',xytext=(2,-12),fontsize=8)
+plt.annotate('Q(0,7/4)',(0,7/4),textcoords='offset points',xytext=(4,4),fontsize=8)
+plt.axhline(0,color='0.6',lw=0.7); plt.axvline(0,color='0.6',lw=0.7)
+plt.xlim(-8,3.2); plt.ylim(-1,6); plt.legend(fontsize=8,loc='upper right')
+plt.grid(alpha=0.2); plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note appearance="simple"}
+You also got this one wrong (2016 Paper 1 Q3). Same skill as Q2 — the "normal to a curve" pattern has now cost
+you twice, so this is the single highest-value drill on the page. Do Q2 and Q3 until the sequence
+*(differentiate → flip the gradient → use the point / the intercepts)* is automatic.
+:::
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+# 2 · One circle — equation, centre, radius
+
+### Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P1 Q2</span>
+
+::: {.question}
+Find the complete set of values of $p$ for which
+$$x^2-2px+y^2-6y-p^2+8p+9=0$$
+describes a **circle** in the $x$–$y$ plane. *(Give your answer as an inequality / set of values of $p$.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(complete the square → radius$^2>0$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — a real circle needs $r^2>0$
+:::
+
+**Answer form: an inequality. Answer: $p<0$ or $p>4$.**
+
+*Complete the square in $x$ and $y$ to read off $r^2$.*
+$(x-p)^2-p^2+(y-3)^2-9-p^2+8p+9=0$, so
+$$(x-p)^2+(y-3)^2=2p^2-8p=2p(p-4).$$
+*This is a genuine circle only when the right-hand side (which is $r^2$) is strictly positive.*
+$2p(p-4)>0\Rightarrow p<0\ \text{or}\ p>4.$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# 3 · Where is the point?
+
+::: {.callout-tip}
+## The two position tests — don't mix them up
+
+A **point against a line** is *not* a quadratic, so there is no discriminant: just **substitute** and see
+whether you get $0$. A **point against a circle** is a **distance** comparison against $r$. (Card 3 above.)
+:::
+
+### Question 5
+
+::: {.question}
+Determine whether each point lies **on** the line $2x+5y+4=0$:
+&nbsp;&nbsp;(a) $(3,-2)$ &nbsp;&nbsp;&nbsp; (b) $(1,1)$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute — no discriminant needed)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — point vs line: substitute into $ax+by+c$ and test against $0$
+:::
+
+**Answer form: on / not on. Answer: (a) on the line; (b) not on the line.**
+
+*A point lies on a line exactly when its coordinates satisfy the equation — nothing more.*
+
+- (a) $2(3)+5(-2)+4=6-10+4=0$ → **on** the line.
+- (b) $2(1)+5(1)+4=11\neq0$ → **not** on the line.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+The circle $C$ has equation $x^2+y^2-4x+2y-20=0$. For each point, state whether it lies **inside**, **on**, or
+**outside** $C$: &nbsp;(a) $(6,2)$ &nbsp;&nbsp; (b) $(0,0)$ &nbsp;&nbsp; (c) $(7,3)$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(centre and radius first, then three distances)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — point vs circle: compare the distance from the centre with $r$
+:::
+
+**Answer form: inside / on / outside. Answer: (a) on · (b) inside · (c) outside.**
+
+*Complete the square:* $(x-2)^2+(y+1)^2=20+4+1=25$, so the centre is $(2,-1)$ and $r=5$.
+
+- (a) $(6,2)$: $\sqrt{4^2+3^2}=5=r$ → **on** the circle.
+- (b) $(0,0)$: $\sqrt{2^2+1^2}=\sqrt5<5$ → **inside**.
+- (c) $(7,3)$: $\sqrt{5^2+4^2}=\sqrt{41}>5$ → **outside**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.0,3.4))
+plt.plot(2+5*np.cos(th),-1+5*np.sin(th),color='#2b6cb0',lw=1.6)
+plt.plot(2,-1,'k+',ms=9)
+for p,lab,col in [((6,2),'(6,2) on','crimson'),((0,0),'(0,0) inside','green'),((7,3),'(7,3) outside','purple')]:
+    plt.plot(*p,'o',color=col,ms=5); plt.annotate(lab,p,textcoords='offset points',xytext=(6,4),fontsize=8,color=col)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# 4 · Line meets circle — how many points?
+
+::: {.callout-tip}
+## Two routes to the same count
+
+**Geometric:** $d$ (centre → line) vs $r$: $d<r$ two, $d=r$ tangent, $d>r$ none.
+**Algebraic:** substitute → quadratic → $D>0$ two, $D=0$ tangent, $D<0$ none.
+Q7 does one question **both ways** so you can see they always agree; after that, use whichever is shorter.
+:::
+
+### Question 7
+
+::: {.question}
+Find the number of points where the line $y=x+1$ meets the circle $x^2+y^2=4$, using **(a)** the discriminant
+and **(b)** the distance from the centre. *(Give a number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the two methods must agree — they are the same statement)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — discriminant vs perpendicular distance: two ways to count intersections
+:::
+
+**Answer form: a number. Answer: $2$ points.**
+
+**(a) Discriminant.** *Substitute the line into the circle to get a quadratic in $x$.*
+$x^2+(x+1)^2=4\Rightarrow2x^2+2x-3=0$, and $D=2^2-4(2)(-3)=4+24=28>0$ → **two** points.
+
+**(b) Distance.** *Write the line as $x-y+1=0$ and measure from the centre $(0,0)$.*
+$d=\dfrac{\lvert0-0+1\rvert}{\sqrt{1^2+(-1)^2}}=\dfrac{1}{\sqrt2}\approx0.71$, and $r=2$. Since $d<r$ → **two**
+points. *Same answer, a third of the algebra.*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.0,3.4))
+plt.plot(2*np.cos(th),2*np.sin(th),color='#2b6cb0',lw=1.6)
+xs=np.linspace(-3,3,50); plt.plot(xs,xs+1,color='crimson',lw=1.3)
+xr=np.roots([2,2,-3])
+for xv in xr: plt.plot(xv,xv+1,'ko',ms=5)
+plt.plot([0,-0.5],[0,0.5],color='green',ls=':',lw=1.2)
+plt.annotate('d < r',(-0.45,0.28),fontsize=8,color='green')
+plt.plot(0,0,'k+',ms=8)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.25); plt.xlim(-3,3); plt.ylim(-3,3.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 8
+
+::: {.question}
+Find the values of $k$ for which the line $y=2x+k$ is a **tangent** to the circle $x^2+y^2=5$. *(Give exact
+values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(tangent = the boundary case, so $d=r$ or $D=0$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — tangency is $d=r$ (or $D=0$); both give the same $k$
+:::
+
+**Answer form: exact values. Answer: $k=\pm5$.**
+
+**Distance route.** Line $2x-y+k=0$; $d=\dfrac{\lvert k\rvert}{\sqrt5}$. Set $d=r=\sqrt5$:
+$\dfrac{\lvert k\rvert}{\sqrt5}=\sqrt5\Rightarrow\lvert k\rvert=5$, so $k=\pm5$.
+
+**Discriminant route.** $x^2+(2x+k)^2=5\Rightarrow5x^2+4kx+(k^2-5)=0$, and
+$D=16k^2-20(k^2-5)=100-4k^2$. *Tangency needs $D=0$:* $k^2=25\Rightarrow k=\pm5$. *Same pair.*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · Q17</span>
+
+::: {.question}
+Which condition on $m,c,a$ is **necessary and sufficient** for the line $y=mx+c$ to be a tangent to the circle
+$x^2+y^2=a^2$ (with $a>0$)? *(Give the condition as an equation.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(perpendicular distance from the centre $=r$, then square)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — "tangent ⇔ distance from centre equals the radius" — the general form of Q8
+:::
+
+**Answer form: an equation. Answer: $c^2=a^2(1+m^2)$.**
+
+*A line is tangent exactly when the perpendicular distance from the centre to the line equals the radius.*
+Write the line as $mx-y+c=0$; the distance from the origin is $\dfrac{\lvert c\rvert}{\sqrt{m^2+1}}$. Setting
+this equal to $a$ and squaring, $c^2=a^2(m^2+1)$. *Squaring loses no solutions here because both sides are
+non-negative, so the condition is both necessary and sufficient.*
+
+*Check it against Q8:* there $a^2=5$, $m=2$, so $c^2=5(1+4)=25\Rightarrow c=\pm5$ ✓.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 10
+
+::: {.question}
+The line $y=x+c$ meets the circle $(x-3)^2+(y+1)^2=8$ at **two distinct points**. Find the set of values of $c$.
+*(Give an inequality.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(two points ⇔ $d<r$ — an inequality, not an equation)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — turn "two distinct points" into $d<r$ and solve the modulus inequality
+:::
+
+**Answer form: an inequality. Answer: $-8<c<0$.**
+
+*Centre $(3,-1)$, $r=\sqrt8=2\sqrt2$. Write the line as $x-y+c=0$ and measure from the centre:*
+$$d=\frac{\lvert3-(-1)+c\rvert}{\sqrt{1^2+(-1)^2}}=\frac{\lvert4+c\rvert}{\sqrt2}.$$
+*Two distinct points needs $d<r$:* $\dfrac{\lvert4+c\rvert}{\sqrt2}<2\sqrt2\Rightarrow\lvert4+c\rvert<4$, i.e.
+$-4<4+c<4$, giving $-8<c<0$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+# 5 · Two circles — how many points?
+
+::: {.callout-tip}
+## The one test that answers every "two circles" question
+
+With centres $d$ apart and radii $r_1\ge r_2$, compare $d$ with **$r_1+r_2$** and **$r_1-r_2$**:
+
+$$d>r_1+r_2:\,0\quad\;d=r_1+r_2:\,1\ (\text{external})\quad\;r_1-r_2<d<r_1+r_2:\,2\quad\;d=r_1-r_2:\,1\ (\text{internal})\quad\;d<r_1-r_2:\,0$$
+
+Notice it is the **triangle inequality**: two intersection points exist exactly when $d,r_1,r_2$ could be the
+sides of a triangle. Q11–Q15 walk through every row of that list in turn.
+:::
+
+### Question 11
+
+::: {.question}
+For each pair of circles, state **how many points** they have in common.
+&nbsp;&nbsp;(a) centres $5$ apart, radii $2$ and $3$
+&nbsp;&nbsp;(b) centres $1$ apart, radii $2$ and $5$
+&nbsp;&nbsp;(c) centres $4$ apart, radii $2$ and $3$
+&nbsp;&nbsp;(d) centres $3$ apart, radii $1$ and $4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(each part is one row of the table)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — compare $d$ with $r_1+r_2$ and $r_1-r_2$
+:::
+
+**Answer form: numbers. Answer: (a) 1 · (b) 0 · (c) 2 · (d) 1.**
+
+- **(a)** $r_1+r_2=5=d$ → they **touch externally**: **1** point.
+- **(b)** $r_1-r_2=3$ and $d=1<3$ → the small circle is **inside** the big one: **0** points.
+- **(c)** $r_1-r_2=1<d=4<5=r_1+r_2$ → they **overlap**: **2** points.
+- **(d)** $r_1-r_2=3=d$ → they **touch internally**: **1** point.
+
+*Only (c) satisfies the triangle inequality strictly, and only (c) gives two points.*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+cases=[(5,2,3,'(a) d=5  →  1'),(1,2,5,'(b) d=1  →  0'),(4,2,3,'(c) d=4  →  2'),(3,1,4,'(d) d=3  →  1')]
+fig,ax=plt.subplots(2,2,figsize=(6.2,5.6))
+for a,(d,r1,r2,lab) in zip(ax.ravel(),cases):
+    a.plot(r1*np.cos(th),r1*np.sin(th),color='#2b6cb0',lw=1.4)
+    a.plot(d+r2*np.cos(th),r2*np.sin(th),color='crimson',lw=1.4)
+    a.plot([0,d],[0,0],'k:',lw=1); a.plot(0,0,'k+'); a.plot(d,0,'k+')
+    a.set_aspect('equal'); a.set_title(lab,fontsize=9); a.axis('off')
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 12
+
+::: {.question}
+How many points do the circles $x^2+y^2=9$ and $(x-4)^2+y^2=4$ have in common? *(Give a number, with a
+reason.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(read off the centres and radii, then one comparison)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the same test as Q11, now starting from equations
+:::
+
+**Answer form: a number. Answer: $2$ points.**
+
+Centres $(0,0)$ and $(4,0)$, so $d=4$; radii $r_1=3$, $r_2=2$. *Compare:* $r_1+r_2=5$ and $r_1-r_2=1$. Since
+$1<4<5$, the circles **overlap in two points**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P1 Q6</span>
+
+::: {.question}
+The circles $(x+4)^2+(y+1)^2=64$ and $(x-8)^2+(y-4)^2=r^2$ (with $r>0$) have **exactly one** point in common.
+Find the difference between the two possible values of $r$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*("exactly one" has two cases — external and internal)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — one common point means $d=r_1+r_2$ **or** $d=\lvert r_1-r_2\rvert$
+:::
+
+**Answer form: a number. Answer: $16$.**
+
+Centres $(-4,-1),(8,4)$; first radius $8$. *Centre distance:* $d=\sqrt{12^2+5^2}=13$. *One common point means
+the circles touch — and there are two ways to touch.* External: $r+8=13\Rightarrow r=5$.
+Internal: $\lvert r-8\rvert=13\Rightarrow r=21$ (rejecting $r=-5$). Difference $=21-5=16$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.4,3.4))
+plt.plot(-4+8*np.cos(th),-1+8*np.sin(th),color='#2b6cb0',lw=1.6,label='R = 8')
+plt.plot(8+5*np.cos(th),4+5*np.sin(th),color='crimson',lw=1.2,ls='--',label='r = 5 (external)')
+plt.plot(8+21*np.cos(th),4+21*np.sin(th),color='0.6',lw=1.0,ls='--',label='r = 21 (internal)')
+plt.plot([-4,8],[-1,4],'k:',lw=1); plt.plot(-4,-1,'k+'); plt.plot(8,4,'k+')
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2); plt.legend(fontsize=7)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 14
+
+::: {.question}
+The circle $x^2+y^2=36$ and the circle with centre $(3,4)$ and radius $r$ **touch internally**. Find the
+possible values of $r$. *(Give exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(internal touch is $d=\lvert r_1-r_2\rvert$ — and it has two solutions)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — internal tangency: the second circle can be the small one **or** the containing one
+:::
+
+**Answer form: exact values. Answer: $r=1$ and $r=11$.**
+
+*The centre distance is $d=\sqrt{3^2+4^2}=5$, and the first radius is $6$. Internal tangency means
+$d=\lvert r_1-r_2\rvert$:*
+$$\lvert 6-r\rvert=5\Rightarrow 6-r=5\ \text{or}\ 6-r=-5\Rightarrow r=1\ \text{or}\ r=11.$$
+*Both are genuine: $r=1$ is a small circle sitting inside and touching, $r=11$ is a big circle containing the
+first and touching it from outside-in.* (External tangency would need $6+r=5$, impossible for $r>0$.)
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · Q19</span>
+
+::: {.question}
+The two circles $x^2+y^2-4x+12y+4=0$ and $x^2+y^2=a^2$ (with $a>0$) touch each other **externally**. Find the
+value of $a$. *(Give an exact surd.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(external touch ⇒ $d=r_1+r_2$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — put the first circle in centre–radius form, then apply the external-tangency test
+:::
+
+**Answer form: an exact surd. Answer: $a=2\sqrt{10}-6$.**
+
+*Complete the square on the first circle to read its centre and radius.*
+$x^2-4x+y^2+12y+4=0\Rightarrow(x-2)^2+(y+6)^2=36$, centre $(2,-6)$, radius $6$. The second circle has centre
+$O$, radius $a$. *External tangency means the centre distance equals the sum of the radii.*
+$d=\sqrt{2^2+6^2}=\sqrt{40}=2\sqrt{10}$, so $2\sqrt{10}=6+a\Rightarrow a=2\sqrt{10}-6$ *(positive, as required).*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300); a=2*np.sqrt(10)-6
+plt.figure(figsize=(4.0,3.4))
+plt.plot(2+6*np.cos(th),-6+6*np.sin(th),color='#2b6cb0',lw=1.5)
+plt.plot(a*np.cos(th),a*np.sin(th),color='crimson',lw=1.5)
+plt.plot([0,2],[0,-6],'k:',lw=1); plt.plot(2,-6,'k+'); plt.plot(0,0,'k+')
+plt.annotate('(2,−6), r=6',(2,-6),textcoords='offset points',xytext=(4,-4),fontsize=8)
+plt.annotate('O, r=a',(0,0),textcoords='offset points',xytext=(4,4),fontsize=8)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# 6 · Distances between two circles
+
+### Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P1 Q3</span>
+
+::: {.question}
+Find the shortest distance between the two circles
+$$(x+2)^2+(y-3)^2=18\qquad\text{and}\qquad(x-7)^2+(y+6)^2=2.$$
+*(Give an exact surd.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(centre distance minus both radii)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — shortest distance $=d-r_1-r_2$ (once you check they are separate)
+:::
+
+**Answer form: an exact surd. Answer: $5\sqrt2$.**
+
+Centres $(-2,3),(7,-6)$; radii $\sqrt{18}=3\sqrt2$ and $\sqrt2$. *Distance between centres:*
+$d=\sqrt{9^2+9^2}=\sqrt{162}=9\sqrt2$. *Since $d=9\sqrt2>3\sqrt2+\sqrt2=4\sqrt2$ the circles are separate,*
+so the shortest gap is $d-r_1-r_2=9\sqrt2-3\sqrt2-\sqrt2=5\sqrt2$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.4,3.2))
+plt.plot(-2+np.sqrt(18)*np.cos(th),3+np.sqrt(18)*np.sin(th),color='#2b6cb0',lw=1.6)
+plt.plot(7+np.sqrt(2)*np.cos(th),-6+np.sqrt(2)*np.sin(th),color='crimson',lw=1.6)
+plt.plot([-2,7],[3,-6],'0.5',ls=':',lw=1); plt.plot(-2,3,'k+'); plt.plot(7,-6,'k+')
+plt.annotate('C₁ (−2,3)',(-2,3),textcoords='offset points',xytext=(-8,8),fontsize=8)
+plt.annotate('C₂ (7,−6)',(7,-6),textcoords='offset points',xytext=(-6,-14),fontsize=8)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P1 Q13</span>
+
+::: {.question}
+Point $P$ lies on the circle $(x-2)^2+(y-1)^2=16$ and point $Q$ lies on the circle $(x-4)^2+(y+5)^2=16$. What
+is the **maximum** possible length of $PQ$? *(Give an exact surd.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(greatest distance $=d+r_1+r_2$ — the mirror of Q16)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — push both points to the far ends of the line of centres
+:::
+
+**Answer form: an exact surd. Answer: $8+2\sqrt{10}$.**
+
+*The two points are farthest apart when both lie on the line of centres, on the outer sides — so add both radii
+to the centre distance.* Both radii are $4$. Centre distance
+$d=\sqrt{(4-2)^2+(-5-1)^2}=\sqrt{4+36}=\sqrt{40}=2\sqrt{10}$. Maximum $PQ=d+r_1+r_2=2\sqrt{10}+8$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.2,3.4))
+plt.plot(2+4*np.cos(th),1+4*np.sin(th),color='#2b6cb0',lw=1.6)
+plt.plot(4+4*np.cos(th),-5+4*np.sin(th),color='crimson',lw=1.6)
+plt.plot([2,4],[1,-5],'0.5',ls=':'); plt.plot(2,1,'k+'); plt.plot(4,-5,'k+')
+u=np.array([4-2,-5-1]); u=u/np.linalg.norm(u)
+P=np.array([2,1])-4*u; Q=np.array([4,-5])+4*u
+plt.plot([P[0],Q[0]],[P[1],Q[1]],'k',lw=1.8)
+plt.annotate('P',P,textcoords='offset points',xytext=(-12,2),fontsize=8)
+plt.annotate('Q',Q,textcoords='offset points',xytext=(6,-6),fontsize=8)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+# 7 · The common chord (radical axis)
+
+### Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q1</span>
+
+::: {.question}
+Two circles have the **same radius**. The centre of one is $(-2,1)$ and the centre of the other is $(3,-2)$;
+they intersect at two distinct points. Find the equation of the straight line through the two intersection
+points. *(Give the equation in the form $ax+by=c$.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(equal radii → the shortcut; subtracting → the general method)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the line through both intersections is the radical axis; for equal radii it is the perpendicular bisector of the centres
+:::
+
+**Answer form: $ax+by=c$. Answer: $5x-3y=4$.**
+
+*Fast route: with equal radii the common chord is the perpendicular bisector of the segment joining the
+centres.* Midpoint $\left(\tfrac12,-\tfrac12\right)$; the centre-line gradient is $\dfrac{-2-1}{3+2}=-\dfrac35$,
+so the chord has gradient $\dfrac53$. Line: $y+\tfrac12=\dfrac53\!\left(x-\tfrac12\right)$, i.e.
+$3y+\tfrac32=5x-\tfrac52\Rightarrow5x-3y=4$.
+
+*General route (any radii): subtract the two circle equations — the $x^2$ and $y^2$ terms cancel and a straight
+line is left.* Here both circles share $r^2$, so subtracting gives the same $5x-3y=4$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300); r=3.2
+plt.figure(figsize=(4.2,3.4))
+plt.plot(-2+r*np.cos(th),1+r*np.sin(th),color='#2b6cb0',lw=1.4)
+plt.plot(3+r*np.cos(th),-2+r*np.sin(th),color='crimson',lw=1.4)
+xs=np.linspace(-1,3,50); plt.plot(xs,(5*xs-4)/3,color='green',lw=1.4)
+plt.plot([-2,3],[1,-2],'0.5',ls=':'); plt.plot(-2,1,'k+'); plt.plot(3,-2,'k+')
+plt.annotate('5x − 3y = 4',(2.2,2.0),fontsize=8,color='green')
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 19
+
+::: {.question}
+The circles $x^2+y^2=10$ and $x^2+y^2-4x-2y=0$ intersect. Find the equation of their common chord, and hence
+the coordinates of the two intersection points.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(subtract → a line → substitute back → a quadratic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the full algebraic method: common chord, then substitute and solve
+:::
+
+**Answer form: a line and two points. Answer: $2x+y=5$; the points are $(1,3)$ and $(3,-1)$.**
+
+*Subtract the two equations — the $x^2$ and $y^2$ vanish, leaving the common chord:*
+$$\bigl(x^2+y^2-10\bigr)-\bigl(x^2+y^2-4x-2y\bigr)=0\Rightarrow4x+2y-10=0\Rightarrow2x+y=5.$$
+
+*Now substitute $y=5-2x$ into the first circle:*
+$$x^2+(5-2x)^2=10\Rightarrow5x^2-20x+15=0\Rightarrow x^2-4x+3=0\Rightarrow x=1,\,3.$$
+*Its discriminant is $16-12=4>0$, confirming two points.* The points are $(1,3)$ and $(3,-1)$ — both satisfy
+each original equation.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.2,3.4))
+plt.plot(np.sqrt(10)*np.cos(th),np.sqrt(10)*np.sin(th),color='#2b6cb0',lw=1.5)
+plt.plot(2+np.sqrt(5)*np.cos(th),1+np.sqrt(5)*np.sin(th),color='crimson',lw=1.5)
+xs=np.linspace(-1,4,50); plt.plot(xs,5-2*xs,color='green',lw=1.4)
+for p in [(1,3),(3,-1)]: plt.plot(*p,'ko',ms=5)
+plt.annotate('(1,3)',(1,3),textcoords='offset points',xytext=(6,4),fontsize=8)
+plt.annotate('(3,−1)',(3,-1),textcoords='offset points',xytext=(6,-10),fontsize=8)
+plt.annotate('2x + y = 5',(3.2,-2.4),fontsize=8,color='green')
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+# 8 · Common tangents & harder
+
+### Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P1 Q16</span>
+
+::: {.question}
+Circle $C_1$ is $(x+2)^2+(y-1)^2=3$ and $C_2$ is $(x-4)^2+(y-1)^2=3$. The straight line $\ell$ is a tangent to
+**both** circles and has **positive** gradient. The acute angle between $\ell$ and the $x$-axis is $\theta$.
+Find $\tan\theta$. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(equal radii pin the tangent down; then distance $=r$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — equal circles: a crossing tangent passes through the **midpoint** of the centres; then set its distance to a centre equal to $r$
+:::
+
+**Answer form: an exact value. Answer: $\tan\theta=\dfrac{\sqrt2}{2}$.**
+
+*Two facts come free from the circles having **equal radii**:*
+
+1. **the crossing (internal) common tangents pass through the midpoint of $C_1C_2$** — by symmetry, the
+   tangent must be equidistant from both centres, and for equal radii that forces it through the midpoint;
+2. **the two arms make equal angles with the line of centres**, so their gradients have equal magnitude — here
+   $\pm m$, and the question picks the positive one.
+
+The centres are $(-2,1)$ and $(4,1)$, so the midpoint is $(1,1)$. Write the tangent as $y-1=m(x-1)$, i.e.
+$mx-y+(1-m)=0$. *Its distance to a centre, say $(4,1)$, must equal the radius $\sqrt3$:*
+$$\frac{\lvert 4m-1+1-m\rvert}{\sqrt{m^2+1}}=\frac{\lvert3m\rvert}{\sqrt{m^2+1}}=\sqrt3
+\Rightarrow 9m^2=3(m^2+1)\Rightarrow m^2=\tfrac12.$$
+Taking the positive root, $\tan\theta=m=\dfrac{1}{\sqrt2}=\dfrac{\sqrt2}{2}$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300); r=np.sqrt(3); m=1/np.sqrt(2)
+plt.figure(figsize=(4.8,3.0))
+plt.plot(-2+r*np.cos(th),1+r*np.sin(th),color='#2b6cb0',lw=1.4)
+plt.plot(4+r*np.cos(th),1+r*np.sin(th),color='crimson',lw=1.4)
+xs=np.linspace(-5,7,50)
+plt.plot(xs,m*(xs-1)+1,'0.35',ls='--',lw=1.2)
+plt.plot(xs,-m*(xs-1)+1,'0.75',ls=':',lw=1.0)
+plt.plot(-2,1,'k+'); plt.plot(4,1,'k+'); plt.plot(1,1,'ko',ms=4)
+plt.annotate('midpoint (1,1)',(1,1),textcoords='offset points',xytext=(4,-14),fontsize=8)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 21 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P1 Q9</span>
+
+::: {.question}
+The circles $C_1:\,x^2+y^2-8y-64=0$ and $C_2:\,x^2+y^2-6x-11=0$ have two common external tangents, which meet
+at a point $P$. One of these tangents has equation $y=2x-16$. Let $A$ be the centre of $C_1$ and $B$ the centre
+of $C_2$. Find $AP$. *(Give an exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(similar right triangles from the two radii)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $P$ divides $AB$ externally in the ratio $r_1:r_2$; then $AP=\dfrac{r_1}{r_1-r_2}\cdot AB$
+:::
+
+**Answer form: an exact value. Answer: $AP=10$.**
+
+*Put both circles in centre–radius form.* $C_1:x^2+(y-4)^2=80$, centre $A=(0,4)$, $r_1=\sqrt{80}=4\sqrt5$;
+$C_2:(x-3)^2+y^2=20$, centre $B=(3,0)$, $r_2=\sqrt{20}=2\sqrt5$.
+
+*At $P$ the two tangent lines make similar triangles with each radius, so $\dfrac{PA}{PB}=\dfrac{r_1}{r_2}=2$ and
+$P$ lies on line $AB$ extended beyond $B$ (external division).* Solving $P=A+t(B-A)$ with $\dfrac{PA}{PB}=2$ gives
+$t=2$, so $P=2B-A=(6,-4)$. *(Check: $(6,-4)$ lies on $y=2x-16$.)* Then
+$AP=\lvert P-A\rvert=\sqrt{6^2+(-8)^2}=\sqrt{100}=10$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.6,3.2))
+plt.plot(np.sqrt(80)*np.cos(th),4+np.sqrt(80)*np.sin(th),color='#2b6cb0',lw=1.4)
+plt.plot(3+np.sqrt(20)*np.cos(th),np.sqrt(20)*np.sin(th),color='crimson',lw=1.4)
+xs=np.linspace(-2,10,50); plt.plot(xs,2*xs-16,'0.4',ls='--',lw=1)
+plt.plot(0,4,'k+'); plt.plot(3,0,'k+'); plt.plot(6,-4,'ks',ms=5)
+plt.annotate('A(0,4)',(0,4),textcoords='offset points',xytext=(4,4),fontsize=8)
+plt.annotate('B(3,0)',(3,0),textcoords='offset points',xytext=(4,4),fontsize=8)
+plt.annotate('P',(6,-4),textcoords='offset points',xytext=(6,-2),fontsize=8)
+plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 22 · concentric circles & a chord
+
+::: {.question}
+One hundred circles all share the same centre and are named $C_1,C_2,\dots,C_{100}$. For each whole number $n$
+from $1$ to $99$, a **tangent to $C_n$** crosses circle $C_{n+1}$ at two points separated by a distance of $2$.
+Given that $C_1$ has radius $1$, find the radius of $C_{100}$. *(Give an exact number.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the perpendicular from the centre bisects the chord — then it telescopes)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — MM3.3 (perpendicular from centre bisects a chord) turns each step into $r_{n+1}^2=r_n^2+1$
+:::
+
+**Answer form: an exact number. Answer: $10$.**
+
+*A tangent to $C_n$ lies at perpendicular distance $r_n$ from the shared centre. Where it cuts the bigger circle
+$C_{n+1}$, the perpendicular from the centre to that chord has length $r_n$ and bisects it,* so with half-chord
+$\tfrac{2}{2}=1$, Pythagoras gives
+$$r_n^2+1^2=r_{n+1}^2\ \Rightarrow\ r_{n+1}^2=r_n^2+1.$$
+*Each circle's radius-squared is one more than the last, and $r_1^2=1$, so $r_n^2=n$.* Hence
+$r_{100}=\sqrt{100}=10$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,400)
+fig,ax=plt.subplots(figsize=(4.8,4.8))
+cols=['#2b6cb0','#e07b39','#3aa657','#c0392b','#8e44ad']
+for n in range(1,6):
+    r=np.sqrt(n)
+    ax.plot(r*np.cos(th),r*np.sin(th),color=cols[n-1],lw=1.4)
+    ax.annotate(f'C{n} (r=√{n})',(0,r),textcoords='offset points',xytext=(5,2),fontsize=7,color=cols[n-1])
+for n,a in zip(range(1,5),[90,0,180,270]):
+    rn=np.sqrt(n); u=np.array([np.cos(np.radians(a)),np.sin(np.radians(a))]); t=np.array([-u[1],u[0]])
+    foot=rn*u; p1,p2=foot-t,foot+t
+    ax.plot([foot[0]-2.2*t[0],foot[0]+2.2*t[0]],[foot[1]-2.2*t[1],foot[1]+2.2*t[1]],color='0.4',lw=0.9,ls='--')
+    ax.plot([p1[0],p2[0]],[p1[1],p2[1]],'k',lw=2.4)
+    ax.plot([0,foot[0]],[0,foot[1]],color=cols[n-1],lw=0.9,ls=':')
+    ax.annotate('=2',(foot[0]+0.2*t[0],foot[1]+0.2*t[1]),fontsize=7,ha='center')
+ax.plot(0,0,'k+',ms=8); ax.set_aspect('equal')
+ax.set_xlim(-2.7,2.7); ax.set_ylim(-2.7,2.7); ax.axis('off')
+ax.set_title('rₙ = √n, so the circles crowd together —\nbut every chord stays 2, since √(n+1)² − √n² = 1',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note appearance="simple"}
+A very common slip here is to answer $\sqrt{10}$ — that is the radius of $C_{10}$, not $C_{100}$. The single idea is the MM3.3 chord fact; after that it is a one-line recurrence $r_n^2=n$.
+:::
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 23 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P1 Q17</span>
+
+::: {.question}
+A circle $C_n$ is defined by $x^2+y^2=2n(x+y)$, where $n$ is a positive integer. $C_1$ and $C_2$ are drawn and
+the region between them is shaded; then $C_3,C_4$, and so on, so the region between $C_{2k-1}$ and $C_{2k}$ is
+shaded, until $100$ circles have been drawn. What is the total shaded area? *(Give an exact multiple of $\pi$.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(centre–radius form → area → telescoping sum)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — rewrite as a circle, get its area in $n$, then sum the paired differences
+:::
+
+**Answer form: an exact multiple of $\pi$. Answer: $10100\pi$.**
+
+*Complete the square:* $x^2-2nx+y^2-2ny=0\Rightarrow(x-n)^2+(y-n)^2=2n^2$, so $C_n$ has radius$^2=2n^2$ and
+**area** $A_n=2\pi n^2$. *The shaded region is the sum of the annular differences over the pairs $(2k-1,2k)$:*
+$$\sum_{k=1}^{50}\bigl(A_{2k}-A_{2k-1}\bigr)=2\pi\sum_{k=1}^{50}\bigl((2k)^2-(2k-1)^2\bigr)=2\pi\sum_{k=1}^{50}(4k-1).$$
+*The inner sum is $4\cdot\tfrac{50\cdot51}{2}-50=5100-50=5050$,* giving total area $2\pi\cdot5050=10100\pi$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,300)
+plt.figure(figsize=(4.0,3.6))
+for n,c in [(1,'#2b6cb0'),(2,'crimson'),(3,'#2b6cb0'),(4,'crimson')]:
+    R=np.sqrt(2)*n
+    plt.plot(n+R*np.cos(th),n+R*np.sin(th),color=c,lw=1.2)
+plt.plot(0,0,'k+'); plt.gca().set_aspect('equal'); plt.grid(alpha=0.2)
+plt.title('Each Cₙ passes through O; radius grows with n',fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+:::

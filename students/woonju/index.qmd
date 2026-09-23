@@ -1,0 +1,81 @@
+---
+title: "여운주 — TMUA"
+subtitle: "TMUA 15 Oct 2026 · target 8.0 · clinics, mocks & self-study"
+format: html
+---
+
+여운주 (Chloe Yeo)'s workspace. The **clinics** (the current focus — the weak types), then the mocks and
+self-study. The **past papers, Paper 2 toolkit, mock-exam banks and official resources** are on the
+**[common home page](../../index.qmd)**.
+
+::: {.callout-tip}
+## 📅 [D-day plan → 15 Oct](schedule.qmd)
+
+The full run-in schedule (23 Sep → exam) with KST/UK times, each session's topic, and the homework for it.
+:::
+
+---
+
+## Clinics — the weak types
+
+Built from the questions she got wrong on the mocks. Each clinic is **exam-standard questions only** — no
+easy warm-ups — so she meets the pattern again and again and learns to **recall the method the moment she
+sees the question**. The *wrong-questions booklet* is separate: it is her own six mistakes, done properly.
+
+**✅ 이미 수업에서 다룬 것** — covered in lessons so far. Keep these for revision and homework.
+
+| | Clinic | Focus | Class material | Assignment |
+|---|---|---|---|---|
+| — | **Wrong-questions booklet** | Her Q9·18·19·20 from Set C/D, done properly + the four graph "moves" | **[Booklet](../../lessons/graphs_clinic/class_material.qmd)** | — |
+| **Trig** | **Trigonometry** | Equations & counting · graphs & symmetry · sine/cosine rule & the ambiguous case | **[Class problems](../../lessons/trig_clinic/class_material.qmd)** — 22 | **[Questions](../../lessons/trig_clinic/assignment_student.qmd)** — 18 · [MS](../../lessons/trig_clinic/assignment_ms.qmd) |
+| **Tri** | **Triangles** | SSA counting (none/one/two) · "uniquely determined" · cosine-rule quadratic · acute/right/obtuse test · area & circumradius · coordinate triangles | **[Class problems](../../lessons/triangle_clinic/class_material.qmd)** — 22 | **[Questions](../../lessons/triangle_clinic/assignment_student.qmd)** — 21 · [MS](../../lessons/triangle_clinic/assignment_ms.qmd) |
+| **Int** | **Integration · area · symmetry (MM7)** | Definite integrals & **odd/even symmetry** · signed vs total area · **area between curves** · trapezium rule (over/under) · $\frac{dy}{dx}=f(x)$ | **[Class problems](../../lessons/integration_area_clinic/class_material.qmd)** — 10 | — |
+| **Graph** | **Unfamiliar graphs** | $a\sin(x^b)$ parameters · $\sin\tfrac1x$ near-origin · self-powers & disguises · bounded humps · $\lvert x\rvert$ inside · counting intersections · log/exp humps · non-function curves | **[Concepts](../../lessons/graph_clinic/concepts.qmd)** · **[Class problems](../../lessons/graph_clinic/class_material.qmd)** — 17 | **[Questions](../../lessons/graph_clinic/assignment_student.qmd)** — 16 · [MS](../../lessons/graph_clinic/assignment_ms.qmd) |
+| **S7** | **Graphs 1** | Transformations & function-of-a-function | **[Concepts](../../lessons/graphs_transformations/concepts.qmd)** · **[Material](../../lessons/graphs_transformations/class_material.qmd)** | **[Questions](../../lessons/graphs_transformations/assignment_student.qmd)** · [MS](../../lessons/graphs_transformations/assignment_ms.qmd) |
+| **S9** | **Graphs 2** | Sketching & graph-solving | **[Concepts](../../lessons/graphs_sketching/concepts.qmd)** · **[Material](../../lessons/graphs_sketching/class_material.qmd)** | — |
+| **Mod** | **Modulus** | Equations & inequalities · $\lvert f(x)\rvert$ vs $f(\lvert x\rvert)$ · $x\lvert x\rvert$ · modulus in trig & integrals · diamonds | **[Class problems](../../lessons/modulus_clinic/class_material.qmd)** — 18 · **[Clinic 2 (advanced)](../../lessons/modulus_clinic2/class_material.qmd)** | **[Questions](../../lessons/modulus_clinic/assignment_student.qmd)** — 16 · [MS](../../lessons/modulus_clinic/assignment_ms.qmd) |
+| **Floor** | **Floor & Ceiling** | Reading $\lfloor x\rfloor,\lceil x\rceil,\{x\}$ · integrating step functions · geometric strip sums · counting · harder step integrals | **[Class problems](../../lessons/floor_ceiling_clinic/class_material.qmd)** — 15 | — |
+| **Seq** ⭐ | **Sequences, series & binomial (MM2)** | AP/GP & **sum to infinity** · mixed AP/GP · **combined series** (2016 Q14, you got wrong) · periodic recurrences · **binomial coefficients** (specimen Q20, you got wrong). **All real TMUA / exam-standard.** | **[Class problems](../../lessons/sequences_series_clinic/class_material.qmd)** — 9 | **[Questions](../../lessons/sequences_series_clinic/assignment_student.qmd)** — 12 · [MS](../../lessons/sequences_series_clinic/assignment_ms.qmd) |
+
+**▶ 앞으로 다룰 것** — not yet taught. The ⭐ ones aim straight at her repeat mistakes.
+
+| | Clinic | Focus | Class material | Assignment |
+|---|---|---|---|---|
+| **Coord** ⭐ | **Coordinate geometry (MM3)** | **Normal to a curve** (you got this wrong in *both* 2016 Q3 and 2018 Q11) · perpendicular bisector · circle equation & "is it a circle" · two-circle distance / tangency / intersection · common tangents · radical axis · chord properties. **All real TMUA/mock questions.** | **[Class problems](../../lessons/coordinate_geometry_clinic/class_material.qmd)** — 23 | **[Questions](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** — 15 · [MS](../../lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
+| **Diff** ⭐ | **Differentiation (MM6)** | Differentiate $x^n$ & second derivatives · stationary points & max/min · increasing/decreasing (sign of $f'$) · **optimising a gradient as a parameter varies** · calculus to count roots (you got 2016 Q13/Q15/Q18 wrong). **All real TMUA questions.** | **[Class problems](../../lessons/differentiation_clinic/class_material.qmd)** — 9 · **[Supplement: min/max of polynomials](../../lessons/differentiation_clinic/supplementary_minmax.qmd)** | **[Questions](../../lessons/differentiation_clinic/assignment_student.qmd)** — 14 · [MS](../../lessons/differentiation_clinic/assignment_ms.qmd) |
+| **Log** | **Logarithms** | Log laws & change of base · solving equations (domain & extraneous roots) · inequalities (base $<1$ flip) · counting solutions with a parameter · log graphs | **[Class problems](../../lessons/log_clinic/class_material.qmd)** — 16 | — |
+| **LogX** ⭐ | **Logarithms — extension** | **Quadratic in $a^x$** (specimen Q11, you got wrong) · quadratic in $\log x$ · **simultaneous log/exp** (2016 Q16 & 2017 Q14, you got wrong) · **log–log linearisation** (specimen Q14, you got wrong). **All real TMUA questions.** | **[Class problems](../../lessons/log_extension_clinic/class_material.qmd)** — 9 | **[Questions](../../lessons/log_extension_clinic/assignment_student.qmd)** — 11 · [MS](../../lessons/log_extension_clinic/assignment_ms.qmd) |
+| **Range** | **Range & the $y$-parameter method** | "$y=f(x)$ has a real root" $\to$ discriminant in $y$ · max/min of rational functions · "range $=\mathbb{R}$" conditions | **[Class problems](../../lessons/range_clinic/class_material.qmd)** — 13 | — |
+| **IntR** ⭐ | **Integrals to reason about** | **Modulus inside the integral** (sign/area, $f(\lvert x\rvert)$) · **self-referential** integral equations ($\int f=$ const) · **sequences of functions** & integrals-in-a-sum (incl. the 2021 P2 Q20 $f_{99}$ you flagged, and 2016 Q4 you got wrong). **All real TMUA questions.** | **[Class problems](../../lessons/integral_reasoning_clinic/class_material.qmd)** — 9 | **[Questions](../../lessons/integral_reasoning_clinic/assignment_student.qmd)** — 10 · [MS](../../lessons/integral_reasoning_clinic/assignment_ms.qmd) |
+
+Every row links to real material — nothing here is a placeholder.
+
+::: {.callout-note appearance="simple"}
+*Parametric & locus* is **beyond the TMUA spec** (a MAT topic), so it is not used by either student — both are
+TMUA candidates. For the lines and circles TMUA actually asks, use the **Coordinate geometry** clinic above.
+:::
+
+---
+
+## Mock exams
+
+Custom TMUA-format papers, sat timed and marked from the worked solutions. Sit each one **cold** —
+75 minutes, no calculator, no break of concentration.
+
+| Mock | Paper | Sit | Solutions |
+|---|---|---|---|
+| **Mock 1** | Paper 1 · 20 Q · 75 min | **[Question paper](../../mocks/mock1_paper1/mock1_paper1.qmd)** | **[Worked solutions](../../mocks/mock1_paper1/mock1_paper1_ms.qmd)** |
+
+---
+
+## Self-study practice
+
+Focused sets built from the exact question **types** she got wrong — attempt each, then check the worked
+solution.
+
+| Set | Focus | Link |
+|---|---|---|
+| **Self-study 1** | Integration-in-a-sum (F/G type) + trig counting & symmetry — *2018 Paper 1 Q6/Q15/Q18 types* | **[10 problems](../../lessons/selfstudy1_integration_trig/practice.qmd)** |
+| **Self-study 2** | Paper 2 reasoning — counterexamples, necessary/sufficient, roots under transformation, trig counting — *2018 Paper 2 Q4/Q6/Q15/Q18 types* | **[10 problems](../../lessons/selfstudy2_paper2_reasoning/practice.qmd)** |
+| **Self-study 3** | Your wrong questions from **2016 Paper 2** (Q8/Q9/Q13/Q20) and **2017 Paper 2** (Q4/Q8/Q11/Q13/Q18) — inequalities, congruence, remainders, complete reasoning, area; cross-linked to S3/S5/S7 | **[9 problems](../../lessons/selfstudy3_paper2_2016_2017/practice.qmd)** |
+| **Self-study 4** | Your wrong questions from **2022 Paper 2** (Q7/Q10) and **2023 Paper 2** (Q6/Q8/Q9) — proof error, quantifier order, solution-counts, triangle geometry, converse; cross-linked to S2/S4/S5/S7 | **[5 problems](../../lessons/selfstudy4_paper2_2022_2023/practice.qmd)** |

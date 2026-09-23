@@ -1,0 +1,389 @@
+---
+title: "Toolkit S7 — Spot the Error · Mark Scheme"
+subtitle: "8 real TMUA Paper 2 questions + 1 MAT"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Each question is printed **in full** exactly as it appeared on the paper; open the **Solution** below it to
+check your answer and read the reasoning line by line. Every answer letter has been checked against the
+**official answer key** (all confirmed). For the "solve" questions (A1, A2) the step labels sit on the
+**arrows between lines** — a step is the *operation* that turns one line into the next, exactly as printed on
+the original paper.
+
+---
+
+## Section A — Which step is invalid?
+
+### A1 &nbsp; *(TMUA 2017 Paper 2, Q18)*
+
+::: {.question}
+Consider the following problem: *solve the inequality $\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$,
+where $n$ is a positive integer.* A student produces the following argument:
+
+$$\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}$$
+$$\text{(I)}\ \big\downarrow\quad$$
+$$\log_{\frac12}\left(\tfrac14\right)^{n}<\log_{\frac12}\left(\tfrac1{32}\right)^{10}$$
+$$\text{(II)}\ \big\downarrow\quad$$
+$$n\log_{\frac12}\left(\tfrac14\right)<10\log_{\frac12}\left(\tfrac1{32}\right)$$
+$$\text{(III)}\ \big\downarrow\quad$$
+$$n<\frac{10\log_{\frac12}\left(\tfrac1{32}\right)}{\log_{\frac12}\left(\tfrac14\right)}$$
+$$\text{(IV)}\ \big\downarrow\quad$$
+$$n<\frac{10\times5}{2}=25$$
+$$\text{(V)}\ \big\downarrow\quad$$
+$$1\leq n\leq 24$$
+
+Which step (if any) in the argument is invalid?
+
+&nbsp;&nbsp;**A** no invalid steps; the argument is correct &nbsp; **B** only (I) &nbsp; **C** only (II)
+&nbsp; **D** only (III) &nbsp; **E** only (IV) &nbsp; **F** only (V)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer B
+
+**Step 1 — Watch the base of the log.** Step (I) applies $\log_{1/2}$ to both sides. The base $\tfrac12<1$,
+so $\log_{1/2}$ is a **decreasing** function.
+
+**Step 2 — Decreasing functions flip inequalities.** Applying a decreasing function to both sides must
+**reverse** the "$<$". The student kept "$<$", so the very first step already breaks — **step (I)**. Every
+later step is algebraically fine, so *only* (I) is invalid.
+
+**Do it right.** Flip the sign at step (I). Cleanly, $\left(\tfrac14\right)^n=2^{-2n}$ and
+$\left(\tfrac1{32}\right)^{10}=2^{-50}$, so $2^{-2n}<2^{-50}\Leftrightarrow -2n<-50\Leftrightarrow n>25$.
+
+**Intuition.** Taking a log with base $<1$ is the classic sign-flip trap — the same family as multiplying an
+inequality by a negative. *(This is exactly the [S7 concepts](s07_concepts.qmd) note on "logs with a base
+below $1$".)*
+:::
+
+---
+
+### A2 &nbsp; *(TMUA 2018 Paper 2, Q9)*
+
+::: {.question}
+Consider the following attempt to solve the equation $4x\sqrt{2x-1}=10x-5$:
+
+$$4x\sqrt{2x-1}=10x-5$$
+$$\text{(I)}\ \big\downarrow\quad$$
+$$4x\sqrt{2x-1}=5(2x-1)$$
+$$\text{(II)}\ \big\downarrow\quad$$
+$$16x^{2}(2x-1)=25(2x-1)^{2}$$
+$$\text{(III)}\ \big\downarrow\quad$$
+$$16x^{2}=25(2x-1)$$
+$$\text{(IV)}\ \big\downarrow\quad$$
+$$16x^{2}-50x+25=0$$
+$$\text{(V)}\ \big\downarrow\quad$$
+$$(8x-5)(2x-5)=0$$
+$$\text{(VI)}\ \big\downarrow\quad$$
+$$\text{The solutions of the original equation are } x=\tfrac58 \text{ and } x=\tfrac52.$$
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** The solution is correct. &nbsp; **B** Only one of $x=\tfrac58,\tfrac52$ is correct and the
+error arises as a result of step (II). &nbsp; **C** …step (III). &nbsp; **D** …step (IV). &nbsp;
+**E** There is another value of $x$ that satisfies the original equation and the error arises as a result of
+step (II). &nbsp; **F** …step (III). &nbsp; **G** …step (IV).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+
+**Step 1 — Locate the division.** Step (III) is the move from $16x^{2}(2x-1)=25(2x-1)^{2}$ to
+$16x^{2}=25(2x-1)$: both sides are **divided by $(2x-1)$**.
+
+**Step 2 — Ask whether the divisor can be zero.** $(2x-1)=0$ at $x=\tfrac12$, and $x=\tfrac12$ **is** a
+genuine solution of the original: $4\cdot\tfrac12\cdot\sqrt{0}=0=10\cdot\tfrac12-5$. Dividing by $(2x-1)$ at
+step (III) silently throws that root away.
+
+**Step 3 — Read the options.** Both $\tfrac58$ and $\tfrac52$ still check out, so this is a **lost** root, not
+an extraneous one — "there is another value of $x$, and the error arises at step (III)": **F**.
+
+**Do it right.** Keep the case $2x-1=0$ separately: from $16x^{2}(2x-1)=25(2x-1)^{2}$, either $2x-1=0$
+($x=\tfrac12$) **or** divide to get $x=\tfrac58,\tfrac52$. Full solution set $\left\{\tfrac12,\tfrac58,\tfrac52\right\}$.
+
+**Intuition.** Never cancel a bracket that an earlier line allows to be $0$ — factor and split into cases.
+*(The step labels sit on the arrows, so step (III) is the division, not the squaring.)*
+:::
+
+---
+
+### A3 &nbsp; *(TMUA 2021 Paper 2, Q5)*
+
+::: {.question}
+On which line is the **first** error in the following argument?
+
+&nbsp;&nbsp;**A** $\sin^{2}x+\cos^{2}x=1$ for all values of $x$.
+&nbsp;&nbsp;**B** Therefore $\cos x=\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**C** Hence $1+\cos x=1+\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**D** Thus $(1+\cos x)^{2}=\left(1+\sqrt{1-\sin^{2}x}\right)^{2}$ for all values of $x$.
+&nbsp;&nbsp;**E** Substituting $x=\pi$ gives $0=4$.
+
+(Choose the line **A–E** on which the first error occurs.)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer B
+
+**Step 1 — Test line B for every $x$.** The symbol $\sqrt{\,}$ denotes the **non-negative** root, so
+$\cos x=\sqrt{1-\sin^{2}x}$ can only hold where $\cos x\geq0$.
+
+**Step 2 — Find a failing value.** At $x=\pi$, $\cos\pi=-1$ but $\sqrt{1-\sin^{2}\pi}=\sqrt{1}=+1$. So line
+**B** is already false — the dropped sign is the first error.
+
+**Do it right.** The correct identity is $\lvert\cos x\rvert=\sqrt{1-\sin^{2}x}$ (equivalently
+$\cos x=\pm\sqrt{1-\sin^{2}x}$).
+
+**Intuition.** The absurd "$0=4$" in line E is only the *consequence* of the earlier slip; the error itself is
+the lost $\pm$ back at line B. Always name the **first** broken line.
+:::
+
+---
+
+### A4 &nbsp; *(TMUA 2023 Paper 2, Q10)*
+
+::: {.question}
+Here is an attempt to solve the inequality $x^{4}-2x^{2}-3<0$ by completing the square:
+
+$$x^{4}-2x^{2}-3<0$$
+&nbsp;&nbsp;**I** &nbsp; if and only if $x^{4}-2x^{2}+1<4$
+&nbsp;&nbsp;**II** &nbsp; if and only if $(x^{2}-1)^{2}<4$
+&nbsp;&nbsp;**III** &nbsp; if and only if $-2<x^{2}-1<2$
+&nbsp;&nbsp;**IV** &nbsp; if and only if $x^{2}-1<2$
+&nbsp;&nbsp;**V** &nbsp; if and only if $x^{2}<3$
+&nbsp;&nbsp;**VI** &nbsp; if and only if $-\sqrt3<x<\sqrt3$
+
+Which of the following is true?
+
+&nbsp;&nbsp;**A** The argument is completely correct. &nbsp; **B** First error in line I. &nbsp; **C** line II.
+&nbsp; **D** line III. &nbsp; **E** line IV. &nbsp; **F** line V. &nbsp; **G** line VI.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer A
+
+**Step 1 — Check each "if and only if".** Line I adds $4$ to both sides; line II writes
+$x^{4}-2x^{2}+1=(x^{2}-1)^{2}$; line III unfolds $(x^{2}-1)^{2}<4$ to $-2<x^{2}-1<2$. All are genuine
+equivalences.
+
+**Step 2 — Inspect the suspicious III → IV.** Line IV keeps only $x^{2}-1<2$ and drops the half
+"$-2<x^{2}-1$". That is **legal**, because $x^{2}-1\geq-1>-2$ for every $x$ — the dropped inequality is
+automatically true, so nothing is lost.
+
+**Step 3 — Confirm the end.** Line V is $x^{2}<3$; line VI is $-\sqrt3<x<\sqrt3$. Check independently:
+$x^{4}-2x^{2}-3=(x^{2}-3)(x^{2}+1)<0\Leftrightarrow x^{2}<3$, since $x^{2}+1>0$ always. Every line holds —
+**A, completely correct**.
+
+**Intuition.** Not every "spot the error" question has an error. A step that **drops an always-true half** of
+a double inequality is still an equivalence, so do not flag it out of suspicion.
+:::
+
+---
+
+## Section B — Evaluate the proof
+
+### B1 &nbsp; *(TMUA 2018 Paper 2, Q13)*
+
+::: {.question}
+The following is an attempted proof of the conjecture: **if $\tan\theta>0$, then $\sin\theta+\cos\theta>1$.**
+Suppose $\tan\theta>0$, so in particular $\cos\theta\neq0$.
+
+&nbsp;&nbsp;**(I)** &nbsp; Since $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$, then
+$\sin\theta\cos\theta=\tan\theta\cos^{2}\theta>0$.
+&nbsp;&nbsp;**(II)** &nbsp; It follows that $1+2\sin\theta\cos\theta>1$.
+&nbsp;&nbsp;**(III)** &nbsp; Therefore $\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta>1$.
+&nbsp;&nbsp;**(IV)** &nbsp; which factorises to give $(\sin\theta+\cos\theta)^{2}>1$.
+&nbsp;&nbsp;**(V)** &nbsp; Therefore $\sin\theta+\cos\theta>1$.
+
+Which one of the following is the case? &nbsp; **A** The proof is correct. &nbsp; **B** First error in line
+(I). &nbsp; **C** line (II). &nbsp; **D** line (III). &nbsp; **E** line (IV). &nbsp; **F** line (V).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+
+**Step 1 — Lines (I)–(IV) are sound.** From $\tan\theta>0$ we do get $\sin\theta\cos\theta>0$, hence
+$1+2\sin\theta\cos\theta>1$, and using $\sin^{2}\theta+\cos^{2}\theta=1$ this is
+$(\sin\theta+\cos\theta)^{2}>1$ — all correct.
+
+**Step 2 — Take the square root carefully.** From $a^{2}>1$ you get $a>1$ **or** $a<-1$, not just $a>1$.
+Line (V) keeps only the positive root.
+
+**Step 3 — Exhibit the failure.** With $\tan\theta>0$ in the **third quadrant**, e.g. $\theta=225^\circ$,
+$\sin\theta+\cos\theta=-\sqrt2<-1$: the square is $>1$ but the conclusion $\sin\theta+\cos\theta>1$ is false.
+First error: **line (V)**.
+
+**Intuition.** Square-rooting an inequality is the "lost $\pm$" trap: $\sqrt{a^{2}}=\lvert a\rvert$, so
+$a^{2}>1$ means $\lvert a\rvert>1$, i.e. $a>1$ or $a<-1$.
+:::
+
+---
+
+### B2 &nbsp; *(TMUA 2022 Paper 2, Q7)*
+
+::: {.question}
+Consider the following claim: *the difference between two consecutive positive cube numbers is always prime.*
+Here is an attempted proof:
+
+&nbsp;&nbsp;**I** &nbsp; $(x+1)^{3}=x^{3}+3x^{2}+3x+1$
+&nbsp;&nbsp;**II** &nbsp; Taking $x$ to be a positive integer, the difference between two consecutive cube
+numbers can be expressed as $(x+1)^{3}-x^{3}=3x^{2}+3x+1$.
+&nbsp;&nbsp;**III** &nbsp; It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer
+coefficients because its discriminant is negative.
+&nbsp;&nbsp;**IV** &nbsp; Therefore for every positive integer value of $x$ the integer $3x^{2}+3x+1$ cannot
+be factorised.
+&nbsp;&nbsp;**V** &nbsp; Hence, the difference between two consecutive cube numbers will always be prime.
+
+Which of the following best describes this proof? &nbsp; **A** completely correct, claim true. &nbsp;
+**B** completely correct, but there are counterexamples to the claim. &nbsp; **C** wrong, first error line I.
+&nbsp; **D** line II. &nbsp; **E** line III. &nbsp; **F** line IV. &nbsp; **G** line V.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer F
+
+The heart of this question is a single confusion: mixing up **"the polynomial cannot be factorised"** with
+**"the integer value you compute cannot be factorised (is prime)"**. They are not the same thing.
+
+**Step 1 — Line III is true.** The *polynomial* $3x^{2}+3x+1$ has discriminant
+$$D=3^{2}-4(3)(1)=9-12=-3<0,$$
+so it **cannot** be split into linear factors with integer coefficients. It is an **irreducible polynomial** —
+this line is completely correct.
+
+**Step 2 — Line IV is the false leap.** Line IV concludes: "since the polynomial doesn't factorise, the
+**number** you get by substituting any integer $x$ can never be factorised either (so it is prime)." But an
+irreducible polynomial can still take **composite values**.
+
+::: {.callout-tip appearance="simple"}
+**An easy example to see the leap fail.** Take the simplest irreducible polynomial, $f(x)=x^{2}+1$ (it does
+not factor over the integers). Substitute $x=3$:
+$$f(3)=3^{2}+1=10=2\times5.$$
+The *polynomial* is irreducible, yet the *value* $10$ factorises perfectly — it is **not** prime. Irreducible
+polynomial, composite value.
+:::
+
+**Step 3 — The actual counterexample ($x=5$).** For this proof, substitute $x=5$ into $3x^{2}+3x+1$:
+$$3(5)^{2}+3(5)+1=75+15+1=91=7\times13.$$
+This is the difference of the consecutive cubes $6^{3}-5^{3}=216-125=91$ — and $91$ is **composite**, not
+prime. So line IV (and hence the claim) is false.
+
+**Intuition.** Polynomial irreducibility $\neq$ integer primality — the exact lesson of MAT Q1G (C1 below).
+
+::: {.callout-important appearance="simple"}
+**Bottom line.** The first logical error is **line IV**, where an **algebraic** property of the polynomial (it
+does not factorise) is wrongly leaped to a **number-theoretic** property of its integer values (they are
+prime). Answer: **F**.
+:::
+:::
+
+---
+
+### B3 &nbsp; *(TMUA 2023 Paper 2, Q4)*
+
+::: {.question}
+A student attempts to answer: *what is the largest number of consecutive odd integers that are all prime?*
+The attempt is as follows:
+
+&nbsp;&nbsp;**I** &nbsp; There are two consecutive odd integers that are prime (for example: $17,19$).
+&nbsp;&nbsp;**II** &nbsp; Any three consecutive odd integers can be written in the form $n-2,\,n,\,n+2$ for
+some $n$.
+&nbsp;&nbsp;**III** &nbsp; If $n$ is one more than a multiple of $3$, then $n+2$ is a multiple of $3$.
+&nbsp;&nbsp;**IV** &nbsp; If $n$ is two more than a multiple of $3$, then $n-2$ is a multiple of $3$.
+&nbsp;&nbsp;**V** &nbsp; The only other possibility is that $n$ is a multiple of $3$.
+&nbsp;&nbsp;**VI** &nbsp; In each case, one of the integers is a multiple of $3$, so not prime.
+&nbsp;&nbsp;**VII** &nbsp; Therefore the largest number of consecutive odd integers that are all prime is two.
+
+Which of the following best describes this attempt? &nbsp; **A** completely correct. &nbsp; **B** first error
+line I. &nbsp; **C** line II. &nbsp; **D** line III. &nbsp; **E** line IV. &nbsp; **F** line V. &nbsp;
+**G** line VI. &nbsp; **H** line VII.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer G
+
+**Step 1 — Lines I–V hold.** One of any three consecutive odd integers is indeed a multiple of $3$ (the three
+residue cases are covered correctly).
+
+**Step 2 — Check line VI's leap.** "A multiple of $3$, so **not prime**" fails when the multiple of $3$ **is
+$3$ itself** — which is prime. For the triple $3,5,7$ (all prime), the multiple of $3$ is $3$.
+
+**Step 3 — Conclude.** The run $3,5,7$ has length **three**, so the answer "two" is wrong; the first false
+line is **line VI**.
+
+**Intuition.** "Multiple of $3$ $\Rightarrow$ not prime" forgets the single exception, $3$. The conclusion in
+line VII is wrong too, but the earliest broken line is VI.
+:::
+
+---
+
+### B4 &nbsp; *(TMUA 2020 Paper 2, Q8)*
+
+::: {.question}
+A student is asked to prove whether the following statement $(*)$ is true or false:
+$$(*)\quad\text{For all real numbers } a \text{ and } b,\ \ |a+b|<|a|+|b|.$$
+The student's proof is as follows: *Statement $(*)$ is **false**. A counterexample is $a=3,\,b=4$, as
+$|3+4|=7$ and $|3|+|4|=7$, but $7<7$ is false.*
+
+Which of the following best describes the student's proof? &nbsp; **A** $(*)$ is true, and the proof is not
+correct. &nbsp; **B** $(*)$ is false, but the proof is not correct: the counterexample is not valid. &nbsp;
+**C** $(*)$ is false, but the proof is not correct: the student needs to give *all* the values of $a,b$ where
+$|a+b|<|a|+|b|$ is false. &nbsp; **D** $(*)$ is false, but the proof is not correct: the student should have
+stated $|a+b|\leq|a|+|b|$. &nbsp; **E** $(*)$ is false, and the proof is fully correct.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer E
+
+**Step 1 — Is $(*)$ actually false?** When $a,b$ share a sign (or either is $0$), $\lvert a+b\rvert=\lvert
+a\rvert+\lvert b\rvert$, so the strict "$<$" fails. $(*)$ is indeed **false**. (The true statement is the
+triangle inequality, with "$\leq$".)
+
+**Step 2 — Is one counterexample enough?** Yes — a single case disproves a "for all" claim. There is no need
+to list every failure (so C is wrong), and the task was to judge $(*)$, not to repair it (so D is wrong).
+
+**Step 3 — Is the counterexample valid?** $a=3,b=4$ gives $\lvert a+b\rvert=7$ and $\lvert a\rvert+\lvert
+b\rvert=7$, so "$7<7$" is false there — a genuine counterexample. Statement false, proof fully correct — **E**.
+
+**Intuition.** To disprove "$<$ for all", you only need one place where "$<$" fails, and **equality counts**
+as a failure of the strict inequality.
+:::
+
+---
+
+## Section C — Cross-exam (MAT)
+
+### C1 &nbsp; *(MAT 2022, Q1G)*
+
+::: {.question}
+For all real $n$, it is the case that
+$n^{4}+1=\left(n^{2}+\sqrt2\,n+1\right)\left(n^{2}-\sqrt2\,n+1\right)$. From this we may deduce that $n^{4}+4$
+is
+
+&nbsp;&nbsp;**(a)** never a prime number for any positive whole number $n$.
+&nbsp;&nbsp;**(b)** a prime number for exactly one positive whole number $n$.
+&nbsp;&nbsp;**(c)** a prime number for exactly two positive whole numbers $n$.
+&nbsp;&nbsp;**(d)** a prime number for exactly three positive whole numbers $n$.
+&nbsp;&nbsp;**(e)** a prime number for exactly four positive whole numbers $n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — Answer (b)
+
+**Step 1 — Factorise $n^{4}+4$ the same way (Sophie Germain).**
+$$n^{4}+4=(n^{2}+2)^{2}-(2n)^{2}=(n^{2}-2n+2)(n^{2}+2n+2).$$
+
+**Step 2 — A product is prime only if a factor is $1$.** The smaller factor is
+$n^{2}-2n+2=(n-1)^{2}+1\geq1$, and it equals $1$ **only at $n=1$**.
+
+**Step 3 — Evaluate the one case.** At $n=1$, $n^{4}+4=5$, prime. For every $n\geq2$ both factors exceed $1$,
+so the value is composite. Hence $n^{4}+4$ is prime for **exactly one** positive whole number — **(b)**.
+
+**Intuition.** A genuine factorisation forces compositeness *except* where a factor collapses to $1$ — the
+same idea that sinks B2's claim (irreducible polynomial, still-composite values).
+:::
+
+:::

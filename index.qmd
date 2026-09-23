@@ -2,15 +2,24 @@
 title: "TMUA Preparation"
 ---
 
-Everything is on this page. Papers, lessons, and the Paper 2 toolkit, in three tables.
+The shared home for TMUA prep. The **past papers, the Paper 2 toolkit, mock-exam banks and official
+resources** live here; each student's clinics, mocks and audits live on their own hub.
+
+## Students
+
+| Student | Sitting | Hub | Focus |
+|---|---|---|---|
+| **여운주** (Chloe Yeo) | **15 Oct 2026** | **[Open hub](students/woonju/index.qmd)** | Clinics, mocks & self-study |
+| **이우성** (Lee Woosung) | **16 Oct 2026** | **[Open hub](students/woosung/index.qmd)** | Oxford Maths applicant · papers, audits & shared clinics |
 
 ::: {.callout-tip}
 ## The test in one box
 
-Two papers, **75 minutes each, taken back to back**, **20 multiple-choice questions** per paper —
-**3 min 45 s per question**. **No calculator. No formula booklet. No penalty for a wrong answer**, so
-never leave a blank. One overall score from **1.0 to 9.0**; a typical candidate scores about **4.5**,
-and roughly **10% score above 7.0**.
+Two papers, **75 minutes each, taken back to back with no break between them** — **20 multiple-choice
+questions** per paper, so **3 min 45 s per question**, and **150 minutes in the chair without
+stopping**. **No calculator. No formula booklet. No penalty for a wrong answer**, so never leave a
+blank. One overall score from **1.0 to 9.0**; a typical candidate scores about **4.5**, and roughly
+**10% score above 7.0**.
 
 **Paper 1 — Applications of Mathematical Knowledge.** AS-level pure content, but engineered so the
 direct route is too slow. You are being tested on finding the *shorter* route.
@@ -22,19 +31,74 @@ Full detail: **[The Test](about/format.qmd)** — format, scoring, what changed 
 
 ---
 
+## Specification — the topics each paper can test
+
+Straight from the official *Content Specification (2026–27)*. **Paper 1** draws on **Section 1** (the
+mathematics, MM1–MM8, below). **Paper 2** draws on **everything in Section 1** *and* adds **Section 2**
+(logic, proof and spotting errors). Nothing outside these lists can be examined — so anything marked
+"beyond spec / MAT extension" in a clinic is enrichment, not exam material.
+
+### Paper 1 — Section 1: the mathematics (both papers rely on this)
+
+| Code | Topic | What it covers |
+|---|---|---|
+| **MM1** | **Algebra & functions** | Laws of indices (all rational exponents) · surds · quadratics, the discriminant & completing the square · simultaneous equations (one linear + one quadratic) · linear & quadratic inequalities · polynomial manipulation (expanding, factorising, the factor theorem, algebraic division) · one-to-one vs many-to-one functions |
+| **MM2** | **Sequences & series** | Sequences from an $n$th-term formula or a recurrence · arithmetic series (and $\sum$ of the first $n$ naturals) · sum of a **finite** geometric series · binomial expansion of $(1+x)^n$ and $(a+bx)^n$ for positive integer $n$ |
+| **MM3** | **Coordinate geometry** | Straight line: $y-y_1=m(x-x_1)$, $ax+by+c=0$, parallel & perpendicular conditions · circle: $(x-a)^2+(y-b)^2=r^2$ and $x^2+y^2+cx+dy+e=0$ · circle properties: chord ⟂-from-centre, tangent ⟂ radius, angle at centre $=2\times$ circumference, angle in a semicircle, same-segment, cyclic quadrilateral, alternate segment |
+| **MM4** | **Trigonometry** | Sine & cosine rules and area $\tfrac12ab\sin C$ · radians, arc length, sector & segment area · exact values at $0°,30°,45°,60°,90°$ · graphs, symmetry & periodicity of $\sin,\cos,\tan$ · identities $\tan\theta=\tfrac{\sin\theta}{\cos\theta}$, $\sin^2\theta+\cos^2\theta=1$ · solving trig equations in a given interval |
+| **MM5** | **Exponentials & logarithms** | $y=a^x$ and its graph (positive $a$) · the laws of logarithms · solving $a^x=b$ and equations reducible to it. *(No $e$, $e^x$ or $\ln x$; change-of-base is not examined.)* |
+| **MM6** | **Differentiation** | Derivative as the gradient of the tangent · differentiate $x^n$ for rational $n$ (sums & differences) · applications: gradients, **tangents**, **normals**, **stationary points** (maxima/minima), increasing/decreasing |
+| **MM7** | **Integration** | Definite integration as area between a curve and an axis · integrate $x^n$ ($n\neq-1$) · the Fundamental Theorem of Calculus · combining integrals over equal/contiguous ranges · the trapezium rule · solving $\tfrac{dy}{dx}=f(x)$ |
+| **MM8** | **Graphs of functions** | Sketch common functions · transformations of $y=f(x)$ (translations, stretches, reflections, compositions, $f(g(x))$) · effect of $m,c$ in $y=mx+c$ and of $a,b,c$ in $y=a(x+b)^2+c$ · use differentiation to fix the shape · where graphs meet the axes / each other · geometric meaning of algebraic solutions |
+
+### Paper 2 — Section 2: reasoning (on top of all of Section 1)
+
+| Code | Strand | What it covers |
+|---|---|---|
+| **Arg1–4** | **Logic of arguments** | *true / false*, *and / or / not* · the forms *if A then B*, *A if B*, *A only if B*, *A if and only if B* · converse & contrapositive · **necessary and sufficient** · **for all / for some / there exists** · negating any of these |
+| **Prf1–5** | **Mathematical proof** | Direct deductive proof · proof by cases · proof by contradiction · disproof by counterexample · deducing implications · conjecturing from small cases then justifying · rearranging statements into a correct proof · sophisticated multi-step reasoning |
+| **Err1–2** | **Errors in proofs** | Spotting the flaw in a purported proof · common fallacies, e.g. "$ab=ac\Rightarrow b=c$" or "$\sin A=\sin B\Rightarrow A=B$" |
+
+*(Paper 2 uses no symbolic logic notation, no formal truth tables.)*
+
+---
+
+## Mock-exam banks — where the papers come from
+
+::: {.callout-tip}
+## Practice-paper links
+
+**Official**
+
+- **TMUA past papers (2016–2023)** — [JZ Maths mirror](https://jzmaths.com/papers) · official via [Cambridge/OCR](https://www.admissionstesting.org/) *(question + mark scheme for each year)*
+- **MAT past papers & solutions (2007–2025)** — [Oxford Mathematical Institute](https://www.maths.ox.ac.uk/study-here/undergraduate-study/maths-admissions-test) *(the closest cousin to TMUA)*
+- **MAT worked solutions** — [Physics & Maths Tutor (PMT)](https://www.physicsandmathstutor.com/maths-revision/mat/) *(the [2017](https://pmt.physicsandmathstutor.com/download/Admissions/MAT/Solutions/Solutions%202017.pdf) and [2018](https://pmt.physicsandmathstutor.com/download/Admissions/MAT/Solutions/Solutions%202018.pdf) sets he used)*
+
+**Mock papers**
+
+- **JZ Maths mocks A–E** (Papers 1 & 2, with worked solutions) — [papers](https://jzmaths.com/papers) · [timed exam simulator](https://jzmaths.com/exam) · [grade boundaries](https://jzmaths.com/papers/grade_boundaries/jzmaths_mock_grade_boundaries.pdf)
+- **Jacqueline Tyler / Tyler Tutoring mocks (Sets A–D)** — [Tyler Tutoring resources](https://www.tylertutoring.com/resources) · also playable on the [JZ simulator](https://jzmaths.com/exam)
+- **tmua.io community papers** — [71 free community mock papers](https://tmua.io/community-papers/)
+
+*Local copies (git-ignored): MAT 2013–2025 and JZ mocks A–E live in `_resources/supplementary/{MAT,JZ_mocks}/`;
+his own marked scripts in `_resources/woosung/`.*
+:::
+
+---
+
 ## Paper 1 — Applications of Mathematical Knowledge
 
-| Sitting | Questions | Official solutions | Answer key | **Lesson** |
-|---|---|---|---|---|
-| **2023** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144109/TMUA-2023-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105227/TMUA-2023-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144123/TMUA-2023-answer-keys.pdf) | *save for a mock* |
-| **2022** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141241/TMUA-2022-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105226/TMUA-2022-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141242/TMUA-2022-answer-keys.pdf) | *save for a mock* |
-| **2021** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141119/TMUA-2021-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141121/TMUA-2021-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141122/TMUA-2021-answer-keys.pdf) | *save for a mock* |
-| **2020** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140953/TMUA-2020-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140955/TMUA-2020-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140956/TMUA-2020-answer-keys.pdf) | — |
-| **2019** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140825/TMUA-2019-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140826/TMUA-2019-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140827/TMUA-2019-answer-keys.pdf) | **[Class material](lessons/2019_paper1/class_material.qmd)** — all 20 |
-| **2018** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125407/TMUA-2018-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125413/TMUA-2018-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125413/TMUA-2018-answer-keys.pdf) | — |
-| **2017** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125230/TMUA-2017-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125231/TMUA-2017-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125232/TMUA-2017-answer-keys.pdf) | — |
-| **2016** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125112/TMUA-2016-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-answer-keys.pdf) | — |
-| **Specimen** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141417/TMUA-early-specimen-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141418/TMUA-early-specimen-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141414/TMUA-early-specimen-paper-answer-keys.pdf) | — |
+| Sitting | Questions | Official solutions | Answer key | **Class material** | **Assignment** |
+|---|---|---|---|---|---|
+| **2023** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144109/TMUA-2023-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105227/TMUA-2023-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144123/TMUA-2023-answer-keys.pdf) | *save for a mock* | — |
+| **2022** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141241/TMUA-2022-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105226/TMUA-2022-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141242/TMUA-2022-answer-keys.pdf) | *save for a mock* | — |
+| **2021** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141119/TMUA-2021-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141121/TMUA-2021-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141122/TMUA-2021-answer-keys.pdf) | *save for a mock* | — |
+| **2020** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140953/TMUA-2020-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140955/TMUA-2020-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140956/TMUA-2020-answer-keys.pdf) | **[Class material](lessons/2020_paper1/class_material.qmd)** — all 20 | — |
+| **2019** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140825/TMUA-2019-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140826/TMUA-2019-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140827/TMUA-2019-answer-keys.pdf) | **[Class material](lessons/2019_paper1/class_material.qmd)** — all 20 | — |
+| **2018** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125407/TMUA-2018-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125413/TMUA-2018-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125413/TMUA-2018-answer-keys.pdf) | — | — |
+| **2017** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125230/TMUA-2017-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125231/TMUA-2017-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125232/TMUA-2017-answer-keys.pdf) | — | — |
+| **2016** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125112/TMUA-2016-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-answer-keys.pdf) | **[Class material](lessons/2016_paper1/class_material.qmd)** — the hard/long ones + how to start | — |
+| **Specimen** | [Paper 1](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141417/TMUA-early-specimen-paper-1.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141418/TMUA-early-specimen-paper-1-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141414/TMUA-early-specimen-paper-answer-keys.pdf) | — | — |
 
 ## Paper 2 — Mathematical Reasoning
 
@@ -42,17 +106,17 @@ Full detail: **[The Test](about/format.qmd)** — format, scoring, what changed 
 (logic and proof), which is not taught in any A-Level course. Sitting a Paper 2 cold mostly teaches
 frustration.
 
-| Sitting | Questions | Official solutions | Answer key | **Lesson** |
-|---|---|---|---|---|
-| **2023** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144111/TMUA-2023-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105226/TMUA-2023-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144123/TMUA-2023-answer-keys.pdf) | *save for a mock* |
-| **2022** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141239/TMUA-2022-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105227/TMUA-2022-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141242/TMUA-2022-answer-keys.pdf) | *save for a mock* |
-| **2021** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141117/TMUA-2021-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141118/TMUA-2021-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141122/TMUA-2021-answer-keys.pdf) | *save for a mock* |
-| **2020** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140951/TMUA-2020-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140952/TMUA-2020-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140956/TMUA-2020-answer-keys.pdf) | — |
-| **2019** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140823/TMUA-2019-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140824/TMUA-2019-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140827/TMUA-2019-answer-keys.pdf) | — |
-| **2018** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125404/TMUA-2018-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125406/TMUA-2018-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125413/TMUA-2018-answer-keys.pdf) | — |
-| **2017** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125224/TMUA-2017-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125228/TMUA-2017-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125232/TMUA-2017-answer-keys.pdf) | — |
-| **2016** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125102/TMUA-2016-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125106/TMUA-2016-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-answer-keys.pdf) | — |
-| **Specimen** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141413/TMUA-early-specimen-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141415/TMUA-early-specimen-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141414/TMUA-early-specimen-paper-answer-keys.pdf) | — |
+| Sitting | Questions | Official solutions | Answer key | **Class material** | **Assignment** | **Extended** |
+|---|---|---|---|---|---|---|
+| **2023** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144111/TMUA-2023-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105226/TMUA-2023-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/04/30144123/TMUA-2023-answer-keys.pdf) | **[Mark scheme](lessons/2023_paper2/class_material.qmd)** | — | **[Extended practice](lessons/2023_paper2_extended/index.qmd)** |
+| **2022** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141239/TMUA-2022-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/06/04105227/TMUA-2022-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141242/TMUA-2022-answer-keys.pdf) | **[Mark scheme](lessons/2022_paper2/class_material.qmd)** | — | **[Extended practice](lessons/2022_paper2_extended/index.qmd)** |
+| **2021** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141117/TMUA-2021-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141118/TMUA-2021-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141122/TMUA-2021-answer-keys.pdf) | **[Worked solutions](lessons/2021_paper2/class_material.qmd)** | — | **[Extended practice](lessons/2021_paper2_extended/index.qmd)** |
+| **2020** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140951/TMUA-2020-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140952/TMUA-2020-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140956/TMUA-2020-answer-keys.pdf) | **[Worked solutions](lessons/2020_paper2/class_material.qmd)** | — | **[Extended practice](lessons/2020_paper2_extended/index.qmd)** |
+| **2019** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140823/TMUA-2019-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140824/TMUA-2019-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140827/TMUA-2019-answer-keys.pdf) | — | — | — |
+| **2018** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125404/TMUA-2018-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125406/TMUA-2018-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125413/TMUA-2018-answer-keys.pdf) | — | — | — |
+| **2017** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125224/TMUA-2017-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125228/TMUA-2017-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125232/TMUA-2017-answer-keys.pdf) | — | — | — |
+| **2016** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125102/TMUA-2016-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125106/TMUA-2016-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-answer-keys.pdf) | — | — | — |
+| **Specimen** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141413/TMUA-early-specimen-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141415/TMUA-early-specimen-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141414/TMUA-early-specimen-paper-answer-keys.pdf) | — | — | — |
 
 ::: {.callout-note}
 ## This archive is complete and closed
@@ -71,17 +135,18 @@ The part that is **not in the A-Level syllabus**. A student can be excellent at 
 score badly on Paper 2, simply because nobody ever told them what *"A only if B"* means. Work through
 these in order — each is built on the one before.
 
-| | Session | Spec |
-|---|---|---|
-| **S1** | **[Statement forms — if, only if, if and only if](toolkit/s01_statement_forms.qmd)** | Arg1 |
-| S2 | Converse and contrapositive | Arg1 |
-| S3 | Necessary and sufficient | Arg2 |
-| S4 | Quantifiers and negation | Arg3, Arg4 |
-| S5 | Proof methods — direct, cases, contradiction, counterexample | Prf1 |
-| S6 | Scrambled proofs | Prf4 |
-| S7 | Spot the error | Err1, Err2 |
+| | Session | Class material | Assignment | Spec |
+|---|---|---|---|---|
+| **S1** | **Statement forms — if, only if, if and only if** | **[Concepts](toolkit/s01_concepts.qmd)** · **[Material](toolkit/s01_statement_forms.qmd)** | **[Questions](toolkit/s01_assignment_student.qmd)** · [MS](toolkit/s01_assignment_ms.qmd) | Arg1 |
+| **S2** | **Converse and contrapositive** | **[Concepts](toolkit/s02_concepts.qmd)** · **[Material](toolkit/s02_converse_contrapositive.qmd)** | **[Questions](toolkit/s02_assignment_student.qmd)** · [MS](toolkit/s02_assignment_ms.qmd) | Arg1 |
+| **S3** | **Necessary and sufficient** | **[Concepts](toolkit/s03_concepts.qmd)** · **[Material](toolkit/s03_necessary_sufficient.qmd)** | **[Questions](toolkit/s03_assignment_student.qmd)** · [MS](toolkit/s03_assignment_ms.qmd) | Arg2 |
+| **S4** | **Quantifiers and negation** | **[Concepts](toolkit/s04_concepts.qmd)** · **[Material](toolkit/s04_quantifiers_negation.qmd)** | **[Questions](toolkit/s04_assignment_student.qmd)** · [MS](toolkit/s04_assignment_ms.qmd) | Arg3, Arg4 |
+| **S5** | **Proof methods** — direct, cases, contradiction, counterexample | **[Concepts](toolkit/s05_concepts.qmd)** · **[Material](toolkit/s05_proof_methods.qmd)** | **[Questions](toolkit/s05_assignment_student.qmd)** · [MS](toolkit/s05_assignment_ms.qmd) | Prf1 |
+| **S6** | **Scrambled proofs** — order a jumbled proof fast | **[Concepts](toolkit/s06_concepts.qmd)** · **[Material](toolkit/s06_scrambled_proofs.qmd)** | **[Questions](toolkit/s06_assignment_student.qmd)** · [MS](toolkit/s06_assignment_ms.qmd) · **[Extra practice](toolkit/s06_extra_practice.qmd)** | Prf4 |
+| **S7** | **Spot the error** — find the flaw in a convincing proof | **[Concepts](toolkit/s07_concepts.qmd)** · **[Material](toolkit/s07_spot_the_error.qmd)** | **[Questions](toolkit/s07_assignment_student.qmd)** · [MS](toolkit/s07_assignment_ms.qmd) | Err1, Err2 |
+| **Quiz** | **Concepts Quiz — Sessions 1–7** — recall questions + a consolidated True/False memory bank | **[Open the quiz](toolkit/paper2_quiz.qmd)** | — | S1–S7 |
 
-*(S2–S7 not written yet. Toolkit overview: **[Paper 2 Toolkit](toolkit/index.qmd)**.)*
+*(All seven toolkit sessions written. Toolkit overview: **[Paper 2 Toolkit](toolkit/index.qmd)**.)*
 
 ---
 
@@ -92,6 +157,7 @@ these in order — each is built on the one before.
 | [Content Specification](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/03165619/TMUA_Content_Specification.pdf) | The syllabus, for the October 2026 and January 2027 sittings. Section 1 = maths (both papers), Section 2 = logic and proof (Paper 2 only) |
 | [Notes on Mathematics](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2026/06/30103537/Notes_on_Mathematics_-for_TMUA_and_ESAT_M2.pdf) | 159 pages, MM1–MM8, mapped one-to-one onto Section 1. The setters' own commentary on what each spec line means |
 | [Notes on Logic and Proof](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2025/06/25160507/Notes_on_Logic_and_Proof_June2025.pdf) | 74 pages on Section 2. Effectively the **only** textbook for Paper 2 |
+| [Formula Sheet](formula_sheet.qmd) | Everything the test can assume you know by heart — the TMUA gives no formula booklet |
 | [Pearson VUE practice tests](https://www.pearsonvue.com/us/en/uatuk.html) | The on-screen interface. Sit one, for the format rather than the maths |
 
 To keep local copies of every PDF above, run `bash scripts/fetch_resources.sh` from the repository root.

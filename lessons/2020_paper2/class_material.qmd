@@ -1,0 +1,799 @@
+---
+title: "2020 Paper 2 — Worked Solutions"
+subtitle: "All 20 questions · topic-mapped to the toolkit"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+A TMUA Paper 2 is two halves in one paper: **Section 1** is applications (the same mathematics as Paper 1)
+and **Section 2** is mathematical reasoning (the Arg / Prf / Err codes — toolkit S1–S7). Work each question
+first, then open its **Solution**. This is a **reasoning-heavy** paper: thirteen of the twenty
+(Q3, 4, 6, 7, 8, 10, 12, 13, 14, 15, 16, 19, 20) are pure Section-2 reasoning — exactly where the toolkit
+is used directly.
+
+## Topic map
+
+| Q | What it tests | Toolkit / topic |
+|---|---|---|
+| 1 | Line meets a curve — discriminant | *Application* — quadratics |
+| 2 | $\cos\theta$ from $\tan\theta$ with a quadrant | *Application* — trigonometry |
+| **3** | First error in a divisibility argument | **Err — spot the error (S7)** |
+| **4** | Counterexamples to a "sum of two non-primes" claim | **Prf1 — counterexample (S5)** |
+| 5 | Graph of $\dfrac{2^x}{1+2^x}$ | *Application* — graphs / asymptotes |
+| **6** | Which conditions are **necessary** for an integral identity | **Arg2 — necessary (S3)** |
+| **7** | Which conditions are **sufficient** for a square | **Arg2 — sufficient (S3)** |
+| **8** | Evaluating a counterexample proof | **Prf / Err — evaluate the proof (S7)** |
+| 9 | Radians on a degrees-only calculator | *Application* — radians / degrees |
+| **10** | Which inequalities **must** be true | **Arg2 — must be true (S3)** |
+| 11 | Points on an infinite square spiral | *Application* — coordinate patterns |
+| **12** | Trapezium rule over-estimate: *if* / *only if* / *iff* | **Arg1 — if / only if / iff (S2)** |
+| **13** | What an integral identity forces | **Arg2 — necessarily true (S3)** |
+| **14** | Sufficient / necessary for a sequence property | **Arg2 — necessary & sufficient (S3)** |
+| **15** | Necessary & sufficient condition for a trig sum | **Arg2 + trig (S3)** |
+| **16** | First error in an FTC calculation | **Err — spot the error (S7)** |
+| 17 | Smallest range given means and medians | *Application* — statistics |
+| 18 | Positivity of a cubic difference | *Application* — polynomials |
+| **19** | Truth-tellers and liars on a grid | **Prf / logic puzzle (S6)** |
+| **20** | Which conditional statement is the true one | **Arg1 — if / only if / iff (S2)** |
+
+---
+
+## Question 1
+
+Find the complete set of values of $k$ for which the line $y=x-2$ crosses or touches the curve
+$y=x^{2}+kx+2$.
+
+&nbsp;&nbsp;**A** $-1\leq k\leq 3$ &nbsp; **B** $-3\leq k\leq 5$ &nbsp; **C** $-4\leq k\leq 4$ &nbsp;
+**D** $k\leq-1$ or $k\geq3$ &nbsp; **E** $k\leq-3$ or $k\geq5$ &nbsp; **F** $k\leq-4$ or $k\geq4$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**E.** "Crosses **or** touches" means the line and curve meet — the simultaneous equations have **at least one
+real solution**. Set them equal:
+$$x^{2}+kx+2=x-2\;\Longrightarrow\;x^{2}+(k-1)x+4=0.$$
+This quadratic in $x$ has a real root exactly when its discriminant is $\geq0$:
+$$(k-1)^{2}-4(1)(4)\geq0\;\Longrightarrow\;(k-1)^{2}\geq16\;\Longrightarrow\;k-1\leq-4\ \text{or}\ k-1\geq4.$$
+Hence $k\leq-3$ or $k\geq5$.
+
+*The trap is answering with the "between" interval (option B) — that is the range where the line **misses**
+the curve. "$\geq0$" for "meets" always gives the **outside** region.*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,400)
+fig,ax=plt.subplots(figsize=(4.8,3.4))
+for k,c in [(-3,'#2b6cb0'),(5,'#dd6b20')]:
+    ax.plot(x,x**2+k*x+2,color=c,lw=1.8,label=f'$k={k}$ (tangent)')
+ax.plot(x,x-2,'k--',lw=1.3,label='$y=x-2$')
+ax.set_ylim(-8,14); ax.axhline(0,color='0.7',lw=.6); ax.axvline(0,color='0.7',lw=.6)
+ax.legend(fontsize=8,loc='upper center'); ax.set_title('Boundary cases $k=-3$ and $k=5$: line is tangent',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+Given that $\tan\theta=2$ and $180^\circ<\theta<360^\circ$, find the value of $\cos\theta$.
+
+&nbsp;&nbsp;**A** $\sqrt3$ &nbsp; **B** $-\sqrt3$ &nbsp; **C** $\dfrac{\sqrt3}{2}$ &nbsp;
+**D** $-\dfrac{\sqrt3}{2}$ &nbsp; **E** $\dfrac{\sqrt5}{5}$ &nbsp; **F** $-\dfrac{\sqrt5}{5}$ &nbsp;
+**G** $\dfrac{2\sqrt5}{5}$ &nbsp; **H** $-\dfrac{2\sqrt5}{5}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**F.** $\tan\theta=2>0$ happens in the **first** and **third** quadrants. The range $180^\circ<\theta<360^\circ$
+rules out the first quadrant, so $\theta$ is in the **third quadrant**, where $\cos\theta<0$.
+
+Build a right triangle with opposite $=2$, adjacent $=1$, so hypotenuse $=\sqrt{1^{2}+2^{2}}=\sqrt5$. Then
+$\lvert\cos\theta\rvert=\dfrac{1}{\sqrt5}$, and the third-quadrant sign makes it **negative**:
+$$\cos\theta=-\frac{1}{\sqrt5}=-\frac{\sqrt5}{5}.$$
+
+*The whole question turns on the sign. Reading "$\tan\theta>0$" straight to the acute answer $+\tfrac{\sqrt5}{5}$
+(option E) forgets that the given range forces the third quadrant.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+A student claims: *for all integers $n$, the expression $4\!\left(\dfrac{9n+1}{2}-\dfrac{3n-1}{2}\right)$ is
+divisible by $3$.* The argument runs:
+
+$$\begin{aligned}
+4\!\left(\tfrac{9n+1}{2}-\tfrac{3n-1}{2}\right)&=2\!\left(2\!\left(\tfrac{9n+1}{2}-\tfrac{3n-1}{2}\right)\right) &&\text{(I)}\\
+&=2(9n+1-3n-1) &&\text{(II)}\\
+&=2(6n) &&\text{(III)}\\
+&=12n &&\text{(IV)}\\
+&=3(4n)\ \text{— always a multiple of }3 &&\text{(V, VI)}
+\end{aligned}$$
+
+Which one is true — is it correct, or where is the first error?
+
+&nbsp;&nbsp;**A** correct &nbsp; **B** first error line (I) &nbsp; **C** first error line (II) &nbsp;
+**D** line (III) &nbsp; **E** line (IV) &nbsp; **F** line (V) &nbsp; **G** line (VI)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**C.** Line (I) is fine ($4X=2(2X)$). The error is at **line (II)**: cancelling the two $\tfrac12$'s should
+give $2\big((9n+1)-(3n-1)\big)$, and the **minus in front of the bracket** must flip *both* terms:
+$$2\big(9n+1-(3n-1)\big)=2(9n+1-3n+1)=2(6n+2)=12n+4.$$
+The student wrote "$-3n-1$" instead of "$-3n+1$", dropping the sign on the second term.
+
+**The claim is actually false.** The true value is $4(3n+1)=12n+4$, which leaves remainder $1$ on division by
+$3$. The bogus "$12n$" at line (IV) is a *consequence* of the sign slip at (II).
+
+*Toolkit link (S7): the first error is the earliest line that fails — not the line where the answer finally
+looks wrong. Trace the algebra top-down and stop at the first broken step.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+Consider the statement: *every positive integer $N$ greater than $6$ can be written as the sum of two
+non-prime integers that are greater than $1$.* Which of the following is/are **counterexample(s)**?
+
+$$\text{I}\quad N=5 \qquad \text{II}\quad N=7 \qquad \text{III}\quad N=9$$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II &nbsp; **F** I and III &nbsp; **G** II and III &nbsp; **H** I, II and III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**G.** A counterexample must **satisfy the hypothesis** ($N>6$) and **fail the conclusion**.
+
+- **I ($N=5$):** $5$ is not greater than $6$, so it does not even enter the statement — **not a counterexample**.
+- **II ($N=7$):** the non-primes greater than $1$ up to $7$ are $\{4,6\}$. The only way to reach $7$ using a
+  value from this set is $4+3$, but $3$ is prime. So $7$ **cannot** be written as required — a genuine
+  counterexample.
+- **III ($N=9$):** the usable non-primes are $\{4,6,8\}$. Pairs summing to $9$: $4+5$ ($5$ prime), $6+3$ ($3$
+  prime), $8+1$ ($1$ not allowed). None work — also a counterexample.
+
+So II and III only.
+
+*Toolkit link (S5): to disprove a "for all", one valid case is enough — but the case must **obey the
+hypothesis**. $N=5$ is the classic decoy that fails the domain, not the conclusion.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+Which one of the following shows the graph of $\displaystyle y=\frac{2^{x}}{1+2^{x}}$? (Dotted lines indicate
+asymptotes.)
+
+&nbsp;&nbsp;**A** increasing S-curve, top asymptote &nbsp; **B** increasing, no upper asymptote &nbsp;
+**C** decreasing, low asymptote &nbsp; **D** decreasing S-curve, top asymptote &nbsp;
+**E** decreasing, no asymptote &nbsp; **F** decreasing, low asymptote
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**A.** Read off the **behaviour at the two ends** and the **middle value**:
+
+- As $x\to-\infty$: $2^{x}\to0$, so $y\to\dfrac{0}{1+0}=0$ — a horizontal asymptote $y=0$ below.
+- As $x\to+\infty$: divide top and bottom by $2^{x}$ to get $y=\dfrac{1}{2^{-x}+1}\to\dfrac{1}{0+1}=1$ — a
+  horizontal asymptote $y=1$ above.
+- At $x=0$: $y=\dfrac{1}{1+1}=\tfrac12$, and $y$ is **increasing** throughout (numerator grows faster than the
+  "$+1$" drag).
+
+So the graph is an increasing S-curve rising from $0$ to $1$ — option **A**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-6,6,400); y=2.0**x/(1+2.0**x)
+fig,ax=plt.subplots(figsize=(4.8,3.2))
+ax.plot(x,y,color='#2b6cb0',lw=2)
+ax.axhline(0,color='crimson',ls=':',lw=1.2); ax.axhline(1,color='crimson',ls=':',lw=1.2)
+ax.axvline(0,color='0.7',lw=.6)
+ax.plot(0,0.5,'o',color='#dd6b20'); ax.annotate('$(0,\\frac{1}{2})$',(0.2,0.52),fontsize=9)
+ax.set_ylim(-0.15,1.15); ax.set_title('$y=2^x/(1+2^x)$: rises from $0$ to $1$',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+The function $\mathrm f(x)$ is defined for all real $x$. Which conditions on $\mathrm f$ is/are **necessary**
+to ensure that $\displaystyle\int_{-5}^{0}\mathrm f(x)\,\mathrm dx=\int_{0}^{5}\mathrm f(x)\,\mathrm dx$?
+
+$$\text{I}\ \ \mathrm f(x)=\mathrm f(-x)\qquad \text{II}\ \ \mathrm f(x)=c\ (\text{constant})\qquad
+\text{III}\ \ \mathrm f(x)=-\mathrm f(-x)$$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II &nbsp; **F** I and III &nbsp; **G** II and III &nbsp; **H** I, II and III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**A.** "**Necessary**" reverses the arrow: a condition is necessary only if the integral identity **forces**
+it. So test each by asking *"can the identity hold while this condition fails?"*
+
+- **I (even):** an even function does give equal halves — but that is **sufficient, not necessary**. Plenty of
+  non-even functions also balance the two halves.
+- **II (constant):** a constant gives $5c=5c$ — again sufficient, not necessary.
+- **III (odd):** an odd function gives $\int_{-5}^{0}=-\int_{0}^{5}$, so the identity would force
+  $\int_{0}^{5}\mathrm f=0$ — it usually **fails**, so it is certainly not forced.
+
+A concrete balancer that is none of I, II, III: any $\mathrm f$ that is even on $[-5,5]$ but... simpler, take
+$\mathrm f$ built so both halves equal (say) $3$ without symmetry — e.g. two different bumps of equal area.
+The identity holds, yet every one of I–III is false. Hence **none** is necessary.
+
+*Toolkit link (S3): sufficient = "condition $\Rightarrow$ result"; necessary = "result $\Rightarrow$
+condition". Here each option is a sufficient recipe, and none is squeezed out by the result.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+$PQRS$ is a **parallelogram** labelled anticlockwise. Which of the conditions is/are individually
+**sufficient** for $PQRS$ to be a **square**?
+
+$$\text{I}\ \ \lvert PQ\rvert=\lvert QR\rvert\qquad \text{II}\ \ PR\perp QS\qquad \text{III}\ \ \angle PQR=\angle QRS$$
+
+The options A–H give every yes/no pattern for (I sufficient, II sufficient, III sufficient).
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**H** (no, no, no). In a parallelogram each condition upgrades the shape by **one** property, and a square
+needs **two** (equal sides *and* right angles). One alone is never enough:
+
+- **I — adjacent sides equal:** a parallelogram with equal adjacent sides is a **rhombus**. Its angles need
+  not be $90^\circ$ — not sufficient.
+- **II — diagonals perpendicular:** in a parallelogram, perpendicular diagonals also give exactly a
+  **rhombus**, not a square — not sufficient.
+- **III — $\angle PQR=\angle QRS$:** consecutive angles of a parallelogram are supplementary, so if they are
+  *equal* each is $90^\circ$: a **rectangle**. The sides need not be equal — not sufficient.
+
+Each produces "rhombus **or** rectangle", never forced all the way to a square. So all three are "no" — **H**.
+
+*Toolkit link (S3): sufficient means the condition alone **guarantees** the target. A near-miss (rhombus /
+rectangle) is a counterexample to sufficiency.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+A student decides whether $(*)$ *for all real $a,b$, $\lvert a+b\rvert<\lvert a\rvert+\lvert b\rvert$* is true
+or false, and writes:
+
+> $(*)$ is **false**. A counterexample is $a=3,b=4$, as $\lvert3+4\rvert=7$ and $\lvert3\rvert+\lvert4\rvert=7$,
+> but "$7<7$" is false.
+
+Which best describes the proof?
+
+&nbsp;&nbsp;**A** $(*)$ true, proof not correct &nbsp; **B** $(*)$ false, counterexample not valid &nbsp;
+**C** $(*)$ false, but must give **all** failing $a,b$ &nbsp; **D** $(*)$ false, should have used $\leq$ &nbsp;
+**E** $(*)$ false, proof fully correct
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**E.** Check the three things a disproof needs.
+
+1. **Is $(*)$ really false?** When $a,b$ have the **same sign** (or either is $0$), $\lvert a+b\rvert=\lvert
+   a\rvert+\lvert b\rvert$, so the *strict* "$<$" fails. $(*)$ is indeed false. (The true statement is the
+   triangle inequality with "$\leq$".)
+2. **Is one counterexample enough?** Yes — a single case defeats a "for all" claim; there is no need to list
+   every failure (so C is wrong).
+3. **Is the given case valid?** At $a=3,b=4$ both sides equal $7$, so "$7<7$" is false there — a genuine
+   counterexample.
+
+Statement false, proof complete and correct — **E**. (D misreads the task: the student was asked to judge
+*this* statement, not to fix it.)
+
+*Toolkit link (S7): to disprove "$<$ for all", you only need one place where "$<$" fails — and equality counts
+as a failure of strict inequality.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+A student wants to evaluate $\mathrm f(x)=x\sin x$ with $x$ in **radians**, but the calculator only works in
+**degrees**. What can be typed to evaluate $\mathrm f(4)$ correctly?
+
+&nbsp;&nbsp;**A** $(\pi\times4\div180)\times\sin(4)$ &nbsp; **B** $(\pi\times4\div180)\times\sin(\pi\times4\div180)$ &nbsp;
+**C** $4\times\sin(\pi\times4\div180)$ &nbsp; **D** $(180\times4\div\pi)\times\sin(4)$ &nbsp;
+**E** $(180\times4\div\pi)\times\sin(180\times4\div\pi)$ &nbsp; **F** $4\times\sin(180\times4\div\pi)$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**F.** Split $\mathrm f(4)=4\times\sin(4\ \text{radians})$ into its two factors and fix only what the
+calculator gets wrong.
+
+- The **leading $x=4$** is just the number $4$ — a radian *measure* is a pure number, so it stays as `4`.
+- The **angle inside $\sin$** must be $4$ **radians**. A degrees calculator needs that same angle re-expressed
+  in degrees: $4\ \text{rad}=4\times\dfrac{180}{\pi}\ \text{degrees}=(180\times4\div\pi)^\circ$.
+
+So type $4\times\sin(180\times4\div\pi)$ — option **F**.
+
+*The decoys go the wrong way: multiplying by $\pi/180$ converts degrees $\to$ radians, but the calculator
+already reads its input as degrees, so you must convert the radian angle **into** degrees ($\times180/\pi$),
+and only inside the $\sin$.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+The real numbers $a,b,c,d$ satisfy both $0<a+b<c+d$ and $0<a+c<b+d$. Which inequalities **must** be true?
+
+$$\text{I}\ \ a<d\qquad \text{II}\ \ b<c\qquad \text{III}\ \ a+b+c+d>0$$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II &nbsp; **F** I and III &nbsp; **G** II and III &nbsp; **H** I, II and III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**F.** Work from the two given inequalities.
+
+- **I ($a<d$): true.** **Add** the two given inequalities (adding same-direction inequalities is always
+  legal): $(a+b)+(a+c)<(c+d)+(b+d)$, i.e. $2a+b+c<b+c+2d$, so $2a<2d$ and $a<d$. ✔
+- **III ($a+b+c+d>0$): true.** From $0<a+b<c+d$ we get $a+b>0$ *and* $c+d>a+b>0$, so both halves are positive
+  and their sum is positive. ✔
+- **II ($b<c$): not forced.** You cannot **subtract** inequalities. Counterexample $a=0,b=3,c=2,d=2$: then
+  $a+b=3<c+d=4$ ✔ and $a+c=2<b+d=5$ ✔, yet $b=3>c=2$. ✘
+
+So I and III must hold, II need not — **F**.
+
+*Toolkit link (S3): you may **add** two "$<$"s but never **subtract** them. Statement II is the trap that
+tempts an illegal subtraction.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+A square spiral is drawn from the origin and continues indefinitely, turning through the lattice points as
+shown in the paper. Which one of these points is **not** on the spiral?
+
+&nbsp;&nbsp;**A** $(99,100)$ &nbsp; **B** $(99,-100)$ &nbsp; **C** $(-99,100)$ &nbsp; **D** $(-99,-100)$ &nbsp;
+**E** $(100,99)$ &nbsp; **F** $(100,-99)$ &nbsp; **G** $(-100,99)$ &nbsp; **H** $(-100,-99)$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**G.** Describe the four families of straight edges by the level they sit on (read off the small picture, then
+continued):
+
+| Edge | Line | Range it covers |
+|---|---|---|
+| right verticals | $x=2k$ | $-2k\leq y\leq 2k$ |
+| top horizontals | $y=2k$ | $-2k-2\leq x\leq 2k$ |
+| left verticals | $x=-2k$ | $-2k\leq y\leq 2k-2$ |
+| bottom horizontals | $y=-2k$ | $-2k\leq x\leq 2k$ |
+
+The key asymmetry: a **left vertical** $x=-2k$ stops **two short of the top**, at $y=2k-2$, because the
+horizontal above it starts one column further left (at $x=-2k-2$). Now test the candidates with $k=50$:
+
+- $(100,\pm99)$ sit on the right vertical $x=100$ ($-100\leq y\leq100$) — on the spiral. So do the four corner
+  points $(\pm99,\pm100)$ on the top/bottom horizontals $y=\pm100$.
+- $(-100,-99)$ sits on the left vertical $x=-100$, which runs $-100\leq y\leq 98$ — on the spiral.
+- $(-100,99)$: the same left vertical only reaches $y=98$, so $y=99$ is **just above where the spiral has
+  already turned left**. Not on the spiral.
+
+Hence **G**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+# build the spiral outward as a polyline through its corners
+pts=[(0,0)]
+x=y=0; step=2; d=0  # directions: right, up, left, down (anticlockwise)
+dirs=[(1,0),(0,1),(-1,0),(0,-1)]
+for i in range(1,9):
+    # lengths grow 2,2,4,4,6,6,... producing the observed corners
+    L=2*((i+1)//2)
+    dx,dy=dirs[d]; x+=dx*L; y+=dy*L; pts.append((x,y)); d=(d+1)%4
+xs,ys=zip(*pts)
+fig,ax=plt.subplots(figsize=(4.4,4.4))
+ax.plot(xs,ys,color='#2b6cb0',lw=2)
+ax.set_xlim(-9,9); ax.set_ylim(-9,9); ax.set_aspect('equal')
+ax.axhline(0,color='0.8',lw=.6); ax.axvline(0,color='0.8',lw=.6)
+ax.set_title('The square spiral (first few turns)',fontsize=9)
+ax.grid(True,color='0.9',lw=.5); plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+Which one of **A–F** correctly completes: *"Given $a<b$ and $\mathrm f(x)>0$ for all $x$ with $a<x<b$, the
+trapezium rule produces an **overestimate** for $\displaystyle\int_a^b\mathrm f(x)\,\mathrm dx$ …"*
+
+&nbsp;&nbsp;**A** *if* $\mathrm f'>0$ and $\mathrm f''<0$ &nbsp; **B** *only if* $\mathrm f'>0$ and $\mathrm f''<0$ &nbsp;
+**C** *iff* $\mathrm f'>0$ and $\mathrm f''<0$ &nbsp; **D** *if* $\mathrm f'<0$ and $\mathrm f''>0$ &nbsp;
+**E** *only if* $\mathrm f'<0$ and $\mathrm f''>0$ &nbsp; **F** *iff* $\mathrm f'<0$ and $\mathrm f''>0$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**D.** The geometry first: the trapezium rule joins points on the curve by **straight chords**. A chord lies
+**above** a curve that bends upward, so the rule **overestimates exactly when the curve is convex**, i.e.
+when $\mathrm f''(x)>0$ — regardless of whether $\mathrm f$ is increasing or decreasing.
+
+Now weigh *if* / *only if* / *iff*:
+
+- **D — "*if* $\mathrm f'<0$ and $\mathrm f''>0$":** $\mathrm f''>0$ already guarantees an overestimate, so
+  this is a **true (sufficient) implication**. ✔
+- **F — "*iff*":** false, because overestimate does **not** require $\mathrm f'<0$; a convex **increasing**
+  function ($\mathrm f'>0,\ \mathrm f''>0$) also overestimates.
+- **E — "*only if*":** false for the same reason (overestimate does not force $\mathrm f'<0$).
+- **A, B, C** all use $\mathrm f''<0$ (concave), which makes the rule **under**estimate — the wrong direction.
+
+So the only correct completion is the one-way "if" in **D**.
+
+*Toolkit link (S2): "$P$ if $Q$" means $Q\Rightarrow P$; "$P$ only if $Q$" means $P\Rightarrow Q$; "iff" is
+both. A true one-way "if" with an over-strong extra hypothesis ($\mathrm f'<0$) is still true.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+$\mathrm f(x)$ is a function for which
+$$\int_{0}^{3}\big(\mathrm f(x)\big)^{2}\,\mathrm dx+\int_{0}^{3}\mathrm f(x)\,\mathrm dx=\int_{0}^{1}\mathrm f(x)\,\mathrm dx.$$
+Which claims are **necessarily** true?
+
+$$\text{I}\ \ \mathrm f(x)\leq0\ \text{for some }x\in[1,3]\qquad
+\text{II}\ \ \int_{0}^{3}\mathrm f(x)\,\mathrm dx\leq\int_{0}^{1}\mathrm f(x)\,\mathrm dx$$
+
+&nbsp;&nbsp;**A** neither &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** I and II
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**D.** Isolate the squared term:
+$$\int_{0}^{3}\big(\mathrm f(x)\big)^{2}\,\mathrm dx=\int_{0}^{1}\mathrm f-\int_{0}^{3}\mathrm f=-\int_{1}^{3}\mathrm f(x)\,\mathrm dx.$$
+The left side is an integral of a **square**, so it is $\geq0$. Therefore
+$$-\int_{1}^{3}\mathrm f\geq0\;\Longrightarrow\;\int_{1}^{3}\mathrm f(x)\,\mathrm dx\leq0.$$
+
+- **II** *is* the statement $\int_{0}^{3}\mathrm f-\int_{0}^{1}\mathrm f=\int_{1}^{3}\mathrm f\leq0$ — **true**.
+- **I:** if $\mathrm f(x)>0$ **everywhere** on $[1,3]$ then $\int_{1}^{3}\mathrm f>0$, contradicting the line
+  above. So $\mathrm f$ must dip to $\leq0$ somewhere on $[1,3]$ — **true**.
+
+Both hold — **D**.
+
+*Toolkit link (S3): the engine is "$\int(\text{square})\geq0$". Everything the identity forces flows from that
+one sign fact.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+An arithmetic sequence $T$ has first term $a$ and common difference $d$, both **non-zero integers**. Property
+**P**: *for some positive integer $m$, the sum of the first $m$ terms equals the sum of the first $2m$ terms.*
+(Example: $a=11,d=-2$ has P, since the first $4$ terms and first $8$ terms both sum to $32$.) Which statements
+are **true**?
+
+$$\text{I}\ \ \text{For P, it is }\textbf{sufficient}\text{ that }ad<0.\qquad
+\text{II}\ \ \text{For P, it is }\textbf{necessary}\text{ that }d\text{ is even.}$$
+
+&nbsp;&nbsp;**A** neither &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** I and II
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**A.** First turn P into algebra. With $S_n=\tfrac n2\big(2a+(n-1)d\big)$, setting $S_m=S_{2m}$ and dividing by
+$m$ gives, after simplifying,
+$$\boxed{\,2a+(3m-1)d=0\,}\quad\text{for some positive integer }m.$$
+
+- **I — "$ad<0$ is sufficient":** rearrange to $3m-1=-\dfrac{2a}{d}$. For P we need this to be a **positive
+  integer of the form $3m-1$** (i.e. $\equiv2\pmod 3$). Having $ad<0$ only makes $-\tfrac{2a}{d}$ positive; it
+  need not be a valid $3m-1$. Counterexample $a=2,d=-1$ ($ad=-2<0$): $-\tfrac{2a}{d}=4$, but $3m-1=4$ gives
+  $m=\tfrac53$, not an integer — **P fails**. So not sufficient. ✘
+- **II — "$d$ even is necessary":** find P with $d$ **odd**. Take $a=-1,d=1$ and $m=1$: $2(-1)+(3-1)(1)=0$ ✔,
+  and indeed $S_1=-1=S_2$. Here $d=1$ is odd, yet P holds — so $d$ even is **not** forced. ✘
+
+Neither is true — **A**.
+
+*Toolkit link (S3): reduce the property to one equation first, then test "sufficient" (does the hypothesis
+force a valid $m$?) and "necessary" (can the property happen with the condition broken?) separately.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 15
+
+Which one is a **necessary and sufficient** condition for
+$\displaystyle\sum_{k=1}^{n}\sin\!\Big(\frac{k\pi}{3}\Big)=\frac{\sqrt3}{2}$?
+
+&nbsp;&nbsp;**A** $n=1$ &nbsp; **B** $n$ a multiple of $3$ &nbsp; **C** $n$ a multiple of $6$ &nbsp;
+**D** $n$ is $1$ more than a multiple of $3$ &nbsp; **E** $n$ is $1$ more than a multiple of $6$ &nbsp;
+**F** $n$ is $1$ more than a multiple of $6$, or $2$ more than a multiple of $6$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**D.** The terms $\sin\!\big(\tfrac{k\pi}{3}\big)$ repeat with period $6$:
+$$\tfrac{\sqrt3}{2},\ \tfrac{\sqrt3}{2},\ 0,\ -\tfrac{\sqrt3}{2},\ -\tfrac{\sqrt3}{2},\ 0,\ \dots$$
+and one full block sums to $0$. So track the **running total** $S_n$ through one period:
+$$S_1=\tfrac{\sqrt3}{2},\quad S_2=\sqrt3,\quad S_3=\sqrt3,\quad S_4=\tfrac{\sqrt3}{2},\quad S_5=0,\quad S_6=0,$$
+then it repeats ($S_{n+6}=S_n$). Within each block, $S_n=\tfrac{\sqrt3}{2}$ **only** at $n=1$ and $n=4$ — both
+$\equiv1\pmod 3$. Because the block sum is $0$, this pattern recurs exactly at $n=1,4,7,10,\dots$, i.e.
+**$n$ is one more than a multiple of $3$**. Necessary *and* sufficient — **D**.
+
+(Not E: $n=4$ works but is not "$1$ more than a multiple of $6$". The correct spacing is every $3$, not
+every $6$.)
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+n=np.arange(1,13); S=np.cumsum(np.sin(n*np.pi/3))
+fig,ax=plt.subplots(figsize=(5.0,2.8))
+ax.axhline(np.sqrt(3)/2,color='crimson',ls=':',lw=1.2,label='$\\sqrt{3}/2$')
+hit=np.isclose(S,np.sqrt(3)/2)
+ax.plot(n,S,'-o',color='#2b6cb0',ms=4)
+ax.plot(n[hit],S[hit],'o',color='#dd6b20',ms=8,label='$S_n=\\sqrt{3}/2$')
+ax.set_xticks(n); ax.set_xlabel('$n$'); ax.set_ylabel('$S_n$')
+ax.legend(fontsize=8,loc='lower right'); ax.set_title('Running total hits $\\sqrt{3}/2$ at $n=1,4,7,10$',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+The FTC says $\dfrac{\mathrm d}{\mathrm dx}\Big(\int_{0}^{x}\mathrm f(t)\,\mathrm dt\Big)=\mathrm f(x)$. A
+student computes $\dfrac{\mathrm d}{\mathrm dx}\Big(\int_{x}^{2x}t^{2}\,\mathrm dt\Big)$:
+
+$$\begin{aligned}
+&\textstyle\int_{x}^{2x}t^{2}\,\mathrm dt=\int_{0}^{2x}t^{2}\,\mathrm dt-\int_{0}^{x}t^{2}\,\mathrm dt &&\text{(I)}\\
+&\textstyle\tfrac{\mathrm d}{\mathrm dx}\!\int_{0}^{x}t^{2}\,\mathrm dt=x^{2} &&\text{(II)}\\
+&\textstyle\tfrac{\mathrm d}{\mathrm dx}\!\int_{0}^{2x}t^{2}\,\mathrm dt=(2x)^{2}=4x^{2} &&\text{(III)}\\
+&\textstyle\tfrac{\mathrm d}{\mathrm dx}\!\int_{x}^{2x}t^{2}\,\mathrm dt=4x^{2}-x^{2} &&\text{(IV)}\\
+&\textstyle=3x^{2} &&\text{(V)}
+\end{aligned}$$
+
+Which best describes the calculation?
+
+&nbsp;&nbsp;**A** completely correct &nbsp; **B** first error line (I) &nbsp; **C** line (II) &nbsp;
+**D** line (III) &nbsp; **E** line (IV) &nbsp; **F** line (V)
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**D.** Line (I) (splitting the integral) is fine, and line (II) is a correct FTC application. The error is at
+**line (III)**: the upper limit is $2x$, not $x$, so the FTC needs the **chain rule**:
+$$\frac{\mathrm d}{\mathrm dx}\int_{0}^{2x}t^{2}\,\mathrm dt=(2x)^{2}\cdot\frac{\mathrm d(2x)}{\mathrm dx}=(2x)^{2}\cdot2=8x^{2},$$
+not $4x^{2}$. The student forgot the "$\times2$".
+
+**Check by direct integration:** $\int_{x}^{2x}t^{2}\,\mathrm dt=\big[\tfrac{t^{3}}{3}\big]_{x}^{2x}=\tfrac{8x^{3}-x^{3}}{3}=\tfrac{7x^{3}}{3}$,
+so the true derivative is $7x^{2}$ — with the correction, $8x^{2}-x^{2}=7x^{2}$ ✔. The student's $3x^{2}$ is
+wrong, and the first slip is at (III).
+
+*Toolkit link (S7): the FTC only reads off "$\mathrm f(\text{upper limit})$" when the upper limit is exactly
+$x$. Any other upper limit $g(x)$ carries a $\times g'(x)$.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+A set of six **distinct** integers is split into two sets of three. The first set has mean $10$ and median
+$8$; the second has mean $12$ and median $9$. What is the smallest possible **range** of the six integers?
+
+&nbsp;&nbsp;**A** $8$ &nbsp; **B** $10$ &nbsp; **C** $11$ &nbsp; **D** $12$ &nbsp; **E** $14$ &nbsp; **F** $15$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**E.** Write the sets as $\{a,8,b\}$ with $a<8<b$ and $\{c,9,d\}$ with $c<9<d$.
+
+- Mean $10$ (sum $30$) gives $a+b=22$; mean $12$ (sum $36$) gives $c+d=27$.
+- To shrink the range we want the **maximum small** and the **minimum large**. The two largest are $b=22-a$
+  and $d=27-c$; the two smallest are $a$ and $c$.
+
+Push the small ends up: $a\leq7$ and $c\leq7$ (both must stay below their medians, and $8$ is already used).
+The binding constraint is $d=27-c\geq27-7=20$, so the maximum is **at least $20$**, achieved with $c=7$. With
+$c=7$ the value $7$ is taken, so $a\leq6$; take $a=6,b=16$. Then the smallest value is $6$.
+$$\{6,8,16\}\ \text{(mean }10,\text{ median }8)\quad\{7,9,20\}\ \text{(mean }12,\text{ median }9)$$
+All six are distinct and the range is $20-6=14$. No arrangement beats this, so the smallest range is **14**.
+
+*Any attempt to reach $19$ as the maximum needs $c=8$, but $8$ is already the first median — so $20$ is
+forced, and $14$ is the best possible.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+$\mathrm f(x)=ax^{3}+bx^{2}+cx+d$ and $\mathrm g(x)=px^{3}+qx^{2}+rx+s$ are cubics. If $\mathrm f(x)-\mathrm
+g(x)>0$ for **every** real $x$, which is/are **necessarily** true?
+
+$$\text{I}\ \ a>p\qquad \text{II}\ \ \text{if }b=q\text{ then }c=r\qquad \text{III}\ \ d>s$$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II &nbsp; **F** I and III &nbsp; **G** II and III &nbsp; **H** I, II and III
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**G.** Let $h(x)=\mathrm f(x)-\mathrm g(x)=(a-p)x^{3}+(b-q)x^{2}+(c-r)x+(d-s)$, and use that $h(x)>0$ for all
+real $x$.
+
+- **Degree first:** a genuine cubic ($a-p\neq0$) runs to $-\infty$ on one side, so it cannot stay positive.
+  Hence $a-p=0$, i.e. $a=p$. So **I ($a>p$) is false** — it is "$=$", not "$>$".
+- With $a=p$, $h$ is at most quadratic: $(b-q)x^{2}+(c-r)x+(d-s)>0$ for all $x$.
+- **III ($d>s$): true.** Put $x=0$: $h(0)=d-s>0$.
+- **II: true.** *If* $b=q$, then $h$ collapses to the linear $(c-r)x+(d-s)$. A non-constant line cannot stay
+  positive for all $x$, so we must have $c-r=0$, i.e. $c=r$. The implication "$b=q\Rightarrow c=r$" holds.
+
+So II and III are forced but I is not — **G**.
+
+*Toolkit link (S1/S2): "positive for all $x$" is a strong hypothesis — it kills odd leading terms, pins the
+value at $0$, and forces the linear coefficient to vanish once the quadratic term is gone.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+Nine people sit in a $3\times3$ grid, one per square; **neighbours** share a side. Each is a truth-teller
+(always tells the truth) or a liar (always lies). Every person says: *"My neighbours are all liars."* What are
+the **smallest** and **largest** numbers who could be telling the truth?
+
+&nbsp;&nbsp;**A** $1,4$ &nbsp; **B** $2,4$ &nbsp; **C** $2,5$ &nbsp; **D** $3,4$ &nbsp; **E** $3,5$ &nbsp;
+**F** $4,4$ &nbsp; **G** $4,5$ &nbsp; **H** $5,5$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**E.** Translate the statement for each type:
+
+- A **truth-teller (T)** speaks truly, so *all* their neighbours really are liars — **no two T's are adjacent**.
+- A **liar (L)** speaks falsely, so it is **not** true that all their neighbours are liars — **every L has at
+  least one T neighbour**.
+
+Together: the truth-tellers form a set that is **independent** (no two adjacent) **and dominating** (every
+other cell touches one). We want the smallest and largest such set.
+
+- **Smallest $=3$.** Fewer than $3$ cannot dominate all nine (the centre reaches only $4$ of the $8$ others,
+  leaving corners uncovered). Three suffice, e.g. T at the shaded cells below (top-left, mid-right,
+  bottom-mid): every empty cell touches a T and no two T's are adjacent.
+- **Largest $=5$.** The most independent cells in a $3\times3$ grid is the checkerboard $\{$four corners $+$
+  centre$\}=5$, and every edge-cell touches one of them — independent *and* dominating.
+
+So the answer is $3$ and $5$ — **E**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+def draw(ax,T,title):
+    for i in range(4):
+        ax.plot([0,3],[i,i],color='0.3',lw=1); ax.plot([i,i],[0,3],color='0.3',lw=1)
+    for (r,c) in T:   # r row from top (0..2), c col (0..2)
+        ax.add_patch(plt.Rectangle((c,2-r),1,1,color='#bcd3ef'))
+        ax.text(c+0.5,2-r+0.5,'T',ha='center',va='center',fontsize=13,weight='bold',color='#1f3864')
+    for r in range(3):
+        for c in range(3):
+            if (r,c) not in T:
+                ax.text(c+0.5,2-r+0.5,'L',ha='center',va='center',fontsize=12,color='0.5')
+    ax.set_xlim(-.2,3.2); ax.set_ylim(-.2,3.2); ax.set_aspect('equal'); ax.axis('off')
+    ax.set_title(title,fontsize=9)
+fig,axes=plt.subplots(1,2,figsize=(6.2,3.2))
+draw(axes[0],{(0,0),(1,2),(2,1)},'Smallest: 3 truth-tellers')
+draw(axes[1],{(0,0),(0,2),(1,1),(2,0),(2,2)},'Largest: 5 truth-tellers')
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+$x$ is a real number and $\mathrm f$ is a function. Given that **exactly one** of the following is true, which
+one is it?
+
+&nbsp;&nbsp;**A** $x\geq0$ only if $\mathrm f(x)<0$ &nbsp; **B** $x<0$ if $\mathrm f(x)\geq0$ &nbsp;
+**C** $x\geq0$ only if $\mathrm f(x)\geq0$ &nbsp; **D** $\mathrm f(x)<0$ if $x<0$ &nbsp;
+**E** $\mathrm f(x)\geq0$ only if $x\geq0$ &nbsp; **F** $\mathrm f(x)\geq0$ if and only if $x<0$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+**C.** Write $p:\ x\geq0$ and $q:\ \mathrm f(x)\geq0$, and translate each option ("$P$ only if $Q$" is
+$P\Rightarrow Q$; "$P$ if $Q$" is $Q\Rightarrow P$):
+
+$$\text{A}:p\Rightarrow\neg q,\quad \text{B}:q\Rightarrow\neg p,\quad \text{C}:p\Rightarrow q,\quad
+\text{D}:\neg p\Rightarrow\neg q,\quad \text{E}:q\Rightarrow p,\quad \text{F}:q\Leftrightarrow\neg p.$$
+
+Now spot the **equivalent pairs**:
+$$\text{A}\equiv\text{B}\ (\text{both }\neg p\vee\neg q),\qquad \text{D}\equiv\text{E}\ (\text{both }p\vee\neg q).$$
+Members of a pair always share the same truth value, so if the unique true statement were A, B, D or E, its
+partner would be true too — **two** true statements, contradicting "exactly one". The single true one must
+therefore be **C or F**.
+
+Rule out **F**: if F were the only true one, then C would be false, meaning $x\geq0$ **and** $\mathrm f(x)<0$
+— but that very situation makes A ($x\geq0\Rightarrow\mathrm f(x)<0$) **true**, giving a second true statement.
+Contradiction. So the exactly-one-true statement is **C**.
+
+*Toolkit link (S2): the fast route is recognising the two equivalent pairs; whatever is uniquely true has to
+be one of the un-paired statements, C or F.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+:::

@@ -15,6 +15,14 @@ The official [Notes on Logic and Proof](https://uat-wp.s3.eu-west-2.amazonaws.co
 (74 pages, written by the people who set the test) is the only real textbook for this material, and
 these pages follow its structure.
 
+The **codes** in the tables below come in three families:
+
+- **Arg** — *arguments*: the **logic of statements** (if / only if / iff, necessary and sufficient, *for
+  all* / *there exists*, and negating them).
+- **Prf** — *proof*: **following and building proofs** (direct, by cases, by contradiction, by
+  counterexample, and longer chains of reasoning).
+- **Err** — *errors*: **spotting the flaw** in a proof that looks right but isn't.
+
 ## What Section 2 actually contains
 
 | Code | Requirement |
@@ -42,15 +50,15 @@ of ordinary English (*"only if"*, *"some"*) is exactly where the marks are won a
 
 ## Sessions
 
-| | Session | Spec |
-|---|---|---|
-| **S1** | **[Statement forms — if, only if, if and only if](s01_statement_forms.qmd)** — why *A only if B* means $A \Rightarrow B$, not $B \Rightarrow A$ | Arg1 |
-| S2 | Converse and contrapositive — the contrapositive is always equivalent, the converse almost never is | Arg1 |
-| S3 | Necessary and sufficient — the most-tested pair of words on Paper 2 | Arg2 |
-| S4 | Quantifiers and negation — *for all*, *there exists*, and why the negation of "all X are Y" is not "no X is Y" | Arg3, Arg4 |
-| S5 | Proof methods — direct, by cases, by contradiction, by counterexample | Prf1 |
-| S6 | Scrambled proofs — the Prf4 question type, and how to order statements fast | Prf4 |
-| S7 | Spot the error — the catalogue of classic false steps | Err1, Err2 |
+| | Session | Class material | Assignment | Spec |
+|---|---|---|---|---|
+| **S1** | **Statement forms — if, only if, if and only if** — why *A only if B* means $A \Rightarrow B$, not $B \Rightarrow A$ | **[Concepts](s01_concepts.qmd)** · **[Material](s01_statement_forms.qmd)** | **[Questions](s01_assignment_student.qmd)** · [MS](s01_assignment_ms.qmd) | Arg1 |
+| **S2** | **Converse and contrapositive** — the contrapositive is always equivalent, the converse almost never is | **[Concepts](s02_concepts.qmd)** · **[Material](s02_converse_contrapositive.qmd)** | **[Questions](s02_assignment_student.qmd)** · [MS](s02_assignment_ms.qmd) | Arg1 |
+| **S3** | **Necessary and sufficient** — the most-tested pair of words on Paper 2 | **[Concepts](s03_concepts.qmd)** · **[Material](s03_necessary_sufficient.qmd)** | **[Questions](s03_assignment_student.qmd)** · [MS](s03_assignment_ms.qmd) | Arg2 |
+| **S4** | **Quantifiers and negation** — *for all*, *there exists*, De Morgan, and the order of quantifiers | **[Concepts](s04_concepts.qmd)** · **[Material](s04_quantifiers_negation.qmd)** | **[Questions](s04_assignment_student.qmd)** · [MS](s04_assignment_ms.qmd) | Arg3, Arg4 |
+| **S5** | **Proof methods** — direct, by cases, by contradiction, by counterexample | **[Concepts](s05_concepts.qmd)** · **[Material](s05_proof_methods.qmd)** | **[Questions](s05_assignment_student.qmd)** · [MS](s05_assignment_ms.qmd) | Prf1 |
+| **S6** | **Scrambled proofs** — the Prf4 question type, and how to order statements fast | **[Concepts](s06_concepts.qmd)** · **[Material](s06_scrambled_proofs.qmd)** | **[Questions](s06_assignment_student.qmd)** · [MS](s06_assignment_ms.qmd) · **[Extra practice](s06_extra_practice.qmd)** | Prf4 |
+| **S7** | **Spot the error** — the catalogue of classic false steps | **[Concepts](s07_concepts.qmd)** · **[Material](s07_spot_the_error.qmd)** | **[Questions](s07_assignment_student.qmd)** · [MS](s07_assignment_ms.qmd) | Err1, Err2 |
 
-Sessions 2–7 are not written yet. Work through them in order: each one is built on the one before, and
+All seven sessions are written. Work through them in order: each one is built on the one before, and
 S1 in particular is load-bearing for everything else.

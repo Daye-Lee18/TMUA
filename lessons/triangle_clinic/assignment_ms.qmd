@@ -1,0 +1,452 @@
+---
+title: "Triangle Clinic — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **88**.
+
+Two habits to check: on a **count**, did they compare the opposite side with **both** $h=c\sin A$ and $c$? On
+an **acute/obtuse** test, did they compare the **longest** side$^2$ with the sum of the other two squares (not
+just any side)?
+
+---
+
+# Section A — Counting & classifying
+
+## Question 1 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) none; (b) one; (c) two; (d) one.** &nbsp; **(B1 B1 B1 B1)**
+
+Known angle at $A$: adjacent $c=AB=12$, opposite $a=BC$. Height $h=c\sin A=12\sin30^\circ=6$.
+
+- $BC=5<h=6$ → **none** (the arc falls short).
+- $BC=6=h$ → **one** (right angle).
+- $BC=10$: $6<10<12$ → **two**.
+- $BC=13\ge c=12$ → **one**.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+A=np.array([0,0]); ang=np.radians(30); c=12.0; B=np.array([c,0]); ray=np.array([np.cos(ang),np.sin(ang)])
+fig,ax=plt.subplots(1,4,figsize=(8.2,2.3))
+for k,(a,t) in enumerate([(5,'BC=5: none'),(6,'BC=6: one'),(10,'BC=10: two'),(13,'BC=13: one')]):
+    ax[k].plot([A[0],16*ray[0]],[A[1],16*ray[1]],color='#2b6cb0',lw=1); ax[k].plot([A[0],B[0]],[A[1],B[1]],'k',lw=1.4)
+    th=np.linspace(0,np.pi,150); ax[k].plot(B[0]+a*np.cos(th),B[1]+a*np.sin(th),color='crimson',ls='--',lw=0.9)
+    tt=np.roots([1,-2*B@ray,B@B-a*a]); tt=[t for t in tt if np.isreal(t) and t>1e-9]
+    for t in np.real(tt): ax[k].plot(t*ray[0],t*ray[1],'o',color='crimson',ms=4)
+    ax[k].plot(*A,'ks',ms=3); ax[k].plot(*B,'ks',ms=3); ax[k].set_title(t,fontsize=8)
+    ax[k].set_xlim(-2,17); ax[k].set_ylim(-1,10); ax[k].set_aspect('equal'); ax[k].axis('off')
+plt.tight_layout(); plt.show()
+```
+
+*The whole count is fixed by where $BC$ sits relative to $6$ and $12$: below $6$ none, exactly $6$ one,
+between two, at/above $12$ one.*
+:::
+
+---
+
+## Question 2 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) acute; (b) right; (c) obtuse.** &nbsp; **(B1 B1 B1)**
+
+Compare the **longest** side$^2$ with the sum of the other two squares.
+
+- $4,5,6$: $6^{2}=36$ vs $4^{2}+5^{2}=41$; $41>36$ → **acute**.
+- $6,8,10$: $10^{2}=100=6^{2}+8^{2}$ → **right**.
+- $5,5,8$: $8^{2}=64$ vs $5^{2}+5^{2}=50$; $64>50$ → **obtuse**.
+
+*Only the largest angle can be right or obtuse, and it faces the longest side — so one comparison settles it.*
+:::
+
+---
+
+## Question 3 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Exists for $x>2$; obtuse for $2<x<2+2\sqrt5$.** &nbsp; **(M1 A1 A1 A1)**
+
+**Exists:** the tightest triangle inequality is $x+(x+3)>x+5\Rightarrow x>2$.
+
+**Obtuse:** the longest side is $x+5$, so test $(x+5)^{2}$ against $x^{2}+(x+3)^{2}$:
+$$(x+5)^{2}-\big[x^{2}+(x+3)^{2}\big]=-x^{2}+4x+16.$$
+Obtuse needs this $>0$, i.e. $x^{2}-4x-16<0\Rightarrow x<2+2\sqrt5$. Combined with $x>2$: **obtuse for
+$2<x<2+2\sqrt5$** (right-angled at $x=2+2\sqrt5$, acute beyond).
+
+*The existence condition and the obtuse condition are separate — always impose the triangle inequality first,
+then the sign test on the longest side.*
+:::
+
+---
+
+## Question 4 **[3]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$R=10$.** &nbsp; **(M1 A1 A1)**
+
+$BC=a$ is opposite the known angle $A=30^\circ$, so $2R=\dfrac{a}{\sin A}=\dfrac{10}{\sin30^\circ}=20$, giving
+$R=10$.
+
+*Only the side and the angle **facing** it are needed; the other two sides are irrelevant to the
+circumradius.*
+:::
+
+---
+
+# Section B — Exam standard
+
+## Question 5 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$p=1.5$ or $p\ge3$.** &nbsp; **(M1 A1 A1 A1 B1)**
+
+Known angle at $P$: adjacent $c=PR=3$, opposite $a=QR=p$. Height $h=3\sin30^\circ=1.5$, and $c=3$.
+
+- $p<1.5$: none.
+- $p=1.5$: **one** (right angle) — unique. ✔
+- $1.5<p<3$: **two** — $PQ$ not unique.
+- $p\ge3$: $a\ge c$, **one** — unique. ✔
+
+So $PQ$ is uniquely determined exactly when $p=1.5$ or $p\ge3$.
+
+*"Uniquely determines the length" means exactly one triangle, which happens at $a=h$ (tangent) or $a\ge c$ —
+not in the two-triangle band $h<a<c$.*
+:::
+
+---
+
+## Question 6 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**One triangle; $AC=8$.** &nbsp; **(M1 A1 A1 A1)**
+
+Opposite $A$ is $a=BC=7$; adjacent is $c=AB=3$. Since $a=7\ge c=3$, there is exactly **one** triangle. Cosine
+rule (quadratic in $b=AC$):
+$$7^{2}=3^{2}+b^{2}-2\cdot3\cdot b\cos60^\circ\Rightarrow b^{2}-3b-40=0\Rightarrow(b-8)(b+5)=0.$$
+Only $b=8>0$ is valid (product of roots $c^{2}-a^{2}=9-49<0$ guarantees a single positive root). $AC=8$.
+
+*A negative product of roots means one positive and one negative root, so the geometry can only realise the
+positive one — hence exactly one triangle.*
+:::
+
+---
+
+## Question 7 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$5<a<10$.** &nbsp; **(M1 A1 A1 B1)**
+
+Height $h=10\sin30^\circ=5$; adjacent side $c=10$. Two triangles occur exactly on the middle band $h<a<c$,
+i.e. $5<a<10$.
+
+*At $a=5$ it is one right-angled triangle; at $a=10$ the second solution degenerates, leaving one.*
+:::
+
+---
+
+## Question 8 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$12$.** &nbsp; **(M1 A1 A1 B1)**
+
+$$\text{Area}=\tfrac12\big|\,2(3-8)+6(8-1)+4(1-3)\,\big|=\tfrac12\big|\,-10+42-8\,\big|=\tfrac12\cdot24=12.$$
+
+```{python}
+#| fig-align: center
+import matplotlib.pyplot as plt
+P=[(2,1),(6,3),(4,8)]; lbl=['A(2,1)','B(6,3)','C(4,8)']
+plt.figure(figsize=(3.3,3.1)); xs=[p[0] for p in P]+[P[0][0]]; ys=[p[1] for p in P]+[P[0][1]]
+plt.plot(xs,ys,'-o',color='#2b6cb0')
+for (x,y),t in zip(P,lbl): plt.annotate(t,(x,y),textcoords='offset points',xytext=(5,4),fontsize=8)
+plt.grid(alpha=0.3); plt.gca().set_aspect('equal'); plt.xlim(0,8); plt.ylim(0,9); plt.tight_layout(); plt.show()
+```
+
+*The shoelace formula needs no side lengths or angles — just the six coordinates.*
+:::
+
+---
+
+## Question 9 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$k=8$.** &nbsp; **(M1 A1 A1 B1)**
+
+The three points fail to form a triangle when they are collinear. Slope $AC=\dfrac{14-2}{7-1}=2$, so $B$ must
+lie on $y-2=2(x-1)$; at $x=4$, $y=2+2(3)=8$. Hence $k=8$. *(Shoelace check:
+$1(k-14)+4(14-2)+7(2-k)=-6k+48=0\Rightarrow k=8$.)*
+
+*Collinear $\iff$ the shoelace bracket is $0$ $\iff$ equal slopes — either route gives $k=8$.*
+:::
+
+---
+
+## Question 10 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $54$ at $\theta=90^\circ$; (b) $\theta=30^\circ$ or $150^\circ$.** &nbsp; **(M1 A1 M1 A1)**
+
+Area $=\tfrac12\cdot9\cdot12\sin\theta=54\sin\theta$.
+
+- **(a)** $\sin\theta\le1$, so the area is at most $54$, at $\theta=90^\circ$.
+- **(b)** $54\sin\theta=27\Rightarrow\sin\theta=\tfrac12\Rightarrow\theta=30^\circ$ or $150^\circ$.
+
+*A fixed area fixes $\sin\theta$, and $\sin\theta=k$ has two triangle angles $\theta$ and $180^\circ-\theta$.*
+:::
+
+---
+
+# Section C — Push to 9
+
+## Question 11 **[6]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$\cos\theta=\dfrac{3\sqrt2}{5}$.** &nbsp; **(M1 A1 A1 M1 A1 A1)**
+
+Cosine rule at $B$, unknown $AB=c$, opposite side $AC=3$, adjacent known side $BC=5$:
+$$3^{2}=c^{2}+5^{2}-2\cdot c\cdot5\cos\theta\Rightarrow c^{2}-(10\cos\theta)c+16=0.$$
+Roots $c_1,c_2$: $c_1c_2=16$, $c_1+c_2=10\cos\theta$. Area $\propto AB$, so "$2\times$" gives $c_1=2c_2$;
+then $2c_2^{2}=16\Rightarrow c_2=2\sqrt2$, $c_1=4\sqrt2$, and
+$$c_1+c_2=6\sqrt2=10\cos\theta\Rightarrow\cos\theta=\frac{6\sqrt2}{10}=\frac{3\sqrt2}{5}.$$
+*(Discriminant $(10\cos\theta)^{2}-4\cdot16=72-64=8>0$, so two triangles really exist.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+cos=3*np.sqrt(2)/5; th=np.arccos(cos)
+B=np.array([0,0]); armA=np.array([np.cos(th),np.sin(th)])
+C=np.array([5,0])  # B at origin, BC=5 along x-axis; A on the ray at angle θ
+plt.figure(figsize=(4.4,2.6))
+plt.plot([B[0],7*armA[0]],[B[1],7*armA[1]],color='#2b6cb0',lw=1)
+plt.plot([B[0],C[0]],[B[1],C[1]],'k',lw=1.5)
+a=3.0; ang2=np.linspace(0,np.pi,150); plt.plot(C[0]+a*np.cos(ang2),C[1]+a*np.sin(ang2),color='crimson',ls='--',lw=0.9)
+tt=np.roots([1,-2*C@armA,C@C-a*a]); tt=[t for t in tt if np.isreal(t) and t>1e-9]
+for t in np.real(tt): plt.plot(t*armA[0],t*armA[1],'o',color='crimson',ms=5)
+plt.plot(*B,'ks',ms=4); plt.plot(*C,'ks',ms=4)
+plt.annotate('B',B,textcoords='offset points',xytext=(-10,-2)); plt.annotate('C',C,textcoords='offset points',xytext=(4,-2))
+plt.title('two positions of A: AB lengths in ratio 2:1',fontsize=8.5)
+plt.gca().set_aspect('equal'); plt.axis('off'); plt.xlim(-2,8); plt.ylim(-1,5); plt.tight_layout(); plt.show()
+```
+
+*The two triangles are the two positive roots of the cosine-rule quadratic; area $\propto$ the swinging side
+$AB$, so the ratio $2:1$ fixes the roots and their sum then gives $\cos\theta$.*
+:::
+
+---
+
+## Question 12 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) area $=12$; (b) $R=\dfrac{25}{8}$.** &nbsp; **(M1 A1 M1 A1 A1)**
+
+**(a)** Heron with $s=\tfrac{5+5+6}{2}=8$: area $=\sqrt{8\cdot3\cdot3\cdot2}=\sqrt{144}=12$. (Or: base $6$,
+height $\sqrt{5^{2}-3^{2}}=4$, area $\tfrac12\cdot6\cdot4=12$.)
+
+**(b)** $R=\dfrac{abc}{4\times\text{area}}=\dfrac{5\cdot5\cdot6}{4\cdot12}=\dfrac{150}{48}=\dfrac{25}{8}.$
+
+*The isosceles $5,5,6$ splits into two $3$-$4$-$5$ right triangles, so the area is the clean integer $12$ and
+$R$ comes out rational.*
+:::
+
+---
+
+## Question 13 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Greatest area $10\sqrt6$, with sides $7,7,10$.** &nbsp; **(M1 A1 M1 A1 B1)**
+
+Fix the side of length $10$ as the base; the other two sides sum to $24-10=14$. For a fixed base and fixed sum
+of the other two sides, the area is greatest when the triangle is **isosceles** (the apex highest), i.e. sides
+$7,7,10$. Its height is $\sqrt{7^{2}-5^{2}}=\sqrt{24}=2\sqrt6$, so
+$$\text{area}=\tfrac12\cdot10\cdot2\sqrt6=10\sqrt6.$$
+
+*Fixing the base and the sum of the other two sides puts the apex on an ellipse; the greatest height (hence
+area) is at the top, where the two sides are equal.*
+:::
+
+---
+
+## Question 14 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $15$; (b) acute at $A$.** &nbsp; **(M1 A1 M1 A1)**
+
+**(a)** Shoelace: $\tfrac12|0(0-5)+6(5-0)+2(0-0)|=\tfrac12\cdot30=15$.
+
+**(b)** Vectors from $A$: $\vec{AB}=(6,0)$, $\vec{AC}=(2,5)$. Their dot product
+$\vec{AB}\cdot\vec{AC}=12+0=12>0$, so the angle at $A$ is **acute**.
+
+*The sign of the dot product of the two edge vectors at a vertex gives the angle type directly: $>0$ acute,
+$0$ right, $<0$ obtuse.*
+:::
+
+---
+
+## Question 15 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$7\,$km.** &nbsp; **(M1 A1 A1 B1)**
+
+The angle between the two paths is $100^\circ-40^\circ=60^\circ$. By the cosine rule with the two
+distances $8$ and $5$:
+$$d^{2}=8^{2}+5^{2}-2\cdot8\cdot5\cos60^\circ=64+25-40=49\Rightarrow d=7.$$
+
+*Bearings are measured from north, so the angle at the port between the two routes is just the difference
+$100^\circ-40^\circ$; then it is a plain cosine-rule triangle.*
+:::
+
+---
+
+## Question 16 **[5]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**Proved.** &nbsp; **(M1 A1 A1 M1 A1)**
+
+Cosine rule at $A$, with $a$ the side opposite $A$ and $b,c$ the sides enclosing it:
+$$a^{2}=b^{2}+c^{2}-2bc\cos A\ \Rightarrow\ b^{2}-(2c\cos A)\,b+(c^{2}-a^{2})=0.$$
+This is a quadratic in $b$; the quadratic formula gives
+$$b=\frac{2c\cos A\pm\sqrt{(2c\cos A)^{2}-4(c^{2}-a^{2})}}{2}=c\cos A\pm\sqrt{c^{2}\cos^{2}A-c^{2}+a^{2}}.$$
+Since $c^{2}\cos^{2}A-c^{2}=-c^{2}(1-\cos^{2}A)=-c^{2}\sin^{2}A$, this is
+$$b=c\cos A\pm\sqrt{a^{2}-c^{2}\sin^{2}A}.$$
+The condition $c\sin A<a<c$ makes the surd real and positive **and** smaller than $c\cos A$, so both roots are
+positive — the two triangles. $\qquad\blacksquare$
+
+*The two triangles of the ambiguous case are literally the "$\pm$" of this quadratic; $a>c\sin A$ makes the
+discriminant positive (real), and $a<c$ keeps the smaller root positive (so both are valid lengths).*
+:::
+
+---
+
+# Section D — Cross-exam ambiguous case
+
+## Question 17 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $1<x<2$; (b) necessary (not sufficient).** &nbsp; **(M1 A1 A1 B1)**
+
+**(a)** Known angle at $A$: adjacent $c=AB=x^{2}$, opposite $a=BC=x$. Height $h=c\sin A=\tfrac{x^{2}}2$. Two
+triangles need $h<a<c$: $\tfrac{x^{2}}2<x<x^{2}\Rightarrow x<2$ and $x>1$, so $1<x<2$.
+
+**(b)** Since $(1,2)\subset(0,3)$, having two triangles **implies** $0<x<3$ but not conversely — so
+"$0<x<3$" is **necessary** but not sufficient.
+
+*The exact two-triangle set is $(1,2)$; a wider interval that contains it is a necessary consequence, a
+narrower one inside it would be sufficient.*
+:::
+
+---
+
+## Question 18 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$3\sqrt3<x<6$.** &nbsp; **(M1 A1 A1 B1)**
+
+Adjacent $c=AB=x$, opposite $a=BC=3$, $h=x\sin30^\circ=\tfrac x2$. Two triangles need $h<a<c$:
+$\tfrac x2<3<x\Rightarrow3<x<6$. The two triangles have $\angle B$ equal to $\beta$ and $180^\circ-\beta$, so
+**both** are acute only above the value where one is right-angled at $B$, namely $x=3\sqrt3$. Hence
+$3\sqrt3<x<6$.
+
+*Same shape as the clinic's $BC=2$ case (there the bound was $2\sqrt3$); with $BC=3$ it scales to $3\sqrt3$.*
+:::
+
+---
+
+## Question 19 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$5<x<6$.** &nbsp; **(M1 A1 A1 B1)**
+
+Both given sides must be positive: $(x-2)(x-5)>0\Rightarrow x<2$ or $x>5$; $(5-x)(x-10)>0\Rightarrow5<x<10$.
+Together $5<x<10$. With opposite $a=BC$, adjacent $b=AC$ and $h=b\sin30^\circ=\tfrac b2$, two triangles need
+$\tfrac b2<a<b$; solving on $5<x<10$ gives $5<x<6$.
+
+*Positivity fixes the outer window ($5<x<10$); the ambiguous-case band then trims it to $5<x<6$.*
+:::
+
+---
+
+## Question 20 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**$x=\dfrac{\sqrt3}{2}$.** &nbsp; **(M1 A1 A1 B1)**
+
+$\sin A=\tfrac12$ gives $A=\alpha$ or $A=180^\circ-\alpha$ with $\alpha=30^\circ$. The obtuse choice needs
+$C<\alpha$, so there are two triangles when $C<30^\circ$ and one when $C\ge30^\circ$. "Exactly one" needs
+$C\ge30^\circ$, i.e. $\cos C\le\cos30^\circ$; the greatest such $x$ is
+$\cos30^\circ=\dfrac{\sqrt3}{2}$.
+
+*The number of triangles is just the number of valid values of the known angle $A$ — the obtuse one drops out
+once $C$ reaches $\alpha$.*
+:::
+
+---
+
+## Question 21 **[4]**
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+**(a) $r=\sqrt3$; (b) area $=9\sqrt3$.** &nbsp; **(M1 A1 M1 A1)**
+
+For an equilateral triangle of side $a$, the inradius is $r=\dfrac{a}{2\sqrt3}$. With $a=6$,
+$r=\dfrac{6}{2\sqrt3}=\sqrt3$. The area is $\dfrac{\sqrt3}{4}a^{2}=\dfrac{\sqrt3}{4}\cdot36=9\sqrt3$. *(Check:
+area $=rs$ with $s=\tfrac{3\cdot6}2=9$, so $r=\dfrac{9\sqrt3}{9}=\sqrt3$. ✓)*
+:::
+
+---
+
+## Marking summary
+
+| Q | Marks | Tested |
+|---|---|---|
+| 1 | 4 | SSA count against $h$ and $c$ |
+| 2 | 3 | acute/right/obtuse sign test |
+| 3 | 4 | triangle inequality + obtuse condition |
+| 4 | 3 | circumradius from a side and its opposite angle |
+| 5 | 5 | "uniquely determined" = one triangle |
+| 6 | 4 | cosine-rule quadratic, single positive root |
+| 7 | 4 | two-triangle band $h<a<c$ |
+| 8 | 4 | shoelace area |
+| 9 | 4 | collinearity / degenerate triangle |
+| 10 | 4 | area $=\tfrac12ab\sin\theta$; fixed area → two angles |
+| 11 | 6 | area-ratio SSA quadratic → $\cos\theta$ |
+| 12 | 5 | Heron area + circumradius |
+| 13 | 5 | max area for fixed base & perimeter (isosceles) |
+| 14 | 4 | coordinate area + dot-product angle test |
+| 15 | 4 | bearings → cosine rule |
+| 16 | 5 | derive the two ambiguous-case roots |
+| 17 | 4 | ambiguous set + necessary vs sufficient |
+| 18 | 4 | two triangles with both $\angle B$ acute |
+| 19 | 4 | product-length sides — positivity then the band |
+| 20 | 4 | count by the two values of a known angle |
+| 21 | 4 | inscribed circle / inradius of an equilateral |
+
+**If marks are lost, look at 1, 5 and 7** — the recurring error is comparing the opposite side with only one of
+$h$ and $c$, which mis-counts the ambiguous case.
+:::

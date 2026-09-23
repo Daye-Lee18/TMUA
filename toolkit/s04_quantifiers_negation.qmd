@@ -1,0 +1,645 @@
+---
+title: "Paper 2 Toolkit · S4 — Quantifiers and Negation"
+subtitle: "Work each question — Easy → Medium → Hard"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Back in Session 1 we said *"$x$ is even"* is **not** a statement — it has no truth value until you say
+what $x$ is. This session is about the words that fix that: **for all** and **there exists**. Put one in
+front of an open sentence and it becomes a genuine statement, true or false.
+
+They matter for two reasons. First, almost every theorem on Paper 2 secretly begins with one of them
+(*"for all integers $n$…"*). Second — and this is where the marks are — **negating them is the engine
+behind disproof.** To show a "for all" claim is false you produce **one** counterexample; that single
+example *is* the negation. Get the negation rule wrong and you will hunt for the wrong thing.
+
+::: {.callout-important}
+## The two rules this session rests on
+
+$$\textbf{not}\,\big(\textbf{for all } x,\; P\big) \;=\; \textbf{there exists } x \textbf{ such that } \textbf{not } P$$
+$$\textbf{not}\,\big(\textbf{there exists } x,\; P\big) \;=\; \textbf{for all } x,\; \textbf{not } P$$
+
+**Negating flips the quantifier *and* negates the inside.** "for all" becomes "there exists", "there
+exists" becomes "for all" — and whatever was inside gets negated too.
+:::
+
+Specification: **Arg3** — *for all, for some (meaning for at least one), there exists*; &nbsp; **Arg4** —
+*negate statements that use any of these*. Official source: **Notes on Logic and Proof**, pp. 56–63.
+
+---
+
+# Part 1 — Easy
+
+## Question 1
+
+::: {.question}
+State whether each is **true** or **false**. In each case $x$ is real unless stated otherwise.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^2 \ge 0$. **[1]**
+
+&nbsp;&nbsp;(b) There exists a real $x$ such that $x^2 = 2$. **[1]**
+
+&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $n^2 > n$. **[1]**
+
+&nbsp;&nbsp;(d) There exists an integer $n$ such that $n^2 = n$. **[1]**
+:::
+
+Two different jobs hide here, and knowing which you are doing halves the work. [To confirm a "for all"
+statement you must argue it holds in **every** case; to knock it down you need just **one**
+counterexample.]{.hl} A "there exists" statement is the mirror image — **one** example confirms it, but
+knocking it down needs an argument covering everything.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — deciding whether a quantified statement is true
+:::
+
+
+**(a) True.** A square is never negative — this holds for every real $x$. *(A "for all" that really is
+true, so no counterexample exists.)*
+
+**(b) True.** $x = \sqrt2$ works: one example is all a "there exists" needs.
+
+**(c) False.** It fails at $n = 1$: $1^2 = 1$, which is **not** $> 1$. *(It also fails at $n=0$.)* One
+counterexample is enough to destroy a "for all".
+
+**(d) True.** $n = 0$ works ($0^2 = 0$), and so does $n=1$. Either one confirms the "there exists".
+
+$\blacksquare$
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| (c) called true because "$n^2>n$ usually" | *Usually* is not *for all*. A single failure ($n=1$) makes the whole statement false. |
+| (b) needing to "solve for all $x$" | A "there exists" is satisfied by **one** witness. Produce it and stop. |
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+::: {.callout-tip collapse="true"}
+## Concepts — the two quantifiers, and what it takes to settle them
+
+A quantifier turns an **open sentence** (one with a free $x$, no truth value) into a **statement**.
+
+| Quantifier | Also written | Means |
+|---|---|---|
+| **for all $x$**, $P(x)$ | for every, for each | $P$ holds in *every* case |
+| **there exists $x$**, $P(x)$ | for some, for at least one | $P$ holds in *at least one* case |
+
+::: {.callout-note appearance="simple"}
+**"for some" means "for at least one"** — the spec says so explicitly. It does **not** mean "for some but
+not all". Even if $P$ happens to hold for *every* $x$, "there exists an $x$" is still true.
+:::
+
+**What it takes to prove or disprove each** — this table is the whole of proof and disproof on Paper 2:
+
+| Statement | To **prove** it | To **disprove** it |
+|---|---|---|
+| for all $x$, $P(x)$ | a general argument covering **every** $x$ | **one counterexample** (an $x$ with $P$ false) |
+| there exists $x$, $P(x)$ | **one witness** (an $x$ with $P$ true) | a general argument that $P$ fails for **every** $x$ |
+
+Notice the diagonal symmetry: *proving* a "there exists" and *disproving* a "for all" are the same easy
+job — find one example. That is why negation, which swaps the two, is so central.
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+Write the **negation** of each statement, as a positive sentence (no "it is not the case that").
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^2 > 0$. **[1]**
+
+&nbsp;&nbsp;(b) There exists an integer $n$ such that $n^2 = 5$. **[1]**
+
+&nbsp;&nbsp;(c) Every student passed the test. **[1]**
+:::
+
+Apply the two rules mechanically: [flip the quantifier, and negate what's inside]{.hl}. "For all" becomes
+"there exists", "there exists" becomes "for all". The commonest error is negating only one of the two —
+either flipping the quantifier but forgetting the inside, or vice versa. Do both, every time.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — negating a single quantifier
+:::
+
+
+**(a)** Flip *for all* → *there exists*, and negate $x^2>0$ to $x^2 \le 0$:
+
+> **There exists a real $x$ such that $x^2 \le 0$.**
+
+*(True, in fact — $x=0$.)* Note the negation of $>$ is $\le$, not $<$.
+
+**(b)** Flip *there exists* → *for all*, and negate $n^2=5$ to $n^2 \ne 5$:
+
+> **For all integers $n$, &nbsp; $n^2 \ne 5$.**
+
+**(c)** "Every student passed" is a *for all*; its negation is a *there exists*:
+
+> **There exists a student who did not pass** &nbsp;(i.e. **at least one** student failed).
+
+$\blacksquare$
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| (a) negated to "there exists $x$ with $x^2 > 0$" | The quantifier was flipped but the **inside was not negated**. Both must change. |
+| (a) inside negated to $x^2 < 0$ | The negation of $>$ is $\le$ — the boundary $x^2=0$ is included. |
+| (c) "no student passed" | That is far too strong. The negation of "all passed" is "**at least one** failed", not "all failed". |
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+::: {.callout-tip collapse="true"}
+## Concepts — the mechanical negation rule
+
+$$\text{not}\big(\text{for all } x,\ P\big) = \text{there exists } x,\ \text{not } P$$
+$$\text{not}\big(\text{there exists } x,\ P\big) = \text{for all } x,\ \text{not } P$$
+
+**Two things change, always:**
+
+1. the **quantifier flips** — ∀ ↔ ∃, "for all" ↔ "there exists";
+2. the **inside is negated** — $P$ becomes not $P$.
+
+Changing only one is the classic half-done negation, and it is wrong.
+
+**Why it makes sense.** *"Not everything is $P$"* means *"something fails to be $P$"* — flip to "there
+exists", negate inside. *"Nothing is $P$"* means *"everything fails to be $P$"* — flip to "for all",
+negate inside. Say the sentence in plain English and the rule falls out.
+
+::: {.callout-note appearance="simple"}
+**Negating the inside correctly** matters as much as flipping the quantifier — the comparison-negations
+from Session 2 return here:
+
+| Inside | Its negation |
+|---|---|
+| $x > 0$ | $x \le 0$ |
+| $x = 5$ | $x \ne 5$ |
+| $x$ is even | $x$ is odd |
+| $P$ **and** $Q$ | not $P$ **or** not $Q$ |
+:::
+:::
+
+---
+
+## Question 3
+
+::: {.question}
+Consider the statement: &nbsp; **All prime numbers are odd.**
+
+&nbsp;&nbsp;(a) Is it true or false? Justify your answer. **[1]**
+
+&nbsp;&nbsp;(b) Write its correct negation. **[1]**
+
+&nbsp;&nbsp;(c) A student says the negation is *"No prime number is odd."* Explain why that is wrong. **[1]**
+:::
+
+This is the single most common quantifier mistake, and the question is built around it. "All X are Y" is
+a *for all* statement, so [its negation is a *there exists*, not another *for all*]{.hl}. "No X is Y" is
+itself a "for all" (it says *every* X fails to be Y) — far too strong to be the negation. The true
+negation asks only for **one** exception.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — why "not all X are Y" is not "no X is Y"
+:::
+
+
+**(a) False.** The prime $2$ is even, so not every prime is odd. That single prime settles it.
+
+**(b)** "All primes are odd" is *for all primes $p$, $p$ is odd*. Negating:
+
+> **There exists a prime that is not odd** &nbsp;(i.e. **at least one** prime is even — namely $2$).
+
+**(c)** *"No prime is odd"* claims **every** prime is even — a "for all" statement, and a wildly false one
+($3, 5, 7,\dots$ are all odd primes). The real negation of "all are odd" needs only **one** non-odd
+prime, not *all* primes to be non-odd. [Negating a "for all" gives a "there exists", never another "for
+all".]{.hl}
+
+$\blacksquare$
+
+::: {.callout-warning appearance="simple"}
+**The three-way distinction to hold onto.** For a property Y over a collection X:
+
+- **"All X are Y"** — every one is Y.
+- **"No X is Y"** — every one *fails* Y &nbsp;(the *opposite extreme*, also a "for all").
+- **"Not all X are Y"** — *at least one* fails Y &nbsp;(the **negation** of the first, a "there exists").
+
+"No X is Y" and "Not all X are Y" are completely different: the first is a strong claim about everything,
+the second a weak claim about one thing.
+:::
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| Negation of "all are odd" = "none are odd" | That is the opposite extreme, still a "for all". The negation is "**at least one** is not odd". |
+| (a) trying to check every prime | One counterexample ($2$) is a complete disproof. |
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+::: {.callout-tip collapse="true"}
+## Concepts — "all", "none", "not all", "some not"
+
+Picture the collection of X's. Each statement carves it differently:
+
+| Statement | Picture | Quantifier type |
+|---|---|---|
+| **All** X are Y | every X is inside Y | for all |
+| **No** X is Y | every X is outside Y | for all (of the negation) |
+| **Some** X is Y | at least one X inside Y | there exists |
+| **Not all** X are Y &nbsp;=&nbsp; **some** X is **not** Y | at least one X outside Y | there exists |
+
+The two on the diagonal are negations of each other:
+
+$$\text{not}(\text{all X are Y}) = \text{some X is not Y}, \qquad \text{not}(\text{some X is Y}) = \text{no X is Y}.$$
+
+**"No X is Y" is the negation of "some X *is* Y"** — not of "all X are Y". Lining them up this way stops
+the classic confusion for good.
+:::
+
+---
+
+# Part 2 — Medium
+
+## Question 4
+
+::: {.question}
+For each statement, decide whether it is true. If false, **disprove it with a counterexample**; if true,
+give a one-line reason.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^2 > x$. **[2]**
+
+&nbsp;&nbsp;(b) For all real $x$, &nbsp; if $x > 1$ then $x^2 > x$. **[2]**
+
+&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $n^2 + n$ is even. **[2]**
+:::
+
+Each is a "for all", so [disproving one means producing a single $x$ where it fails]{.hl} — and the place
+to look is always the awkward region: small numbers, negatives, fractions, zero. Part (b) has a condition
+attached ($x>1$), which shrinks where you are allowed to hunt: your counterexample must **satisfy $x>1$**
+and still break the conclusion, or there is none.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — disproving a "for all" by counterexample
+:::
+
+
+**(a) False.** Counterexample $x = \tfrac12$: then $x^2 = \tfrac14$, which is **not** $> \tfrac12$.
+*(Any $x$ with $0 < x < 1$ works; so does any negative $x$.)*
+
+**(b) True.** If $x > 1$ then multiplying both sides of $x>1$ by the positive number $x$ gives $x^2 > x$.
+*The condition $x>1$ rules out exactly the counterexamples that broke part (a).*
+
+**(c) True.** $n^2 + n = n(n+1)$ is a product of two **consecutive** integers, one of which is always
+even — so the product is even, for every $n$. *(No counterexample exists.)*
+
+$\blacksquare$
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| (a) "disproved" with $x=2$ | $x=2$ gives $4>2$, which **satisfies** the statement. A counterexample must make it **fail**. |
+| (b) counterexample $x = \tfrac12$ | Not allowed — it fails the condition $x>1$. Your example must satisfy the hypothesis. |
+| (c) checking a few $n$ and asserting "true" | A few cases never prove a "for all". The $n(n+1)$ argument covers all $n$ at once. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+::: {.callout-tip collapse="true"}
+## Concepts — how to hunt a counterexample
+
+To disprove **for all $x$, $P(x)$**, you need one $x$ with $P(x)$ **false**. Where to look, in order:
+
+1. **Boundary and small values:** $0$, $1$, $-1$, $\tfrac12$.
+2. **Negatives** — especially when the statement involves squares or square roots.
+3. **The extremes** of any allowed range.
+
+If the statement is **for all $x$, if $H(x)$ then $C(x)$** (a "for all" over an implication), your
+counterexample must do **both**: satisfy the hypothesis $H$ **and** break the conclusion $C$. An $x$ that
+fails $H$ proves nothing — the implication is vacuously fine there.
+
+::: {.callout-note appearance="simple"}
+**This is exactly Session 3's "not sufficient".** Showing a condition is *not sufficient* meant finding a
+case where it holds but the conclusion fails — which is precisely disproving the "for all" that the
+sufficiency claim amounts to. Same skill, new name.
+:::
+:::
+
+---
+
+## Question 5
+
+::: {.question}
+Write the negation of each, as a positive statement.
+
+&nbsp;&nbsp;(a) For all real $x$, &nbsp; if $x > 2$ then $x^2 > 4$. **[2]**
+
+&nbsp;&nbsp;(b) There exists an integer $n$ such that $n$ is prime **and** $n$ is even. **[2]**
+
+&nbsp;&nbsp;(c) Every continuous function has a maximum. **[1]**
+:::
+
+The quantifier flips as always, but now the *inside* is itself compound — an implication in (a), an
+"and" in (b) — so you must negate **that** correctly too. Recall: [the negation of "if $H$ then $C$" is
+"$H$ **and** not $C$"]{.hl}, and the negation of "$P$ and $Q$" is "not $P$ **or** not $Q$". These are the
+sub-skills the question is really testing.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — negating a statement with a condition inside
+:::
+
+
+**(a)** Flip *for all* → *there exists*, and negate the implication. The negation of "if $x>2$ then
+$x^2>4$" is "$x>2$ **and** $x^2 \le 4$":
+
+> **There exists a real $x$ such that $x > 2$ and $x^2 \le 4$.**
+
+*(This happens to be false — the original is true — but the negation is formed correctly all the same.)*
+
+**(b)** Flip *there exists* → *for all*, and negate "prime and even". By De Morgan, "not (prime and even)"
+is "not prime **or** not even":
+
+> **For all integers $n$, &nbsp; $n$ is not prime or $n$ is not even** &nbsp;(equivalently: $n$ is not
+> prime, or $n$ is odd).
+
+**(c)** "Every continuous function has a maximum" is a *for all*; negate to a *there exists*:
+
+> **There exists a continuous function with no maximum.** *(True — e.g. $f(x)=x$ on all of $\mathbb R$.)*
+
+$\blacksquare$
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| (a) negating "if $x>2$ then $x^2>4$" to "if $x>2$ then $x^2\le4$" | The negation of an implication is **not** another implication. It is "$H$ **and** not $C$". |
+| (b) "for all $n$, $n$ is not prime **and** not even" | Negating "and" gives "**or**", by De Morgan — not "and". |
+| Forgetting to flip the quantifier at all | Both the quantifier **and** the inside must change. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+::: {.callout-tip collapse="true"}
+## Concepts — negating what's inside
+
+Once the quantifier is flipped, negate the interior with these standard moves:
+
+| Inside | Its negation |
+|---|---|
+| $P$ **and** $Q$ | not $P$ **or** not $Q$ &nbsp;*(De Morgan)* |
+| $P$ **or** $Q$ | not $P$ **and** not $Q$ &nbsp;*(De Morgan)* |
+| **if** $H$ **then** $C$ | $H$ **and** not $C$ |
+| $x > a$ | $x \le a$ |
+
+**The implication one is the trap.** *"if $H$ then $C$"* promises you never get $H$-true-with-$C$-false —
+so the only way to break it is exactly $H$ **and** not $C$. Its negation is **not** "if $H$ then not $C$".
+
+Put together with the quantifier rule, a full negation is two steps:
+
+$$\text{not}\big(\text{for all } x,\ \text{if } H \text{ then } C\big) = \text{there exists } x \text{ such that } H \text{ and not } C.$$
+
+This exact shape — *"there is an $x$ satisfying the hypothesis but not the conclusion"* — is what a
+counterexample to a theorem always looks like.
+:::
+
+---
+
+# Part 3 — Hard
+
+## Question 6
+
+::: {.question}
+For real numbers, consider the two statements:
+
+&nbsp;&nbsp;**P:** For all $x$, there exists $y$ such that $y > x$.
+
+&nbsp;&nbsp;**Q:** There exists $y$ such that for all $x$, $y > x$.
+
+&nbsp;&nbsp;(a) Explain the difference in meaning between **P** and **Q**. **[2]**
+
+&nbsp;&nbsp;(b) State, with reasons, whether each is true. **[2]**
+
+&nbsp;&nbsp;(c) Write the negation of **P**. **[1]**
+:::
+
+The two statements use the **same words in a different order**, and they mean different things — this is
+the subtlest point in the whole quantifier topic. [In **P** the $y$ may depend on $x$ (choose it after);
+in **Q** a single $y$ must work for every $x$ at once.]{.hl} Read each literally, left to right, and ask
+at each step "does this thing get to see the one before it?"
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — statements with two quantifiers, and their order
+:::
+
+
+**(a)** In **P**, *"for all $x$"* comes first, so $y$ is chosen **after** $x$ and may depend on it:
+*given any $x$, I can find some larger $y$.* In **Q**, *"there exists $y$"* comes first, so **one** $y$
+must be fixed **before** $x$ and then beat **every** $x$: *there is a single number bigger than
+everything.*
+
+**(b)**
+
+- **P is true.** Given any real $x$, take $y = x+1$; then $y > x$. The choice of $y$ depends on $x$,
+  which **P** allows.
+- **Q is false.** It claims a largest real number exists — one $y$ above all $x$. But whatever $y$ you
+  fix, $x = y+1$ is larger, so no such $y$ exists.
+
+**(c)** Negate **P** = *for all $x$, there exists $y$, $y>x$*. Flip each quantifier in turn and negate the
+inside ($y>x$ becomes $y \le x$):
+
+> **There exists an $x$ such that for all $y$, &nbsp; $y \le x$.**
+
+*(In words: there is a real number that nothing exceeds — a largest real. False, of course, which fits,
+since $P$ was true.)*
+
+$\blacksquare$
+
+::: {.callout-warning appearance="simple"}
+**Order of quantifiers changes meaning.** *"for all $x$, there exists $y$"* and *"there exists $y$, for
+all $x$"* are **not** interchangeable. Swapping ∀ and ∃ can turn a true statement into a false one, as
+here. When you meet two quantifiers, read strictly left to right: each one is chosen knowing only the
+ones **before** it.
+:::
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| Treating **P** and **Q** as the same | Quantifier **order** matters: in P, $y$ depends on $x$; in Q, one $y$ serves all $x$. |
+| Negating **P** by flipping only the first quantifier | **Every** quantifier flips, in order, and the inside is negated. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+::: {.callout-tip collapse="true"}
+## Concepts — negating a chain of quantifiers
+
+To negate a statement with several quantifiers, **flip every one in turn** (left to right) and negate the
+innermost sentence:
+
+$$\text{not}\big(\text{for all } x,\ \text{there exists } y,\ P\big) = \text{there exists } x,\ \text{for all } y,\ \text{not } P.$$
+
+The quantifiers reverse type but **keep their order**; only the sentence at the very end gets negated.
+
+**Reading two quantifiers.** The order is the meaning:
+
+- **for all $x$, there exists $y$** … : $y$ is picked *after* $x$, so it **may depend on $x$**.
+- **there exists $y$, for all $x$** … : $y$ is picked *first* and fixed, so **one $y$ must work for
+  every $x$**.
+
+The second is the stronger claim. Whenever a Paper 2 question puts a ∀ and an ∃ together, the trap is
+almost always that swapping their order looks harmless but changes the truth value.
+:::
+
+---
+
+## Question 7
+
+::: {.question}
+$n$ denotes a positive integer. Consider the statement
+
+$$\textbf{(S):}\quad \text{For all } n, \text{ if } n \text{ is prime then } n \text{ is odd.}$$
+
+Which of the following is/are correct?
+
+&nbsp;&nbsp;**I** &nbsp; (S) is true.
+
+&nbsp;&nbsp;**II** &nbsp; The negation of (S) is *"there exists a prime $n$ that is even"*.
+
+&nbsp;&nbsp;**III** &nbsp; $n=2$ is a counterexample to (S).
+
+&nbsp;&nbsp;**A** I only &nbsp;&nbsp; **B** II only &nbsp;&nbsp; **C** III only &nbsp;&nbsp;
+**D** I and II &nbsp;&nbsp; **E** II and III &nbsp;&nbsp; **F** I and III &nbsp;&nbsp;
+**G** I, II and III &nbsp;&nbsp; **H** None
+:::
+
+Take the three claims one at a time — they are testing three separate skills from this session: judging
+the truth of a "for all", negating it correctly, and recognising a valid counterexample. [Watch how II
+and III fit together]{.hl}: the counterexample in III should be exactly the witness that makes the
+negation in II true. If II is a correct negation and III is a genuine counterexample, then (S) must be
+false — so I and "II and III" cannot all three hold.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — quantifiers, negation and counterexamples together *(exam-style)*
+:::
+
+
+Deal with each in turn.
+
+**I — is (S) true?** (S) says every prime is odd. But $2$ is prime and even, so (S) is **false**.
+So **I is incorrect.**
+
+**II — is the negation right?** (S) is *for all $n$, if prime then odd*. Its negation flips to *there
+exists $n$* and negates the implication ("prime and not odd"):
+$$\text{there exists } n \text{ such that } n \text{ is prime and } n \text{ is not odd,}$$
+i.e. *there exists a prime that is even.* That is exactly statement II. **II is correct.** ✓
+
+**III — is $n=2$ a counterexample?** A counterexample to (S) must satisfy the hypothesis (prime) and
+break the conclusion (odd). $n=2$ is prime and not odd, so it does both. **III is correct.** ✓
+
+So **II and III** are correct and I is not — **option E**. $\blacksquare$
+
+*Consistency check: II gives the negation, III supplies the witness that makes that negation true —
+together they confirm (S) is false, which is why I fails. The three answers hang together exactly as they
+should.*
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| Marking I correct — "primes are usually odd" | *Usually* is not *for all*. $n=2$ makes (S) false. |
+| Rejecting II for "not being a for-all" | The negation of a "for all" **is** a "there exists". That is correct, not a mistake. |
+| Marking III wrong because "$2$ is a special case" | A single valid counterexample is a complete disproof — special cases are exactly what you want. |
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+::: {.callout-tip collapse="true"}
+## Concepts — the whole session on one question
+
+This question stitches together everything in S4, and the pieces are meant to be checked for consistency:
+
+$$\underbrace{\text{(S) is false}}_{\text{I}} \quad\Longleftrightarrow\quad \underbrace{\text{its negation is true}}_{\text{II}} \quad\Longleftrightarrow\quad \underbrace{\text{a counterexample exists}}_{\text{III}} .$$
+
+These three are logically **the same fact** seen three ways. So a self-consistent answer can never have I
+true *and* III true — a counterexample existing is precisely what makes (S) false.
+
+**The exam habit:** when a question asks about a statement's truth, its negation, and a counterexample all
+at once, work out the negation first (it tells you what a counterexample must look like), then hunt for
+that counterexample, then read the truth of the original off whether you found one.
+:::
+
+---
+
+## After this session
+
+::: {.callout-important}
+## Homework
+
+**The main task — this is the one that covers today.**
+
+1. **[Assignment: Quantifiers and negation](s04_assignment_student.qmd)** — 8 questions, **32 marks**,
+   about 45 minutes.
+
+**Then, to make it stick:**
+
+2. **Notes on Logic and Proof, pp. 56–63** (*Quantifiers*), including the negation rules and the ∀ / ∃
+   symbols *(you will not have to write the symbols, but you should recognise them)*.
+3. Write **five "for all" statements of your own** about integers — three true, two false — and for each
+   false one, give the counterexample. This drills the exact move disproof depends on.
+:::
+
+**The whole session in one line:**
+
+> **To negate, flip the quantifier and negate the inside. "Not all are Y" means "at least one is not Y" —
+> never "none are Y".**
+
+**Next session (S5): proof methods** — direct proof, proof by cases, and proof by contradiction. You have
+already met the fourth, disproof by counterexample: it is exactly what you do to a false "for all", which
+is why quantifiers came first.
+
+:::
