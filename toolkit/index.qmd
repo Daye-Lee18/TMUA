@@ -64,11 +64,14 @@ answer checked against the official solution.
 | **S3** Necessary & sufficient | 19 | 13 |
 | **S4** Quantifiers & negation | 14 | 7 |
 | **S5** Proof methods | 34 | 7 |
+| **S6** Scrambled proofs | 11 | 1 |
 | **S7** Spot the error | 20 | 10 |
 
 Questions marked **★** are ones 이우성 flagged on his own mock; **◆** marks questions from 여운주's
-**[self-study sets](../students/woonju/index.qmd)**. **S6** has no Part 4 — no TMUA paper has yet used the
-Prf4 scrambled-proof format, so its material stays purpose-built.
+**[self-study sets](../students/woonju/index.qmd)**. **S6** has only one: the Prf4 scrambled-proof format has been
+examined exactly **once in eight years**, and that question — **2016 P2 Q7** — is now
+[S6 Q11](s06_scrambled_proofs.qmd). There is no bank to build beyond it, so the rest of that page stays
+purpose-built. See [`PAPER2_TRENDS_2016_2023.md`](../PAPER2_TRENDS_2016_2023.md) §4.
 :::
 
 | | Session | Class material | Assignment | Spec |

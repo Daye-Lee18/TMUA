@@ -302,6 +302,84 @@ Working
 ---
 
 ::: {.callout-tip}
+# Part 2 — The real one
+
+For a long time this session carried a caveat: *the Prf4 format is in the spec, but no TMUA paper has ever
+used it.* **That was wrong.** It has been set exactly once, in the very first sitting — and the question
+below is it, in full.
+
+Once in eight years is rare, so this page stays last in the running order. But the format is real, and this
+is what it looks like.
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q7</span>
+
+::: {.question}
+The four real numbers $a$, $b$, $c$ and $d$ are all greater than $1$. Suppose that they satisfy the equation
+$$\log_c d=\left(\log_a b\right)^{2}.$$
+
+**Use some of the lines given** to construct a proof that, in this case, it follows that
+$$(*)\qquad \log_b d=\left(\log_a b\right)\left(\log_a c\right).$$
+
+&nbsp;&nbsp;**(1)** Let $x=\log_a b$ and $y=\log_a c$
+
+&nbsp;&nbsp;**(2)** $d=\left(c^{x}\right)^{2}$ &nbsp;&nbsp; **(3)** $d=c^{\left(x^{2}\right)}$ &nbsp;&nbsp; **(4)** $d=b^{xy}$
+
+&nbsp;&nbsp;**(5)** $d=\left(a^{y}\right)^{\left(x^{2}\right)}$ &nbsp;&nbsp; **(6)** $d=\left(\left(a^{y}\right)^{x}\right)^{2}$ &nbsp;&nbsp; **(7)** $d=\left(a^{x}\right)^{xy}$
+
+&nbsp;&nbsp;**(8)** $d=a^{\left(y^{2}x\right)}$ &nbsp;&nbsp; **(9)** $d=a^{\left(x^{2}y\right)}$
+
+&nbsp;&nbsp;**A** (1). Then (2), so (6), so (8), so (7), and therefore (4), hence $(*)$.
+&nbsp;&nbsp;**B** (1). Then (2), so (7), so (8), so (6), and therefore (4), hence $(*)$.
+&nbsp;&nbsp;**C** (1). Then (3), so (5), so (9), so (7), and therefore (4), hence $(*)$.
+&nbsp;&nbsp;**D** (1). Then (3), so (7), so (9), so (5), and therefore (4), hence $(*)$.
+&nbsp;&nbsp;**E** (1). Then (4), so (5), so (9), so (7), and therefore (3), hence $(*)$.
+&nbsp;&nbsp;**F** (1). Then (4), so (6), so (8), so (7), and therefore (2), hence $(*)$.
+&nbsp;&nbsp;**G** (1). Then (4), so (7), so (8), so (6), and therefore (2), hence $(*)$.
+&nbsp;&nbsp;**H** (1). Then (4), so (7), so (9), so (5), and therefore (3), hence $(*)$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — the only Prf4 question TMUA has ever set)*]{style="color:#7a5195"}
+**C.** *Do not read the eight options first.* Build the chain yourself, then find the option that matches —
+the options are written to look interchangeable and comparing them directly is slower and riskier.
+
+With $x=\log_a b$ and $y=\log_a c$, the hypothesis is $\log_c d=x^{2}$.
+
+| Step | Line | Why it follows |
+|---|---|---|
+| start | **(1)** | name the two logs |
+| 1 | **(3)** $d=c^{\left(x^{2}\right)}$ | $\log_c d=x^{2}$ **is** this statement, rewritten as a power |
+| 2 | **(5)** $d=\left(a^{y}\right)^{\left(x^{2}\right)}$ | $y=\log_a c$ means $c=a^{y}$ — substitute |
+| 3 | **(9)** $d=a^{\left(x^{2}y\right)}$ | $\left(a^{y}\right)^{x^{2}}=a^{x^{2}y}$ |
+| 4 | **(7)** $d=\left(a^{x}\right)^{xy}$ | regroup: $x^{2}y=x\cdot xy$ |
+| 5 | **(4)** $d=b^{xy}$ | $a^{x}=b$, since $x=\log_a b$ |
+| finish | $(*)$ | $d=b^{xy}\Rightarrow\log_b d=xy=\left(\log_a b\right)\left(\log_a c\right)$ ✓ |
+
+**How to eliminate without doing the algebra.** Every option starts at (1), so look at the **second** entry:
+
+- **(2)** $d=\left(c^{x}\right)^{2}=c^{2x}$ — but the hypothesis gives $c^{x^{2}}$, and $2x\neq x^{2}$ in
+  general. *Options A and B die immediately.*
+- **(4)** $d=b^{xy}$ is the **destination**, not a starting move — it is what we are trying to reach. *E, F,
+  G and H all begin by assuming the conclusion.*
+- **(3)** is the only honest first step, leaving **C** and **D**. Between them, (5) must come before (9)
+  (you substitute $c=a^{y}$ **before** collecting the exponent), so **C**.
+
+*Notice what killed six of the eight options: one bad exponent and one circular start.* Checking the second
+line of each option settled the question before any real work began.
+
+**Also worth seeing:** the wrong lines are not random. (6) and (8) are the consistent continuation of the
+false branch through (2), and (2)/(6)/(8) form a complete, internally tidy — but wrong — chain. *A scrambled
+proof question hides its distractors as a parallel proof of the wrong thing.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 ## The one habit to leave with
 
 **Anchor the ends first** — the "Let / Suppose / Assume" line opens, the conclusion (or contradiction)

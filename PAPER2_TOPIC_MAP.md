@@ -6,6 +6,11 @@ repeats on Paper 2, and what should a four-week course spend its time on?**
 Every answer below is the official answer key. Question stems are condensed from the mark schemes in
 `lessons/2021_paper2/`, `lessons/2022_paper2/` and `lessons/2023_paper2/`.
 
+> **Scope warning.** This file covers **three** sittings. The eight-year picture is in
+> [`PAPER2_TRENDS_2016_2023.md`](PAPER2_TRENDS_2016_2023.md), and it shows that 2016–2020 is **not** the
+> same paper — reasoning rose from ~50 % to 80 % of the marks. Two claims below were corrected once the
+> earlier years were counted; both are flagged inline.
+
 ---
 
 ## 1 · The one idea this map is built on
@@ -119,15 +124,25 @@ appeared in all five sittings.
 2021 Q13, Q16, Q17, Q18 · 2022 Q9, Q10, Q13 · 2023 Q8, Q19. **2022 Q10 is the pure form** ($\forall\exists$
 against $\exists\forall$ for $x<n$); the rest hide the quantifier in the words *every*, *possible* or *some*.
 
-### Slot F — spot the first error · **exactly two per paper, every year**
+### Slot F — spot the first error · **two in each of these three years**
 
 | Sitting | Positions | Topics used |
 |---|---|---|
 | 2021 | **Q5**, **Q11** | trig identity $\cos x=\sqrt{1-\sin^2x}$ · algebraic inequality |
-| 2022 | **Q7**, **Q17** | primes & factorisation · cubic with three real roots |
+| 2022 | **Q7**, **Q17*** | primes & factorisation · cubic with three real roots |
 | 2023 | **Q4**, **Q10** | primes · quartic inequality by completing the square |
 
-Two, never one, never three. **One of the pair sits in Q4–Q7 and the other in Q10–Q17** in all three years.
+Two in each of these three years, with one of the pair in Q4–Q7 and the other in Q10–Q17.
+
+\* **2022 Q17 is a borderline case.** Its options are not "the first error is on line N" but *"the student
+proved the **converse**"* and *"step II should have come after step III"* — so it is an error-in-proof
+question whose error is a **converse**, with proof-step **ordering** as a distractor. Counted here as an
+error question, but it also belongs to Slot C's converse family.
+
+> **Corrected against 2016–2020.** Across all eight sittings the count is **1, 3, 2, 1, 2, 2, 2, 2** — so
+> "exactly two, always" is false: 2017 had **three** (Q4, Q9, Q18) and 2016 and 2019 had **one**. Two is a
+> sound planning assumption, not a guarantee, and the positions vary more than these three years suggest.
+> See [`PAPER2_TRENDS_2016_2023.md`](PAPER2_TRENDS_2016_2023.md) §3.
 
 ---
 
@@ -135,8 +150,8 @@ Two, never one, never three. **One of the pair sits in Q4–Q7 and the other in 
 
 | Position | What is there | Evidence |
 |---|---|---|
-| **Q1–Q2** | straight calculation, no reasoning at all | **6 of 6** across the three years |
-| **Q3–Q4** | a counterexample question | 2021 Q4, 2022 Q3, 2023 Q3 — **3 of 3** |
+| **Q1–Q2** | straight calculation, no reasoning at all | **6 of 6** here — and **16 of 16** across 2016–2023 |
+| **Q3–Q4** | a counterexample question | 2021 Q4, 2022 Q3, 2023 Q3 — **3 of 3**; never later than Q5 in any of the eight papers |
 | **Q4–Q7** | first spot-the-error | 2021 Q5, 2022 Q7, 2023 Q4 |
 | **Q10–Q17** | second spot-the-error | 2021 Q11, 2022 Q17, 2023 Q10 |
 | **Q18–Q20** | the hardest items; often heavy computation or iteration rather than logic | 2021 Q19/Q20, 2022 Q20, 2023 Q17 |
@@ -183,9 +198,13 @@ Counted on the actual PDFs, with `ﬃ`-type ligatures normalised first — witho
 | prime | 1 | 4 | 8 |
 
 Two things stand out. **"Only if" and "if and only if" are absent from 2021 and 2022 and then appear 19
-times in 2023** — the phrasing moved, not the mathematics, and a student drilled only on older papers will
-meet unfamiliar wording. And **"necessary"/"sufficient" dominate every year**, which is why S3 is the
-largest toolkit page.
+times in 2023.** And **"necessary"/"sufficient" dominate every year**, which is why S3 is the largest
+toolkit page.
+
+> **Corrected against 2016–2020.** The "only if" phrasing is not new in 2023 — it **returned**. Counts run
+> 2 (2017), 5 (2018), 2 (2019), 8 (2020), then **0, 0**, then **12**. So it was standard for four years,
+> vanished for two, and came back at double frequency. The teaching consequence is the same but better
+> founded: **2017–2020 is where "only if" can be practised**, since 2021–22 contains none of it.
 
 ---
 
