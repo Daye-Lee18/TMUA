@@ -157,6 +157,32 @@ For two **separate** circles:
 
 :::::
 
+**Where the distance formula comes from** — worth proving once, then never again.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Proof — distance from $(x_1,y_1)$ to $ax+by+c=0$
+
+**Claim.** $d=\dfrac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^2+b^2}}$.
+
+*Step 1 — measure straight down instead.* Take the point on the line directly below (or above) $P(x_1,y_1)$.
+Assuming $b\neq0$, at $x=x_1$ the line gives $y=-\dfrac{ax_1+c}{b}$, so the **vertical** gap is
+$$v=\left\lvert y_1+\frac{ax_1+c}{b}\right\rvert=\frac{\lvert ax_1+by_1+c\rvert}{\lvert b\rvert}.$$
+
+*Step 2 — turn the vertical gap into the perpendicular one.* The vertical segment, the perpendicular segment
+and the line form a right-angled triangle, so $d=v\cos\theta$ where $\theta$ is the angle the line makes with
+the horizontal. The line has gradient $m=-\dfrac{a}{b}$, and for any gradient
+$$\cos\theta=\frac{1}{\sqrt{1+m^{2}}}=\frac{1}{\sqrt{1+a^{2}/b^{2}}}=\frac{\lvert b\rvert}{\sqrt{a^{2}+b^{2}}}.$$
+
+*Step 3 — multiply.*
+$$d=v\cos\theta=\frac{\lvert ax_1+by_1+c\rvert}{\lvert b\rvert}\cdot\frac{\lvert b\rvert}{\sqrt{a^{2}+b^{2}}}
+=\frac{\lvert ax_1+by_1+c\rvert}{\sqrt{a^{2}+b^{2}}}.\qquad\blacksquare$$
+
+*(If $b=0$ the line is vertical, $x=-c/a$, and the distance is plainly $\lvert x_1+c/a\rvert=\lvert ax_1+c\rvert/\lvert a\rvert$ — the same formula.)*
+
+**Check it:** the distance from $(3,4)$ to $3x+4y-5=0$ is $\dfrac{\lvert 9+16-5\rvert}{\sqrt{9+16}}=\dfrac{20}{5}=4$.
+:::
+
+
 **On this page:** 1. Straight lines · 2. One circle · 3. Where is the point · 4. Line meets circle ·
 5. Two circles — how many points · 6. Distances between circles · 7. The common chord · 8. Common tangents &
 harder. Every answer — and its diagram — is in a collapsible **Solution**; try each
@@ -446,6 +472,7 @@ Working
 **Geometric:** $d$ (centre → line) vs $r$: $d<r$ two, $d=r$ tangent, $d>r$ none.
 **Algebraic:** substitute → quadratic → $D>0$ two, $D=0$ tangent, $D<0$ none.
 Q7 does one question **both ways** so you can see they always agree; after that, use whichever is shorter.
+**Q24** runs the same tangency condition backwards, to maximise a linear expression on a circle.
 :::
 
 ### Question 7
@@ -601,6 +628,40 @@ $$d>r_1+r_2:\,0\quad\;d=r_1+r_2:\,1\ (\text{external})\quad\;r_1-r_2<d<r_1+r_2:\
 Notice it is the **triangle inequality**: two intersection points exist exactly when $d,r_1,r_2$ could be the
 sides of a triangle. Q11–Q15 walk through every row of that list in turn.
 :::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+from matplotlib.gridspec import GridSpec
+r1,r2=2.6,1.0; A=r1-r2; B=r1+r2
+D=[0.6,A,2.6,B,4.7]; col=['#c0392b','#e07b39','#3aa657','#e07b39','#c0392b']
+fig=plt.figure(figsize=(7.0,3.9))
+gs=GridSpec(2,5,height_ratios=[1.0,0.72],hspace=-0.02,wspace=0.06)
+th=np.linspace(0,2*np.pi,200)
+for i,(d,cc) in enumerate(zip(D,col)):
+    ax=fig.add_subplot(gs[0,i])
+    ax.plot(r1*np.cos(th),r1*np.sin(th),color='#2b6cb0',lw=1.6)
+    ax.plot(d+r2*np.cos(th),r2*np.sin(th),color=cc,lw=1.6)
+    ax.plot([0,d],[0,0],color='0.4',ls=':',lw=1); ax.plot(0,0,'k+',ms=5); ax.plot(d,0,'k+',ms=5)
+    ax.set_aspect('equal'); ax.axis('off'); ax.set_xlim(-3.1,6.0); ax.set_ylim(-2.9,2.9)
+axl=fig.add_subplot(gs[1,:]); axl.axhline(0,color='black',lw=1.5)
+for x0,x1,cc in [(0,A,'#c0392b'),(A,B,'#3aa657'),(B,5.6,'#c0392b')]:
+    axl.plot([x0,x1],[0,0],color=cc,lw=6,solid_capstyle='butt')
+for xv in (A,B): axl.plot(xv,0,'o',color='#e07b39',ms=11,zorder=5)
+for xc,txt,cc in [(A/2,'0 points\none inside the other','#c0392b'),
+                  ((A+B)/2,'2 points\noverlap','#3aa657'),
+                  ((B+5.6)/2,'0 points\nseparate','#c0392b')]:
+    axl.annotate(txt,(xc,0),textcoords='offset points',xytext=(0,11),ha='center',fontsize=8.6,color=cc,fontweight='bold')
+for xv,lab,sub in [(A,'|r\u2081\u2212r\u2082|','1 point \u00b7 internally tangent'),
+                   (B,'r\u2081+r\u2082','1 point \u00b7 externally tangent')]:
+    axl.annotate(lab,(xv,0),textcoords='offset points',xytext=(0,-17),ha='center',fontsize=10,fontweight='bold')
+    axl.annotate(sub,(xv,0),textcoords='offset points',xytext=(0,-31),ha='center',fontsize=7.8,color='#e07b39')
+axl.annotate('0',(0,0),textcoords='offset points',xytext=(0,-17),ha='center',fontsize=10)
+axl.annotate('d',(5.75,0),fontsize=11,fontweight='bold',va='center')
+axl.set_xlim(-0.45,6.1); axl.set_ylim(-0.95,0.62); axl.axis('off')
+fig.suptitle('Two circles: slide the centre distance $d$ along the line',fontsize=10,y=0.995)
+plt.show()
+```
 
 ### Question 11
 
@@ -1193,6 +1254,148 @@ plt.tight_layout(); plt.show()
 :::
 
 ::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+# 9 · Optimising with a line or a curve
+
+::: {.callout-tip}
+## Two optimisation problems that are really distance problems
+
+**"Maximise $px+qy$ on a circle."** The lines $px+qy=k$ are all **parallel**; sliding $k$ moves the line across
+the plane. The extreme values of $k$ happen exactly when the line is **tangent** to the circle — so it is the
+same $d=r$ condition as §4, used backwards.
+
+**"Shortest distance from a point to a curve."** Minimise $D^2$, never $D$ — the square root only gets in the
+way, and the minimum sits at the same place. For a parabola $y=x^2$ the substitution $t=x^2\ (\ge0)$ turns
+$D^2$ into a **quadratic in $t$**, so you can complete the square instead of differentiating.
+:::
+
+### Question 24
+
+::: {.question}
+The point $(x,y)$ lies on the circle $x^2+y^2=1$. Find the maximum and minimum values of $2x+3y$, and the
+point at which the maximum occurs. *(Give exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(slide a parallel line until it just touches the circle)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — the extreme values of $px+qy$ on a circle occur where the line $px+qy=k$ is **tangent**: use $d=r$
+:::
+
+**Answer form: exact values + a point. Answer: maximum $\sqrt{13}$, minimum $-\sqrt{13}$; the maximum occurs at
+$\left(\dfrac{2}{\sqrt{13}},\dfrac{3}{\sqrt{13}}\right)$.**
+
+*Let $k=2x+3y$. The set of points with a given $k$ is the line $2x-\,$…more simply $2x+3y-k=0$, and all such
+lines are parallel. As $k$ grows the line sweeps across the plane, so the largest and smallest $k$ that still
+meet the circle are the ones where the line is **tangent**.*
+
+Tangency means the distance from the centre $(0,0)$ equals the radius $1$:
+$$\frac{\lvert -k\rvert}{\sqrt{2^2+3^2}}=1\ \Longrightarrow\ \lvert k\rvert=\sqrt{13}.$$
+So the maximum is $\sqrt{13}$ and the minimum is $-\sqrt{13}$.
+
+*The touch point lies on the radius perpendicular to the line, i.e. along the normal direction $(2,3)$.* The
+unit vector that way is $\dfrac{1}{\sqrt{13}}(2,3)$, so the maximum is attained at
+$\left(\tfrac{2}{\sqrt{13}},\tfrac{3}{\sqrt{13}}\right)$ — and indeed
+$2\cdot\tfrac{2}{\sqrt{13}}+3\cdot\tfrac{3}{\sqrt{13}}=\tfrac{13}{\sqrt{13}}=\sqrt{13}$ ✓.
+
+*(Check by another route: on the circle put $x=\cos\theta,\ y=\sin\theta$; then
+$2\cos\theta+3\sin\theta=\sqrt{13}\sin(\theta+\alpha)$, whose range is $\left[-\sqrt{13},\sqrt{13}\right]$.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+th=np.linspace(0,2*np.pi,400); R=np.sqrt(13)
+plt.figure(figsize=(4.4,4.0))
+plt.plot(np.cos(th),np.sin(th),color='#2b6cb0',lw=1.8)
+xs=np.linspace(-2.2,2.2,10)
+for k,st in [(R,'-'),(-R,'-'),(0,':'),(R/2,':'),(-R/2,':')]:
+    plt.plot(xs,(k-2*xs)/3,color=('crimson' if abs(k)==R else '0.7'),
+             lw=(1.6 if abs(k)==R else 0.9),ls=st)
+for sgn in (1,-1):
+    plt.plot(sgn*2/R,sgn*3/R,'o',color='crimson',ms=7)
+plt.plot([0,2/R],[0,3/R],color='green',lw=1.2,ls='--')
+plt.annotate(r'$2x+3y=\sqrt{13}$',(2/R,3/R),textcoords='offset points',xytext=(8,8),fontsize=8,color='crimson')
+plt.annotate(r'$=-\sqrt{13}$',(-2/R,-3/R),textcoords='offset points',xytext=(-52,-14),fontsize=8,color='crimson')
+plt.plot(0,0,'k+',ms=8); plt.gca().set_aspect('equal')
+plt.xlim(-2.2,2.2); plt.ylim(-2.2,2.2); plt.grid(alpha=0.2)
+plt.title('Parallel lines $2x+3y=k$: extremes where they touch',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 25
+
+::: {.question}
+Find the shortest distance from the point $P(0,3)$ to the curve $y=x^2$, and the coordinates of the point(s)
+on the curve closest to $P$. *(Give exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(minimise $D^2$, and substitute $t=x^2$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — minimise the **square** of the distance; $t=x^2$ makes it a quadratic
+:::
+
+**Answer form: exact values. Answer: shortest distance $\dfrac{\sqrt{11}}{2}$, at
+$\left(\pm\dfrac{\sqrt{10}}{2},\,\dfrac52\right)$.**
+
+*A general point on the curve is $(x,x^2)$. Write the squared distance to $P(0,3)$ — squaring avoids the root
+and does not move the minimum:*
+$$D^2=(x-0)^2+(x^2-3)^2=x^4-5x^2+9.$$
+
+*Substitute $t=x^2\ (\ge0)$ — it is now a quadratic, so complete the square:*
+$$D^2=t^2-5t+9=\left(t-\tfrac52\right)^2+\tfrac{11}{4}.$$
+*The smallest value is $\tfrac{11}{4}$, at $t=\tfrac52$, which is allowed since $\tfrac52\ge0$.* Hence
+$$D=\sqrt{\tfrac{11}{4}}=\frac{\sqrt{11}}{2}\approx1.66,$$
+attained where $x^2=\tfrac52$, i.e. $x=\pm\sqrt{\tfrac52}=\pm\dfrac{\sqrt{10}}{2}$ and $y=\tfrac52$. **Two**
+points, by symmetry.
+
+*Why it is not simply the vertical drop:* the vertical distance from $P$ to the curve at $x=0$ is $3$, much
+bigger than $\tfrac{\sqrt{11}}{2}$. The true shortest segment meets the curve **perpendicular to the tangent** —
+check it: at $x_0=\sqrt{5/2}$ the tangent gradient is $2x_0$, and the vector from the foot $(x_0,x_0^2)$ to
+$P$ is $(-x_0,\,3-x_0^2)=(-x_0,\tfrac12)$; its dot product with the tangent direction $(1,2x_0)$ is
+$-x_0+2x_0\cdot\tfrac12=0$ ✓.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.6,2.6,500)
+plt.figure(figsize=(4.6,3.6))
+plt.plot(x,x**2,color='#2b6cb0',lw=1.8)
+P=(0,3); plt.plot(*P,'o',color='black',ms=6)
+plt.annotate('P(0,3)',P,textcoords='offset points',xytext=(8,4),fontsize=9)
+x0=np.sqrt(2.5)
+for s in (1,-1):
+    F=(s*x0,2.5)
+    plt.plot([P[0],F[0]],[P[1],F[1]],color='crimson',lw=1.5)
+    plt.plot(*F,'o',color='crimson',ms=6)
+plt.annotate(r'$D=\frac{\sqrt{11}}{2}$',(x0/2,2.78),fontsize=9,color='crimson')
+plt.plot([0,0],[0,3],color='green',ls=':',lw=1.2)
+plt.annotate('vertical drop 3\n(not the shortest)',(0,1.4),textcoords='offset points',
+             xytext=(-96,0),fontsize=8,color='green')
+plt.grid(alpha=0.2); plt.xlim(-2.7,2.7); plt.ylim(-0.4,4.2)
+plt.title(r'Closest points on $y=x^2$ to $P(0,3)$',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4.5cm"}
 Working
 :::
 
