@@ -37,8 +37,8 @@ The three parts of this session — **spot the error**, **necessary & sufficient
 condition first, then ask whether the option is a **proper subset** of it: a proper subset guarantees the result
 (sufficient) but misses some cases (not necessary).
 
-*His 09/04 Q1 is exactly this:* the exact condition for $x^3-3px^2+4=0$ to have one real root is $p<1$; the
-option $\lvert p\rvert<1$ sits strictly inside that, so it is **sufficient but not necessary**.
+*His **09/04 Q1** is exactly this shape* — it is now worked as
+**[S3 Q13](../../toolkit/s03_necessary_sufficient.qmd)**, so attempt it there before reading the note below.
 :::
 
 ::: {.callout-tip}
@@ -52,8 +52,8 @@ the contrapositive is almost always the answer being tested, and the converse is
 Negating a compound needs care: $\lnot(P\text{ and }Q)=\lnot P\text{ or }\lnot Q$, and
 $\lnot(P\text{ or }Q)=\lnot P\text{ and }\lnot Q$.
 
-*His 09/04 Q16* gives "if $A$ is right **and** ($B$ left **or** $C$ right) then open" — the safe being closed
-forces the negation of that bracket, which is where the options separate.
+*His **09/04 Q16*** — the three-lever safe — is now
+**[S2 Q9](../../toolkit/s02_converse_contrapositive.qmd)**. Attempt it there first.
 :::
 
 ::: {.callout-tip}
@@ -61,11 +61,11 @@ forces the negation of that bracket, which is where the options separate.
 
 Read a purported proof with this list in hand, and stop at the **first** line that fails:
 
-1. **Small cases.** Does line by line survive $n=1$, $x=0$, the empty case? *(His Q5 dies at $n=1$: there
-   $n^2+2=3$, which is prime, so "composite" is false.)*
+1. **Small cases.** Does every line survive $n=1$, $x=0$, the empty case? *(This is what his **Q5** turns
+   on — now [S7 Q17](../../toolkit/s07_spot_the_error.qmd).)*
 2. **Dividing.** Did a step divide by something that could be $0$? "$ab=ac\Rightarrow b=c$" needs $a\neq0$.
 3. **Squaring.** Squaring both sides can invent solutions; $\sqrt{X}<Y$ also silently needs $Y>0$.
-   *(His Q3.)*
+   *(His **Q3** — now [S7 Q16](../../toolkit/s07_spot_the_error.qmd), and its verdict is not the obvious one.)*
 4. **Reversing.** Did the proof use the **converse** of what it established?
 5. **"For all" vs "there exists".** An example never proves a "for all"; one counterexample kills it.
 6. **Common false deductions.** $\sin A=\sin B\Rightarrow A=B$ is **not** valid.
@@ -94,6 +94,24 @@ the mark.
 :::
 
 ---
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answers to his own flagged questions — open after he has re-attempted them
+
+*Closed on purpose. Each of these is now a question on a toolkit page, so reading this first removes the
+practice.*
+
+- **09/04 Q1** → [S3 Q13]. The exact condition for $x^{3}-3px^{2}+4=0$ to have one real root is $p<1$. The
+  option $\lvert p\rvert<1$ sits **strictly inside** that, so it is *sufficient but not necessary*.
+- **09/04 Q11** → [S3 Q18]. $\int_{0}^{k}\left(\cos x+\cos^{3}2x\right)dx=0$ **exactly when** $k$ is a
+  multiple of $\pi$ — necessary *and* sufficient, the verdict candidates pick least often.
+- **09/04 Q16** → [S2 Q9]. "If $A$ right **and** ($B$ left **or** $C$ right) then open." Closed forces
+  $\lnot P$, and negating the bracket swaps its "or" to "and".
+- **09/04 Q5** → [S7 Q17]. The proof dies at $n=1$: there $n^{2}+2=3$, which is prime, so "composite" fails.
+- **09/04 Q3** → [S7 Q16]. The attempt is **valid** — squaring is legal here because step (I) already forced
+  both sides non-negative.
+- **09/04 Q17** → [S7 Q20]. First bad line is 7: $2a<a^{2}$ needs $a>2$, not $a\ge2$; $n=4$ breaks it.
+:::
 
 ## Homework
 

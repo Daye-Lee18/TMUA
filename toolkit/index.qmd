@@ -67,8 +67,8 @@ answer checked against the official solution.
 | **S6** Scrambled proofs | 11 | 1 |
 | **S7** Spot the error | 20 | 10 |
 
-Questions marked **★** are ones 이우성 flagged on his own mock; **◆** marks questions from 여운주's
-**[self-study sets](../students/woonju/index.qmd)**. **S6** has only one: the Prf4 scrambled-proof format has been
+Questions marked **★** have already come up on a mock sat here; **◆** marks questions that also appear in
+the **[self-study sets](../lessons/index.qmd)**. **S6** has only one: the Prf4 scrambled-proof format has been
 examined exactly **once in eight years**, and that question — **2016 P2 Q7** — is now
 [S6 Q11](s06_scrambled_proofs.qmd). There is no bank to build beyond it, so the rest of that page stays
 purpose-built.

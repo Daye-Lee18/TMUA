@@ -675,7 +675,8 @@ plt.tight_layout(); plt.show()
 
 # Part 4 — Exam bank
 
-Twelve more, all from real exam material: **★** marks the two that 이우성 flagged on his own mock. They are
+Twelve more, all from real exam material. **★** marks a question that has already come up on a mock sat
+here. They are
 grouped so that each group drills one *way of thinking*, not one topic. Work the group, not the question.
 
 ::: {.callout-note appearance="simple"}
@@ -947,7 +948,7 @@ Consider the equation $x^{3}-3px^{2}+4=0$, where $p$ is a real parameter. Which 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Hard — 이우성's own mock question)*]{style="color:#7a5195"}
+[*(Hard — a question already met on a mock)*]{style="color:#7a5195"}
 **E.** Find the **exact** condition first, exactly as the routine says.
 
 $f'(x)=3x^{2}-6px=3x(x-2p)$, so the stationary points are $x=0$ and $x=2p$, with values
@@ -1152,7 +1153,7 @@ Which of the following best describes the logical relationship between P and Q?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Hard — 이우성's own mock question)*]{style="color:#7a5195"}
+[*(Hard — a question already met on a mock)*]{style="color:#7a5195"}
 **A — necessary and sufficient.** Integrate once and the question becomes a statement about a single
 function of $k$:
 $$F(k)=\int_{0}^{k}\left(\cos x+\cos^{3}2x\right)dx=\sin k+\frac{\sin 2k}{2}-\frac{\sin^{3}2k}{6},$$

@@ -745,8 +745,8 @@ negation anywhere, they have almost certainly proved the converse instead.
 
 Three from real exam material, and they are deliberately the **same question** growing harder: a rule of the
 form "if $P$ then $Q$" is given, and you must pick the one statement that genuinely follows. The answer is
-the **contrapositive** every time — what changes is how much work the negation takes. **★** marks the one
-이우성 flagged on his own mock.
+the **contrapositive** every time — what changes is how much work the negation takes. **★** marks a
+question that has already come up on a mock sat here.
 
 ::: {.callout-important}
 ## The two negations these questions live on
@@ -830,7 +830,7 @@ Which one of the following statements must be true?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Hard — 이우성's own mock question; a nested negation)*]{style="color:#7a5195"}
+[*(Hard — a question already met on a mock; a nested negation)*]{style="color:#7a5195"}
 **D.** Let $P$ = "$A$ right **and** ($B$ left **or** $C$ right)" and $Q$ = "the safe is open". All we are told
 is $P\Rightarrow Q$ — *nothing more*: we do not know whether $P$ is true, nor whether $Q$ is.
 
