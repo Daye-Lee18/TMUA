@@ -21,7 +21,7 @@ keeps repeating. **The facts below are the whole syllabus.** Learn them cold and
 questions becomes bookwork.
 
 *The S-sessions on this site are organised by **reasoning type**. The T-sessions are the other axis:
-the **topic** that carries the reasoning. See [`PAPER2_TOPIC_MAP.md`](../PAPER2_TOPIC_MAP.md).*
+the **topic** that carries the reasoning. Companion page: [T2 — Shapes as logical conditions](t02_shapes_as_logic.qmd).*
 :::
 
 ::::: {.formulasheet}

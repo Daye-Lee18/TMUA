@@ -20,8 +20,7 @@ The geometry never goes beyond GCSE. What is tested is whether you can say *whic
 and produce the **standard counterexample** on demand. That is a memorising job, and this page is the list.
 
 *The S-sessions are organised by **reasoning type**; the T-sessions are the **topic** that carries it.
-See [`PAPER2_TOPIC_MAP.md`](../PAPER2_TOPIC_MAP.md) and its companion
-[T1 — Divisors & Primes](t01_divisors_primes.qmd).*
+Companion page: [T1 — Divisors & Primes](t01_divisors_primes.qmd).*
 :::
 
 ::::: {.formulasheet}

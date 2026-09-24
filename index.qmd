@@ -132,8 +132,26 @@ treat 2019–2023 as the best model of what the live test now asks.
 ## Paper 2 Toolkit — Logic and Proof
 
 The part that is **not in the A-Level syllabus**. A student can be excellent at A-Level Maths and still
-score badly on Paper 2, simply because nobody ever told them what *"A only if B"* means. Work through
-these in order — each is built on the one before.
+score badly on Paper 2, simply because nobody ever told them what *"A only if B"* means.
+
+### What comes up most — the two topics to memorise
+
+Before the skills below, two **topics**. An eight-year audit of Paper 2 (2016–2023) found exactly two
+subjects that appear in **every single sitting** and are **never** set as a straight calculation — they
+always arrive wrapped in a reasoning type. The mathematics in both is small and repeats, so they reward
+being learnt by heart.
+
+| | Topic session | What to memorise | How often it appears |
+|---|---|---|---|
+| **T1** | **[Divisors & primes](toolkit/t01_divisors_primes.qmd)** | Euclid's lemma and why it needs "prime" · $6n\pm1$ and its false converse · squaring doubles exponents, so $12\mid n^{2}\iff6\mid n$ · a remainder is smaller than its divisor · squares mod 3, 4, 8 · the gcd toolkit · irreducible polynomial $\neq$ prime values | **15+ questions in eight years**, not one of them a calculation |
+| **T2** | **[Shapes as logical conditions](toolkit/t02_shapes_as_logic.qmd)** | the quadrilateral lattice · the diagonal table (every row an *iff*) · the three counterexamples to keep ready — rhombus, rectangle, isosceles trapezium · congruence criteria and why SSA is not one · $\sin A=\sin B\nRightarrow A=B$ · polygon angles | **eight sittings, eight appearances** |
+
+*Both pages are a fact sheet, eight quick checks, and a map of where every real past-paper question is
+worked.*
+
+### The seven skill sessions
+
+Work through these in order — each is built on the one before.
 
 | | Session | Class material | Assignment | Spec |
 |---|---|---|---|---|
