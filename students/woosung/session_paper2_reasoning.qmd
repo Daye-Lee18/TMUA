@@ -117,7 +117,7 @@ practice.*
 
 | Set | Link |
 |---|---|
-| **S3 assignment** — necessary & sufficient | **[Questions](../../toolkit/s03_assignment_student.qmd)** · [MS](../../toolkit/s03_assignment_ms.qmd) |
+| **S3 assignment** — necessary & sufficient | **[Questions](../../toolkit/s03_assignment_student.qmd)** (10 Q, 40 marks) · [MS](../../toolkit/s03_assignment_ms.qmd) |
 | **S7 assignment** — spot the error | **[Questions](../../toolkit/s07_assignment_student.qmd)** · [MS](../../toolkit/s07_assignment_ms.qmd) |
 | **Paper 2 concepts quiz** (S1–S7, 14 questions) — a quick check of everything | **[Quiz](../../toolkit/paper2_quiz.qmd)** |
 

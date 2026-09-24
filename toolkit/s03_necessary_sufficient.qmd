@@ -14,9 +14,6 @@ The official Notes say it plainly: *"Almost every TMUA paper will have some ques
 necessary and sufficient."* Count them and you find the same — seven appearances in 2019, ten in 2021,
 eight in each of 2022 and 2023. **This is the most-tested pair of words on Paper 2.**
 
-They are also two words you already understand, wearing new clothes. *Sufficient* is the arrow you have
-been drawing since Session 1; *necessary* is that arrow **turned round** — which means it is the
-**converse**, and everything Session 2 taught you about converses applies here.
 
 ::: {.callout-important}
 ## The two lines this whole session rests on
@@ -1270,9 +1267,4 @@ Working
 
 > **Sufficient points forwards; necessary points backwards. Whatever the sentence looks like, find the
 > condition and the target, then apply that rule.**
-
-**Next session ([S4](s04_quantifiers_negation.qmd)): quantifiers and negation** — *for all*, *there exists*, and how to negate them.
-You have already met the idea: proving a condition *not sufficient* meant finding **one** case where it
-failed, and that is exactly what negating a "for all" statement produces.
-
 :::

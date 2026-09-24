@@ -30,15 +30,6 @@ Specification: **Arg1** — *the converse of a statement; the contrapositive of 
 relationship between the truth of a statement and its converse and its contrapositive.*
 Official source: **Notes on Logic and Proof**, pp. 43–49.
 
-::: {.callout-note appearance="simple"}
-**What the codes mean.** Section 2 of the specification is numbered in three groups, and every session in
-this toolkit is tagged with the ones it covers: **Arg1–4** (*arguments* — statements, connectives, *if*
-and *only if*, converse and contrapositive, necessary and sufficient, quantifiers, negation),
-**Prf1–5** (*proof* — direct, cases, contradiction, counterexample), and **Err1–2** (*errors* — finding
-the flaw in a purported proof). They are a map, not something to memorise: when a Paper 2 question defeats
-you, the code tells you which session to go back to.
-:::
-
 ---
 
 # Part 1 — Easy
@@ -977,32 +968,9 @@ Working
 
 ---
 
-## After this session
-
-::: {.callout-important}
-## Homework
-
-**The main task — this is the one that covers today.**
-
-1. **[Assignment: Converse and contrapositive](s02_assignment_student.qmd)** — 8 questions, **32 marks**,
-   about 45 minutes.
-
-**Then, to make it stick:**
-
-2. **Notes on Logic and Proof, pp. 43–49** (*Converses and Contrapositives*). Note especially the
-   discussion on p. 49 of *why* the converse/contrapositive mix-up happens.
-3. **Ten statements of your own.** Write any ten "if … then …" statements about integers, and for each
-   one write its converse and its contrapositive. Mark which are true. You should find the
-   contrapositives always match the original, and the converses vary.
-:::
-
 **The whole session in one line:**
 
 > **Reverse only = the converse, and it proves nothing. Negate *and* reverse = the contrapositive,
 > and it is free.**
-
-**Next session ([S3](s03_necessary_sufficient.qmd)): necessary and sufficient** — the same three arrows, dressed in the two words the
-TMUA tests most often. You have already met them: *"$P$ is sufficient for $Q$"* is $P \Rightarrow Q$, and
-*"$P$ is necessary for $Q$"* is $Q \Rightarrow P$ — so one of those two is secretly a converse.
 
 :::

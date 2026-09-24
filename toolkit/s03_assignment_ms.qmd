@@ -9,10 +9,21 @@ execute:
 
 ::: {.solutions}
 
-Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **40**.
 
-The single thing to watch while marking: **did the student reverse the arrow for every "necessary"?**
-A script with no backwards arrows anywhere has mistranslated the word, whatever the final answers say.
+::: {.callout-important}
+## What to watch while marking
+
+1. **Did the student reverse the arrow for every "necessary"?** A script with no backwards arrows anywhere
+   has mistranslated the word, whatever the final answers say.
+2. **Is every "not sufficient" / "not necessary" backed by a named counterexample?** A bare verdict scores
+   the method mark at most. This is where the marks in Section B are.
+3. **In Section C, was the exact condition written down before the options were read?** Working straight
+   from the options is the habit these two questions exist to break.
+
+Section B is six genuine TMUA Paper 2 questions, so the letters can be checked against the official keys:
+**2022 Q6 = C**, **2021 Q8 = C**, **2021 Q6 = D**, **2023 Q7 = E**, **2021 Q15 = B**, **2023 Q13 = C**.
+:::
 
 ---
 
@@ -21,279 +32,368 @@ A script with no backwards arrows anywhere has mistranslated the word, whatever 
 ## Question 1 **[4]**
 
 ::: {.question}
-$P,Q$ statements. Write each as an implication. &nbsp;&nbsp;(a) $Q$ is **sufficient** for $P$. &nbsp;
-(b) $Q$ is **necessary** for $P$. &nbsp; (c) A **necessary** condition for $P$ is $Q$. &nbsp; (d) Which
-**two** of (a)–(c) say the same thing?
+Write as implications: (a) $P$ **only if** $Q$; (b) a **sufficient** condition for $Q$ is $P$; (c) $Q$ is
+**necessary** for $P$; (d) all three are the same statement — how can you tell, and which one's wording
+points the other way?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 
-**(a)** $Q \Rightarrow P$ &nbsp; **(B1)** &nbsp; *— sufficient points forwards, from $Q$.*
+**(a)** $P\Rightarrow Q$ **(B1)**
 
-**(b)** $P \Rightarrow Q$ &nbsp; **(B1)** &nbsp; *— necessary points backwards, so the arrow starts at $P$.*
+**(b)** $P\Rightarrow Q$ **(B1)** — *the target follows the word "for", so the target is $Q$ and the
+condition is $P$; a sufficient condition points at its target.*
 
-**(c)** $P \Rightarrow Q$ &nbsp; **(B1)**
+**(c)** $P\Rightarrow Q$ **(B1)** — *"necessary" reverses, so "$Q$ necessary for $P$" is $P\Rightarrow Q$.*
 
-*Target is $P$ (it follows "condition **for**"), condition is $Q$, rule is necessary: target $\Rightarrow$
-condition, i.e. $P \Rightarrow Q$.*
+**(d)** **(B1)** for both halves: all three translate to the same arrow $P\Rightarrow Q$; the one whose
+wording points the other way is **(c)**, because "necessary" always reverses the order in which the
+letters are written.
 
-**(d) (b) and (c)** — both are $P \Rightarrow Q$. &nbsp; **(B1)**
-
-**Marking note.** (b) and (c) are the same statement written two ways; if a student has them different,
-the reversed wording in (c) is what tripped them, not the word *necessary*.
-:::
-
----
-
-## Question 2 **[3]**
-
-::: {.question}
-$n$ a positive integer. For each pair, is the first **sufficient / necessary / both / neither** for the
-second (justify)? &nbsp;&nbsp;(a) "$n$ divisible by $9$" · "$n$ divisible by $3$"; &nbsp; (b) "$n$ divisible
-by $3$" · "$n$ divisible by $9$"; &nbsp; (c) "$n$ divisible by $2$ and by $5$" · "$n$ divisible by $10$".
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a) Sufficient, but not necessary.** &nbsp; **(B1)**
-
-- Forwards: if $9$ divides $n$ then $n = 9k = 3(3k)$, so $3$ divides $n$. ✓
-- Backwards: $n = 3$ is divisible by $3$ but not by $9$. ✗
-
-**(b) Necessary, but not sufficient.** &nbsp; **(B1)** &nbsp; *— the mirror image of (a); same
-counterexample $n=3$.*
-
-**(c) Both.** &nbsp; **(B1)**
-
-- Forwards: if $2$ divides $n$ and $5$ divides $n$, then since $2, 5$ share no factor, $10$ divides $n$. ✓
-- Backwards: if $10$ divides $n$ then $n = 10k = 2(5k) = 5(2k)$. ✓
-
-**Award (a) and (b) only if both directions were addressed** — a verdict of "sufficient" with no
-backwards test is a guess that happened to land.
-:::
-
----
-
-## Question 3 **[3]**
-
-::: {.question}
-Write each as an implication between $P$ and $Q$. &nbsp;&nbsp;(a) For $P$ to hold it is **necessary** that
-$Q$ holds. &nbsp; (b) A **sufficient** condition for $P$ is $Q$. &nbsp; (c) $P$ is **necessary and
-sufficient** for $Q$.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a)** $P \Rightarrow Q$ &nbsp; **(B1)** &nbsp; *— "for $P$ … necessary that $Q$": target $P$, condition
-$Q$, so target $\Rightarrow$ condition.*
-
-**(b)** $Q \Rightarrow P$ &nbsp; **(B1)** &nbsp; *— target $P$, condition $Q$, sufficient, so condition
-$\Rightarrow$ target.*
-
-**(c)** $P \Leftrightarrow Q$ &nbsp; **(B1)**
-
-*Note (a) and (b) are converses of each other — the same two letters, opposite arrows, purely because one
-says necessary and the other sufficient.*
+**Common error.** Reading (b) as $Q\Rightarrow P$ because $Q$ is named first. *The sentence "a condition
+for $Q$ is $P$" names the target before the condition — word order is not arrow direction.*
 :::
 
 ---
 
 # Section B — Exam standard
 
-## Question 4 **[5]**
+## Question 2 **[3]** — 2022 P2 Q6
 
 ::: {.question}
-Let $x$ be real and $T$ the target $x^3>8$. For each condition, is it **sufficient / necessary / both /
-neither** for $T$ (justify)? &nbsp;&nbsp;(a) $x>2$; &nbsp; (b) $x>3$; &nbsp; (c) $x>0$.
+$n$ integers in a list. $P$: $n$ is odd. $Q$: the median is one of the numbers in the list.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Answer — **C** (sufficient, not necessary)
 
-For real $x$, cubing preserves order, so $\;x^3 > 8 \iff x > 2$. &nbsp; **(M1 for recognising this)**
+**Sufficient. (M1 A1)** If $n$ is odd there is a single middle entry after sorting, and the median *is*
+that entry — so it certainly belongs to the list. $P\Rightarrow Q$.
 
-**(a) $x>2$: both — necessary and sufficient.** &nbsp; **(A1)**
+**Not necessary. (B1)** A counterexample with $n$ even: $1,2,2,3$ has median
+$\tfrac{2+2}{2}=2$, which **is** in the list. So $Q$ holds while $P$ fails.
 
-It is *exactly* the target, by the line above.
+*Any even-length list whose two middle entries are equal works;* accept $2,4,4,6$ and similar.
 
-**(b) $x>3$: sufficient, but not necessary.** &nbsp; **(A1)**
-
-- Forwards: $x>3 \Rightarrow x>2 \Rightarrow x^3>8$. ✓
-- Backwards: $x = 2.5$ gives $x^3 = 15.625 > 8$, but $x \not> 3$. ✗
-
-**(c) $x>0$: necessary, but not sufficient.** &nbsp; **(B1)**
-
-- Backwards: $x^3>8 \Rightarrow x>2 \Rightarrow x>0$. ✓ necessary.
-- Forwards: $x = 1$ gives $x^3 = 1 \not> 8$. ✗ not sufficient.
-
-::: {.callout-note appearance="simple"}
-**Contrast this with the class material's Question 6**, where the target was $x^2>4$ and the negative
-branch broke necessity. **Cubes have no negative branch** — $x^3>8$ really does mean just $x>2$ — so the
-usual "check the negatives" habit finds nothing here. Worth saying aloud: the habit is to *check*, not to
-assume there is always a second branch.
-:::
+**Marking.** No counterexample, no third mark — "the median could still be in the list" is an assertion,
+not a case.
 :::
 
 ---
 
-## Question 5 **[5]**
+## Question 3 **[3]** — 2021 P2 Q8
 
 ::: {.question}
-$n$ a positive integer; $(*)$: *if $n$ is divisible by $6$ then $n$ is even*. Which, taken individually,
-is/are equivalent to $(*)$? &nbsp;&nbsp;**I** a necessary condition for $n$ to be even is that $n$ is
-divisible by $6$; &nbsp; **II** $n$ divisible by $6$ is sufficient for $n$ even; &nbsp; **III** if $n$ is
-odd then $n$ is not divisible by $6$. &nbsp; (Options **A**–**H**.)
+$(*)$: there is a $c$ with $a<c<b$ and $\mathrm p'(c)=0$. Is $\mathrm p(a)=\mathrm p(b)$ necessary,
+sufficient, both or neither for $(*)$?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **F** (II and III)
+## Answer — **C** (sufficient, not necessary)
 
-Let $P$ = "$n$ is divisible by $6$", $Q$ = "$n$ is even". Then $(*) = P \Rightarrow Q$.
-&nbsp; **(M1 for naming and the arrow)**
+**Sufficient. (M1 A1)** A polynomial is continuous and differentiable everywhere, so if
+$\mathrm p(a)=\mathrm p(b)$ then **Rolle's theorem** gives a $c$ strictly between $a$ and $b$ with
+$\mathrm p'(c)=0$.
 
-**I.** "A **necessary** condition **for $n$ to be even**"— target $Q$, condition $P$, rule necessary, so
-target $\Rightarrow$ condition:
-$$Q \Rightarrow P .$$
-That is the **converse**. **Not equivalent** ✗ — and also false ($n=2$ is even, not divisible by $6$).
-&nbsp; **(B1)**
+**Not necessary. (B1)** Take $\mathrm p(x)=x^{2}$ on $[-1,2]$: $\mathrm p'(0)=0$ with $-1<0<2$, so $(*)$
+holds, yet $\mathrm p(-1)=1\neq4=\mathrm p(2)$.
 
-**II.** "$P$ is **sufficient** for $Q$" is $P \Rightarrow Q$ — that is $(*)$ itself. **Equivalent** ✓
-&nbsp; **(B1)**
+*The picture to accept:* any curve with a turning point inside the interval but different heights at the
+two ends.
 
-**III.** "If $n$ is odd, then $n$ is not divisible by $6$" is not $Q \Rightarrow$ not $P$ — the
-**contrapositive**. **Equivalent** ✓ &nbsp; **(B1)**
-
-**Answer: F.** &nbsp; **(A1)**
-
-**Marking note.** Statement I is the trap, and it is a double one: the wording is reversed *and* the word
-is *necessary*, so two mistranslations can cancel out and give the right arrow for the wrong reason. Check
-the working, not just the letter.
+**Marking.** Naming Rolle is not required — "equal ends force the curve to turn somewhere between" earns
+the method mark.
 :::
 
 ---
 
-## Question 6 **[4]**
+## Question 4 **[4]** — 2021 P2 Q6
 
 ::: {.question}
-$ABCD$ is a quadrilateral. &nbsp;&nbsp;(a) Why is "all four sides equal" a **necessary** condition for
-$ABCD$ to be a square? &nbsp; (b) Show it is **not sufficient**. &nbsp; (c) State a **necessary and
-sufficient** condition for $ABCD$ to be a square.
+$P$: $\mathrm f=0$ at exactly three real $x$. $Q$: $\mathrm f'=0$ at exactly two real $x$.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Answer — **D** (neither)
 
-**(a)** Every square has four equal sides, so
-$$(\text{square}) \Rightarrow (\text{four equal sides}) ,$$
-and a condition implied *by* the target is exactly what **necessary** means. &nbsp; **(B1)**
+*This question is worth four marks because **two** counterexamples are needed, one in each direction.*
 
-**(b)** A **rhombus** that is not a square — for instance one with angles $60^\circ$ and $120^\circ$ — has
-four equal sides but is not a square. &nbsp; **(M1 A1)**
+**$P$ is not sufficient. (M1 A1)** A quintic can have three distinct roots and **four** turning points.
+Concretely, take
+$$\mathrm f(x)=3x^{5}-25x^{3}+60x+36,\qquad \mathrm f'(x)=15(x-2)(x-1)(x+1)(x+2).$$
+The derivative has **four** real zeros ($x=\pm1,\pm2$), and the stationary values are
+$\mathrm f(-2)=20$, $\mathrm f(-1)=-2$, $\mathrm f(1)=74$, $\mathrm f(2)=52$ — only one dips below the
+axis, so the curve crosses exactly **three** times (near $x\approx-2.39,\,-1.22,\,-0.79$). So $P$ holds and
+$Q$ fails: $P\not\Rightarrow Q$.
 
-*The condition holds and the target fails, so the condition does not guarantee the target: not sufficient.*
+*A student is not expected to manufacture this.* Accept the qualitative argument in full: **"a degree-5
+curve can wiggle four times while only one of those wiggles reaches across the axis, giving three roots and
+four stationary points."**
 
-**(c)** Any correct characterisation, e.g. &nbsp; **(B1)**
+**$P$ is not necessary. (M1 A1)** A cubic with a **repeated** root has two turning points but only **two**
+distinct roots: $\mathrm f(x)=x^{2}(x-3)=x^{3}-3x^{2}$ gives $\mathrm f'(x)=3x^{2}-6x=3x(x-2)$, zero at
+exactly $x=0$ and $x=2$. So $Q$ holds while $P$ fails: $Q\not\Rightarrow P$. *This direction is the easy
+one and every student should get it.*
 
-- "all four sides equal **and** all four angles are right angles";
-- "a rectangle with two adjacent sides equal";
-- "a rhombus with one right angle".
+Neither implication holds, so **D**.
 
-::: {.callout-warning appearance="simple"}
-**The mark in (b) is for the example, not the explanation.** *"Four equal sides doesn't fix the angles"*
-is the right thought, but the question says **show**, which means produce a specific shape where the
-condition holds and the conclusion fails.
+**Marking.** One counterexample earns at most two marks. *The most common wrong answer is C
+("necessary and sufficient") from assuming three roots and two turning points always accompany each other —
+true for a "generic" cubic, false in both directions once repeated roots or higher degree are allowed.*
 :::
+
+---
+
+## Question 5 **[4]** — 2023 P2 Q7
+
+::: {.question}
+$ax+by=c$ with $a,b,c\neq0$. Which condition is **necessary but not sufficient** for a positive gradient
+and a positive $y$-intercept?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer — **E** ($a$ and $c$ have opposite signs)
+
+**Step 1 — rearrange. (M1)** $y=-\dfrac ab x+\dfrac cb$, so
+$$\text{gradient}=-\frac ab,\qquad y\text{-intercept}=\frac cb .$$
+
+**Step 2 — the exact requirement. (A1)** Both positive means
+$$-\frac ab>0\ \Longleftrightarrow\ \frac ab<0,\qquad\text{and}\qquad \frac cb>0 .$$
+
+**Step 3 — extract the necessary relation. (A1)** Dividing the first by the second,
+$\dfrac{a}{b}\Big/\dfrac{c}{b}=\dfrac ac<0$ — so **$a$ and $c$ must have opposite signs**. Necessary. ✓
+
+**Step 4 — why not sufficient. (B1)** Opposite signs of $a$ and $c$ say nothing about $b$, and flipping the
+sign of $b$ flips **both** the gradient and the intercept. Take $a=1$, $c=-1$ (opposite signs) with $b=1$:
+the line is $x+y=-1$, i.e. $y=-x-1$ — gradient $-1$ and intercept $-1$, both negative.
+
+**Why the others fail.** **A**, **C** control only the gradient; **B**, **D** only the intercept — each is
+necessary for *one* of the two requirements, not for their conjunction. **F** is the negation of the
+correct answer, so it is not even necessary.
+
+**Marking.** Accept reaching $\tfrac ac<0$ by any route. The fourth mark is specifically for a
+counterexample with numbers.
+:::
+
+---
+
+## Question 6 **[3]** — 2021 P2 Q15
+
+::: {.question}
+$x^{2}+ax+y^{2}+by+c=0$, $a,b,c\neq0$. Necessary and sufficient condition for tangency to the $y$-axis?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer — **B** ($b^{2}=4c$)
+
+**Complete the square. (M1)**
+$$\left(x+\tfrac a2\right)^{2}+\left(y+\tfrac b2\right)^{2}=\frac{a^{2}+b^{2}}{4}-c,$$
+so the centre is $\left(-\tfrac a2,-\tfrac b2\right)$ and $r^{2}=\dfrac{a^{2}+b^{2}}{4}-c$.
+
+**Tangency to $x=0$. (A1)** The distance from the centre to the $y$-axis is $\left\lvert-\tfrac a2\right\rvert$,
+and tangency means it equals the radius:
+$$\frac{a^{2}}{4}=\frac{a^{2}+b^{2}}{4}-c .$$
+
+**Simplify. (A1)** $0=\dfrac{b^{2}}{4}-c$, so $\boxed{b^{2}=4c}$.
+
+*Why an "iff" is safe here:* every step is reversible, and squaring loses nothing because both sides are
+distances.
+
+**The trap.** Options **C**–**F** are the un-squared version, $\pm\tfrac a2=r$ or $\pm\tfrac b2=r$. Those
+pick a **sign**, so each is sufficient at best — only the squared form covers both positions of the centre.
+Option **A** uses the wrong coordinate: $a^{2}=4c$ is the condition for tangency to the **$x$**-axis.
+:::
+
+---
+
+## Question 7 **[3]** — 2023 P2 Q13
+
+::: {.question}
+Which one of **A** $x\ge0$, **B** $x=1$, **C** $x=0$ or $x=1$, **D** $x\ge0$ or $x\le1$,
+**E** $x\ge0$ and $x\le1$ is sufficient for **exactly three** of the other four?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer — **C**
+
+**Step 1 — spot the vacuous one. (M1)** **D** is "$x\ge0$ **or** $x\le1$", and *every* real number
+satisfies at least one of those — so **D is true for all $x$** and is therefore implied by everything.
+
+**Step 2 — test C. (A1)** $C$ says $x\in\{0,1\}$. Check each of the others on both values:
+
+| | statement | does $C$ imply it? |
+|---|---|---|
+| **A** | $x\ge0$ | $0\ge0$ ✓ and $1\ge0$ ✓ — **yes** |
+| **B** | $x=1$ | fails at $x=0$ — **no** |
+| **D** | all reals | **yes** |
+| **E** | $0\le x\le1$ | both $0$ and $1$ lie in $[0,1]$ — **yes** |
+
+Exactly three: A, D, E. ✓
+
+**Step 3 — rule out the rest. (A1)**
+
+- **A** ($x\ge0$) implies only **D** — one.
+- **B** ($x=1$) implies **A**, **C**, **D**, **E** — all **four**, not three.
+- **D** (everything) implies only **D**… it implies **none** of the others, since $x=-5$ satisfies D alone.
+- **E** ($[0,1]$) implies **A** and **D** — two.
+
+So **C** is the unique answer.
+
+*The design of the question:* **B** is the near-miss placed for students who stop at "it implies lots of
+them" without counting, and **D** is the vacuous statement that makes the count work out to three rather
+than two.
 :::
 
 ---
 
 # Section C — Stretch
 
-## Question 7 **[5]**
+## Question 8 **[6]**
 
 ::: {.question}
-$x^2+bx+1=0$ ($b$ real) is *good* if it has **two distinct real roots**. &nbsp;&nbsp;(a) Show it is good
-iff $b^2>4$. &nbsp; (b) For each, is it **sufficient / necessary / both / neither** for the equation to be
-good? &nbsp;(i) $b>2$; &nbsp;(ii) $\lvert b\rvert>2$; &nbsp;(iii) $b>0$.
+$x^{3}-12x+k=0$. (a) Show exactly one real root $\iff\lvert k\rvert>16$. (b) Classify $k>20$, $k\neq0$,
+$k^{2}>256$.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 
-**(a)** The equation has two distinct real roots exactly when its discriminant is positive:
-$$b^2 - 4(1)(1) > 0 \iff b^2 > 4 . \qquad \textbf{(B1)}$$
+### (a) **[3]**
 
-**(b)** Note $b^2 > 4 \iff |b| > 2 \iff (b>2 \text{ or } b<-2)$.
+**Stationary points. (M1)** $f'(x)=3x^{2}-12=3(x-2)(x+2)$, so $x=\pm2$ and
+$$f(2)=8-24+k=k-16,\qquad f(-2)=-8+24+k=k+16 .$$
 
-**(i) $b>2$: sufficient, but not necessary.** &nbsp; **(M1 A1)**
+**The one-root condition. (A1)** *A cubic with positive leading coefficient meets the axis once exactly
+when its two stationary values have the **same sign*** — if they had opposite signs the curve would cross
+three times, and if either were zero there would be a repeated root plus one more.
 
-- Forwards: $b>2 \Rightarrow b^2>4$. ✓
-- Backwards: $b = -3$ gives $b^2 = 9 > 4$ (good), but $b \not> 2$. ✗
+$$f(2)\,f(-2)>0\ \Longleftrightarrow\ (k-16)(k+16)>0\ \Longleftrightarrow\ k^{2}>256 .$$
 
-**(ii) $|b|>2$: both.** &nbsp; **(A1)** — it is precisely the condition from part (a).
+**Conclude. (A1)** $k^{2}>256\iff\lvert k\rvert>16$. ∎
 
-**(iii) $b>0$: neither.** &nbsp; **(A1)**
+*Spot check:* $k=0$ gives $x^{3}-12x=x(x^{2}-12)$ — three roots, and indeed $\lvert0\rvert\not>16$;
+$k=20$ gives one root, and $20>16$. ✓
 
-- Not sufficient: $b = 1$ gives $b^2 = 1 \not> 4$. ✗
-- Not necessary: $b = -3$ is good but not positive. ✗
+### (b) **[3]**
 
-*Here the squares warning does apply — the negative branch $b < -2$ is what breaks necessity in both (i)
-and (iii).*
+Write $T=\{\,k:\lvert k\rvert>16\,\}=(-\infty,-16)\cup(16,\infty)$.
+
+| | condition | set | verdict |
+|---|---|---|---|
+| **(i)** | $k>20$ | $(20,\infty)\subset T$, strictly | **sufficient, not necessary (B1)** |
+| **(ii)** | $k\neq0$ | $\supset T$, strictly | **necessary, not sufficient (B1)** |
+| **(iii)** | $k^{2}>256$ | $=T$ | **both (B1)** |
+
+Justifications the student should give:
+
+- **(i)** $k>20\Rightarrow\lvert k\rvert>16$ ✓; but $k=-20$ has one root while $k>20$ fails — *not necessary*.
+- **(ii)** $\lvert k\rvert>16\Rightarrow k\neq0$ ✓; but $k=1$ is non-zero and gives **three** roots —
+  *not sufficient*.
+- **(iii)** $k^{2}>256\iff\lvert k\rvert>16$ — the same set, so **necessary and sufficient**.
+
+**Marking.** Each verdict needs its counterexample or equivalence stated; verdict alone is 0 for that part.
+*(iii) is there to check the student notices an option that is just the answer rewritten* — a re-reading
+of part (a), not new work.
 :::
 
 ---
 
-## Question 8 **[3]**
+## Question 9 **[5]**
 
 ::: {.question}
-$A,B$ statements. &nbsp;&nbsp;(a) Given $A$ is necessary for $B$ **and** $A$ is sufficient for $B$, what
-can you conclude about $A$ and $B$? &nbsp; (b) A student writes "*$A$ is necessary for $B$, so $B$ is
-necessary for $A$*". Right? Justify.
+$x^{4}-6x^{2}+c=0$. (a) Complete set of $c$ giving four distinct real roots. (b) Which option is
+necessary but not sufficient?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 
-**(a)** Necessary gives $B \Rightarrow A$ and sufficient gives $A \Rightarrow B$, so both arrows hold:
-$$A \Leftrightarrow B .$$
-$A$ and $B$ are **equivalent** — each is true in exactly the same circumstances as the other. &nbsp; **(B1)**
+### (a) $0<c<9$ **[3]**
 
-**(b) No, the student is wrong.** &nbsp; **(M1)**
+**Substitute. (M1)** Put $y=x^{2}$, giving $y^{2}-6y+c=0$ and $y=3\pm\sqrt{9-c}$.
 
-- "$A$ is necessary for $B$" means $B \Rightarrow A$.
-- "$B$ is necessary for $A$" means $A \Rightarrow B$.
+**Translate the requirement. (A1)** *Each **strictly positive** $y$ gives **two** values of $x$, namely
+$\pm\sqrt y$* — so four distinct real roots in $x$ need **two distinct, strictly positive** roots in $y$:
 
-These are **converses** of each other, and a converse does not follow from the original. &nbsp; **(A1)**
+- distinct and real: $36-4c>0\iff c<9$;
+- both positive: the smaller root $3-\sqrt{9-c}>0\iff\sqrt{9-c}<3\iff 9-c<9\iff c>0$.
 
-*Counterexample: let $A$ = "$n$ is even" and $B$ = "$n$ is divisible by $4$". Then $A$ is necessary for
-$B$ (every multiple of $4$ is even), but $B$ is not necessary for $A$ ($n=2$ is even and not a multiple of
-$4$).*
+**Conclude. (A1)** $\;0<c<9$. ∎
 
-**Teaching point.** Swapping the two letters around "necessary" **reverses** the claim — exactly as
-swapping them around "only if" did in Session 1. If both directions did happen to hold, that would be
-part (a): equivalence, which has to be earned, never assumed.
+*Spot check:* $c=5$ gives $y^{2}-6y+5=0$, so $y=1,5$ and $x=\pm1,\pm\sqrt5$ — four ✓; $c=0$ gives
+$y=0,6$, so $x=0,\pm\sqrt6$ — only three ✓; $c=10$ gives no real $y$ at all ✓.
+
+### (b) **A** ($-2<c<11$) **[2]**
+
+**(B1)** A **necessary** condition must contain all of $(0,9)$; **not sufficient** means it must contain
+something outside as well. Only **A** does: $(0,9)\subset(-2,11)$, and $c=10$ lies in the option but gives
+no real roots at all.
+
+**(B1)** The others:
+
+- **B** $0<c<9$ is the exact condition — necessary **and** sufficient, so not the answer.
+- **C** $1<c<8$ and **D** $0<c<4$ are proper **subsets** — sufficient, not necessary. *(Each misses part of
+  $(0,9)$: C misses $c=0.5$, D misses $c=5$.)*
+
+**Marking.** Award the second mark only if the student says *why* B is excluded — "it is the exact
+condition" — rather than just picking A.
 :::
 
 ---
 
-## Marking summary
+## Question 10 **[5]**
 
-| Q | Marks | The thing being tested |
-|---|---|---|
-| 1 | 4 | Translating both words, including reversed wording |
-| 2 | 3 | Testing **both** arrows before giving a verdict |
-| 3 | 3 | Reversed wording again, at speed |
-| 4 | 5 | Four verdicts on one target; cubes have no second branch |
-| 5 | 5 | Equivalence under exam wording; the double-trap option I |
-| 6 | 4 | **Showing "not sufficient" with an example**, not an explanation |
-| 7 | 5 | Discriminant plus the four verdicts; the negative branch |
-| 8 | 3 | Necessary in both directions = equivalence |
+::: {.question}
+$ABCD$ is a quadrilateral. (a) A diagonal condition necessary **and** sufficient for a square. (b) and
+(c) counterexamples for two "necessary but not sufficient" conditions.
+:::
 
-**If marks are lost in one place, look at Questions 1(c), 3 and 5(I).** All three use the reversed
-*"a … condition for … is …"* wording, which is what the TMUA actually prints. A student who is fluent
-with the plain form but stumbles on the reversed one will lose marks on nearly every real Paper 2
-question in this topic.
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[3]**
+
+**The condition. (B1)** *The diagonals **bisect each other**, are **equal in length**, and are
+**perpendicular**.*
+
+**Necessary. (M1)** In a square the diagonals cross at the centre, each is $s\sqrt2$ for side $s$, and they
+meet at right angles — so a square has all three properties.
+
+**Sufficient. (A1)** Take them one at a time: *bisecting each other* makes $ABCD$ a **parallelogram**;
+adding *equal diagonals* makes it a **rectangle**; adding *perpendicular diagonals* makes that rectangle a
+**rhombus**. A shape that is both a rectangle and a rhombus is a square. ∎
+
+*Accept any equivalent set, e.g. "all four sides equal and one angle is $90^\circ$", provided both
+directions are argued.*
+
+### (b) **[1]**
+
+**A rhombus that is not a square. (B1)** All four sides equal, but the angles are not right angles.
+
+### (c) **[1]**
+
+**A rectangle that is not a square. (B1)** Its diagonals are equal, but it is not a square.
+
+**Why the (b) counterexample does not work here:** a non-square **rhombus** has diagonals of *different*
+lengths, so it does not even satisfy "the diagonals are equal" — it fails the hypothesis and therefore says
+nothing about that condition's sufficiency. *A counterexample has to satisfy the condition being tested.*
+
+**Marking.** This last point is the one worth teaching from: the two conditions have **different**
+counterexamples, and the pair (rhombus, rectangle) is exactly the pair to memorise.
+:::
+
+---
+
+::: {.callout-tip}
+## Where this assignment came from
+
+Section B is six real TMUA Paper 2 questions — **2021 Q6, Q8, Q15**, **2022 Q6**, **2023 Q7, Q13** — none
+of which appears in the class material, so this is new work rather than revision.
+
+Questions 8 and 9 are **variants** of the parameter questions worked in class: the method is the same
+(find the exact set, then compare by inclusion), but the equations, the exact conditions and the options
+are all different, so the student has to run the method rather than recall the answer.
+:::
+
 :::

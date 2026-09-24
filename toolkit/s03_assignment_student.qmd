@@ -9,7 +9,7 @@ execute:
 
 ::: {.solutions}
 
-**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+**Show all your reasoning.** Total: **40 marks** · Suggested time: **55 minutes**.
 
 Two lines settle every question below:
 
@@ -19,16 +19,24 @@ $$\textbf{“}A \textbf{ sufficient for } B \textbf{”} = A \Rightarrow B \qqua
 When the wording is reversed (*"a necessary condition for $Q$ is $P$"*), find the **target** — it follows
 the word *for* — and the **condition**, then apply the rule.
 
+::: {.callout-important}
+## The routine, and what earns the marks
+
+For every question: **write down the exact set of cases that makes each statement true**, then compare by
+inclusion.
+
+$$P\subseteq Q\ \Rightarrow\ P\text{ sufficient}\qquad Q\subseteq P\ \Rightarrow\ P\text{ necessary}
+\qquad P=Q\ \Rightarrow\ \text{both}$$
+
+A verdict on its own scores almost nothing. **"Not sufficient" needs a counterexample** and **"sufficient"
+needs an argument** — and questions asking for both directions want *two* separate pieces of work.
+:::
+
 | Section | What it covers | Marks |
 |---|---|---|
-| **A — Fluency** | translating the two words; deciding in concrete cases | 10 |
-| **B — Exam standard** | reversed wording; proving *not sufficient*; equivalence | 14 |
-| **C — Stretch** | comparing several conditions; combining both words | 8 |
-
-::: {.callout-note appearance="simple"}
-**Also due this session:** Notes on Logic and Proof, **pp. 51–55**, and re-read the complete translation
-table in the class material (Question 5's Concepts box).
-:::
+| **A — Fluency** | three phrasings of one arrow, including reversed wording | 4 |
+| **B — Exam standard** | six real TMUA Paper 2 questions, justified in full | 20 |
+| **C — Stretch** | parameter problems and a multi-statement comparison | 16 |
 
 ---
 
@@ -36,32 +44,15 @@ table in the class material (Question 5's Concepts box).
 
 ## Question 1 **[4]**
 
-$P$ and $Q$ are statements. Write each of the following as an implication.
+::: {.question}
+$P$ and $Q$ are statements. Write each of the following as an implication, using $\Rightarrow$.
 
-&nbsp;&nbsp;(a) $Q$ is **sufficient** for $P$. **[1]**
-
-&nbsp;&nbsp;(b) $Q$ is **necessary** for $P$. **[1]**
-
-&nbsp;&nbsp;(c) A **necessary** condition for $P$ is $Q$. **[1]**
-
-&nbsp;&nbsp;(d) Which **two** of (a)–(c) say the same thing? **[1]**
-
-::: {.workspace style="min-height:6cm"}
-Working
+&nbsp;&nbsp;(a) $P$ **only if** $Q$. **[1]**
+&nbsp;&nbsp;(b) A **sufficient** condition for $Q$ is $P$. **[1]**
+&nbsp;&nbsp;(c) $Q$ is **necessary** for $P$. **[1]**
+&nbsp;&nbsp;(d) All three of (a)–(c) are the same statement. Say in one sentence how you can tell, and
+name the one phrase among them whose wording points the other way. **[1]**
 :::
-
----
-
-## Question 2 **[3]**
-
-Let $n$ be a positive integer. For each pair, state whether the first condition is **sufficient**,
-**necessary**, **both**, or **neither** for the second. Justify each with a proof or a counterexample.
-
-&nbsp;&nbsp;(a) "$n$ is divisible by $9$" &nbsp;·&nbsp; "$n$ is divisible by $3$" **[1]**
-
-&nbsp;&nbsp;(b) "$n$ is divisible by $3$" &nbsp;·&nbsp; "$n$ is divisible by $9$" **[1]**
-
-&nbsp;&nbsp;(c) "$n$ is divisible by $2$ and by $5$" &nbsp;·&nbsp; "$n$ is divisible by $10$" **[1]**
 
 ::: {.workspace style="min-height:7cm"}
 Working
@@ -69,79 +60,112 @@ Working
 
 ---
 
-## Question 3 **[3]**
-
-Write each of the following as an implication between $P$ and $Q$.
-
-&nbsp;&nbsp;(a) For $P$ to hold it is **necessary** that $Q$ holds. **[1]**
-
-&nbsp;&nbsp;(b) A **sufficient** condition for $P$ is $Q$. **[1]**
-
-&nbsp;&nbsp;(c) $P$ is **necessary and sufficient** for $Q$. **[1]**
-
-::: {.workspace style="min-height:5cm"}
-Working
-:::
-
----
-
 # Section B — Exam standard
 
-## Question 4 **[5]**
+*All six are real TMUA Paper 2 questions. Give the letter **and** the justification — for a "not
+sufficient" or "not necessary" verdict that means a specific counterexample.*
 
-Let $x$ be a real number, and let the target statement $T$ be &nbsp; $x^3 > 8$.
+## Question 2 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q6</span>
 
-For each condition, state whether it is **sufficient**, **necessary**, **both**, or **neither** for $T$,
-with justification.
+::: {.question}
+A list contains $n$ integers. &nbsp; $P$: $n$ is odd. &nbsp; $Q$: the median of the list is one of the
+numbers in the list.
 
-&nbsp;&nbsp;(a) $x > 2$ **[2]**
+&nbsp;&nbsp;**A** $P$ is necessary and sufficient for $Q$ &nbsp; **B** necessary, not sufficient &nbsp;
+**C** sufficient, not necessary &nbsp; **D** neither
+:::
 
-&nbsp;&nbsp;(b) $x > 3$ **[2]**
-
-&nbsp;&nbsp;(c) $x > 0$ **[1]**
-
-::: {.workspace style="min-height:9cm"}
+::: {.workspace style="min-height:6cm"}
 Working
 :::
 
 ---
 
-## Question 5 **[5]**
+## Question 3 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q8</span>
 
-$n$ is a positive integer. Consider the theorem
+::: {.question}
+$\mathrm p$ is a polynomial and $a<b$. Let $(*)$ be the statement: *there is a $c$ with $a<c<b$ such that
+$\mathrm p'(c)=0$.*
 
-$$\text{If } n \text{ is divisible by } 6, \text{ then } n \text{ is even.} \tag{$*$}$$
+&nbsp;&nbsp;**A** $\mathrm p(a)=\mathrm p(b)$ is necessary and sufficient for $(*)$ &nbsp;
+**B** necessary, not sufficient &nbsp; **C** sufficient, not necessary &nbsp; **D** neither
+:::
 
-Which of the following, **taken individually**, is/are equivalent to $(*)$?
-
-&nbsp;&nbsp;**I** &nbsp; A necessary condition for $n$ to be even is that $n$ is divisible by $6$.
-
-&nbsp;&nbsp;**II** &nbsp; $n$ being divisible by $6$ is sufficient for $n$ to be even.
-
-&nbsp;&nbsp;**III** &nbsp; If $n$ is odd, then $n$ is not divisible by $6$.
-
-&nbsp;&nbsp;**A** I only &nbsp;&nbsp; **B** II only &nbsp;&nbsp; **C** III only &nbsp;&nbsp;
-**D** I and II &nbsp;&nbsp; **E** I and III &nbsp;&nbsp; **F** II and III &nbsp;&nbsp;
-**G** I, II and III &nbsp;&nbsp; **H** None
-
-**Name the halves and show your arrows.** **[5]**
-
-::: {.workspace style="min-height:9cm"}
+::: {.workspace style="min-height:6cm"}
 Working
 :::
 
 ---
 
-## Question 6 **[4]**
+## Question 4 **[4]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q6</span>
 
-$ABCD$ is a quadrilateral.
+::: {.question}
+$\mathrm f$ is a polynomial. &nbsp; $P$: $\mathrm f(x)=0$ for exactly three real values of $x$. &nbsp;
+$Q$: $\mathrm f'(x)=0$ for exactly two real values of $x$.
 
-&nbsp;&nbsp;(a) Explain why "all four sides are equal" is a **necessary** condition for $ABCD$ to be a
-square. **[1]**
+&nbsp;&nbsp;**A** $P$ necessary, not sufficient &nbsp; **B** $P$ sufficient, not necessary &nbsp;
+**C** necessary and sufficient &nbsp; **D** neither
 
-&nbsp;&nbsp;(b) Show that it is **not sufficient**. **[2]**
+**Both directions fail here, so you must give a counterexample to each.** **[4]**
+:::
 
-&nbsp;&nbsp;(c) State a condition that is **necessary and sufficient** for $ABCD$ to be a square. **[1]**
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 5 **[4]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q7</span>
+
+::: {.question}
+The line $ax+by=c$ has $a,b,c$ all non-zero. Which of the following is **necessary but not sufficient**
+for the line to have **both** a positive gradient **and** a positive $y$-intercept?
+
+&nbsp;&nbsp;**A** $a$ and $b$ have the same sign &nbsp; **B** $b$ and $c$ have the same sign &nbsp;
+**C** $a$ and $b$ have opposite signs &nbsp; **D** $b$ and $c$ have opposite signs &nbsp;
+**E** $a$ and $c$ have opposite signs &nbsp; **F** $a$ and $c$ have the same sign
+
+*Rearranging first is most of the work.* **[4]**
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 6 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q15</span>
+
+::: {.question}
+A circle has equation $x^{2}+ax+y^{2}+by+c=0$, where $a,b,c$ are non-zero. Which is a **necessary and
+sufficient** condition for the circle to be **tangent to the $y$-axis**?
+
+&nbsp;&nbsp;**A** $a^{2}=4c$ &nbsp; **B** $b^{2}=4c$ &nbsp;
+**C** $\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$ &nbsp; **D** $\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$
+&nbsp; **E** $-\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$ &nbsp;
+**F** $-\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 7 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q13</span>
+
+::: {.question}
+Consider these five statements about a real number $x$. Which **one** of them is a **sufficient**
+condition for **exactly three** of the other four?
+
+&nbsp;&nbsp;**A** $x\ge0$
+&nbsp;&nbsp;**B** $x=1$
+&nbsp;&nbsp;**C** $x=0$ or $x=1$
+&nbsp;&nbsp;**D** $x\ge0$ or $x\le1$
+&nbsp;&nbsp;**E** $x\ge0$ and $x\le1$
+
+*One of the five is true for every real number. Find it first.* **[3]**
+:::
 
 ::: {.workspace style="min-height:8cm"}
 Working
@@ -151,17 +175,46 @@ Working
 
 # Section C — Stretch
 
-## Question 7 **[5]**
+*Questions 8 and 9 use the method from the class material on new equations — find the **exact** condition
+first, then read off which option is a proper subset or a proper superset of it.*
 
-The equation $x^2 + bx + 1 = 0$, where $b$ is real, is said to be *good* if it has **two distinct real
-roots**.
+## Question 8 **[6]**
 
-&nbsp;&nbsp;(a) Show that the equation is good if and only if $b^2 > 4$. **[1]**
+::: {.question}
+Consider the equation
+$$x^{3}-12x+k=0,$$
+where $k$ is a real parameter.
 
-&nbsp;&nbsp;(b) For each condition below, state whether it is **sufficient**, **necessary**, **both**, or
-**neither** for the equation to be good, with justification. **[4]**
+&nbsp;&nbsp;(a) Show that the equation has **exactly one** real root if and only if $\lvert k\rvert>16$. **[3]**
 
-&nbsp;&nbsp;&nbsp;&nbsp; (i) $b > 2$ &nbsp;&nbsp;&nbsp; (ii) $|b| > 2$ &nbsp;&nbsp;&nbsp; (iii) $b > 0$
+&nbsp;&nbsp;(b) For each condition below, say whether it is **sufficient**, **necessary**, **both**, or
+**neither** for the equation to have exactly one real root. Justify each. **[3]**
+
+&nbsp;&nbsp;&nbsp;&nbsp;(i) $k>20$ &nbsp;&nbsp;&nbsp; (ii) $k\neq0$ &nbsp;&nbsp;&nbsp; (iii) $k^{2}>256$
+:::
+
+::: {.workspace style="min-height:11cm"}
+Working
+:::
+
+---
+
+## Question 9 **[5]**
+
+::: {.question}
+Consider the equation
+$$x^{4}-6x^{2}+c=0,$$
+where $c$ is a real parameter.
+
+&nbsp;&nbsp;(a) Find the complete set of values of $c$ for which the equation has **four distinct real
+roots**. **[3]**
+
+&nbsp;&nbsp;(b) Hence decide which **one** of the following is **necessary but not sufficient** for that to
+happen, and say why each of the others is not. **[2]**
+
+&nbsp;&nbsp;&nbsp;&nbsp;**A** $-2<c<11$ &nbsp;&nbsp; **B** $0<c<9$ &nbsp;&nbsp; **C** $1<c<8$ &nbsp;&nbsp;
+**D** $c>0$ and $c<4$
+:::
 
 ::: {.workspace style="min-height:10cm"}
 Working
@@ -169,17 +222,22 @@ Working
 
 ---
 
-## Question 8 **[3]**
+## Question 10 **[5]**
 
-$A$ and $B$ are statements.
+::: {.question}
+$ABCD$ is a quadrilateral.
 
-&nbsp;&nbsp;(a) It is given that $A$ is necessary for $B$, **and** that $A$ is sufficient for $B$. What
-can you conclude about $A$ and $B$? **[1]**
+&nbsp;&nbsp;(a) Give a condition on its **diagonals** that is **necessary and sufficient** for $ABCD$ to be
+a square, and justify both directions. **[3]**
 
-&nbsp;&nbsp;(b) A student writes: *"$A$ is necessary for $B$, so $B$ is necessary for $A$."* Is the
-student right? Justify your answer. **[2]**
+&nbsp;&nbsp;(b) "All four sides are equal" is necessary but not sufficient for $ABCD$ to be a square. Name
+the counterexample. **[1]**
 
-::: {.workspace style="min-height:7cm"}
+&nbsp;&nbsp;(c) "The diagonals are equal" is also necessary but not sufficient. Name a **different**
+counterexample, and explain why the one from (b) does not work here. **[1]**
+:::
+
+::: {.workspace style="min-height:10cm"}
 Working
 :::
 
@@ -188,9 +246,12 @@ Working
 ::: {.callout-tip}
 ## Before you hand this in
 
-Check that every "sufficient" in your working produced a **forwards** arrow and every "necessary" a
-**backwards** one. If you never reversed an arrow anywhere on this sheet, you have almost certainly
-mistranslated a "necessary".
+1. Every **"not sufficient"** and **"not necessary"** should have a concrete counterexample written next to
+   it — a number, an equation, or a named shape. A verdict with no counterexample is an unsupported claim.
+2. In Section C, check you wrote the **exact** condition down before looking at the options. Working
+   straight from the options is what makes these questions feel like guesswork.
+3. Re-read the **complete translation table** in the class material until you can place any phrase into its
+   column without hesitating.
 :::
 
 :::
