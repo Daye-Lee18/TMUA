@@ -406,9 +406,8 @@ classifies the point is the appropriate **change of sign** shown in the table.
 
 ### The same trap one derivative up — $f''(a)=0$ and an inflection
 
-The stationary-point idea repeats one derivative higher, and it is exactly what
-[Self-study 2](../lessons/selfstudy2_paper2_reasoning/practice.qmd) tests. A **point of inflection** is
-where the curve changes concavity — where $f''$ **changes sign**. For a twice-differentiable $f$ that forces
+The stationary-point idea repeats one derivative higher. A **point of inflection** is where the curve
+changes concavity — where $f''$ **changes sign**. For a twice-differentiable $f$ that forces
 $f''(a)=0$ at the inflection, so "$f''(a)=0$" is *necessary*; but on its own it is not *enough*.
 
 ::: {.example}
@@ -471,16 +470,34 @@ sufficient — $x^3$ is stationary but not a turning point), and "$f''(a)=0$" is
 
 ### Sufficient, not necessary — factorisation and composite values
 
-The [S7 "spot the error" question B2](s07_assignment_ms.qmd) is, underneath, an **Arg2** question in disguise:
-a *sufficient* condition mistaken for a *necessary* one. Take $P=$ "the polynomial $p(x)$ factorises into two
-non-constant integer factors" and $Q=$ "the value $p(n)$ is composite".
+This one arrives disguised as a "spot the error" question, but underneath it is pure **Arg2** — a
+*sufficient* condition mistaken for a *necessary* one.
 
 ::: {.example}
-[Example.]{.lbl} Is $P$ ("$p(x)$ factorises") necessary, sufficient, or both, for $Q$ ("$p(n)$ is composite")?
+[Example.]{.lbl} *(2022 · P2 Q7)* Consider the claim: *the difference between two consecutive positive cube
+numbers is always prime.* Here is an attempted proof:
+
+&nbsp;&nbsp;**I** &nbsp; $(x+1)^{3}=x^{3}+3x^{2}+3x+1$.
+&nbsp;&nbsp;**II** &nbsp; Taking $x$ a positive integer, the difference of consecutive cubes is
+$(x+1)^{3}-x^{3}=3x^{2}+3x+1$.
+&nbsp;&nbsp;**III** &nbsp; It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer
+coefficients, because its discriminant is negative.
+&nbsp;&nbsp;**IV** &nbsp; Therefore for every positive integer $x$, the integer $3x^{2}+3x+1$ cannot be
+factorised.
+&nbsp;&nbsp;**V** &nbsp; Hence the difference between two consecutive cube numbers will always be prime.
+
+Which line contains the first error — and which Arg2 slip is it?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+**The first error is line IV**, and the slip is reading a *sufficient* condition as a *necessary* one.
+
+Name the two halves: $P=$ "the polynomial $p(x)$ factorises into two non-constant integer factors" and
+$Q=$ "the value $p(n)$ is composite". Line III establishes $\lnot P$; line IV concludes $\lnot Q$. That is
+$\lnot P\Rightarrow\lnot Q$ — the contrapositive of $Q\Rightarrow P$ — so it treats $P$ as **necessary**
+for $Q$. It is not.
+
 **Sufficient — yes.** If $p(x)=a(x)\,b(x)$ with both factors non-constant, then $p(n)=a(n)\,b(n)$ is a genuine
 product; for all large $n$ both factors exceed $1$ in size, so the value is composite. Factorising the
 polynomial is **enough** to kill primality.
@@ -498,10 +515,10 @@ $$\text{polynomial factorises}\ \Longrightarrow\ \text{its integer values are co
 $$\text{value is composite}\ \nRightarrow\ \text{the polynomial factorises}\quad(\textbf{not necessary})$$
 :::
 
-*This is exactly the S7 B2 slip. The student argued "the polynomial does **not** factorise, therefore the value
-is **not** composite (so it is prime)" — that is $\lnot P\Rightarrow\lnot Q$, the contrapositive of
-$Q\Rightarrow P$, which treats $P$ as **necessary** for $Q$. But $P$ is only **sufficient**. Reading a
-sufficient condition as a necessary one is the whole mistake.* $\;\blacksquare$
+**Back to the question.** Line III is *true* — the polynomial really is irreducible. Line IV is the false
+leap, because irreducibility is only **sufficient** for compositeness, never necessary. The counterexample
+above settles it: $x=5$ gives $91=7\times13$, which is exactly $6^{3}-5^{3}$, so the claim in line V is false
+too. *Line V is not the first error — it follows correctly from IV.* $\;\blacksquare$
 :::
 
 ::: {.workbox}

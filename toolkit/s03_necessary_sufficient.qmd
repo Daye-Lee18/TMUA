@@ -675,7 +675,7 @@ plt.tight_layout(); plt.show()
 
 # Part 4 — Exam bank
 
-Twelve more, all from real exam material. **★** marks a question that has already come up on a mock sat
+Fourteen more, all from real exam material. **★** marks a question that has already come up on a mock sat
 here. They are
 grouped so that each group drills one *way of thinking*, not one topic. Work the group, not the question.
 
@@ -1181,13 +1181,48 @@ sets came out equal, say so.** $\;\blacksquare$
 Working
 :::
 
-::: {.callout-note appearance="simple"}
-**One more, already on another page.** *Tyler TMUA Set A · P2 Q17* asks for the necessary **and** sufficient
-condition for $y=mx+c$ to be a tangent to $x^{2}+y^{2}=a^{2}$ (answer: $c^{2}=a^{2}\left(m^{2}+1\right)$).
-It is worked in full in the
-**[coordinate geometry clinic](../lessons/coordinate_geometry_clinic/class_material.qmd)** — a reminder that
-this wording turns up on Paper **1** topics too.
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q17</span>
+
+::: {.question}
+Which one of the following is a **necessary and sufficient** condition for the line $y=mx+c$ to be a tangent
+to the circle $x^{2}+y^{2}=a^{2}$?
+
+&nbsp;&nbsp;**A** $m=0$ and $c=a$ &nbsp; **B** $m=0$ and $c=\pm a$ &nbsp; **C** $m^{2}+c^{2}=a^{2}$ &nbsp;
+**D** $c^{2}=\dfrac{a^{2}}{m^{2}}$ &nbsp; **E** $c^{2}=a^{2}\left(m^{2}+1\right)$
 :::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Medium — a Paper 1 topic wearing Paper 2 wording)*]{style="color:#7a5195"}
+**E.** "Necessary and sufficient" means the condition must be **equivalent** to tangency — so derive the
+exact condition and then match, exactly as in Questions 13–15.
+
+**Substitute and set the discriminant to zero.** Putting $y=mx+c$ into $x^{2}+y^{2}=a^{2}$:
+$$x^{2}+(mx+c)^{2}=a^{2}\;\Longrightarrow\;\left(1+m^{2}\right)x^{2}+2mcx+\left(c^{2}-a^{2}\right)=0 .$$
+A tangent meets the circle exactly once, so this quadratic has a repeated root:
+$$(2mc)^{2}-4\left(1+m^{2}\right)\left(c^{2}-a^{2}\right)=0
+\;\Longrightarrow\;4\left(a^{2}+a^{2}m^{2}-c^{2}\right)=0
+\;\Longrightarrow\;\boxed{c^{2}=a^{2}\left(m^{2}+1\right)} .$$
+
+*The same condition falls out of the distance formula in one line:* the distance from the centre $(0,0)$ to
+$y=mx+c$ is $\dfrac{\lvert c\rvert}{\sqrt{m^{2}+1}}$, and tangency means that equals the radius $\lvert a\rvert$.
+
+**Why the others fail the "and" half.** **A** and **B** are *sufficient but not necessary* — a horizontal
+line at height $\pm a$ is a tangent, but so are plenty of sloping ones, so they only describe a special case.
+**C** and **D** are neither: **D** even breaks down at $m=0$, where every horizontal tangent is lost.
+
+*Note where the mathematics came from.* Discriminants and the perpendicular distance from a point to a line
+are **Paper 1** content; only the phrase "necessary and sufficient" makes this a Paper 2 question. Expect
+that combination. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
 
 ---
 

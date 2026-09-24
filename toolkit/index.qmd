@@ -61,7 +61,7 @@ answer checked against the official solution.
 |---|---|---|
 | **S1** Statement forms | 12 | 5 |
 | **S2** Converse & contrapositive | 11 | 4 |
-| **S3** Necessary & sufficient | 19 | 13 |
+| **S3** Necessary & sufficient | 20 | 14 |
 | **S4** Quantifiers & negation | 14 | 7 |
 | **S5** Proof methods | 34 | 7 |
 | **S6** Scrambled proofs | 11 | 1 |

@@ -81,7 +81,7 @@ lines are also wrong.
 | | Block | What to do |
 |---|---|---|
 | **1** | *Warm-up* — 10 min | The two sentences on card 1. Then re-do **09/04 Q1** cold, saying out loud which condition is the exact one. |
-| **2** | **S3 — Necessary & sufficient** — 30 min | [Concepts](../../toolkit/s03_concepts.qmd), then the [class problems](../../toolkit/s03_necessary_sufficient.qmd) (19 questions — Part 4 is the exam bank). Finish by re-doing **Q11** and **09/16 Q13**. |
+| **2** | **S3 — Necessary & sufficient** — 30 min | [Concepts](../../toolkit/s03_concepts.qmd), then the [class problems](../../toolkit/s03_necessary_sufficient.qmd) (20 questions — Part 4 is the exam bank). Finish by re-doing **Q11** and **09/16 Q13**. |
 | **3** | **S2 — Contrapositive** — 15 min | [Concepts](../../toolkit/s02_concepts.qmd) + [class problems](../../toolkit/s02_converse_contrapositive.qmd). Anchor on **Q16**; make him state the converse each time and say why it is *not* implied. |
 | **4** | **S7 — Spot the error** — 35 min | [Concepts](../../toolkit/s07_concepts.qmd) (the common fallacies), then the [class problems](../../toolkit/s07_spot_the_error.qmd) (20 questions — Part 4 is the exam bank). Re-do **Q5** and **Q17** with the checklist visible. |
 
