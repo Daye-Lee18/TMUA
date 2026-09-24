@@ -22,6 +22,14 @@ just any side)?
 
 ## Question 1 **[4]**
 
+::: {.question}
+In triangle $ABC$, $AB=12$ and $\angle BAC=30^\circ$; the side $BC$ is variable. State how many triangles
+exist when
+
+&nbsp;&nbsp;(a) $BC=5$ **[1]** &nbsp;&nbsp;&nbsp; (b) $BC=6$ **[1]** &nbsp;&nbsp;&nbsp;
+(c) $BC=10$ **[1]** &nbsp;&nbsp;&nbsp; (d) $BC=13$ **[1]**
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **(a) none; (b) one; (c) two; (d) one.** &nbsp; **(B1 B1 B1 B1)**
@@ -56,6 +64,13 @@ between two, at/above $12$ one.*
 
 ## Question 2 **[3]**
 
+::: {.question}
+Classify each triangle as acute, right-angled or obtuse, **without** finding any angle.
+
+&nbsp;&nbsp;(a) sides $4,5,6$ **[1]** &nbsp;&nbsp;&nbsp; (b) sides $6,8,10$ **[1]** &nbsp;&nbsp;&nbsp;
+(c) sides $5,5,8$ **[1]**
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **(a) acute; (b) right; (c) obtuse.** &nbsp; **(B1 B1 B1)**
@@ -72,6 +87,11 @@ Compare the **longest** side$^2$ with the sum of the other two squares.
 ---
 
 ## Question 3 **[4]**
+
+::: {.question}
+A triangle has sides $x$, $x+3$ and $x+5$. Find the values of $x$ for which the triangle **exists**, and the
+values for which it is **obtuse**.
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -92,6 +112,11 @@ then the sign test on the longest side.*
 
 ## Question 4 **[3]**
 
+::: {.question}
+In triangle $ABC$, $BC=10$ and $\angle BAC=30^\circ$. Find the exact radius $R$ of the circle through $A$,
+$B$ and $C$.
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **$R=10$.** &nbsp; **(M1 A1 A1)**
@@ -108,6 +133,11 @@ circumradius.*
 # Section B — Exam standard
 
 ## Question 5 **[5]**
+
+::: {.question}
+In triangle $PQR$, $PR=3$, $QR=p$ and $\angle RPQ=30^\circ$. Find the set of **all** values of $p$ for which
+this information **uniquely determines** the length $PQ$.
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -130,6 +160,11 @@ not in the two-triangle band $h<a<c$.*
 
 ## Question 6 **[4]**
 
+::: {.question}
+In triangle $ABC$, $\angle A=60^\circ$, $AB=3$ and $BC=7$. Show that there is exactly **one** such triangle,
+and find $AC$.
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **One triangle; $AC=8$.** &nbsp; **(M1 A1 A1 A1)**
@@ -147,6 +182,11 @@ positive one — hence exactly one triangle.*
 
 ## Question 7 **[4]**
 
+::: {.question}
+A triangle has $\angle A=30^\circ$ and the side next to $A$ equal to $10$. For which values of the side
+$a$ **opposite** $A$ are there **exactly two** triangles?
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **$5<a<10$.** &nbsp; **(M1 A1 A1 B1)**
@@ -160,6 +200,10 @@ i.e. $5<a<10$.
 ---
 
 ## Question 8 **[4]**
+
+::: {.question}
+Find the area of the triangle with vertices $A(2,1)$, $B(6,3)$ and $C(4,8)$.
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -184,6 +228,10 @@ plt.grid(alpha=0.3); plt.gca().set_aspect('equal'); plt.xlim(0,8); plt.ylim(0,9)
 
 ## Question 9 **[4]**
 
+::: {.question}
+Find the value of $k$ for which $A(1,2)$, $B(4,k)$ and $C(7,14)$ do **not** form a triangle.
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **$k=8$.** &nbsp; **(M1 A1 A1 B1)**
@@ -198,6 +246,14 @@ $1(k-14)+4(14-2)+7(2-k)=-6k+48=0\Rightarrow k=8$.)*
 ---
 
 ## Question 10 **[4]**
+
+::: {.question}
+Two sides of a triangle are $9$ and $12$, meeting at an angle $\theta$.
+
+&nbsp;&nbsp;(a) Find the largest possible area, and the value of $\theta$ at which it occurs. **[2]**
+
+&nbsp;&nbsp;(b) If instead the area is $27$, find the two possible values of $\theta$. **[2]**
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -216,6 +272,11 @@ Area $=\tfrac12\cdot9\cdot12\sin\theta=54\sin\theta$.
 # Section C — Push to 9
 
 ## Question 11 **[6]**
+
+::: {.question}
+A triangle $ABC$ has $AC=3$ and $BC=5$, and the angle at $B$ is $\theta$. Of the two possible triangles, the
+larger has **twice** the area of the smaller. Find $\cos\theta$ in exact form.
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -254,6 +315,11 @@ $AB$, so the ratio $2:1$ fixes the roots and their sum then gives $\cos\theta$.*
 
 ## Question 12 **[5]**
 
+::: {.question}
+A triangle has sides $5$, $5$ and $6$. Find **(a)** its area and **(b)** the radius $R$ of its circumscribed
+circle. *(You may use $R=\dfrac{abc}{4\times\text{area}}$.)*
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **(a) area $=12$; (b) $R=\dfrac{25}{8}$.** &nbsp; **(M1 A1 M1 A1 A1)**
@@ -270,6 +336,11 @@ $R$ comes out rational.*
 ---
 
 ## Question 13 **[5]**
+
+::: {.question}
+A triangle has one side of length $10$ and a perimeter of $24$. Find the **greatest possible area**, and the
+side lengths that achieve it.
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -288,6 +359,13 @@ area) is at the top, where the two sides are equal.*
 
 ## Question 14 **[4]**
 
+::: {.question}
+A triangle has vertices $A(0,0)$, $B(6,0)$ and $C(2,5)$.
+
+&nbsp;&nbsp;(a) Find its area. **[2]** &nbsp;&nbsp;&nbsp;
+(b) Determine whether the angle at $A$ is acute, right, or obtuse, justifying your answer. **[2]**
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **(a) $15$; (b) acute at $A$.** &nbsp; **(M1 A1 M1 A1)**
@@ -305,6 +383,28 @@ $0$ right, $<0$ obtuse.*
 
 ## Question 15 **[4]**
 
+::: {.question}
+Two ships leave a port at the same time: ship $X$ sails $8\,$km on a bearing of $040^\circ$, and ship $Y$
+sails $5\,$km on a bearing of $100^\circ$. Find the exact distance between the two ships. *(The setup is shown
+below.)*
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+def brg(dist,deg):
+    a=np.radians(deg); return np.array([dist*np.sin(a),dist*np.cos(a)])
+P=np.array([0,0]); X=brg(8,40); Y=brg(5,100)
+plt.figure(figsize=(3.6,3.4))
+plt.plot([P[0],X[0]],[P[1],X[1]],'-o',color='#2b6cb0'); plt.plot([P[0],Y[0]],[P[1],Y[1]],'-o',color='#dd6b20')
+plt.annotate('port',P,textcoords='offset points',xytext=(-24,-4),fontsize=8)
+plt.annotate('X (8 km, 040°)',X,textcoords='offset points',xytext=(4,4),fontsize=8,color='#2b6cb0')
+plt.annotate('Y (5 km, 100°)',Y,textcoords='offset points',xytext=(4,-10),fontsize=8,color='#dd6b20')
+plt.annotate('N',(0,8.6),ha='center',fontsize=9); plt.arrow(0,0,0,8,head_width=0.3,color='0.6',lw=0.6,length_includes_head=True)
+plt.gca().set_aspect('equal'); plt.axis('off'); plt.xlim(-1,7); plt.ylim(-1.5,9)
+plt.tight_layout(); plt.show()
+```
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **$7\,$km.** &nbsp; **(M1 A1 A1 B1)**
@@ -320,6 +420,13 @@ $100^\circ-40^\circ$; then it is a plain cosine-rule triangle.*
 ---
 
 ## Question 16 **[5]**
+
+::: {.question}
+In the ambiguous case, a triangle has known angle $A$, known adjacent side $c$, and known opposite side $a$
+with $c\sin A<a<c$ (so two triangles exist). By writing the cosine rule at $A$ as a quadratic in the third
+side $b$, prove that the two possible values of $b$ are
+$$b=c\cos A\pm\sqrt{a^{2}-c^{2}\sin^{2}A}.$$
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -344,6 +451,14 @@ discriminant positive (real), and $a<c$ keeps the smaller root positive (so both
 
 ## Question 17 **[4]**
 
+::: {.question}
+In triangle $ABC$, $\angle A=30^\circ$, $AB=x^{2}$ and $BC=x$ ($x>0$).
+
+&nbsp;&nbsp;(a) Find the exact set of $x$ for which there are **two** non-congruent triangles. **[3]**
+
+&nbsp;&nbsp;(b) State whether "$0<x<3$" is a **necessary** or a **sufficient** condition for two triangles. **[1]**
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **(a) $1<x<2$; (b) necessary (not sufficient).** &nbsp; **(M1 A1 A1 B1)**
@@ -362,14 +477,35 @@ narrower one inside it would be sufficient.*
 
 ## Question 18 **[4]**
 
+::: {.question}
+A triangle $ABC$ has $AB=x$, $BC=3$ and $\angle BAC=30^\circ$. Find the range of $x$ for which there are two
+non-congruent triangles **and** $\angle ABC$ is acute in **both**.
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **$3\sqrt3<x<6$.** &nbsp; **(M1 A1 A1 B1)**
 
-Adjacent $c=AB=x$, opposite $a=BC=3$, $h=x\sin30^\circ=\tfrac x2$. Two triangles need $h<a<c$:
-$\tfrac x2<3<x\Rightarrow3<x<6$. The two triangles have $\angle B$ equal to $\beta$ and $180^\circ-\beta$, so
-**both** are acute only above the value where one is right-angled at $B$, namely $x=3\sqrt3$. Hence
-$3\sqrt3<x<6$.
+**Step 1 — the two-triangle band. (M1 A1)** Adjacent $c=AB=x$, opposite $a=BC=3$, height
+$h=x\sin30^\circ=\tfrac x2$. Two triangles need $h<a<c$:
+$$\tfrac x2<3<x\ \Longrightarrow\ 3<x<6 .$$
+
+**Step 2 — write $\angle B$ in terms of $\angle C$. (A1)** By the sine rule,
+$$\sin C=\frac{c\sin A}{a}=\frac{x\cdot\tfrac12}{3}=\frac x6 ,$$
+and the two triangles take $C_1=\arcsin\tfrac x6$ (acute) and $C_2=180^\circ-C_1$. Since
+$B=180^\circ-30^\circ-C$,
+$$B_1=150^\circ-C_1,\qquad B_2=150^\circ-C_2=C_1-30^\circ .$$
+
+**Step 3 — force both acute. (B1)** $B_2=C_1-30^\circ<90^\circ$ holds automatically ($C_1$ is acute). The
+binding condition is
+$$B_1=150^\circ-C_1<90^\circ\iff C_1>60^\circ\iff\sin C_1>\frac{\sqrt3}{2}
+\iff\frac x6>\frac{\sqrt3}{2}\iff x>3\sqrt3 .$$
+
+Combining with Step 1: $\;\boxed{3\sqrt3<x<6}\;$ (and $3\sqrt3\approx5.196$).
+
+*Check the two ends.* At $x=4$: $\sin C_1=\tfrac23$, $C_1\approx41.8^\circ$, so $B_1\approx108.2^\circ$ —
+obtuse, correctly excluded. At $x=5.5$: $C_1\approx66.4^\circ$, giving $B_1\approx83.6^\circ$ and
+$B_2\approx36.4^\circ$ — both acute ✓.
 
 *Same shape as the clinic's $BC=2$ case (there the bound was $2\sqrt3$); with $BC=3$ it scales to $3\sqrt3$.*
 :::
@@ -378,13 +514,32 @@ $3\sqrt3<x<6$.
 
 ## Question 19 **[4]**
 
+::: {.question}
+In triangle $ABC$, $\angle A=30^\circ$, $BC=(x-2)(x-5)$ and $AC=(5-x)(x-10)$. Find the complete set of $x$ for
+which there are **two** non-congruent triangles. *(Force both sides positive first.)*
+:::
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **$5<x<6$.** &nbsp; **(M1 A1 A1 B1)**
 
-Both given sides must be positive: $(x-2)(x-5)>0\Rightarrow x<2$ or $x>5$; $(5-x)(x-10)>0\Rightarrow5<x<10$.
-Together $5<x<10$. With opposite $a=BC$, adjacent $b=AC$ and $h=b\sin30^\circ=\tfrac b2$, two triangles need
-$\tfrac b2<a<b$; solving on $5<x<10$ gives $5<x<6$.
+**Step 1 — positivity. (M1)** $a=BC=(x-2)(x-5)>0\Rightarrow x<2$ or $x>5$; and
+$b=AC=(5-x)(x-10)=(x-5)(10-x)>0\Rightarrow5<x<10$. Together: $\;5<x<10$, on which $x-5>0$.
+
+**Step 2 — the ambiguous-case band. (A1)** Known angle $A$, opposite $a$, adjacent $b$, height
+$h=b\sin30^\circ=\tfrac b2$. Two triangles need $\tfrac b2<a<b$.
+
+**Step 3 — solve each inequality, dividing by $x-5>0$. (A1)**
+
+$$a<b:\quad (x-2)(x-5)<(x-5)(10-x)\ \Longrightarrow\ x-2<10-x\ \Longrightarrow\ x<6 .$$
+$$\tfrac b2<a:\quad \tfrac{(x-5)(10-x)}{2}<(x-2)(x-5)\ \Longrightarrow\ 10-x<2x-4
+\ \Longrightarrow\ x>\tfrac{14}{3} .$$
+
+**Step 4 — combine. (B1)** $\tfrac{14}{3}\approx4.67$ is already implied by $x>5$, so the second inequality
+is **not binding** and the answer is $\;\boxed{5<x<6}$.
+
+*Spot check:* $x=5.5$ gives $a=1.75$, $b=2.25$, $h=1.125$ — and $1.125<1.75<2.25$ ✓. At $x=6$ we get
+$a=b=4$, the boundary where the two triangles merge into one ✓.
 
 *Positivity fixes the outer window ($5<x<10$); the ambiguous-case band then trims it to $5<x<6$.*
 :::
@@ -392,6 +547,11 @@ $\tfrac b2<a<b$; solving on $5<x<10$ gives $5<x<6$.
 ---
 
 ## Question 20 **[4]**
+
+::: {.question}
+Consider triangles $ABC$ with $AB=1$, $\sin A=\tfrac12$ and $\cos C=x$. Find the **greatest** value of $x$
+for which there is **exactly one** distinct triangle.
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
@@ -409,6 +569,11 @@ once $C$ reaches $\alpha$.*
 ---
 
 ## Question 21 **[4]**
+
+::: {.question}
+A circle is inscribed in an equilateral triangle of side $6$. Find **(a)** the radius of the circle and
+**(b)** the exact area of the triangle.
+:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
