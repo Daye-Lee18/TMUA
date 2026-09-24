@@ -1266,24 +1266,6 @@ Working
 
 ---
 
-## After this session
-
-::: {.callout-important}
-## Homework
-
-**The main task — this is the one that covers today.**
-
-1. **[Assignment: Necessary and sufficient](s03_assignment_student.qmd)** — 8 questions, **32 marks**,
-   about 45 minutes.
-
-**Then, to make it stick:**
-
-2. **Notes on Logic and Proof, pp. 51–55** (*Necessary and Sufficient*), including the summary table and
-   the two circle diagrams.
-3. Re-read the **complete translation table** in Question 5's Concepts box until you can place any phrase
-   into its column without hesitating. That single table is Sessions 1–3 in one place.
-:::
-
 **The whole session in one line:**
 
 > **Sufficient points forwards; necessary points backwards. Whatever the sentence looks like, find the
