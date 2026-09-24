@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 270" role="img" aria-labelledby="title desc">
+  <title id="title">Three standard counterexamples</title><desc id="desc">A non-square rhombus, a non-square rectangle, and an isosceles trapezium that is not a parallelogram.</desc>
+  <rect width="900" height="270" fill="#fff"/><g font-family="Arial,sans-serif" text-anchor="middle" fill="#111" stroke-linejoin="round">
+    <g stroke="#0b5563" stroke-width="4" fill="#eaf3f4"><path d="M65 120L150 55L235 120L150 185Z"/><path d="M350 65H570V175H350Z"/><path d="M640 185H845L795 65H690Z"/></g>
+    <g stroke="#9a6700" stroke-width="3"><path d="M105 84l9 12M196 84l-9 12M105 156l9-12M196 156l-9-12"/><path d="M351 85h18v-18M551 85h-18v-18M351 155h18v18M551 155h-18v18"/><path d="M674 105l13 5M810 105l-13 5"/></g>
+    <g font-size="19" font-weight="700" stroke="none"><text x="150" y="225">RHOMBUS</text><text x="150" y="247" font-size="15" font-weight="400">equal sides ≠ square</text><text x="460" y="225">RECTANGLE</text><text x="460" y="247" font-size="15" font-weight="400">equal diagonals ≠ square</text><text x="742" y="225">ISOSCELES TRAPEZIUM</text><text x="742" y="247" font-size="15" font-weight="400">one parallel pair ≠ parallelogram</text></g>
+  </g>
+</svg>

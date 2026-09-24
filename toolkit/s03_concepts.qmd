@@ -38,6 +38,13 @@ option in seconds.
 $$P \Rightarrow Q.$$
 $P$ being true is **enough** to guarantee $Q$. The arrow points **away from** the condition $P$.
 
+::: {.logic-highlight}
+**To prove sufficiency:** show that **every** case in $P$ is also in $Q$.
+
+**To disprove it:** find one counterexample that is **in $P$ but not in $Q$** — in symbols,
+$P\land\neg Q$.
+:::
+
 [$x>3$ is sufficient for $x>0$ — but not the only way to have $x>0$]{.eg}
 :::
 
@@ -47,6 +54,14 @@ $P$ being true is **enough** to guarantee $Q$. The arrow points **away from** th
 **"$P$ is necessary for $Q$"** means
 $$Q \Rightarrow P.$$
 $Q$ cannot hold **without** $P$; $P$ is **required**. The arrow points **towards** the condition $P$.
+
+::: {.logic-highlight}
+**To prove necessity:** first rewrite it as the arrow $Q\Rightarrow P$. Then prove it exactly as you proved
+sufficiency above: show that **every** case in $Q$ is also in $P$, following the arrow from $Q$ to $P$.
+
+**To disprove it:** find one counterexample that is **in $Q$ but not in $P$** — in symbols,
+$Q\land\neg P$.
+:::
 
 [$x>0$ is necessary for $x>3$ — required, but not enough on its own]{.eg}
 :::
@@ -64,13 +79,32 @@ $P$ and $Q$ are two names for the same thing.
 ::: {.fs-card}
 ### Which way — and the link to *if / only if*
 
-$$\text{"}P\text{ only if }Q\text{"} \equiv Q \text{ is necessary for } P$$
-$$\text{"}P\text{ if }Q\text{"} \equiv Q \text{ is sufficient for } P$$
+$$\boxed{\text{"}P\text{ only if }Q\text{"}\ \equiv\ P\Rightarrow Q\ \equiv\ Q\text{ is necessary for }P}$$
+
+The words **only if** place what follows on the **right-hand side** of the arrow.
+
+$$\boxed{\text{"}P\text{ if }Q\text{"}\ \equiv\ Q\Rightarrow P\ \equiv\ Q\text{ is sufficient for }P}$$
+
+After **if**, the condition $Q$ goes on the **left-hand side**: “if $Q$, then $P$”.
 
 [**S**ufficient = arrow **S**tarts at the condition; **N**ecessary = arrow e**N**ds at it]{.eg}
 :::
 
 ::::
+
+::: {.logic-final}
+### The final method — use it for every question
+
+1. **Translate the words into one left-to-right arrow:** premise on the left, conclusion on the right.
+2. **Try to break the arrow first:** look for a case where the **left side is true but the right side is false**.
+   That is the counterexample.
+3. **If the arrow survives and the statement is true, prove it in that same direction:** start from the left
+   side and reach the right side.
+
+$$\boxed{\text{write }A\Rightarrow B\quad\longrightarrow\quad
+\text{seek }A\land\neg B\quad\longrightarrow\quad
+\text{if true, prove }A\Rightarrow B}$$
+:::
 
 ## In practice, and the trap
 
@@ -245,6 +279,25 @@ twice-differentiable function this holds **exactly when** $f''(x)\ge0$ everywher
 so $P\Leftrightarrow Q$. (This is the 2018 Paper 2 Q18 answer.) $\;\blacksquare$
 :::
 
+::: {.callout-tip}
+## Read $f''(x)>0$ correctly
+
+$f''(x)>0$ means the **gradient $f'(x)$ is increasing**; it does **not** mean that the function itself must
+be increasing.
+
+- If $f'(x)<0$, the graph is going down but becomes **less steep**: for example, gradients
+  $-5\to-3\to-1$.
+- If $f'(x)$ crosses from negative to positive, the graph passes through a **minimum**.
+- If $f'(x)>0$, the graph is going up and becomes **more steep**: for example, gradients
+  $1\to3\to5$.
+
+All three can occur on a convex curve. Keep the roles separate:
+$$f'(x)\text{ tells you up or down};\qquad f''(x)\text{ tells you how the gradient is changing}.$$
+
+For convexity the condition is $f''(x)\ge0$: zero is allowed, corresponding locally to a constant
+gradient. The stronger condition $f''(x)>0$ makes the gradient strictly increase.
+:::
+
 ::: {.workbox}
 
 :::
@@ -264,6 +317,87 @@ inflection ($x^3$ at $0$). So it is necessary, not sufficient. $\;\blacksquare$
 
 *This "necessary but not sufficient" pattern — a required condition that does not settle the matter — is
 the single most common Arg2 answer.*
+:::
+
+::: {.callout-tip}
+## Stationary, turning and inflection points — do not mix them up
+
+The whole family fits one pattern: a **derivative equals $0$** gives a candidate, and the relevant **sign
+change** identifies the type. A necessary condition alone only gives a possible candidate; the third
+column gives the **extra check needed to confirm the type of point**.
+
+**Read the two condition columns together.** `Necessary` tells you what must hold and usually *locates* a
+candidate. `Extra check` tells you what else to test before you can confirm the classification; this is
+usually a **change of sign**.
+
+| Type | Necessary condition | Sufficient top-up *(extra check to confirm)* | Example at $x=0$ |
+|---|---|---|:--|
+| **Stationary point** | $f'(a)=0$ | — *(this is the definition)* | $x^{2}$, $x^{3}$ |
+| **Local maximum** | $f'(a)=0$ | $f'$ changes $+\to-$ | $-x^{2}$ |
+| **Local minimum** | $f'(a)=0$ | $f'$ changes $-\to+$ | $x^{2}$ |
+| **Inflection** | $f''(a)=0$ | $f''$ changes sign | $x^{3}$ |
+| **Stationary inflection** | $f'(a)=f''(a)=0$ | $f''$ changes sign, $f'$ does **not** | $x^{3}$ |
+| **Non-stationary inflection** | $f'(a)\neq0$, $f''(a)=0$ | $f''$ changes sign | $x^{3}+x$ |
+
+Two refinements worth carrying:
+
+- a **turning point** forces the second derivative's sign as well — a local maximum has $f''(a)\le0$ and a
+  local minimum has $f''(a)\ge0$ — but **zero is allowed**: $y=x^{4}$ is a minimum at $0$ with $f''(0)=0$;
+- "$f''(a)=0$" is therefore **necessary, never sufficient**, for an inflection. $y=x^{4}$ has $f''(0)=0$ and
+  no inflection at all, because the concavity never changes.
+
+```{python}
+#| fig-cap: "Four point types at the origin. The dot marks the point, the dashed line is the tangent there."
+#| fig-align: center
+#| fig-width: 7.4
+#| fig-height: 5.4
+import numpy as np, matplotlib.pyplot as plt
+
+INK, TAN, DOT, AX = '#0b5563', '#9aa5a5', '#d6a800', '#dcdcdc'
+x = np.linspace(-1.3, 1.3, 500)
+xt = np.linspace(-0.85, 0.85, 50)          # tangent drawn short, so it reads as a tangent
+specs = [
+    ('Local maximum',            r'$y=-x^{2}$',    -x**2,  0*xt,  r"$f'$ changes $+\to-$"),
+    ('Local minimum',            r'$y=x^{2}$',      x**2,  0*xt,  r"$f'$ changes $-\to+$"),
+    ('Stationary inflection',    r'$y=x^{3}$',      x**3,  0*xt,  r"$f'(0)=0$, but no turn"),
+    ('Non-stationary inflection', r'$y=x^{3}+x$', x**3+x,    xt,  r"$f'(0)=1$"),
+]
+fig, axes = plt.subplots(2, 2, figsize=(7.4, 5.4))
+for ax, (name, eqn, y, tangent, note) in zip(axes.flat, specs):
+    pad = 0.18 * (y.max() - y.min())
+    ax.axhline(0, color=AX, lw=0.9, zorder=0)
+    ax.axvline(0, color=AX, lw=0.9, zorder=0)
+    ax.plot(xt, tangent, color=TAN, lw=1.3, ls=(0, (4, 3)), zorder=1)
+    ax.plot(x, y, color=INK, lw=2.4, zorder=2, solid_capstyle='round')
+    ax.plot(0, 0, 'o', color=DOT, ms=7.5, mec='white', mew=1.3, zorder=3)
+    ax.set_title(name, fontsize=10, fontweight='bold', color=INK, pad=14)
+    ax.text(0.5, 1.015, eqn, transform=ax.transAxes, ha='center', va='bottom',
+            fontsize=9.5, color='#444')
+    ax.text(0.5, -0.10, note, transform=ax.transAxes, ha='center',
+            fontsize=8.5, color='#444')
+    ax.set_xlim(-1.4, 1.4)
+    ax.set_ylim(y.min() - pad, y.max() + pad)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp_ in ax.spines.values(): sp_.set_visible(False)
+fig.subplots_adjust(hspace=0.55, wspace=0.16)
+plt.show()
+```
+
+**A stationary point is not a fifth shape.** It is the umbrella term for any point with $f'(a)=0$ — so the
+first three pictured points are all stationary, and the fourth is not.
+
+The hierarchy to remember is:
+
+- **stationary** describes the gradient: $f'(a)=0$;
+- **turning point** describes the direction: a local maximum or minimum;
+- **inflection point** describes the curvature: concavity changes, so $f''$ changes sign.
+
+Therefore, a stationary point need not be a turning point: $f(x)=x^3$ has $f'(0)=0$, but it continues
+increasing through a stationary point of inflection. Likewise, an inflection need not be stationary: for
+$f(x)=x^3+x$, the point $x=0$ is an inflection but $f'(0)=1$.
+
+**The one takeaway:** equations such as $f'(a)=0$ and $f''(a)=0$ usually locate a **candidate**. What
+classifies the point is the appropriate **change of sign** shown in the table.
 :::
 
 ::: {.workbox}
@@ -290,20 +424,40 @@ $f''(0)=0$, yet $x=0$ is a **minimum** — $f''$ stays $\ge0$ and never changes 
 makes it sufficient is "$f''(a)=0$ **and** $f''$ changes sign at $a$".
 
 ```{python}
-#| fig-cap: "Both have f''(0)=0. Left: y=x⁴ — f''=12x² never changes sign, so x=0 is a minimum, NOT an inflection. Right: y=x³ — f''=6x changes sign, so x=0 is a genuine inflection."
+#| fig-cap: "Both curves have f''(0)=0. Only the second has an inflection there — because only its f'' changes sign."
+#| fig-align: center
+#| fig-width: 6.6
+#| fig-height: 5.2
 import numpy as np, matplotlib.pyplot as plt
-C='#1f77b4'; M='#d62728'; I='#2ca02c'
-fig,(ax1,ax2)=plt.subplots(2,1,figsize=(5.4,6.0))
-x=np.linspace(-1.4,1.4,400)
-ax1.plot(x,x**4,color=C,lw=2); ax1.plot(0,0,'o',color=M)
-ax1.annotate("f''(0)=0 but a minimum\n(f'' = 12x² never changes sign)",(0,0),(0.02,0.9),fontsize=9,color=M)
-ax1.axhline(0,color='0.6',lw=0.8); ax1.axvline(0,color='0.6',lw=0.8)
-ax1.set_title(r'$y=x^4$ — NOT an inflection',fontsize=11); ax1.set_ylabel('y')
-ax2.plot(x,x**3,color=C,lw=2); ax2.plot(0,0,'o',color=I)
-ax2.annotate("f''(0)=0 and f'' = 6x\nchanges sign → inflection",(0,0),(-1.35,1.0),fontsize=9,color=I)
-ax2.axhline(0,color='0.6',lw=0.8); ax2.axvline(0,color='0.6',lw=0.8)
-ax2.set_title(r'$y=x^3$ — genuine inflection',fontsize=11); ax2.set_xlabel('x'); ax2.set_ylabel('y')
-plt.tight_layout(); plt.show()
+
+INK, AX = '#0b5563', '#dcdcdc'
+BAD, GOOD = '#c0392b', '#1e8449'
+x = np.linspace(-1.4, 1.4, 500)
+panels = [
+    (r'$y=x^{4}$', 'NOT an inflection', x**4, BAD,
+     "$f''=12x^{2}$ never changes sign,\nso $x=0$ is a minimum",
+     (0.5, 0.97, 'center', 'top')),          # x^4 is empty across the top middle
+    (r'$y=x^{3}$', 'a genuine inflection', x**3, GOOD,
+     "$f''=6x$ changes sign at $0$,\nso the concavity really flips",
+     (0.03, 0.97, 'left', 'top')),           # x^3 is empty upper-left
+]
+fig, axes = plt.subplots(2, 1, figsize=(6.6, 5.2))
+for ax, (eqn, verdict, y, col, note, pos) in zip(axes, panels):
+    span = y.max() - y.min()
+    ax.axhline(0, color=AX, lw=0.9, zorder=0)
+    ax.axvline(0, color=AX, lw=0.9, zorder=0)
+    ax.plot(x, y, color=INK, lw=2.4, zorder=2, solid_capstyle='round')
+    ax.plot(0, 0, 'o', color=col, ms=7.5, mec='white', mew=1.3, zorder=3)
+    ax.set_title(f'{eqn}  —  {verdict}', fontsize=10.5, fontweight='bold', color=col, pad=8)
+    tx, ty, tha, tva = pos
+    ax.text(tx, ty, note, transform=ax.transAxes, ha=tha, va=tva,
+            fontsize=8.8, color='#444', linespacing=1.5)
+    ax.set_xlim(-1.5, 1.5)
+    ax.set_ylim(y.min() - 0.12 * span, y.max() + 0.42 * span)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp_ in ax.spines.values(): sp_.set_visible(False)
+fig.subplots_adjust(hspace=0.35)
+plt.show()
 ```
 
 *Line them up with the stationary-point rule: "$f'(a)=0$" is necessary for a **turning point** (not
@@ -313,26 +467,6 @@ sufficient — $x^3$ is stationary but not a turning point), and "$f''(a)=0$" is
 
 ::: {.workbox}
 
-:::
-
-### Reference — the stationary / inflection family, as necessary + sufficient
-
-The whole calculus family fits one pattern: a **derivative equals $0$** is the *necessary* half, and a
-**sign change** is the *sufficient* top-up that names the type. Read the table with that lens — the third
-column is exactly "what you must add to the necessary condition to make it sufficient".
-
-| Type | Necessary condition | Sufficient top-up (sign change) | Graph meaning | Example |
-|---|---|---|---|---|
-| **Stationary point** | $f'(a)=0$ | *(none — the sign behaviour then decides which sub-type)* | tangent is horizontal | $y=x^2,\ y=x^3$ at $0$ |
-| **Local max / min** | $f'(a)=0$ | $f'$ **changes sign**: $+\!\to\!-$ (max), $-\!\to\!+$ (min) | curve turns around | $y=-x^2$ (max), $y=x^2$ (min) |
-| **Point of inflection** | $f''(a)=0$ (or $f''$ undefined) | $f''$ **changes sign** (concavity flips) | concave $\leftrightarrow$ convex | $y=x^3$ at $0$, $y=\sin x$ at $\pi$ |
-| **Stationary inflection** | $f'(a)=0$ **and** $f''(a)=0$ | $f'$ keeps its sign, $f''$ **changes sign** | horizontal tangent, curve passes straight through | $y=x^3$ at $0$, $y=(x-1)^3$ at $1$ |
-| **Non-stationary inflection** | $f'(a)\neq0$ **and** $f''(a)=0$ | $f''$ **changes sign** | concavity flips, tangent not horizontal | $y=x^3+x$ at $0$, $y=\sin x$ at $0$ |
-
-::: {.callout-tip appearance="simple"}
-**The one takeaway.** "$f'(a)=0$" and "$f''(a)=0$" are only ever **necessary** — they locate a *candidate*.
-What makes them **sufficient**, and tells you *which* feature it is, is always a **change of sign** of the
-relevant derivative. That is why every Arg2 answer here is "necessary but not sufficient".
 :::
 
 ### Sufficient, not necessary — factorisation and composite values

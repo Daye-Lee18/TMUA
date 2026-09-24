@@ -374,6 +374,56 @@ body, .solutions, .solutions p, .solutions li, .solutions td, .solutions th,
   color: #0b5563;
 }
 
+/* High-priority proof rules inside the logic formula cards. */
+.formulasheet .logic-highlight {
+  margin: 0.55rem 0;
+  padding: 0.45rem 0.6rem;
+  border-left: 4px solid #d6a800;
+  border-radius: 2px;
+  background: #fff5b8;
+}
+.formulasheet .logic-highlight p:first-child { margin-top: 0; }
+.formulasheet .logic-highlight p:last-child { margin-bottom: 0; }
+
+/* The one routine students should carry from the whole necessary/sufficient page. */
+.formulasheet .logic-final {
+  margin: 1rem 0 1.4rem;
+  padding: 0.75rem 0.9rem;
+  border: 3px solid #0b5563;
+  border-radius: 5px;
+  background: #fff5b8;
+  box-shadow: 0 2px 0 rgba(11, 85, 99, 0.12);
+}
+.formulasheet .logic-final h3 {
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid #0b5563;
+  color: #0b5563 !important;
+  font-size: 1rem;
+}
+.formulasheet .logic-final ol { margin-bottom: 0.55rem; }
+.formulasheet .logic-final .math.display {
+  background: #fff;
+  border-left: 4px solid #d6a800;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Geometry memory diagrams: restrained, scalable and print-safe. */
+.formulasheet .shape-diagram {
+  display: block;
+  width: min(100%, 52rem);
+  margin: 0.7rem auto 0.35rem;
+  padding: 0.35rem;
+  border: 1px solid #d4dddd;
+  border-radius: 4px;
+  background: #fbfdfd;
+}
+.formulasheet .shape-diagram img,
+.formulasheet img.shape-diagram {
+  width: 100%;
+  height: auto;
+}
+
 /* Print: A4, tight margins, no site furniture, cards never split. */
 @media print {
   .formulasheet { max-width: 100%; font-size: 10.5pt; }
@@ -384,3 +434,22 @@ body, .solutions, .solutions p, .solutions li, .solutions td, .solutions th,
   .nav-footer, footer { display: none !important; }
   a { color: #000; text-decoration: none; }
 }
+
+/* ---------- Figures never exceed the text column ---------- */
+.solutions figure, .fpnotes figure, .formulasheet figure,
+.solutions .cell-output-display, .fpnotes .cell-output-display {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.solutions img, .fpnotes img, .formulasheet img,
+.solutions svg, .fpnotes svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Wide tables scroll inside the column rather than pushing the page sideways. */
+.solutions > table, .fpnotes > table,
+.solutions .callout table, .fpnotes .callout table { max-width: 100%; }

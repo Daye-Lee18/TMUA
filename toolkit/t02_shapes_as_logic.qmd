@@ -23,6 +23,18 @@ and produce the **standard counterexample** on demand. That is a memorising job,
 Companion page: [T1 — Divisors & Primes](t01_divisors_primes.qmd).*
 :::
 
+::: {.callout-note}
+## How to read the notation on this page
+
+- $X\Rightarrow Y$ means **every $X$ is a $Y$**. The arrow points from the stronger description to the
+  weaker one; it does not automatically run backwards.
+- $PQ=SR$ compares the **lengths** of the two sides. (Some books write $|PQ|=|SR|$; we avoid those extra
+  bars here.)
+- $PQ\parallel SR$ means the sides are **parallel**, and $PQ\perp SR$ means they are **perpendicular**.
+
+**Memory line:** *an arrow is a one-way promise; a counterexample tests the return journey.*
+:::
+
 ::::: {.formulasheet}
 
 :::: {.fs-head}
@@ -44,6 +56,22 @@ $$\text{square}\Rightarrow\text{rectangle}\Rightarrow\text{parallelogram}$$
 A square is **both** a rhombus and a rectangle; nothing else is. A **kite** sits outside this chain — it is
 not a parallelogram unless it is a rhombus.
 
+![Quadrilateral family tree. A square points to both rhombus and rectangle; both point to parallelogram, which points to trapezium. Kite is shown separately.](assets/t02-quadrilateral-family.svg){.shape-diagram fig-alt="Quadrilateral family tree showing one-way implication arrows"}
+
+| shape | definition to memorise |
+|---|---|
+| **quadrilateral** | a polygon with **four sides** |
+| **trapezium** | a quadrilateral with **at least one pair of opposite sides parallel** |
+| **parallelogram** | a quadrilateral with **both pairs of opposite sides parallel** |
+| **rectangle** | a parallelogram with **four right angles** |
+| **rhombus** | a parallelogram with **four equal sides** |
+| **square** | a quadrilateral with **four equal sides and four right angles** — both a rectangle and a rhombus |
+| **kite** | a quadrilateral with **two pairs of adjacent equal sides** |
+
+An **isosceles trapezium** has one pair of parallel sides and equal non-parallel sides. Its base angles and
+diagonals are equal, but it need not be a parallelogram. TMUA uses the British word **trapezium**; American
+sources usually call it a **trapezoid**.
+
 *Arrows run one way only.* Reading one backwards is what every wrong option in this topic does.
 
 [2019 Q10 · 2020 Q7]{.eg}
@@ -58,22 +86,33 @@ not a parallelogram unless it is a rhombus.
 
 Almost every "is this sufficient?" question in this topic is killed by one of these three.
 
+![The three standard counterexamples: a slanted rhombus, a non-square rectangle and an isosceles trapezium.](assets/t02-counterexamples.svg){.shape-diagram fig-alt="Rhombus, rectangle, and isosceles trapezium with their relevant properties marked"}
+
 [2020 Q7's answer is "none of them" — rhombus kills two conditions, rectangle the third]{.eg}
 :::
 
 ::: {.fs-card}
 ### 3 · The diagonal table — these are the *iff*s
 
-| shape | diagonals |
-|---|---|
-| parallelogram | **bisect** each other |
-| rectangle | bisect **and are equal** |
-| rhombus | bisect **and are perpendicular** |
-| square | bisect, equal **and** perpendicular |
-| kite | one bisects the other, perpendicular |
+For a quadrilateral, these conditions work in **both directions**:
 
-Each row is **necessary and sufficient** for that shape (given a quadrilateral). *This table is the single
-most useful thing on the page* — most nec/suff options are one of its rows, altered.
+| diagonal condition | shape guaranteed |
+|---|---|
+| diagonals **bisect each other** | parallelogram |
+| diagonals bisect each other **and are equal** | rectangle *(possibly a square)* |
+| diagonals bisect each other **and are perpendicular** | rhombus *(possibly a square)* |
+| diagonals bisect each other, are equal **and** perpendicular | square |
+| **one** diagonal perpendicularly bisects the other | kite *(possibly a rhombus or square)* |
+
+For example,
+$$\text{diagonals bisect each other}\iff\text{the quadrilateral is a parallelogram}.$$
+
+The rows do not always name one exclusive category: a square also satisfies the rectangle, rhombus and
+parallelogram rows. Read “rectangle” as **at least a rectangle**, not “rectangle but not a square”. Each row
+is necessary and sufficient under these inclusive definitions. *This table is the single most useful thing
+on the page* — most nec/suff options are one of its rows, altered.
+
+![Diagonal comparison for a parallelogram, rectangle, rhombus, square and kite.](assets/t02-diagonals.svg){.shape-diagram fig-alt="Five quadrilaterals with equal, perpendicular, and bisected diagonals marked"}
 
 [2018 Q5 · 2020 Q7 · 2022 Q11]{.eg}
 :::
@@ -85,11 +124,17 @@ most useful thing on the page* — most nec/suff options are one of its rows, al
 
 - both pairs of opposite sides parallel;
 - both pairs of opposite sides equal;
-- **one** pair both equal **and** parallel;
+- the **same one pair** of opposite sides is both equal **and** parallel;
 - diagonals bisect each other.
 
-**Not sufficient — the exam's favourite:** one pair *equal* and the **other** pair *parallel*. That is the
-isosceles trapezium.
+Suppose the vertices go around the quadrilateral as $A,B,C,D$. The third condition means
+$$AB=CD\quad\textbf{and}\quad AB\parallel CD.$$
+The equality and parallelism both describe the **same opposite pair**, $AB$ and $CD$. That alone forces
+$ABCD$ to be a parallelogram.
+
+**Not sufficient — the exam's favourite:** one pair *equal* but a **different pair** *parallel*, for example
+$$AB=CD\quad\textbf{but}\quad AD\parallel BC.$$
+That information can describe an isosceles trapezium, so it does not force a parallelogram.
 
 [2019 Q10 turns entirely on this distinction]{.eg}
 :::
@@ -99,8 +144,13 @@ isosceles trapezium.
 
 **Criteria:** SSS · SAS · ASA · AAS · RHS.
 
+**RHS** means **Right angle–Hypotenuse–Side**: two right-angled triangles are congruent if their
+hypotenuses and one pair of corresponding sides are equal.
+
 **SSA is not a criterion.** Two sides and a *non-included* angle can give **two** different triangles — the
 ambiguous case.
+
+![SSA ambiguous case: the same base, side length and starting angle can place the third vertex in two different positions.](assets/t02-ssa.svg){.shape-diagram fig-alt="Two possible triangles satisfying the same SSA information"}
 
 *Equal area is also not a criterion:* $\tfrac12ab\sin C$ equal gives only $\sin C_1=\sin C_2$.
 
@@ -166,6 +216,8 @@ point — the result is a valid counterexample to almost anything.
 - opposite angles of a **cyclic** quadrilateral sum to $180^\circ$;
 - equal chords subtend equal angles at the centre.
 
+![Four circle facts: angle in a semicircle, tangent perpendicular to radius, opposite angles of a cyclic quadrilateral, and equal chords giving equal central angles.](assets/t02-circle-facts.svg){.shape-diagram fig-alt="Four labelled diagrams illustrating the circle facts used in TMUA"}
+
 *The third one is a genuine "iff"* — a quadrilateral is cyclic **exactly when** its opposite angles are
 supplementary.
 
@@ -202,7 +254,7 @@ settles each option.
 
 $$P=(0,0),\quad Q=(5,1),\quad R=(5,2),\quad S=(0,3)$$
 
-Here $|PQ|=|SR|=\sqrt{26}$ ✓ and $SP\parallel QR$ (both vertical) ✓ — but the parallel sides have lengths
+Here $PQ=SR=\sqrt{26}$ ✓ and $SP\parallel QR$ (both vertical) ✓ — but the parallel sides have lengths
 $3$ and $1$, so it is a trapezium, not a parallelogram.
 
 **Change one word and it becomes sufficient.** *"$PQ=SR$ and $PQ\parallel SR$"* — the **same** pair both
@@ -243,12 +295,13 @@ perpendicular" — which implies which?
 distances from the crossing point and neither diagonal is a line of symmetry. *(This is 2018 Q5.)*
 
 **2. A rhombus that is not a square.** Its diagonals are perpendicular and bisect each other, but they are
-not equal.
+not equal. A non-square **rectangle is not an answer**: its diagonals are equal and bisect each other, but
+they are not perpendicular. If a rectangle's diagonals were also perpendicular, it would be a square.
 
 **3. Necessary, not sufficient.** A square does have equal diagonals — but so does any **rectangle**, and a
 non-square rectangle is a parallelogram. *The rectangle is the counterexample to keep ready.*
 
-**4. Not necessarily.** Take $P=(0,0),\ Q=(5,1),\ R=(5,2),\ S=(0,3)$: $|PQ|=|SR|=\sqrt{26}$ and
+**4. Not necessarily.** Take $P=(0,0),\ Q=(5,1),\ R=(5,2),\ S=(0,3)$: $PQ=SR=\sqrt{26}$ and
 $SP\parallel QR$, yet the parallel sides measure $3$ and $1$ — an **isosceles trapezium**. The condition is
 necessary but not sufficient. *(2019 Q10.)*
 
