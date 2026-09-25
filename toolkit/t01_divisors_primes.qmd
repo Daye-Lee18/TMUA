@@ -355,17 +355,25 @@ factor.
 ::: {.fs-card}
 ### 16 · [Factorising the **expression** $\neq$ factorising its **values**]{.hl}
 
-| Statement | True? |
-|---|---|
-| $P(x)=A(x)B(x)$ with non-constant integer polynomials $A,B$ | This is **polynomial** factorisation. |
-| For a particular integer $n$, $P(n)=A(n)B(n)$ | **Always true** after substitution. |
-| $|A(n)|>1$ and $|B(n)|>1$ | Then $|P(n)|$ is **composite**. |
-| $P(x)$ factorises $\Rightarrow P(n)$ is composite for every $n$ | **False:** a factor may become $\pm1$. |
-| $P(x)$ is irreducible $\Rightarrow P(n)$ is prime for every $n$ | **False:** the integer value may still factor. |
+Two different questions hide behind the word "factorise". Keep them apart by reading the chain in order:
 
-Two standard counterexamples:
-$$P(x)=x^2-1=(x-1)(x+1),\qquad P(2)=3\text{ is prime};$$
-$$Q(x)=x^2+1\text{ is irreducible over }\mathbb Z,\qquad Q(3)=10\text{ is composite}.$$
+1. **$P(x)=A(x)B(x)$** with $A,B$ non-constant integer polynomials — this is **polynomial** factorisation, a
+   statement about the expression.
+2. **Substituting any integer $n$ gives $P(n)=A(n)B(n)$** — always valid, but it is only an *equation*, not
+   yet a factorisation of the integer.
+3. **It becomes an integer factorisation only if $\lvert A(n)\rvert>1$ **and** $\lvert B(n)\rvert>1$.** If
+   either factor lands on $\pm1$, the product is not a proper splitting and $\lvert P(n)\rvert$ may well be
+   prime.
+
+*Step 3 is the whole card:* going from the expression to its values costs you a size condition that the
+polynomial statement never had.
+
+| statement | | why |
+|---|:-:|---|
+| $P(x)=A(x)B(x)\Rightarrow P(n)=A(n)B(n)$ for every integer $n$ | **True** | *substitution is always valid* |
+| $\lvert A(n)\rvert>1$ and $\lvert B(n)\rvert>1\Rightarrow\lvert P(n)\rvert$ composite | **True** | *a genuine splitting into two factors* |
+| *Trap:* $P(x)$ factorises $\Rightarrow P(n)$ composite for **every** $n$ | **False** | *$x^{2}-1=(x-1)(x+1)$, but $P(2)=3$ is prime — the factor $x-1$ became $1$* |
+| *Trap:* $P(x)$ irreducible $\Rightarrow P(n)$ prime for **every** $n$ | **False** | *$x^{2}+1$ is irreducible, yet $Q(3)=10=2\times5$* |
 
 **The common trap:** a statement about factoring the *expression* is silently turned into a statement about
 factoring every *integer value*. These are different questions.
@@ -431,13 +439,6 @@ the expression tells you **nothing** about them (fact 16). $x^{2}+1$ is irreduci
 Among any $k+1$ integers chosen from $k$ residue classes, two share a class — so their difference is
 divisible by $k$. Used whenever a question asks for the **smallest $n$ that forces** something.
 
-
-| statement | | why |
-|---|:-:|---|
-| $P(x)=A(x)B(x)\Rightarrow P(n)=A(n)B(n)$ | **True** | *substitution always works* |
-| $P(x)$ factorises $\Rightarrow P(n)$ composite for every $n$ | **False** | *$x^{2}-1$ at $x=2$ gives the prime $3$* |
-| $P(x)$ irreducible $\Rightarrow P(n)$ prime for every $n$ | **False** | *$x^{2}+1$ at $x=3$ gives $10$* |
-| $\lvert A(n)\rvert,\lvert B(n)\rvert>1\Rightarrow\lvert P(n)\rvert$ composite | **True** | *a genuine factorisation* |
 
 [2022 Q8 is this exactly]{.eg}
 :::
