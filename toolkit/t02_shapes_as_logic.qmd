@@ -401,8 +401,8 @@ Working
 
 # Part 3 — Where the real questions live
 
-Every appearance of this slot, 2016–2023. As with [T1](t01_divisors_primes.qmd), questions are worked on
-the page that teaches their **reasoning type**; this page holds the geometry.
+Every appearance of this slot, 2016–2023 — **all 8 are written out below the table** with full solutions
+in toggles. The table is the index.
 
 | Sitting | Question | Reasoning type | Answer | Key fact |
 |---|---|---|---|---|
@@ -419,9 +419,8 @@ the page that teaches their **reasoning type**; this page holds the geometry.
 
 ## Work these in class
 
-Five real TMUA questions — the whole slot from 2018 to 2022. Between them they use **cards 1, 2, 3, 4, 8, 9**.
-Attempt each before opening the solution; the cards it needs are named at the top of the answer.
-
+All 8 questions from the table above, in full. Attempt each before opening its solution; the facts or
+cards it needs are named at the top of the answer.
 ### Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q10</span>
 
 ::: {.question}
@@ -638,6 +637,152 @@ Every case gives three equal central angles, so the triangle is equilateral. **A
 **Why $n=4$ is special.** With $k=2$ the equation reads $360^\circ+0\cdot\alpha=360^\circ$, which holds for
 **every** $\alpha$ — the constraint vanishes identically. *An even $n$ lets the $\alpha$ and
 $180^\circ-\alpha$ angles pair off and cancel, which is the whole reason the deduction fails beyond $n=3$.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+### Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q9</span>
+
+::: {.question}
+Triangles $ABC$ and $XYZ$ have the **same area**. Which of these extra conditions, taken independently,
+would **imply** that they are congruent?
+
+&nbsp;&nbsp;**(1)** $AB=XY$ **and** $BC=YZ$
+&nbsp;&nbsp;**(2)** $AB=XY$ **and** $\angle ABC=\angle XYZ$
+&nbsp;&nbsp;**(3)** $\angle ABC=\angle XYZ$ **and** $\angle BCA=\angle YZX$
+
+| | (1) | (2) | (3) |
+|---|---|---|---|
+| **A** | no | no | no |
+| **B** | no | no | yes |
+| **C** | no | yes | no |
+| **D** | no | yes | yes |
+| **E** | yes | no | no |
+| **F** | yes | no | yes |
+| **G** | yes | yes | no |
+| **H** | yes | yes | yes |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **D** (no, yes, yes) &nbsp;·&nbsp; *cards 5, 6*
+
+Throughout, write the area as $\tfrac12\cdot(\text{two sides})\cdot\sin(\text{included angle})$.
+
+**(1) Does not imply. (card 6)** With $AB=XY$ and $BC=YZ$, equal areas give
+$$\tfrac12\,AB\cdot BC\sin(\angle ABC)=\tfrac12\,XY\cdot YZ\sin(\angle XYZ)
+\;\Longrightarrow\;\sin(\angle ABC)=\sin(\angle XYZ),$$
+which allows $\angle XYZ=180^\circ-\angle ABC$. Two sides and a **non-included** angle — this is SSA, and
+the two triangles genuinely differ.
+
+**(2) Implies.** Now the equal angle **is** the included one, so the same equation reads
+$AB\cdot BC=XY\cdot YZ$ with $AB=XY$, giving $BC=YZ$. Two sides and the included angle equal — **SAS**. ✓
+
+**(3) Implies.** Two pairs of equal angles make the triangles **similar**, so one is a scale copy of the
+other with ratio $k$. Areas scale by $k^{2}$, and the areas are equal, so $k^{2}=1$ and $k=1$ — the
+triangles are congruent. ✓
+
+*The pattern to take away:* equal area plus two sides is **not** enough, because area only pins down the
+**sine** of the angle between them. Equal area plus similarity **is** enough, because area fixes the scale
+factor.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+### Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q18</span>
+
+::: {.question}
+A student chooses two distinct real numbers $x$ and $y$ with $0<x<y<1$, then attempts to draw a triangle
+$ABC$ with
+$$AB=1,\qquad \sin A=x,\qquad \sin B=y .$$
+
+Which of the following statements is/are correct? *(Congruent triangles count as the same.)*
+
+&nbsp;&nbsp;**I** &nbsp; For some choice of $x$ and $y$, there is **exactly one** triangle.
+&nbsp;&nbsp;**II** &nbsp; For some choice of $x$ and $y$, there are **exactly two** different triangles.
+&nbsp;&nbsp;**III** &nbsp; For some choice of $x$ and $y$, there are **exactly three** different triangles.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II &nbsp; **F** I and III &nbsp; **G** II and III &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **C** (II only) &nbsp;·&nbsp; *card 6*
+
+**Each sine gives two candidate angles.** Put $a=\arcsin x$ and $b=\arcsin y$, so that
+$$0<a<b<90^\circ ,$$
+because $\arcsin$ is increasing on $(0,1)$ and $x<y$. Then $A\in\{a,\,180^\circ-a\}$ and
+$B\in\{b,\,180^\circ-b\}$, and the only constraint is $A+B<180^\circ$.
+
+| $A$ | $B$ | $A+B<180^\circ$? |
+|---|---|---|
+| $a$ | $b$ | **yes** — both acute ✓ |
+| $180^\circ-a$ | $b$ | needs $b<a$ — **no** |
+| $a$ | $180^\circ-b$ | needs $a<b$ — **yes** ✓ |
+| $180^\circ-a$ | $180^\circ-b$ | sum exceeds $180^\circ$ — **no** |
+
+*Two* choices survive, **always** — and each determines the triangle completely, since two angles plus the
+side $AB=1$ between them is AAS. So the count is exactly $2$ for **every** allowed $x,y$.
+
+Hence **II is correct**, and **I** and **III** are not: the count is never $1$ and never $3$.
+
+**Why the ordering $x<y$ matters so much.** It is what makes $a<b$, which kills row 2 and spares row 3. Had
+the question allowed $x=y$, rows 2 and 3 would both collapse and the count would drop to one.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+### Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q9</span>
+
+::: {.question}
+Consider the statement about a pentagon $P$:
+
+> $(*)$ &nbsp; If at least one of the interior angles in $P$ is $108^\circ$, then all the interior angles in
+> $P$ form an arithmetic sequence.
+
+Which of the following is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; The statement $(*)$.
+&nbsp;&nbsp;**II** &nbsp; The contrapositive of $(*)$.
+&nbsp;&nbsp;**III** &nbsp; The converse of $(*)$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II &nbsp; **F** I and III &nbsp; **G** II and III &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **D** (III only) &nbsp;·&nbsp; *card 7*
+
+**Use the structural fact before any geometry.** A statement and its contrapositive are **logically
+equivalent**, so **I and II always share a truth value**. That alone removes every option containing exactly
+one of them — B, C, E and G are gone before you draw anything.
+
+**I — false.** The interior angles sum to $540^\circ$. Take
+$$100^\circ,\;102^\circ,\;108^\circ,\;110^\circ,\;120^\circ$$
+— the sum is $540^\circ$ ✓ and one angle **is** $108^\circ$ ✓, but the differences are $2,6,2,10$, so they
+are **not** an arithmetic sequence. Hypothesis true, conclusion false.
+
+**II — false**, automatically, being equivalent to I.
+
+**III — true.** The converse reads *"if all the interior angles form an arithmetic sequence, then at least
+one is $108^\circ$."* Write them symmetrically as
+$$a-2d,\quad a-d,\quad a,\quad a+d,\quad a+2d .$$
+The $\pm d$ and $\pm2d$ terms cancel, so the sum is $5a=540^\circ$ and $a=108^\circ$. **The middle angle is
+forced to be $108^\circ$ whatever $d$ is.** ✓
+
+*The lesson:* a false statement can have a **true** converse — the two carry no information about each
+other. Only the contrapositive carries all of it.
 :::
 
 ::: {.workspace style="min-height:7cm"}

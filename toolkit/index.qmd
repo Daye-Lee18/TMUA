@@ -66,8 +66,8 @@ answer checked against the official solution.
 | **S5** Proof methods | 34 | 7 |
 | **S6** Scrambled proofs | 11 | 1 |
 | **S7** Spot the error | 20 | 10 |
-| **T1** Divisors & primes | 14 checks + 5 past-paper | — |
-| **T2** Shapes as logic | 8 checks + 5 past-paper | — |
+| **T1** Divisors & primes | 14 checks + 19 past-paper | — |
+| **T2** Shapes as logic | 8 checks + 8 past-paper | — |
 
 Questions marked **★** have already come up on a mock sat here; **◆** marks questions that also appear in
 the **[self-study sets](../lessons/index.qmd)**. **S6** has only one: the Prf4 scrambled-proof format has been
@@ -108,8 +108,8 @@ of where each real question is worked.
 | Topic session | Assignments |
 |---|---|
 | **[Paper 2 — Formula Sheet & Concept Summary](paper2_formula_sheet.qmd)** — S1–S7, T1 and T2 on one printable page, plus an exam-day card | *revision page — no assignment* |
-| **[T1 · Divisors & primes](t01_divisors_primes.qmd)** — sixteen facts, six proof patterns, fourteen quick checks, five real past-paper questions | **[Questions](t01_assignment_student.qmd)** · [MS](t01_assignment_ms.qmd) |
-| **[T2 · Shapes as logical conditions](t02_shapes_as_logic.qmd)** — the lattice, the diagonal table, the three counterexamples, congruence, polygons, and five real past-paper questions | **[Questions](t02_assignment_student.qmd)** · [MS](t02_assignment_ms.qmd) |
+| **[T1 · Divisors & primes](t01_divisors_primes.qmd)** — sixteen facts (each with a True/False trap table), six proof patterns, fourteen quick checks, **all 19 past-paper questions** worked | **[Questions](t01_assignment_student.qmd)** · [MS](t01_assignment_ms.qmd) |
+| **[T2 · Shapes as logical conditions](t02_shapes_as_logic.qmd)** — the lattice, the diagonal table, the three counterexamples, congruence, polygons, and **all 8 past-paper questions** worked | **[Questions](t02_assignment_student.qmd)** · [MS](t02_assignment_ms.qmd) |
 
 *Both are built from an eight-year audit of every Paper 2 question, 2016–2023.*
 
