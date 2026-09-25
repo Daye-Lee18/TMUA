@@ -42,10 +42,10 @@ left to right:
 :::: {.fs-head}
 <div class="fs-kicker">TMUA · Paper 2 · Topic session T1</div>
 <div class="fs-title">Divisors &amp; Primes — the memorisable core</div>
-<div class="fs-sub">Sixteen facts and six proof patterns. Every past-paper question in this topic is built from them, so the aim is <strong>instant recall</strong>, not derivation. The cards marked with a <strong>trap</strong> are the ones the examiners actually test — each has a standard counterexample you should be able to name without thinking.</div>
+<div class="fs-sub">Seventeen facts and six proof patterns. Every past-paper question in this topic is built from them, so the aim is <strong>instant recall</strong>, not derivation. The cards marked with a <strong>trap</strong> are the ones the examiners actually test — each has a standard counterexample you should be able to name without thinking.</div>
 ::::
 
-## The sixteen facts
+## The seventeen facts
 
 :::: {.fs-grid}
 
@@ -223,30 +223,47 @@ primality of its values* — see card 7.
 |---|:-:|---|
 | $7$ is a factor of $91$ | **True** | *divisor of an **integer*** |
 | $x-1$ is a factor of $x^{2}-1$ | **True** | *factor of a **polynomial*** |
-| *Trap:* the two senses are interchangeable | **False** | *see fact 16* |
+| *Trap:* the two senses are interchangeable | **False** | *see fact 17* |
 
 [2022 Q7 · 2023 Q18 · 2021 Q4]{.eg}
 :::
 
 ::: {.fs-card}
-### 10 · [Test $n=1,2,3,4$ before reasoning about general $n$]{.hl}
+### 10 · [One counterexample disproves "for all"; no number of examples proves it]{.hl}
 
-For any claim about integers, substitute the first four values **first**. It is faster than thinking and it
-finds most counterexamples.
+Before reasoning about a general $n$, substitute $n=1,2,3,4$. Small cases cost one line and settle most
+Paper 2 claims — but **what they settle depends on the quantifier**.
 
-$n^{3}+5n$ at $n=1,2,3,4$ gives $6,18,42,84$ — one line of arithmetic that eliminates five of seven options.
+- A claim "**for all** $n$ …" is destroyed by **one** counterexample and is **never** established by
+  examples.
+- A claim "**there exists** $n$ …" is established by **one** witness and is never destroyed by examples.
 
+**Worked instance.** For $n^{3}+5n$ the first four values are
+$$6,\qquad 18,\qquad 42,\qquad 84,$$
+and only $84$ is a multiple of $12$. In JZ Mock B Q11 that single line eliminates five of the seven options,
+because any *necessary* condition has to be satisfied by $n=4$.
 
 | statement | | why |
 |---|:-:|---|
-| $n^{3}+5n$ at $n=1,2,3,4$ gives $6,18,42,84$ | **True** | *only $84$ is a multiple of $12$* |
-| *Trap:* three examples prove a "for all" claim | **False** | *they can only **disprove** one* |
+| One counterexample disproves a "for all" claim | **True** | *the claim asserts every case* |
+| Four examples prove a "for all" claim | **False** | *they raise confidence, nothing more* |
+| One example proves a "there exists" claim | **True** | *exhibiting a witness is the whole job* |
+| *Trap:* a case where the **hypothesis fails** is a counterexample | **False** | *$n=4$ in 2022 Q3 is not prime, so the claim never spoke about it* |
 
-[JZ Mock B Q11 · 2020 Q4 · 2022 Q3]{.eg}
+**The trap in the last row is the most examined idea in this topic.** A counterexample must make the
+hypothesis **true** and the conclusion **false**; a case outside the hypothesis says nothing at all. The same
+trap is set in 2022 Q3 ($n=4$ is not prime), 2020 Q4 ($N=5$ is not greater than $6$) and 2019 Q4 ($1001$ has
+an even number of zeros).
+
+[JZ Mock B Q11 · 2020 Q4 · 2022 Q3 · 2019 Q4]{.eg}
 :::
 
 ::: {.fs-card}
-### 11 · [Fermat: $p$ prime $\Rightarrow a^{p}\equiv a$, and $a^{p-1}\equiv1$ when $p\nmid a$]{.hl}
+### 11 · [Fermat's little theorem: $p$ prime $\Rightarrow a^{p}\equiv a$]{.hl}
+
+It is called the **little** theorem to distinguish it from Fermat's **Last** Theorem. “Little” does not mean
+unimportant: it is the shorter, elementary theorem about remainders, whereas Fermat's Last Theorem is the
+famous statement that $x^n+y^n=z^n$ has no positive-integer solutions for $n>2$.
 
 If $p$ is prime, then for every integer $a$,
 $$a^p\equiv a\pmod p.$$
@@ -270,7 +287,31 @@ $2^{10}=1024\equiv1\pmod{341}$, so $2^{340}\equiv1\pmod{341}$.
 :::
 
 ::: {.fs-card}
-### 12 · [$2^{n}-1$ prime $\Rightarrow n$ prime; &nbsp;$2^{n}+1$ prime $\Rightarrow n=2^{k}$]{.hl}
+### 12 · [If $m$ is odd, then $x^m+1$ has factor $x+1$]{.hl}
+
+For every positive odd integer $m$,
+$$\boxed{x^m+1=(x+1)\left(x^{m-1}-x^{m-2}+\cdots-x+1\right)}.$$
+The alternating middle terms cancel when the two factors are multiplied. For example,
+$$x^3+1=(x+1)(x^2-x+1).$$
+
+Every positive integer $n$ can be written uniquely as
+$$n=2^km,$$
+where $m$ is odd: remove factors of $2$ until an odd number remains. If $m>1$, set $x=2^{2^k}$ to get
+$$2^n+1=\left(2^{2^k}\right)^m+1,$$
+which has the proper factor $2^{2^k}+1$. For example,
+$$2^{12}+1=(2^4)^3+1=(16+1)(16^2-16+1)=17\cdot241.$$
+
+**The trap.** The identity needs $m$ to be **odd**. For even $m$, $x+1$ does not generally divide $x^m+1$.
+
+| statement | | why |
+|---|:-:|---|
+| $m$ odd $\Rightarrow x+1\mid x^m+1$ | **True** | *odd-power sum identity* |
+| $n=2^km$ with odd $m>1\Rightarrow2^n+1$ composite | **True** | *take $x=2^{2^k}$* |
+| *Trap:* $m$ even $\Rightarrow x+1\mid x^m+1$ | **False** | *at $x=-1$, the value is $2$, not $0$* |
+:::
+
+::: {.fs-card}
+### 13 · [$2^{n}-1$ prime $\Rightarrow n$ prime; &nbsp;$2^{n}+1$ prime $\Rightarrow n=2^{k}$]{.hl}
 
 For positive integer $n$,
 $$2^n-1\text{ prime}\quad\Longrightarrow\quad n\text{ prime},$$
@@ -292,7 +333,7 @@ but $2^{32}+1=641\times6700417$.
 :::
 
 ::: {.fs-card}
-### 13 · [A composite $N$ has a prime factor $\le\sqrt N$]{.hl}
+### 14 · [A composite $N$ has a prime factor $\le\sqrt N$]{.hl}
 
 A positive integer $p$ is prime exactly when $p>1$ and its only positive divisors are $1$ and $p$.
 
@@ -313,7 +354,7 @@ divide it.
 :::
 
 ::: {.fs-card}
-### 14 · [$N=\prod p_i^{a_i}\Rightarrow d(N)=\prod(a_i+1)$]{.hl}
+### 15 · [$N=\prod p_i^{a_i}\Rightarrow d(N)=\prod(a_i+1)$]{.hl}
 
 If
 $$N=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k},$$
@@ -333,7 +374,7 @@ For example, $360=2^3\cdot3^2\cdot5$, so it has $(3+1)(2+1)(1+1)=24$ positive di
 :::
 
 ::: {.fs-card}
-### 15 · [$\gcd(a,b)=1$ and $a\mid bc\Rightarrow a\mid c$ — coprime cancellation]{.hl}
+### 16 · [$\gcd(a,b)=1$ and $a\mid bc\Rightarrow a\mid c$ — coprime cancellation]{.hl}
 
 If $\gcd(a,b)=1$, then
 $$a\mid bc\quad\Longrightarrow\quad a\mid c.$$
@@ -353,7 +394,7 @@ factor.
 :::
 
 ::: {.fs-card}
-### 16 · [Factorising the **expression** $\neq$ factorising its **values**]{.hl}
+### 17 · [Factorising the **expression** $\neq$ factorising its **values**]{.hl}
 
 Two different questions hide behind the word "factorise". Keep them apart by reading the chain in order:
 
@@ -417,7 +458,7 @@ Whenever you see "so $N$ is a multiple of $3$, hence not prime", check whether $
 :::
 
 ::: {.callout-tip}
-## Pattern C · "Factorise the expression" &nbsp;· *facts 7, 12, 16*
+## Pattern C · "Factorise the expression" &nbsp;· *facts 7, 12, 13, 17*
 
 To show $f(n)$ is never prime, factorise it algebraically — then **check both factors exceed $1$**.
 
@@ -426,11 +467,11 @@ $$n^{4}+4=\left(n^{2}-2n+2\right)\left(n^{2}+2n+2\right)$$
 is composite for every $n>1$, but at $n=1$ the first factor is $1$ and the value is the prime $5$.
 *Again the argument is right except at the boundary.*
 
-The same move powers fact 12: $2^{ab}-1$ always has the proper factor $2^{a}-1$, which is why $2^{n}-1$ can
-only be prime when $n$ is prime.
+The same move powers facts 12 and 13: the odd-power identity factors $x^m+1$, while $2^{ab}-1$ always has
+the proper factor $2^{a}-1$. These explain the necessary exponent shapes for $2^n+1$ and $2^n-1$.
 
 **And it runs only one way.** Factorising the *expression* tells you about the *values*; irreducibility of
-the expression tells you **nothing** about them (fact 16). $x^{2}+1$ is irreducible yet $3^{2}+1=10$.
+the expression tells you **nothing** about them (fact 17). $x^{2}+1$ is irreducible yet $3^{2}+1=10$.
 :::
 
 ::: {.callout-tip}
@@ -455,14 +496,14 @@ that only works for large $n$, leaving the smallest case unchecked.
 :::
 
 ::: {.callout-tip}
-## Pattern F · "Rule primality out with a necessary condition" &nbsp;· *facts 11, 12, 13*
+## Pattern F · "Rule primality out with a necessary condition" &nbsp;· *facts 11, 13, 14*
 
 Three tests dismiss a primality claim **without factorising anything**:
 
 | test | says | its limit |
 |---|---|---|
-| $\sqrt N$ *(fact 13)* | a composite $N$ has a prime factor $\le\sqrt N$ | testing **one** prime is not enough — test them all up to $\sqrt N$ |
-| shape of the exponent *(fact 12)* | $2^{n}-1$ prime $\Rightarrow n$ prime; $2^{n}+1$ prime $\Rightarrow n=2^{k}$ | both **converses false**: $2^{11}-1=23\times89$ |
+| $\sqrt N$ *(fact 14)* | a composite $N$ has a prime factor $\le\sqrt N$ | testing **one** prime is not enough — test them all up to $\sqrt N$ |
+| shape of the exponent *(facts 12–13)* | $2^{n}-1$ prime $\Rightarrow n$ prime; $2^{n}+1$ prime $\Rightarrow n=2^{k}$ | both **converses false**: $2^{11}-1=23\times89$ |
 | Fermat *(fact 11)* | $p$ prime $\Rightarrow2^{p-1}\equiv1\pmod p$ | **converse false**: $341=11\times31$ passes it |
 
 **All three are necessary, none is sufficient.** They can *disprove* primality instantly; passing them
@@ -476,7 +517,7 @@ proves nothing — which is exactly what makes them Arg2 material.
 
 # Part 2 — Quick checks
 
-Fourteen items on the facts that are easy to half-remember. Answer all fourteen, then open the toggle.
+Fifteen items on the facts that are easy to half-remember. Answer all fifteen, then open the toggle.
 
 ::: {.question}
 **1.** True or false: every integer of the form $6n+1$ is prime.
@@ -502,16 +543,18 @@ $\gcd(u_1,u_5)$ necessarily $7$?
 **9.** Let $p$ be an odd prime. What remainder does $2^{p-1}$ leave on division by $p$? Does obtaining this
 remainder prove that a number $p$ is prime?
 
-**10.** Could $2^{15}-1$ be prime? Give a structural reason, without evaluating the whole number.
+**10.** Factorise $x^5+1$. Hence show, without calculating $2^{20}+1$ fully, that it is composite.
 
-**11.** To decide whether $221$ is prime, which prime divisors are enough to test? Hence decide whether it is
+**11.** Could $2^{15}-1$ be prime? Give a structural reason, without evaluating the whole number.
+
+**12.** To decide whether $221$ is prime, which prime divisors are enough to test? Hence decide whether it is
 prime.
 
-**12.** How many positive divisors does $360=2^3\cdot3^2\cdot5$ have?
+**13.** How many positive divisors does $360=2^3\cdot3^2\cdot5$ have?
 
-**13.** Given $\gcd(14,25)=1$ and $14\mid25m$, what must divide $m$?
+**14.** Given $\gcd(14,25)=1$ and $14\mid25m$, what must divide $m$?
 
-**14.** Decide whether each statement is true:
+**15.** Decide whether each statement is true:
 
 &nbsp;&nbsp;**I** If $P(x)$ factorises over the integers, then $P(n)$ is composite for every integer $n$.
 
@@ -549,19 +592,25 @@ $\gcd(u_1,u_5)=\gcd(a,3b)$, which can be larger: $a=21,\ b=7$ gives $u_5=63$ and
 **9. Remainder $1$; no.** Fermat's little theorem gives $2^{p-1}\equiv1\pmod p$ for every odd prime $p$.
 But the converse fails: $341$ is composite and still satisfies $2^{340}\equiv1\pmod{341}$.
 
-**10. No.** Since $15=3\cdot5$ is composite, $2^3-1=7$ is a proper factor of $2^{15}-1$. A Mersenne number
+**10.**
+$$x^5+1=(x+1)(x^4-x^3+x^2-x+1).$$
+Since $20=2^2\cdot5$, take $x=2^{2^2}=16$:
+$$2^{20}+1=16^5+1=(16+1)(16^4-16^3+16^2-16+1),$$
+so $17$ is a proper factor and the number is composite.
+
+**11. No.** Since $15=3\cdot5$ is composite, $2^3-1=7$ is a proper factor of $2^{15}-1$. A Mersenne number
 $2^n-1$ can be prime only when $n$ is prime.
 
-**11. Test $2,3,5,7,11,13$; $221$ is composite.** Since $\sqrt{221}<15$, only primes below $15$ need be
+**12. Test $2,3,5,7,11,13$; $221$ is composite.** Since $\sqrt{221}<15$, only primes below $15$ need be
 tested. In fact $221=13\times17$.
 
-**12. $24$.** Each divisor chooses the exponent of $2$ in $4$ ways, of $3$ in $3$ ways and of $5$ in $2$
+**13. $24$.** Each divisor chooses the exponent of $2$ in $4$ ways, of $3$ in $3$ ways and of $5$ in $2$
 ways, giving $4\cdot3\cdot2=24$.
 
-**13. $14\mid m$.** Since $14$ and $25$ are coprime, the factor $14$ cannot be supplied by $25$; coprime
+**14. $14\mid m$.** Since $14$ and $25$ are coprime, the factor $14$ cannot be supplied by $25$; coprime
 cancellation gives $14\mid m$.
 
-**14. I false; II false; III true.** For I, $x^2-1$ factorises but has the prime value $3$ at $x=2$. For
+**15. I false; II false; III true.** For I, $x^2-1$ factorises but has the prime value $3$ at $x=2$. For
 II, $x^2+1$ is irreducible but has the composite value $10$ at $x=3$. For III, the displayed equality is a
 non-trivial integer factorisation of $|P(n)|$, which is exactly what makes it composite.
 :::
@@ -655,7 +704,7 @@ integers). Which of the following provide a counterexample?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** &nbsp;·&nbsp; *facts 2, 15*
+## Solution — **C** &nbsp;·&nbsp; *facts 2, 16*
 
 The claim is **Euclid's lemma with the word "prime" removed** (fact 2), so it must be false. A
 counterexample needs $a\mid bc$ **and** $a\nmid b$ **and** $a\nmid c$.
@@ -669,7 +718,7 @@ counterexample needs $a\mid bc$ **and** $a\nmid b$ **and** $a\nmid c$.
 Only **II**.
 
 *Why II works and the others cannot:* $8=2^{3}$ splits across the two fours, each supplying $2^{2}$ — the
-composite $a$ is assembled from pieces of $b$ and $c$, which a **prime** could never be. Fact 15 says the
+composite $a$ is assembled from pieces of $b$ and $c$, which a **prime** could never be. Fact 16 says the
 weakest repair is $\gcd(a,b)=1$, and here $\gcd(8,4)=4\ne1$.
 :::
 
@@ -783,7 +832,7 @@ Which of **I**, **II**, **III**, taken individually, is equivalent to $(*)$?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **G** &nbsp;·&nbsp; *fact 12 · and S1/S2 wording*
+## Solution — **G** &nbsp;·&nbsp; *fact 13 · and S1/S2 wording*
 
 Write $(*)$ as $P\Rightarrow Q$ with $P=$ "$2^{k}+1$ is prime" and $Q=$ "$k$ is a power of $2$".
 
@@ -794,7 +843,7 @@ Write $(*)$ as $P\Rightarrow Q$ with $P=$ "$2^{k}+1$ is prime" and $Q=$ "$k$ is 
 
 So (No, No, Yes) — **G**.
 
-**Fact 12 tells you the mathematics is real but irrelevant to the logic.** $(*)$ is a true theorem, and its
+**Fact 13 tells you the mathematics is real but irrelevant to the logic.** $(*)$ is a true theorem, and its
 converse **I** is false: $k=32$ is a power of $2$, yet $2^{32}+1=641\times6700417$. *Knowing that
 counterexample is a good way to be certain I is not equivalent* — but notice you could answer the whole
 question without it, purely from the wording.
@@ -950,7 +999,7 @@ The condition *"either $a$ or $b$ is divisible by $n$"* is:
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **B** (sufficient, not necessary) &nbsp;·&nbsp; *facts 2, 15*
+## Solution — **B** (sufficient, not necessary) &nbsp;·&nbsp; *facts 2, 16*
 
 **Sufficient.** If $n\mid a$ then $a=nk$, so $ab=nkb$ and $n\mid ab$. Likewise if $n\mid b$. ✓
 
@@ -959,7 +1008,7 @@ $b$. ✗
 
 **This is Euclid's lemma with the word "prime" deleted** (fact 2). Restore it and the verdict flips: for a
 **prime** $p$, "$p\mid a$ or $p\mid b$" *is* necessary and sufficient for $p\mid ab$ — the answer would be
-**C**. Fact 15 gives the weakest repair: $\gcd(n,a)=1$ is enough to force $n\mid b$.
+**C**. Fact 16 gives the weakest repair: $\gcd(n,a)=1$ is enough to force $n\mid b$.
 
 *Note the same false statement appears as a proof in 2016 Q13 and as a counterexample hunt in 2021 Q4 —
 this is its third costume.*
@@ -1028,13 +1077,13 @@ an attempted proof:
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **F** (line IV) &nbsp;·&nbsp; *facts 7, 16*
+## Solution — **F** (line IV) &nbsp;·&nbsp; *facts 7, 17*
 
 **Line III is true.** The *polynomial* $3x^{2}+3x+1$ has discriminant $9-12=-3<0$, so it does not split into
 integer linear factors.
 
 **Line IV is the false leap.** It converts a statement about the **polynomial** into one about the
-**integers** it produces — exactly the confusion of facts 7 and 16. **Counterexample:** $x=5$ gives
+**integers** it produces — exactly the confusion of facts 7 and 17. **Counterexample:** $x=5$ gives
 $3(25)+15+1=91=7\times13$, which is $6^{3}-5^{3}$.
 
 **Why not G?** Line V follows *correctly* from line IV: if the value really could never be factorised it
@@ -1153,7 +1202,7 @@ Which one of the following is **not** true?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** &nbsp;·&nbsp; *facts 3, 14*
+## Solution — **C** &nbsp;·&nbsp; *facts 3, 15*
 
 **A is true** — two ways. Directly, $N^{2}=N^{2}+0^{2}$. Or via the theorem: squaring doubles every exponent
 (fact 3), so every awkward prime occurs to an even power.
@@ -1377,7 +1426,7 @@ Working
 ::: {.callout-tip}
 ## The one habit to leave with
 
-**The mathematics in this topic never gets harder than the sixteen cards above.** What changes is the logical
+**The mathematics in this topic never gets harder than the seventeen cards above.** What changes is the logical
 wrapper. So when a prime or a divisor appears on Paper 2, do two things in order:
 
 1. **Name the reasoning type** — counterexample? error in a proof? equivalence?
