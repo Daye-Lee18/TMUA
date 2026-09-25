@@ -341,6 +341,237 @@ the page that teaches their **reasoning type**; this page holds the geometry.
 | **2022** | **Q19** $n$-gon in a circle, equal areas | sufficient | **B** | card 8 |
 | **2023** | **Q9** pentagon, one angle $108^\circ$ | statement · contrapositive · converse | **D** | card 7 → **[S2 Q11](s02_converse_contrapositive.qmd)** |
 
+---
+
+## Work these in class
+
+Five real TMUA questions — the whole slot from 2018 to 2022. Between them they use **cards 1, 2, 3, 4, 8, 9**.
+Attempt each before opening the solution; the cards it needs are named at the top of the answer.
+
+### Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q10</span>
+
+::: {.question}
+$PQRS$ is a quadrilateral, labelled anticlockwise. Which **one** of the following is a **necessary but not
+sufficient** condition for $PQRS$ to be a parallelogram?
+
+&nbsp;&nbsp;**A** $PQ=SR$ and $PS$ is parallel to $QR$
+&nbsp;&nbsp;**B** $PQ=SR$ and $PQ$ is parallel to $SR$
+&nbsp;&nbsp;**C** $PQ=QR=SR=PS$
+&nbsp;&nbsp;**D** $PR=QS$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **A** &nbsp;·&nbsp; *cards 2, 4*
+
+Test each option against the two halves separately.
+
+| | condition | necessary? | sufficient? |
+|---|---|---|---|
+| **A** | $PQ=SR$ **and** $PS\parallel QR$ | **yes** — a parallelogram has both | **no** ✓ |
+| **B** | $PQ=SR$ **and** $PQ\parallel SR$ | yes | **yes** — so necessary *and* sufficient |
+| **C** | all four sides equal | **no** — a non-rhombic parallelogram fails it | yes (it is a rhombus) |
+| **D** | $PR=QS$ (equal diagonals) | **no** | **no** |
+
+**Why A is not sufficient — the counterexample.** Take
+$$P=(0,0),\quad Q=(5,1),\quad R=(5,2),\quad S=(0,3).$$
+Then $PQ=SR=\sqrt{26}$ ✓ and $SP$, $QR$ are both vertical so $PS\parallel QR$ ✓ — yet the parallel sides have
+lengths $3$ and $1$. This is an **isosceles trapezium**, not a parallelogram.
+
+**The single word that separates A from B.** In **B** the *same* pair is both equal and parallel, which does
+force a parallelogram (card 4). In **A** the equality and the parallelism are attached to **different**
+pairs, and that is exactly the room the trapezium lives in.
+
+*Note C and D fail the **necessary** half, for opposite reasons:* C is too strong (it demands a rhombus),
+D is unrelated (equal diagonals describe a rectangle-ish condition, and a parallelogram need not have them).
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+### Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q7</span>
+
+::: {.question}
+Consider the following conditions on a parallelogram $PQRS$, labelled anticlockwise:
+
+&nbsp;&nbsp;**I** &nbsp; length of $PQ$ = length of $QR$
+&nbsp;&nbsp;**II** &nbsp; the diagonal $PR$ intersects the diagonal $QS$ at right angles
+&nbsp;&nbsp;**III** &nbsp; $\angle PQR=\angle QRS$
+
+Which of these conditions is/are **individually sufficient** for $PQRS$ to be a **square**?
+
+| | I sufficient | II sufficient | III sufficient |
+|---|---|---|---|
+| **A** | yes | yes | yes |
+| **B** | yes | yes | no |
+| **C** | yes | no | yes |
+| **D** | yes | no | no |
+| **E** | no | yes | yes |
+| **F** | no | yes | no |
+| **G** | no | no | yes |
+| **H** | no | no | no |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **H** (none of them) &nbsp;·&nbsp; *cards 2, 3*
+
+Each condition upgrades the parallelogram by **one** property, and a square needs **two**.
+
+- **I** — adjacent sides equal makes it a **rhombus**. *Counterexample:* a rhombus that is not a square
+  satisfies I and is not a square. **Not sufficient.**
+- **II** — perpendicular diagonals in a parallelogram *also* make it a rhombus (card 3). **The same
+  counterexample works**, which is the neat part of this question: two different-looking conditions turn out
+  to be the same condition.
+- **III** — in a parallelogram, $\angle PQR$ and $\angle QRS$ are **co-interior**, so they sum to
+  $180^\circ$. Condition III makes them equal, hence each is $90^\circ$, making it a **rectangle**.
+  *Counterexample:* a rectangle that is not a square. **Not sufficient.**
+
+So the answer is **H**, and the two counterexamples used are exactly the first two of card 2.
+
+*What would work:* any **pair** of these — I with III, or II with III — since rhombus + rectangle = square.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+### Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q5</span>
+
+::: {.question}
+The two diagonals of the quadrilateral $Q$ are **perpendicular**. Consider the following statements:
+
+&nbsp;&nbsp;**I** &nbsp; One of the diagonals of $Q$ is a line of symmetry of $Q$.
+&nbsp;&nbsp;**II** &nbsp; The midpoints of the sides of $Q$ are the vertices of a square.
+
+Which of these statements is/are **necessarily true** for $Q$?
+
+&nbsp;&nbsp;**A** neither of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** I and II
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **A** (neither) &nbsp;·&nbsp; *card 9*
+
+**Build one counterexample that kills both.** Draw the two perpendicular diagonals through a point $O$ and
+place the four vertices at **four different distances** from it:
+$$A=(-4,0),\qquad C=(6,0),\qquad B=(0,-1),\qquad D=(0,3).$$
+
+**I fails.** For a diagonal to be a line of symmetry, the other two vertices must be **equidistant** from it.
+Here $B$ and $D$ sit $1$ and $3$ from $AC$, and $A$, $C$ sit $4$ and $6$ from $BD$. Neither diagonal is a
+mirror.
+
+**II fails.** The midpoints of the sides always form a parallelogram whose sides are **parallel to the
+diagonals and half their length** *(Varignon)*. Perpendicular diagonals therefore give a **rectangle** — but
+its side lengths are $\tfrac12|AC|=5$ and $\tfrac12|BD|=2$, so it is not a square.
+
+**The precise statement worth keeping.** With perpendicular diagonals the midpoint figure is a rectangle, and
+it is a **square exactly when the two diagonals are also equal in length**.
+
+*A warning from building this counterexample:* if you happen to draw the two diagonals the **same length**,
+the midpoint figure **is** a square and II looks true. Check the two lengths before trusting a picture.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+### Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q11</span>
+
+::: {.question}
+$PQRS$ is a kite whose diagonals meet at $O$, with
+$$OP=x,\qquad OQ=y,\qquad OR=x,\qquad OS=z .$$
+
+Which of the following is **necessary and sufficient** for angle $SPQ$ to be a right angle?
+
+&nbsp;&nbsp;**A** $x=y=z$ &nbsp; **B** $2x=y+z$ &nbsp; **C** $x^{2}=yz$ &nbsp; **D** $y=z$ &nbsp;
+**E** $y^{2}=x^{2}+z^{2}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **C** ($x^{2}=yz$) &nbsp;·&nbsp; *card 3*
+
+**Use the one fact a kite gives you: the diagonals are perpendicular** (card 3). So put $O$ at the origin
+with $PR$ along the $x$-axis and $QS$ along the $y$-axis:
+$$P=(-x,0),\qquad R=(x,0),\qquad Q=(0,-y),\qquad S=(0,z).$$
+
+**Write the two vectors at $P$.**
+$$\vec{PS}=S-P=(x,\;z),\qquad \vec{PQ}=Q-P=(x,\;-y).$$
+
+**Set the dot product to zero.** Angle $SPQ$ is a right angle exactly when
+$$\vec{PS}\cdot\vec{PQ}=x\cdot x+z\cdot(-y)=x^{2}-yz=0
+\;\Longleftrightarrow\;\boxed{x^{2}=yz}.$$
+
+*Every step is reversible, so this really is an "iff" — which is what the question asked for.*
+
+**Why the others fail.** **A** forces a very special kite and is sufficient but far from necessary
+($x=y=z$ does satisfy $x^{2}=yz$). **D** ($y=z$) makes the kite a **rhombus**, where $\angle SPQ$ is
+generally not $90^\circ$. **B** and **E** are unrelated relations put there to look plausible.
+
+*Sanity check:* $x=2,\ y=1,\ z=4$ gives $x^{2}=4=yz$ ✓, and the vectors $(2,4)$ and $(2,-1)$ have dot
+product $4-4=0$ ✓.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+### Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q19</span>
+
+::: {.question}
+A polygon has $n$ vertices, where $n\ge3$, with the following properties:
+
+- every vertex lies on the circumference of a circle $C$;
+- the centre of $C$ is **inside** the polygon;
+- the radii from the centre to the vertices cut the polygon into $n$ triangles of **equal area**.
+
+For which values of $n$ are these properties **sufficient** to deduce that the polygon is **regular**?
+
+&nbsp;&nbsp;**A** no values of $n$ &nbsp; **B** $n=3$ only &nbsp; **C** $n=3$ and $n=4$ only &nbsp;
+**D** $n=3$ and $n\ge5$ only &nbsp; **E** all values of $n$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **B** ($n=3$ only) &nbsp;·&nbsp; *card 8*
+
+**Turn "equal areas" into a statement about angles.** Each triangle has two sides equal to the radius $r$,
+with included central angle $\theta_i$, so its area is $\tfrac12r^{2}\sin\theta_i$. Equal areas therefore
+mean
+$$\sin\theta_1=\sin\theta_2=\cdots=\sin\theta_n ,$$
+and since each $\theta_i\in(0^\circ,180^\circ)$, **every $\theta_i$ is $\alpha$ or $180^\circ-\alpha$** for
+one fixed $\alpha$. *This is the whole question — the rest is counting.*
+
+**$n=4$ already escapes.** Take $\theta=60^\circ,120^\circ,60^\circ,120^\circ$. They sum to $360^\circ$ and
+$\sin60^\circ=\sin120^\circ$, so all four triangles have the same area — but the quadrilateral is **not** a
+square. So $n=4$ is not sufficient, which eliminates **C**, **D** and **E**.
+
+**$n=3$ does not escape.** Suppose $k$ of the three angles are $180^\circ-\alpha$ and $3-k$ are $\alpha$:
+$$k(180^\circ-\alpha)+(3-k)\alpha=360^\circ\;\Longrightarrow\;180^\circ k+(3-2k)\alpha=360^\circ .$$
+
+- $k=0$: $3\alpha=360^\circ$, so $\alpha=120^\circ$ — all three equal ✓
+- $k=1$: $\alpha=180^\circ$ — impossible.
+- $k=2$: gives $\alpha=0^\circ$ — impossible.
+- $k=3$: $\alpha=60^\circ$, so every angle is $180^\circ-60^\circ=120^\circ$ — all equal again ✓
+
+Every case gives three equal central angles, so the triangle is equilateral. **Answer B.**
+
+**Why $n=4$ is special.** With $k=2$ the equation reads $360^\circ+0\cdot\alpha=360^\circ$, which holds for
+**every** $\alpha$ — the constraint vanishes identically. *An even $n$ lets the $\alpha$ and
+$180^\circ-\alpha$ angles pair off and cancel, which is the whole reason the deduction fails beyond $n=3$.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
 ::: {.callout-tip}
 ## The one habit to leave with
 

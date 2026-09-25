@@ -157,7 +157,7 @@ being learnt by heart.
 |---|---|
 | **[Paper 2 — Formula Sheet & Concept Summary](toolkit/paper2_formula_sheet.qmd)** — all of S1–S7, T1 and T2 on one printable page, plus an exam-day card | *revision page — no assignment* |
 | **[T1 · Divisors & primes](toolkit/t01_divisors_primes.qmd)** — sixteen facts, six proof patterns, fourteen quick checks and five real past-paper questions to work in class | **[Questions](toolkit/t01_assignment_student.qmd)** · [MS](toolkit/t01_assignment_ms.qmd) |
-| **[T2 · Shapes as logical conditions](toolkit/t02_shapes_as_logic.qmd)** — the quadrilateral lattice, the diagonal table, the three counterexamples, congruence and polygon facts | **[Questions](toolkit/t02_assignment_student.qmd)** · [MS](toolkit/t02_assignment_ms.qmd) |
+| **[T2 · Shapes as logical conditions](toolkit/t02_shapes_as_logic.qmd)** — the quadrilateral lattice, the diagonal table, the three counterexamples, congruence and polygon facts, plus five real past-paper questions to work in class | **[Questions](toolkit/t02_assignment_student.qmd)** · [MS](toolkit/t02_assignment_ms.qmd) |
 
 ### The seven skill sessions
 
