@@ -20,8 +20,6 @@ That makes this the one *topic* worth memorising for Paper 2, because the mathem
 keeps repeating. **The facts below are the whole syllabus.** Learn them cold and a whole family of
 questions becomes bookwork.
 
-*The S-sessions on this site are organised by **reasoning type**. The T-sessions are the other axis:
-the **topic** that carries the reasoning. Companion page: [T2 — Shapes as logical conditions](t02_shapes_as_logic.qmd).*
 :::
 
 ::: {.callout-note}
@@ -44,10 +42,10 @@ left to right:
 :::: {.fs-head}
 <div class="fs-kicker">TMUA · Paper 2 · Topic session T1</div>
 <div class="fs-title">Divisors &amp; Primes — the memorisable core</div>
-<div class="fs-sub">Ten facts and five proof patterns. Every past-paper question in this topic is built from them, so the aim is <strong>instant recall</strong>, not derivation. The cards marked with a <strong>trap</strong> are the ones the examiners actually test — each has a standard counterexample you should be able to name without thinking.</div>
+<div class="fs-sub">Sixteen facts and six proof patterns. Every past-paper question in this topic is built from them, so the aim is <strong>instant recall</strong>, not derivation. The cards marked with a <strong>trap</strong> are the ones the examiners actually test — each has a standard counterexample you should be able to name without thinking.</div>
 ::::
 
-## The ten facts
+## The sixteen facts
 
 :::: {.fs-grid}
 
@@ -56,6 +54,10 @@ left to right:
 
 Any integer is $6n,\,6n\pm1,\,6n\pm2$ or $6n+3$. All but $6n\pm1$ are divisible by $2$ or $3$, so a prime
 bigger than $3$ must be $6n\pm1$.
+
+Here $n$ is an integer that depends on the prime; it is not one fixed number. For example,
+$$5=6(1)-1,\qquad 7=6(1)+1,\qquad 11=6(2)-1.$$
+This does **not** mean that every number $6n\pm1$ is prime.
 
 **The trap — the converse is false.** $25=6(4)+1$ and $35=6(6)-1$ are not prime.
 
@@ -175,16 +177,107 @@ $n^{3}+5n$ at $n=1,2,3,4$ gives $6,18,42,84$ — one line of arithmetic that eli
 [JZ Mock B Q11 · 2020 Q4 · 2022 Q3]{.eg}
 :::
 
+::: {.fs-card}
+### 11 · Fermat's little theorem
+
+If $p$ is prime, then for every integer $a$,
+$$a^p\equiv a\pmod p.$$
+If $p\nmid a$, divide by $a$ modulo $p$ to get
+$$a^{p-1}\equiv1\pmod p.$$
+In particular, every odd prime $p$ satisfies
+$$2^{p-1}\equiv1\pmod p,$$
+or equivalently $p\mid 2^{p-1}-1$.
+
+**The trap — the converse is false.** $341=11\times31$ is composite, but
+$2^{10}=1024\equiv1\pmod{341}$, so $2^{340}\equiv1\pmod{341}$.
+
+[Use $a^p\equiv a$ if $p$ might divide $a$; use $a^{p-1}\equiv1$ only when $p\nmid a$.]{.eg}
+:::
+
+::: {.fs-card}
+### 12 · Prime values of $2^n\pm1$: necessary conditions
+
+For positive integer $n$,
+$$2^n-1\text{ prime}\quad\Longrightarrow\quad n\text{ prime},$$
+because if $n=ab$ with $a,b>1$, then $2^a-1$ is a proper factor of $2^{ab}-1$.
+
+Also
+$$2^n+1\text{ prime}\quad\Longrightarrow\quad n\text{ is a power of }2.$$
+If $n=2^km$ with odd $m>1$, then $2^n+1=(2^{2^k})^m+1$ has factor $2^{2^k}+1$.
+
+**The trap — both converses are false.** $11$ is prime but $2^{11}-1=23\times89$; $32$ is a power of $2$
+but $2^{32}+1=641\times6700417$.
+:::
+
+::: {.fs-card}
+### 13 · Prime definition and the $\sqrt N$ test
+
+A positive integer $p$ is prime exactly when $p>1$ and its only positive divisors are $1$ and $p$.
+
+If $N>1$ is composite, then it has a prime divisor at most $\sqrt N$. Indeed, if $N=ab$ with $1<a\le b$,
+then $a\le\sqrt N$, and some prime divides $a$.
+
+So to test whether $N$ is prime, it is enough to test prime divisors $\le\sqrt N$.
+
+**The trap.** “Not divisible by this particular prime” does **not** mean prime; another smaller prime may
+divide it.
+:::
+
+::: {.fs-card}
+### 14 · Count divisors from the exponents
+
+If
+$$N=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k},$$
+then every positive divisor chooses an exponent from $0$ to $a_i$ for each prime, so
+$$\boxed{d(N)=(a_1+1)(a_2+1)\cdots(a_k+1)}.$$
+
+For example, $360=2^3\cdot3^2\cdot5$, so it has $(3+1)(2+1)(1+1)=24$ positive divisors.
+
+**The trap.** Add $1$ to each exponent **before** multiplying; do not add or multiply the exponents themselves.
+:::
+
+::: {.fs-card}
+### 15 · Coprime cancellation
+
+If $\gcd(a,b)=1$, then
+$$a\mid bc\quad\Longrightarrow\quad a\mid c.$$
+This is Euclid's lemma with “$a$ is prime” replaced by the weaker condition that $a$ and $b$ share no prime
+factor.
+
+**The trap.** Without coprimality, cancellation fails: $6\mid9\cdot4$, but $6\nmid4$.
+
+[Prime $p\nmid b$ automatically gives $\gcd(p,b)=1$, so $p\mid bc\Rightarrow p\mid c$.]{.eg}
+:::
+
+::: {.fs-card}
+### 16 · Polynomial factorisation $\neq$ integer factorisation
+
+| Statement | True? |
+|---|---|
+| $P(x)=A(x)B(x)$ with non-constant integer polynomials $A,B$ | This is **polynomial** factorisation. |
+| For a particular integer $n$, $P(n)=A(n)B(n)$ | **Always true** after substitution. |
+| $|A(n)|>1$ and $|B(n)|>1$ | Then $|P(n)|$ is **composite**. |
+| $P(x)$ factorises $\Rightarrow P(n)$ is composite for every $n$ | **False:** a factor may become $\pm1$. |
+| $P(x)$ is irreducible $\Rightarrow P(n)$ is prime for every $n$ | **False:** the integer value may still factor. |
+
+Two standard counterexamples:
+$$P(x)=x^2-1=(x-1)(x+1),\qquad P(2)=3\text{ is prime};$$
+$$Q(x)=x^2+1\text{ is irreducible over }\mathbb Z,\qquad Q(3)=10\text{ is composite}.$$
+
+**The common trap:** a statement about factoring the *expression* is silently turned into a statement about
+factoring every *integer value*. These are different questions.
+:::
+
 ::::
 
 :::::
 
 ---
 
-# Part 1 — The five proof patterns
+# Part 1 — The six proof patterns
 
-Nearly every divisor/prime question on Paper 2 is one of these five arguments, either run correctly or
-sabotaged in one line.
+Nearly every divisor/prime question on Paper 2 is one of these six arguments, either run correctly or
+sabotaged in one line. Each one names the facts it leans on.
 
 ::: {.callout-tip}
 ## Pattern A · "Check the residues"
@@ -213,14 +306,20 @@ Whenever you see "so $N$ is a multiple of $3$, hence not prime", check whether $
 :::
 
 ::: {.callout-tip}
-## Pattern C · "Factorise the expression"
+## Pattern C · "Factorise the expression" &nbsp;· *facts 7, 12, 16*
 
-To show $f(n)$ is never prime, factorise it algebraically — then check the factors are both $>1$.
+To show $f(n)$ is never prime, factorise it algebraically — then **check both factors exceed $1$**.
 
 $$n^{4}+4=\left(n^{2}-2n+2\right)\left(n^{2}+2n+2\right)$$
 
 is composite for every $n>1$, but at $n=1$ the first factor is $1$ and the value is the prime $5$.
 *Again the argument is right except at the boundary.*
+
+The same move powers fact 12: $2^{ab}-1$ always has the proper factor $2^{a}-1$, which is why $2^{n}-1$ can
+only be prime when $n$ is prime.
+
+**And it runs only one way.** Factorising the *expression* tells you about the *values*; irreducibility of
+the expression tells you **nothing** about them (fact 16). $x^{2}+1$ is irreducible yet $3^{2}+1=10$.
 :::
 
 ::: {.callout-tip}
@@ -240,14 +339,32 @@ Assume a counterexample exists, take the **smallest** one, derive a smaller one.
 You are never asked to produce this, but you are asked to *judge* it — and the standard sabotage is a step
 that only works for large $n$, leaving the smallest case unchecked.
 
-[2017 Q9 (Fermat, $n=3$) is a flawed descent]{.eg}
+[2017 Q9 (Fermat's **Last** Theorem, $n=3$) is a flawed descent — this is not Fermat's **little** theorem in fact 11.]{.eg}
+:::
+
+::: {.callout-tip}
+## Pattern F · "Rule primality out with a necessary condition" &nbsp;· *facts 11, 12, 13*
+
+Three tests dismiss a primality claim **without factorising anything**:
+
+| test | says | its limit |
+|---|---|---|
+| $\sqrt N$ *(fact 13)* | a composite $N$ has a prime factor $\le\sqrt N$ | testing **one** prime is not enough — test them all up to $\sqrt N$ |
+| shape of the exponent *(fact 12)* | $2^{n}-1$ prime $\Rightarrow n$ prime; $2^{n}+1$ prime $\Rightarrow n=2^{k}$ | both **converses false**: $2^{11}-1=23\times89$ |
+| Fermat *(fact 11)* | $p$ prime $\Rightarrow2^{p-1}\equiv1\pmod p$ | **converse false**: $341=11\times31$ passes it |
+
+**All three are necessary, none is sufficient.** They can *disprove* primality instantly; passing them
+proves nothing — which is exactly what makes them Arg2 material.
+
+*Worked example.* Is $2^{15}-1$ prime? $15=3\times5$ is composite, so $2^{3}-1=7$ is a proper factor.
+**No** — and you never computed $32767$.
 :::
 
 ---
 
 # Part 2 — Quick checks
 
-Eight items on the facts that are easy to half-remember. Answer all eight, then open the toggle.
+Fourteen items on the facts that are easy to half-remember. Answer all fourteen, then open the toggle.
 
 ::: {.question}
 **1.** True or false: every integer of the form $6n+1$ is prime.
@@ -269,6 +386,26 @@ prime? Give the smallest counterexample.
 
 **8.** $\gcd(a,b)=7$ and $u_{n+2}=u_n+u_{n+1}$ with $u_1=a$, $u_2=b$. Is $u_{100}$ a multiple of $7$? Is
 $\gcd(u_1,u_5)$ necessarily $7$?
+
+**9.** Let $p$ be an odd prime. What remainder does $2^{p-1}$ leave on division by $p$? Does obtaining this
+remainder prove that a number $p$ is prime?
+
+**10.** Could $2^{15}-1$ be prime? Give a structural reason, without evaluating the whole number.
+
+**11.** To decide whether $221$ is prime, which prime divisors are enough to test? Hence decide whether it is
+prime.
+
+**12.** How many positive divisors does $360=2^3\cdot3^2\cdot5$ have?
+
+**13.** Given $\gcd(14,25)=1$ and $14\mid25m$, what must divide $m$?
+
+**14.** Decide whether each statement is true:
+
+&nbsp;&nbsp;**I** If $P(x)$ factorises over the integers, then $P(n)$ is composite for every integer $n$.
+
+&nbsp;&nbsp;**II** If $P(x)$ is irreducible over the integers, then $P(n)$ is prime for every integer $n$.
+
+&nbsp;&nbsp;**III** If $P(n)=A(n)B(n)$ and $|A(n)|,|B(n)|>1$, then $|P(n)|$ is composite.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
@@ -296,6 +433,25 @@ about its values.*
 **8. Yes to the first, no to the second.** $\gcd(a,b)=7$ makes both $a$ and $b$ multiples of $7$, and a sum
 of multiples of $7$ is one, so every term is — including $u_{100}$. But $u_5=2a+3b$, so
 $\gcd(u_1,u_5)=\gcd(a,3b)$, which can be larger: $a=21,\ b=7$ gives $u_5=63$ and $\gcd(21,63)=21$.
+
+**9. Remainder $1$; no.** Fermat's little theorem gives $2^{p-1}\equiv1\pmod p$ for every odd prime $p$.
+But the converse fails: $341$ is composite and still satisfies $2^{340}\equiv1\pmod{341}$.
+
+**10. No.** Since $15=3\cdot5$ is composite, $2^3-1=7$ is a proper factor of $2^{15}-1$. A Mersenne number
+$2^n-1$ can be prime only when $n$ is prime.
+
+**11. Test $2,3,5,7,11,13$; $221$ is composite.** Since $\sqrt{221}<15$, only primes below $15$ need be
+tested. In fact $221=13\times17$.
+
+**12. $24$.** Each divisor chooses the exponent of $2$ in $4$ ways, of $3$ in $3$ ways and of $5$ in $2$
+ways, giving $4\cdot3\cdot2=24$.
+
+**13. $14\mid m$.** Since $14$ and $25$ are coprime, the factor $14$ cannot be supplied by $25$; coprime
+cancellation gives $14\mid m$.
+
+**14. I false; II false; III true.** For I, $x^2-1$ factorises but has the prime value $3$ at $x=2$. For
+II, $x^2+1$ is irreducible but has the composite value $10$ at $x=3$. For III, the displayed equality is a
+non-trivial integer factorisation of $|P(n)|$, which is exactly what makes it composite.
 :::
 
 ::: {.workspace style="min-height:6cm"}
@@ -331,10 +487,221 @@ page is the fact sheet; the questions are worked where their *reasoning type* is
 | *mock* | **JZ B Q11** $12\mid n^{3}+5n$ | necessary not sufficient | **[S3 Q16](s03_necessary_sufficient.qmd)** |
 | *mock* | **JZ C Q1** $12\mid n^{2}$ | quantifiers | **[S4 Q11](s04_quantifiers_negation.qmd)** |
 
+---
+
+## Work these in class
+
+Five real TMUA questions, chosen so that between them they exercise **facts 1, 2, 5, 8, 12, 13, 15 and 16**.
+Attempt each before opening the solution; the facts each one needs are named at the top of its answer.
+
+### Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q5</span>
+
+::: {.question}
+Consider the statement
+
+> $(*)$ &nbsp; A whole number $n$ is prime **if** it is $1$ less or $5$ less than a multiple of $6$.
+
+How many counterexamples to $(*)$ are there in the range $0<n<50$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$ &nbsp; **E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **C** &nbsp;·&nbsp; *facts 1, 8*
+
+**Read the direction first.** "$n$ is prime **if** [shape]" is $\text{shape}\Rightarrow\text{prime}$ — this
+is the **converse** of fact 1, and fact 1 warns that it is false.
+
+A counterexample is therefore a number of the right **shape** that is **not prime**. The shapes are
+$6k-1$ and $6k-5$ (the latter being $6k'+1$), so in $0<n<50$ the candidates are
+
+$$6k-1:\;5,\,11,\,17,\,23,\,29,\,\mathbf{35},\,41,\,47\qquad
+6k-5:\;\mathbf{1},\,7,\,13,\,19,\,\mathbf{25},\,31,\,37,\,43,\,\mathbf{49}$$
+
+Non-prime among them: $\;1,\;25=5^{2},\;35=5\times7,\;49=7^{2}$ — **four**.
+
+*Do not forget $n=1$* (fact 8: $1$ is not prime), which is $5$ less than $6$. Missing it gives **B**, the
+most common wrong answer.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q4</span>
+
+::: {.question}
+Claim: *if $a$ is a factor of $bc$, then $a$ is a factor of $b$ or $a$ is a factor of $c$* (for positive
+integers). Which of the following provide a counterexample?
+
+&nbsp;&nbsp;**I** $a=5,\ b=10,\ c=20$ &nbsp;&nbsp; **II** $a=8,\ b=4,\ c=4$ &nbsp;&nbsp;
+**III** $a=6,\ b=7,\ c=12$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I, II &nbsp;
+**F** I, III &nbsp; **G** II, III &nbsp; **H** I, II, III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **C** &nbsp;·&nbsp; *facts 2, 15*
+
+The claim is **Euclid's lemma with the word "prime" removed** (fact 2), so it must be false. A
+counterexample needs $a\mid bc$ **and** $a\nmid b$ **and** $a\nmid c$.
+
+| | $bc$ | $a\mid bc$? | $a\mid b$? | $a\mid c$? | counterexample? |
+|---|---|---|---|---|---|
+| **I** $a=5,b=10,c=20$ | $200$ | yes | **yes** | yes | ✗ — the conclusion already holds |
+| **II** $a=8,b=4,c=4$ | $16$ | yes | no | no | **✓** |
+| **III** $a=6,b=7,c=12$ | $84$ | yes | no | **yes** | ✗ |
+
+Only **II**.
+
+*Why II works and the others cannot:* $8=2^{3}$ splits across the two fours, each supplying $2^{2}$ — the
+composite $a$ is assembled from pieces of $b$ and $c$, which a **prime** could never be. Fact 15 says the
+weakest repair is $\gcd(a,b)=1$, and here $\gcd(8,4)=4\ne1$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q3</span>
+
+::: {.question}
+Statement: *if $n$ is prime, then $n^{2}+2$ is not prime.* Which of the following is a counterexample?
+
+&nbsp;&nbsp;**I** $n=2$ &nbsp;&nbsp; **II** $n=3$ &nbsp;&nbsp; **III** $n=4$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** III &nbsp; **E** I, II &nbsp;
+**F** I, III &nbsp; **G** II, III &nbsp; **H** I, II, III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **C** &nbsp;·&nbsp; *facts 5, 8 · pattern A*
+
+A counterexample needs the hypothesis **true** ($n$ prime) and the conclusion **false** ($n^{2}+2$ prime).
+
+- **I** $n=2$: prime ✓, but $2^{2}+2=6$ is not prime — conclusion holds, ✗.
+- **II** $n=3$: prime ✓, and $3^{2}+2=11$ **is** prime — **counterexample ✓**.
+- **III** $n=4$: **not prime**, so the hypothesis fails and it says nothing. ✗
+
+Only **II**.
+
+**Why $n=3$ is the one that works.** By pattern A, $n^{2}+2\equiv0\pmod 3$ whenever $3\nmid n$, so
+$n^{2}+2$ is a multiple of $3$ for every prime except $3$ itself — and then it is composite as long as the
+value exceeds $3$. The single escape is $n=3$, where $3\mid n$ and the residue argument does not apply.
+
+*Note III is the free mark and the free trap:* candidates who check only the conclusion mark it as a
+counterexample without noticing $4$ is not prime.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q4</span>
+
+::: {.question}
+Consider the statement
+
+> Every positive integer $N$ that is greater than $6$ can be written as the sum of **two non-prime integers
+> that are greater than $1$**.
+
+Which of the following is/are counterexample(s) to this statement?
+
+&nbsp;&nbsp;**I** $N=5$ &nbsp;&nbsp; **II** $N=7$ &nbsp;&nbsp; **III** $N=9$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **G** &nbsp;·&nbsp; *fact 8 · the hypothesis half*
+
+The usable non-primes greater than $1$ start $4,6,8,9,10,\dots$ — so any such sum is at least $4+4=8$.
+
+- **I** $N=5$: **not greater than $6$**, so it is outside the claim entirely — **not** a counterexample.
+- **II** $N=7$: greater than $6$ ✓. Splits are $2+5$, $3+4$ — and $2,5,3$ are prime. No valid split, so
+  the claim fails here. **✓**
+- **III** $N=9$: greater than $6$ ✓. Splits are $2+7$, $3+6$, $4+5$ — each contains a prime. **✓**
+
+So **II and III**.
+
+*The whole question is fact 8's discipline applied to the hypothesis:* $N=5$ fails the condition "greater
+than $6$" and is therefore silent, exactly as $n=4$ was in Question 3. **A counterexample must satisfy the
+hypothesis before anything else.**
+
+*(From $N=10=4+6$ onwards every even $N$ splits as $4+(N-4)$ with $N-4$ even and $\ge6$, hence non-prime;
+odd $N\ge13$ splits as $9+(N-9)$. So $7$ and $9$ really are the only failures.)*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+### Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q11</span>
+
+::: {.question}
+Let $k$ be a positive integer and consider the theorem
+
+> $(*)$ &nbsp; if $2^{k}+1$ is prime, then $k$ is a power of $2$.
+
+Which of **I**, **II**, **III**, taken individually, is equivalent to $(*)$?
+
+&nbsp;&nbsp;**I** &nbsp; if $k$ is a power of $2$ then $2^{k}+1$ is prime
+&nbsp;&nbsp;**II** &nbsp; $2^{k}+1$ is not prime **only if** $k$ is not a power of $2$
+&nbsp;&nbsp;**III** &nbsp; a **sufficient** condition for $k$ to be a power of $2$ is that $2^{k}+1$ is prime
+
+| | I | II | III |
+|---|---|---|---|
+| **A** | Yes | Yes | Yes |
+| **B** | Yes | Yes | No |
+| **C** | Yes | No | Yes |
+| **D** | Yes | No | No |
+| **E** | No | Yes | Yes |
+| **F** | No | Yes | No |
+| **G** | No | No | Yes |
+| **H** | No | No | No |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution — **G** &nbsp;·&nbsp; *fact 12 · and S1/S2 wording*
+
+Write $(*)$ as $P\Rightarrow Q$ with $P=$ "$2^{k}+1$ is prime" and $Q=$ "$k$ is a power of $2$".
+
+- **I** is $Q\Rightarrow P$ — the **converse**. **Not equivalent. No.**
+- **II** "$\lnot P$ **only if** $\lnot Q$" means $\lnot P\Rightarrow\lnot Q$ — the **inverse**, which is
+  equivalent to the converse, not to $(*)$. **No.**
+- **III** "$P$ is **sufficient** for $Q$" means $P\Rightarrow Q$ — that is $(*)$ itself. **Yes.**
+
+So (No, No, Yes) — **G**.
+
+**Fact 12 tells you the mathematics is real but irrelevant to the logic.** $(*)$ is a true theorem, and its
+converse **I** is false: $k=32$ is a power of $2$, yet $2^{32}+1=641\times6700417$. *Knowing that
+counterexample is a good way to be certain I is not equivalent* — but notice you could answer the whole
+question without it, purely from the wording.
+
+*Only the contrapositive is guaranteed equivalent.* Here that would read "if $k$ is **not** a power of $2$
+then $2^{k}+1$ is **not** prime" — which is **not** among the options; II is the inverse, one step away.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
 ::: {.callout-tip}
 ## The one habit to leave with
 
-**The mathematics in this topic never gets harder than the ten cards above.** What changes is the logical
+**The mathematics in this topic never gets harder than the sixteen cards above.** What changes is the logical
 wrapper. So when a prime or a divisor appears on Paper 2, do two things in order:
 
 1. **Name the reasoning type** — counterexample? error in a proof? equivalence?

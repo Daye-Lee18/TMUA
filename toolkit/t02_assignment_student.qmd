@@ -1,0 +1,194 @@
+---
+title: "Toolkit T2 — Assignment"
+subtitle: "Shapes as logical conditions"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+
+This tests the cards on the [T2 concepts page](t02_shapes_as_logic.qmd) — the quadrilateral lattice, the
+diagonal table, the congruence criteria and the three standard counterexamples. Close that page first.
+
+::: {.callout-important}
+## What earns the marks
+
+**Do not try to prove these.** Reach for a **named shape**.
+
+Every "not sufficient" verdict wants a specific figure — *a rhombus that is not a square*, *a rectangle that
+is not a square*, *an isosceles trapezium* — and saying which of its properties fails. A verdict with no
+named shape scores the method mark at most.
+
+Every "necessary and sufficient" claim needs **both directions** argued separately.
+:::
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Recall** | the lattice, the diagonal table, the counterexamples | 8 |
+| **B — Standard** | conditions on quadrilaterals and triangles | 16 |
+| **C — Stretch** | two results you derive yourself | 8 |
+
+---
+
+# Section A — Recall
+
+## Question 1 **[4]**
+
+::: {.question}
+&nbsp;&nbsp;(a) Complete the two chains of implications, using $\Rightarrow$: **[2]**
+
+$$\text{square}\;\_\_\_\;\text{rhombus}\;\_\_\_\;\text{parallelogram}\;\_\_\_\;\text{trapezium}$$
+$$\text{square}\;\_\_\_\;\text{rectangle}\;\_\_\_\;\text{parallelogram}$$
+
+&nbsp;&nbsp;(b) Name the **three** standard counterexamples every question in this topic is built on, and
+say in each case which property it has and which it lacks. **[2]**
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 2 **[4]**
+
+::: {.question}
+$ABCD$ is a quadrilateral. For each diagonal condition, name the shape it guarantees — and say whether the
+condition is **necessary**, **sufficient**, or **both**, for that shape.
+
+&nbsp;&nbsp;(a) The diagonals bisect each other. **[1]**
+&nbsp;&nbsp;(b) The diagonals bisect each other and are equal in length. **[1]**
+&nbsp;&nbsp;(c) The diagonals bisect each other and are perpendicular. **[1]**
+&nbsp;&nbsp;(d) The diagonals are perpendicular. **[1]**
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section B — Standard
+
+## Question 3 **[4]**
+
+::: {.question}
+$PQRS$ is a quadrilateral with vertices labelled in order.
+
+&nbsp;&nbsp;(a) Show that the condition "$PQ=SR$ **and** $PS\parallel QR$" is **not sufficient** for $PQRS$
+to be a parallelogram, by giving explicit coordinates. **[3]**
+
+&nbsp;&nbsp;(b) State the one-word change to that condition which **does** make it sufficient. **[1]**
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 4 **[4]**
+
+::: {.question}
+For each condition, decide whether it is **necessary**, **sufficient**, **both**, or **neither**, for a
+parallelogram to be a **square**. Justify each with an argument or a named counterexample.
+
+&nbsp;&nbsp;(a) All four sides are equal. **[1]**
+&nbsp;&nbsp;(b) The diagonals are equal in length. **[1]**
+&nbsp;&nbsp;(c) The diagonals are equal **and** perpendicular. **[1]**
+&nbsp;&nbsp;(d) One interior angle is $90^\circ$. **[1]**
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.question}
+&nbsp;&nbsp;(a) List the standard congruence criteria for triangles. **[1]**
+
+&nbsp;&nbsp;(b) Explain why **SSA** is not among them, and illustrate with a triangle where $A=30^\circ$,
+$a=5$ and $b=7$: find **both** possible values of $B$, to $2$ decimal places. **[2]**
+
+&nbsp;&nbsp;(c) Two triangles have sides $6$ and $8$ with equal areas. Must they be congruent? **[1]**
+:::
+
+::: {.workspace style="min-height:11cm"}
+Working
+:::
+
+---
+
+## Question 6 **[4]**
+
+::: {.question}
+&nbsp;&nbsp;(a) Write down the sum of the interior angles of an $n$-sided polygon, and the interior angle
+of a **regular** $n$-gon. **[1]**
+
+&nbsp;&nbsp;(b) The five interior angles of a pentagon form an arithmetic sequence. Prove that one of them
+must be exactly $108^\circ$, whatever the common difference. **[2]**
+
+&nbsp;&nbsp;(c) Hence decide whether this statement is true, and whether its **converse** is true: *"if at
+least one interior angle of a pentagon is $108^\circ$, then all five form an arithmetic sequence."* **[1]**
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[4]**
+
+::: {.question}
+A rhombus has diagonals of lengths $6$ and $8$.
+
+&nbsp;&nbsp;(a) Find its area and its side length. **[2]**
+
+&nbsp;&nbsp;(b) Prove, in general, that a parallelogram whose diagonals are perpendicular must be a
+rhombus. **[2]**
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 8 **[4]**
+
+::: {.question}
+A polygon with $n\ge3$ vertices is inscribed in a circle whose centre lies **inside** it. The $n$ radii to
+the vertices cut the polygon into $n$ triangles, and **all $n$ triangles have equal area**.
+
+&nbsp;&nbsp;(a) Writing $\theta_1,\dots,\theta_n$ for the central angles, show that the equal-area condition
+forces each $\theta_i$ to be **$\alpha$ or $180^\circ-\alpha$** for some fixed $\alpha$. **[2]**
+
+&nbsp;&nbsp;(b) Hence show that the polygon must be regular when $n=3$, but need not be when $n=4$. **[2]**
+:::
+
+::: {.workspace style="min-height:11cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+1. Every **"not sufficient"** should have a **named shape** beside it, and the property it fails.
+2. Every **"necessary and sufficient"** should have **two** arguments, one per direction.
+3. Wherever you recovered an angle from a sine, check you considered **both** $\theta$ and
+   $180^\circ-\theta$.
+:::
+
+:::

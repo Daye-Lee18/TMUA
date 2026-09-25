@@ -1,0 +1,294 @@
+---
+title: "Toolkit T1 — Assignment · Mark Scheme"
+subtitle: "Tutor copy — questions with full solutions"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
+
+::: {.callout-important}
+## What to watch while marking
+
+1. **Is every "false" backed by a number?** "It does not always work" is not a counterexample.
+2. **Did a "for every $n$" argument cover every residue?** Checking $n=1,2,3$ and stopping is the usual gap.
+3. **Question 7(b) is the discriminating one.** The conclusion is true and the argument is still unsound —
+   students who say "true, so the argument is fine" have missed the whole point of fact 16.
+:::
+
+---
+
+# Section A — Recall
+
+## Question 1 **[4]**
+
+::: {.question}
+Complete: (a) primes $>3$ have the form \_\_\_ and the converse fails at \_\_\_; (b) Euclid's lemma needs
+$p$ to be \_\_\_, else \_\_\_; (c) remainder condition; (d) a composite $N$ has a prime factor at most \_\_\_.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) $6n\pm1$; smallest counterexample $25$. (B1)** *($25=6(4)+1$ is of the right form and is not prime.
+Accept $35$ or $49$.)* The implication runs prime $\Rightarrow6n\pm1$, **never** backwards.
+
+**(b) Prime; $4\mid2\times2$ but $4\nmid2$. (B1)** *Accept any composite $a$ with $a\mid bc$, $a\nmid b$,
+$a\nmid c$ — but $a=4,b=c=2$ is the smallest.*
+
+**(c) $0\le r<a$. (B1)** The size condition is half the definition; without it $r$ is merely "something
+left over".
+
+**(d) $\sqrt N$. (B1)** *If $N=ab$ with $1<a\le b$ then $a\le\sqrt N$, and some prime divides $a$.*
+
+**Marking.** (a) and (b) need **both** halves for the mark.
+:::
+
+---
+
+## Question 2 **[4]**
+
+::: {.question}
+True or false, with a counterexample for each false one: (a) $12\mid n^2\Rightarrow12\mid n$;
+(b) $n^2\equiv2\pmod3$ possible; (c) irreducible $\Rightarrow$ prime values; (d) $\gcd(n,n+1)=1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) False. (B1)** $n=6$: $n^{2}=36=12\times3$, yet $12\nmid6$. *Squaring doubles exponents, so $n^{2}$
+carrying $2^{2}\cdot3$ only forces $n$ to carry $2\cdot3$.*
+
+**(b) False. (B1)** Squares are $0$ or $1$ mod $3$ — never $2$. *(Residues: $0^2=0$, $1^2=1$,
+$2^2=4\equiv1$.)*
+
+**(c) False. (B1)** $x^{2}+1$ is irreducible over $\mathbb Z$, but at $x=3$ it is $10=2\times5$. *Accept
+$3x^{2}+3x+1$ at $x=5$, giving $91=7\times13$.*
+
+**(d) True. (B1)** Any common divisor of $n$ and $n+1$ divides their difference, which is $1$.
+
+**Marking.** A verdict with no counterexample scores **0** for that part.
+:::
+
+---
+
+# Section B — Standard
+
+## Question 3 **[4]**
+
+::: {.question}
+(a) Show $12\mid n^{2}\iff6\mid n$. (b) Hence a value with $12\mid n^{2}$ but $12\nmid n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[3]**
+
+**($\Leftarrow$) (M1)** If $6\mid n$, write $n=6m$. Then $n^{2}=36m^{2}=12\left(3m^{2}\right)$, so
+$12\mid n^{2}$. ✓
+
+**($\Rightarrow$) (M1 A1)** Suppose $12\mid n^{2}$, i.e. $2^{2}\cdot3\mid n^{2}$.
+
+- $3$ is **prime** and $3\mid n^{2}$, so $3\mid n$ *(Euclid's lemma — fact 2)*.
+- $4\mid n^{2}$ forces $n$ to be even: if $n$ were odd, $n^{2}$ would be odd. So $2\mid n$.
+
+Having both $2\mid n$ and $3\mid n$ with $\gcd(2,3)=1$ gives $6\mid n$. ∎
+
+*Accept the exponent argument instead:* $n^{2}$ carries only even powers, so $2^{2}\mid n^{2}$ needs just
+$2^{1}\mid n$, and $3^{1}\mid n^{2}$ needs $3^{1}\mid n$ (since the power in $n^2$ is even and at least 1,
+hence at least 2).
+
+### (b) **[1]**
+
+**$n=6$. (B1)** $n^{2}=36$ is divisible by $12$, but $6$ is not. *(Accept $18$, $30$, any $6k$ with
+$12\nmid6k$.)*
+:::
+
+---
+
+## Question 4 **[4]**
+
+::: {.question}
+(a) Show $n^{2}\equiv0$ or $1\pmod4$. (b) Hence no $4k+3$ is a square, and $a^{2}+b^{2}=4k+3$ has no
+integer solutions.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[2]**
+
+**Split by parity. (M1)**
+
+- $n=2m$: $n^{2}=4m^{2}\equiv0\pmod4$.
+- $n=2m+1$: $n^{2}=4m^{2}+4m+1=4m(m+1)+1\equiv1\pmod4$.
+
+So $n^{2}\equiv0$ or $1$ — never $2$ or $3$. **(A1)** ∎
+
+### (b) **[2]**
+
+**No square is $4k+3$ (B1)** — immediate from (a), since $4k+3\equiv3$.
+
+**The sum of two squares. (B1)** Each of $a^{2}$ and $b^{2}$ is $0$ or $1$ mod $4$, so
+$$a^{2}+b^{2}\equiv0+0,\;0+1,\;1+0\text{ or }1+1\equiv0,\,1\text{ or }2\pmod 4 .$$
+It can **never** be $3$. Hence $a^{2}+b^{2}=4k+3$ has no integer solutions. ∎
+
+*This is the cleanest illustration of fact 5: a whole family of equations is killed without factorising
+anything.*
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.question}
+(a) $720$ as prime powers and its divisor count. (b) Prove $d(N)$ odd $\iff N$ a perfect square.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[2]**
+
+**(M1)** $720=16\times45=2^{4}\cdot3^{2}\cdot5$.
+
+**(A1)** $d(720)=(4+1)(2+1)(1+1)=5\cdot3\cdot2=\boxed{30}$.
+
+### (b) **[2]**
+
+**(M1)** With $N=p_1^{a_1}\cdots p_k^{a_k}$, $d(N)=(a_1+1)\cdots(a_k+1)$. A product of integers is **odd**
+exactly when **every** factor is odd, i.e. every $a_i+1$ is odd, i.e. every $a_i$ is **even**.
+
+**(A1)** Every exponent even $\iff N=\left(p_1^{a_1/2}\cdots p_k^{a_k/2}\right)^{2}$, i.e. $N$ is a perfect
+square. ∎
+
+*The pairing argument earns full marks too:* divisors come in pairs $d\leftrightarrow N/d$, and the count
+is odd exactly when one divisor is its own partner, i.e. $d=\sqrt N$.
+:::
+
+---
+
+## Question 6 **[4]**
+
+::: {.question}
+(a) Why $2^{n}-1$ prime forces $n$ prime. (b) A prime $n<15$ with $2^{n}-1$ composite. (c) What $341$ says
+about Fermat as a primality test.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[2]**
+
+**(M1)** Suppose $n$ is composite, $n=ab$ with $a,b>1$. Then
+
+$$2^{ab}-1=\left(2^{a}-1\right)\left(2^{a(b-1)}+2^{a(b-2)}+\cdots+2^{a}+1\right).$$
+
+**(A1)** Since $a>1$, the first factor $2^{a}-1\ge3$; since $b>1$, the second factor is at least
+$2^{a}+1\ge5$. Both exceed $1$, so $2^{n}-1$ is **composite**. Contrapositive: $2^{n}-1$ prime
+$\Rightarrow n$ prime. ∎
+
+### (b) **[1]**
+
+**$n=11$. (B1)** $2^{11}-1=2047=23\times89$.
+
+### (c) **[1]**
+
+**(B1)** Passing the test proves **nothing**: $341=11\times31$ is composite yet satisfies
+$2^{340}\equiv1\pmod{341}$. Fermat's little theorem gives a **necessary** condition for primality, never a
+sufficient one — so it can only ever *disprove* primality.
+
+*This is the T1 theme in one line:* the useful tests in this topic are all necessary-not-sufficient.
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[4]**
+
+::: {.question}
+(a) Prove $6\mid n^{3}-n$. (b) "It factorises, so it is never prime" — is the conclusion true? Is the
+argument sound?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[3]**
+
+**Factorise. (M1)** $n^{3}-n=n\left(n^{2}-1\right)=(n-1)\,n\,(n+1)$ — three **consecutive** integers.
+
+**Divisible by $2$. (A1)** Among any two consecutive integers one is even, so $2$ divides the product.
+
+**Divisible by $3$. (A1)** Among any three consecutive integers one is a multiple of $3$.
+
+Since $\gcd(2,3)=1$, the product is divisible by $6$. ∎
+
+*Accept the residue version:* check $n\equiv0,1,2\pmod3$ and $n\equiv0,1\pmod2$ separately.
+
+### (b) **[1]**
+
+**(B1)** **The conclusion is true, but the argument is not sound** — and the mark is for saying both.
+
+- *True:* $n^{3}-n$ is $0$ at $n=-1,0,1$ and a multiple of $6$ otherwise, so it is never prime.
+- *Unsound:* "it factorises, therefore it is never prime" is exactly the fallacy of fact 16 — a
+  factorisation of the **expression** only makes the **value** composite if **both factors exceed $1$**.
+  Here $n=2$ gives $1\cdot2\cdot3$, and the first factor **is** $1$; the argument as written would equally
+  "prove" that $x^{2}-1=(x-1)(x+1)$ is never prime, which is false at $x=2$ where it equals $3$.
+
+**Marking.** "True, so the argument works" scores **0**. The point is that a correct conclusion does not
+validate the reasoning.
+:::
+
+---
+
+## Question 8 **[4]**
+
+::: {.question}
+$p$ prime, $p>3$. (a) Why is $p$ odd and not a multiple of $3$? (b) Prove $24\mid p^{2}-1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[1]**
+
+**(B1)** $p>3$ and prime, so its only divisors are $1$ and $p$. If $2\mid p$ then $p=2$, contradiction;
+if $3\mid p$ then $p=3$, contradiction. So $p$ is odd and $3\nmid p$.
+
+### (b) **[3]**
+
+**Factorise. (M1)** $p^{2}-1=(p-1)(p+1)$, and $p-1,\;p,\;p+1$ are three consecutive integers.
+
+**The factor $8$. (A1)** $p$ is odd, so $p-1$ and $p+1$ are **consecutive even numbers**. One of any two
+consecutive evens is divisible by $4$, so their product carries $2\times4=8$.
+
+**The factor $3$. (A1)** One of the three consecutive integers is divisible by $3$; by (a) it is not $p$,
+so it is $p-1$ or $p+1$ — either way $3\mid(p-1)(p+1)$.
+
+Since $\gcd(8,3)=1$, we get $24\mid p^{2}-1$. ∎
+
+*Check:* $p=5\Rightarrow24$; $p=7\Rightarrow48$; $p=11\Rightarrow120$; $p=13\Rightarrow168$ — all
+multiples of $24$. ✓
+
+**Marking.** The $8$ is the hard half. "$p-1$ and $p+1$ are both even so we get $4$" earns the method mark
+but not the accuracy mark — *consecutive* evens give $8$, not $4$.
+:::
+
+---
+
+::: {.callout-tip}
+## The thread running through this paper
+
+Questions 6(c), 7(b) and 8 are the same idea from three angles: **a condition that is necessary is not
+therefore sufficient**, and **a true conclusion does not validate the argument that reached it**. Those two
+sentences are what T1 is for; the arithmetic is incidental.
+:::
+
+:::

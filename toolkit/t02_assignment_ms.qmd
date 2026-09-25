@@ -1,0 +1,325 @@
+---
+title: "Toolkit T2 — Assignment · Mark Scheme"
+subtitle: "Tutor copy — questions with full solutions"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
+
+::: {.callout-important}
+## What to watch while marking
+
+1. **Is every "not sufficient" attached to a named shape?** "It might not be a square" is not a
+   counterexample; "a rhombus that is not a square" is.
+2. **Did "necessary and sufficient" get two arguments?** One direction is half the question.
+3. **Question 4(b) and (c) are the pair that discriminates.** Equal diagonals alone is only necessary;
+   adding perpendicular makes it sufficient. Students who answer both the same way have not used the
+   diagonal table.
+:::
+
+---
+
+# Section A — Recall
+
+## Question 1 **[4]**
+
+::: {.question}
+(a) Complete the two implication chains. (b) Name the three standard counterexamples, with what each has
+and lacks.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[2]**
+
+$$\text{square}\Rightarrow\text{rhombus}\Rightarrow\text{parallelogram}\Rightarrow\text{trapezium}\quad\textbf{(B1)}$$
+$$\text{square}\Rightarrow\text{rectangle}\Rightarrow\text{parallelogram}\quad\textbf{(B1)}$$
+
+*All arrows point one way.* A square is the only shape that is both a rhombus and a rectangle.
+
+### (b) **[2]**
+
+**(B1)** for any two, **(B1)** for all three with the property named:
+
+| shape | has | lacks |
+|---|---|---|
+| **rhombus** (not square) | four equal sides; perpendicular diagonals | right angles; **equal** diagonals |
+| **rectangle** (not square) | four right angles; equal diagonals | equal sides; **perpendicular** diagonals |
+| **isosceles trapezium** | one pair parallel; the other pair equal | being a **parallelogram** |
+
+*These three answer most of the topic.* Learn them as a set.
+:::
+
+---
+
+## Question 2 **[4]**
+
+::: {.question}
+Name the shape each diagonal condition guarantees, and whether the condition is necessary, sufficient, or
+both.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) Parallelogram — necessary and sufficient. (B1)**
+
+**(b) Rectangle — necessary and sufficient. (B1)** *(Read "rectangle" inclusively: a square qualifies.)*
+
+**(c) Rhombus — necessary and sufficient. (B1)**
+
+**(d) Kite — necessary, not sufficient. (B1)** Perpendicular diagonals alone force nothing: place the four
+vertices at four **different** distances from the crossing point and the result is neither a kite nor a
+rhombus, and has no line of symmetry.
+
+**Marking.** (a)–(c) are rows of the diagonal table and are **iff** statements; (d) is the one that is not,
+because it drops the bisection half. Accept "at least a rectangle / rhombus" phrasing.
+:::
+
+---
+
+# Section B — Standard
+
+## Question 3 **[4]**
+
+::: {.question}
+(a) Show "$PQ=SR$ and $PS\parallel QR$" is not sufficient for a parallelogram, with coordinates.
+(b) The one-word change that makes it sufficient.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[3]**
+
+**A counterexample. (M1)** Take
+$$P=(0,0),\qquad Q=(5,1),\qquad R=(5,2),\qquad S=(0,3).$$
+
+**Check the hypothesis. (A1)**
+
+- $PQ=\sqrt{5^{2}+1^{2}}=\sqrt{26}$ and $SR=\sqrt{5^{2}+(-1)^{2}}=\sqrt{26}$ — **equal** ✓
+- $\vec{SP}=(0,-3)$ and $\vec{QR}=(0,1)$ are both vertical — **parallel** ✓
+
+**Check it is not a parallelogram. (A1)** The parallel sides have lengths $SP=3$ and $QR=1$. In a
+parallelogram opposite sides are equal, so this is an **isosceles trapezium**, not a parallelogram. ∎
+
+*Accept any correct figure.* The essential feature is that the two **parallel** sides have different
+lengths while the other pair are equal.
+
+### (b) **[1]**
+
+**(B1)** Change $PS\parallel QR$ to $\boxed{PQ\parallel SR}$ — the **same pair** that is equal must also be
+the parallel pair. "One pair both equal **and** parallel" does force a parallelogram.
+
+*That is the whole trap:* splitting "equal" and "parallel" across **different** pairs is what admits the
+trapezium.
+:::
+
+---
+
+## Question 4 **[4]**
+
+::: {.question}
+Necessary, sufficient, both or neither, for a **parallelogram** to be a square: (a) four equal sides;
+(b) equal diagonals; (c) equal and perpendicular diagonals; (d) one angle $90^\circ$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+**(a) Necessary, not sufficient. (B1)** A square does have four equal sides; but a **rhombus that is not a
+square** has them too and is not a square.
+
+**(b) Necessary, not sufficient. (B1)** A square has equal diagonals; but a **rectangle that is not a
+square** has them too.
+
+**(c) Both. (B1)** Equal diagonals make the parallelogram a rectangle; perpendicular diagonals make it a
+rhombus; a shape that is both is a square. Conversely a square has equal, perpendicular diagonals. ✓
+
+**(d) Necessary, not sufficient. (B1)** A square has right angles; but a non-square **rectangle** is a
+parallelogram with a right angle. *(In a parallelogram one right angle forces all four — which gives a
+rectangle, not a square.)*
+
+**Marking — the discriminator.** (b) and (c) must be answered **differently**. A script giving the same
+verdict to both has not used the diagonal table: the second condition adds exactly the missing half.
+*Note also that (a) and (b) fail for **opposite** reasons, so they need **different** counterexamples —
+rhombus for (a), rectangle for (b).*
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.question}
+(a) The congruence criteria. (b) Why SSA is not one — find both $B$ for $A=30^\circ$, $a=5$, $b=7$.
+(c) Two triangles with sides $6$ and $8$ and equal areas — congruent?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[1]**
+
+**SSS · SAS · ASA · AAS · RHS. (B1)** *(RHS = right angle, hypotenuse, side.)*
+
+### (b) **[2]**
+
+**Set up the sine rule. (M1)**
+$$\frac{\sin B}{b}=\frac{\sin A}{a}\ \Longrightarrow\ \sin B=\frac{7\sin30^\circ}{5}=\frac{3.5}{5}=0.7 .$$
+
+**Both branches. (A1)** $\sin B=0.7$ gives
+$$B=44.43^\circ\qquad\text{or}\qquad B=180^\circ-44.43^\circ=135.57^\circ,$$
+and **both** are valid here, since $A+B<180^\circ$ in each case. The two triangles have
+$C=105.57^\circ$ and $C=14.43^\circ$, with third sides $c\approx9.63$ and $c\approx2.49$ — genuinely
+different triangles from the same SSA data. ∎
+
+### (c) **[1]**
+
+**No. (B1)** Equal areas give only $\tfrac12\cdot6\cdot8\sin C_1=\tfrac12\cdot6\cdot8\sin C_2$, i.e.
+$\sin C_1=\sin C_2$ — which allows $C_2=180^\circ-C_1$.
+
+*Concretely:* $C=30^\circ$ and $C=150^\circ$ both give area $12$, but the third side is
+$\sqrt{36+64-96\cos30^\circ}\approx4.11$ against $\sqrt{36+64-96\cos150^\circ}\approx13.53$.
+
+**Marking.** (b) and (c) are the same fact twice; accept either the numeric pair or the clean statement
+$\sin A=\sin B\iff B=A$ or $B=180^\circ-A$.
+:::
+
+---
+
+## Question 6 **[4]**
+
+::: {.question}
+(a) Interior-angle sum and the regular interior angle. (b) Pentagon angles in AP — one must be $108^\circ$.
+(c) The $108^\circ$ statement and its converse.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[1]**
+
+**(B1)** Sum $=(n-2)\times180^\circ$; regular interior angle $=180^\circ-\dfrac{360^\circ}{n}$.
+
+### (b) **[2]**
+
+**Write the AP symmetrically. (M1)** Let the five angles be
+$$a-2d,\quad a-d,\quad a,\quad a+d,\quad a+2d .$$
+
+**Sum and solve. (A1)** The $\pm d$ and $\pm2d$ terms cancel, so the sum is $5a$. A pentagon's angles sum
+to $(5-2)\times180^\circ=540^\circ$, hence
+$$5a=540^\circ\ \Longrightarrow\ a=108^\circ .$$
+The **middle** angle is $108^\circ$ regardless of $d$. ∎
+
+### (c) **[1]**
+
+**(B1)** The statement is **false**, its converse is **true**.
+
+- *Statement false:* $100^\circ,102^\circ,108^\circ,110^\circ,120^\circ$ sums to $540^\circ$ and contains
+  $108^\circ$, but the differences $2,6,2,10$ are not constant.
+- *Converse true:* that is exactly part (b).
+
+*And since a statement and its contrapositive are equivalent, the contrapositive is false too.*
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[4]**
+
+::: {.question}
+(a) A rhombus with diagonals $6$ and $8$: area and side. (b) Prove a parallelogram with perpendicular
+diagonals is a rhombus.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[2]**
+
+**Area. (B1)** The diagonals of a rhombus are perpendicular and bisect each other, so it splits into four
+congruent right triangles with legs $3$ and $4$:
+$$\text{area}=4\times\tfrac12\cdot3\cdot4=24 \qquad\left(=\tfrac12 pq=\tfrac12\cdot6\cdot8\right).$$
+
+**Side. (B1)** Each side is the hypotenuse of a $3$–$4$ right triangle, so the side is $\sqrt{3^{2}+4^{2}}=5$.
+
+### (b) **[2]**
+
+**Set up. (M1)** In a parallelogram the diagonals **bisect each other**; call the crossing point $O$, so
+$AO=OC=p$ and $BO=OD=q$. Suppose also $AC\perp BD$.
+
+**Four congruent triangles. (A1)** Each side of the parallelogram is the hypotenuse of a right triangle
+with legs $p$ and $q$:
+$$AB=BC=CD=DA=\sqrt{p^{2}+q^{2}} .$$
+All four sides are equal, so the parallelogram is a **rhombus**. ∎
+
+*This is row 3 of the diagonal table, proved.* The same picture gives part (a) with $p=3$, $q=4$.
+:::
+
+---
+
+## Question 8 **[4]**
+
+::: {.question}
+Polygon inscribed in a circle, centre inside, cut by radii into $n$ equal-area triangles.
+(a) Show each central angle is $\alpha$ or $180^\circ-\alpha$. (b) Hence regular for $n=3$ but not
+necessarily for $n=4$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answer
+
+### (a) **[2]**
+
+**Area of each triangle. (M1)** Two sides of each triangle are radii of length $r$, with included angle
+$\theta_i$, so
+$$\text{area}_i=\tfrac12r^{2}\sin\theta_i .$$
+
+**Equal areas. (A1)** Equal areas therefore mean $\sin\theta_1=\sin\theta_2=\cdots=\sin\theta_n$. Since
+each $\theta_i\in(0^\circ,180^\circ)$, and $\sin\theta=\sin(180^\circ-\theta)$, every $\theta_i$ equals a
+fixed $\alpha$ **or** $180^\circ-\alpha$. ∎
+
+### (b) **[2]**
+
+**$n=3$ forces regular. (B1)** Say $k$ of the three angles are $180^\circ-\alpha$ and $3-k$ are $\alpha$.
+Then
+$$k(180^\circ-\alpha)+(3-k)\alpha=360^\circ\ \Longrightarrow\ 180^\circ k+(3-2k)\alpha=360^\circ .$$
+- $k=0$: $3\alpha=360^\circ$, so $\alpha=120^\circ$ — all three equal. ✓
+- $k=1$: $\alpha=180^\circ$, impossible.
+- $k=2$: $180^\circ\cdot2=360^\circ$ forces the $\alpha$ terms to vanish, but $3-2k=-1\ne0$, giving
+  $\alpha=0^\circ$ — impossible.
+- $k=3$: $540^\circ-3\alpha=360^\circ$, so $\alpha=60^\circ$ and every angle is $120^\circ$ — the same
+  triangle again. ✓
+
+Every possibility gives three equal central angles, so the triangle is **equilateral**. ✓
+
+**$n=4$ does not. (B1)** Take $\theta=60^\circ,120^\circ,60^\circ,120^\circ$. These sum to $360^\circ$ and
+$\sin60^\circ=\sin120^\circ$, so all four triangles have equal area — yet the quadrilateral is **not** a
+square. ∎
+
+*Why $n=4$ escapes:* with $k=2$ the equation reads $360^\circ+0\cdot\alpha=360^\circ$, which holds for
+**every** $\alpha$ — the constraint disappears entirely. That degenerate case is the whole answer to
+**2022 P2 Q19**, where the answer is "$n=3$ only".
+:::
+
+---
+
+::: {.callout-tip}
+## The thread running through this paper
+
+Questions 3, 4 and 8 are the same warning three times: **a condition that constrains one thing does not
+constrain the rest**. Equal sides say nothing about the angles; equal diagonals say nothing about
+perpendicularity; equal areas say nothing about which of two supplementary angles you have.
+
+That is why the counterexamples in Question 1(b) are worth memorising as a set — between them they answer
+most of this topic without any calculation at all.
+:::
+
+:::
