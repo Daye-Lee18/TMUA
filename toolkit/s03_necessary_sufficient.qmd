@@ -96,6 +96,28 @@ The Notes give this table, and it is worth knowing in both directions:
 | $A$ is **necessary** for $B$ | *$A$ if $B$*, *if $B$ then $A$* | $B \Rightarrow A$ |
 | $A$ is **necessary and sufficient** for $B$ | *$A$ if and only if $B$* | $A \Leftrightarrow B$ |
 
+### Important distinction — “necessary” does not mean “necessary only”
+
+If a question asks for **a necessary condition**, it requires only the arrow
+$$B\Rightarrow A.$$
+It does **not** require the reverse arrow to fail. Therefore a condition that is **necessary and sufficient**
+also qualifies as necessary:
+$$A\Leftrightarrow B\quad\Longrightarrow\quad B\Rightarrow A.$$
+Similarly, a necessary-and-sufficient condition also qualifies if a question asks only for **a sufficient
+condition**.
+
+The words **but not sufficient** are what exclude an equivalent condition:
+$$
+\begin{array}{ll}
+\text{necessary:} & B\Rightarrow A,\\
+\text{necessary but not sufficient:} & B\Rightarrow A\ \text{and}\ A\nRightarrow B,\\
+\text{necessary and sufficient:} & B\Rightarrow A\ \text{and}\ A\Rightarrow B.
+\end{array}
+$$
+
+**Reading rule:** never silently add “only” or “but not sufficient” when the question says merely
+**necessary**.
+
 **How to remember which way each points.**
 
 - **Sufficient** = *enough on its own*. If $A$ is enough to guarantee $B$, then having $A$ **gets you**
@@ -1068,23 +1090,67 @@ of $6$ &nbsp; **G** $n$ is $2$ more than a multiple of $4$
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Hard — small cases do most of the work)*]{style="color:#7a5195"}
-**C.** *You do not need the full theory — four small values settle it.* For $n=1,2,3,4$ the values of
-$n^{3}+5n$ are
-$$6,\qquad 18,\qquad 42,\qquad 84 .$$
-Only $n=4$ gives a multiple of $12$. A **necessary** condition must be satisfied by $n=4$, and that alone
-kills **A** ($4$ is not $1$ more than a multiple of $4$), **B** ($4$ is even), **D** ($3\nmid4$),
-**F** ($6\nmid4$) and **G** ($4$ is not $2$ more than a multiple of $4$).
+[*(Hard — use small cases to find the candidate, then prove it)*]{style="color:#7a5195"}
+**C.**
 
-That leaves **C** and **E**, and $n=2$ separates them: $2$ is even but $2^{3}+10=18$ is not divisible by
-$12$, so **C is not sufficient** — which is exactly what the question asked for. (It is necessary, since
-every multiple of $4$ is even.)
+**Fast multiple-choice route — test $n=1,2,3,4$.** The corresponding values of $n^{3}+5n$ are
+$$6,\qquad18,\qquad42,\qquad84.$$
+Only $n=4$ gives a multiple of $12$. Any **necessary** condition must therefore hold when $n=4$. This one
+successful case immediately eliminates
 
-*For completeness:* $n^{3}+5n=n\left(n^{2}+5\right)$ is divisible by $12$ **exactly** when $4\mid n$, so
-**E** is the necessary-**and**-sufficient condition — the right answer to a different question.
+- **A:** $4$ is not $1$ more than a multiple of $4$;
+- **B:** $4$ is not odd;
+- **D:** $3\nmid4$;
+- **F:** $6\nmid4$;
+- **G:** $4$ is not $2$ more than a multiple of $4$.
 
-**The exam habit here:** when a condition is about integers, test $n=1,2,3,4$ **before** reasoning. One line
-of arithmetic eliminated five of the seven options. $\;\blacksquare$
+Only **C** and **E** remain. Now use $n=2$: it is even, but
+$$2^3+5(2)=18$$
+is not divisible by $12$. Thus **C is not sufficient**, while E does not admit this counterexample. This
+quick check identifies **C** as the intended answer.
+
+Small cases are an excellent option-elimination tool, but they do **not** prove a statement about every
+integer. The following argument confirms that C really is necessary.
+
+**Complete proof — determine exactly when divisibility by $12$ occurs.** Since $12=3\cdot4$ and
+$\gcd(3,4)=1$, we test divisibility by $3$ and by $4$ separately.
+
+**1. Divisibility by $3$ is automatic.** Because $5\equiv-1\pmod3$,
+$$n^3+5n\equiv n^3-n=n(n-1)(n+1)\pmod3.$$
+The product contains three consecutive integers, so one of them is divisible by $3$. Hence
+$$3\mid n^3+5n\qquad\text{for every integer }n.$$
+
+**2. Divisibility by $4$ occurs exactly when $4\mid n$.** Every integer leaves one of the four remainders
+$0,1,2,3$ when divided by $4$. In other words, every integer has exactly one of the forms
+$$n=4k,\qquad4k+1,\qquad4k+2,\qquad4k+3.$$
+It is therefore enough to test these four possible remainders. Since $5\equiv1\pmod4$,
+$$n^3+5n\equiv n^3+n\pmod4.$$
+Now substitute each possible remainder:
+
+| Remainder of $n$ on division by $4$ | Calculation modulo $4$ | Remainder of $n^3+5n$ | Divisible by $4$? |
+|---:|---:|---:|:---:|
+| $0$ | $0^3+5(0)=0$ | $0$ | yes |
+| $1$ | $1^3+5(1)=6\equiv2$ | $2$ | no |
+| $2$ | $2^3+5(2)=18\equiv2$ | $2$ | no |
+| $3$ | $3^3+5(3)=42\equiv2$ | $2$ | no |
+
+The expression is divisible by $4$ only in the first row, when $n$ itself leaves remainder $0$ on division
+by $4$. Therefore
+$$4\mid n^3+5n\quad\Longleftrightarrow\quad n\equiv0\pmod4
+\quad\Longleftrightarrow\quad4\mid n.$$
+
+For example, $7\equiv3\pmod4$, so it belongs to the final row; without calculating the full value, we know
+$7^3+5(7)\equiv2\pmod4$ and is therefore not divisible by $4$.
+
+Combining the two parts,
+$$\boxed{12\mid n^3+5n\quad\Longleftrightarrow\quad4\mid n.}$$
+
+So **E** is necessary and sufficient. Every multiple of $4$ is even, so **C** is necessary; but $n=2$
+shows that C is not sufficient. Hence the required necessary-but-not-sufficient condition is
+$\boxed{\textbf{C}}$.
+
+**Exam habit:** for an integer multiple-choice question, try $n=1,2,3,4$ first to eliminate options quickly.
+If a universal justification is required, follow it with a residue or factorisation proof. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:5cm"}
@@ -1151,20 +1217,79 @@ Which of the following best describes the logical relationship between P and Q?
 ## Solution
 
 [*(Hard — a question already met on a mock)*]{style="color:#7a5195"}
-**A — necessary and sufficient.** Integrate once and the question becomes a statement about a single
-function of $k$:
-$$F(k)=\int_{0}^{k}\left(\cos x+\cos^{3}2x\right)dx=\sin k+\frac{\sin 2k}{2}-\frac{\sin^{3}2k}{6},$$
-using $\cos^{3}\theta=\tfrac34\cos\theta+\tfrac14\cos3\theta$ (or simply
-$\int\cos^{3}2x\,dx=\tfrac12\sin2x-\tfrac16\sin^{3}2x$).
+**A — necessary and sufficient.** First integrate without using a memorised $\cos^3\theta$ formula. Write
+$$\cos^3(2x)=\cos(2x)\cos^2(2x)
+=\cos(2x)\left(1-\sin^2(2x)\right).$$
+Let
+$$u=\sin(2x),\qquad du=2\cos(2x)\,dx,\qquad
+\cos(2x)\,dx=\frac12\,du.$$
+Then
+$$
+\begin{aligned}
+\int\cos^3(2x)\,dx
+&=\int\cos(2x)\left(1-\sin^2(2x)\right)dx\\
+&=\frac12\int(1-u^2)\,du\\
+&=\frac12u-\frac16u^3+C\\
+&=\frac12\sin(2x)-\frac16\sin^3(2x)+C.
+\end{aligned}
+$$
+Therefore the definite integral becomes
+$$
+\begin{aligned}
+F(k)
+&=\int_{0}^{k}\left(\cos x+\cos^{3}(2x)\right)dx\\
+&=\left[\sin x+\frac12\sin(2x)-\frac16\sin^3(2x)\right]_{0}^{k}\\
+&=\sin k+\frac12\sin(2k)-\frac16\sin^3(2k).
+\end{aligned}
+$$
+The lower-limit contribution is $0$ because $\sin0=0$.
 
-**If $k=n\pi$** then $\sin k=0$ and $\sin2k=0$, so every term vanishes: $F(n\pi)=0$. **P is sufficient.**
+Now write
+$$s=\sin k,\qquad c=\cos k.$$
+Since $\sin(2k)=2sc$, the expression factors as
+$$
+\begin{aligned}
+F(k)
+&=s+sc-\frac16(2sc)^3\\
+&=s\left(1+c-\frac43s^2c^3\right).
+\end{aligned}
+$$
+We now separate the two possible cases explicitly.
 
-**Conversely,** if $F(k)=0$ then $\sin k=0$ too. *Here is why:* writing $s=\sin k$ and using
-$\sin2k=2s\cos k$,
-$$F(k)=s\left(1+\cos k-\tfrac43 s^{2}\cos^{3}k\right),$$
-and the bracket is never $0$ when $s\ne0$ — the largest $\tfrac43 s^{2}\cos^{3}k$ can be is $\tfrac43$ at
-$\cos k=1$, where $s=0$ anyway, and $1+\cos k\ge0$ always. So $F(k)=0$ forces $\sin k=0$, i.e. $k=n\pi$.
-**P is necessary.**
+**Case 1: $s=0$.** Then $\sin k=0$, so
+$$k=n\pi\qquad(n\in\mathbb Z).$$
+Also $\sin(2k)=0$, and therefore every term in $F(k)$ is $0$. Thus every integer multiple of $\pi$ satisfies
+Q. This proves that **P is sufficient for Q**.
+
+**Case 2: $s\neq0$.** If Q were true, then $F(k)=0$; because $s\neq0$, we could divide by $s$ and would need
+$$1+c-\frac43s^2c^3=0.$$
+Use $s^2=1-c^2$ and factor the left-hand side:
+$$
+1+c-\frac43(1-c^2)c^3
+=\frac{1+c}{3}\left(4c^4-4c^3+3\right).
+$$
+The second factor is always positive for $-1\le c\le1$:
+
+- If $-1\le c\le0$, then $4c^4\ge0$ and $-4c^3\ge0$, so
+  $$4c^4-4c^3+3\ge3>0.$$
+- If $0\le c\le1$, then $c^3\le c$ and $c(1-c)\le\tfrac14$. Therefore
+  $$
+  \begin{aligned}
+  4c^4-4c^3+3
+  &=3-4c^3(1-c)\\
+  &\ge 3-4c(1-c)\\
+  &\ge 3-4\left(\frac14\right)\\
+  &=2>0.
+  \end{aligned}
+  $$
+
+The first factor $1+c$ could be $0$ only if $c=-1$, but then $s=\sin k=0$, contradicting this case's
+assumption $s\neq0$. Hence the bracket cannot be $0$, so **Case 2 produces no solutions**.
+
+Therefore
+$$F(k)=0\quad\Longleftrightarrow\quad s=0
+\quad\Longleftrightarrow\quad k=n\pi.$$
+Thus **P is both necessary and sufficient for Q**.
 
 **Sanity check** — the answer must survive spot values: $F\left(\tfrac\pi2\right)=1\neq0$ and
 $F\left(\tfrac\pi4\right)=\tfrac13+\tfrac{\sqrt2}{2}\neq0$, while $F(\pi)=F(2\pi)=F(3\pi)=0$. ✓
@@ -1176,6 +1301,58 @@ sets came out equal, say so.** $\;\blacksquare$
 
 ::: {.workspace style="min-height:5cm"}
 Working
+:::
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q18 &nbsp;◆</span>
+
+::: {.question}
+$f$ is a polynomial defined for all real $x$. Which of the following is a **necessary** condition for
+$$\frac{f(a)+f(b)}{2}\;\ge\;f\!\left(\frac{a+b}{2}\right)\qquad\text{for all real }a<b\,?$$
+
+&nbsp;&nbsp;**A** $f(x)\ge0$ &nbsp; **B** $f'(x)\ge0$ &nbsp; **C** $f''(x)\ge0$ &nbsp;
+**D** $f(x)\le0$ &nbsp; **E** $f'(x)\le0$ &nbsp; **F** $f''(x)\le0$ &nbsp; *(all "for all real $x$")*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; recognise the geometry)*]{style="color:#7a5195"}
+**C.** Read the two sides as heights above the midpoint $\tfrac{a+b}{2}$:
+
+- $\dfrac{f(a)+f(b)}{2}$ is the height of the **chord** joining $(a,f(a))$ and $(b,f(b))$;
+- $f\!\left(\dfrac{a+b}{2}\right)$ is the height of the **curve**.
+
+So the condition says *the chord lies on or above the curve, for every pair $a<b$* — which is precisely the
+definition of a **convex** function. For a twice-differentiable function, convex $\iff f''(x)\ge0$ for all
+$x$.
+
+**Why each other option is not necessary.** Convexity is about **curvature**, not about sign or slope:
+$f(x)=x^{2}-5$ is convex yet negative near $0$ (killing **A**) and decreasing for $x<0$ (killing **B**);
+**D** and **E** fail on $f(x)=x^{2}$, which is convex, non-negative and increasing for $x>0$. **F** is the
+right quantity with the wrong sign — $f''\le0$ is **concave**, the opposite condition.
+
+*The word "necessary" is doing real work here.* The question is not "which condition guarantees the
+inequality" but "which must hold whenever it does" — and since convexity and $f''\ge0$ are **equivalent**
+for polynomials, C is in fact necessary *and* sufficient, which is why it is the only defensible answer.
+
+This is exactly the distinction from the concept box above: **necessary** does not mean “necessary only”.
+The question did not say **necessary but not sufficient**, so an equivalent condition is allowed. Since
+$$Q\Longleftrightarrow C$$
+contains the required direction $Q\Rightarrow C$, option C is a necessary condition even though it is also
+sufficient. Had the question asked for “necessary **but not sufficient**”, C would not qualify.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+**The whole session in one line:**
+
+> **Sufficient points forwards; necessary points backwards. Whatever the sentence looks like, find the
+> condition and the target, then apply that rule.**
 :::
 
 ## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q17</span>
@@ -1222,49 +1399,3 @@ Working
 
 
 ---
-
-## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q18 &nbsp;◆</span>
-
-::: {.question}
-$f$ is a polynomial defined for all real $x$. Which of the following is a **necessary** condition for
-$$\frac{f(a)+f(b)}{2}\;\ge\;f\!\left(\frac{a+b}{2}\right)\qquad\text{for all real }a<b\,?$$
-
-&nbsp;&nbsp;**A** $f(x)\ge0$ &nbsp; **B** $f'(x)\ge0$ &nbsp; **C** $f''(x)\ge0$ &nbsp;
-**D** $f(x)\le0$ &nbsp; **E** $f'(x)\le0$ &nbsp; **F** $f''(x)\le0$ &nbsp; *(all "for all real $x$")*
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(Hard — a real TMUA question; recognise the geometry)*]{style="color:#7a5195"}
-**C.** Read the two sides as heights above the midpoint $\tfrac{a+b}{2}$:
-
-- $\dfrac{f(a)+f(b)}{2}$ is the height of the **chord** joining $(a,f(a))$ and $(b,f(b))$;
-- $f\!\left(\dfrac{a+b}{2}\right)$ is the height of the **curve**.
-
-So the condition says *the chord lies on or above the curve, for every pair $a<b$* — which is precisely the
-definition of a **convex** function. For a twice-differentiable function, convex $\iff f''(x)\ge0$ for all
-$x$.
-
-**Why each other option is not necessary.** Convexity is about **curvature**, not about sign or slope:
-$f(x)=x^{2}-5$ is convex yet negative near $0$ (killing **A**) and decreasing for $x<0$ (killing **B**);
-**D** and **E** fail on $f(x)=x^{2}$, which is convex, non-negative and increasing for $x>0$. **F** is the
-right quantity with the wrong sign — $f''\le0$ is **concave**, the opposite condition.
-
-*The word "necessary" is doing real work here.* The question is not "which condition guarantees the
-inequality" but "which must hold whenever it does" — and since convexity and $f''\ge0$ are **equivalent**
-for polynomials, C is in fact necessary *and* sufficient, which is why it is the only defensible answer.
-$\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:5cm"}
-Working
-:::
-
----
-
-**The whole session in one line:**
-
-> **Sufficient points forwards; necessary points backwards. Whatever the sentence looks like, find the
-> condition and the target, then apply that rule.**
-:::

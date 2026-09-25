@@ -213,7 +213,7 @@ The vertical distance between the curve and the line therefore shrinks to zero a
 However, that is not the only useful way to build the sketch. The dominant term changes with the region being examined:
 
 - **Near $x=0$**, the term $1/x$ dominates while $x\to0$. Indeed,
-  $$f(x)-\frac1x=x\longrightarrow0qquad(x\to0).$$
+  $$f(x)-\frac1x=x\longrightarrow0\qquad(x\to0).$$
   Thus the curve looks almost like $y=1/x$ close to the origin. Use the reciprocal curve as the **local model** and make a small adjustment of $x$. In the usual school definition, $y=1/x$ is not called an asymptote because it is not a straight line; the actual vertical asymptote is $x=0$.
 - **For large $|x|$**, the term $x$ dominates while $1/x\to0$. Thus the curve looks almost like $y=x$, which is the slant asymptote.
 
