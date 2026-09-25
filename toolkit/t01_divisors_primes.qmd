@@ -50,7 +50,7 @@ left to right:
 :::: {.fs-grid}
 
 ::: {.fs-card}
-### 1 · Every prime above 3 has the form $6n\pm1$
+### 1 · [Every prime $p>3$ has the form $6n\pm1$]{.hl}
 
 Any integer is $6n,\,6n\pm1,\,6n\pm2$ or $6n+3$. All but $6n\pm1$ are divisible by $2$ or $3$, so a prime
 bigger than $3$ must be $6n\pm1$.
@@ -61,11 +61,18 @@ This does **not** mean that every number $6n\pm1$ is prime.
 
 **The trap — the converse is false.** $25=6(4)+1$ and $35=6(6)-1$ are not prime.
 
+
+| statement | | why |
+|---|:-:|---|
+| Every prime $p>3$ is of the form $6n\pm1$ | **True** | *the stated fact* |
+| *Converse:* every $6n\pm1$ is prime | **False** | *$25,\,35,\,49$* |
+| $1$ counts as $6n\pm1$ | **True** | *$1=6(1)-5$ — and it is **not** prime* |
+
 [2016 Q5 · 2023 Q11 sit on exactly this]{.eg}
 :::
 
 ::: {.fs-card}
-### 2 · Euclid's lemma — and why it needs "prime"
+### 2 · [$p\mid ab\Rightarrow p\mid a$ or $p\mid b$ — **only when $p$ is prime**]{.hl}
 
 $$p\mid ab\ \Longrightarrow\ p\mid a\ \text{ or }\ p\mid b\qquad\textbf{only when }p\textbf{ is prime}$$
 
@@ -74,11 +81,18 @@ Read it aloud: “if the **prime** $p$ divides the product $ab$, then $p$ divide
 **The trap — drop "prime" and it collapses.** $4\mid 2\times2$, yet $4\nmid2$. Smallest counterexample:
 $a=4,\ b=c=2$.
 
+
+| statement | | why |
+|---|:-:|---|
+| $p\mid ab\Rightarrow p\mid a$ or $p\mid b$, for **prime** $p$ | **True** | *Euclid's lemma* |
+| *Trap — drop "prime":* $a\mid bc\Rightarrow a\mid b$ or $a\mid c$ | **False** | *$4\mid2\times2$, $4\nmid2$* |
+| *Trap — composite $a$:* the same with $a=8,b=c=4$ | **False** | *$8\mid16$ but $8\nmid4$* |
+
 [2016 Q13 and 2021 Q4 are the *same* false statement — this is the missing word]{.eg}
 :::
 
 ::: {.fs-card}
-### 3 · Squaring doubles every exponent
+### 3 · [Squaring doubles every exponent: $12\mid n^{2}\iff6\mid n$]{.hl}
 
 If $n=p_1^{e_1}p_2^{e_2}\cdots$ then $n^2=p_1^{2e_1}p_2^{2e_2}\cdots$. So $n^2$ carries **only even powers**
 of each prime.
@@ -88,11 +102,18 @@ it already divides its square root. But for a composite divisor you recover
 only the square root of it:
 $$12\mid n^{2}\iff 6\mid n,\qquad\text{not } 12\mid n .$$
 
+
+| statement | | why |
+|---|:-:|---|
+| $p\mid n^{2}\Rightarrow p\mid n$ for **prime** $p$ | **True** | *exponents double* |
+| $12\mid n^{2}\Rightarrow12\mid n$ | **False** | *$n=6$: $36=12\times3$* |
+| $12\mid n^{2}\iff6\mid n$ | **True** | *you recover the square root of the divisor* |
+
 [2019 Q5 · 2021 Q4 · 2023 Q3 in S4 · the whole of S5 Q29–Q30]{.eg}
 :::
 
 ::: {.fs-card}
-### 4 · A remainder must be smaller than the divisor
+### 4 · [A remainder satisfies $0\le r<a$ — the size is half the definition]{.hl}
 
 "$b$ leaves remainder $r$ on division by $a$" means $b=aq+r$ **with $0\le r<a$**. The size condition is
 half the definition.
@@ -100,11 +121,17 @@ half the definition.
 **The trap.** If $r,s<a$, the product $rs$ need **not** be $<a$, so $rs$ is not the remainder of $bc$.
 Take $a=4,\ r=s=2$: $rs=4$, and the true remainder is $0$.
 
+
+| statement | | why |
+|---|:-:|---|
+| A remainder must satisfy $0\le r<a$ | **True** | *half the definition* |
+| *Trap:* if $r,s<a$ then $rs$ is the remainder of $bc$ | **False** | *$a=4,r=s=2$: $rs=4$, true remainder $0$* |
+
 [this single point is the answer to 2016 Q13]{.eg}
 :::
 
 ::: {.fs-card}
-### 5 · What squares leave behind
+### 5 · [$n^{2}\equiv0,1\ (\text{mod }3\text{ and }4)$ and $0,1,4\ (\text{mod }8)$]{.hl}
 
 $$n^{2}\equiv0\text{ or }1\ (\mathrm{mod}\ 3),\qquad
 n^{2}\equiv0\text{ or }1\ (\mathrm{mod}\ 4),\qquad
@@ -113,11 +140,18 @@ n^{2}\equiv0,1\text{ or }4\ (\mathrm{mod}\ 8)$$
 A square is **never** $2\bmod3$ and **never** $3\bmod4$. This is how you kill a claim without factorising
 anything.
 
+
+| statement | | why |
+|---|:-:|---|
+| $n^{2}\equiv2\pmod3$ is possible | **False** | *squares are $0$ or $1$* |
+| $n^{2}\equiv3\pmod4$ is possible | **False** | *squares are $0$ or $1$* |
+| $a^{2}+b^{2}\equiv3\pmod4$ is possible | **False** | *$0{+}0,\,0{+}1,\,1{+}1$ only* |
+
 [the engine of "$n^2+2$ is divisible by 3 unless $3\mid n$"]{.eg}
 :::
 
 ::: {.fs-card}
-### 6 · The gcd toolkit
+### 6 · [$\gcd(a,b)\mid a\pm b$, &nbsp;$\gcd(a,b+ka)=\gcd(a,b)$, &nbsp;$\gcd(n,n+1)=1$]{.hl}
 
 $$\gcd(a,b)\mid a\pm b,\qquad \gcd(a,\,b+ka)=\gcd(a,b),\qquad \gcd(n,\,n+1)=1$$
 
@@ -127,11 +161,18 @@ difference.”
 If $\gcd(a,b)=d$ then $d$ divides **every** integer combination $xa+yb$ — which is why a common factor
 survives down a whole recurrence.
 
+
+| statement | | why |
+|---|:-:|---|
+| $\gcd(a,b)$ divides $a+b$ and $a-b$ | **True** | *it divides every combination* |
+| $\gcd(n,n+1)=1$ | **True** | *a common divisor divides $1$* |
+| *Trap:* $\gcd(a,b)=d\Rightarrow\gcd(a,\,xa+yb)=d$ | **True** | *this is why $d$ survives a recurrence* |
+
 [2023 Q16: $\gcd(a,b)=7$ forces $7\mid u_n$ for every $n$]{.eg}
 :::
 
 ::: {.fs-card}
-### 7 · Irreducible polynomial $\neq$ prime values
+### 7 · [An irreducible polynomial still takes composite values]{.hl}
 
 A polynomial that cannot be factorised over the integers still takes **composite values**.
 
@@ -140,22 +181,36 @@ $3x^{2}+3x+1$ is irreducible (discriminant $-3$), yet at $x=5$ it is $91=7\times
 **No non-constant polynomial takes only prime values** — so any claim of that shape is false before you
 read the proof.
 
+
+| statement | | why |
+|---|:-:|---|
+| $3x^{2}+3x+1$ is irreducible over $\mathbb Z$ | **True** | *$D=-3<0$* |
+| *Trap:* irreducible $\Rightarrow$ its values are prime | **False** | *$x=5$ gives $91=7\times13$* |
+| Some non-constant polynomial takes only prime values | **False** | *no such polynomial exists* |
+
 [2022 Q7 exists purely to test this]{.eg}
 :::
 
 ::: {.fs-card}
-### 8 · The edge cases that break proofs
+### 8 · [$1$ is not prime; $2$ is the only even prime; $3k$ is composite only if $k>1$]{.hl}
 
 - **$1$ is not prime** and not composite.
 - **$2$ is the only even prime** — every "let $p$ be an odd prime" argument silently excludes it.
 - **$3k$ is composite only when $k>1$**: $3\times1=3$ is prime.
 - $0$ is divisible by every non-zero integer: for example, $7\mid0$ because $0=7\times0$.
 
+
+| statement | | why |
+|---|:-:|---|
+| $1$ is prime | **False** | *neither prime nor composite* |
+| $2$ is the only even prime | **True** | *any other even number has factor $2$* |
+| *Trap:* $3\mid N\Rightarrow N$ is composite | **False** | *fails at $N=3$* |
+
 [JZ Mock A Q5 dies at $n=1$; 2023 Q4 turns on $p=2$]{.eg}
 :::
 
 ::: {.fs-card}
-### 9 · "Factor" means two different things
+### 9 · [\"Factor\" means a divisor of an integer **or** a factor of a polynomial]{.hl}
 
 **A divisor of an integer** ($7$ is a factor of $91$) and **a factor of a polynomial**
 ($x-1$ is a factor of $x^{2}-1$).
@@ -163,22 +218,35 @@ read the proof.
 The examiners deliberately slide between them. *Irreducible as a polynomial says nothing about the
 primality of its values* — see card 7.
 
+
+| statement | | why |
+|---|:-:|---|
+| $7$ is a factor of $91$ | **True** | *divisor of an **integer*** |
+| $x-1$ is a factor of $x^{2}-1$ | **True** | *factor of a **polynomial*** |
+| *Trap:* the two senses are interchangeable | **False** | *see fact 16* |
+
 [2022 Q7 · 2023 Q18 · 2021 Q4]{.eg}
 :::
 
 ::: {.fs-card}
-### 10 · Test $n=1,2,3,4$ before reasoning
+### 10 · [Test $n=1,2,3,4$ before reasoning about general $n$]{.hl}
 
 For any claim about integers, substitute the first four values **first**. It is faster than thinking and it
 finds most counterexamples.
 
 $n^{3}+5n$ at $n=1,2,3,4$ gives $6,18,42,84$ — one line of arithmetic that eliminates five of seven options.
 
+
+| statement | | why |
+|---|:-:|---|
+| $n^{3}+5n$ at $n=1,2,3,4$ gives $6,18,42,84$ | **True** | *only $84$ is a multiple of $12$* |
+| *Trap:* three examples prove a "for all" claim | **False** | *they can only **disprove** one* |
+
 [JZ Mock B Q11 · 2020 Q4 · 2022 Q3]{.eg}
 :::
 
 ::: {.fs-card}
-### 11 · Fermat's little theorem
+### 11 · [Fermat: $p$ prime $\Rightarrow a^{p}\equiv a$, and $a^{p-1}\equiv1$ when $p\nmid a$]{.hl}
 
 If $p$ is prime, then for every integer $a$,
 $$a^p\equiv a\pmod p.$$
@@ -191,11 +259,18 @@ or equivalently $p\mid 2^{p-1}-1$.
 **The trap — the converse is false.** $341=11\times31$ is composite, but
 $2^{10}=1024\equiv1\pmod{341}$, so $2^{340}\equiv1\pmod{341}$.
 
+
+| statement | | why |
+|---|:-:|---|
+| $p$ prime $\Rightarrow a^{p}\equiv a\pmod p$ for every $a$ | **True** | *Fermat's little theorem* |
+| $p$ prime and $p\nmid a\Rightarrow a^{p-1}\equiv1\pmod p$ | **True** | *divide by $a$* |
+| *Converse:* $2^{n-1}\equiv1\pmod n\Rightarrow n$ prime | **False** | *$341=11\times31$ passes* |
+
 [Use $a^p\equiv a$ if $p$ might divide $a$; use $a^{p-1}\equiv1$ only when $p\nmid a$.]{.eg}
 :::
 
 ::: {.fs-card}
-### 12 · Prime values of $2^n\pm1$: necessary conditions
+### 12 · [$2^{n}-1$ prime $\Rightarrow n$ prime; &nbsp;$2^{n}+1$ prime $\Rightarrow n=2^{k}$]{.hl}
 
 For positive integer $n$,
 $$2^n-1\text{ prime}\quad\Longrightarrow\quad n\text{ prime},$$
@@ -207,10 +282,17 @@ If $n=2^km$ with odd $m>1$, then $2^n+1=(2^{2^k})^m+1$ has factor $2^{2^k}+1$.
 
 **The trap — both converses are false.** $11$ is prime but $2^{11}-1=23\times89$; $32$ is a power of $2$
 but $2^{32}+1=641\times6700417$.
+
+| statement | | why |
+|---|:-:|---|
+| $2^{n}-1$ prime $\Rightarrow n$ prime | **True** | *$2^{a}-1$ divides $2^{ab}-1$* |
+| *Converse:* $n$ prime $\Rightarrow2^{n}-1$ prime | **False** | *$2^{11}-1=23\times89$* |
+| *Converse:* $n=2^{k}\Rightarrow2^{n}+1$ prime | **False** | *$2^{32}+1=641\times6700417$* |
+
 :::
 
 ::: {.fs-card}
-### 13 · Prime definition and the $\sqrt N$ test
+### 13 · [A composite $N$ has a prime factor $\le\sqrt N$]{.hl}
 
 A positive integer $p$ is prime exactly when $p>1$ and its only positive divisors are $1$ and $p$.
 
@@ -221,10 +303,17 @@ So to test whether $N$ is prime, it is enough to test prime divisors $\le\sqrt N
 
 **The trap.** “Not divisible by this particular prime” does **not** mean prime; another smaller prime may
 divide it.
+
+| statement | | why |
+|---|:-:|---|
+| A composite $N$ has a prime factor $\le\sqrt N$ | **True** | *if $N=ab$, $1<a\le b$, then $a\le\sqrt N$* |
+| *Trap:* not divisible by **one** prime $\Rightarrow$ prime | **False** | *test **all** primes up to $\sqrt N$* |
+| $221$ is prime | **False** | *$221=13\times17$, and $13<\sqrt{221}<15$* |
+
 :::
 
 ::: {.fs-card}
-### 14 · Count divisors from the exponents
+### 14 · [$N=\prod p_i^{a_i}\Rightarrow d(N)=\prod(a_i+1)$]{.hl}
 
 If
 $$N=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k},$$
@@ -234,10 +323,17 @@ $$\boxed{d(N)=(a_1+1)(a_2+1)\cdots(a_k+1)}.$$
 For example, $360=2^3\cdot3^2\cdot5$, so it has $(3+1)(2+1)(1+1)=24$ positive divisors.
 
 **The trap.** Add $1$ to each exponent **before** multiplying; do not add or multiply the exponents themselves.
+
+| statement | | why |
+|---|:-:|---|
+| $d(360)=(3+1)(2+1)(1+1)=24$ | **True** | *$360=2^{3}\cdot3^{2}\cdot5$* |
+| *Trap:* multiply the exponents themselves | **False** | *add $1$ to each **first*** |
+| $d(N)$ is odd $\iff N$ is a perfect square | **True** | *every $a_i$ even* |
+
 :::
 
 ::: {.fs-card}
-### 15 · Coprime cancellation
+### 15 · [$\gcd(a,b)=1$ and $a\mid bc\Rightarrow a\mid c$ — coprime cancellation]{.hl}
 
 If $\gcd(a,b)=1$, then
 $$a\mid bc\quad\Longrightarrow\quad a\mid c.$$
@@ -246,11 +342,18 @@ factor.
 
 **The trap.** Without coprimality, cancellation fails: $6\mid9\cdot4$, but $6\nmid4$.
 
+
+| statement | | why |
+|---|:-:|---|
+| $\gcd(a,b)=1$ and $a\mid bc\Rightarrow a\mid c$ | **True** | *coprime cancellation* |
+| *Trap — drop coprimality:* $a\mid bc\Rightarrow a\mid c$ | **False** | *$6\mid9\times4$ but $6\nmid4$* |
+| $p$ prime and $p\nmid b\Rightarrow\gcd(p,b)=1$ | **True** | *so fact 2 is a special case* |
+
 [Prime $p\nmid b$ automatically gives $\gcd(p,b)=1$, so $p\mid bc\Rightarrow p\mid c$.]{.eg}
 :::
 
 ::: {.fs-card}
-### 16 · Polynomial factorisation $\neq$ integer factorisation
+### 16 · [Factorising the **expression** $\neq$ factorising its **values**]{.hl}
 
 | Statement | True? |
 |---|---|
@@ -327,6 +430,14 @@ the expression tells you **nothing** about them (fact 16). $x^{2}+1$ is irreduci
 
 Among any $k+1$ integers chosen from $k$ residue classes, two share a class — so their difference is
 divisible by $k$. Used whenever a question asks for the **smallest $n$ that forces** something.
+
+
+| statement | | why |
+|---|:-:|---|
+| $P(x)=A(x)B(x)\Rightarrow P(n)=A(n)B(n)$ | **True** | *substitution always works* |
+| $P(x)$ factorises $\Rightarrow P(n)$ composite for every $n$ | **False** | *$x^{2}-1$ at $x=2$ gives the prime $3$* |
+| $P(x)$ irreducible $\Rightarrow P(n)$ prime for every $n$ | **False** | *$x^{2}+1$ at $x=3$ gives $10$* |
+| $\lvert A(n)\rvert,\lvert B(n)\rvert>1\Rightarrow\lvert P(n)\rvert$ composite | **True** | *a genuine factorisation* |
 
 [2022 Q8 is this exactly]{.eg}
 :::

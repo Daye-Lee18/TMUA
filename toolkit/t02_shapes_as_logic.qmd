@@ -48,7 +48,7 @@ Companion page: [T1 — Divisors & Primes](t01_divisors_primes.qmd).*
 :::: {.fs-grid}
 
 ::: {.fs-card}
-### 1 · The quadrilateral lattice
+### 1 · [square $\Rightarrow$ rhombus / rectangle $\Rightarrow$ parallelogram $\Rightarrow$ trapezium]{.hl}
 
 $$\text{square}\Rightarrow\text{rhombus}\Rightarrow\text{parallelogram}\Rightarrow\text{trapezium}$$
 $$\text{square}\Rightarrow\text{rectangle}\Rightarrow\text{parallelogram}$$
@@ -74,11 +74,19 @@ sources usually call it a **trapezoid**.
 
 *Arrows run one way only.* Reading one backwards is what every wrong option in this topic does.
 
+
+| statement | | why |
+|---|:-:|---|
+| Every square is a rhombus | **True** | *four equal sides* |
+| Every square is a rectangle | **True** | *four right angles* |
+| *Converse:* every rhombus is a square | **False** | *angles need not be $90^\circ$* |
+| Every kite is a parallelogram | **False** | *only if it is a rhombus* |
+
 [2019 Q10 · 2020 Q7]{.eg}
 :::
 
 ::: {.fs-card}
-### 2 · The three counterexamples to have ready
+### 2 · [rhombus · rectangle · isosceles trapezium — the three counterexamples]{.hl}
 
 - **rhombus** — equal sides, diagonals perpendicular, **but not a square**
 - **rectangle** — equal diagonals, all angles $90^\circ$, **but not a square**
@@ -88,11 +96,19 @@ Almost every "is this sufficient?" question in this topic is killed by one of th
 
 ![The three standard counterexamples: a slanted rhombus, a non-square rectangle and an isosceles trapezium.](assets/t02-counterexamples.svg){.shape-diagram fig-alt="Rhombus, rectangle, and isosceles trapezium with their relevant properties marked"}
 
+
+| statement | | why |
+|---|:-:|---|
+| A rhombus has perpendicular diagonals | **True** | *and they bisect* |
+| A rhombus has **equal** diagonals | **False** | *that would make it a square* |
+| A rectangle has equal diagonals | **True** | *but not perpendicular* |
+| An isosceles trapezium is a parallelogram | **False** | *only one pair is parallel* |
+
 [2020 Q7's answer is "none of them" — rhombus kills two conditions, rectangle the third]{.eg}
 :::
 
 ::: {.fs-card}
-### 3 · The diagonal table — these are the *iff*s
+### 3 · [Each diagonal condition is an **iff** for its shape]{.hl}
 
 For a quadrilateral, these conditions work in **both directions**:
 
@@ -114,11 +130,19 @@ on the page* — most nec/suff options are one of its rows, altered.
 
 ![Diagonal comparison for a parallelogram, rectangle, rhombus, square and kite.](assets/t02-diagonals.svg){.shape-diagram fig-alt="Five quadrilaterals with equal, perpendicular, and bisected diagonals marked"}
 
+
+| statement | | why |
+|---|:-:|---|
+| Diagonals bisect each other $\iff$ parallelogram | **True** | *row 1* |
+| Diagonals bisect **and** are equal $\iff$ rectangle | **True** | *row 2* |
+| Diagonals bisect **and** are perpendicular $\iff$ rhombus | **True** | *row 3* |
+| *Trap:* perpendicular diagonals alone $\Rightarrow$ rhombus | **False** | *the bisection half is missing* |
+
 [2018 Q5 · 2020 Q7 · 2022 Q11]{.eg}
 :::
 
 ::: {.fs-card}
-### 4 · Which conditions force a parallelogram
+### 4 · [One pair both equal **and** parallel forces a parallelogram]{.hl}
 
 **Sufficient** — each of these alone:
 
@@ -136,11 +160,18 @@ $ABCD$ to be a parallelogram.
 $$AB=CD\quad\textbf{but}\quad AD\parallel BC.$$
 That information can describe an isosceles trapezium, so it does not force a parallelogram.
 
+
+| statement | | why |
+|---|:-:|---|
+| $AB=CD$ **and** $AB\parallel CD$ $\Rightarrow$ parallelogram | **True** | *same pair* |
+| *Trap:* $AB=CD$ **and** $AD\parallel BC$ $\Rightarrow$ parallelogram | **False** | *isosceles trapezium* |
+| Both pairs of opposite sides equal $\Rightarrow$ parallelogram | **True** | *sufficient on its own* |
+
 [2019 Q10 turns entirely on this distinction]{.eg}
 :::
 
 ::: {.fs-card}
-### 5 · Triangle congruence — and the one that is not a criterion
+### 5 · [SSS · SAS · ASA · AAS · RHS are criteria — **SSA is not**]{.hl}
 
 **Criteria:** SSS · SAS · ASA · AAS · RHS.
 
@@ -154,11 +185,18 @@ ambiguous case.
 
 *Equal area is also not a criterion:* $\tfrac12ab\sin C$ equal gives only $\sin C_1=\sin C_2$.
 
+
+| statement | | why |
+|---|:-:|---|
+| Two sides and the **included** angle give congruence | **True** | *SAS* |
+| Two sides and a **non-included** angle give congruence | **False** | *SSA — the ambiguous case* |
+| Equal areas with two equal sides give congruence | **False** | *only $\sin C_1=\sin C_2$* |
+
 [2016 Q9 · 2021 Q18]{.eg}
 :::
 
 ::: {.fs-card}
-### 6 · $\sin A=\sin B$ does **not** give $A=B$
+### 6 · [$\sin A=\sin B\iff B=A$ or $B=180^\circ-A$]{.hl}
 
 $$\sin A=\sin B\iff B=A\ \text{ or }\ B=180^\circ-A$$
 
@@ -167,11 +205,18 @@ closes a congruence argument.
 
 $\sin30^\circ=\sin150^\circ$, $\sin50^\circ=\sin130^\circ$.
 
+
+| statement | | why |
+|---|:-:|---|
+| $\sin30^\circ=\sin150^\circ$ | **True** | *supplementary angles* |
+| *Trap:* $\sin A=\sin B\Rightarrow A=B$ | **False** | *$B=180^\circ-A$ is allowed* |
+| In a triangle both branches can be genuine | **True** | *this is why SSA fails* |
+
 [the hinge of 2016 Q9; also S7's checklist item 6]{.eg}
 :::
 
 ::: {.fs-card}
-### 7 · Polygon angle facts
+### 7 · [interior sum $=(n-2)180^\circ$; regular interior $=180^\circ-\tfrac{360^\circ}{n}$]{.hl}
 
 $$\text{interior sum}=(n-2)\times180^\circ,\qquad
 \text{regular interior}=180^\circ-\frac{360^\circ}{n}$$
@@ -181,11 +226,18 @@ $n=3,4,5,6,8,12\Rightarrow60^\circ,90^\circ,108^\circ,120^\circ,135^\circ,150^\c
 **The pentagon consequence:** five angles in arithmetic progression sum to $5a=540^\circ$, so the **middle
 one is forced to be $108^\circ$** whatever the common difference.
 
+
+| statement | | why |
+|---|:-:|---|
+| A pentagon's interior angles sum to $540^\circ$ | **True** | *$(5-2)\times180^\circ$* |
+| Five angles in AP summing to $540^\circ$ have middle term $108^\circ$ | **True** | *$5a=540^\circ$* |
+| *Converse:* one angle is $108^\circ$ $\Rightarrow$ they form an AP | **False** | *$100,102,108,110,120$* |
+
 [that one line *is* 2023 Q9]{.eg}
 :::
 
 ::: {.fs-card}
-### 8 · Equal areas from the centre $\neq$ regular
+### 8 · [Equal areas from the centre give $\theta_i=\alpha$ **or** $180^\circ-\alpha$]{.hl}
 
 A polygon inscribed in a circle, centre inside, cut by radii into $n$ triangles of **equal area** has
 $\tfrac12r^{2}\sin\theta_i$ all equal — so each central angle is $\alpha$ **or** $180^\circ-\alpha$.
@@ -193,11 +245,19 @@ $\tfrac12r^{2}\sin\theta_i$ all equal — so each central angle is $\alpha$ **or
 Only $n=3$ forces all $\theta_i$ equal. For $n=4$, angles $60^\circ,120^\circ,60^\circ,120^\circ$ work and
 the shape is not a square.
 
+
+| statement | | why |
+|---|:-:|---|
+| Equal areas $\Rightarrow$ all $\sin\theta_i$ equal | **True** | *area $=\tfrac12r^{2}\sin\theta_i$* |
+| Equal areas $\Rightarrow$ all $\theta_i$ equal | **False** | *$\theta$ or $180^\circ-\theta$* |
+| For $n=3$ the polygon must be regular | **True** | *every case collapses to $120^\circ$* |
+| For $n=4$ the polygon must be regular | **False** | *$60,120,60,120$* |
+
 [2022 Q19, answer **B** ($n=3$ only)]{.eg}
 :::
 
 ::: {.fs-card}
-### 9 · Perpendicular diagonals force very little
+### 9 · [Perpendicular diagonals alone force almost nothing]{.hl}
 
 A quadrilateral with perpendicular diagonals need **not** have either diagonal as a line of symmetry, and
 need not be a kite or a rhombus.
@@ -205,11 +265,18 @@ need not be a kite or a rhombus.
 Draw two perpendicular lines and place the four vertices at **four different distances** from the crossing
 point — the result is a valid counterexample to almost anything.
 
+
+| statement | | why |
+|---|:-:|---|
+| Perpendicular diagonals $\Rightarrow$ a diagonal is a line of symmetry | **False** | *four different distances* |
+| Perpendicular diagonals $\Rightarrow$ the side midpoints form a rectangle | **True** | *Varignon* |
+| …and that rectangle is a square | **False** | *only if the diagonals are also equal* |
+
 [2018 Q5, answer **A** (neither statement is necessarily true)]{.eg}
 :::
 
 ::: {.fs-card}
-### 10 · Circle facts that get used
+### 10 · [A quadrilateral is cyclic $\iff$ opposite angles sum to $180^\circ$]{.hl}
 
 - angle in a semicircle is $90^\circ$;
 - a tangent meets the radius at $90^\circ$;
@@ -220,6 +287,13 @@ point — the result is a valid counterexample to almost anything.
 
 *The third one is a genuine "iff"* — a quadrilateral is cyclic **exactly when** its opposite angles are
 supplementary.
+
+
+| statement | | why |
+|---|:-:|---|
+| Opposite angles of a cyclic quadrilateral sum to $180^\circ$ | **True** | *and conversely* |
+| Angle in a semicircle is $90^\circ$ | **True** | *standard circle fact* |
+| A tangent meets the radius at $90^\circ$ | **True** | *standard circle fact* |
 
 [the standard raw material for the nec/suff options]{.eg}
 :::
