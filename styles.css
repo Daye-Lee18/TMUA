@@ -348,6 +348,14 @@ body, .solutions, .solutions p, .solutions li, .solutions td, .solutions th,
   padding-bottom: 0.2rem;
   border-bottom: 1px solid #cfcfcf;
 }
+/* Maths in a card title must keep its own case: uppercasing turns p_i^{a_i}
+   into P_I^{A_I} and d(N) into D(N). Letter-spacing also pulls symbols apart. */
+.formulasheet .fs-card h3 .math,
+.formulasheet .fs-card h3 mjx-container,
+.formulasheet .fs-card h3 mjx-container * {
+  text-transform: none;
+  letter-spacing: normal;
+}
 /* Key results sit on a faint tint so they read as "the formula".
    Box the display-math span only (one clean block per formula group);
    never the inner mjx-container, or it double-boxes. */
