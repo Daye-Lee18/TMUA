@@ -76,13 +76,22 @@ mathematics, MM1–MM8, below). **Paper 2** draws on **everything in Section 1**
 
 **Mock papers**
 
-- **JZ Maths mocks A–E** (Papers 1 & 2, with worked solutions) — [papers](https://jzmaths.com/papers) · [timed exam simulator](https://jzmaths.com/exam) · [grade boundaries](https://jzmaths.com/papers/grade_boundaries/jzmaths_mock_grade_boundaries.pdf)
+- **JZ Maths mocks A–E** (Papers 1 & 2, with worked solutions) — [papers](https://jzmaths.com/papers) · [timed exam simulator](https://jzmaths.com/exam) · [grade boundaries](https://jzmaths.com/papers/grade_boundaries/jzmaths_mock_grade_boundaries.pdf) · **[Set A Paper 1 — local worked MS](mocks/jz_mock_a/paper1_ms.qmd)**
 - **Jacqueline Tyler / Tyler Tutoring mocks (Sets A–D)** — [Tyler Tutoring resources](https://www.tylertutoring.com/resources) · also playable on the [JZ simulator](https://jzmaths.com/exam)
 - **tmua.io community papers** — [71 free community mock papers](https://tmua.io/community-papers/)
 
 *Local copies (git-ignored): MAT 2013–2025 and JZ mocks A–E live in `_resources/supplementary/{MAT,JZ_mocks}/`;
 his own marked scripts in `_resources/woosung/`.*
 :::
+
+### Local worked mark schemes — JZ Maths mocks
+
+This table will grow across Sets A–E. Each page gives a one-line answer key followed by an independent,
+fully worked solution for every question.
+
+| Mock set | Paper 1 | Paper 2 |
+|---|---|---|
+| **JZ Set A** | **[Worked mark scheme](mocks/jz_mock_a/paper1_ms.qmd)** | — |
 
 ---
 
@@ -133,6 +142,9 @@ treat 2019–2023 as the best model of what the live test now asks.
 
 The part that is **not in the A-Level syllabus**. A student can be excellent at A-Level Maths and still
 score badly on Paper 2, simply because nobody ever told them what *"A only if B"* means.
+
+**One-page revision:** the **[Paper 2 Formula Sheet & Concept Summary](toolkit/paper2_formula_sheet.qmd)**
+carries all of this — S1–S7, T1, T2 and an exam-day card — on a single printable page.
 
 ### What comes up most — the two topics to memorise
 

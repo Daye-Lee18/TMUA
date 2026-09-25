@@ -1,0 +1,417 @@
+---
+title: "Paper 2 — Formula Sheet & Concept Summary"
+subtitle: "Everything Paper 2 assumes you know, on one page: the seven reasoning sessions plus the two topics that appear every year"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## How to use this page
+
+The TMUA gives you **no formula booklet and no calculator**, so everything here has to be *recalled*.
+
+- **Part 1** is the reasoning core — sessions **S1–S7** compressed to what you must have automatic.
+  There is **no symbol notation on the test**; it is all in English sentences. The arrows here are a
+  thinking tool, not exam wording.
+- **Parts 2 and 3** are the two **topics** that carry most of that reasoning: **divisors and primes**
+  (fifteen-plus questions, 2016–2023) and **plane shapes asked as logical conditions** (every sitting).
+- **Part 4** is the exam-day card.
+
+Cards marked ★ appear on almost every paper. For the Paper 1 mathematics (MM1–MM8), use the
+**[main formula sheet](../formula_sheet.qmd)**.
+:::
+
+---
+
+# Part 1 · The reasoning core — S1 to S7
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Section 2 — Arg, Prf, Err</div>
+<div class="fs-title">Logic and proof — the whole of it</div>
+<div class="fs-sub">Seven cards. If you can reproduce these from memory you have the entire non-A-level content of Paper 2; everything else on the paper is Paper 1 mathematics wearing a logical wrapper.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### S1 · Statement forms ★
+
+$$A\Rightarrow B\;=\;\text{“if }A\text{ then }B\text{”}\;=\;\text{“}A\text{ only if }B\text{”}\;=\;\text{“}B\text{ if }A\text{”}$$
+
+**The bare "if" introduces the forcing statement.** So "$A$ **if** $B$" is $B\Rightarrow A$ — backwards from
+the reading order.
+
+"$A$ **if and only if** $B$" is both arrows: $A\Leftrightarrow B$.
+
+**Reversed wording:** in "a condition **for** $Q$ is $P$", the target follows the word *for*. Find the
+target first, then the condition.
+
+[the trap: "only if" points forwards, "if" points backwards]{.eg}
+:::
+
+::: {.fs-card}
+### S2 · Converse and contrapositive ★
+
+| | form | equivalent to the original? |
+|---|---|---|
+| statement | $A\Rightarrow B$ | — |
+| **converse** | $B\Rightarrow A$ | **no** |
+| inverse | $\lnot A\Rightarrow\lnot B$ | **no** |
+| **contrapositive** | $\lnot B\Rightarrow\lnot A$ | **always yes** |
+
+The inverse and the converse are contrapositives *of each other*, so they stand or fall together.
+
+When a question asks **"which must be true"**, the answer is almost always the contrapositive and the
+**converse is the trap option**.
+
+[negate a compound with De Morgan — see S4]{.eg}
+:::
+
+::: {.fs-card}
+### S3 · Necessary and sufficient ★
+
+$$\text{“}P\text{ sufficient for }Q\text{”}=P\Rightarrow Q\qquad
+\text{“}P\text{ necessary for }Q\text{”}=Q\Rightarrow P$$
+
+**Sufficient points forwards; necessary points backwards.**
+
+**The routine that answers every one of these.** Write the *exact* set of cases making each statement
+true, then compare by inclusion:
+
+$$P\subset Q\Rightarrow\textbf{sufficient, not necessary}\qquad
+Q\subset P\Rightarrow\textbf{necessary, not sufficient}$$
+$$P=Q\Rightarrow\textbf{both}\qquad\text{overlapping}\Rightarrow\textbf{neither}$$
+
+[25 % of recent papers — the largest single block of marks]{.eg}
+:::
+
+::: {.fs-card}
+### S4 · Quantifiers and negation ★
+
+$$\lnot(\forall x,\;P)=\exists x,\;\lnot P\qquad\lnot(\exists x,\;P)=\forall x,\;\lnot P$$
+
+The negation of "**all** X are Y" is "**some** X is **not** Y" — *not* "no X is Y".
+
+**De Morgan.** $\lnot(P\text{ and }Q)=\lnot P\text{ or }\lnot Q$; $\lnot(P\text{ or }Q)=\lnot P\text{ and }\lnot Q$.
+
+**Negating an implication.** $\lnot(P\Rightarrow Q)=P\text{ **and** }\lnot Q$ — never "if $P$ then not $Q$".
+
+**Order matters.** $\forall x\,\exists y$ lets $y$ depend on $x$; $\exists y\,\forall x$ needs one $y$ for
+all $x$ at once — far stronger.
+
+[to negate a chain, flip every quantifier in order, then the inside]{.eg}
+:::
+
+::: {.fs-card}
+### S5 · Proof methods
+
+- **Direct** — assume the hypothesis, deduce the conclusion. Represent generally ($2k$, $2k+1$).
+- **By cases** — split by remainder; check every case.
+- **By contradiction** — assume the negation, derive an absurdity.
+- **By counterexample** — to disprove "for all", one case is enough.
+
+**A counterexample must satisfy the hypothesis *and* fail the conclusion.** A case where the hypothesis
+fails proves nothing.
+
+**"Possible" is $\exists$** — produce one witness. **"Must" is $\forall$** — one counterexample destroys it.
+
+[read which one you were given before starting]{.eg}
+:::
+
+::: {.fs-card}
+### S6 · Scrambled proofs
+
+Anchor the ends, then follow the dependencies.
+
+1. **First line** introduces notation or assumes the hypothesis ("Let…", "Suppose…").
+2. **Last line** states the conclusion, or the contradiction.
+3. A line can only come after every line it **uses**.
+4. Connecting words carry the order: *therefore*, *hence*, *so*, *it follows*.
+
+**Build the chain yourself before reading the options** — the distractors are a tidy but wrong parallel
+chain, so comparing them directly is slower and riskier.
+
+[rare: one TMUA question in eight years, 2016 P2 Q7]{.eg}
+:::
+
+::: {.fs-card}
+### S7 · Spot the error ★
+
+Read downwards; stop at the **first** line that fails.
+
+1. **Small cases** — does it survive $n=1$, $x=0$, the empty case?
+2. **Dividing** — could the divisor be $0$? $ab=ac\Rightarrow b=c$ needs $a\neq0$.
+3. **Squaring** — invents roots; $\sqrt X<Y$ silently needs $Y>0$.
+4. **Reversing** — did it use the **converse** of what was proved?
+5. **For all vs there exists** — an example never proves a "for all".
+6. **$\sin A=\sin B\Rightarrow A=B$** is invalid.
+7. **Log with base $<1$ reverses the inequality.**
+
+*Sometimes the honest answer is "no error".*
+
+[exactly 1–3 per paper, every year since 2016]{.eg}
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 2 · T1 — Divisors and primes
+
+*Fifteen-plus Paper 2 questions across 2016–2023, and **not one of them a calculation**. The mathematics is
+tiny and repeats; learn it cold. Full page: **[T1](t01_divisors_primes.qmd)**.*
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Topic T1</div>
+<div class="fs-title">Divisors &amp; primes — the memorisable core</div>
+<div class="fs-sub">Every card has a standard counterexample attached. Learn the counterexample with the fact — that is what the questions actually test.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Primes and the $6n\pm1$ form ★
+
+Every prime $>3$ is of the form $6n\pm1$, because $6n$, $6n\pm2$ and $6n+3$ all carry a factor of $2$ or $3$.
+
+**The converse is false:** $25$, $35$, $49$, $55$ are all $6n\pm1$ and none is prime.
+
+**Edge cases that break proofs:** $1$ is **not** prime; $2$ is the **only** even prime; $3k$ is composite
+**only when $k>1$**, since $3\times1=3$ is prime.
+
+[$n^{2}+2$ is prime at $n=1$ — that single case kills several textbook "proofs"]{.eg}
+:::
+
+::: {.fs-card}
+### Euclid's lemma — the missing word ★
+
+$$p\mid ab\;\Longrightarrow\;p\mid a\ \text{ or }\ p\mid b\qquad\textbf{only if }p\textbf{ is prime}$$
+
+**Drop "prime" and it collapses:** $4\mid2\times2$ but $4\nmid2$. Smallest counterexample $a=4,\ b=c=2$.
+
+[2016 P2 Q13 and 2021 P2 Q4 are the *same* false statement — this is the word they removed]{.eg}
+:::
+
+::: {.fs-card}
+### Squaring doubles every exponent ★
+
+$n=p_1^{e_1}p_2^{e_2}\cdots\Rightarrow n^{2}=p_1^{2e_1}p_2^{2e_2}\cdots$, so $n^{2}$ carries only **even**
+powers.
+
+For a **prime** $p$: $p\mid n^{2}\Rightarrow p\mid n$. For a composite divisor you only recover its square
+root:
+$$12\mid n^{2}\iff 6\mid n\qquad(\textbf{not }12\mid n) .$$
+
+**Counterexample:** $n=6$ gives $n^{2}=36=12\times3$, yet $12\nmid6$.
+:::
+
+::: {.fs-card}
+### Remainders, and what squares leave
+
+"$b$ leaves remainder $r$ on division by $a$" means $b=aq+r$ **with $0\le r<a$** — the size condition is
+half the definition.
+
+**Trap:** if $r,s<a$ the product $rs$ need **not** be $<a$, so $rs$ is not the remainder of $bc$. Take
+$a=4$, $r=s=2$: $rs=4$, true remainder $0$.
+
+$$n^{2}\equiv0,1\ (\mathrm{mod}\ 3)\qquad n^{2}\equiv0,1\ (\mathrm{mod}\ 4)\qquad n^{2}\equiv0,1,4\ (\mathrm{mod}\ 8)$$
+
+A square is **never** $2\bmod3$ and **never** $3\bmod4$.
+:::
+
+::: {.fs-card}
+### The gcd toolkit
+
+$$\gcd(a,b)\mid a\pm b\qquad \gcd(a,\,b+ka)=\gcd(a,b)\qquad \gcd(n,\,n+1)=1$$
+
+If $\gcd(a,b)=d$ then $d$ divides **every** combination $xa+yb$ — which is why a common factor survives all
+the way down a recurrence.
+
+[$\gcd(a,b)=7$ with $u_{n+2}=u_n+u_{n+1}$ forces $7\mid u_n$ for every $n$]{.eg}
+:::
+
+::: {.fs-card}
+### Irreducible $\neq$ prime-valued ★
+
+A polynomial that does not factorise over the integers still takes **composite values**.
+
+$3x^{2}+3x+1$ is irreducible ($D=9-12=-3<0$), yet $x=5$ gives $91=7\times13$ — which is exactly
+$6^{3}-5^{3}$.
+
+**No non-constant polynomial takes only prime values**, so any claim of that shape is false before you read
+its proof.
+
+**Two meanings of "factor":** a divisor of an **integer**, and a factor of a **polynomial**. The examiners
+slide between them deliberately.
+:::
+
+::::
+
+:::::
+
+::: {.callout-tip}
+## The two reflexes for this topic
+
+1. **Test $n=1,2,3,4$ before reasoning.** For $n^{3}+5n$ that gives $6,18,42,84$ — one line of arithmetic
+   that eliminates five of seven options.
+2. **Check the smallest allowed case of every "therefore it is composite" step.** Almost every flawed proof
+   in this topic is correct for large $n$ and dies at the boundary.
+:::
+
+---
+
+# Part 3 · T2 — Shapes as logical conditions
+
+*Eight sittings, eight appearances. The geometry never goes beyond GCSE; what is tested is which property
+forces which, and whether you can produce the standard counterexample on demand. Full page:
+**[T2](t02_shapes_as_logic.qmd)**.*
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Topic T2</div>
+<div class="fs-title">Shapes as logical conditions</div>
+<div class="fs-sub">The lattice, the diagonal table, the congruence criteria and the three counterexamples. Learn the <strong>arrows</strong>: every question here is asking you to read one off, usually backwards.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### The quadrilateral lattice ★
+
+$$\text{square}\Rightarrow\text{rhombus}\Rightarrow\text{parallelogram}\Rightarrow\text{trapezium}$$
+$$\text{square}\Rightarrow\text{rectangle}\Rightarrow\text{parallelogram}$$
+
+A square is **both** a rhombus and a rectangle; nothing else is. A **kite** sits outside the chain unless it
+is a rhombus.
+
+*Arrows run one way only* — reading one backwards is what every wrong option in this topic does.
+:::
+
+::: {.fs-card}
+### The three counterexamples ★
+
+- **rhombus** — equal sides, perpendicular diagonals, **not a square**
+- **rectangle** — equal diagonals, right angles, **not a square**
+- **isosceles trapezium** — one pair parallel, other pair equal, **not a parallelogram**
+
+Almost every "is this sufficient?" question is killed by one of these three. *Reach for a named shape
+before you try to prove anything.*
+:::
+
+::: {.fs-card}
+### The diagonal table — these are the *iff*s ★
+
+| diagonals | shape guaranteed |
+|---|---|
+| bisect each other | parallelogram |
+| bisect **and equal** | rectangle |
+| bisect **and perpendicular** | rhombus |
+| bisect, equal **and** perpendicular | square |
+| one perpendicularly bisects the other | kite |
+
+Read each as **at least** that shape — a square satisfies every row. Most nec/suff options on the paper are
+one of these rows, altered.
+:::
+
+::: {.fs-card}
+### Forcing a parallelogram
+
+**Sufficient, each alone:** both pairs of sides parallel · both pairs equal · the **same one pair** both
+equal **and** parallel · diagonals bisect each other.
+
+**Not sufficient — the exam's favourite:** one pair *equal* and a **different** pair *parallel*
+($AB=CD$ but $AD\parallel BC$). That describes an **isosceles trapezium**.
+
+*Splitting "equal" and "parallel" across different pairs is the whole trap.*
+:::
+
+::: {.fs-card}
+### Congruence, and the one that is not ★
+
+**Criteria:** SSS · SAS · ASA · AAS · RHS.
+
+**SSA is not a criterion** — two sides and a *non-included* angle give the ambiguous case, two triangles.
+
+**Equal area is not a criterion either:** $\tfrac12ab\sin C$ equal gives only $\sin C_1=\sin C_2$, and
+
+$$\sin A=\sin B\iff B=A\ \text{ or }\ B=180^\circ-A .$$
+
+*Whenever an angle is recovered from a sine, stop — there are two possibilities.*
+:::
+
+::: {.fs-card}
+### Polygons and circles
+
+$$\text{interior sum}=(n-2)\times180^\circ\qquad\text{regular interior}=180^\circ-\frac{360^\circ}{n}$$
+
+$n=3,4,5,6,8,12\Rightarrow60^\circ,90^\circ,108^\circ,120^\circ,135^\circ,150^\circ$.
+
+**Pentagon consequence:** five angles in arithmetic progression sum to $5a=540^\circ$, so the **middle one
+is forced to be $108^\circ$**, whatever the common difference.
+
+**Equal areas from the centre $\neq$ regular:** each central angle is $\alpha$ or $180^\circ-\alpha$, so
+only $n=3$ forces regularity. For $n=4$, angles $60,120,60,120$ work.
+
+**Cyclic quadrilateral:** opposite angles sum to $180^\circ$ — a genuine *iff*.
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 4 · The exam-day card
+
+::: {.callout-important}
+## Before you read a single question
+
+Write these at the top of your rough paper:
+
+1. $\;$ **sufficient $\to$ forwards, necessary $\to$ backwards**
+2. $\;$ **contrapositive = equivalent; converse = trap**
+3. $\;$ $\lnot(P\Rightarrow Q)=P$ **and** $\lnot Q$
+4. $\;$ **rhombus · rectangle · isosceles trapezium** — the three counterexamples
+5. $\;$ $p\mid ab\Rightarrow p\mid a$ or $p\mid b$ — **only for prime $p$**
+:::
+
+::: {.callout-tip}
+## The thirty-second routine for any Paper 2 question
+
+**Name the reasoning type first, then do the mathematics.** Almost every lost mark comes from competent
+mathematics done on the wrong question.
+
+| The question says… | It is asking for… | So you… |
+|---|---|---|
+| "necessary", "sufficient" | set inclusion | find the **exact** set, then compare |
+| "must be true" | $\forall$ | find a counterexample, or prove it |
+| "possible", "can" | $\exists$ | **produce one witness** |
+| "which is equivalent" | contrapositive | negate both halves and reverse |
+| "first error", "best describes" | Err1/Err2 | read down, stop at the first failure |
+| no logical wording at all | Paper 1 technique | just calculate — about a quarter of the paper |
+:::
+
+::: {.callout-note appearance="simple"}
+**Where the marks are, from eight years of papers.** Necessary/sufficient **25 %** · straight calculation
+**28 %** · quantifiers **15 %** · spot the error **10 %** · converse/contrapositive **8 %** ·
+counterexample **7 %**. Divisors and primes carry about **13 %** of the questions, and a plane shape asked
+as a logical condition appears in **every** sitting.
+:::
+
+::: {.callout-note appearance="simple"}
+Full sessions: **[S1](s01_concepts.qmd)** · **[S2](s02_concepts.qmd)** · **[S3](s03_concepts.qmd)** ·
+**[S4](s04_concepts.qmd)** · **[S5](s05_concepts.qmd)** · **[S6](s06_concepts.qmd)** ·
+**[S7](s07_concepts.qmd)** · **[T1](t01_divisors_primes.qmd)** · **[T2](t02_shapes_as_logic.qmd)** ·
+overview: **[Paper 2 Toolkit](index.qmd)**.
+:::

@@ -86,6 +86,16 @@ purpose-built.
 
 : **Skill sessions — organised by reasoning type.**
 
+::: {.callout-important}
+## Start here in the final week — [Paper 2 Formula Sheet & Concept Summary](paper2_formula_sheet.qmd)
+
+Everything below, compressed onto **one page**: the seven reasoning sessions as seven cards, then the two
+recurring topics (**divisors & primes**, **shapes as logical conditions**), then an exam-day card with the
+five lines to write down before reading a single question.
+
+Use the session pages to *learn*; use that page to *revise*.
+:::
+
 ## Topic sessions
 
 The S-sessions above cut Paper 2 by **reasoning type**. These two cut it the other way, by the **topic that
