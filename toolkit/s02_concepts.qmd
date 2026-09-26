@@ -106,6 +106,43 @@ $Q\Rightarrow P$ swaps those roles — which is why it is a genuinely different 
 
 :::: {.fpnotes}
 
+## The routine, and negating comparisons
+
+**The routine for any awkward wording:**
+
+$$\text{English sentence}\;\longrightarrow\;\text{“if … then …”}\;\longrightarrow\;\text{contrapositive}
+\;\longrightarrow\;\text{(translate back if asked)}$$
+
+**Never operate on the original English directly.** Trying to negate an "only if" sentence in place is how
+people produce the *inverse* by accident.
+
+**The three styles, side by side.** Recall from S1 that *only if* keeps the order while a bare *if* swaps
+it — which is why the last row looks back-to-front and is the one most often got wrong:
+
+| Statement | As an arrow | Contrapositive | …as an arrow |
+|---|---|---|---|
+| if $A$ then $B$ | $A\Rightarrow B$ | if not $B$ then not $A$ | $\lnot B\Rightarrow\lnot A$ |
+| $A$ **only if** $B$ | $A\Rightarrow B$ | not $B$ **only if** not $A$ | $\lnot B\Rightarrow\lnot A$ |
+| $A$ **if** $B$ | $B\Rightarrow A$ | not $B$ **if** not $A$ | $\lnot A\Rightarrow\lnot B$ |
+
+*Read the last row carefully.* "$A$ if $B$" has contrapositive $\lnot A\Rightarrow\lnot B$, and writing that
+back in "if" style puts the **target first**: **not $B$ if not $A$**. The tempting "not $A$ if not $B$"
+unpacks to $\lnot B\Rightarrow\lnot A$ — the **inverse**.
+
+**Negating comparisons** — get these exactly right, because half-marks live here:
+
+| Statement | Its negation |
+|---|---|
+| $x>3$ | $x\le3$ |
+| $x\ge3$ | $x<3$ |
+| $x=3$ | $x\ne3$ |
+| $1<x<4$ | $x\le1$ **or** $x\ge4$ |
+
+The pattern: **negating a strict inequality gives a non-strict one, and vice versa** — the boundary case
+always changes sides. And negating a double inequality gives an **or**, never an *and*.
+
+---
+
 ## True or false? — test yourself
 
 Two kinds of question: *is this converse/contrapositive statement true?* and *is this rule about the
