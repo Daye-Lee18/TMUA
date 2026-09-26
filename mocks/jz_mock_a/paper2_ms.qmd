@@ -1,0 +1,666 @@
+---
+title: "JZ Mock Set A · Paper 2 — Worked Mark Scheme"
+subtitle: "Answer key + concise full method for all 20 questions"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+::: {.callout-important}
+## Answer key
+
+**1 E · 2 B · 3 G · 4 D · 5 H · 6 D · 7 H · 8 B · 9 A · 10 G ·
+11 A · 12 D · 13 D · 14 A · 15 C · 16 D · 17 G · 18 D · 19 D · 20 F**
+:::
+
+This page is an independently written worked mark scheme for **JZ Mock Set A, Paper 2**. Mark every
+question first; then read the method for anything missed **or solved slowly**. On Paper 2 the shortest
+reliable route matters as much as the final answer — several questions below collapse to two lines once
+the right substitution or the right logical form is spotted.
+
+Six of these have already been worked in class and live in the toolkit:
+
+| | goes with |
+|---|---|
+| **Q1** sufficient but not necessary | [S3 Q13](../../toolkit/s03_necessary_sufficient.qmd) |
+| **Q3** squaring an inequality — valid | [S7 Q16](../../toolkit/s07_spot_the_error.qmd) |
+| **Q4** counterexamples to $12\mid N^{2}\Rightarrow12\mid N$ | [S5 Q30](../../toolkit/s05_proof_methods.qmd) |
+| **Q5** $n^{2}+2$ prime $\Rightarrow3\mid n$ | [S7 Q17](../../toolkit/s07_spot_the_error.qmd) · [T1 fact 16](../../toolkit/t01_divisors_primes.qmd) |
+| **Q11** integral condition, necessary and sufficient | [S3 Q18](../../toolkit/s03_necessary_sufficient.qmd) |
+| **Q16** the safe and its three levers | [S2 Q9](../../toolkit/s02_converse_contrapositive.qmd) |
+| **Q17** $n\nmid k!$ for $k<n$ $\Rightarrow$ $n$ prime | [S7 Q20](../../toolkit/s07_spot_the_error.qmd) |
+
+---
+
+## Question 1 — **E** $\;|p|<1$
+
+Let $\mathrm{f}(x)=x^{3}-3px^{2}+4$. Then $\mathrm{f}'(x)=3x^{2}-6px=3x(x-2p)$, so the stationary points
+are at $x=0$ and $x=2p$, with stationary values
+
+$$\mathrm{f}(0)=4,\qquad \mathrm{f}(2p)=8p^{3}-12p^{3}+4=4-4p^{3}.$$
+
+A cubic with positive leading coefficient has **exactly one** real root precisely when the two stationary
+values have the **same sign**. Here $\mathrm{f}(0)=4>0$, so the condition is
+
+$$4-4p^{3}>0\iff p<1 .$$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(6.4, 3.8))
+x = np.linspace(-2.2, 2.6, 600)
+pv = 0.6
+ax.plot(x, x**3 - 3*pv*x**2 + 4, color='#1f77b4', lw=2.4)
+ax.axhline(0, color='0.5', lw=0.9); ax.axvline(0, color='0.75', lw=0.8)
+for xv, lab, dx in [(0, '$(0,\ 4)$', 14), (2*pv, '$(2p,\ 4-4p^{3})$', 18)]:
+    yv = xv**3 - 3*pv*xv**2 + 4
+    ax.plot([xv], [yv], 'o', color='#d62728', ms=7, zorder=5)
+    ax.annotate(lab, (xv, yv), textcoords='offset points', xytext=(dx, 16),
+                fontsize=10, color='#d62728')
+ax.set_title('both stationary values above the axis  $\\Rightarrow$  one real root',
+             fontsize=11)
+ax.set_xlabel('$x$'); ax.set_ylim(-4, 8)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+So $p<1$ is **necessary and sufficient**. A *sufficient but not necessary* condition is therefore a
+**proper subset** of $p<1$:
+
+- **E** $|p|<1$ means $-1<p<1$, which lies inside $p<1$ ✓ and is proper, since $p=-2$ also gives one root.
+- Every other option contains a value with $p\ge1$ — $\mathbf{A}$ lies entirely outside; $\mathbf{B}$
+  contains $p=2$; $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{F}$ all contain $p=1.5$, where the cubic has
+  three real roots.
+
+*"Sufficient but not necessary" means a proper subset of the true condition — so find the true condition
+first, then look for the option strictly inside it.*
+
+---
+
+## Question 2 — **B** $\;-\dfrac32$
+
+Expand the numerator, then divide by $x\sqrt x=x^{3/2}$ to put $y$ in power form:
+
+$$\left(\sqrt x+2\right)^{3}=x^{3/2}+6x+12\sqrt x+8
+\qquad\Longrightarrow\qquad
+y=1+6x^{-1/2}+12x^{-1}+8x^{-3/2}.$$
+
+Differentiate term by term:
+
+$$\frac{\mathrm{d}y}{\mathrm{d}x}=-3x^{-3/2}-12x^{-2}-12x^{-5/2}.$$
+
+At $x=4$: $\;4^{-3/2}=\tfrac18$, $4^{-2}=\tfrac1{16}$, $4^{-5/2}=\tfrac1{32}$, so
+
+$$\frac{\mathrm{d}y}{\mathrm{d}x}=-\frac38-\frac{12}{16}-\frac{12}{32}=-\frac38-\frac34-\frac38=-\frac32 .$$
+
+*Convert to powers of $x$ before differentiating; the quotient rule here is four times the work and twice
+the risk.*
+
+---
+
+## Question 3 — **G** — the attempt is valid
+
+The trap is step (II). Many students believe squaring an inequality is automatically illegitimate, and
+reach for it as the error.
+
+It is not. **Squaring is valid exactly when both sides are non-negative**, and step (I) has already
+established $x\ge3$, so
+
+$$x-2\ge1>0 ,\qquad \sqrt{x-3}\ge0 .$$
+
+Both sides are non-negative, so the squaring is an **equivalence**:
+
+$$\sqrt{x-3}<x-2\iff x-3<(x-2)^{2}\quad\text{for }x\ge3 .$$
+
+The rest is sound: $x-3<x^{2}-4x+4$ rearranges to $0<x^{2}-5x+7$, whose discriminant is
+$25-28=-3<0$, so with a positive leading coefficient it is positive for **every** real $x$ — in particular
+on $x\ge3$. The solution $x\ge3$ is correct.
+
+*Squaring is not banned; it is conditional. Check the signs of both sides before calling it an error —
+and note that step (I) was placed first precisely so that the signs would be available.*
+
+---
+
+## Question 4 — **D** — I and III only
+
+A counterexample to *"if $P$ then $Q$"* needs $P$ **true** and $Q$ **false**. Here $P$ is "$12\mid N^{2}$"
+and $Q$ is "$12\mid N$".
+
+| | $N^{2}$ | $12\mid N^{2}$? | $12\mid N$? | counterexample? |
+|---|---|:-:|:-:|---|
+| **I** $N=6$ | $36=12\times3$ | ✓ | ✗ | **yes** |
+| **II** $N=8$ | $64=12\times5+4$ | ✗ | ✗ | **no** — fails the hypothesis |
+| **III** $N=18$ | $324=12\times27$ | ✓ | ✗ | **yes** |
+| **IV** $N=24$ | $576=12\times48$ | ✓ | ✓ | **no** — satisfies the conclusion |
+
+*The two rejected candidates fail for opposite reasons: $N=8$ was never covered by the claim, while $N=24$
+is covered and obeys it. Both failures are worth naming out loud — they are the two standard wrong answers
+in every counterexample question.*
+
+---
+
+## Question 5 — **H** — the first error is on line VII
+
+Lines I–VI are all correct. Line II uses the fact that an integer not divisible by $3$ leaves remainder
+$1$ or $2$; line III checks both cases,
+
+$$n=3m+1\Rightarrow n^{2}=9m^{2}+6m+1,\qquad n=3m+2\Rightarrow n^{2}=3\left(3m^{2}+4m+1\right)+1,$$
+
+so $n^{2}\equiv1\pmod 3$ either way; line IV adds $2$ to reach remainder $0$; lines V and VI restate that
+as $n^{2}+2=3k$.
+
+**Line VII is the error.** $3k$ is not automatically composite: $k=1$ gives $3k=3$, which is **prime**.
+The argument needs $k>1$, which it never establishes.
+
+*And the gap is real, not cosmetic — the claim itself is false at $n=1$, where $n^{2}+2=3$ is prime while
+$1$ is not a multiple of $3$. Every other positive integer does satisfy it.*
+
+*This is the standard "it factorises, so it is composite" fallacy: a factorisation only makes a number
+composite if **both** factors exceed $1$.*
+
+---
+
+## Question 6 — **D** $\;40$
+
+Let $H$, $N$ and $E$ be the sets of hardback, not-illustrated and English books. We want the smallest
+possible $\lvert H\cap N\cap E\rvert$ — so **count the books that fail**.
+
+A book is outside $H\cap N\cap E$ exactly when it is paperback, or illustrated, or not in English:
+
+$$\lvert H^{c}\rvert=60,\qquad \lvert N^{c}\rvert=70,\qquad \lvert E^{c}\rvert=30 .$$
+
+By the union bound,
+
+$$\lvert H^{c}\cup N^{c}\cup E^{c}\rvert\le60+70+30=160 ,$$
+
+so
+
+$$\lvert H\cap N\cap E\rvert\ge200-160=\boxed{40}.$$
+
+**And $40$ is attainable**, which is the half most students skip: make the three failing sets **disjoint**
+— no book both paperback and illustrated, and so on. Then exactly $160$ books fail and exactly $40$
+succeed.
+
+*To minimise an intersection, maximise the union of the complements — and always check the bound is
+achievable, since an unachievable bound is not the answer.*
+
+---
+
+## Question 7 — **H** — IV only
+
+| | claim | verdict |
+|---|---|---|
+| **I** | $\dfrac{1}{a^{3}}>\dfrac{1}{b^{3}}$ | **false**: $a=-1<b=1$ gives $-1>1$ |
+| **II** | $3^{-a}<3^{-b}$ | **false**: $a<b\Rightarrow-a>-b$, and $3^{x}$ is increasing, so $3^{-a}>3^{-b}$ — the stated inequality is *never* true |
+| **III** | $a,b<0\Rightarrow ac<bd$ | **false**: $a=-2,\,b=-1,\,c=-4,\,d=-3$ gives $ac=8$ and $bd=3$ |
+| **IV** | $a,b,c,d<0\Rightarrow ac>bd$ | **true** |
+
+**Proof of IV.** We have $a<b<0$ and $c<d<0$.
+
+$$c<0 \;\text{ and }\; a<b \;\Longrightarrow\; ac>bc ,\qquad
+b<0 \;\text{ and }\; c<d \;\Longrightarrow\; bc>bd .$$
+
+Chaining, $ac>bc>bd$. ∎
+
+*Only IV pins down the sign of all four letters. I and III leave a sign free, and a free sign in an
+inequality question is a counterexample waiting to be written down.*
+
+---
+
+## Question 8 — **B** $\;1$
+
+Take reciprocals of the recurrence:
+
+$$a_{n+1}=\frac{a_n}{1+a_n}\;\Longrightarrow\;\frac{1}{a_{n+1}}=\frac{1+a_n}{a_n}=\frac{1}{a_n}+1 .$$
+
+So $b_n=\dfrac1{a_n}$ satisfies $b_{n+1}=b_n+1$ with $b_1=1$ — an arithmetic sequence. Hence $b_n=n$ and
+
+$$a_n=\frac1n .$$
+
+Now the sum telescopes:
+
+$$\sum_{n=1}^{\infty}a_na_{n+1}=\sum_{n=1}^{\infty}\frac{1}{n(n+1)}
+=\sum_{n=1}^{\infty}\left(\frac1n-\frac1{n+1}\right)
+=1-\lim_{N\to\infty}\frac{1}{N+1}=1 .$$
+
+*Partial sums: $\tfrac12,\ \tfrac23,\ \tfrac34,\ \tfrac45,\dots$ — the $N$th is $\tfrac{N}{N+1}$, which is
+the fastest way to be sure of the limit.*
+
+*A recurrence of the form $a_{n+1}=\dfrac{a_n}{1+a_n}$ is linear in the reciprocal. Whenever a recurrence
+divides by something involving $a_n$, try $1/a_n$ before anything else.*
+
+---
+
+## Question 9 — **A** $\;1-2\sqrt3<k<1+2\sqrt3$
+
+The requirement is $\lvert2x+k\rvert<x^{2}+(k-1)x+5$ for **every** real $x$. Since
+$\lvert A\rvert<B\iff A<B$ **and** $-A<B$, this splits into two conditions:
+
+$$x^{2}+(k-3)x+(5-k)>0 \qquad\text{and}\qquad x^{2}+(k+1)x+(5+k)>0 \qquad\text{for all }x .$$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(6.4, 3.9))
+kv = 2.0
+x = np.linspace(-5, 4, 700)
+ax.plot(x, x**2 + (kv - 1)*x + 5, color='#1f77b4', lw=2.4,
+        label='$y=x^{2}+(k-1)x+5$')
+ax.plot(x, np.abs(2*x + kv), color='#d62728', lw=2.2, label='$y=|2x+k|$')
+ax.axhline(0, color='0.7', lw=0.8)
+ax.set_ylim(-1, 14); ax.set_xlabel('$x$')
+ax.set_title('the parabola must clear BOTH arms of the V', fontsize=11)
+ax.legend(fontsize=9.5, loc='upper center')
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+Each has positive leading coefficient, so each holds everywhere exactly when its discriminant is negative:
+
+$$(k-3)^{2}-4(5-k)=k^{2}-2k-11<0 \iff 1-2\sqrt3<k<1+2\sqrt3 ,$$
+$$(k+1)^{2}-4(5+k)=k^{2}-2k-19<0 \iff 1-2\sqrt5<k<1+2\sqrt5 .$$
+
+Both must hold, and the first interval sits inside the second, so the answer is
+$1-2\sqrt3<k<1+2\sqrt3$.
+
+*$\lvert A\rvert<B$ is two conditions, not one — and when two intervals must both hold, the answer is the
+tighter one. Option D pairs one endpoint from each, which is what the question is fishing for.*
+
+---
+
+## Question 10 — **G** — II and III only
+
+Rewrite the region:
+
+$$x^{2}-2<y<x^{2}+2 \qquad\text{and}\qquad y<4-x .$$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(6.6, 4.4))
+x = np.linspace(-4.2, 3.2, 900)
+lo, hi, line = x**2 - 2, x**2 + 2, 4 - x
+ax.fill_between(x, lo, np.minimum(hi, line), where=np.minimum(hi, line) > lo,
+                color='#7a5195', alpha=0.20, label='$R$')
+ax.plot(x, lo, color='#1f77b4', lw=2.2, label='$y=x^{2}-2$')
+ax.plot(x, hi, color='#1f77b4', lw=1.6, ls='--', label='$y=x^{2}+2$')
+ax.plot(x, line, color='#2ca02c', lw=2.2, label='$y=4-x$')
+for xv in (-3, 2):
+    ax.plot([xv], [4 - xv], 'o', color='#d62728', ms=7, zorder=5)
+ax.annotate('$(-3,\\,7)$ — a corner of $R$,\nso $y$ gets close to $7$: I is false',
+            (-3, 7), textcoords='offset points', xytext=(-104, 54), fontsize=9.5, color='#d62728',
+            arrowprops=dict(arrowstyle='->', color='#d62728', lw=1.2))
+ax.annotate('$(2,\\,2)$ — the right-hand\ncorner: III is true',
+            (2, 2), textcoords='offset points', xytext=(-14, -58), fontsize=9.5, color='#d62728',
+            arrowprops=dict(arrowstyle='->', color='#d62728', lw=1.2))
+ax.axhline(-2, color='0.55', lw=1.0, ls=':')
+ax.text(-4.1, -1.7, '$y=-2$: the parabola never goes below, so II is true', fontsize=9, color='0.35')
+ax.set_xlim(-4.2, 3.2); ax.set_ylim(-3.2, 12)
+ax.set_xlabel('$x$'); ax.legend(fontsize=9, loc='upper center', ncol=2)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+**II is true.** Every point of $R$ has $y>x^{2}-2\ge-2$.
+
+**III is true.** A point of $R$ needs $x^{2}-2<y<4-x$, so it needs $x^{2}-2<4-x$, i.e.
+
+$$x^{2}+x-6<0\iff-3<x<2 .$$
+
+So certainly $x\le2$ — the upper parabola $y=x^{2}+2$ never enters the argument.
+
+**I is false.** The same calculation puts the left-hand corner at $x=-3$, $y=7$. That corner is not itself
+in $R$, but points of $R$ sit arbitrarily close to it, so $y$ takes values **above $6$**.
+
+*The bound on $x$ comes from the lower parabola against the line. Solving that one quadratic settles both I
+and III at once.*
+
+---
+
+## Question 11 — **A** — necessary and sufficient
+
+Integrate. Using $\cos^{3}\theta=\tfrac14\left(3\cos\theta+\cos3\theta\right)$ with $\theta=2x$,
+
+$$F(k)=\int_{0}^{k}\left(\cos x+\cos^{3}2x\right)\mathrm{d}x
+=\sin k+\frac38\sin 2k+\frac1{24}\sin 6k .$$
+
+Writing $t=\cos k$ and simplifying, this factorises:
+
+$$F(k)=\frac13\,\sin k\,(1+\cos k)\left(4\cos^{4}k-4\cos^{3}k+3\right).$$
+
+The last bracket is **never zero**: as a function of $t\in[-1,1]$, $4t^{4}-4t^{3}+3$ has its minimum at
+$t=\tfrac34$, where it equals $3-\tfrac{27}{64}=\tfrac{165}{64}>0$. So
+
+$$F(k)=0\iff \sin k=0 \ \text{ or } \ \cos k=-1 \iff k\in\pi\mathbb{Z},$$
+
+and the second case is contained in the first.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(7.2, 3.6))
+k = np.linspace(-2*np.pi, 4*np.pi, 2000)
+F = np.sin(k) + 0.375*np.sin(2*k) + np.sin(6*k)/24
+ax.plot(k, F, color='#1f77b4', lw=2.2)
+ax.axhline(0, color='0.6', lw=0.9)
+for m in range(-2, 5):
+    ax.plot([m*np.pi], [0], 'o', color='#d62728', ms=6, zorder=5)
+ax.set_xticks([m*np.pi for m in range(-2, 5)])
+ax.set_xticklabels(['$-2\\pi$', '$-\\pi$', '$0$', '$\\pi$', '$2\\pi$', '$3\\pi$', '$4\\pi$'])
+ax.set_title('$F(k)=\\int_0^k(\\cos x+\\cos^3 2x)\\,dx$ — zeros exactly at multiples of $\\pi$',
+             fontsize=11)
+ax.set_xlabel('$k$')
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+So $Q$ holds **exactly** when $k$ is an integer multiple of $\pi$, which is $P$. The two are equivalent,
+so $P$ is necessary and sufficient for $Q$.
+
+*The tempting shortcut — "$\int\cos x$ vanishes at multiples of $\pi$ and $\int\cos^{3}2x$ at multiples of
+$\tfrac\pi2$, so the sum vanishes at multiples of $\pi$" — only gives **sufficiency**. Necessity needs the
+sum to have no other zeros, and that is what the factorisation supplies.*
+
+---
+
+## Question 12 — **D** — IV only
+
+Rewrite in a workable form. From $y=\log_{x-1}4$ we get $(x-1)^{y}=4$, so
+
+$$y=\frac{\ln 4}{\ln(x-1)} ,\qquad x>1,\ x\neq2 .$$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(6.6, 4.0))
+L = np.linspace(1.02, 1.999, 500); R = np.linspace(2.001, 12, 900)
+for seg in (L, R):
+    ax.plot(seg, np.log(4)/np.log(seg - 1), color='#1f77b4', lw=2.4)
+ax.axvline(2, color='#d62728', lw=1.4, ls='--')
+ax.text(2.15, -7.4, '$x=2$: vertical asymptote,\nand the sign changes across it',
+        fontsize=9.5, color='#d62728')
+ax.axhline(0, color='#2ca02c', lw=1.4, ls=':')
+ax.text(6.4, 2.6, '$y=0$: horizontal asymptote,\nnever attained', fontsize=9.5, color='#2ca02c')
+ax.plot([1.5], [-2], 'o', color='#7a5195', ms=7, zorder=5)
+ax.plot([3], [2], 'o', color='#7a5195', ms=7, zorder=5)
+ax.annotate('$x=1.5:\ y=-2$', (1.5, -2), textcoords='offset points', xytext=(16, -18),
+            fontsize=9.5, color='#7a5195')
+ax.annotate('$x=3:\ y=+2$', (3, 2), textcoords='offset points', xytext=(20, 10),
+            fontsize=9.5, color='#7a5195')
+ax.set_xlim(1, 12); ax.set_ylim(-9, 9); ax.set_xlabel('$x$')
+ax.set_title('$y=\\log_{x-1}4$', fontsize=11.5)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+| | claim | verdict |
+|---|---|---|
+| **I** | $y>0$ throughout | **false**: $x=\tfrac32$ gives $\ln(x-1)=\ln\tfrac12<0$, so $y=-2$ |
+| **II** | strictly decreasing on the domain | **false**: it decreases on $(1,2)$ and on $(2,\infty)$ separately, but $x=\tfrac32<3$ with $y=-2<2$ — across the asymptote it *increases* |
+| **III** | every real $y$ is attained | **false**: $\ln4\neq0$, so $y=0$ is impossible |
+| **IV** | $y=0$ is an asymptote | **true**: $\ln(x-1)\to\infty$ as $x\to\infty$, so $y\to0$ |
+
+*"Decreasing on its domain" is a claim about the **whole** domain. A vertical asymptote splits the domain
+into branches, and a function can be decreasing on each branch while jumping upwards between them — which
+is exactly what happens here, and is also why III fails.*
+
+---
+
+## Question 13 — **D** $\;2$
+
+Put $u=\cos x$, so $u\in[-1,1]$ and $\sin^{2}x=1-u^{2}$:
+
+$$\text{numerator}=2\left(1-u^{2}\right)+10u-14=-2u^{2}+10u-12=-2(u-2)(u-3),$$
+$$\text{denominator}=u^{2}+3u-10=(u-2)(u+5).$$
+
+Since $u\le1$ we have $u\neq2$, so the factor $(u-2)$ cancels:
+
+$$f=\frac{-2(u-3)}{u+5}=\frac{6-2u}{u+5}=-2+\frac{16}{u+5}.$$
+
+This is **decreasing** in $u$, so the maximum is at $u=-1$:
+
+$$f_{\max}=-2+\frac{16}{4}=2 .$$
+
+*(And $u=1$ gives the minimum $-2+\tfrac{16}{6}=\tfrac23$, which is the decoy option A.)*
+
+*The substitution $u=\cos x$ removes the trigonometry entirely, and the shared factor $(u-2)$ is the whole
+design of the question — without the cancellation the expression looks much worse than it is.*
+
+---
+
+## Question 14 — **A** $\;0<a<\sqrt{\tfrac32}$
+
+First, $a\neq0$: otherwise $y=-\tfrac13x^{3}$ has no stationary points at all.
+
+$$y=-\tfrac13x^{3}+a^{2}x+a \;\Longrightarrow\; y'=-x^{2}+a^{2}=-(x-a)(x+a),$$
+
+so the stationary points are at $x=\pm a$. **The leading coefficient is negative**, so the curve goes
+$+\infty\to-\infty$: it falls, rises, then falls again. The **local minimum is the stationary point with
+the smaller $x$-coordinate**.
+
+$$y(a)=\tfrac23a^{3}+a ,\qquad y(-a)=-\tfrac23a^{3}+a .$$
+
+**If $a<0$:** the smaller $x$ is $a$ itself, and the minimum is at $\left(a,\ \tfrac23a^{3}+a\right)$ with
+both coordinates negative — third quadrant, not second. ✗
+
+**If $a>0$:** the smaller $x$ is $-a<0$ ✓, so the minimum is at $\left(-a,\ -\tfrac23a^{3}+a\right)$, and
+the second quadrant needs $y>0$:
+
+$$-\tfrac23a^{3}+a>0 \iff a\left(1-\tfrac23a^{2}\right)>0 \iff a^{2}<\tfrac32 \iff 0<a<\sqrt{\tfrac32}.$$
+
+*(The division by $a$ in the middle step is legitimate only because $a>0$ has already been forced.)*
+
+*Decide **which** stationary point is the minimum from the sign of the leading coefficient before computing
+anything. Half the wrong options here come from assuming $x=a$ is the minimum.*
+
+---
+
+## Question 15 — **C** $\;3\sqrt{13}$
+
+A shortest path across a surface becomes a **straight line** once the faces are unfolded flat. $X$ lies on
+edge $OA$ and $Y$ on edge $BC$, so unfold the two faces $OAB$ and $ABC$ about their common edge $AB$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+s3 = np.sqrt(3)
+A, B = np.array([0, 0]), np.array([12, 0])
+C, O = np.array([6, 6*s3]), np.array([6, -6*s3])
+X = (O + A)/2
+Z = (B + C)/2
+Y = B + 3*(C - B)/12
+
+fig, ax = plt.subplots(figsize=(6.6, 4.8))
+for tri, col in [((A, B, C), '#1f77b4'), ((A, B, O), '#2ca02c')]:
+    P = np.array(tri + (tri[0],))
+    ax.plot(P[:, 0], P[:, 1], color=col, lw=2.0)
+ax.plot([X[0], Y[0]], [X[1], Y[1]], color='#d62728', lw=2.6, zorder=4)
+ax.plot([X[0], Z[0]], [X[1], Z[1]], color='#7a5195', lw=1.6, ls='--')
+for P, lab, dx, dy in [(A, '$A$', -18, -6), (B, '$B$', 8, -6), (C, '$C$', 4, 8),
+                       (O, '$O$', 4, -18), (X, '$X$', -20, -4), (Y, '$Y$', 8, 4),
+                       (Z, '$Z$', 6, 6)]:
+    ax.plot([P[0]], [P[1]], 'o', color='0.25', ms=5, zorder=5)
+    ax.annotate(lab, P, textcoords='offset points', xytext=(dx, dy), fontsize=11)
+ax.annotate('$XZ=12$', (0.5*(X + Z)), textcoords='offset points', xytext=(-16, 10),
+            fontsize=10, color='#7a5195')
+ax.annotate('$ZY=3$', (0.5*(Z + Y)), textcoords='offset points', xytext=(12, -2),
+            fontsize=10, color='0.3')
+ax.annotate('$XY=3\\sqrt{13}$', (0.5*(X + Y)), textcoords='offset points', xytext=(-6, -22),
+            fontsize=11, color='#d62728')
+ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('the two faces unfolded about $AB$ — the path becomes a straight line', fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+Let $Z$ be the midpoint of $BC$. In the unfolded figure $X$ and $Z$ are midpoints of $OA$ and $BC$, so
+$XZ$ is parallel to $AC$ and equal to it in length:
+
+$$XZ=12 ,\qquad BZ=6,\ BY=3 \;\Longrightarrow\; ZY=3 ,\qquad \angle XZY=60^{\circ}$$
+
+(the last because $XZ\parallel AC$ and triangle $ABC$ is equilateral). The cosine rule gives
+
+$$XY^{2}=12^{2}+3^{2}-2(12)(3)\cos60^{\circ}=144+9-36=117 ,$$
+
+$$XY=\sqrt{117}=3\sqrt{13}\approx10.82 .$$
+
+*Check the other route as well: unfolding about $OB$ instead gives the same $117$ by symmetry, while going
+round through face $OAC$ gives $XY^{2}=189$ — longer. On a tetrahedron there are only a few unfoldings, so
+they can all be tested.*
+
+---
+
+## Question 16 — **D**
+
+Strip the wording down to symbols. Let
+
+$$P:\ \text{“}A\text{ is right \textbf{and} }(B\text{ is left \textbf{or} }C\text{ is right)”},\qquad
+Q:\ \text{“the safe is open”}.$$
+
+All we are told is $P\Rightarrow Q$. From that, **exactly one** other statement follows for free: the
+contrapositive $\lnot Q\Rightarrow\lnot P$.
+
+Negate $P$ with De Morgan, twice:
+
+$$\lnot P=\lnot A_{\text{right}}\ \textbf{or}\ \lnot\left(B_{\text{left}}\ \textbf{or}\ C_{\text{right}}\right)
+=\text{“}A\text{ is left \textbf{or} }(B\text{ is right \textbf{and} }C\text{ is left)”}.$$
+
+So the contrapositive reads: *if the safe is closed, then either $A$ is left, or both $B$ is right and $C$
+is left* — which is **D**.
+
+| | why it fails |
+|---|---|
+| **A** | $Q\Rightarrow P$ — the converse |
+| **B**, **C** | start correctly from $\lnot Q$ but attach something that is **not** $\lnot P$ (B keeps "and", C demands all three) |
+| **E** | $\lnot P\Rightarrow\lnot Q$ — the inverse |
+| **F** | tries to deduce something from $Q$, and $P\Rightarrow Q$ permits no deduction from $Q$ |
+
+*"and" and "or" **swap** under negation. Four of the five wrong options here are built from forgetting that
+swap, or from turning the arrow round.*
+
+---
+
+## Question 17 — **G** — the first mistake is on line 7, and the statement is false
+
+Line 7 claims that $a\ge2$ implies $2a<a^{2}$. It does not:
+
+$$2a<a^{2}\iff a>2 ,$$
+
+so the claim fails at exactly $a=2$, which line 6 has just allowed.
+
+**And the statement itself is false**, with $n=4$ as the counterexample:
+
+$$1!=1,\qquad 2!=2,\qquad 3!=6,$$
+
+none divisible by $4$ — yet $4$ is composite. Tracing $n=4$ through the proof, $a=b=2$ puts it in Case 2,
+lines 1–6 hold, and line 7 asserts $4<4$.
+
+*A case split is only as safe as its boundary. Whenever a proof writes $a\ge2$ and then uses a strict
+inequality, test $a=2$ — that single value is where these questions are built.*
+
+---
+
+## Question 18 — **D** — there are no solutions
+
+$$\log_a b=c,\qquad \log_b c=a,\qquad \log_c a=b ,\qquad a,b,c>0,\ \neq1 .$$
+
+**Step 1 — all three are on the same side of $1$.** The right-hand sides $a,b,c$ are positive, so all three
+logarithms are positive; and $\log_x y>0$ exactly when $x$ and $y$ are on the *same* side of $1$. Applying
+that to each equation in turn links $a$ with $b$, $b$ with $c$, and $c$ with $a$. So either all three
+exceed $1$, or all three lie in $(0,1)$.
+
+**Step 2 — both cases give a cyclic contradiction.** Rewrite in exponential form:
+
+$$b=a^{c},\qquad c=b^{a},\qquad a=c^{b}.$$
+
+- If $a,b,c>1$: raising $a>1$ to a power $c>1$ **increases** it, so $b=a^{c}>a$. Cyclically $c>b$ and
+  $a>c$, giving $a<b<c<a$. Impossible.
+- If $0<a,b,c<1$: raising a number in $(0,1)$ to a power in $(0,1)$ **increases** it, so again $b=a^{c}>a$,
+  and the same cycle gives $a<b<c<a$. Impossible.
+
+Hence no $(a,b,c)$ satisfies the system.
+
+*A cyclic system often dies to a cyclic **inequality**. You never solve anything here — you only establish
+the direction of one comparison and let the symmetry close the loop.*
+
+---
+
+## Question 19 — **D** $\;19\cdot2^{21}+2$
+
+On each interval $(k-1,\,k]$ the ceiling is constant, $\lceil x\rceil=k$, so the integrand is the constant
+$k\cdot2^{k}$ on an interval of width $1$:
+
+$$\int_{0}^{20}\lceil x\rceil\cdot2^{\lceil x\rceil}\,\mathrm{d}x=\sum_{k=1}^{20}k\cdot2^{k}=S .$$
+
+Evaluate $S$ by subtracting a shifted copy:
+
+$$2S=\sum_{k=1}^{20}k\cdot2^{k+1}=\sum_{j=2}^{21}(j-1)\cdot2^{j},$$
+
+$$S=2S-S=20\cdot2^{21}-1\cdot2^{1}-\sum_{j=2}^{20}2^{j}
+=20\cdot2^{21}-2-\left(2^{21}-4\right)=19\cdot2^{21}+2 .$$
+
+*(Numerically $S=39\,845\,890$.)*
+
+*A ceiling function is a step function, so the integral is a sum of rectangles of width $1$ — no
+integration is actually performed. The shifted-copy trick is the standard way to sum $\sum k r^{k}$.*
+
+---
+
+## Question 20 — **F** $\;901$
+
+Cross-multiplying the original equation (all four brackets are positive where the roots are defined):
+
+$$\sqrt{\frac{1+\sin x}{1-\sin 2x}}=\sqrt{\frac{1+\sin 2x}{1-\sin x}}
+\iff (1+\sin x)(1-\sin x)=(1+\sin 2x)(1-\sin 2x)$$
+$$\iff 1-\sin^{2}x=1-\sin^{2}2x \iff \cos^{2}x=\cos^{2}2x \iff \lvert\cos x\rvert=\lvert\cos 2x\rvert .$$
+
+Now put $t=\cos x$, so $\cos2x=2t^{2}-1$ and the condition is $\lvert t\rvert=\lvert2t^{2}-1\rvert$:
+
+$$2t^{2}-1=t\Rightarrow t=1,\ -\tfrac12 ;\qquad 2t^{2}-1=-t\Rightarrow t=\tfrac12,\ -1 .$$
+
+So $\cos x\in\left\{1,\ \tfrac12,\ -\tfrac12,\ -1\right\}$ — that is, **$x$ is a multiple of
+$60^{\circ}$**, and nothing else.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(8.4, 3.4))
+d = np.linspace(0, 420, 4000)
+ax.plot(d, np.abs(np.cos(np.radians(d))), color='#1f77b4', lw=2.2, label='$y=|\\cos x|$')
+ax.plot(d, np.abs(np.cos(np.radians(2*d))), color='#d62728', lw=2.0, label='$y=|\\cos 2x|$')
+for s in range(0, 421, 60):
+    ax.plot([s], [abs(np.cos(np.radians(s)))], 'o', color='#2ca02c', ms=7, zorder=5)
+ax.set_xticks(range(0, 421, 60))
+ax.set_xticklabels([f'${v}^\\circ$' for v in range(0, 421, 60)])
+ax.set_ylim(-0.08, 1.35)
+ax.set_title('the curves meet exactly at the multiples of $60^{\\circ}$', fontsize=11)
+ax.legend(fontsize=9.5, loc='upper center', ncol=2)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+No solution is lost to the domain restrictions: at a multiple of $60^{\circ}$ neither $\sin x$ nor
+$\sin2x$ equals $1$, so no denominator vanishes.
+
+Counting from $x=0^{\circ}$, the solutions are $0,60,120,\dots$, so the $n$th solution is
+$60(n-1)$ degrees and the **16th is $900^{\circ}$**. There are $15$ solutions in $0^{\circ}\le x<900^{\circ}$,
+so to capture $16$ we need $p>900$:
+
+$$p_{\min}=901 .$$
+
+*Two traps in one question. First $\sqrt{A^{2}}=\lvert A\rvert$, not $A$ — without the modulus the count is
+wrong. Second, the interval is **half-open**, so the sixteenth solution at exactly $900^{\circ}$ forces
+$p=901$ rather than $900$.*
+
+---
+
+## The four habits this paper rewards
+
+1. **Reduce before computing.** Q8 (reciprocals), Q13 ($u=\cos x$), Q20 ($t=\cos x$) and Q11
+   (factorising the integral) all collapse to a line after one substitution.
+2. **Strip the logic to symbols.** Q1, Q16 and Q11 are decided by *which arrow points where*, not by the
+   mathematics wrapped round them.
+3. **Check both halves of a claim.** Q4 and Q17 turn on candidates that fail the hypothesis, or that
+   satisfy the conclusion.
+4. **Test the boundary of a case split.** Q17 ($a=2$), Q14 (the sign of $a$) and Q20 (the half-open
+   interval) are all decided at a single endpoint.
+
+:::
