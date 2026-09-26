@@ -1,6 +1,6 @@
 ---
 title: "Paper 2 Toolkit · S1 — Statement Forms: if, only if, if and only if"
-subtitle: "Work each question — Easy → Medium → Hard"
+subtitle: "Work each question — Easy → Medium → Hard → past papers"
 format: html
 execute:
   echo: false
@@ -769,9 +769,9 @@ was doing any work.**
 
 ---
 
-# Part 4 — Exam bank
+# Part 4 — Exam bank: mock papers
 
-Four from real exam material. Three of them share a format the TMUA loves and nothing else does:
+Four from exam-style mock material. Three of them share a format the TMUA loves and nothing else does:
 **"given that exactly one of these statements is true, which one is it?"** You are told almost nothing about
 the mathematics — the answer comes from the *shapes* of the statements alone.
 
@@ -985,6 +985,17 @@ Working
 
 ---
 
+# Part 5 — Exam bank: real past papers
+
+Five genuine TMUA papers, one for each connective on the specification. **And** is an intersection of two
+solution sets; **or** is a union, and the exam only uses it when the two branches are exhaustive; **if and
+only if** is a two-way street that has to survive every line of a chain; and *sufficient* and *only if*
+still mean what S3 says they mean even when the mathematics around them is trigonometry.
+
+[Do the logic first and the mathematics second]{.hl}. In every question below the algebra is short once you
+know which set you are being asked for.
+
+
 ## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q14 &nbsp;◆</span>
 
 ::: {.question}
@@ -1068,6 +1079,354 @@ Working
    Paper 1 calculation practice, set so that your speed and technique keep moving while the Paper 2
    material settles. Mark it against the worked solutions in the same folder.
 :::
+
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q14</span>
+
+::: {.question}
+Consider the two inequalities:
+
+$$\lvert x+5\rvert<\lvert x+11\rvert \qquad\qquad \lvert x+11\rvert<\lvert x+1\rvert$$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** There is no real number for which **both** inequalities are true.
+&nbsp;&nbsp;**B** There is exactly one real number for which both inequalities are true.
+&nbsp;&nbsp;**C** The real numbers for which both are true form an interval of length $1$.
+&nbsp;&nbsp;**D** … an interval of length $2$. &nbsp;&nbsp;**E** … length $3$. &nbsp;&nbsp;**F** … length $4$. &nbsp;&nbsp;**G** … length $5$.
+:::
+
+*"Both"* is the word to notice: the answer set is an **intersection**, so solve the two separately and
+overlap them. And do not expand anything — [$\lvert x-a\rvert$ is the **distance** from $x$ to $a$ on the
+number line]{.hl}, so each inequality says "$x$ is nearer to one point than to another", which is settled
+by a midpoint.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — "and" as an intersection; modulus as distance
+:::
+
+**D — an interval of length $2$.**
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(8.0, 2.6))
+ax.axhline(0, color='0.3', lw=1.2)
+for pt, lab in [(-11, '$-11$'), (-8, '$-8$'), (-6, '$-6$'), (-5, '$-5$'), (-1, '$-1$')]:
+    ax.plot([pt], [0], 'o', color='0.3', ms=5)
+    ax.text(pt, -0.42, lab, ha='center', fontsize=10)
+
+ax.plot([-8, 1.5], [0.55, 0.55], color='#2ca02c', lw=5, solid_capstyle='butt', alpha=0.8)
+ax.text(-3.2, 0.78, 'first inequality:  $x>-8$', color='#2ca02c', fontsize=10, ha='center')
+ax.plot([-13.5, -6], [1.15, 1.15], color='#1f77b4', lw=5, solid_capstyle='butt', alpha=0.8)
+ax.text(-10.2, 1.38, 'second inequality:  $x<-6$', color='#1f77b4', fontsize=10, ha='center')
+ax.plot([-8, -6], [-0.9, -0.9], color='#d62728', lw=7, solid_capstyle='butt')
+ax.text(-7, -1.35, 'BOTH:  $-8<x<-6$,  length $2$', color='#d62728', fontsize=10.5, ha='center')
+
+for m, c in [(-8, '#2ca02c'), (-6, '#1f77b4')]:
+    ax.plot([m, m], [-1.1, 1.5], color=c, lw=1.0, ls=':')
+ax.set_xlim(-13.8, 2.2); ax.set_ylim(-1.9, 1.8); ax.axis('off')
+plt.tight_layout(); plt.show()
+```
+
+### The first inequality
+
+$\lvert x+5\rvert<\lvert x+11\rvert$ says *"the distance from $x$ to $-5$ is less than the distance from
+$x$ to $-11$"* — that is, $x$ lies on the $-5$ side of the midpoint of $-11$ and $-5$. The midpoint is
+
+$$\tfrac{1}{2}(-11-5)=-8 ,\qquad\text{so}\qquad x>-8 .$$
+
+### The second inequality
+
+$\lvert x+11\rvert<\lvert x+1\rvert$ says $x$ is nearer to $-11$ than to $-1$. The midpoint of $-11$ and
+$-1$ is
+
+$$\tfrac{1}{2}(-11-1)=-6 ,\qquad\text{so}\qquad x<-6 .$$
+
+### Intersect
+
+$$\{x>-8\}\;\cap\;\{x<-6\}\;=\;(-8,\,-6),$$
+
+an interval of **length $2$**. *Note that the two inequalities pull in opposite directions — one pushes
+$x$ right, the other left — which is exactly why options A and B look plausible until you draw the line.*
+
+**Check:** $x=-7$ gives $\lvert-2\rvert<\lvert4\rvert$ ✓ and $\lvert4\rvert<\lvert-6\rvert$ ✓. &nbsp;
+$x=-5$ gives $0<6$ ✓ but $6<4$ ✗.
+
+**The lesson.** Two conditions joined by **and** means **intersect the solution sets** — never combine the
+inequalities algebraically. [And a modulus inequality between two linear expressions is a midpoint
+question, not a squaring question]{.hl}: squaring both sides works, but takes four times as long.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q10</span>
+
+::: {.question}
+Here is an attempt to solve the inequality $x^{4}-2x^{2}-3<0$ by completing the square:
+
+> $x^{4}-2x^{2}-3<0$
+> **I** &nbsp; if and only if &nbsp; $x^{4}-2x^{2}+1<4$
+> **II** &nbsp; if and only if &nbsp; $\left(x^{2}-1\right)^{2}<4$
+> **III** &nbsp; if and only if &nbsp; $-2<x^{2}-1<2$
+> **IV** &nbsp; if and only if &nbsp; $x^{2}-1<2$
+> **V** &nbsp; if and only if &nbsp; $x^{2}<3$
+> **VI** &nbsp; if and only if &nbsp; $-\sqrt3<x<\sqrt3$
+
+Which of the following statements is true?
+
+&nbsp;&nbsp;**A** The argument is completely correct. &nbsp;&nbsp;**B** The first error occurs in line I.
+&nbsp;&nbsp;**C** … line II. &nbsp;&nbsp;**D** … line III. &nbsp;&nbsp;**E** … line IV. &nbsp;&nbsp;**F** … line V.
+&nbsp;&nbsp;**G** … line VI.
+:::
+
+Every line claims **if and only if**, so each one has to be checked in *both* directions. Step **IV** is the
+one that looks wrong — half of an inequality has simply been deleted. [Before calling it an error, ask
+whether the deleted half was saying anything at all]{.hl}.
+
+You have already met the same chain in [Question 7](#question-7) with $x^{4}-5x^{2}+4<0$; this is the exam's
+own version.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — an equivalence chain; when discarding a condition is legitimate
+:::
+
+**A — the argument is completely correct.**
+
+| step | what was done | two-way? |
+|---|---|---|
+| **I** | add $4$ to both sides: $-3+4=1$ on the left, $0+4=4$ on the right | ✓ adding a constant is reversible |
+| **II** | factorise $x^{4}-2x^{2}+1=\left(x^{2}-1\right)^{2}$ | ✓ an identity, not a step |
+| **III** | $u^{2}<4\iff-2<u<2$ with $u=x^{2}-1$ | ✓ the standard modulus fact |
+| **IV** | drop the left half $-2<x^{2}-1$ | ✓ **see below** |
+| **V** | add $1$ throughout | ✓ reversible |
+| **VI** | $x^{2}<3\iff-\sqrt3<x<\sqrt3$ | ✓ standard |
+
+### Step IV is the whole question
+
+The discarded half says
+
+$$-2<x^{2}-1 \iff x^{2}>-1 ,$$
+
+which is true for **every** real $x$. *A condition satisfied by everything constrains nothing, so removing
+it cannot change the solution set* — the "if and only if" survives. Dropping a condition is only an error
+when the condition actually excludes something.
+
+**Check the two ends against the original.** $x=1.73$: $x^{4}-2x^{2}-3=-0.028<0$ ✓ and
+$\lvert1.73\rvert<\sqrt3=1.7320\ldots$ ✓. &nbsp; $x=1.74$: $x^{4}-2x^{2}-3=+0.111$, not negative, and
+indeed $1.74>\sqrt3$ ✓. The final answer matches the original inequality exactly, as an unbroken chain of
+equivalences must.
+
+**The lesson.** In these chains the examiner's favourite move is to make a legitimate step *look* lossy.
+[Deleting a condition is safe precisely when that condition is automatically true]{.hl} — so when you see
+half an inequality vanish, solve the vanished half before you accuse the line. *Here it collapses to
+$x^{2}>-1$, and the argument is clean.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q12</span>
+
+::: {.question}
+In this question, $p$ is a real constant.
+
+The equation $\;\sin x\cos^{2}x=p^{2}\sin x\;$ has $n$ distinct solutions in the range $0\le x\le2\pi$.
+
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; $n=3$ is **sufficient** for $p>1$
+&nbsp;&nbsp;**II** &nbsp; $n=7$ **only if** $-1<p<1$
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** I and II
+:::
+
+Both statements are implications with $n$ on the left, so the useful thing to work out is the **map from
+$p$ to $n$** — and then read it backwards. *Never* expand the trigonometry: [factorise, because an equation
+of the form $A=kA$ is really $A(1-k)=0$]{.hl}.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — "sufficient for" and "only if" on a counting problem; the sign of $p$ is the trap
+:::
+
+**C — II only.**
+
+### Step 1 — solve, by factorising
+
+$$\sin x\cos^{2}x-p^{2}\sin x=0\;\Longrightarrow\;\sin x\left(\cos^{2}x-p^{2}\right)=0 .$$
+
+*Dividing by $\sin x$ here would throw away three solutions — this is why the factorised form matters.*
+
+- $\sin x=0$ gives $x=0,\ \pi,\ 2\pi$: **three solutions, always**, whatever $p$ is.
+- $\cos^{2}x=p^{2}$, i.e. $\cos x=\pm\lvert p\rvert$, gives the rest.
+
+### Step 2 — count by the size of $\lvert p\rvert$
+
+| range of $p$ | extra solutions from $\cos x=\pm\lvert p\rvert$ | $n$ |
+|---|---|---|
+| $\lvert p\rvert>1$ | none — $\cos x$ never exceeds $1$ | $3$ |
+| $\lvert p\rvert=1$ | $\cos x=\pm1$ gives $x=0,\pi,2\pi$ — **already counted** | $3$ |
+| $0<\lvert p\rvert<1$ | $\cos x=\lvert p\rvert$ gives $2$, $\cos x=-\lvert p\rvert$ gives $2$ | $7$ |
+| $p=0$ | $\cos x=0$ gives $x=\tfrac{\pi}{2},\tfrac{3\pi}{2}$ only | $5$ |
+
+*Only $\lvert p\rvert$ appears anywhere, because $p$ entered the equation squared. That single observation
+decides the question.*
+
+### Step 3 — now the logic
+
+**I is false.** *"$n=3$ is sufficient for $p>1$"* means $n=3\Rightarrow p>1$. But $n=3$ also happens at
+$p=-2$, and at $p=\pm1$. So $n=3$ does **not** force $p>1$. *The statement would have been true with
+$\lvert p\rvert\ge1$ in place of $p>1$ — the examiner dropped the modulus, and the equation only ever sees
+$p^{2}$.*
+
+**II is true.** *"$n=7$ only if $-1<p<1$"* means $n=7\Rightarrow-1<p<1$. From the table, $n=7$ occurs
+exactly when $0<\lvert p\rvert<1$, and every such $p$ does lie strictly between $-1$ and $1$. ✓
+*(The converse fails — $p=0$ lies in the range and gives $n=5$ — but "only if" never asked for it.)*
+
+Answer **C**.
+
+**The lesson.** [When a parameter appears only as $p^{2}$, every conclusion you can draw is about $\lvert
+p\rvert$]{.hl}, so an option phrased with a one-sided inequality is almost certainly the false one. And
+note the shape of the two answers: I fails because a *sufficient* claim needs its arrow to hold every time,
+while II survives because an *only if* claim asks for the weaker containment. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q17</span>
+
+::: {.question}
+Consider the following functions defined for $x>1$:
+
+$$\mathrm{f}(x)=\log_2\!\left(\log_2\sqrt{x}\right) \qquad\qquad \mathrm{g}(x)=\log_2\!\left(\sqrt{\log_2 x}\right)$$
+
+Which one of the following is true for **all** values of $x>1$?
+
+&nbsp;&nbsp;**A** &nbsp; $0\le \mathrm{f}\le \mathrm{g}$ &nbsp;**or**&nbsp; $\mathrm{g}\le \mathrm{f}\le0$
+&nbsp;&nbsp;**B** &nbsp; $0\le \mathrm{g}\le \mathrm{f}$ &nbsp;**or**&nbsp; $\mathrm{f}\le \mathrm{g}\le0$
+&nbsp;&nbsp;**C** &nbsp; $\tfrac12\le \mathrm{f}\le \mathrm{g}$ &nbsp;**or**&nbsp; $\mathrm{g}\le \mathrm{f}\le\tfrac12$
+&nbsp;&nbsp;**D** &nbsp; $\tfrac12\le \mathrm{g}\le \mathrm{f}$ &nbsp;**or**&nbsp; $\mathrm{f}\le \mathrm{g}\le\tfrac12$
+&nbsp;&nbsp;**E** &nbsp; $1\le \mathrm{f}\le \mathrm{g}$ &nbsp;**or**&nbsp; $\mathrm{g}\le \mathrm{f}\le1$
+&nbsp;&nbsp;**F** &nbsp; $1\le \mathrm{g}\le \mathrm{f}$ &nbsp;**or**&nbsp; $\mathrm{f}\le \mathrm{g}\le1$
+:::
+
+Every option is an **or** of two branches, and each branch pins the same three quantities in a different
+order. So two things have to come out of the algebra: *which of $\mathrm{f}$ and $\mathrm{g}$ is larger*,
+and *what number separates the two cases*. [An "or" is only useful in a "for all" claim when the two
+branches between them cover everything]{.hl} — so expect a single threshold.
+
+Substitute your way down to one variable before comparing anything.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — "or" as an exhaustive split at a threshold; reduce to one variable first
+:::
+
+**F.**
+
+### Step 1 — strip both functions down
+
+Put $t=\log_2 x$. Since $x>1$ we have $t>0$. Using $\log_2\sqrt{y}=\tfrac12\log_2 y$ on the inside of
+$\mathrm{f}$ and on the outside of $\mathrm{g}$:
+
+$$\mathrm{f}=\log_2\!\left(\tfrac{t}{2}\right)=\log_2 t-1 ,
+\qquad
+\mathrm{g}=\log_2\!\left(t^{1/2}\right)=\tfrac12\log_2 t .$$
+
+Now put $u=\log_2 t$, which runs over **all** real numbers as $t$ runs over $(0,\infty)$:
+
+$$\boxed{\ \mathrm{f}=u-1 ,\qquad \mathrm{g}=\tfrac{u}{2}\ }$$
+
+*Two straight lines. Everything the question asks is visible in this one substitution.*
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7.4, 4.4))
+u = np.linspace(-3, 6, 400)
+ax.plot(u, u - 1, color='#1f77b4', lw=2.4, label='$\\mathrm{f}=u-1$')
+ax.plot(u, u / 2, color='#d62728', lw=2.4, label='$\\mathrm{g}=u/2$')
+ax.axhline(1, color='0.45', lw=1.2, ls=':')
+ax.axvline(2, color='0.45', lw=1.2, ls=':')
+ax.plot([2], [1], 'o', color='#2ca02c', ms=9, zorder=5)
+ax.annotate('$u=2$: here $\\mathrm{f}=\\mathrm{g}=1$', (2, 1), textcoords='offset points',
+            xytext=(-128, 52), fontsize=10, color='#2ca02c',
+            arrowprops=dict(arrowstyle='->', color='#2ca02c', lw=1.2))
+ax.text(4.3, -2.4, '$u\\geq 2$:\n$1\\leq \\mathrm{g}\\leq \\mathrm{f}$', fontsize=10.5, color='0.25',
+        ha='center')
+ax.text(-1.45, 3.15, '$u\\leq 2$:\n$\\mathrm{f}\\leq \\mathrm{g}\\leq 1$', fontsize=10.5, color='0.25',
+        ha='center')
+ax.set_xlim(-3, 6); ax.set_ylim(-4.4, 5.2)
+ax.set_xlabel('$u=\\log_2\\log_2 x$')
+ax.legend(fontsize=10, loc='lower right', framealpha=0.95)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+### Step 2 — one threshold, and it is the same one three times
+
+$$\mathrm{f}-\mathrm{g}=(u-1)-\tfrac{u}{2}=\tfrac{u}{2}-1 ,$$
+
+so $\mathrm{f}\ge\mathrm{g}\iff u\ge2$. And both $\mathrm{f}\ge1\iff u\ge2$ and $\mathrm{g}\ge1\iff u\ge2$.
+*All three comparisons flip at the same place — which is why an "or" of two branches can cover every $x$.*
+
+| | $\mathrm{f}=u-1$ | $\mathrm{g}=u/2$ | order |
+|---|---|---|---|
+| $u\ge2$ | $\ge1$ | $\ge1$ | $1\le\mathrm{g}\le\mathrm{f}$ |
+| $u\le2$ | $\le1$ | $\le1$ | $\mathrm{f}\le\mathrm{g}\le1$ |
+
+Those are exactly the two branches of **F**, and they leave no $x$ uncovered.
+
+**Check:** $x=256$ gives $t=8$, $u=3$: $\mathrm{f}=2$, $\mathrm{g}=1.5$, so $1\le1.5\le2$ ✓. &nbsp;
+$x=4$ gives $t=2$, $u=1$: $\mathrm{f}=0$, $\mathrm{g}=0.5$, so $0\le0.5\le1$ ✓. &nbsp; $x=16$ gives
+$u=2$: $\mathrm{f}=\mathrm{g}=1$, the crossing point, and **both** branches hold at once — which an
+inclusive **or** allows.
+
+### Why the other options die
+
+Every option offers the same two orderings with a different separating constant. Test $x=16$, where
+$\mathrm{f}=\mathrm{g}=1$: any option separating at $0$ or $\tfrac12$ would need $1\le0$ or $1\le\tfrac12$
+in one branch and fails. *One well-chosen value kills A–D at a stroke.* E has the two orderings the wrong
+way round: it wants $\mathrm{f}\le\mathrm{g}$ when both are above $1$, and at $x=256$ that reads
+$2\le1.5$. ✗
+
+**The lesson.** [In a "for all" statement, an **or** is doing the work of a case split]{.hl}, so the
+question is always *where do the cases divide*. Find the threshold, check the two branches are exhaustive,
+and then test one value on the boundary — the boundary is where the wrong constants are exposed.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
 
 **The whole session in one line:**
 

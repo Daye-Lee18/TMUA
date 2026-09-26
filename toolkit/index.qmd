@@ -59,23 +59,28 @@ answer checked against the official solution.
 
 | Session | Class questions | of which Part 4 |
 |---|---|---|
-| **S1** Statement forms | 12 | 5 |
+| **S1** Statement forms | 16 | 9 |
 | **S2** Converse & contrapositive | 15 | 8 |
 | **S3** Necessary & sufficient | 20 | 14 |
 | **S4** Quantifiers & negation | 19 | 12 |
-| **S5** Proof methods | 34 | 7 |
+| **S5** Proof methods | 39 | 12 |
 | **S6** Scrambled proofs | 11 | 1 |
 | **S7** Spot the error | 20 | 10 |
 | **T1** Divisors & primes | 15 checks + 19 past-paper | — |
 | **T2** Shapes as logic | 8 checks + 8 past-paper | — |
 
-**S2 and S4 each split the bank in two**: **Part 4** is mock material, **Part 5** is genuine TMUA papers.
+**S1, S2, S4 and S5 each split the bank in two**: **Part 4** is mock material, **Part 5** is genuine TMUA
+papers.
 
+- **S1 Part 5** — 2021 Q17, 2022 Q14, 2023 Q10, 2023 Q12, 2023 Q14. One for each connective: **and** as an
+  intersection, **or** as an exhaustive split, an **if and only if** chain, and *sufficient* / *only if*.
 - **S2 Part 5** — 2018 Q11, 2019 Q17, 2020 Q12, 2020 Q20, 2023 Q9. That is very nearly the whole supply:
   converse and contrapositive is the named topic of only **seven** questions in 2016–2023, against
   twenty-nine for necessary/sufficient, which is why S2 is a short page and S3 a long one.
 - **S4 Part 5** — 2017 Q17, 2018 Q12, 2020 Q18, 2021 Q13, 2022 Q10, 2022 Q13, 2023 Q19. Quantifiers are
   the **fastest-growing** slot: exactly one question a paper from 2016 to 2020, then two to four from 2021.
+- **S5 Part 5** — 2017 Q16, 2018 Q3, 2018 Q6, 2019 Q7, 2020 Q8, 2023 Q3, 2023 Q16. Counterexample is one of
+  the two **most stable** slots — about two a year in all eight sittings.
 
 Note that "converse", "contrapositive", "for all" and "there exists" are often not the words on the page.
 The same ideas arrive as *only if*, *if and only if*, *for any*, *for some* and *is not prime for any $m$* —

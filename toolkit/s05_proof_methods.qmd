@@ -660,10 +660,10 @@ Working
 ---
 
 ::: {.callout-tip}
-# Part 3 — Counterexamples, exam-style
+# Part 4 — Exam bank: mock papers
 
-One counterexample kills a "for all" claim, and the exam knows it: every question below hands you a short
-list of candidates and asks **which of them actually work**. The whole skill is checking a candidate against
+One counterexample kills a "for all" claim, and the exam knows it: every question in Parts 4 and 5 hands
+you a short list of candidates and asks **which of them actually work**. The whole skill is checking a candidate against
 **both** halves of the claim — the hypothesis *and* the conclusion — instead of only the part that catches
 the eye.
 
@@ -888,6 +888,20 @@ Working
 
 ---
 
+# Part 5 — Exam bank: real past papers
+
+Seven genuine TMUA papers. Counterexample is one of the two most stable slots on the whole test — about two
+questions a year in every sitting from 2016 to 2023 — and the exam asks for it in four recognisable ways:
+
+1. **Which of these candidates works?** (2018 Q3, 2023 Q3) — check each against *both* halves of the claim.
+2. **Which statement can this one fact disprove?** (2019 Q7) — the fact is fixed; the claim varies.
+3. **Which function is a counterexample?** (2017 Q16) — the hypothesis is itself something to verify.
+4. **Is this disproof valid?** (2020 Q8) — and sometimes the honest answer is *yes*.
+
+[The recurring wrong answer is a candidate that breaks the conclusion but never satisfied the
+hypothesis]{.hl}, so it was never covered by the claim at all. Check the hypothesis first, every time.
+
+
 ## Question 33 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q6 &nbsp;◆</span>
 
 ::: {.question}
@@ -1004,11 +1018,365 @@ Working
 
 ---
 
+
+## Question 35 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q3</span>
+
+::: {.question}
+Consider the following statement:
+
+> A car journey consists of two parts. In the first part, the average speed is $u$ km/h. In the second
+> part, the average speed is $v$ km/h. Hence the average speed for the whole journey is
+> $\tfrac12(u+v)$ km/h.
+
+Which of the following examples of car journeys provide(s) a **counterexample** to the statement?
+
+&nbsp;&nbsp;**I** &nbsp; $50$ km/h for $100$ km, then $40$ km/h for $100$ km.
+&nbsp;&nbsp;**II** &nbsp; $50$ km/h for **one hour**, then $40$ km/h for **one hour**.
+&nbsp;&nbsp;**III** &nbsp; $50$ km/h for $80$ km, then $40$ km/h for $100$ km.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+Average speed is **total distance over total time** — never the average of two speeds. [Read each option
+for whether the two parts are matched by *distance* or by *time*]{.hl}, because that single difference
+decides all three.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — testing candidates one at a time; the case that is *not* a counterexample is the point
+:::
+
+**F — I and III only.**
+
+The claimed answer in every case is $\tfrac12(50+40)=45$ km/h.
+
+| | distance | time | total | average speed | counterexample? |
+|---|---|---|---|---|---|
+| **I** | $100+100=200$ | $\tfrac{100}{50}+\tfrac{100}{40}=2+2.5=4.5$ | | $\dfrac{200}{4.5}=44.\dot4$ | **yes**, $\neq45$ |
+| **II** | $50+40=90$ | $1+1=2$ | | $\dfrac{90}{2}=45$ | **no** — the claim holds |
+| **III** | $80+100=180$ | $\tfrac{80}{50}+\tfrac{100}{40}=1.6+2.5=4.1$ | | $\dfrac{180}{4.1}=43.90\ldots$ | **yes**, $\neq45$ |
+
+### Why II is the interesting one
+
+*When the two parts take **equal times**, the mean of the speeds is exactly right.* The formula
+$\tfrac12(u+v)$ is the time-weighted average, so it is correct precisely when the weights are equal. Option
+II is built to be the case where the false claim happens to be true.
+
+### Why I fails
+
+Equal **distances**, not equal times — and the slower leg takes longer, so it gets more weight. The correct
+value is the harmonic mean,
+
+$$\frac{2uv}{u+v}=\frac{2\times50\times40}{90}=44.\dot4 ,$$
+
+which is always **less** than $\tfrac12(u+v)$ unless $u=v$.
+
+**The lesson.** A claim that is false in general can still be true in special cases, and [the exam always
+includes one such case among the candidates]{.hl} — it is the commonest way to lose the mark. Test every
+candidate; do not stop at the first one that works. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+
+## Question 36 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q3</span>
+
+::: {.question}
+Consider the claim:
+
+> For all positive real numbers $x$ and $y$, &nbsp; $\sqrt{x^{y}}=x^{\sqrt y}$
+
+Which of the following is/are a **counterexample** to the claim?
+
+&nbsp;&nbsp;**I** &nbsp; $x=1,\ y=16$ &nbsp;&nbsp; **II** &nbsp; $x=2,\ y=8$ &nbsp;&nbsp; **III** &nbsp; $x=3,\ y=4$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+Do not try to decide whether the claim is true — [just evaluate the two sides at each of the three
+pairs]{.hl}. Two of them are chosen so that a false claim comes out true, and spotting *why* is the whole
+question.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a false claim with accidental successes; $\sqrt{x^{y}}=x^{y/2}$, not $x^{\sqrt y}$
+:::
+
+**C — II only.**
+
+The left side is $\sqrt{x^{y}}=x^{y/2}$. So the claim is really
+
+$$x^{y/2}=x^{\sqrt y}\;,$$
+
+which for $x\neq1$ needs $\dfrac y2=\sqrt y$, i.e. $y=2\sqrt y$, i.e. $y=0$ or $y=4$.
+*So the claim holds only when $x=1$ or $y=4$ — and both escape routes are on the candidate list.*
+
+| | left $=x^{y/2}$ | right $=x^{\sqrt y}$ | equal? | counterexample? |
+|---|---|---|---|---|
+| **I** $x=1,y=16$ | $1^{8}=1$ | $1^{4}=1$ | ✓ | **no** — every power of $1$ is $1$ |
+| **II** $x=2,y=8$ | $2^{4}=16$ | $2^{\sqrt8}=2^{2.828\ldots}=7.10\ldots$ | ✗ | **yes** |
+| **III** $x=3,y=4$ | $3^{2}=9$ | $3^{\sqrt4}=3^{2}=9$ | ✓ | **no** — $y=4$ makes $\tfrac y2=\sqrt y$ |
+
+Only II breaks it, so the answer is **C**.
+
+**The lesson.** [A single counterexample disproves a "for all" claim, but a single agreement proves
+nothing]{.hl} — and in this question two of the three candidates agree, for two *different* structural
+reasons: $x=1$ kills the exponent, and $y=4$ is the one value where $\tfrac y2$ and $\sqrt y$ coincide.
+*Simplify the claim before testing, and those two escape routes are visible in a line.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+
+## Question 37 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q7</span>
+
+::: {.question}
+For which one of the following statements can the fact that $12^{2}+16^{2}=20^{2}$ be used to produce a
+**counterexample**?
+
+&nbsp;&nbsp;**A** &nbsp; If $a$, $b$ and $c$ are positive integers which satisfy $a^{2}+b^{2}=c^{2}$, and the three numbers have **no common divisor**, then two of them are odd and the other is even.
+&nbsp;&nbsp;**B** &nbsp; The equation $a^{4}+b^{2}=c^{2}$ has no solutions for which $a$, $b$ and $c$ are positive integers.
+&nbsp;&nbsp;**C** &nbsp; The equation $a^{4}+b^{4}=c^{4}$ has no solutions for which $a$, $b$ and $c$ are positive integers.
+&nbsp;&nbsp;**D** &nbsp; If $a$, $b$ and $c$ are positive integers which satisfy $a^{2}+b^{2}=c^{2}$, then one is the **arithmetic mean** of the other two.
+:::
+
+The fact is fixed and the claim varies, so this is the counterexample test run four times. For each option
+ask the two questions in order: **does $12,16,20$ satisfy the hypothesis**, and **does it break the
+conclusion?** [You are also allowed to rewrite the fact]{.hl} — $144$, $256$ and $400$ can be presented in
+more than one shape.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — one fact, four claims; and a counterexample you have to *construct* from the fact
+:::
+
+**B.**
+
+The fact: $12^{2}+16^{2}=144+256=400=20^{2}$ ✓
+
+### A — the hypothesis fails
+
+The claim only covers triples with **no common divisor**, and $\gcd(12,16,20)=4$. *So $12,16,20$ lies
+outside the claim entirely and can say nothing about it.* This is the classic trap: the conclusion does
+fail here (two of $12,16,20$ are even, not odd), which makes A look right until the hypothesis is checked.
+
+### B — a counterexample, once you rewrite the fact
+
+B says $a^{4}+b^{2}=c^{2}$ is unsolvable. We need a **fourth** power. Note
+
+$$256=16^{2}=4^{4},$$
+
+so the same arithmetic reads
+
+$$4^{4}+12^{2}=256+144=400=20^{2} .$$
+
+With $a=4$, $b=12$, $c=20$ all positive integers, the claim is destroyed. ✓ *The fact was not handed over
+in the right costume — recognising $16^{2}$ as $4^{4}$ is the work.*
+
+### C — the fact cannot be reshaped that far
+
+$a^{4}+b^{4}=c^{4}$ needs **both** $144$ and $256$ to be fourth powers, and $144=12^{2}$ is not:
+$\sqrt{12}$ is irrational. *(This is Fermat's Last Theorem for $n=4$; no counterexample exists at all.)*
+
+### D — the conclusion holds
+
+$$\tfrac12(12+20)=16 ,$$
+
+so $16$ **is** the arithmetic mean of the other two. The triple satisfies both the hypothesis and the
+conclusion, so it supports D rather than refuting it. *(D is false in general — $3,4,5$ has no such mean —
+but this fact is not the counterexample for it.)*
+
+**The lesson.** Two different failures are on display here, and both are worth naming. [A candidate outside
+the hypothesis is not a counterexample]{.hl} (option A), and [a candidate that satisfies the conclusion is
+not one either]{.hl} (option D). Between them they account for most lost marks in this slot — and option B
+adds a third demand: *the fact may need rewriting before it fits the claim.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 38 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q16</span>
+
+::: {.question}
+Consider the following statement:
+
+> $(*)$ &nbsp; **If** $\mathrm{f}(x)$ is an integer for every integer $x$, **then** $\mathrm{f}'(x)$ is an
+> integer for every integer $x$.
+
+Which one of the following is a **counterexample** to $(*)$?
+
+&nbsp;&nbsp;**A** &nbsp; $\mathrm{f}(x)=\dfrac{x^{3}+x+1}{4}$
+&nbsp;&nbsp;**B** &nbsp; $\mathrm{f}(x)=\dfrac{x^{4}+x^{2}+x}{2}$
+&nbsp;&nbsp;**C** &nbsp; $\mathrm{f}(x)=\dfrac{x^{4}+x^{3}+x^{2}+x}{2}$
+&nbsp;&nbsp;**D** &nbsp; $\mathrm{f}(x)=\dfrac{x^{4}+2x^{3}+x^{2}}{4}$
+:::
+
+Two things must hold: $\mathrm{f}$ takes integer values at **every** integer (the hypothesis), and
+$\mathrm{f}'$ fails to at **some** integer (the conclusion breaks). [Test the hypothesis first — it is much
+cheaper]{.hl}, because $x=1$ disposes of any option whose numerator is odd there.
+
+The tool for the hypothesis is that **$x(x+1)$ is always even**, so anything of that shape divided by $2$
+is an integer.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a counterexample must satisfy the hypothesis; consecutive-integer divisibility
+:::
+
+**C.**
+
+### Step 1 — which options even satisfy the hypothesis?
+
+| | $\mathrm{f}(1)$ | hypothesis? |
+|---|---|---|
+| **A** | $\dfrac{1+1+1}{4}=\dfrac34$ | ✗ not an integer — **out** |
+| **B** | $\dfrac{1+1+1}{2}=\dfrac32$ | ✗ not an integer — **out** |
+| **C** | $\dfrac{1+1+1+1}{2}=2$ | ✓ so far |
+| **D** | $\dfrac{1+2+1}{4}=1$ | ✓ so far |
+
+*Two options eliminated by a single substitution, before any differentiation.*
+
+### Step 2 — do C and D really satisfy it for **every** integer?
+
+**C.** &nbsp; $x^{4}+x^{3}+x^{2}+x=x\left(x^{2}+1\right)(x+1)$, and $x(x+1)$ is a product of consecutive
+integers, hence even. So $\mathrm{f}(x)$ is an integer for every integer $x$ ✓
+
+**D.** &nbsp; $x^{4}+2x^{3}+x^{2}=x^{2}(x+1)^{2}$, so
+
+$$\mathrm{f}(x)=\left(\frac{x(x+1)}{2}\right)^{2},$$
+
+and $\tfrac{x(x+1)}{2}$ is an integer — it is the triangular number. ✓
+
+### Step 3 — the derivatives
+
+**C.** &nbsp; $\mathrm{f}'(x)=\dfrac{4x^{3}+3x^{2}+2x+1}{2}$. At $x=2$:
+
+$$\mathrm{f}'(2)=\frac{32+12+4+1}{2}=\frac{49}{2},$$
+
+**not an integer.** Hypothesis holds, conclusion fails — **C is the counterexample.** ✓
+
+*(Note $\mathrm{f}'(1)=\tfrac{10}{2}=5$ is an integer, so $x=1$ would not have found it. The odd term
+$3x^{2}$ is what breaks parity, and it needs an even $x$ to show.)*
+
+**D.** &nbsp; $\mathrm{f}'(x)=\dfrac{4x^{3}+6x^{2}+2x}{4}=\dfrac{2x^{3}+3x^{2}+x}{2}=\dfrac{x(x+1)(2x+1)}{2}$,
+which is an integer for every integer $x$ — again because $x(x+1)$ is even. The conclusion **holds**, so D
+is not a counterexample.
+
+**The lesson.** [Both halves must be checked, and in the cheap order]{.hl}: one substitution killed A and
+B, and only then was it worth differentiating. *And when testing the conclusion, do not stop at $x=1$ — a
+parity failure often needs an even input to appear.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+
+## Question 39 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q8</span>
+
+::: {.question}
+A student is asked to prove whether the following statement $(*)$ is true or false:
+
+> $(*)$ &nbsp; For all real numbers $a$ and $b$, &nbsp; $\lvert a+b\rvert<\lvert a\rvert+\lvert b\rvert$
+
+The student's proof is as follows:
+
+> *Statement $(*)$ is **false**. A counterexample is $a=3$, $b=4$, as $\lvert3+4\rvert=7$ and
+> $\lvert3\rvert+\lvert4\rvert=7$, but $7<7$ is false.*
+
+Which of the following best describes the student's proof?
+
+&nbsp;&nbsp;**A** &nbsp; $(*)$ is true, and the student's proof is not correct.
+&nbsp;&nbsp;**B** &nbsp; $(*)$ is false, but the proof is not correct: the counterexample is not valid.
+&nbsp;&nbsp;**C** &nbsp; $(*)$ is false, but the proof is not correct: the student needs to give **all** the values of $a$ and $b$ where $\lvert a+b\rvert<\lvert a\rvert+\lvert b\rvert$ is false.
+&nbsp;&nbsp;**D** &nbsp; $(*)$ is false, but the proof is not correct: the student should instead have stated that for all real $a$ and $b$, $\lvert a+b\rvert\le\lvert a\rvert+\lvert b\rvert$.
+&nbsp;&nbsp;**E** &nbsp; $(*)$ is false, and the student's proof is fully correct.
+:::
+
+Every option except one accuses the student of something. [Before looking for the fault, check whether
+there is one]{.hl}: does $a=3$, $b=4$ satisfy the hypothesis, and does it make the conclusion false?
+
+Note the strict $<$ in $(*)$. The familiar triangle inequality has $\le$, and the difference is the whole
+question.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — what a disproof is obliged to do, and what it is not
+:::
+
+**E — the statement is false, and the proof is fully correct.**
+
+### The counterexample works
+
+$a=3$ and $b=4$ are real numbers, so the hypothesis *"for all real $a$ and $b$"* covers them. And
+
+$$\lvert3+4\rvert=7 ,\qquad \lvert3\rvert+\lvert4\rvert=3+4=7 ,\qquad 7<7 \text{ is false.}$$
+
+So $(*)$ fails at this pair, and one failing case is enough to destroy a "for all" claim. **Nothing further
+is required.**
+
+### Why each accusation misses
+
+| | the accusation | why it fails |
+|---|---|---|
+| **A** | $(*)$ is true | It is not: it fails at $a=3,b=4$, and indeed at every pair with the same sign. |
+| **B** | the counterexample is invalid | It is valid — both numbers are real and the inequality genuinely fails. *The likely misreading is that $7<7$ being false somehow spoils it; that failure **is** the counterexample.* |
+| **C** | you must list **all** failing values | No. *To disprove "for all", one case suffices; listing them all is a different and much larger task that nobody asked for.* |
+| **D** | you should have written $\le$ instead | $\lvert a+b\rvert\le\lvert a\rvert+\lvert b\rvert$ is a true statement, but the student was asked about $(*)$, not invited to repair it. *Replacing a claim with a nearby true one is not a proof or a disproof of the original.* |
+
+### The mathematics behind it
+
+$\lvert a+b\rvert=\lvert a\rvert+\lvert b\rvert$ exactly when $a$ and $b$ have the same sign (or one is
+zero); otherwise the strict inequality does hold. *So $(*)$ is not wildly false — it fails on precisely
+half the plane, and $a=3,b=4$ is the simplest point in that half.*
+
+**The lesson.** [A disproof owes you exactly one case, fully checked — no more]{.hl}. Options C and D are
+both invitations to do unnecessary work, and both are wrong for the same reason: they mistake *thorough*
+for *correct*. *When a question asks you to judge a proof, the answer "it is fine" is always on the table.*
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
 ## The one habit to leave with
 
 Match the claim to the method on sight, and never prove a "for all" by examples. Contradiction and
 counterexample carry the most marks on Paper 2 — the two to be fastest at. Part 3 is where the 8–9 marks
 live: parity clashes, squares mod 4, extraneous roots.
+
+And in Parts 4 and 5, before deciding whether a candidate is a counterexample, always ask the two questions
+in this order: **does it satisfy the hypothesis**, and **does it break the conclusion**. Almost every wrong
+answer in that bank is a candidate that fails the first question.
 :::
 
 :::

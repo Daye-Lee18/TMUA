@@ -171,13 +171,18 @@ Q19 (polygon in a circle), 2023 Q9 (pentagon). **Eight sittings, eight appearanc
    structure instead. One further 2017 question, **P2 Q17** (F, the "stapled" set), is a quantifier
    negation rather than a converse, and belongs in **S4**.
 
-5. **Mine every paper for quantifier questions.** *Done.* **S4 Part 5** now holds seven genuine papers —
+5. **Fill the same gap on every page.** *Done.* **S1 Part 5** holds five genuine papers (2021 Q17,
+   2022 Q14, 2023 Q10, Q12, Q14), and **S5 Part 5** holds seven (2017 Q16, 2018 Q3, Q6, 2019 Q7, 2020 Q8,
+   2023 Q3, Q16). Across the seven class pages, real past papers went from **10 to 28**. The gap that
+   remains is **S7**: twenty questions, only two of them real papers (2016 Q13, 2022 Q7).
+
+6. **Mine every paper for quantifier questions.** *Done.* **S4 Part 5** now holds seven genuine papers —
    2017 Q17, 2018 Q12, 2020 Q18, 2021 Q13, 2022 Q10, 2022 Q13 and 2023 Q19 — up from two. As with S2, the
    keywords are unreliable: 2018 Q12 hides a $\forall$ inside the English phrase *"is not prime for any
    positive integer $m$"*, and 2017 Q17 hides its quantifiers inside a made-up definition.
 5. **Do not drop the constants.** Spot-the-error and counterexample have not changed in eight years — about
    four marks a paper between them, for a fixed and small amount of teaching.
-6. **S6 stays last, but stop calling it hypothetical.** One real question exists: 2016 P2 Q7.
+7. **S6 stays last, but stop calling it hypothetical.** One real question exists: 2016 P2 Q7.
 
 ---
 
