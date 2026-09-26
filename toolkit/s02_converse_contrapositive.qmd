@@ -100,33 +100,6 @@ same $n=4$ breaks it.
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — the three rearrangements
-
-From $A \Rightarrow B$ there are exactly three things you can do:
-
-| Name | Operation | Form | Equivalent to the original? |
-|---|---|---|---|
-| **Converse** | reverse | $B \Rightarrow A$ | **No** |
-| **Inverse** | negate | not $A \Rightarrow$ not $B$ | **No** |
-| **Contrapositive** | **negate and reverse** | not $B \Rightarrow$ not $A$ | **Yes, always** |
-
-**How to keep them straight.**
-
-- The **contrapositive** is the only one with **two** operations — and it is the only one that is safe.
-- The **converse and the inverse are contrapositives of each other**, so they are equivalent *to each
-  other* — and both are unrelated to the original. (That is why they are true or false together: in
-  Question 1, both (a) and (c) came out false.)
-
-**A picture.** Read $A \Rightarrow B$ as "circle $A$ sits inside circle $B$".
-
-- **Contrapositive:** *outside $B$ ⟹ outside $A$*. Look at the picture — if all of $A$ is inside $B$,
-  then anything outside $B$ certainly missed $A$. **Same picture, read from outside in.** That is *why*
-  it is always equivalent.
-- **Converse:** *inside $B$ ⟹ inside $A$*. That would need the two circles to **coincide**, which is a
-  genuinely different claim.
-:::
-
 ```{python}
 import matplotlib.pyplot as plt
 ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
@@ -219,53 +192,6 @@ inverse are contrapositives of each other**, so they always stand or fall togeth
 
 ::: {.workspace style="min-height:7cm"}
 Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — the one forbidden combination
-
-$A \Rightarrow B$ makes exactly **one** promise: *you will never find $A$ true while $B$ is false.*
-Everything else is permitted.
-
-**How to read the table.** Each row is one possible situation — a combination of "is $A$ true?" and "is
-$B$ true?". The last column asks: *would that situation make the promise a lie?*
-
-| Row | $A$ | $B$ | Situation, in the rain example | Promise broken? |
-|---|---|---|---|---|
-| 1 | true | true | it rained, ground wet | no — exactly as promised |
-| 2 | true | **false** | it rained, ground **dry** | **YES** — the only way to break it |
-| 3 | false | true | no rain, ground wet | no — a burst pipe; the promise said nothing about this |
-| 4 | false | false | no rain, ground dry | no — again, nothing was promised |
-
-**Rows 3 and 4 are why the converse and inverse cannot be deduced.** When $A$ is false, the statement
-makes **no claim at all** about $B$ — so $B$ is free to be either. Row 3 is precisely the counterexample
-that kills the converse.
-
-::: {.callout-note appearance="simple"}
-**Why this makes the contrapositive equivalent — slowly.**
-
-Two statements are the same statement when they are **broken by exactly the same situations**. So ask,
-for the contrapositive "not $B \Rightarrow$ not $A$", which row breaks *it*.
-
-An implication is broken when its **front is true and its back is false**. For "not $B \Rightarrow$ not
-$A$", that means:
-
-- front true: &nbsp; "not $B$" is true &nbsp;$\longrightarrow$&nbsp; **$B$ is false**
-- back false: &nbsp; "not $A$" is false &nbsp;$\longrightarrow$&nbsp; **$A$ is true**
-
-So the contrapositive is broken when $A$ is true and $B$ is false — **row 2, the same single row** that
-breaks the original. Same breaking condition, same statement. ∎
-
-Now try the same test on the **converse** ($B \Rightarrow A$): it is broken when $B$ is true and $A$ is
-false — that is **row 3**, a *different* row. Different breaking condition, different statement. That is
-the whole distinction, in one calculation.
-:::
-
-::: {.callout-note appearance="simple"}
-**Proving something is false.** To show $A \Rightarrow B$ is *false*, you must produce a case where $A$
-holds and $B$ fails — a **counterexample**. Part (d) is what a counterexample looks like: not "I disagree",
-but a specific situation the statement forbids.
-:::
 :::
 
 ---
@@ -392,35 +318,6 @@ is nothing further to do]{.hl}.
 
 ::: {.workspace style="min-height:9cm"}
 Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — when to reach for the contrapositive
-
-**The method.**
-
-1. You want to prove $A \Rightarrow B$ and the direct route is awkward.
-2. Write the contrapositive: **not $B \Rightarrow$ not $A$**.
-3. Prove *that* instead.
-4. Say the sentence: *"since a statement and its contrapositive are equivalent, the original follows."*
-
-**The signal to use it.** Reach for the contrapositive when the **negations are easier to work with than
-the originals**. Typical cases:
-
-| Original hypothesis | Negation | Which is easier? |
-|---|---|---|
-| $n^2$ is even | $n$ is odd | the **negation** — it gives you $n = 2m+1$ |
-| $x$ is irrational | $x$ is rational | the **negation** — it gives you $x = p/q$ |
-| "at least one of …" | "none of …" | the **negation** — one case instead of many |
-
-Anything of the form *"if [something about a square/product] then [something about the number itself]"*
-is a strong candidate, because squaring is easy and un-squaring is not.
-
-::: {.callout-note appearance="simple"}
-**Not the same as proof by contradiction.** In a proof by contrapositive you assume **not $B$** and derive
-**not $A$** — a clean, direct argument. In a proof by contradiction you assume **$A$ and not $B$** together
-and derive an absurdity. They feel similar and are often confused; contradiction is Session 5.
-:::
 :::
 
 ---
@@ -566,26 +463,6 @@ The question asks *"equivalent to"*, not *"also true"*.
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — a 30-second exam routine
-
-1. **Name the halves.** Write "$P$ = …, $Q$ = …" on your paper.
-2. **Write the theorem as one arrow**, $P \Rightarrow Q$.
-3. **Convert each option to an arrow**, using the S1 rules for *if* / *only if*.
-4. **Match by shape**, not by meaning:
-
-| What you see | It is | Equivalent? |
-|---|---|---|
-| $P \Rightarrow Q$ | the original (perhaps restyled) | ✓ |
-| not $Q \Rightarrow$ not $P$ | contrapositive | ✓ |
-| $Q \Rightarrow P$ | converse | ✗ |
-| not $P \Rightarrow$ not $Q$ | inverse | ✗ |
-
-**Never** let the truth of a statement enter this decision. Exam writers deliberately choose theorems
-where the converse is *also* true (as here), precisely so that candidates who reason "it's true, so it
-must be equivalent" get it wrong.
-:::
-
 ---
 
 ## Question 7
@@ -664,27 +541,6 @@ statement to assume is the entire skill here.
 
 ::: {.workspace style="min-height:9cm"}
 Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — auditing any proof in two lines
-
-Whenever you are asked whether a proof is valid, ignore the algebra at first and write down two things:
-
-$$\textbf{ASSUMED: } \underline{\qquad\qquad} \qquad\qquad \textbf{REQUIRED: } \underline{\qquad\qquad}$$
-
-Then check the match:
-
-| Assumed → concluded | Verdict |
-|---|---|
-| exactly what was required | ✓ valid (direct proof) |
-| **not $B$** → **not $A$**, when $A \Rightarrow B$ was required | ✓ valid (proof by contrapositive) |
-| $B$ → $A$, when $A \Rightarrow B$ was required | ✗ **proved the converse** |
-| not $A$ → not $B$, when $A \Rightarrow B$ was required | ✗ **proved the inverse** |
-
-**A quick tell:** a genuine proof by contrapositive **contains negations** — it starts from "suppose $n$
-is *even*", "suppose $x$ is *rational*". If a student claims contrapositive but their argument has no
-negation anywhere, they have almost certainly proved the converse instead.
 :::
 
 ---

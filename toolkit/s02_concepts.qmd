@@ -106,6 +106,90 @@ $Q\Rightarrow P$ swaps those roles — which is why it is a genuinely different 
 
 :::: {.fpnotes}
 
+## What an implication actually promises
+
+$P \Rightarrow Q$ makes exactly **one** promise: *you will never find $P$ true while $Q$ is false.*
+Everything else is permitted.
+
+**How to read the table.** Each row is one possible situation — a combination of "is $P$ true?" and "is
+$Q$ true?". The last column asks: *would that situation make the promise a lie?*
+
+| Row | $P$ | $Q$ | Situation, in the rain example | Promise broken? |
+|---|---|---|---|---|
+| 1 | true | true | it rained, ground wet | no — exactly as promised |
+| 2 | true | **false** | it rained, ground **dry** | **YES** — the only way to break it |
+| 3 | false | true | no rain, ground wet | no — a burst pipe; the promise said nothing about this |
+| 4 | false | false | no rain, ground dry | no — again, nothing was promised |
+
+**Rows 3 and 4 are why the converse and inverse cannot be deduced.** When $P$ is false, the statement
+makes **no claim at all** about $Q$ — so $Q$ is free to be either. Row 3 is precisely the counterexample
+that kills the converse.
+
+**Why this makes the contrapositive equivalent — slowly.**
+
+Two statements are the same statement when they are **broken by exactly the same situations**. So ask,
+for the contrapositive "not $Q \Rightarrow$ not $P$", which row breaks *it*.
+
+An implication is broken when its **front is true and its back is false**. For "not $Q \Rightarrow$ not
+$P$", that means:
+
+- front true: &nbsp; "not $Q$" is true &nbsp;$\longrightarrow$&nbsp; **$Q$ is false**
+- back false: &nbsp; "not $P$" is false &nbsp;$\longrightarrow$&nbsp; **$P$ is true**
+
+So the contrapositive is broken when $P$ is true and $Q$ is false — **row 2, the same single row** that
+breaks the original. Same breaking condition, same statement. ∎
+
+Now try the same test on the **converse** ($Q \Rightarrow P$): it is broken when $Q$ is true and $P$ is
+false — that is **row 3**, a *different* row. Different breaking condition, different statement. That is
+the whole distinction, in one calculation.
+
+**Proving something is false.** To show $P \Rightarrow Q$ is *false*, you must produce a case where $P$
+holds and $Q$ fails — a **counterexample**. Part (d) is what a counterexample looks like: not "I disagree",
+but a specific situation the statement forbids.
+
+---
+
+## A 30-second routine for "which is equivalent?"
+
+1. **Name the halves.** Write "$P$ = …, $Q$ = …" on your paper.
+2. **Write the theorem as one arrow**, $P \Rightarrow Q$.
+3. **Convert each option to an arrow**, using the S1 rules for *if* / *only if*.
+4. **Match by shape**, not by meaning:
+
+| What you see | It is | Equivalent? |
+|---|---|---|
+| $P \Rightarrow Q$ | the original (perhaps restyled) | ✓ |
+| not $Q \Rightarrow$ not $P$ | contrapositive | ✓ |
+| $Q \Rightarrow P$ | converse | ✗ |
+| not $P \Rightarrow$ not $Q$ | inverse | ✗ |
+
+**Never** let the truth of a statement enter this decision. Exam writers deliberately choose theorems
+where the converse is *also* true (as here), precisely so that candidates who reason "it's true, so it
+must be equivalent" get it wrong.
+
+---
+
+## Auditing a proof in two lines
+
+Whenever you are asked whether a proof is valid, ignore the algebra at first and write down two things:
+
+$$\textbf{ASSUMED: } \underline{\qquad\qquad} \qquad\qquad \textbf{REQUIRED: } \underline{\qquad\qquad}$$
+
+Then check the match:
+
+| Assumed → concluded | Verdict |
+|---|---|
+| exactly what was required | ✓ valid (direct proof) |
+| **not $Q$** → **not $P$**, when $P \Rightarrow Q$ was required | ✓ valid (proof by contrapositive) |
+| $Q$ → $P$, when $P \Rightarrow Q$ was required | ✗ **proved the converse** |
+| not $P$ → not $Q$, when $P \Rightarrow Q$ was required | ✗ **proved the inverse** |
+
+**P quick tell:** a genuine proof by contrapositive **contains negations** — it starts from "suppose $n$
+is *even*", "suppose $x$ is *rational*". If a student claims contrapositive but their argument has no
+negation anywhere, they have almost certainly proved the converse instead.
+
+---
+
 ## The routine, and negating comparisons
 
 **The routine for any awkward wording:**
@@ -121,13 +205,13 @@ it — which is why the last row looks back-to-front and is the one most often g
 
 | Statement | As an arrow | Contrapositive | …as an arrow |
 |---|---|---|---|
-| if $A$ then $B$ | $A\Rightarrow B$ | if not $B$ then not $A$ | $\lnot B\Rightarrow\lnot A$ |
-| $A$ **only if** $B$ | $A\Rightarrow B$ | not $B$ **only if** not $A$ | $\lnot B\Rightarrow\lnot A$ |
-| $A$ **if** $B$ | $B\Rightarrow A$ | not $B$ **if** not $A$ | $\lnot A\Rightarrow\lnot B$ |
+| if $P$ then $Q$ | $P\Rightarrow Q$ | if not $Q$ then not $P$ | $\lnot Q\Rightarrow\lnot P$ |
+| $P$ **only if** $Q$ | $P\Rightarrow Q$ | not $Q$ **only if** not $P$ | $\lnot Q\Rightarrow\lnot P$ |
+| $P$ **if** $Q$ | $Q\Rightarrow P$ | not $Q$ **if** not $P$ | $\lnot P\Rightarrow\lnot Q$ |
 
-*Read the last row carefully.* "$A$ if $B$" has contrapositive $\lnot A\Rightarrow\lnot B$, and writing that
-back in "if" style puts the **target first**: **not $B$ if not $A$**. The tempting "not $A$ if not $B$"
-unpacks to $\lnot B\Rightarrow\lnot A$ — the **inverse**.
+*Read the last row carefully.* "$P$ if $Q$" has contrapositive $\lnot P\Rightarrow\lnot Q$, and writing that
+back in "if" style puts the **target first**: **not $Q$ if not $P$**. The tempting "not $P$ if not $Q$"
+unpacks to $\lnot Q\Rightarrow\lnot P$ — the **inverse**.
 
 **Negating comparisons** — get these exactly right, because half-marks live here:
 
@@ -209,12 +293,23 @@ Decide each verdict above first, then open the key.
 From a conditional statement $P\Rightarrow Q$ you can build three others by **swapping** the two halves,
 **negating** them, or both:
 
-| Name | Form | Built by |
-|---|---|---|
-| **Original** | if $P$ then $Q$ | — |
-| **Converse** | if $Q$ then $P$ | swap |
-| **Inverse** | if not $P$ then not $Q$ | negate both |
-| **Contrapositive** | if not $Q$ then not $P$ | swap **and** negate |
+| Name | Form | Built by | Equivalent to the original? |
+|---|---|---|---|
+| **Original** | if $P$ then $Q$ | — | — |
+| **Converse** | if $Q$ then $P$ | swap | **No** |
+| **Inverse** | if not $P$ then not $Q$ | negate both | **No** |
+| **Contrapositive** | if not $Q$ then not $P$ | swap **and** negate | **Yes, always** |
+
+**How to keep them straight.** The **contrapositive** is the only one built by **two** operations — and it
+is the only one that is safe. The **converse and the inverse are contrapositives of each other**, so they
+are equivalent *to each other* and both unrelated to the original: they are true or false **together**.
+
+**A picture.** Read $P\Rightarrow Q$ as "circle $P$ sits inside circle $Q$".
+
+- **Contrapositive** — *outside $Q\Rightarrow$ outside $P$*. If all of $P$ is inside $Q$, anything outside
+  $Q$ certainly missed $P$. **Same picture, read from outside in** — which is *why* it is always equivalent.
+- **Converse** — *inside $Q\Rightarrow$ inside $P$*. That would need the two circles to **coincide**, a
+  genuinely different claim.
 
 ### The one fact that matters: the contrapositive is equivalent
 
@@ -247,6 +342,29 @@ false — the converse is simply a different claim.*
 
 Because "if $P$ then $Q$" and "if not $Q$ then not $P$" are the same statement, you can prove either one.
 Often the contrapositive is the easier direction.
+
+**The method.**
+
+1. You want to prove $P\Rightarrow Q$ and the direct route is awkward.
+2. Write the contrapositive: **not $Q\Rightarrow$ not $P$**.
+3. Prove *that* instead.
+4. Say the sentence: *"since a statement and its contrapositive are equivalent, the original follows."*
+
+**The signal to use it.** Reach for the contrapositive when the **negations are easier to work with than
+the originals**:
+
+| Original hypothesis | Negation | Which is easier? |
+|---|---|---|
+| $n^{2}$ is even | $n$ is odd | the **negation** — it gives you $n=2m+1$ |
+| $x$ is irrational | $x$ is rational | the **negation** — it gives you $x=p/q$ |
+| "at least one of …" | "none of …" | the **negation** — one case instead of many |
+
+Anything of the form *"if [something about a square or product] then [something about the number itself]"*
+is a strong candidate, because squaring is easy and un-squaring is not.
+
+**Not the same as proof by contradiction.** In a proof by contrapositive you assume **not $Q$** and derive
+**not $P$** — a clean, direct argument. In a proof by contradiction you assume **$P$ and not $Q$ together**
+and derive an absurdity. They feel similar and are often confused; contradiction is Session 5.
 
 ::: {.example}
 [Example.]{.lbl} Prove that if $n^2$ is even, then $n$ is even, using the contrapositive.
