@@ -1,6 +1,6 @@
 ---
 title: "Paper 2 Toolkit · S4 — Quantifiers and Negation"
-subtitle: "Work each question — Easy → Medium → Hard"
+subtitle: "Work each question — Easy → Medium → Hard → past papers"
 format: html
 execute:
   echo: false
@@ -615,10 +615,11 @@ that counterexample, then read the truth of the original off whether you found o
 
 ---
 
-# Part 4 — Exam bank
+# Part 4 — Exam bank: mock papers
 
-Five from real exam material, in the order the skill is built: **negate one statement**, then **judge
-whether $\forall\exists$ statements are true**, then **negate a chain three quantifiers deep**.
+Five from exam-style mock material, in the order the skill is built: **negate one statement**, then
+**judge whether $\forall\exists$ statements are true**, then **work with a definition that is itself a
+quantifier chain**. The two rules below are used by everything in Parts 4 and 5 alike.
 
 ::: {.callout-important}
 ## The two rules everything below uses
@@ -871,6 +872,20 @@ Working
 
 ---
 
+# Part 5 — Exam bank: real past papers
+
+Quantifiers are the fastest-growing slot on Paper 2. From 2016 to 2020 there was **exactly one** quantifier
+question a paper; from 2021 there have been two to four. The seven below are the genuine ones, and they run
+in the order the skill is built: judge an ordering, count how often an $\exists$ statement holds, work out
+what *"for every $x$"* forces on a polynomial, and finally negate definitions two and three quantifiers
+deep.
+
+One habit covers almost all of them. [Before reading a single option, write the statement out as a chain of
+symbols]{.hl} — $\forall N\,\exists K\,\forall m$ — because the English hides the order and the symbols
+cannot. Then negate in **two separate passes**: flip every quantifier in turn, and only afterwards negate
+what is inside. Most wrong options are built by doing one pass and forgetting the other.
+
+
 ## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q10 &nbsp;◆</span>
 
 ::: {.question}
@@ -979,6 +994,406 @@ Working
 3. Write **five "for all" statements of your own** about integers — three true, two false — and for each
    false one, give the counterexample. This drills the exact move disproof depends on.
 :::
+
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q13</span>
+
+::: {.question}
+Consider the statement $(*)$ about a real number $x$:
+
+> $(*)$ &nbsp; **There exists** a real number $y$ such that $\;x-xy+y\;$ is negative.
+
+For how many real values of $x$ is $(*)$ true?
+
+&nbsp;&nbsp;**A** no values of $x$ &nbsp; **B** exactly one value of $x$ &nbsp; **C** exactly two values of $x$
+&nbsp;&nbsp;**D** all except exactly two values of $x$ &nbsp; **E** all except exactly one value of $x$ &nbsp;
+**F** all values of $x$
+:::
+
+The quantifier tells you which letter is yours. *"There exists a real number $y$"* means $y$ is the free
+choice and $x$ is a constant — so [collect the expression in powers of $y$, not $x$]{.hl}, and ask what
+values it can be made to reach.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — an $\exists$ statement over a linear expression; when can it fail?
+:::
+
+**E — all except exactly one value of $x$.**
+
+**Collect in $y$.**
+
+$$x-xy+y \;=\; x + y(1-x)$$
+
+As a function of $y$ this is a straight line with gradient $1-x$ and intercept $x$.
+
+**Case $x\neq1$.** The gradient $1-x$ is non-zero, so as $y$ runs over the reals the expression runs over
+**every** real value — negative ones included. So $(*)$ is true. Explicitly:
+
+| | need | a $y$ that works |
+|---|---|---|
+| $x<1$ &nbsp;(gradient positive) | $x+y(1-x)<0$ | any $y<\dfrac{-x}{1-x}$ |
+| $x>1$ &nbsp;(gradient negative) | $x+y(1-x)<0$ | any $y>\dfrac{-x}{1-x}$ |
+
+*Check:* $x=0$ needs $y<0$; $x=2$ gives $2-y$, negative once $y>2$; $x=-3$ gives $-3+4y$, negative once
+$y<\tfrac34$. ✓
+
+**Case $x=1$.** The $y$-term dies:
+
+$$x-xy+y \;=\; 1-y+y \;=\; 1 ,$$
+
+which is $1$ for **every** $y$ — never negative. So $(*)$ is false, and $x=1$ is the only exception.
+
+Exactly one value of $x$ fails, so the answer is **E**.
+
+**The lesson.** *An $\exists$ statement about a linear expression is almost always true* — a line with
+non-zero gradient reaches everything. [The only way it can fail is if the variable you are allowed to
+choose disappears from the expression]{.hl}, so the whole question is: for which $x$ does the coefficient
+of $y$ vanish? $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q13</span>
+
+::: {.question}
+A region $R$ in the $(x,y)$-plane is defined by the simultaneous inequalities
+
+$$y-x<3 \qquad\qquad y-x^{2}<1$$
+
+Which of the following statements is/are true for **every** point in $R$?
+
+&nbsp;&nbsp;**I** &nbsp; $-1<x<2$
+&nbsp;&nbsp;**II** &nbsp; $(y-x)\left(y-x^{2}\right)<3$
+&nbsp;&nbsp;**III** &nbsp; $y<5$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+Both inequalities say *less than*, so $R$ is what lies **below both** curves. That is the whole question:
+the two boundaries cross at $x=-1$ and $x=2$, and [those crossing points would bound $R$ only if $R$ were
+the region *between* the curves]{.hl}. Sketch it before judging anything.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a "for every point" claim, and how an unbounded region defeats it
+:::
+
+**A — none of them.**
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7.6, 5.0))
+x = np.linspace(-6, 12, 1200)
+line, para = x + 3, x**2 + 1
+
+ax.plot(x, line, color='#2ca02c', lw=2.2, label='$y=x+3$')
+ax.plot(x, para, color='#1f77b4', lw=2.2, label='$y=x^{2}+1$')
+ax.fill_between(x, np.minimum(line, para), -60, color='#7a5195', alpha=0.16,
+                label='$R$ — below BOTH curves')
+
+notes = [(10, 12, '$(10,\\,12)\\in R$: kills I ($x>2$)\nand III ($y>5$)', -206, -46),
+         (1, -9, '$(1,\\,-9)\\in R$, and here\n$(y-x)(y-x^{2})=100$: kills II', 34, -40)]
+for xv, yv, txt, dx, dy in notes:
+    ax.plot([xv], [yv], 'o', color='#d62728', ms=8, zorder=5)
+    ax.annotate(txt, (xv, yv), textcoords='offset points', xytext=(dx, dy), fontsize=9,
+                color='#d62728', arrowprops=dict(arrowstyle='->', color='#d62728', lw=1.2))
+
+ax.axhline(5, color='0.5', lw=1.0, ls=':')
+ax.text(-5.7, 6.4, '$y=5$', fontsize=9, color='0.4')
+ax.axvline(-1, color='0.5', lw=1.0, ls=':'); ax.axvline(2, color='0.5', lw=1.0, ls=':')
+ax.text(-5.7, -52, 'the curves cross at $x=-1$ and $x=2$,\nbut they do not enclose $R$',
+        fontsize=9, color='0.35')
+
+ax.set_xlim(-6, 12); ax.set_ylim(-60, 40)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+ax.legend(fontsize=9, loc='upper left', framealpha=0.95)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+$R$ is everything underneath the lower of the two curves. *It runs to every value of $x$ and downwards
+without limit* — so any claim that bounds $x$ or $y$ from one side is in trouble.
+
+### I is false
+
+Take $(10,12)$. Then $y-x=2<3$ ✓ and $y-x^{2}=12-100=-88<1$ ✓, so the point is in $R$ — and $x=10$ is
+nowhere near $-1<x<2$. *The values $-1$ and $2$ are where $x+3=x^{2}+1$; they would bound the region lying
+between the curves, and $R$ is not that region.*
+
+### III is false
+
+The same point: $y=12>5$. *Once $x$ is free to be large, $y$ can sit just under the line $y=x+3$ and be as
+large as you like.*
+
+### II is false
+
+Take $(1,-9)$: $y-x=-10<3$ ✓ and $y-x^{2}=-9-1=-10<1$ ✓, so it is in $R$, and
+
+$$(y-x)\left(y-x^{2}\right)=(-10)\times(-10)=100 ,$$
+
+which is not less than $3$. *Both bracketed quantities are negative deep inside $R$, and multiplying two
+large negatives gives a large positive — so the product has no upper bound at all.* Multiplying two
+inequalities of the form "$<$" is only safe when both sides are positive.
+
+Since all three fail, the answer is **A**.
+
+**The lesson.** [A "true for every point in $R$" claim dies the moment $R$ is unbounded in a direction the
+claim forgot about]{.hl}. Before testing anything, ask how far $R$ extends — and test a point far out, not
+a comfortable one near the origin. *Here a single far-out point disposed of two statements at once.*
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q18</span>
+
+::: {.question}
+In this question, $\mathrm{f}(x)=ax^{3}+bx^{2}+cx+d$ and $\mathrm{g}(x)=px^{3}+qx^{2}+rx+s$ are cubic
+polynomials.
+
+If $\;\mathrm{f}(x)-\mathrm{g}(x)>0\;$ for **every** real $x$, which of the following is/are
+**necessarily** true?
+
+&nbsp;&nbsp;**I** &nbsp; $a>p$
+&nbsp;&nbsp;**II** &nbsp; if $b=q$ then $c=r$
+&nbsp;&nbsp;**III** &nbsp; $d>s$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+Write $\mathrm{h}(x)=\mathrm{f}(x)-\mathrm{g}(x)$. It is a difference of two cubics, so it is a cubic **or
+less** — and that *"or less"* is the whole question. [A "for every real $x$" condition is a statement about
+what happens as $\lvert x\rvert$ grows]{.hl} as much as about any particular value, so look at the leading
+term first.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — what "for every real $x$" forces on a polynomial; an equality disguised as an inequality
+:::
+
+**G — II and III only.**
+
+Write
+
+$$\mathrm{h}(x)=\underbrace{(a-p)}_{A}x^{3}+\underbrace{(b-q)}_{B}x^{2}+\underbrace{(c-r)}_{C}x+\underbrace{(d-s)}_{D}
+\;>\;0\quad\text{for every real }x .$$
+
+### Step 1 — the cubic term must disappear
+
+Suppose $A\neq0$. Then $\mathrm{h}$ is a genuine cubic, and a cubic takes **every** real value: as
+$x\to-\infty$ it runs to $-\infty$ (if $A>0$) or as $x\to+\infty$ it does (if $A<0$). Either way
+$\mathrm{h}$ is negative somewhere, contradicting the hypothesis.
+
+*Concretely, even $x^{3}+1000$ — huge constant, tiny-looking cubic — is $-999000$ at $x=-100$.* No cubic
+term survives a "positive for every $x$" condition.
+
+$$\boxed{A=0,\ \text{that is } a=p}$$
+
+### Step 2 — read off the three statements
+
+**I is false — and not merely unproved.** Step 1 shows $a=p$ is **forced**, so $a>p$ is impossible.
+*This is the trap: the question offers an inequality where the truth is an equality, and "$a>p$" looks
+like the natural thing to deduce from "$\mathrm{f}>\mathrm{g}$".*
+
+**III is true, in one line.** Put $x=0$:
+
+$$\mathrm{h}(0)=D=d-s>0 .$$
+
+*Every "for every $x$" hypothesis can be used at any single $x$ you like, and $x=0$ is the cheapest.*
+
+**II is true.** With $A=0$, $\mathrm{h}(x)=Bx^{2}+Cx+D$. Now suppose $b=q$, i.e. $B=0$. Then
+$\mathrm{h}(x)=Cx+D$. A linear function with $C\neq0$ is negative for large $\lvert x\rvert$ — for instance
+$x+1000$ is negative at $x=-2000$ — so we must have $C=0$, i.e. $\;c=r$. ✓
+
+So **II and III only: G**.
+
+**The lesson.** Two moves handle every question of this shape. [Kill the top-degree term by looking at
+infinity, then evaluate at $x=0$]{.hl}. The first tells you which coefficients are *equal*; the second
+hands you the constant term for free. *Note how differently the three statements behave: one is impossible,
+one is one line, and one needs the argument repeated a degree lower.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q17</span>
+
+::: {.question}
+A set $S$ of whole numbers is called **stapled** if and only if for every whole number $a$ which is in $S$
+there exists a prime factor of $a$ which divides at least one other number in $S$.
+
+Let $T$ be a set of whole numbers. Which of the following is true **if and only if** $T$ is **not**
+stapled?
+
+&nbsp;&nbsp;**A** &nbsp; For every number $a$ in $T$, there is **no** prime factor of $a$ which divides **every** other number in $T$.
+&nbsp;&nbsp;**B** &nbsp; For every number $a$ in $T$, there is **no** prime factor of $a$ which divides **at least one** other number in $T$.
+&nbsp;&nbsp;**C** &nbsp; For every number $a$ in $T$, there **is** a prime factor of $a$ which does **not** divide **any** other number in $T$.
+&nbsp;&nbsp;**D** &nbsp; For every number $a$ in $T$, there **is** a prime factor of $a$ which does **not** divide **at least one** other number in $T$.
+&nbsp;&nbsp;**E** &nbsp; There **exists** a number $a$ in $T$ such that there is **no** prime factor of $a$ which divides **every** other number in $T$.
+&nbsp;&nbsp;**F** &nbsp; There **exists** a number $a$ in $T$ such that there is **no** prime factor of $a$ which divides **at least one** other number in $T$.
+&nbsp;&nbsp;**G** &nbsp; There **exists** a number $a$ in $T$ such that there **is** a prime factor of $a$ which does **not** divide **any** other number in $T$.
+&nbsp;&nbsp;**H** &nbsp; There **exists** a number $a$ in $T$ such that there **is** a prime factor of $a$ which does **not** divide **at least one** other number in $T$.
+:::
+
+Do not read the options first — they are designed to be read first. [Write the definition as a chain of
+quantifiers, negate it mechanically, and only then go looking for your own sentence in the list]{.hl}. The
+eight options are precisely the eight ways of getting one step of that wrong.
+
+Note also that **no arithmetic is required**: "prime factor" could be replaced by any relation at all and
+the answer would not change.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — negating a two-quantifier definition; $\lnot\exists p$ is "no $p$", never "some $p$ fails"
+:::
+
+**F.**
+
+### Step 1 — write the definition in symbols
+
+Let $D(a,p)$ mean *"$p$ divides at least one other number in the set"*. Then
+
+$$S \text{ is stapled} \iff \forall a\in S,\ \exists p \text{ a prime factor of } a,\ D(a,p).$$
+
+### Step 2 — negate, one quantifier at a time
+
+$$\lnot\big(\forall a\ \exists p\ D\big)\;=\;\exists a\ \lnot\big(\exists p\ D\big)\;=\;\exists a\ \forall p\ \lnot D .$$
+
+In English: **there is a number $a$ in $T$ for which *no* prime factor of $a$ divides at least one other
+number in $T$.** That is exactly **F**.
+
+### Step 3 — why each of the others fails
+
+| options | what went wrong |
+|---|---|
+| **A, B, C, D** | all begin *"For every number $a$"* — the outer $\forall$ was never flipped. *Four options gone on the first move, before the inner clause is even read.* |
+| **E** | correct outer $\exists$, correct *"there is no prime factor"*, but the inner predicate was changed from *divides **at least one** other* to *divides **every** other*. A different statement about a different property. |
+| **G** | says *"there **is** a prime factor which does not divide any other"* — that is $\exists p\,\lnot D$, not $\lnot\exists p\,D$. *It claims **one** prime factor fails; the negation needs **all** of them to fail.* |
+| **H** | the same $\exists p$ error as G, and the inner clause mangled on top. |
+
+### The lesson
+
+Two of those rows are the same mistake in different places, and it is the one worth memorising:
+
+$$\lnot\big(\exists p,\ D(p)\big)\;=\;\forall p,\ \lnot D(p)\qquad\text{— "no } p \text{ works"},$$
+
+[**not** "there is a $p$ that fails"]{.hl}. In English the two sound almost identical, which is why the
+exam can build four wrong options out of the difference. *Symbols do not have this ambiguity; that is the
+entire reason for translating first.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q12</span>
+
+::: {.question}
+Consider the following statement:
+
+> For any positive integer $N$ there is a positive integer $K$ such that $N(Km+1)-1$ is **not prime for
+> any** positive integer $m$.
+
+Which one of the following is the **negation** of this statement?
+
+&nbsp;&nbsp;**A** &nbsp; For any positive integer $N$ there is a positive integer $K$ such that there is a positive integer $m$ for which $N(Km+1)-1$ is prime.
+&nbsp;&nbsp;**B** &nbsp; For any positive integer $N$ there is a positive integer $K$ such that there is a positive integer $m$ for which $N(Km+1)-1$ is not prime.
+&nbsp;&nbsp;**C** &nbsp; For any positive integer $N$ there is a positive integer $K$ such that for any positive integer $m$, $N(Km+1)-1$ is not prime.
+&nbsp;&nbsp;**D** &nbsp; For any positive integer $N$, any positive integer $K$ and any positive integer $m$, $N(Km+1)-1$ is not prime.
+&nbsp;&nbsp;**E** &nbsp; There is a positive integer $N$ such that for any positive integer $K$ there is a positive integer $m$ for which $N(Km+1)-1$ is not prime.
+&nbsp;&nbsp;**F** &nbsp; There is a positive integer $N$ such that for any positive integer $K$ there is a positive integer $m$ for which $N(Km+1)-1$ is prime.
+&nbsp;&nbsp;**G** &nbsp; There is a positive integer $N$ such that for any positive integer $K$ and any positive integer $m$, $N(Km+1)-1$ is prime.
+&nbsp;&nbsp;**H** &nbsp; There is a positive integer $N$ and a positive integer $K$ for which there is no positive integer $m$ for which $N(Km+1)-1$ is prime.
+:::
+
+One phrase decides this question, and it is not a mathematical one: ***"is not prime for any positive
+integer $m$"***. In mathematical English, [*"not $P$ for any $m$"* means *"for every $m$, not $P$"*]{.hl} —
+it is a $\forall$, not an $\exists$. Misread that and all eight options look reasonable.
+
+Again, no arithmetic is needed. You never have to decide whether the original statement is true.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — negating a three-quantifier chain; the hardest negation in the archive
+:::
+
+**F.**
+
+### Step 1 — translate, watching the English
+
+Reading *"not prime for any $m$"* as *"for every $m$, not prime"*:
+
+$$\text{original}\;=\;\forall N\ \exists K\ \forall m\ \big[\,N(Km+1)-1 \text{ is \textbf{not} prime}\,\big]$$
+
+### Step 2 — negate in two passes
+
+**Pass 1 — flip every quantifier, in order.** &nbsp; $\forall N\,\exists K\,\forall m\;\longrightarrow\;\exists N\,\forall K\,\exists m$
+
+**Pass 2 — negate the inside.** &nbsp; "is not prime" $\longrightarrow$ "**is** prime"
+
+$$\text{negation}\;=\;\exists N\ \forall K\ \exists m\ \big[\,N(Km+1)-1 \text{ is prime}\,\big]$$
+
+In English: *there is a positive integer $N$ such that for any positive integer $K$ there is a positive
+integer $m$ for which $N(Km+1)-1$ is prime.* That is **F**.
+
+### Step 3 — the seven wrong options, and which pass each one skipped
+
+| | chain | inside | what is missing |
+|---|---|---|---|
+| **A** | $\forall N\ \exists K\ \exists m$ | prime | only the **last** quantifier was flipped |
+| **B** | $\forall N\ \exists K\ \exists m$ | not prime | last quantifier flipped, inside not negated |
+| **C** | $\forall N\ \exists K\ \forall m$ | not prime | nothing flipped — this **is** the original |
+| **D** | $\forall N\ \forall K\ \forall m$ | not prime | a *stronger* claim, not a negation |
+| **E** | $\exists N\ \forall K\ \exists m$ | **not** prime | chain perfect, **pass 2 forgotten** |
+| **G** | $\exists N\ \forall K\ \forall m$ | prime | third quantifier not flipped |
+| **H** | $\exists N\ \exists K\ \forall m$ | not prime | second quantifier not flipped |
+
+**E is the one that catches people.** Its quantifier chain is exactly right, and every instinct says "that
+looks like the answer" — but the inner statement was never negated. *A negation is two independent jobs,
+and doing one of them perfectly earns nothing.*
+
+**The lesson.** Do the two passes **separately and in writing**. [Flip the quantifiers left to right, then
+go back and negate the predicate]{.hl} — never both at once in your head. Six of the seven wrong options
+here are built from doing exactly one of those two passes, which tells you how the examiner expects the
+mistake to be made. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
 
 **The whole session in one line:**
 
