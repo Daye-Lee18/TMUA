@@ -336,26 +336,6 @@ trap is here already.
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — what you get for free, and what you must earn
-
-| You have proved | You also get, free | You still owe |
-|---|---|---|
-| $A \Rightarrow B$ | its contrapositive, not $B \Rightarrow$ not $A$ | the converse $B \Rightarrow A$ |
-| $A \Leftrightarrow B$ | everything — all four forms | nothing |
-
-So when a question gives you a true statement and asks about a rearrangement:
-
-1. Work out **which** rearrangement it is (converse / inverse / contrapositive).
-2. If it is the **contrapositive** — done, it is true, no work needed.
-3. If it is the **converse or inverse** — you must check it **separately**. It may be true, it may be
-   false; the original tells you nothing.
-
-**When the converse also turns out true**, as in part (b), the two statements are equivalent and you may
-write them as one "if and only if". Many definitions are exactly this: *"$ab$ is odd **if and only if**
-$a$ and $b$ are both odd."*
-:::
-
 ---
 
 # Part 2 — Medium
@@ -483,9 +463,15 @@ back in "only if" style:
 
 **(b)** "$P$ if $Q$" means $Q \Rightarrow P$ — the arrow starts at $Q$.
 
-Its contrapositive is $\text{not } P \Rightarrow \text{not } Q$, i.e.
+Its contrapositive is $\text{not } P \Rightarrow \text{not } Q$, i.e. *if not $P$, then not $Q$*. Written
+back in "if" style — remembering that "$X$ **if** $Y$" means $Y\Rightarrow X$, so the **target** is named
+first:
 
-> **not $P$ if not $Q$** &nbsp; *(equivalently: if not $P$, then not $Q$).*
+> **not $Q$ if not $P$.**
+
+*Check the order carefully.* The tempting answer, "not $P$ if not $Q$", unpacks to
+$\text{not }Q\Rightarrow\text{not }P$ — that is the **inverse** of the original, not its contrapositive.
+The two differ on the row $P$ true, $Q$ false, where the contrapositive is true and the inverse is false.
 
 **(c)** Take $P$ = "$x>3$" and $Q$ = "$x^2>9$". The given sentence is "$P$ only if $Q$", so by part (a)
 its contrapositive is "not $Q$ only if not $P$". Now negate each half:
@@ -504,40 +490,11 @@ $\blacksquare$
 | ✗ | ✓ |
 |---|---|
 | Negating $x > 3$ to $x < 3$ | The negation of "greater than" is **"less than or equal to"**: $x \le 3$. Forgetting the equality case is a standard TMUA trap. |
-| Taking the contrapositive of (b) as "not $Q$ only if not $P$" | (b)'s arrow runs $Q \Rightarrow P$, so its contrapositive negates in the **other** order: not $P \Rightarrow$ not $Q$. |
+| Writing (b)'s contrapositive as "not $P$ if not $Q$" | That reads $\text{not }Q\Rightarrow\text{not }P$ — the **inverse**. Since "$X$ if $Y$" means $Y\Rightarrow X$, the contrapositive $\text{not }P\Rightarrow\text{not }Q$ is written **"not $Q$ if not $P$"**. |
 :::
 
 ::: {.workspace style="min-height:8cm"}
 Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — the routine, and negating comparisons
-
-**The routine for any awkward wording:**
-
-$$\text{English sentence} \;\longrightarrow\; \text{“if … then …”} \;\longrightarrow\; \text{contrapositive} \;\longrightarrow\; \text{(translate back if asked)}$$
-
-Never operate on the original English directly.
-
-**The official Notes' table**, worth recognising:
-
-| Statement | Contrapositive |
-|---|---|
-| if $A$ then $B$ | if not $B$ then not $A$ |
-| $A$ only if $B$ | not $B$ only if not $A$ |
-
-**Negating comparisons** — get these exactly right, because half-marks live here:
-
-| Statement | Its negation |
-|---|---|
-| $x > 3$ | $x \le 3$ |
-| $x \ge 3$ | $x < 3$ |
-| $x = 3$ | $x \ne 3$ |
-| $1 < x < 4$ | $x \le 1$ **or** $x \ge 4$ |
-
-The pattern: **negating a strict inequality gives a non-strict one, and vice versa** — the boundary case
-always changes sides.
 :::
 
 ---
