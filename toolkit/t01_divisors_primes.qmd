@@ -118,16 +118,19 @@ $$12\mid n^{2}\iff 6\mid n,\qquad\text{not } 12\mid n .$$
 "$b$ leaves remainder $r$ on division by $a$" means $b=aq+r$ **with $0\le r<a$**. The size condition is
 half the definition.
 
-**The trap.** If $r,s<a$, the product $rs$ need **not** be $<a$, so $rs$ is not the remainder of $bc$.
-Take $a=4,\ r=s=2$: $rs=4$, and the true remainder is $0$.
+**The trap.** Let $b$ leave remainder $r$ and $c$ leave remainder $s$, both on division by $a$. Writing
+$b=ax+r$ and $c=ay+s$ gives $bc=a(axy+xs+yr)+rs$, which makes $rs$ *look* like the remainder of $bc$ — but
+$rs$ need not be less than $a$, and a remainder must be. Take $a=4$ and $b=c=6$, so $r=s=2$: then $rs=4$,
+while $bc=36=4\times9$ leaves remainder $\mathbf{0}$.
 
 
 | statement | | why |
 |---|:-:|---|
 | A remainder must satisfy $0\le r<a$ | **True** | *half the definition* |
-| *Trap:* if $r,s<a$ then $rs$ is the remainder of $bc$ | **False** | *$a=4,r=s=2$: $rs=4$, true remainder $0$* |
+| *Trap:* if $b,c$ leave remainders $r,s$ on division by $a$, then $bc$ leaves remainder $rs$ | **False** | *$a=4$, $b=c=6$ gives $r=s=2$ and $rs=4$, but $bc=36$ leaves remainder $0$* |
 
-[this single point is the answer to 2016 Q13]{.eg}
+[line 5 of 2016 Q13 is exactly this claim, and it is the error]{.eg}
+
 :::
 
 ::: {.fs-card}
