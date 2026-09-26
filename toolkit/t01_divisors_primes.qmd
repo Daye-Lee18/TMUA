@@ -461,7 +461,9 @@ Whenever you see "so $N$ is a multiple of $3$, hence not prime", check whether $
 :::
 
 ::: {.callout-tip}
-## Pattern C · "Factorise the expression" &nbsp;· *facts 7, 12, 13, 17*
+## Pattern C · "Factorise the expression"
+
+[*facts 7, 12, 13, 17*]{style="color:#7a5195"}
 
 To show $f(n)$ is never prime, factorise it algebraically — then **check both factors exceed $1$**.
 
@@ -499,7 +501,9 @@ that only works for large $n$, leaving the smallest case unchecked.
 :::
 
 ::: {.callout-tip}
-## Pattern F · "Rule primality out with a necessary condition" &nbsp;· *facts 11, 13, 14*
+## Pattern F · "Rule primality out with a necessary condition"
+
+[*facts 11, 13, 14*]{style="color:#7a5195"}
 
 Three tests dismiss a primality claim **without factorising anything**:
 
@@ -670,7 +674,9 @@ How many counterexamples to $(*)$ are there in the range $0<n<50$?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** &nbsp;·&nbsp; *facts 1, 8*
+## Solution
+
+**C** &nbsp;·&nbsp; [*facts 1, 8*]{style="color:#7a5195"}
 
 **Read the direction first.** "$n$ is prime **if** [shape]" is $\text{shape}\Rightarrow\text{prime}$ — this
 is the **converse** of fact 1, and fact 1 warns that it is false.
@@ -707,7 +713,9 @@ integers). Which of the following provide a counterexample?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** &nbsp;·&nbsp; *facts 2, 16*
+## Solution
+
+**C** &nbsp;·&nbsp; [*facts 2, 16*]{style="color:#7a5195"}
 
 The claim is **Euclid's lemma with the word "prime" removed** (fact 2), so it must be false. A
 counterexample needs $a\mid bc$ **and** $a\nmid b$ **and** $a\nmid c$.
@@ -743,7 +751,9 @@ Statement: *if $n$ is prime, then $n^{2}+2$ is not prime.* Which of the followin
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** &nbsp;·&nbsp; *facts 5, 8 · pattern A*
+## Solution
+
+**C** &nbsp;·&nbsp; [*facts 5, 8 · pattern A*]{style="color:#7a5195"}
 
 A counterexample needs the hypothesis **true** ($n$ prime) and the conclusion **false** ($n^{2}+2$ prime).
 
@@ -784,7 +794,9 @@ Which of the following is/are counterexample(s) to this statement?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **G** &nbsp;·&nbsp; *fact 8 · the hypothesis half*
+## Solution
+
+**G** &nbsp;·&nbsp; [*fact 8 · the hypothesis half*]{style="color:#7a5195"}
 
 The usable non-primes greater than $1$ start $4,6,8,9,10,\dots$ — so any such sum is at least $4+4=8$.
 
@@ -835,7 +847,9 @@ Which of **I**, **II**, **III**, taken individually, is equivalent to $(*)$?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **G** &nbsp;·&nbsp; *fact 13 · and S1/S2 wording*
+## Solution
+
+**G** &nbsp;·&nbsp; [*fact 13 · and S1/S2 wording*]{style="color:#7a5195"}
 
 Write $(*)$ as $P\Rightarrow Q$ with $P=$ "$2^{k}+1$ is prime" and $Q=$ "$k$ is a power of $2$".
 
@@ -877,7 +891,9 @@ The result $91=7\times13$ can be used to provide a counterexample to which of th
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **B** (1 only) &nbsp;·&nbsp; *facts 1, 9*
+## Solution
+
+**B** (1 only) &nbsp;·&nbsp; [*facts 1, 9*]{style="color:#7a5195"}
 
 **1 — yes.** Take the odd prime $p=3$: then $10p^{2}=90$, so the two numbers are $91$ and $89$. The claim
 says **both** are prime, but $91=7\times13$. ✓
@@ -919,7 +935,9 @@ Which provide(s) a counterexample?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **D** (III only) &nbsp;·&nbsp; *fact 10 · the hypothesis half*
+## Solution
+
+**D** (III only) &nbsp;·&nbsp; [*fact 10 · the hypothesis half*]{style="color:#7a5195"}
 
 Count the zeros, then check primality.
 
@@ -960,7 +978,9 @@ What is the **smallest** value of $n$ that provides a counterexample to $(*)$?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **E** ($n=5$) &nbsp;·&nbsp; *facts 8, 10*
+## Solution
+
+**E** ($n=5$) &nbsp;·&nbsp; [*facts 8, 10*]{style="color:#7a5195"}
 
 Only **prime** $n$ can be a counterexample, so run through them in order.
 
@@ -1002,7 +1022,9 @@ The condition *"either $a$ or $b$ is divisible by $n$"* is:
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **B** (sufficient, not necessary) &nbsp;·&nbsp; *facts 2, 16*
+## Solution
+
+**B** (sufficient, not necessary) &nbsp;·&nbsp; [*facts 2, 16*]{style="color:#7a5195"}
 
 **Sufficient.** If $n\mid a$ then $a=nk$, so $ab=nkb$ and $n\mid ab$. Likewise if $n\mid b$. ✓
 
@@ -1041,7 +1063,9 @@ divides $bc$, then $a$ divides $b$ or $a$ divides $c$*. Which line contains the 
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **E** (line 5) &nbsp;·&nbsp; *fact 4*
+## Solution
+
+**E** (line 5) &nbsp;·&nbsp; [*fact 4*]{style="color:#7a5195"}
 
 Lines 1–4 are sound: line 1 is a correct contrapositive, and
 $bc=(ax+r)(ay+s)=a(axy+xs+yr)+rs$ is exact algebra.
@@ -1080,7 +1104,9 @@ an attempted proof:
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **F** (line IV) &nbsp;·&nbsp; *facts 7, 17*
+## Solution
+
+**F** (line IV) &nbsp;·&nbsp; [*facts 7, 17*]{style="color:#7a5195"}
 
 **Line III is true.** The *polynomial* $3x^{2}+3x+1$ has discriminant $9-12=-3<0$, so it does not split into
 integer linear factors.
@@ -1121,7 +1147,9 @@ A student attempts: *what is the largest number of consecutive odd integers that
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **G** (line VI) &nbsp;·&nbsp; *fact 8 · pattern B*
+## Solution
+
+**G** (line VI) &nbsp;·&nbsp; [*fact 8 · pattern B*]{style="color:#7a5195"}
 
 Lines I–V are all correct, including the case split in III–V, which really does cover every $n$.
 
@@ -1160,7 +1188,9 @@ positive integers.* Suppose such $a,b,c$ exist.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **D** (line III) &nbsp;·&nbsp; *pattern E*
+## Solution
+
+**D** (line III) &nbsp;·&nbsp; [*pattern E*]{style="color:#7a5195"}
 
 **Lines I and II are fine** — II is the standard factorisation of a difference of cubes.
 
@@ -1205,7 +1235,9 @@ Which one of the following is **not** true?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** &nbsp;·&nbsp; *facts 3, 15*
+## Solution
+
+**C** &nbsp;·&nbsp; [*facts 3, 15*]{style="color:#7a5195"}
 
 **A is true** — two ways. Directly, $N^{2}=N^{2}+0^{2}$. Or via the theorem: squaring doubles every exponent
 (fact 3), so every awkward prime occurs to an even power.
@@ -1245,7 +1277,9 @@ with $\gcd(a,b)=7$. Which of the following **must** be true?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **B** (I only) &nbsp;·&nbsp; *fact 6*
+## Solution
+
+**B** (I only) &nbsp;·&nbsp; [*fact 6*]{style="color:#7a5195"}
 
 **I — true, and it needs an induction.** $\gcd(a,b)=7$ means $7\mid a$ and $7\mid b$. A sum of two multiples
 of $7$ is a multiple of $7$, so $u_{3}$ is one, then $u_{4}$, and so on. Every term is — including
@@ -1289,7 +1323,9 @@ Which line contains the first error? &nbsp; **A** none &nbsp; **B** I &nbsp; **C
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **H** (line VII) &nbsp;·&nbsp; *facts 5, 8 · patterns A, B*
+## Solution
+
+**H** (line VII) &nbsp;·&nbsp; [*facts 5, 8 · patterns A, B*]{style="color:#7a5195"}
 
 Lines I–VI are correct. Check III, which carries the argument: if $n=3m+1$ then $n^{2}=9m^{2}+6m+1$,
 remainder $1$; if $n=3m+2$ then $n^{2}=9m^{2}+12m+4=3(3m^{2}+4m+1)+1$, remainder $1$ again — exactly fact 5.
@@ -1331,7 +1367,9 @@ $k<n$, then $n$ is prime.* An attempted proof:
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **G** (line 7) &nbsp;·&nbsp; *facts 8, 13*
+## Solution
+
+**G** (line 7) &nbsp;·&nbsp; [*facts 8, 13*]{style="color:#7a5195"}
 
 **Line 7 claims $a\ge2\Rightarrow2a<a^{2}$.** But $2a<a^{2}$ is equivalent to $a>2$, **not** $a\ge2$. At the
 boundary $a=2$ the claim reads $4<4$, which is false.
@@ -1366,7 +1404,9 @@ of $6$ &nbsp; **G** $n$ is $2$ more than a multiple of $4$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** ($n$ is even) &nbsp;·&nbsp; *fact 10*
+## Solution
+
+**C** ($n$ is even) &nbsp;·&nbsp; [*fact 10*]{style="color:#7a5195"}
 
 **Four small values settle it** (fact 10). For $n=1,2,3,4$ the values of $n^{3}+5n$ are
 $$6,\qquad 18,\qquad 42,\qquad 84 ,$$
@@ -1404,7 +1444,9 @@ Which are true? &nbsp; **A** I only &nbsp; **B** II only &nbsp; **C** III only &
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **F** (I and III) &nbsp;·&nbsp; *fact 3*
+## Solution
+
+**F** (I and III) &nbsp;·&nbsp; [*fact 3*]{style="color:#7a5195"}
 
 **Notice the structure first.** III is exactly the **negation** of II, since
 $\lnot\forall n\,(H\Rightarrow C)=\exists n\,(H\text{ and }\lnot C)$. So **exactly one** of II and III is
