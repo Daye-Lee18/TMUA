@@ -70,6 +70,8 @@ $$\ell^2\quad\text{with}\quad p^2+q^2.$$
 ### 5 · Area
 For two sides and their **included** angle,
 $$K=\frac12bc\sin A.$$
+For three known sides, let $s=\tfrac12(a+b+c)$ and use
+$$K=\sqrt{s(s-a)(s-b)(s-c)}\qquad\text{(Heron's formula).}$$
 For coordinates, use
 $$K=\frac12\left|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\right|.$$
 
@@ -83,7 +85,39 @@ $$K=\frac12\left|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\right|.$$
 | none / one / two; unique | $h=c\sin A$ |
 | side or angle | cosine / sine rule |
 | acute / right / obtuse | longest-side square test |
-| area | $\tfrac12bc\sin A$ / shoelace |
+| area | $\tfrac12bc\sin A$ / Heron / shoelace |
+:::
+
+::: {.fs-card}
+### 7 · SSA area-ratio shortcut ★
+At known angle $\theta$, let $c$ be the known adjacent side, $a$ the opposite side and $x$ the unknown
+adjacent side. The two possible lengths are the roots of
+$$x^2-2c\cos\theta\,x+(c^2-a^2)=0.$$
+If their areas are in ratio $r:1$, their lengths are also in ratio $r:1$, so
+$$\boxed{\cos\theta=\frac{r+1}{2c}\sqrt{\frac{c^2-a^2}{r}}}.$$
+[Product fixes the scale; **sum of the roots gives $\cos\theta$**.]{.eg}
+:::
+
+::: {.fs-card}
+### 8 · Greatest area for a fixed perimeter
+| Fixed information | Greatest-area shape |
+|---|---|
+| triangle: base **and** perimeter | isosceles triangle |
+| triangle: perimeter only | equilateral triangle |
+| $n$-gon: perimeter and $n$ | regular $n$-gon |
+
+[A base alone is not enough: the height, and hence the area, can grow without bound.]{.eg}
+:::
+
+::: {.fs-card}
+### 9 · Area and circumradius are linked
+The extended sine rule and the area formula combine:
+$$\frac{a}{\sin A}=2R
+\iff \sin A=\frac{a}{2R}.$$
+Hence
+$$K=\frac12bc\sin A=\frac{abc}{4R}
+\iff\boxed{R=\frac{abc}{4K}}.$$
+[The denominator is $4\times\text{area}$: it is **not** $\frac{abc}{4}\times K$.]{.eg}
 :::
 
 ::::
@@ -94,8 +128,46 @@ $$K=\frac12\left|x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\right|.$$
 compare $a$ with $h$ and $c$ using card 2.
 
 **On this page:** 1. Counting triangles (SSA) · 2. "Uniquely determined" · 3. Ranges & the cosine-rule
-quadratic · 4. Acute, right, or obtuse · 5. Area, the sine rule & the circumradius · 6. Triangles on the
-coordinate grid
+quadratic · 4. Acute, right, or obtuse · 5. Area, Heron's formula & greatest-area shapes · 6. Triangles on
+the coordinate grid
+
+::: {.callout-tip}
+## Which triangle rule should I use?
+
+All three rules below are valid for every non-degenerate triangle. The question is which one uses the given
+information most directly.
+
+| Information available | Best first tool | Why / warning |
+|---|---|---|
+| an opposite side--angle pair, plus another side or angle | **sine rule** | Fastest route. With SSA, $\sin\theta=\sin(180^\circ-\theta)$, so check both angles. |
+| two sides and their included angle (SAS) | **cosine rule** | Finds the opposite side directly. |
+| all three sides (SSS), and an angle is required | **cosine rule** | Rearrange it to find $\cos A$. |
+| all three sides (SSS), and area is required | **Heron's formula** | No angle needs to be found first. |
+| two sides and their included angle, and area is required | $K=\tfrac12bc\sin A$ | Direct substitution. |
+| one side and its opposite angle, and circumradius is required | $\frac{a}{\sin A}=2R$ | This is the extended sine rule. |
+| three sides and area are known, and circumradius is required | $R=\frac{abc}{4K}$ | Derived from the extended sine rule and the area formula. |
+
+**Important distinction:** the sine rule *works* in an SSA problem, but it may return two triangles. The
+cosine rule does not remove that ambiguity; written in the unknown side, it returns the same two possibilities
+as the two roots of a quadratic.
+
+### Which rule for acute / right / obtuse?
+
+| Situation | Best method |
+|---|---|
+| **One triangle is fixed by three sides (SSS)** and an angle must be classified | Use the cosine-rule sign test, or compare the longest-side square with the sum of the other two squares. |
+| **SSA gives two possible triangles** and an angle must be classified in both | Use the sine rule, keep both supplementary angles, and calculate the required angle in each triangle. |
+
+For one fixed angle,
+$$\cos\theta>0\Rightarrow\theta\text{ acute},\qquad
+\cos\theta=0\Rightarrow\theta\text{ right},\qquad
+\cos\theta<0\Rightarrow\theta\text{ obtuse}.$$
+The important feature is the **sign** of $\cos\theta$, not simply whether its numerical value is “large”.
+
+For an SSA pair, the reusable route is
+$$\boxed{\text{sine rule}\to\text{two supplementary angles}\to
+\text{find the target angle in each triangle}\to\text{test both}.}$$
+:::
 
 ---
 
@@ -263,6 +335,88 @@ Working
 
 ---
 
+### Question 4A — sine rule with two branches
+
+::: {.question}
+In triangle $ABC$, $\angle A=30^\circ$, $BC=4$ and $AB=x$. Find the range of $x$ for which there are two
+non-congruent triangles and $\angle B$ is acute in **both**.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer: $\boxed{4\sqrt3<x<8}$.**
+
+**Step 1 — first make sure that two triangles exist.** Relative to $A$, the opposite side is $BC=4$ and
+the known adjacent side is $AB=x$. The height test gives
+$$x\sin30^\circ<4<x
+\quad\Longrightarrow\quad
+4<x<8.$$
+
+**Step 2 — the sine rule produces two possible values of $C$.** Using the opposite pairs
+$(A,BC)$ and $(C,AB)$,
+$$\frac{\sin C}{x}=\frac{\sin30^\circ}{4}
+\quad\Longrightarrow\quad
+\sin C=\frac{x}{8}.$$
+Let
+$$C_1=\sin^{-1}\left(\frac{x}{8}\right).$$
+The same sine value also gives $C_2=180^\circ-C_1$. The corresponding values of $B$ are
+
+| Triangle | Angle $C$ | Angle $B=180^\circ-A-C$ |
+|---|---:|---:|
+| 1 | $C_1$ | $B_1=150^\circ-C_1$ |
+| 2 | $180^\circ-C_1$ | $B_2=C_1-30^\circ$ |
+
+**Step 3 — require both values of $B$ to be acute.** Since $30^\circ<C_1<90^\circ$ in the two-triangle
+range, $B_2=C_1-30^\circ$ is automatically between $0^\circ$ and $60^\circ$. The condition that matters is
+$$B_1<90^\circ
+\iff150^\circ-C_1<90^\circ
+\iff C_1>60^\circ.$$
+Because $C_1$ is acute, sine is increasing there, so
+$$\frac{x}{8}=\sin C_1>\sin60^\circ=\frac{\sqrt3}{2}
+\quad\Longrightarrow\quad x>4\sqrt3.$$
+Combine this with $4<x<8$ to obtain $\boxed{4\sqrt3<x<8}$.
+
+**Pattern to reuse:** sine rule $\to$ write the two supplementary angles $\to$ calculate the required angle
+in each triangle $\to$ impose the condition on both.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+### Question 4B — do not discard the supplementary angle
+
+::: {.question}
+In triangle $ABC$, $\angle A=30^\circ$, $BC=5$ and $AB=8$. Find the two possible values of $\angle B$ to
+the nearest $0.1^\circ$, and state which triangle has an obtuse angle at $B$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The opposite pairs are $(A,BC)$ and $(C,AB)$, so
+$$\frac{\sin C}{8}=\frac{\sin30^\circ}{5}
+\quad\Longrightarrow\quad
+\sin C=0.8.$$
+Thus
+$$C_1=\sin^{-1}(0.8)\approx53.1^\circ,\qquad
+C_2=180^\circ-C_1\approx126.9^\circ.$$
+Now subtract each possibility from the angle sum:
+$$B_1=180^\circ-30^\circ-53.1^\circ\approx96.9^\circ,$$
+$$B_2=180^\circ-30^\circ-126.9^\circ\approx23.1^\circ.$$
+Therefore the two values are $\boxed{96.9^\circ}$ and $\boxed{23.1^\circ}$; the first triangle has the
+obtuse angle at $B$. Keeping only the calculator's principal value $C_1$ would miss the second triangle.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
 ## 3 · Ranges & the cosine-rule quadratic
 
 ::: {.callout-tip}
@@ -273,6 +427,23 @@ $$a^{2}=b^{2}+c^{2}-2bc\cos A\ \Longrightarrow\ b^{2}-(2c\cos A)\,b+(c^{2}-a^{2}
 The number of triangles $=$ the number of **positive** roots $b$. Product of roots $=c^{2}-a^{2}$, sum
 $=2c\cos A$: if $a\ge c$ the product is $\le0$, so exactly **one** positive root; two positive roots need
 $a<c$ **and** a positive discriminant (which is the $a>h$ condition).
+:::
+
+::: {.callout-important}
+## High-value link — an area ratio can reveal $\cos\theta$
+
+Suppose the SSA data give two triangles. At the fixed angle $\theta$, write the cosine rule as a quadratic
+in the unknown adjacent side $x$:
+$$x^2-(2c\cos\theta)x+(c^2-a^2)=0.$$
+The two roots $x_1,x_2$ are the two possible lengths. Because
+$$K=\tfrac12cx\sin\theta,$$
+all other factors are fixed, so $K_1:K_2=x_1:x_2$. If the area ratio is $r:1$, write $x_1=rt$ and
+$x_2=t$. Vieta's formulae then give
+$$rt^2=c^2-a^2,\qquad (r+1)t=2c\cos\theta.$$
+Therefore
+$$\boxed{\cos\theta=\frac{r+1}{2c}\sqrt{\frac{c^2-a^2}{r}}}.$$
+
+**Memory line:** area ratio $\to$ root ratio; product $\to$ the two lengths; **sum $\to\cos\theta$**.
 :::
 
 ### Question 5
@@ -553,17 +724,61 @@ Working
 
 ---
 
-## 5 · Area, the sine rule & the circumradius
+## 5 · Area, Heron's formula & greatest-area shapes
 
 ::: {.callout-tip}
-## Concept — three tools for area and angles
+## Concept — choose the area tool from the information given
 
 - **Area $=\tfrac12\,bc\sin A$** (two sides and the angle *between* them). For fixed $b,c$ this is largest
   when $A=90^\circ$ (since $\sin A\le1$).
 - A **given area** fixes $\sin A$, and $\sin A=k$ has **two** angles in a triangle ($A$ and $180^\circ-A$) —
   the area version of the ambiguous case.
+- If all three sides are known, use **Heron's formula**:
+  $$s=\frac{a+b+c}{2},\qquad K=\sqrt{s(s-a)(s-b)(s-c)}.$$
+  The formula $\tfrac12bc\sin A$ is still valid, but would first require the cosine rule to find $A$.
 - **Sine rule / circumradius:** $\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$, where $R$ is the
   radius of the circle through all three vertices.
+:::
+
+::: {.callout-important}
+## One chain, not two unrelated formulae
+
+Let $K$ be the area and $R$ the circumradius. From the extended sine rule,
+$$\frac{a}{\sin A}=2R\quad\Longrightarrow\quad\sin A=\frac{a}{2R}.$$
+Substitute this into the area formula using the two sides around $A$:
+$$K=\frac12bc\sin A
+=\frac12bc\left(\frac{a}{2R}\right)
+=\frac{abc}{4R}.$$
+Rearranging gives
+$$\boxed{R=\frac{abc}{4K}}.$$
+
+So the useful chain is
+$$\boxed{\frac{a}{\sin A}=2R}
+\quad\Longleftrightarrow\quad
+\boxed{K=\frac{abc}{4R}}
+\quad\Longleftrightarrow\quad
+\boxed{R=\frac{abc}{4K}}.$$
+
+**Which form should you use?** One side and its opposite angle $\to \frac{a}{\sin A}=2R$; three sides and
+the area $\to R=\frac{abc}{4K}$. Homework Question 12 practises the second route after finding $K$ by Heron.
+:::
+
+::: {.callout-warning}
+## Maximum-area statements need the constraint
+
+- **Fixed base only:** there is no greatest area; move the third vertex farther away.
+- **Fixed base and fixed perimeter:** the greatest-area triangle is **isosceles**.
+- **Fixed perimeter only:** the greatest-area triangle is **equilateral**.
+- **Fixed perimeter and a fixed number $n$ of sides:** the greatest-area $n$-gon is **regular**, with
+  $$K_{n,\max}=\frac{P^2}{4n\tan(\pi/n)}.$$
+
+If $n$ is also allowed to increase, there is no largest polygon: the regular polygons approach a circle,
+whose area is $P^2/(4\pi)$.
+
+For example, if the base is $10$ and the perimeter is $24$, write the other sides as $x$ and $14-x$.
+Heron's formula has fixed semiperimeter $s=12$ and gives
+$$K^2=12\cdot2(12-x)(x-2)=24\bigl(25-(x-7)^2\bigr)\le600.$$
+Equality requires $x=7$, so Heron's formula itself proves that the maximum occurs for sides $7,7,10$.
 :::
 
 ### Question 13
@@ -622,6 +837,76 @@ $$2R=\frac{a}{\sin A}=\frac{7}{\sin60^\circ}=\frac{7}{\tfrac{\sqrt3}2}=\frac{14}
 :::
 
 ::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 14A — Heron directly
+
+::: {.question}
+A triangle has side lengths $5$, $6$ and $7$. Find its exact area.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The semiperimeter is $s=\tfrac{5+6+7}{2}=9$. Hence
+$$K=\sqrt{9(9-5)(9-6)(9-7)}=\sqrt{9\cdot4\cdot3\cdot2}=6\sqrt6.$$
+
+There is no need to find an angle first: three sides known $\Rightarrow$ try Heron.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 14B — which triangle is largest?
+
+::: {.question}
+Among all triangles with perimeter $30$, find the greatest possible area and the side lengths that achieve it.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+With only the perimeter fixed, the maximum-area triangle is equilateral. Its sides are $10,10,10$, so
+$$K_{\max}=\frac{\sqrt3}{4}(10)^2=25\sqrt3.$$
+
+Do not confuse this with the fixed-base problem: if one side were prescribed as well, the other two would be
+equal, but the triangle would not usually be equilateral.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 14C — generalise to polygons
+
+::: {.question}
+Regular polygons all have perimeter $24$. Find the areas of the equilateral triangle, square and regular
+hexagon. What value do the maximum areas approach as the number of sides increases?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Use $K_{n,\max}=\dfrac{P^2}{4n\tan(\pi/n)}$ with $P=24$.
+
+- $n=3$: $K=\dfrac{576}{12\sqrt3}=16\sqrt3$.
+- $n=4$: $K=\dfrac{576}{16}=36$.
+- $n=6$: $K=\dfrac{576}{24(1/\sqrt3)}=24\sqrt3$.
+
+The values increase toward the area of a circle with circumference $24$:
+$$K\longrightarrow\frac{P^2}{4\pi}=\frac{144}{\pi}.$$
+Thus a regular $n$-gon is best when $n$ is fixed, but no finite polygon is best when $n$ itself is free.
+:::
+
+::: {.workspace style="min-height:4cm"}
 Working
 :::
 

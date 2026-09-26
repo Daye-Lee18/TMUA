@@ -175,7 +175,7 @@ Working
 ## Question 13 **[5]**
 
 A triangle has one side of length $10$ and a perimeter of $24$. Find the **greatest possible area**, and the
-side lengths that achieve it.
+side lengths that achieve it. *(Let the other sides be $x$ and $14-x$, and use Heron's formula.)*
 
 ::: {.workspace style="min-height:5cm"}
 Working
@@ -257,6 +257,10 @@ Working
 
 A triangle $ABC$ has $AB=x$, $BC=3$ and $\angle BAC=30^\circ$. Find the range of $x$ for which there are two
 non-congruent triangles **and** $\angle ABC$ is acute in **both**.
+
+*Method reminder: this is SSA with two possible triangles. Use the sine rule to produce the two supplementary
+values of the unknown angle, then test $\angle ABC$ in both. The cosine sign test is usually the faster choice
+when one triangle is already fixed by three sides.*
 
 ::: {.workspace style="min-height:5cm"}
 Working

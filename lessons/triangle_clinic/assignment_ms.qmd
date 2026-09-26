@@ -339,20 +339,34 @@ $R$ comes out rational.*
 
 ::: {.question}
 A triangle has one side of length $10$ and a perimeter of $24$. Find the **greatest possible area**, and the
-side lengths that achieve it.
+side lengths that achieve it. *(Let the other sides be $x$ and $14-x$, and use Heron's formula.)*
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **Greatest area $10\sqrt6$, with sides $7,7,10$.** &nbsp; **(M1 A1 M1 A1 B1)**
 
-Fix the side of length $10$ as the base; the other two sides sum to $24-10=14$. For a fixed base and fixed sum
-of the other two sides, the area is greatest when the triangle is **isosceles** (the apex highest), i.e. sides
-$7,7,10$. Its height is $\sqrt{7^{2}-5^{2}}=\sqrt{24}=2\sqrt6$, so
-$$\text{area}=\tfrac12\cdot10\cdot2\sqrt6=10\sqrt6.$$
+Let the other two sides be $x$ and $14-x$. The semiperimeter is fixed:
+$$s=\frac{10+x+(14-x)}2=12.$$
+Heron's formula gives
+$$
+K^2=s(s-10)(s-x)\bigl(s-(14-x)\bigr)
+=12\cdot2(12-x)(x-2).
+$$
+Complete the square in the variable part:
+$$
+(12-x)(x-2)=-x^2+14x-24
+=25-(x-7)^2\le25.
+$$
+Equality occurs exactly when $x=7$. Therefore
+$$K^2\le24\cdot25=600
+\quad\Longrightarrow\quad
+K\le\sqrt{600}=10\sqrt6.$$
+When $x=7$, the sides are $7,7,10$, so the greatest area is
+$\boxed{10\sqrt6}$.
 
-*Fixing the base and the sum of the other two sides puts the apex on an ellipse; the greatest height (hence
-area) is at the top, where the two sides are equal.*
+*This does not assume that an isosceles triangle is best: Heron's formula proves it. The equality condition
+$x=7$ shows that the two unfixed sides must be equal.*
 :::
 
 ---
@@ -480,11 +494,19 @@ narrower one inside it would be sufficient.*
 ::: {.question}
 A triangle $ABC$ has $AB=x$, $BC=3$ and $\angle BAC=30^\circ$. Find the range of $x$ for which there are two
 non-congruent triangles **and** $\angle ABC$ is acute in **both**.
+
+*Method reminder: this is SSA with two possible triangles. Use the sine rule to produce the two supplementary
+values of the unknown angle, then test $\angle ABC$ in both. The cosine sign test is usually the faster choice
+when one triangle is already fixed by three sides.*
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 **$3\sqrt3<x<6$.** &nbsp; **(M1 A1 A1 B1)**
+
+Here the sine rule is more efficient than the cosine sign test: the triangle is not yet unique, and we must
+track the angle $B$ in **both** possible triangles. By contrast, when three sides fix one triangle, the sign of
+$\cos B$ (or the side-square comparison) classifies $B$ directly.
 
 **Step 1 — the two-triangle band. (M1 A1)** Adjacent $c=AB=x$, opposite $a=BC=3$, height
 $h=x\sin30^\circ=\tfrac x2$. Two triangles need $h<a<c$:
@@ -557,13 +579,47 @@ for which there is **exactly one** distinct triangle.
 ## Answer
 **$x=\dfrac{\sqrt3}{2}$.** &nbsp; **(M1 A1 A1 B1)**
 
-$\sin A=\tfrac12$ gives $A=\alpha$ or $A=180^\circ-\alpha$ with $\alpha=30^\circ$. The obtuse choice needs
-$C<\alpha$, so there are two triangles when $C<30^\circ$ and one when $C\ge30^\circ$. "Exactly one" needs
-$C\ge30^\circ$, i.e. $\cos C\le\cos30^\circ$; the greatest such $x$ is
-$\cos30^\circ=\dfrac{\sqrt3}{2}$.
+**Step 1 — find both possible values of $A$. (M1)**
 
-*The number of triangles is just the number of valid values of the known angle $A$ — the obtuse one drops out
-once $C$ reaches $\alpha$.*
+In a triangle, $0^\circ<A<180^\circ$. Since
+$$\sin A=\frac12,$$
+there are two candidates:
+$$A=30^\circ\qquad\text{or}\qquad A=150^\circ.$$
+Each candidate that leaves a positive third angle produces one triangle. Once $A$ and $C$ are fixed, the
+given side $AB=1$ fixes its scale, so it does not create any further choices.
+
+**Step 2 — test the $A=30^\circ$ candidate. (A1)**
+
+Here
+$$B=180^\circ-30^\circ-C=150^\circ-C.$$
+This is positive when $C<150^\circ$. Thus the acute candidate for $A$ produces one valid triangle throughout
+$0^\circ<C<150^\circ$.
+
+**Step 3 — test the $A=150^\circ$ candidate and count. (A1)**
+
+Now
+$$B=180^\circ-150^\circ-C=30^\circ-C.$$
+This is positive only when $C<30^\circ$. Therefore
+$$
+\begin{array}{c|c}
+\text{range of }C & \text{number of triangles}\\ \hline
+0^\circ<C<30^\circ & 2\\
+30^\circ\le C<150^\circ & 1
+\end{array}
+$$
+At the boundary $C=30^\circ$, the choice $A=150^\circ$ would give $B=0^\circ$, which is degenerate and is
+not a triangle. The $A=30^\circ$ choice remains valid, with $B=120^\circ$, so exactly one triangle exists.
+
+**Step 4 — maximise $x=\cos C$. (B1)**
+
+Exactly one triangle requires $30^\circ\le C<150^\circ$. Cosine decreases as $C$ increases from
+$0^\circ$ to $180^\circ$, so its greatest value on this interval occurs at the smallest permitted angle,
+$C=30^\circ$:
+$$\boxed{x_{\max}=\cos30^\circ=\frac{\sqrt3}{2}}.$$
+
+*The key is not that an acute $A$ automatically makes two triangles. Rather, $\sin A=\tfrac12$ supplies two
+candidate values of $A$; when $C<30^\circ$ both candidates are valid, and when $C\ge30^\circ$ only the
+$30^\circ$ candidate survives.*
 :::
 
 ---
