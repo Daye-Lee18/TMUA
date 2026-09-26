@@ -1,6 +1,6 @@
 ---
 title: "Toolkit S7 — Spot the Error · Class Problems"
-subtitle: "Find the flaw — Easy → Hard"
+subtitle: "Find the flaw — Easy → Hard → past papers"
 format: html
 execute:
   echo: false
@@ -9,18 +9,26 @@ execute:
 
 ::: {.solutions}
 
-Twenty arguments that look convincing. For each, find the **first** line that does not follow — or decide the
-argument is actually **valid**. These mirror the Paper 2 **Err1/Err2** format.
+Twenty-seven arguments that look convincing. For each, find the **first** line that does not follow — or
+decide the argument is actually **valid**. These mirror the Paper 2 **Err1/Err2** format.
 
-**Questions 1–10** build the core fallacies from scratch. **Questions 11–20** are the real thing — two genuine
-TMUA past-paper questions and eight from the mock banks, grouped so that each pair shows the *same* fallacy
-from two sides. Three of them are **valid**: the honest answer is sometimes “no error”.
+**Questions 1–10** build the core fallacies from scratch. **Questions 11–20** pair each fallacy with its
+twin, mostly from the mock banks. **Questions 21–27** are seven more genuine TMUA past papers, grouped by
+the kind of fault rather than by topic. Some of them are **valid**: the honest answer is sometimes
+“no error”.
 
 ::: {.callout-note appearance="simple"}
 **Method.** Read line by line. At each step ask *"does this follow, for **every** value the line above
 allows?"* Watch the four hotspots: a **cancel/division** (could it be $0$?), a **square or root** (lost
 sign / gained root?), a **converse** used as proved, the **conclusion** slipping into a premise.
 :::
+
+---
+
+# Part 1 — The core fallacies
+
+Ten short arguments, built so that each one isolates a single way of going wrong. Get these automatic
+before meeting them dressed up in exam clothing.
 
 ---
 
@@ -346,6 +354,13 @@ Working
 **Questions 11–13 · Dividing — when it destroys solutions, and when it is perfectly safe.**
 Cancelling a factor is only legal if that factor can never be $0$. The third question is the control: there
 the factor *is* always positive, so the division is fine.
+
+# Part 2 — Exam bank: mock papers
+
+Each pair below shows the **same** fallacy from two sides, so read them two at a time. **Q18** and **Q19**
+are genuine past papers placed here for that reason; the rest of the real papers are in Part 3.
+
+---
 
 ## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q4</span>
 
@@ -787,6 +802,548 @@ equality $a=b$. That is where a case-split proof breaks. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Part 3 — Exam bank: real past papers
+
+Seven more genuine TMUA papers, arranged by **the kind of thing that goes wrong** rather than by topic.
+Spot-the-error is one of the two most stable slots on the test — one to three questions in every sitting
+from 2016 to 2023 — and across eight years the faults fall into four families:
+
+| family | what happens | here |
+|---|---|---|
+| **an algebraic slip** | a sign is dropped in ordinary manipulation | Q21 |
+| **direction of an inequality** | multiplying, dividing or taking a log by something negative or decreasing | Q22 |
+| **a lost sign from squaring or rooting** | $\sqrt{u^{2}}=u$ instead of $\lvert u\rvert$ | Q23, Q24 |
+| **direction of the argument** | the converse proved, or a theorem used outside what it says | Q25, Q26, Q27 |
+
+**Q18** (2016 Q13) and **Q19** (2022 Q7) above are real papers too — they sit among the mocks because each
+is paired with a mock question showing the same fallacy.
+
+[Read one line at a time and ask "does this follow for **every** value the line above allows?"]{.hl} The
+last two are the hardest kind: every individual line is correct, and the argument still proves the wrong
+thing.
+
+
+
+## Question 21 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q3</span>
+
+::: {.question}
+A student makes the following claim:
+
+> For all integers $n$, the expression $\;4\left(\dfrac{9n+1}{2}-\dfrac{3n-1}{2}\right)\;$ is divisible by $3$.
+
+Here is the student's argument:
+
+> $4\left(\dfrac{9n+1}{2}-\dfrac{3n-1}{2}\right)=2\left(2\left(\dfrac{9n+1}{2}-\dfrac{3n-1}{2}\right)\right)$ &nbsp;&nbsp;**(I)**
+> $=2(9n+1-3n-1)$ &nbsp;&nbsp;**(II)**
+> $=2(6n)$ &nbsp;&nbsp;**(III)**
+> $=12n$ &nbsp;&nbsp;**(IV)**
+> $=3(4n)$ &nbsp;&nbsp;**(V)**
+> which is always a multiple of $3$. &nbsp;&nbsp;**(VI)**
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** The argument is correct. &nbsp;&nbsp;**B** first error on line (I). &nbsp;&nbsp;**C** … (II).
+&nbsp;&nbsp;**D** … (III). &nbsp;&nbsp;**E** … (IV). &nbsp;&nbsp;**F** … (V). &nbsp;&nbsp;**G** … (VI).
+:::
+
+Nothing subtle here — just [expand the bracket honestly, watching what the minus sign does to **both**
+terms]{.hl} of the second fraction. Then check the claim itself against $n=1$ before you trust the
+conclusion.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a sign dropped inside a bracket, and a conclusion that is false as well
+:::
+
+**C — the first error is on line (II).**
+
+### What line (II) should say
+
+Multiplying the inner bracket by $2$ clears both denominators:
+
+$$2\left(\frac{9n+1}{2}-\frac{3n-1}{2}\right)=(9n+1)-(3n-1)=9n+1-3n\;\mathbf{+}\;1=6n+2 .$$
+
+The student wrote $9n+1-3n-1$, applying the minus to $3n$ but **not** to $-1$. *The subtraction is of the
+whole second fraction, so both of its terms change sign.*
+
+### What follows
+
+$$4\left(\frac{9n+1}{2}-\frac{3n-1}{2}\right)=2(6n+2)=12n+4 .$$
+
+And now look at the claim:
+
+$$12n+4\equiv 0+1\equiv 1 \pmod 3 ,$$
+
+so the expression leaves remainder $1$ on division by $3$ **for every integer $n$** — it is *never*
+divisible by $3$. Values: $n=1\to16$, $n=2\to28$, $n=3\to40$, $n=4\to52$. None is a multiple of $3$.
+
+*So the sign slip did not merely weaken the argument; it turned a statement that is always false into one
+that looks always true.*
+
+**The lesson.** [Test the claim numerically before auditing the proof]{.hl}. Here $n=1$ gives $16$ in three
+seconds and tells you immediately that **some** line must be wrong — which turns a five-line hunt into a
+check of the one line where an expression changes shape. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+
+## Question 22 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q18</span>
+
+::: {.question}
+Consider the following problem:
+
+> Solve the inequality $\;\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$, where $n$ is a positive
+> integer.
+
+A student produces the following argument:
+
+> $\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$
+> &nbsp;&nbsp;**(I)** $\;\log_{\frac12}\left(\dfrac14\right)^{n}<\log_{\frac12}\left(\dfrac1{32}\right)^{10}$
+> &nbsp;&nbsp;**(II)** $\;n\log_{\frac12}\left(\dfrac14\right)<10\log_{\frac12}\left(\dfrac1{32}\right)$
+> &nbsp;&nbsp;**(III)** $\;n<\dfrac{10\log_{\frac12}\left(\frac1{32}\right)}{\log_{\frac12}\left(\frac14\right)}$
+> &nbsp;&nbsp;**(IV)** $\;n<\dfrac{10\times5}{2}=25$
+> &nbsp;&nbsp;**(V)** $\;1\le n\le24$
+
+Which step (if any) in the argument is invalid?
+
+&nbsp;&nbsp;**A** none — the argument is correct &nbsp;&nbsp;**B** only (I) &nbsp;&nbsp;**C** only (II)
+&nbsp;&nbsp;**D** only (III) &nbsp;&nbsp;**E** only (IV) &nbsp;&nbsp;**F** only (V)
+:::
+
+Taking logs of an inequality is safe **only** when the log is an increasing function. [The base here is
+$\tfrac12$, which is less than $1$]{.hl} — so before reading any further, decide what $\log_{1/2}$ does to
+the order of two numbers.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a logarithm to a base below $1$ reverses an inequality
+:::
+
+**B — only step (I) is invalid.**
+
+### Why (I) fails
+
+$\log_{1/2}$ is a **decreasing** function: raising $\tfrac12$ to a larger power gives a *smaller* number,
+so the log runs backwards. Concretely
+
+$$\tfrac14>\tfrac1{32}\qquad\text{but}\qquad \log_{\frac12}\tfrac14=2\;<\;5=\log_{\frac12}\tfrac1{32} .$$
+
+So applying $\log_{1/2}$ to both sides must **reverse** the inequality:
+
+$$\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}
+\quad\Longleftrightarrow\quad
+\log_{\frac12}\left(\tfrac14\right)^{n}\;\boldsymbol{>}\;\log_{\frac12}\left(\tfrac1{32}\right)^{10} .$$
+
+### The later steps are all fine
+
+| | | verdict |
+|---|---|---|
+| **(II)** | power rule $\log a^{k}=k\log a$ | ✓ an identity |
+| **(III)** | divide by $\log_{1/2}\tfrac14=2$, which is **positive** | ✓ direction preserved |
+| **(IV)** | $\log_{1/2}\tfrac1{32}=5$ since $\left(\tfrac12\right)^{5}=\tfrac1{32}$; $\tfrac{10\times5}{2}=25$ | ✓ |
+| **(V)** | $n<25$ with $n$ a positive integer | ✓ gives $1\le n\le24$ |
+
+*Every line after the first is impeccable, which is what makes the question hard: the damage is done
+before the algebra starts.*
+
+### The correct answer
+
+With the inequality the right way round, $n>25$, so the solution is $n\ge26$. Check directly in powers of
+$2$:
+
+$$\left(\tfrac14\right)^{n}=2^{-2n},\qquad\left(\tfrac1{32}\right)^{10}=2^{-50},\qquad
+2^{-2n}<2^{-50}\iff-2n<-50\iff n>25 . $$
+
+*The student's answer $1\le n\le24$ is not merely incomplete — it is the exact complement of the truth.*
+
+**The lesson.** [An inequality survives $\log_b$ unchanged only when $b>1$]{.hl}. When $0<b<1$ the order
+flips, exactly as it does when you multiply by a negative number. And note the cheap safety net available
+here: both sides were powers of $2$ all along, so the whole question could be done without logarithms.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 23 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q5</span>
+
+::: {.question}
+On which line is the **first** error in the following argument?
+
+&nbsp;&nbsp;**A** &nbsp; $\sin^{2}x+\cos^{2}x=1$ for all values of $x$.
+&nbsp;&nbsp;**B** &nbsp; Therefore $\cos x=\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**C** &nbsp; Hence $1+\cos x=1+\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**D** &nbsp; Thus $(1+\cos x)^{2}=\left(1+\sqrt{1-\sin^{2}x}\right)^{2}$ for all values of $x$.
+&nbsp;&nbsp;**E** &nbsp; Substituting $x=\pi$ gives $0=4$.
+:::
+
+Line **E** is plainly absurd, and that is the point: [the absurdity proves an error exists, but the
+question asks where it **first** occurs]{.hl}. Work forwards from A, not backwards from E.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — $\sqrt{u^{2}}=\lvert u\rvert$; the square root sign is always non-negative
+:::
+
+**B.**
+
+### Why B fails
+
+From $\sin^{2}x+\cos^{2}x=1$ we get $\cos^{2}x=1-\sin^{2}x$, and taking the square root gives
+
+$$\lvert\cos x\rvert=\sqrt{1-\sin^{2}x} ,$$
+
+**not** $\cos x$. *The symbol $\sqrt{\phantom{x}}$ always denotes the non-negative root, so the right-hand
+side can never be negative, while $\cos x$ is negative on the whole of the second and third quadrants.*
+
+At $x=\pi$:
+
+$$\cos\pi=-1 \qquad\text{but}\qquad \sqrt{1-\sin^{2}\pi}=\sqrt{1-0}=+1 .$$
+
+So line B is already false, at the very value the argument later substitutes.
+
+### The later lines are fine
+
+C adds $1$ to both sides of B; D squares both sides of C; E substitutes $x=\pi$. *Each of those is a valid
+operation performed on a false statement — which is exactly how a false line propagates into nonsense
+without any further mistake being made.* Tracking E: $\;(1+\cos\pi)^{2}=0$ and
+$\left(1+\sqrt{1-\sin^{2}\pi}\right)^{2}=(1+1)^{2}=4$.
+
+**The lesson.** [Square-rooting loses the sign, every time]{.hl}. Write $\sqrt{u^{2}}=\lvert u\rvert$ and
+then decide, from the range of $x$, whether the modulus can be removed. *And when a chain ends in an
+obvious absurdity, the error is almost never in the last line — it is in the first line that quietly
+assumed a sign.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+
+## Question 24 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q13</span>
+
+::: {.question}
+The following is an attempted proof of the conjecture:
+
+> **if** $\tan\theta>0$, **then** $\sin\theta+\cos\theta>1$.
+
+> Suppose $\tan\theta>0$, so in particular $\cos\theta\neq0$.
+> &nbsp;&nbsp;**(I)** &nbsp; Since $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$, then $\sin\theta\cos\theta=\tan\theta\cos^{2}\theta>0$.
+> &nbsp;&nbsp;**(II)** &nbsp; It follows that $1+2\sin\theta\cos\theta>1$.
+> &nbsp;&nbsp;**(III)** &nbsp; Therefore $\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta>1$,
+> &nbsp;&nbsp;**(IV)** &nbsp; which factorises to give $(\sin\theta+\cos\theta)^{2}>1$.
+> &nbsp;&nbsp;**(V)** &nbsp; Therefore $\sin\theta+\cos\theta>1$.
+
+Which one of the following is the case?
+
+&nbsp;&nbsp;**A** The proof is correct. &nbsp;&nbsp;**B** first error in (I). &nbsp;&nbsp;**C** … (II).
+&nbsp;&nbsp;**D** … (III). &nbsp;&nbsp;**E** … (IV). &nbsp;&nbsp;**F** … (V).
+:::
+
+The same fallacy as the previous question, hiding at the other end of the proof. [From $u^{2}>1$ you may
+conclude $\lvert u\rvert>1$ — and nothing about the sign of $u$]{.hl}. Ask yourself which quadrants have
+$\tan\theta>0$ before you decide.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — $u^{2}>1$ gives $\lvert u\rvert>1$, not $u>1$; and the third quadrant is where it bites
+:::
+
+**F — the first error is in line (V).**
+
+### Lines (I)–(IV) are all correct
+
+| | | why it holds |
+|---|---|---|
+| **(I)** | $\sin\theta\cos\theta=\tan\theta\cos^{2}\theta>0$ | $\tan\theta>0$ by assumption and $\cos^{2}\theta>0$ since $\cos\theta\neq0$ ✓ |
+| **(II)** | add $1$ to $2\sin\theta\cos\theta>0$ | ✓ |
+| **(III)** | replace the leading $1$ by $\sin^{2}\theta+\cos^{2}\theta$ | ✓ an identity |
+| **(IV)** | factorise the perfect square | ✓ |
+
+### Why (V) fails
+
+$(\sin\theta+\cos\theta)^{2}>1$ gives only
+
+$$\lvert\sin\theta+\cos\theta\rvert>1 ,\qquad\text{i.e.}\qquad \sin\theta+\cos\theta>1 \;\textbf{ or }\; \sin\theta+\cos\theta<-1 .$$
+
+The proof takes the first branch and silently discards the second — and **the second branch is where
+$\tan\theta>0$ also lives**.
+
+### The conjecture itself is false
+
+$\tan\theta>0$ in the **first** quadrant *and* in the **third**. Take $\theta=225^\circ$:
+
+$$\tan225^\circ=1>0 ,\qquad \sin225^\circ+\cos225^\circ=-\tfrac{\sqrt2}{2}-\tfrac{\sqrt2}{2}=-\sqrt2\approx-1.414 ,$$
+
+which is certainly not greater than $1$. *(And $(-\sqrt2)^{2}=2>1$, so line (IV) is perfectly happy with
+this counterexample — the proof survives all the way to the last line before breaking.)*
+
+**The lesson.** [Every time a square disappears, a $\pm$ should appear]{.hl}. Here both branches of
+$\lvert u\rvert>1$ are genuinely occupied, so discarding one is not a tidy-up — it is the whole error.
+*Compare with [Question 23](#question-23): the same lost sign, once at the start of a chain and once at the
+very end.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 25 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q16</span>
+
+::: {.question}
+The Fundamental Theorem of Calculus (FTC) tells us that for any polynomial $\mathrm{f}$:
+
+$$\frac{\mathrm{d}}{\mathrm{d}x}\left(\int_{0}^{x}\mathrm{f}(t)\,\mathrm{d}t\right)=\mathrm{f}(x)$$
+
+A student calculates $\dfrac{\mathrm{d}}{\mathrm{d}x}\left(\displaystyle\int_{x}^{2x}t^{2}\,\mathrm{d}t\right)$ as follows:
+
+> **(I)** &nbsp; $\displaystyle\int_{x}^{2x}t^{2}\,\mathrm{d}t=\int_{0}^{2x}t^{2}\,\mathrm{d}t-\int_{0}^{x}t^{2}\,\mathrm{d}t$
+> **(II)** &nbsp; By FTC, $\dfrac{\mathrm{d}}{\mathrm{d}x}\left(\displaystyle\int_{0}^{x}t^{2}\,\mathrm{d}t\right)=x^{2}$
+> **(III)** &nbsp; By FTC, $\dfrac{\mathrm{d}}{\mathrm{d}x}\left(\displaystyle\int_{0}^{2x}t^{2}\,\mathrm{d}t\right)=(2x)^{2}=4x^{2}$
+> **(IV)** &nbsp; So $\dfrac{\mathrm{d}}{\mathrm{d}x}\left(\displaystyle\int_{x}^{2x}t^{2}\,\mathrm{d}t\right)=4x^{2}-x^{2}$
+> **(V)** &nbsp; giving $\dfrac{\mathrm{d}}{\mathrm{d}x}\left(\displaystyle\int_{x}^{2x}t^{2}\,\mathrm{d}t\right)=3x^{2}$
+
+Which of the following best describes the student's calculation?
+
+&nbsp;&nbsp;**A** completely correct &nbsp;&nbsp;**B** first error on (I) &nbsp;&nbsp;**C** … (II)
+&nbsp;&nbsp;**D** … (III) &nbsp;&nbsp;**E** … (IV) &nbsp;&nbsp;**F** … (V)
+:::
+
+The theorem is printed for you, with its upper limit written as **$x$**. [Check each use against the
+statement as given, letter by letter]{.hl} — one of the two applications has an upper limit that is not
+$x$. You can also settle the whole thing by integrating directly, since $t^{2}$ is easy.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a theorem applied outside the form in which it is stated; the missing chain rule
+:::
+
+**D — the first error is on line (III).**
+
+### Line (II) is a legitimate use; line (III) is not
+
+The FTC as printed has upper limit exactly $x$. Line (II) matches it and is correct. Line (III) has upper
+limit $2x$, which the printed statement says nothing about. Doing it properly, with $F(u)=\int_0^u
+t^2\,\mathrm{d}t$ and $u=2x$, the chain rule gives
+
+$$\frac{\mathrm{d}}{\mathrm{d}x}F(2x)=F'(2x)\times\frac{\mathrm{d}(2x)}{\mathrm{d}x}=(2x)^{2}\times2=8x^{2},$$
+
+not $4x^{2}$. *The student took the theorem's conclusion and substituted $2x$ for $x$ in it, which is not
+what the theorem permits — the factor $2$ from differentiating the limit is lost.*
+
+### The direct check
+
+$$\int_{x}^{2x}t^{2}\,\mathrm{d}t=\left[\frac{t^{3}}{3}\right]_{x}^{2x}=\frac{8x^{3}-x^{3}}{3}=\frac{7x^{3}}{3}
+\qquad\Longrightarrow\qquad
+\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{7x^{3}}{3}\right)=7x^{2} .$$
+
+The correct answer is $7x^{2}$; with line (III) repaired the student's own route gives $8x^{2}-x^{2}=7x^{2}$
+too. ✓ *Lines (I), (IV) and (V) are all sound — (I) is the standard splitting of an integral, and (IV) and
+(V) simply carry forward the wrong number from (III).*
+
+**The lesson.** [A theorem licenses exactly the statement it makes, and no substitution into its
+conclusion]{.hl}. Whenever a variable limit is anything other than a bare $x$, a chain-rule factor is due.
+*And when the integrand is simple, compute the thing directly — thirty seconds of honest integration
+identifies the wrong line without any theory at all.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 26 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q11</span>
+
+::: {.question}
+A student attempts to solve the following problem, where $a$ and $b$ are non-zero real numbers:
+
+> Show that **if** $a^{2}-4b^{3}\ge0$ **then** there exist real numbers $x$ and $y$ such that
+> $a=xy(x+y)$ and $b=xy$.
+
+Consider the following attempt:
+
+> **(I)** &nbsp; $(x-y)^{2}\ge0$
+> **(II)** &nbsp; so $x^{2}+y^{2}-2xy\ge0$
+> **(III)** &nbsp; so $(x+y)^{2}-4xy\ge0$
+> **(IV)** &nbsp; so $x^{2}y^{2}(x+y)^{2}-4x^{3}y^{3}\ge0$
+> **(V)** &nbsp; so $a^{2}-4b^{3}\ge0$
+
+Which of the following best describes this attempt?
+
+&nbsp;&nbsp;**A** It is completely correct.
+&nbsp;&nbsp;**B** It is incorrect, but it would be correct if written in the reverse order.
+&nbsp;&nbsp;**C** It is incorrect, but the student has correctly proved the **converse**.
+&nbsp;&nbsp;**D** incorrect — error in line (II). &nbsp;&nbsp;**E** … (III). &nbsp;&nbsp;**F** … (IV).
+:::
+
+Every line here is algebraically true. So before hunting for a slip, [write down what was **asked** and
+what was **proved**, as two arrows]{.hl} — the fault in this question is not in any line but in the
+direction of the whole thing.
+
+Note also that option **B** is a genuine possibility in general: some chains really can be reversed.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — proving the converse; and why "just reverse it" is not a repair
+:::
+
+**C — the student has correctly proved the converse.**
+
+### The algebra is flawless
+
+| | | check |
+|---|---|---|
+| **(I)→(II)** | expand the square | ✓ |
+| **(II)→(III)** | $x^{2}+y^{2}-2xy=(x+y)^{2}-4xy$ | ✓ an identity, since $(x+y)^{2}=x^{2}+2xy+y^{2}$ |
+| **(III)→(IV)** | multiply by $x^{2}y^{2}\ge0$ | ✓ multiplying an inequality by a non-negative number is safe |
+| **(IV)→(V)** | substitute $a=xy(x+y)$ and $b=xy$ | ✓ $a^{2}=x^{2}y^{2}(x+y)^{2}$ and $4b^{3}=4x^{3}y^{3}$ |
+
+*So there is no line to accuse — which is why D, E and F are wrong.*
+
+### What was actually proved
+
+$$\textbf{Asked: }\quad a^{2}-4b^{3}\ge0\;\Longrightarrow\;\exists\,x,y \text{ with } a=xy(x+y),\ b=xy$$
+$$\textbf{Proved: }\quad \exists\,x,y \text{ with } a=xy(x+y),\ b=xy\;\Longrightarrow\;a^{2}-4b^{3}\ge0$$
+
+The attempt **starts** by assuming such $x$ and $y$ exist — they appear in line (I) out of nowhere — and
+**ends** at the inequality. That is the converse, and it is correctly established. **C.**
+
+### Why B is wrong
+
+*Reversing the lines would not repair it.* The chain would have to begin at $a^{2}-4b^{3}\ge0$, where no
+$x$ and $y$ are available yet, and conclude that suitable ones exist. Running the same lines upwards
+supplies no such $x$ and $y$ — each step would also need to be an *if and only if*, and
+(III)$\to$(IV) is not: multiplying by $x^{2}y^{2}$ is reversible only when $xy\neq0$.
+
+**The lesson.** [When every line checks out and the proof is still wrong, compare the first line with the
+hypothesis]{.hl}. A proof that begins by assuming the conclusion — here, the existence of $x$ and $y$ — is
+proving the converse, whatever it ends with. *This is the single most valuable habit on the page: read the
+first and last lines before reading any of the middle.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 27 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q17</span>
+
+::: {.question}
+A student answered the following question:
+
+> $a$ and $b$ are non-zero real numbers. Prove that the equation $x^{3}+ax^{2}+b=0$ has three distinct real
+> roots if $\;27b\left(b+\dfrac{4a^{3}}{27}\right)<0$.
+
+Here is the student's solution:
+
+> **I** &nbsp; We differentiate $y=x^{3}+ax^{2}+b$ to get $\dfrac{\mathrm{d}y}{\mathrm{d}x}=3x^{2}+2ax=x(3x+2a)$.
+> Solving $\dfrac{\mathrm{d}y}{\mathrm{d}x}=0$ shows that the stationary points are at $(0,b)$ and
+> $\left(-\dfrac{2a}{3},\;b+\dfrac{4a^{3}}{27}\right)$.
+> **II** &nbsp; If $27b\left(b+\dfrac{4a^{3}}{27}\right)<0$, then $b$ and $b+\dfrac{4a^{3}}{27}$ must have
+> opposite signs, and so one of the stationary points is above the $x$-axis and one is below.
+> **III** &nbsp; If the cubic has three distinct real roots, then one of the stationary points is above the
+> $x$-axis and one is below.
+> **IV** &nbsp; Hence if $27b\left(b+\dfrac{4a^{3}}{27}\right)<0$, then the equation has three distinct real roots.
+
+Which one of the following options best describes the student's solution?
+
+&nbsp;&nbsp;**A** It is a completely correct solution.
+&nbsp;&nbsp;**B** The student has instead proved the converse of the statement in the question.
+&nbsp;&nbsp;**C** The solution is wrong, because the student should have stated step II after step III.
+&nbsp;&nbsp;**D** The solution is wrong, because the student should have shown the converse of the result in step II.
+&nbsp;&nbsp;**E** The solution is wrong, because the student should have shown the converse of the result in step III.
+:::
+
+The hardest question on the page, and worth the time. [Write each numbered step as an arrow, then see
+whether the arrows link up to give the arrow the question asked for]{.hl}. One of them points the wrong
+way — and the answer options distinguish very carefully between *the whole statement's converse* and *one
+step's converse*.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — a chain that does not connect; the converse of an intermediate step, not of the theorem
+:::
+
+**E — the student should have shown the converse of the result in step III.**
+
+### Write the steps as arrows
+
+Let $C$ be the condition $27b\left(b+\tfrac{4a^{3}}{27}\right)<0$, let $S$ be *"one stationary point above
+the $x$-axis and one below"*, and let $R$ be *"three distinct real roots"*.
+
+$$\textbf{II:}\quad C\Rightarrow S \qquad\qquad \textbf{III:}\quad R\Rightarrow S \qquad\qquad
+\textbf{Wanted:}\quad C\Rightarrow R$$
+
+From $C\Rightarrow S$ and $R\Rightarrow S$ nothing follows about $C\Rightarrow R$. *Both arrows point **into**
+$S$; to chain them you need one arrow out of it.* The step that is needed is $S\Rightarrow R$ — which is the
+**converse of step III**. Hence **E**.
+
+### Step I and step II are correct
+
+Step I: $\dfrac{\mathrm{d}y}{\mathrm{d}x}=3x^{2}+2ax=x(3x+2a)=0$ at $x=0$ and $x=-\tfrac{2a}{3}$, with
+
+$$y(0)=b ,\qquad y\!\left(-\tfrac{2a}{3}\right)=-\tfrac{8a^{3}}{27}+\tfrac{4a^{3}}{9}+b=b+\tfrac{4a^{3}}{27} . \checkmark$$
+
+Step II: since $27>0$, the condition $27b\left(b+\tfrac{4a^{3}}{27}\right)<0$ says exactly that the
+**product of the two stationary values is negative**, so they have opposite signs. ✓ *(Expanding,
+$27b^{2}+4a^{3}b$, which is $27\times$ the product of the two stationary values.)*
+
+### Why the other options fail
+
+| | | |
+|---|---|---|
+| **A** | "completely correct" | the arrows do not connect, as above |
+| **B** | "proved the converse of the statement" | that would mean proving $R\Rightarrow C$. The student did not: step III gives $R\Rightarrow S$, and step II gives $C\Rightarrow S$ — *neither of those is $R\Rightarrow C$.* |
+| **C** | "should have stated II after III" | reordering two correct statements changes nothing; the missing arrow is still missing |
+| **D** | "converse of step II" | that would be $S\Rightarrow C$, which is not what is needed either — and in fact step II is already used in the right direction |
+
+*Option B is the trap: "the converse" is in the air, but it is the converse of a **step**, not of the
+theorem.*
+
+**The lesson.** [Draw the arrows before judging a multi-step proof]{.hl}. A proof fails to connect whenever
+two steps point into the same middle statement, and the repair is always to turn one of them round. *Note
+how precise the exam is being here — four of the five options are about converses, and they differ only in
+**whose** converse.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:8cm"}
 Working
 :::
 

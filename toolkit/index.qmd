@@ -65,7 +65,7 @@ answer checked against the official solution.
 | **S4** Quantifiers & negation | 19 | 12 |
 | **S5** Proof methods | 39 | 12 |
 | **S6** Scrambled proofs | 11 | 1 |
-| **S7** Spot the error | 20 | 10 |
+| **S7** Spot the error | 27 | 17 |
 | **T1** Divisors & primes | 15 checks + 19 past-paper | — |
 | **T2** Shapes as logic | 8 checks + 8 past-paper | — |
 
@@ -81,6 +81,9 @@ papers.
   the **fastest-growing** slot: exactly one question a paper from 2016 to 2020, then two to four from 2021.
 - **S5 Part 5** — 2017 Q16, 2018 Q3, 2018 Q6, 2019 Q7, 2020 Q8, 2023 Q3, 2023 Q16. Counterexample is one of
   the two **most stable** slots — about two a year in all eight sittings.
+- **S7 Part 3** — 2017 Q18, 2018 Q13, 2020 Q3, 2020 Q16, 2021 Q5, 2021 Q11, 2022 Q17, plus 2016 Q13 and
+  2022 Q7 above. Grouped by **the kind of fault**: an algebraic slip, the direction of an inequality, a
+  sign lost to squaring, and the direction of the argument itself.
 
 Note that "converse", "contrapositive", "for all" and "there exists" are often not the words on the page.
 The same ideas arrive as *only if*, *if and only if*, *for any*, *for some* and *is not prime for any $m$* —

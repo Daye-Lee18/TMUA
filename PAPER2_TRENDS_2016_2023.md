@@ -173,8 +173,14 @@ Q19 (polygon in a circle), 2023 Q9 (pentagon). **Eight sittings, eight appearanc
 
 5. **Fill the same gap on every page.** *Done.* **S1 Part 5** holds five genuine papers (2021 Q17,
    2022 Q14, 2023 Q10, Q12, Q14), and **S5 Part 5** holds seven (2017 Q16, 2018 Q3, Q6, 2019 Q7, 2020 Q8,
-   2023 Q3, Q16). Across the seven class pages, real past papers went from **10 to 28**. The gap that
-   remains is **S7**: twenty questions, only two of them real papers (2016 Q13, 2022 Q7).
+   2023 Q3, Q16), and **S7 Part 3** holds nine (2016 Q13, 2017 Q18, 2018 Q13, 2020 Q3, Q16, 2021 Q5, Q11,
+   2022 Q7, Q17). Across the seven class pages, real past papers went from **10 to 35**; counting the
+   assignments, clinics and student hubs as well, 61 of the 160 archive questions are now written up
+   somewhere on the site.
+
+   What is left is mostly Paper-1-style calculation, plus **2016**, which is still under-mined: only four
+   of its twenty are in use, because that paper's PDF has broken font encoding and its text extracts as
+   garbage. Anything wanted from 2016 has to be read from page images.
 
 6. **Mine every paper for quantifier questions.** *Done.* **S4 Part 5** now holds seven genuine papers —
    2017 Q17, 2018 Q12, 2020 Q18, 2021 Q13, 2022 Q10, 2022 Q13 and 2023 Q19 — up from two. As with S2, the
