@@ -105,9 +105,10 @@ isolation. They carry a **◆** beside the source:
 | **2023 P2 Q16** — recurrence with $\gcd(a,b)=7$, which must be true | **[S5 Q34](../../toolkit/s05_proof_methods.qmd)** |
 | **2023 P2 Q19** — $g=xf''$, which orderings of $M,N$ are possible | **[S4 Q14](../../toolkit/s04_quantifiers_negation.qmd)** |
 
-Each of those toolkit pages now ends with a **Part 4 — Exam bank** of the same question type, drawn from the
-Tyler and JZ Maths mock papers: **13** more necessary/sufficient questions in S3, **10** spot-the-errors in
-S7, **7** quantifier questions in S4, **7** counterexamples in S5, **5** in S1 and **4** in S2.
+Each of those toolkit pages now ends with an **exam bank** of the same question type, drawn from the
+Tyler and JZ Maths mock papers and from the real papers: **13** more necessary/sufficient questions in S3,
+**10** spot-the-errors in S7, **7** quantifier questions in S4, **7** counterexamples in S5, **5** in S1 and
+**8** in S2 — the last of those split into a mock set (Part 4) and five genuine TMUA papers (Part 5).
 :::
 
 | Set | Focus | Link |

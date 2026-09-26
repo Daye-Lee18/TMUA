@@ -60,7 +60,7 @@ answer checked against the official solution.
 | Session | Class questions | of which Part 4 |
 |---|---|---|
 | **S1** Statement forms | 12 | 5 |
-| **S2** Converse & contrapositive | 11 | 4 |
+| **S2** Converse & contrapositive | 15 | 8 |
 | **S3** Necessary & sufficient | 20 | 14 |
 | **S4** Quantifiers & negation | 14 | 7 |
 | **S5** Proof methods | 34 | 7 |
@@ -68,6 +68,11 @@ answer checked against the official solution.
 | **S7** Spot the error | 20 | 10 |
 | **T1** Divisors & primes | 15 checks + 19 past-paper | — |
 | **T2** Shapes as logic | 8 checks + 8 past-paper | — |
+
+**S2** splits its bank in two: **Part 4** is mock material, **Part 5** is five genuine TMUA papers —
+2018 Q11, 2019 Q17, 2020 Q12, 2020 Q20 and 2023 Q9. That is very nearly the whole supply. Converse and
+contrapositive is the named topic of only **seven** questions in the eight papers 2016–2023, against
+twenty-nine for necessary/sufficient, which is why S2 is a short page and S3 a long one.
 
 Questions marked **★** have already come up on a mock sat here; **◆** marks questions that also appear in
 the **[self-study sets](../lessons/index.qmd)**. **S6** has only one: the Prf4 scrambled-proof format has been

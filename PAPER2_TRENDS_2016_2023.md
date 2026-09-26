@@ -163,6 +163,14 @@ Q19 (polygon in a circle), 2023 Q9 (pentagon). **Eight sittings, eight appearanc
    $\forall\exists$ against $\exists\forall$.
 4. **Mine 2017–2020 for "only if" practice.** That is where the phrasing lives; 2021–22 has none of it and
    2023 has twelve.
+
+   *Done.* The four that turn on statement form alone are now **S2 Part 5**: 2018 Q11 (A), 2019 Q17 (D),
+   2020 Q12 (D) and 2020 Q20 (C). Note that the words *converse* and *contrapositive* appear **nowhere** in
+   the 2017–2020 papers — the topic is examined entirely through "if", "only if" and "if and only if",
+   which is why a keyword search for it returns nothing and why S2 needed the search done by question
+   structure instead. One further 2017 question, **P2 Q17** (F, the "stapled" set), is a quantifier
+   negation rather than a converse, and belongs in **S4** — which currently has only two genuine past
+   papers against S2's five.
 5. **Do not drop the constants.** Spot-the-error and counterexample have not changed in eight years — about
    four marks a paper between them, for a fixed and small amount of teaching.
 6. **S6 stays last, but stop calling it hypothetical.** One real question exists: 2016 P2 Q7.

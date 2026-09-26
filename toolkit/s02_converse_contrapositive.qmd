@@ -1,6 +1,6 @@
 ---
 title: "Paper 2 Toolkit · S2 — Converse and Contrapositive"
-subtitle: "Work each question — Easy → Medium → Hard"
+subtitle: "Work each question — Easy → Medium → Hard → past papers"
 format: html
 jupyter: python3
 execute:
@@ -545,12 +545,12 @@ Working
 
 ---
 
-# Part 4 — Exam bank
+# Part 4 — Exam bank: mock papers
 
-Three from real exam material, and they are deliberately the **same question** growing harder: a rule of the
-form "if $P$ then $Q$" is given, and you must pick the one statement that genuinely follows. The answer is
-the **contrapositive** every time — what changes is how much work the negation takes. **★** marks a
-question that has already come up on a mock sat here.
+Three from exam-style mock material, and they are deliberately the **same question** growing harder: a rule
+of the form "if $P$ then $Q$" is given, and you must pick the one statement that genuinely follows. The
+answer is the **contrapositive** every time — what changes is how much work the negation takes. **★** marks
+a question that has already come up on a mock sat here.
 
 ::: {.callout-important}
 ## The two negations these questions live on
@@ -732,6 +732,18 @@ Working
 
 ---
 
+# Part 5 — Exam bank: real past papers
+
+Converse and contrapositive is a **small** slot. Across the eight papers 2016–2023 it is the named topic of
+only seven questions — against twenty-nine for necessary/sufficient. But it is never absent for long, and
+when it does appear the mark is usually available with no calculation at all.
+
+Every question below is a genuine TMUA paper. Notice what they have in common: in three of the four you are
+never asked whether a statement is **true**, only which statements **say the same thing**. [The work is
+translation before it is mathematics]{.hl} — convert every option into $\Rightarrow$ form first, then look
+for options that are secretly each other.
+
+
 ## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q9 &nbsp;◆</span>
 
 ::: {.question}
@@ -776,6 +788,374 @@ three candidates without any mathematics.* $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q17</span>
+
+::: {.question}
+A multiple-choice test question offered the following four options relating to a certain statement:
+
+&nbsp;&nbsp;**A** &nbsp; The statement is true **if and only if** $x>1$
+&nbsp;&nbsp;**B** &nbsp; The statement is true **if** $x>1$
+&nbsp;&nbsp;**C** &nbsp; The statement is true **if and only if** $x>2$
+&nbsp;&nbsp;**D** &nbsp; The statement is true **if** $x>2$
+
+Given that **exactly one** of these options was correct, which one was it?
+:::
+
+You are never told what the statement is — and you do not need to. [Each option is a claim about a
+set]{.hl}: about the collection of values of $x$ at which the statement holds. Write that set down and the
+question becomes one about containment.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — "if" versus "if and only if", with no mathematical content at all
+:::
+
+**D.**
+
+**Translate.** Let $T$ be the set of values of $x$ for which the statement is true.
+
+| option | in English | as a claim about $T$ |
+|---|---|---|
+| **A** | true **iff** $x>1$ | $T=(1,\infty)$ |
+| **B** | true **if** $x>1$ | $(1,\infty)\subseteq T$ |
+| **C** | true **iff** $x>2$ | $T=(2,\infty)$ |
+| **D** | true **if** $x>2$ | $(2,\infty)\subseteq T$ |
+
+*"If" gives containment in one direction only; "if and only if" pins the set down exactly. An equality is a
+much stronger claim than a containment, and a stronger claim drags weaker ones along with it.*
+
+**Use the given.** Exactly one option is correct — so **the correct option must not force any other option
+to be correct too**. Test each:
+
+- **A is out.** $T=(1,\infty)$ immediately gives $(1,\infty)\subseteq T$, so B would be correct as well.
+  *(It gives D too, since $(2,\infty)\subset(1,\infty)$.)*
+- **C is out.** $T=(2,\infty)$ gives $(2,\infty)\subseteq T$, so D would be correct as well.
+- **B is out.** If $(1,\infty)\subseteq T$ then, because $(2,\infty)\subset(1,\infty)$, also
+  $(2,\infty)\subseteq T$ — so D would be correct as well.
+- **D survives.** It forces nothing: take $T=(1.5,\infty)$. Then D holds, A fails, C fails, and B fails
+  because $1.2\in(1,\infty)$ but $1.2\notin T$. *Exactly one correct, as required.* ✓
+
+**The lesson.** In a "which one is correct" list, [an option that logically implies another option can
+never be the unique answer]{.hl} — you can strike it out before doing any mathematics. Here that argument
+disposes of three of the four options and never once needs to know what the statement was.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q12</span>
+
+::: {.question}
+Which one of **A**–**F** correctly completes the following statement?
+
+> Given that $a<b$, and $\mathrm{f}(x)>0$ for all $x$ with $a<x<b$, the trapezium rule produces an
+> **overestimate** for $\displaystyle\int_a^b \mathrm{f}(x)\,\mathrm{d}x$ …
+
+&nbsp;&nbsp;**A** &nbsp; … **if** $\mathrm{f}'(x)>0$ and $\mathrm{f}''(x)<0$ for all $x$ with $a<x<b$
+&nbsp;&nbsp;**B** &nbsp; … **only if** $\mathrm{f}'(x)>0$ and $\mathrm{f}''(x)<0$ for all $x$ with $a<x<b$
+&nbsp;&nbsp;**C** &nbsp; … **if and only if** $\mathrm{f}'(x)>0$ and $\mathrm{f}''(x)<0$ for all $x$ with $a<x<b$
+&nbsp;&nbsp;**D** &nbsp; … **if** $\mathrm{f}'(x)<0$ and $\mathrm{f}''(x)>0$ for all $x$ with $a<x<b$
+&nbsp;&nbsp;**E** &nbsp; … **only if** $\mathrm{f}'(x)<0$ and $\mathrm{f}''(x)>0$ for all $x$ with $a<x<b$
+&nbsp;&nbsp;**F** &nbsp; … **if and only if** $\mathrm{f}'(x)<0$ and $\mathrm{f}''(x)>0$ for all $x$ with $a<x<b$
+:::
+
+There are really only two conditions on offer, each dressed three ways. So do the mathematics once — [the
+trapezium rule overestimates exactly when the curve is convex]{.hl} — and then spend the rest of the
+question on *if*, *only if* and *if and only if*.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — one fact, three wordings; the trap is an over-specified condition
+:::
+
+**D.**
+
+### Step 1 — the mathematics, which is one line
+
+The trapezium rule replaces the curve by **chords**. If $\mathrm{f}''>0$ the curve is **convex**, every
+chord lies **above** it, and the estimate is an **overestimate**. If $\mathrm{f}''<0$ the curve is concave,
+the chords lie below, and it is an underestimate. *The sign of $\mathrm{f}'$ plays no part whatsoever —
+which is exactly what the question is testing.*
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+CURVE, CHORD = '#1f77b4', '#d62728'
+fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.3))
+
+def panel(ax, f, a, b, n, title, note, loc):
+    x = np.linspace(a, b, 400)
+    xk = np.linspace(a, b, n + 1)
+    chord = np.interp(x, xk, f(xk))          # the straight-line (trapezium) approximation
+    ax.fill_between(x, f(x), chord, color=CHORD, alpha=0.22, lw=0,
+                    label='gap between chord and curve')
+    ax.plot(x, f(x), color=CURVE, lw=2.4, label='the curve $y=\\mathrm{f}(x)$')
+    ax.plot(xk, f(xk), color=CHORD, lw=2.0, marker='o', ms=5.5, label='the chords used')
+    for xv in xk:
+        ax.plot([xv, xv], [0, f(xv)], color='0.75', lw=0.9, zorder=0)
+    ax.set_title(title, fontsize=11)
+    ax.text(0.5, 0.06, note, transform=ax.transAxes, ha='center', fontsize=9.5)
+    ax.set_ylim(0, None); ax.set_xlabel('$x$')
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+    ax.legend(fontsize=8.5, loc=loc, framealpha=0.95)
+
+panel(axes[0], lambda x: 1/x, 1, 2, 2,
+      "$\\mathrm{f}'<0$, $\\mathrm{f}''>0$  (convex)\nchords sit ABOVE  \u2192  OVERestimate",
+      'trapezia $0.70833$   vs   exact $\\ln 2 = 0.69315$', 'upper right')
+panel(axes[1], lambda x: np.sqrt(x), 1, 9, 2,
+      "$\\mathrm{f}'>0$, $\\mathrm{f}''<0$  (concave)\nchords sit BELOW  \u2192  UNDERestimate",
+      'trapezia $16.94427$   vs   exact $52/3 = 17.33333$', 'upper left')
+
+plt.tight_layout(); plt.show()
+```
+
+So **the condition that matters is $\mathrm{f}''>0$**, and it appears in options D, E and F.
+
+### Step 2 — now read the wording
+
+| option | wording | claim | verdict |
+|---|---|---|---|
+| **D** | *if* | $\mathrm{f}'<0$ and $\mathrm{f}''>0$ $\Rightarrow$ overestimate | **true** |
+| **E** | *only if* | overestimate $\Rightarrow$ $\mathrm{f}'<0$ and $\mathrm{f}''>0$ | false |
+| **F** | *if and only if* | both directions | false |
+| **A** | *if* | $\mathrm{f}'>0$ and $\mathrm{f}''<0$ $\Rightarrow$ overestimate | false |
+| **B** | *only if* | overestimate $\Rightarrow$ $\mathrm{f}'>0$ and $\mathrm{f}''<0$ | false |
+| **C** | *if and only if* | both directions | false |
+
+- **D is true.** Convex is enough on its own, so convex-and-decreasing is certainly enough. *A sufficient
+  condition is allowed to ask for more than it needs.*
+- **E is false.** It would mean an overestimate can happen **only** when $\mathrm{f}$ is decreasing. Take
+  $\mathrm{f}(x)=e^{x}$ on $[0,1]$: it is positive, convex and **increasing**, and two strips give
+  $1.75393$ against the exact $e-1=1.71828$ — an overestimate with $\mathrm{f}'>0$. *One counterexample is
+  all a "necessary" claim needs to die.*
+- **F is false** the moment E is, since it asserts E as one of its halves.
+- **A is false**, from the right-hand picture: concave gives an **under**estimate. B and C carry the same
+  condition, so they fail too.
+
+### The lesson
+
+*The condition in the options was deliberately over-specified.* Only $\mathrm{f}''>0$ was doing any work;
+$\mathrm{f}'<0$ was dead weight. [When an option bundles the condition you need together with one you do
+not, "if" survives the extra baggage and "only if" almost never does]{.hl} — because the extra clause gives
+the counterexample away. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q20</span>
+
+::: {.question}
+$x$ is a real number and $\mathrm{f}$ is a function.
+
+Given that **exactly one** of the following statements is true, which one is it?
+
+&nbsp;&nbsp;**A** &nbsp; $x\ge0$ **only if** $\mathrm{f}(x)<0$
+&nbsp;&nbsp;**B** &nbsp; $x<0$ **if** $\mathrm{f}(x)\ge0$
+&nbsp;&nbsp;**C** &nbsp; $x\ge0$ **only if** $\mathrm{f}(x)\ge0$
+&nbsp;&nbsp;**D** &nbsp; $\mathrm{f}(x)<0$ **if** $x<0$
+&nbsp;&nbsp;**E** &nbsp; $\mathrm{f}(x)\ge0$ **only if** $x\ge0$
+&nbsp;&nbsp;**F** &nbsp; $\mathrm{f}(x)\ge0$ **if and only if** $x<0$
+:::
+
+This is the last question on the paper and it contains no mathematics at all. Six options, but only two
+statements between them — so [translate every line into an arrow first and look for duplicates]{.hl}. The
+phrase *"exactly one is true"* is doing far more work than it appears to.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — spotting contrapositive pairs; "exactly one is true" as an elimination tool
+:::
+
+**C.**
+
+### Step 1 — translate
+
+Write $P$ for "$x\ge0$" and $Q$ for "$\mathrm{f}(x)\ge0$". Then "$x<0$" is $\lnot P$ and
+"$\mathrm{f}(x)<0$" is $\lnot Q$. Remember the two rules: *"$A$ only if $B$" is $A\Rightarrow B$*, and
+*"$A$ if $B$" is $B\Rightarrow A$* — the "if" one runs backwards.
+
+| option | in English | as an arrow |
+|---|---|---|
+| **A** | $x\ge0$ only if $\mathrm{f}(x)<0$ | $P\Rightarrow\lnot Q$ |
+| **B** | $x<0$ if $\mathrm{f}(x)\ge0$ | $Q\Rightarrow\lnot P$ |
+| **C** | $x\ge0$ only if $\mathrm{f}(x)\ge0$ | $P\Rightarrow Q$ |
+| **D** | $\mathrm{f}(x)<0$ if $x<0$ | $\lnot P\Rightarrow\lnot Q$ |
+| **E** | $\mathrm{f}(x)\ge0$ only if $x\ge0$ | $Q\Rightarrow P$ |
+| **F** | $\mathrm{f}(x)\ge0$ iff $x<0$ | $Q\Leftrightarrow\lnot P$ |
+
+### Step 2 — two of these pairs are the same statement twice
+
+- **A and B.** Negate and reverse $P\Rightarrow\lnot Q$: it becomes $\lnot(\lnot Q)\Rightarrow\lnot P$,
+  i.e. $Q\Rightarrow\lnot P$ — which is **B**. *A and B are contrapositives, so they are logically
+  equivalent: always both true or both false.*
+- **D and E.** Negate and reverse $\lnot P\Rightarrow\lnot Q$: it becomes $Q\Rightarrow P$ — which is
+  **E**. *Same thing again.*
+
+Now apply the given. **Exactly one** statement is true, so neither pair can contain it — a true member
+would drag its partner along and give two. Hence
+
+$$\textbf{A},\ \textbf{B},\ \textbf{D},\ \textbf{E}\ \text{are all false,}$$
+
+and the answer is **C** or **F**. *Four options eliminated, and nothing about $\mathrm{f}$ has been used
+yet.*
+
+### Step 3 — F or C
+
+**F is false.** Suppose F held. Take any $x$ with $P$ true, i.e. $x\ge0$. Then $\lnot P$ is false, so by F
+$Q$ is false too, i.e. $\mathrm{f}(x)<0$. But "$P\Rightarrow\lnot Q$" is exactly **A** — so F being true
+would make A true as well, and we are back to two. *F is out for the same structural reason as the pairs.*
+
+**So C.** It remains only to check C can hold alone — take $\mathrm{f}(x)=1$ for every $x$, so $Q$ is
+always true:
+
+| | claim | at $\mathrm{f}\equiv1$ |
+|---|---|---|
+| **C** | $P\Rightarrow Q$ | $Q$ always true, so **true** ✓ |
+| **A** | $P\Rightarrow\lnot Q$ | fails at $x=0$ |
+| **B** | $Q\Rightarrow\lnot P$ | fails at $x=0$ |
+| **D** | $\lnot P\Rightarrow\lnot Q$ | fails at $x=-1$ |
+| **E** | $Q\Rightarrow P$ | fails at $x=-1$ |
+| **F** | $Q\Leftrightarrow\lnot P$ | fails at $x=0$ |
+
+Exactly one true. ✓
+
+### The lesson
+
+Four of the six options were **two** statements wearing four costumes. [Translate, find the contrapositive
+pairs, and "exactly one is true" wipes them all out at a stroke]{.hl} — long before you decide anything
+about $\mathrm{f}$. *This is the single highest-value habit on the whole page: the converse and the
+contrapositive of an option are usually sitting elsewhere in the same list.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q11</span>
+
+::: {.question}
+Consider the equation $2^{x}=mx+c$, where $m$ and $c$ are real constants.
+
+Which of the following statements is/are **true**?
+
+&nbsp;&nbsp;**I** &nbsp; The equation has a negative real solution **only if** $c>1$.
+&nbsp;&nbsp;**II** &nbsp; The equation has two distinct real solutions **if** $c>1$.
+&nbsp;&nbsp;**III** &nbsp; The equation has two distinct **positive** real solutions **if and only if** $c\le1$.
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+Here the translation is the easy half. [Each statement is a claim about *every* pair $(m,c)$]{.hl}, so each
+one dies to a single pair of numbers — and the cheapest numbers are the degenerate ones. Look at what each
+statement **fails to mention**.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — "only if" / "if" / "iff" applied to a family of curves; counterexample by degenerate choice
+:::
+
+**A — none of them.**
+
+The equation asks where the line $y=mx+c$ meets the curve $y=2^{x}$. Note that $c$ is the **$y$-intercept**
+of the line and $m$ its gradient; all three statements constrain $c$ and say nothing at all about $m$.
+*That omission is the whole question.*
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+CURVE = '#1f77b4'
+fig, ax = plt.subplots(figsize=(7.4, 4.6))
+x = np.linspace(-3, 2.4, 500)
+ax.plot(x, 2.0**x, color=CURVE, lw=2.4, label='$y=2^{x}$')
+
+ax.plot(x, -0.5*x, color='#d62728', lw=1.8, ls='--', label='$y=-x/2$   ($c=0$)')
+ax.plot([-1], [0.5], 'o', color='#d62728', ms=8, zorder=5)
+ax.annotate('$x=-1$: a negative solution\nwith $c=0\\leq 1$  — kills I',
+            (-1, 0.5), textcoords='offset points', xytext=(6, 44), fontsize=9, color='#d62728',
+            arrowprops=dict(arrowstyle='->', color='#d62728', lw=1.1))
+
+ax.axhline(2, color='#2ca02c', lw=1.8, ls='--', label='$y=2$   ($m=0$, $c=2$)')
+ax.plot([1], [2], 'o', color='#2ca02c', ms=8, zorder=5)
+ax.annotate('$c>1$ but only ONE\nintersection — kills II',
+            (1, 2), textcoords='offset points', xytext=(-104, 24), fontsize=9, color='#2ca02c',
+            arrowprops=dict(arrowstyle='->', color='#2ca02c', lw=1.1))
+
+ax.axhline(0.25, color='#7a5195', lw=1.8, ls='--', label='$y=1/4$   ($m=0$, $c=1/4$)')
+ax.plot([-2], [0.25], 'o', color='#7a5195', ms=8, zorder=5)
+ax.annotate('$c\\leq 1$, yet the only root\nis negative — kills III',
+            (-2, 0.25), textcoords='offset points', xytext=(6, -46), fontsize=9, color='#7a5195',
+            arrowprops=dict(arrowstyle='->', color='#7a5195', lw=1.1))
+
+ax.axhline(0, color='0.6', lw=0.8); ax.axvline(0, color='0.6', lw=0.8)
+ax.set_xlim(-3, 2.4); ax.set_ylim(-1.25, 5.2)
+ax.set_xlabel('$x$'); ax.legend(fontsize=9, loc='upper left', framealpha=0.95)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+### I is false
+
+It claims **negative solution $\Rightarrow c>1$**. Take $m=-\tfrac12$ and $c=0$, so the line is
+$y=-\tfrac12x$. At $x=-1$,
+
+$$2^{-1}=\tfrac12 \qquad\text{and}\qquad -\tfrac12\times(-1)=\tfrac12 ,$$
+
+so $x=-1$ **is** a solution — and $c=0$ is not greater than $1$. *A line of negative gradient runs upwards
+as $x$ decreases, so it meets the curve somewhere to the left of the $y$-axis no matter how low its
+intercept.* The correct wording would have to involve $m$.
+
+### II is false
+
+It claims **$c>1\Rightarrow$ two distinct real solutions**. Take $m=0$ and $c=2$: the equation is $2^{x}=2$,
+whose only solution is $x=1$. *A horizontal line meets an increasing exponential exactly once.* Getting two
+intersections needs the line to be steep enough to cut the curve twice — again a condition on $m$, which II
+never imposes.
+
+### III is false
+
+It claims **two distinct positive solutions $\iff c\le1$**, so it must survive in **both** directions.
+The $\Leftarrow$ direction fails at $m=0$, $c=\tfrac14$: then $2^{x}=\tfrac14$ gives $x=-2$ only — one
+solution, and a negative one at that. *$c\le1$ on its own forces nothing whatever.*
+
+Since I, II and III are all false, the answer is **A**.
+
+### The lesson
+
+*All three statements constrain $c$ and never mention $m$, yet the number and sign of the intersections
+depends on both.* [When a claim about a family of curves names only one of its two parameters, setting the
+unmentioned one to zero is usually the fastest counterexample]{.hl} — here $m=0$ alone disposed of II and
+III. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:8cm"}
 Working
 :::
 
