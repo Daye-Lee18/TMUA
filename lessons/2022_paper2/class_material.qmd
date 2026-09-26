@@ -101,7 +101,8 @@ Determine the number of stationary points on $y=3x^{4}+4x^{3}+6x^{2}-5$.
 &nbsp;&nbsp;**A** 0 &nbsp; **B** 1 &nbsp; **C** 2 &nbsp; **D** 3 &nbsp; **E** 4
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer B
+## Solution
+
 **B.** $\dfrac{\mathrm dy}{\mathrm dx}=12x^{3}+12x^{2}+12x=12x\left(x^{2}+x+1\right)$. The quadratic
 $x^{2}+x+1$ has discriminant $1-4=-3<0$, so it never vanishes; the only root of $y'$ is $x=0$. Hence **one**
 stationary point.
@@ -130,7 +131,8 @@ Find the coefficient of $x^{5}$ in $\;(1+x)^{5}\times\displaystyle\sum_{i=0}^{5}
 &nbsp;&nbsp;**A** 1 &nbsp; **B** 5 &nbsp; **C** 16 &nbsp; **D** 25 &nbsp; **E** 32
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer E
+## Solution
+
 **E.** $\sum_{i=0}^{5}x^{i}=1+x+\dots+x^{5}$ has coefficient $1$ on every power $0$ to $5$. So the $x^{5}$
 coefficient of the product is $\sum_{k=0}^{5}\binom5k\times 1=\binom50+\binom51+\dots+\binom55=2^{5}=32$.
 *(Every term of $(1+x)^5$ can be completed to $x^5$ by exactly one term of the geometric sum, so you just
@@ -152,7 +154,9 @@ $n=2$ &nbsp;&nbsp; **II** $n=3$ &nbsp;&nbsp; **III** $n=4$
 &nbsp; **G** II,III &nbsp; **H** I,II,III
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer C
+## Solution
+
+**C**
 
 [*(Prf1 · counterexample — S5)*]{style="color:#7a5195"}
 **C.** A counterexample needs $n$ **prime** and $n^{2}+2$ **prime**. $n=2$: $2^{2}+2=6$, not prime — no.
@@ -173,7 +177,9 @@ Circle $x^{2}+2fx+y^{2}+2gy+h=0$; point $P=(p,q)$; $L$ = distance from the centr
 **C** $f,h,p,q$ &nbsp; **D** $g,h,p,q$ &nbsp; **E** none of A–D
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer B
+## Solution
+
+**B**
 
 [*(Arg2 · sufficient — S3)*]{style="color:#7a5195"}
 **B.** The centre is $(-f,-g)$, so $L=\sqrt{(p+f)^{2}+(q+g)^{2}}$. This needs only $f,g$ (for the centre)
@@ -197,7 +203,9 @@ positive.* Which **must** be true? &nbsp;&nbsp;**I** $P$ &nbsp;&nbsp; **II** con
 &nbsp; **G** II,III &nbsp; **H** I,II,III
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
+**F**
 
 [*(Arg1 · converse & contrapositive — S2)*]{style="color:#7a5195"}
 **F.** A line through $(1,2)$ with $y$-intercept $c<0$ has slope $2-c>0$, so from $(0,c)$ it rises; its
@@ -220,7 +228,9 @@ Which is correct? &nbsp;&nbsp;**A** necessary and sufficient &nbsp; **B** necess
 **C** sufficient, not necessary &nbsp; **D** neither
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer C
+## Solution
+
+**C**
 
 [*(Arg2 · necessary & sufficient — S3)*]{style="color:#7a5195"}
 **C.** If $n$ is odd, the median is the single middle entry, which is in the list — so $P$ is
@@ -246,7 +256,9 @@ difference is always prime. Which best describes it?
 error line I &nbsp; **D** line II &nbsp; **E** line III &nbsp; **F** line IV &nbsp; **G** line V
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
+**F**
 
 [*(Err · spot the error — S7)*]{style="color:#7a5195"}
 **F.** Lines I–III are fine (the *polynomial* $3x^{2}+3x+1$ is irreducible). Line **IV** confuses
@@ -269,7 +281,9 @@ to $74$. Smallest $n$ for which $(*)$ is **necessarily** true?
 &nbsp;&nbsp;**A** 12 &nbsp; **B** 13 &nbsp; **C** 14 &nbsp; **D** 21 &nbsp; **E** 22 &nbsp; **F** 23
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer C
+## Solution
+
+**C**
 
 [*(pigeonhole reasoning — S4/S5)*]{style="color:#7a5195"}
 **C.** The sequence has $24$ terms ($3k-2$ for $k=1,\dots,24$). Terms pairing to $74$:
@@ -293,7 +307,9 @@ $(*)$: **for all** real $x$, if $x<k$ then $x^{2}<k$. Complete set of $k$ for wh
 **E** $0<k<1$ &nbsp; **F** $0<k\leq1$ &nbsp; **G** all real numbers
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer A
+## Solution
+
+**A**
 
 [*(Arg3 · quantifiers — S4)*]{style="color:#7a5195"}
 **A.** For **any** $k$, take $x$ very negative: then $x<k$ is true, but $x^{2}$ is huge, so $x^{2}<k$ fails.
@@ -327,7 +343,9 @@ a real $x$ such that for all positive integers $n$, $x<n$.
 &nbsp; **G** II,III &nbsp; **H** I,II,III
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer G
+## Solution
+
+**G**
 
 [*(Arg3 · quantifiers — S4)*]{style="color:#7a5195"}
 **G.** **I is false** — take $x=100,\,n=1$. **II is true** — for any $x$ there is an integer bigger than it.
@@ -351,7 +369,8 @@ Necessary and sufficient condition for angle $SPQ$ to be a right angle?
 **E** $y^{2}=x^{2}+z^{2}$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer C
+## Solution
+
 **C.** &nbsp;**Idea — "when is this angle $90^\circ$?" → Pythagoras on the triangle at that vertex.**
 
 The diagonals are perpendicular, so each half is the leg of a right triangle. The two sides meeting at $P$ are
@@ -395,7 +414,8 @@ $Q=\displaystyle\int_0^1 2^{x}\,\mathrm dx$, $R=\displaystyle\int_0^1\left(\sqrt
 **E** $R<P<Q$ &nbsp; **F** $R<Q<P$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
 **F.** $R=\int_0^1 2^{x/2}\,\mathrm dx$. On $(0,1)$ we have $\sqrt x\geq x\geq\tfrac x2$, and $2^{t}$ is
 increasing, so $2^{\sqrt x}\geq 2^{x}\geq 2^{x/2}$ at every point. Integrating preserves the order:
 $P>Q>R$, i.e. **$R<Q<P$**.
@@ -426,7 +446,9 @@ $(*)$: there exists a real $y$ such that $x-xy+y$ is negative. For how many real
 **E** all except one &nbsp; **F** all values
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer E
+## Solution
+
+**E**
 
 [*(Arg3 · quantifiers — S4)*]{style="color:#7a5195"}
 **E.** Read $x-xy+y=x+y(1-x)$ as a function of $y$. If $x\neq1$ the coefficient $(1-x)\neq0$, so it is a
@@ -449,7 +471,8 @@ correct?
 $1,2,3,4,5$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer D
+## Solution
+
 **D** (length $2$). Squaring (valid for moduli): $\lvert x+5\rvert<\lvert x+11\rvert\Leftrightarrow
 (x+5)^{2}<(x+11)^{2}\Leftrightarrow x>-8$; and $\lvert x+11\rvert<\lvert x+1\rvert\Leftrightarrow x<-6$.
 Both hold on $-8<x<-6$, an interval of length $2$.
@@ -480,7 +503,8 @@ $x,y,z>1$ with $\log_x y=z$ and $\log_y z=x$. Which must hold for $\log_z x$?
 **E** $xz$ &nbsp; **F** $\tfrac1{xz}$ &nbsp; **G** $yz$ &nbsp; **H** $\tfrac1{yz}$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
 **F.** $\log_x y=z$ means $y=x^{z}$; $\log_y z=x$ means $z=y^{x}=(x^{z})^{x}=x^{xz}$. Taking $\log_z$ of
 $z=x^{xz}$ gives $1=xz\,\log_z x$, so $\log_z x=\dfrac{1}{xz}$.
 :::
@@ -501,7 +525,9 @@ $\max a\leq\max b+\max c$
 &nbsp; **G** II,III &nbsp; **H** I,II,III
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer D
+## Solution
+
+**D**
 
 [*(reasoning — S5)*]{style="color:#7a5195"}
 **D** (III only). **III holds:** $\max a=a_m\leq b_m+c_m\leq\max b+\max c$. **I fails:** take $b=(0,10)$,
@@ -528,7 +554,9 @@ one below*; (IV) concludes the condition gives three distinct roots. Best descri
 **E** wrong — needs the converse of the result in step III
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer E
+## Solution
+
+**E**
 
 [*(Err + Arg1 — S7 / S2)*]{style="color:#7a5195"}
 **E.** To reach IV the student needs "**one stationary point above and one below $\Rightarrow$ three
@@ -550,7 +578,8 @@ $P,Q,R,S$ are the graphs of $\;(\cos x)^{\cos x},\ (\sin x)^{\sin x},\ (\cos x)^
 matches them?
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer E
+## Solution
+
 **E** — $(\cos x)^{\cos x}=R$, $(\sin x)^{\sin x}=S$, $(\cos x)^{\sin x}=P$, $(\sin x)^{\cos x}=Q$. Use the
 **endpoints**: at $x\to0$, $\cos x\to1,\ \sin x\to0$; at $x\to\tfrac\pi2$, the reverse.
 
@@ -595,7 +624,9 @@ triangles of equal area. For which $n$ are these properties **sufficient** to de
 only &nbsp; **E** all $n$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer B
+## Solution
+
+**B**
 
 [*(Arg2 · sufficient — S3)*]{style="color:#7a5195"}
 **Step 1 — set up the central angles.** Let $O$ be the centre and $A_1,\dots,A_n$ the consecutive vertices,
@@ -663,7 +694,8 @@ $0<m_2=m_4<1$ &nbsp; **D** $m_1=m_3=m_5=1$ and $0<m_4<m_2<1$ &nbsp; **E** $m_1=m
 $0<m_5<1$ &nbsp; **F** $m_1=m_3=1$ and $0<m_4<m_2<1$ and $0<m_5<1$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer E
+## Solution
+
 **E.** A $\cos(\dots)$ reaches $1$ exactly when its argument can be $0$; a $\sin(\dots)$ of a small
 non-negative quantity cannot reach $1$.
 

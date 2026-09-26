@@ -49,7 +49,8 @@ Given $\dfrac{1}{\sqrt x-6}-\dfrac{1}{\sqrt x+6}=\dfrac{3}{11}$, what is the val
 &nbsp; **F** $58$ &nbsp; **G** $60$ &nbsp; **H** $80$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer H
+## Solution
+
 **H.**
 
 **Step 1 — Combine the fractions.** With a common denominator,
@@ -74,7 +75,8 @@ Evaluate $\displaystyle\int_{9}^{16}\left(\tfrac{1}{\sqrt x}+\sqrt x\right)^{2}\
 &nbsp; **D** 7 &nbsp; **E** 14 &nbsp; **F** 28 &nbsp; **G** 75 &nbsp; **H** 175
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
 **F.**
 
 **Step 1 — Use $(a+b)^2-(a-b)^2=4ab$.** With $a=\tfrac1{\sqrt x}$ and $b=\sqrt x$,
@@ -98,7 +100,9 @@ Claim: for all positive reals $x,y$, $\sqrt{x^{y}}=x^{\sqrt y}$. Which is/are a 
 **I** $x=1,y=16$ &nbsp; **II** $x=2,y=8$ &nbsp; **III** $x=3,y=4$ &nbsp;&nbsp; (options **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer C
+## Solution
+
+**C**
 
 [*(Prf1 · counterexample — S5)*]{style="color:#7a5195"}
 **C** (II only).
@@ -128,7 +132,9 @@ I–VII (see paper) and concludes the answer is two. Best description? &nbsp;&nb
 error line VII.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer G
+## Solution
+
+**G**
 
 [*(Err — spot the error — S7)*]{style="color:#7a5195"}
 **G** (first error line VI).
@@ -155,7 +161,9 @@ is true? &nbsp;&nbsp; **A** necessary and sufficient &nbsp; **B** necessary, not
 **C** sufficient, not necessary &nbsp; **D** neither
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer A
+## Solution
+
+**A**
 
 [*(Arg2 · necessary & sufficient — S3)*]{style="color:#7a5195"}
 **A.**
@@ -182,7 +190,8 @@ For $a>1$, $(*)$: $a^{x}=x$. Which equations must have the **same number of real
 (options **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
 **F** (I and III).
 
 **I — same equation in disguise.** $\log_a x=x\Rightarrow x=a^{x}$ (exponentiate). That is exactly $(*)$,
@@ -222,7 +231,9 @@ The line $ax+by=c$ ($a,b,c\neq0$). Which is **necessary but not sufficient** for
 opposite signs &nbsp; **F** $a$ and $c$ have the same sign
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer E
+## Solution
+
+**E**
 
 [*(Arg2 + coordinate geometry — S3)*]{style="color:#7a5195"}
 **E.**
@@ -251,7 +262,8 @@ right-angled. Can the student draw one with exactly **1** (I), exactly **2** (II
 lines? &nbsp;&nbsp; (options **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer D
+## Solution
+
 **D** (III only). In fact **every** non-right triangle has **exactly three** such lines.
 
 **Step 1 — What a dividing line is.** To cut a triangle into two triangles the line must run from a
@@ -303,7 +315,9 @@ arithmetic sequence.* Which are true? &nbsp;&nbsp; **I** $(*)$ &nbsp; **II** the
 &nbsp; **III** the converse of $(*)$ &nbsp;&nbsp; (options **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer D
+## Solution
+
+**D**
 
 [*(Arg1 · converse & contrapositive — S2)*]{style="color:#7a5195"}
 **D** (III only).
@@ -334,7 +348,9 @@ An attempt to solve $x^{4}-2x^{2}-3<0$ by completing the square (lines I–VI, s
 &nbsp;&nbsp; **A** completely correct &nbsp; **B**–**G** first error in line I–VI
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer A
+## Solution
+
+**A**
 
 [*(Err — spot the error — S7)*]{style="color:#7a5195"}
 **A** — the argument is completely correct.
@@ -368,7 +384,9 @@ III, taken individually, is equivalent to $(*)$? (Yes/No triple, rows **A**–**
 - **III** a **sufficient** condition for $k$ to be a power of $2$ is that $2^{k}+1$ is prime
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer G
+## Solution
+
+**G**
 
 [*(Arg1 · statement forms — S1)*]{style="color:#7a5195"}
 **G** (No, No, Yes).
@@ -397,7 +415,9 @@ $\sin x\cos^{2}x=p^{2}\sin x$ has $n$ distinct solutions in $0\leq x\leq2\pi$. W
 **A** none &nbsp; **B** I &nbsp; **C** II &nbsp; **D** I and II
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer C
+## Solution
+
+**C**
 
 [*(Arg2 + trigonometry — S3)*]{style="color:#7a5195"}
 **C** (II only).
@@ -432,7 +452,9 @@ Which **one** statement is a **sufficient** condition for **exactly three** of t
 **E** $x\geq0$ and $x\leq1$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer C
+## Solution
+
+**C**
 
 [*(Arg2 · sufficient — S3)*]{style="color:#7a5195"}
 **C.** First note **D** ($x\geq0$ or $x\leq1$) is true for *every* real $x$.
@@ -460,7 +482,9 @@ Lines $ax+by+c=0$, $bx+cy+a=0$, $cx+ay+b=0$ ($a,b,c\neq0$). Which is correct? &n
 the lines are perpendicular, then the third is parallel to $y=x$. *(and other options)*
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
+**F**
 
 [*(Arg1 + coordinate geometry — S1)*]{style="color:#7a5195"}
 **F.**
@@ -489,7 +513,8 @@ What is the value of the recurring base-$2$ number $0.\dot0\dot01\dot1=0.0011001
 **E** $\tfrac4{15}$ &nbsp; **F** $\tfrac3{16}$ &nbsp; **G** $\tfrac5{16}$ &nbsp; **H** $\tfrac6{31}$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer B
+## Solution
+
 **B** ($\tfrac15$).
 
 **Step 1 — Repeating block.** The block "$0011$" repeats, with period $4$. Its value as a binary integer is
@@ -514,7 +539,8 @@ then $u_1$ is not a factor of $u_n$ for any $n>1$ &nbsp; **III** $\gcd(u_1,u_5)=
 **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer B
+## Solution
+
 **B** (I only).
 
 **Step 1 — Every term is a multiple of $7$.** Since $\gcd(a,b)=7$, both $a$ and $b$ are multiples of $7$;
@@ -541,7 +567,8 @@ $\lceil x\rceil$ is $x$ rounded **up** to the nearest integer. Find $\displaysty
 $2^{99}-2$ &nbsp; **D** $2^{100}$ &nbsp; **E** $2^{100}-1$ &nbsp; **F** $2^{100}-2$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
 **F** ($2^{100}-2$).
 
 **Step 1 — The integrand is a step function.** For $x$ in $(n-1,\,n]$, $\lceil x\rceil=n$, so
@@ -578,7 +605,8 @@ $x^{4}+bx^{2}+c=0$ has four distinct real roots **if and only if** which conditi
 $b<-2\sqrt c$ &nbsp; **E** $c<0$ and $b<0$ &nbsp; **F** $c<0$ and $b>0$
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer D
+## Solution
+
 **D.**
 
 **Step 1 — Substitute $u=x^{2}$.** The equation becomes $u^{2}+bu+c=0$. Four distinct real $x$ need **two
@@ -616,7 +644,8 @@ $N$ real $x$. Which are possible? &nbsp;&nbsp; **I** $M<N$ &nbsp; **II** $M=N$ &
 &nbsp;&nbsp; (options **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer H
+## Solution
+
 **H** (all three). $g=0$ means $x=0$ **or** $f''(x)=0$; give one example of each case.
 
 - **$M<N$:** $f(x)=x^{4}+1$ has $M=0$ real roots; $f''=12x^{2}$, so $g=12x^{3}$ has the single root $x=0$,
@@ -642,7 +671,8 @@ x\rvert))^{2}\Big]\mathrm dx$. Which **must** be true? &nbsp;&nbsp; **1** $I_{p,
 &nbsp;&nbsp; (options **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer D
+## Solution
+
 **D** (3 only).
 
 **Step 1 — The integrand vanishes for $x\geq0$.** When $x\geq0$, $\lvert x\rvert=x$, so

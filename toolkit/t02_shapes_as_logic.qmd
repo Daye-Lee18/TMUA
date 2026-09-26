@@ -434,7 +434,9 @@ sufficient** condition for $PQRS$ to be a parallelogram?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **A** &nbsp;·&nbsp; *cards 2, 4*
+## Solution
+
+**A** &nbsp;·&nbsp; [*cards 2, 4*]{style="color:#7a5195"}
 
 Test each option against the two halves separately.
 
@@ -488,7 +490,9 @@ Which of these conditions is/are **individually sufficient** for $PQRS$ to be a 
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **H** (none of them) &nbsp;·&nbsp; *cards 2, 3*
+## Solution
+
+**H** (none of them) &nbsp;·&nbsp; [*cards 2, 3*]{style="color:#7a5195"}
 
 Each condition upgrades the parallelogram by **one** property, and a square needs **two**.
 
@@ -526,7 +530,9 @@ Which of these statements is/are **necessarily true** for $Q$?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **A** (neither) &nbsp;·&nbsp; *card 9*
+## Solution
+
+**A** (neither) &nbsp;·&nbsp; [*card 9*]{style="color:#7a5195"}
 
 **Build one counterexample that kills both.** Draw the two perpendicular diagonals through a point $O$ and
 place the four vertices at **four different distances** from it:
@@ -566,7 +572,9 @@ Which of the following is **necessary and sufficient** for angle $SPQ$ to be a r
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** ($x^{2}=yz$) &nbsp;·&nbsp; *card 3*
+## Solution
+
+**C** ($x^{2}=yz$) &nbsp;·&nbsp; [*card 3*]{style="color:#7a5195"}
 
 **Use the one fact a kite gives you: the diagonals are perpendicular** (card 3). So put $O$ at the origin
 with $PR$ along the $x$-axis and $QS$ along the $y$-axis:
@@ -611,7 +619,9 @@ For which values of $n$ are these properties **sufficient** to deduce that the p
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **B** ($n=3$ only) &nbsp;·&nbsp; *card 8*
+## Solution
+
+**B** ($n=3$ only) &nbsp;·&nbsp; [*card 8*]{style="color:#7a5195"}
 
 **Turn "equal areas" into a statement about angles.** Each triangle has two sides equal to the radius $r$,
 with included central angle $\theta_i$, so its area is $\tfrac12r^{2}\sin\theta_i$. Equal areas therefore
@@ -668,7 +678,9 @@ would **imply** that they are congruent?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **D** (no, yes, yes) &nbsp;·&nbsp; *cards 5, 6*
+## Solution
+
+**D** (no, yes, yes) &nbsp;·&nbsp; [*cards 5, 6*]{style="color:#7a5195"}
 
 Throughout, write the area as $\tfrac12\cdot(\text{two sides})\cdot\sin(\text{included angle})$.
 
@@ -714,7 +726,9 @@ Which of the following statements is/are correct? *(Congruent triangles count as
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **C** (II only) &nbsp;·&nbsp; *card 6*
+## Solution
+
+**C** (II only) &nbsp;·&nbsp; [*card 6*]{style="color:#7a5195"}
 
 **Each sine gives two candidate angles.** Put $a=\arcsin x$ and $b=\arcsin y$, so that
 $$0<a<b<90^\circ ,$$
@@ -762,7 +776,9 @@ Which of the following is/are true?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — **D** (III only) &nbsp;·&nbsp; *card 7*
+## Solution
+
+**D** (III only) &nbsp;·&nbsp; [*card 7*]{style="color:#7a5195"}
 
 **Use the structural fact before any geometry.** A statement and its contrapositive are **logically
 equivalent**, so **I and II always share a truth value**. That alone removes every option containing exactly

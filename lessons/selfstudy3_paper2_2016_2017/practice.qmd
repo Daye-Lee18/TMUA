@@ -56,9 +56,9 @@ You may **add** the two given inequalities; you may **not multiply** them, becau
 negative]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — B (1 only)
+## Solution
 
-[*(answer B)*]{style="color:#7a5195"}
+**B** (1 only)
 
 ::: {.topic}
 Topic — which statements hold for a whole region · **combining inequalities (S7)**
@@ -122,9 +122,9 @@ Area $=\tfrac12\,AB\cdot BC\,\sin(\angle ABC)$ — so "same area + two sides" on
 angle]{.hl}, not the angle itself.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — D (No, Yes, Yes)
+## Solution
 
-[*(answer D)*]{style="color:#7a5195"}
+**D** (No, Yes, Yes)
 
 ::: {.topic}
 Topic — which extra condition is **sufficient** for congruence · **sufficient conditions (S3)**
@@ -190,9 +190,9 @@ of $bc$".) Which line contains the error?
 A remainder must satisfy [$0\le r<a$]{.hl}. Is $rs$ guaranteed to be less than $a$?
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — E (Line 5)
+## Solution
 
-[*(answer E)*]{style="color:#7a5195"}
+**E** (Line 5)
 
 ::: {.topic}
 Topic — spot the error in a divisibility proof · **spot the error (S7)**
@@ -235,9 +235,9 @@ Interior angle of a regular $k$-gon is $\dfrac{180(k-2)}{k}$. Set up the equatio
 solutions with $n,m\ge3$]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — E (4)
+## Solution
 
-[*(answer E)*]{style="color:#7a5195"}
+**E** (4)
 
 ::: {.topic}
 Topic — integer solutions of an angle equation · **number theory (S5)**
@@ -289,9 +289,9 @@ $\tan x=\sqrt3$ has [many solutions]{.hl} ($x=60^\circ+180^\circ k$) — check w
 $\sin 2x$.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — B
+## Solution
 
-[*(answer B)*]{style="color:#7a5195"}
+**B**
 
 ::: {.topic}
 Topic — is the value unique, and is the reasoning complete? · **complete reasoning (S3/S7)**
@@ -327,9 +327,9 @@ Which one of the following numbers is smallest in value?
 Reduce each to a **number** you can compare — the trig one hides the simplest value of all.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — E
+## Solution
 
-[*(answer E)*]{style="color:#7a5195"}
+**E**
 
 ::: {.topic}
 Topic — order five awkward numbers by estimating each · **surds, logs, indices (Paper 1)**
@@ -389,9 +389,9 @@ by $y=g(x)$, the $x$-axis and the lines $x=a$ and $x=b$?
 $2f(b)$ is a **constant** (it does not depend on $x$), so $g$ is just $f$ [shifted straight up]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — B
+## Solution
 
-[*(answer B)*]{style="color:#7a5195"}
+**B**
 
 ::: {.topic}
 Topic — area after adding a constant to a function · **area & transformations (Graphs Clinic 1)**
@@ -447,9 +447,9 @@ Which of the following statements (I, II, III, IV) **must** be true?
 "Standard form" means each of $a,b,c$ lies in $[1,10)$. Clear the powers of ten and see [what is forced]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — B (II only)
+## Solution
 
-[*(answer B)*]{style="color:#7a5195"}
+**B** (II only)
 
 ::: {.topic}
 Topic — standard form and a forced carry · **reasoning with bounds**
@@ -501,9 +501,9 @@ Which step (if any) is invalid? &nbsp; **A** none &nbsp; **B** only (I) &nbsp; *
 The base is [$\tfrac12<1$]{.hl}, so $\log_{1/2}$ is a **decreasing** function.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — B (step I)
+## Solution
 
-[*(answer B)*]{style="color:#7a5195"}
+**B** (step I)
 
 ::: {.topic}
 Topic — a log with base below 1 flips the inequality · **logs with base <1 (S7)**

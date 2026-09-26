@@ -60,9 +60,9 @@ Look for the **first** line that does not follow. Lines I–III are fine; watch 
 [*integer value*]{.hl} at IV.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — F (first error on line IV)
+## Solution
 
-[*(answer F)*]{style="color:#7a5195"}
+**F** (first error on line IV)
 
 ::: {.topic}
 Topic — spot the first error in a "difference of cubes is prime" proof · **spot the error (S7)**
@@ -106,9 +106,9 @@ The whole question is **which quantifier comes first**: in II the $n$ may [depen
 $x$ must beat **every** $n$.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — G (II and III only)
+## Solution
 
-[*(answer G)*]{style="color:#7a5195"}
+**G** (II and III only)
 
 ::: {.topic}
 Topic — the order of quantifiers · **quantifiers (S4)**
@@ -154,9 +154,9 @@ $(*)$ itself has $0$, $1$ or $2$ solutions depending on $a$. For each option, as
 that count — a [reflection or a substitution]{.hl} keeps the count; an extra branch changes it.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — F (I and III only)
+## Solution
 
-[*(answer F)*]{style="color:#7a5195"}
+**F** (I and III only)
 
 ::: {.topic}
 Topic — which equations share the solution-count of $a^{x}=x$ · **graphs of exp / log**
@@ -226,9 +226,9 @@ line is an *altitude* — valid only if the foot lands inside the side) or at th
 $90^\circ$ with a side there — possible only where the [angle exceeds $90^\circ$]{.hl}).
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — D (III only)
+## Solution
 
-[*(answer D)*]{style="color:#7a5195"}
+**D** (III only)
 
 ::: {.topic}
 Topic — count the lines splitting a triangle into two, one right-angled · **geometry reasoning**
@@ -312,9 +312,9 @@ A statement and its **contrapositive** always share a truth value; the **convers
 by [writing the arithmetic sequence out]{.hl}.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — D (III only)
+## Solution
 
-[*(answer D)*]{style="color:#7a5195"}
+**D** (III only)
 
 ::: {.topic}
 Topic — a statement, its contrapositive, and its converse · **converse & contrapositive (S2)**

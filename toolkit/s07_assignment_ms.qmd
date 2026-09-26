@@ -44,7 +44,9 @@ Which step (if any) in the argument is invalid?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer B
+## Solution
+
+**B**
 
 **Step 1 — Watch the base of the log.** Step (I) applies $\log_{1/2}$ to both sides. The base $\tfrac12<1$,
 so $\log_{1/2}$ is a **decreasing** function.
@@ -91,7 +93,9 @@ step (II). &nbsp; **F** …step (III). &nbsp; **G** …step (IV).
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
+**F**
 
 **Step 1 — Locate the division.** Step (III) is the move from $16x^{2}(2x-1)=25(2x-1)^{2}$ to
 $16x^{2}=25(2x-1)$: both sides are **divided by $(2x-1)$**.
@@ -127,7 +131,9 @@ On which line is the **first** error in the following argument?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer B
+## Solution
+
+**B**
 
 **Step 1 — Test line B for every $x$.** The symbol $\sqrt{\,}$ denotes the **non-negative** root, so
 $\cos x=\sqrt{1-\sin^{2}x}$ can only hold where $\cos x\geq0$.
@@ -164,7 +170,9 @@ Which of the following is true?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer A
+## Solution
+
+**A**
 
 **Step 1 — Check each "if and only if".** Line I adds $4$ to both sides; line II writes
 $x^{4}-2x^{2}+1=(x^{2}-1)^{2}$; line III unfolds $(x^{2}-1)^{2}<4$ to $-2<x^{2}-1<2$. All are genuine
@@ -204,7 +212,9 @@ Which one of the following is the case? &nbsp; **A** The proof is correct. &nbsp
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
+**F**
 
 **Step 1 — Lines (I)–(IV) are sound.** From $\tan\theta>0$ we do get $\sin\theta\cos\theta>0$, hence
 $1+2\sin\theta\cos\theta>1$, and using $\sin^{2}\theta+\cos^{2}\theta=1$ this is
@@ -244,7 +254,9 @@ Which of the following best describes this proof? &nbsp; **A** completely correc
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer F
+## Solution
+
+**F**
 
 The heart of this question is a single confusion: mixing up **"the polynomial cannot be factorised"** with
 **"the integer value you compute cannot be factorised (is prime)"**. They are not the same thing.
@@ -303,7 +315,9 @@ line I. &nbsp; **C** line II. &nbsp; **D** line III. &nbsp; **E** line IV. &nbsp
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer G
+## Solution
+
+**G**
 
 **Step 1 — Lines I–V hold.** One of any three consecutive odd integers is indeed a multiple of $3$ (the three
 residue cases are covered correctly).
@@ -336,7 +350,9 @@ stated $|a+b|\leq|a|+|b|$. &nbsp; **E** $(*)$ is false, and the proof is fully c
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer E
+## Solution
+
+**E**
 
 **Step 1 — Is $(*)$ actually false?** When $a,b$ share a sign (or either is $0$), $\lvert a+b\rvert=\lvert
 a\rvert+\lvert b\rvert$, so the strict "$<$" fails. $(*)$ is indeed **false**. (The true statement is the
@@ -371,7 +387,9 @@ is
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution — Answer (b)
+## Solution
+
+**Answer (b)**
 
 **Step 1 — Factorise $n^{4}+4$ the same way (Sophie Germain).**
 $$n^{4}+4=(n^{2}+2)^{2}-(2n)^{2}=(n^{2}-2n+2)(n^{2}+2n+2).$$
