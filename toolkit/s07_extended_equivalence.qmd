@@ -66,6 +66,11 @@ anything.
 
 *Test: ask what each line claims **about the line immediately above it**. Line (5) claims "these are the
 roots of line (4)" — true. Line (2) claims "this has the same solutions as line (1)" — false.*
+
+**This is a heuristic, not a law** — and [Part 3½](#what-each-line-actually-claims) shows exactly when it
+can fail. It works because a line that says "square both sides to obtain" is read as claiming an
+*equivalent* equation; if the working instead said "any solution must satisfy", the squaring would not be
+an error at all. Read the verbs before you commit.
 :::
 
 ::: {.callout-tip}
@@ -100,6 +105,102 @@ When you meet a solve-an-equation chain, run these three in order.
    domain restriction from a square root or a denominator. If yes, that step is fine — cross it off.
 3. **The answer is the earliest one still standing.** If none is standing, the argument is **valid** —
    and on these papers *"valid"* is a real option that is right about a third of the time.
+:::
+
+---
+
+# 3½ · What each line actually claims
+
+The rule in Part 2 — *blame the step, not the symptom* — is a reliable exam heuristic, but it is not a law
+of logic. Underneath it is something sharper, and worth knowing because it is what makes the heuristic
+work.
+
+::: {.callout-important}
+## The real principle
+
+**Every line makes a claim. The first error is the first line whose claim is false.**
+
+The trouble is that the claim is carried by a few English words, and those words are easy to skate over.
+A line of algebra can be asserting any of four different things:
+:::
+
+## The wording ladder
+
+| what the line says | what it claims | is it true here? |
+|---|---|---|
+| "$\ldots$ **is equivalent to** $\ldots$" | two-way: **same solution set** | ✗ **false** if a sign condition was dropped |
+| "**any solution must satisfy** $\ldots$" | one-way: every solution is among these | ✓ **true** — a necessary condition is still a true statement |
+| "the **possible values** are $\ldots$" / "the **candidates** are" | these are the survivors, **not yet checked** | ✓ true |
+| "the **solutions are** $\ldots$" | final: checked and confirmed | ✗ **false** if an extraneous root is still in the list |
+
+[Read down that column and you can see both answers at once]{.hl}. Squaring without a sign condition makes
+row 1 false and row 2 true. So:
+
+- if the working says **"is equivalent to"** at the squaring, the error is **at the squaring**;
+- if it says **"any solution must satisfy"**, the squaring is **not** an error, and the first false claim is
+  the later line that says **"the solutions are"** without a check.
+
+*Same algebra, two different correct answers, decided entirely by four English words.*
+
+## The paired example
+
+Here is one chain written both ways. Nothing in the mathematics changes.
+
+::: {.example}
+[Version A.]{.lbl} Solving $\sqrt{2x+3}=x$.
+
+&nbsp;&nbsp;**(1)** $\sqrt{2x+3}=x$
+&nbsp;&nbsp;**(2)** **This is equivalent to** $\;2x+3=x^{2}$
+&nbsp;&nbsp;**(3)** $\;(x-3)(x+1)=0$
+&nbsp;&nbsp;**(4)** **The solutions are** $x=3$ and $x=-1$.
+:::
+
+::: {.example}
+[Version B.]{.lbl} Solving $\sqrt{2x+3}=x$.
+
+&nbsp;&nbsp;**(1)** $\sqrt{2x+3}=x$
+&nbsp;&nbsp;**(2)** **Any solution must satisfy** $\;2x+3=x^{2}$
+&nbsp;&nbsp;**(3)** $\;(x-3)(x+1)=0$
+&nbsp;&nbsp;**(4)** **So the possible values are** $x=3$ and $x=-1$.
+&nbsp;&nbsp;**(5)** **The solutions are** $x=3$ and $x=-1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Where is the first error in each?
+
+**Version A — line (2).** It claims equivalence, and that is false: $\sqrt{2x+3}=x$ also requires
+$x\ge0$, which $2x+3=x^{2}$ does not. The two equations have different solution sets ($\{3\}$ against
+$\{3,-1\}$), so "is equivalent to" is simply untrue. Lines (3) and (4) then correctly describe the
+equation from line (2).
+
+**Version B — line (5).** Now line (2) claims only that every solution of the original satisfies the
+quadratic. [That is a **true** statement]{.hl} — a necessary condition is not an error. Lines (3) and (4)
+are true as well, because "possible values" makes no claim that they work. The first false claim is line
+(5): $x=-1$ gives $\sqrt{1}=1\neq-1$, so it is not a solution.
+
+**Nothing in the algebra differs.** The answer moved because the claims did.
+:::
+
+## So which reading does the exam intend?
+
+::: {.callout-tip}
+## In practice
+
+Real TMUA questions are phrased to avoid the argument. When they are not, two things settle it.
+
+**1 · The verb.** *"Square both sides to obtain"* and *"squaring gives"* read as producing a replacement
+equation — the equivalence reading. *"Hence any solution satisfies"* is explicitly one-way.
+
+**2 · What the options concede.** In **JZ Mock B Paper 2 Q2** every option begins
+
+> *"The final answers for $x$ are **wrong**, and the first error appears in Step (n)."*
+
+[The paper has already granted that the final line is wrong]{.hl}. It is not asking whether the answer was
+checked — it is asking where the chain first broke. That forces the equivalence reading, and the answer is
+the squaring, **Step (3)**.
+
+**If a question ever leaves it genuinely open**, prefer the step. Every official example in the archive
+marks the step, and no official example marks the final line.
 :::
 
 ---
@@ -555,8 +656,11 @@ Working
 
 1. **A step is an error when it is one-way and nothing earlier justifies it.** Squaring, dividing,
    multiplying by an expression, dropping a modulus, applying a decreasing function.
-2. **Blame the step, not the symptom.** A later line that faithfully reports a corrupted equation is not
-   the error.
+2. **Blame the step, not the symptom** — because a line that says "square both sides to obtain" is
+   claiming an **equivalent** equation, and that claim is the false one. A later line that faithfully
+   reports a corrupted equation is not the error. (If the working had said "any solution must satisfy"
+   instead, the squaring would be fine and the error would move to "the solutions are". Four English words
+   decide it — see Part 3½.)
 3. **First, not worst.** Two bad steps in one chain means the answer is the earlier one.
 4. **"Valid" is a real answer.** If the sign condition or the domain is stated *in the working* before the
    step that needs it, the chain is an equivalence throughout and there is nothing to find.
