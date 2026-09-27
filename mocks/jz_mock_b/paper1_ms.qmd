@@ -1,0 +1,504 @@
+---
+title: "JZ Mock Set B · Paper 1 — Worked Mark Scheme"
+subtitle: "Answer key + concise full method for all 20 questions"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+::: {.callout-important}
+## Answer key
+
+**1 D · 2 E · 3 A · 4 A · 5 B · 6 C · 7 A · 8 D · 9 A · 10 D ·
+11 E · 12 F · 13 F · 14 D · 15 E · 16 B · 17 B · 18 A · 19 E · 20 C**
+:::
+
+An independently written worked mark scheme for **JZ Mock Set B, Paper 1**. Mark first, then read the
+method for anything missed **or solved slowly** — on Paper 1 the time cost of the long route is what
+loses marks, not the mathematics.
+
+::: {.callout-note appearance="simple"}
+**Set B's running theme is $\sqrt{u^{2}}=\lvert u\rvert$.** It decides **Q7**, **Q10** and **Q14**, and
+the author says so himself in the Q7 solution. Any question on this paper containing a square root of a
+square is asking about the modulus, not about the algebra.
+:::
+
+---
+
+## Question 1 — **D** $\;8$
+
+Take $\log_2$ of both sides. Writing $u=\log_2x$, the left becomes $u\cdot u$ and the right
+$3\log_2x-2=3u-2$:
+
+$$u^{2}=3u-2\;\Longrightarrow\;u^{2}-3u+2=0\;\Longrightarrow\;u=1\ \text{or}\ 2 .$$
+
+So $x=2$ or $x=4$, and the product is
+
+$$2^{u_1}\cdot2^{u_2}=2^{\,u_1+u_2}=2^{3}=8 .$$
+
+*The sum of the $u$'s is what the question wants, and Vieta gives it without solving: $u_1+u_2=3$. You
+never need the individual roots.*
+
+---
+
+## Question 2 — **E** $\;\dfrac{41}{2}$
+
+$y=x^{3}-4x=x(x-2)(x+2)$ cuts the axis at $0,\pm2$. The curve is **odd**, so the region for $-3\le x\le0$
+has the same total area as the one for $0\le x\le3$ — compute one and double.
+
+$$\int_{0}^{2}(-y)\,dx=-\left[\frac{x^{4}}{4}-2x^{2}\right]_{0}^{2}=-(4-8)=4 ,$$
+$$\int_{2}^{3}y\,dx=\left[\frac{x^{4}}{4}-2x^{2}\right]_{2}^{3}=\left(\frac{81}{4}-18\right)-(4-8)=\frac94+4=\frac{25}{4}.$$
+
+Total on $[0,3]$ is $4+\tfrac{25}{4}=\tfrac{41}{4}$, so the whole area is $2\times\tfrac{41}{4}=\boxed{\tfrac{41}{2}}$.
+
+*Option **A** ($0$) is there for anyone who integrates straight through and gets the **signed** area. "Total
+area enclosed" means split at every root and take absolute values.*
+
+---
+
+## Question 3 — **A** $\;630$
+
+$$\log_{\frac12}\left(8^{-n}\right)=-n\log_{\frac12}8 ,\qquad \log_{\frac12}8=\log_{\frac12}\left(2^{3}\right)=-3 ,$$
+
+so each term is simply $3n$. Hence
+
+$$\sum_{n=0}^{20}\log_{\frac12}\left(8^{-n}\right)=3\sum_{n=0}^{20}n=3\cdot\frac{20\cdot21}{2}=630 .$$
+
+*Two sign flips that cancel — the negative exponent and the base below $1$. Options C, E and G are the
+same sum with one of the two flips missed.*
+
+---
+
+## Question 4 — **A** $\;(x+9)^{2}+(y+21)^{2}=144$
+
+Complete the square: $(x-2)^{2}+(y+3)^{2}=16$, so the centre is $(2,-3)$ and the radius $4$. **Track the
+centre and the radius only** — a circle stays a circle throughout.
+
+| step | centre | radius |
+|---|---|---|
+| start | $(2,-3)$ | $4$ |
+| translate $+5$ in $x$ | $(7,-3)$ | $4$ |
+| reflect in $y=x$ (swap) | $(-3,7)$ | $4$ |
+| reflect in the $x$-axis (negate $y$) | $(-3,-7)$ | $4$ |
+| enlarge $\times3$ about $O$ | $(-9,-21)$ | $12$ |
+
+$$(x+9)^{2}+(y+21)^{2}=12^{2}=144 .$$
+
+*Only the last transformation touches the radius. Options B, C and H keep $r=4$, scale it once too few
+times, or scale $r^{2}$ instead of $r$ — the enlargement multiplies the **radius** by $3$, so $r^{2}$ by $9$.*
+
+---
+
+## Question 5 — **B**
+
+Two independent facts.
+
+**The translation.** $y=\mathrm{f}(x+3)$ is $y=\mathrm{f}(x)$ moved $3$ to the **left**, so the area under
+it from $-2$ to $2$ is the area under $\mathrm{f}$ from $1$ to $5$:
+
+$$\int_{-2}^{2}\mathrm{f}(x+3)\,dx=\int_{1}^{5}\mathrm{f}(x)\,dx=I .$$
+
+**The extra term.** $x^{3}$ is odd, so $\displaystyle\int_{-2}^{2}x^{3}\,dx=0$ and adding it changes
+nothing. By contrast $\displaystyle\int_{-2}^{2}x^{2}\,dx=\tfrac{16}{3}\neq0$, which kills A and D.
+
+*So the two things to check in every option are: does the shift land the interval on $[1,5]$, and is the
+add-on **odd** over a symmetric interval? $\mathrm{f}(x-3)$ moves the wrong way, and E and F have the wrong
+interval.*
+
+---
+
+## Question 6 — **C** $\;\dfrac{3}{x-1}>x-3$
+
+First solve the pair. $x^{2}>x\iff x(x-1)>0\iff x<0$ or $x>1$; and $1<17-4x\iff x<4$. Intersecting,
+
+$$\boxed{(-\infty,0)\cup(1,4)}$$
+
+**That shape settles it before any option is tested.** The set is a union of two intervals with a gap, and
+one of them is unbounded — *no quadratic inequality can produce that*, which eliminates A, B, E and F
+immediately.
+
+Between C and D, check D: $x^{3}-5x^{2}+4x=x(x-1)(x-4)>0$ gives $0<x<1$ or $x>4$ — the exact complement,
+so the inequality sign is the wrong way round.
+
+**C works.** $\dfrac{3}{x-1}=x-3$ at $x=0$ and $x=4$, and $x=1$ is a vertical asymptote. Reading the sign
+of $\dfrac{3}{x-1}-(x-3)$ off those three points gives $(-\infty,0)\cup(1,4)$ ✓
+
+*Never multiply up by $x-1$ — its sign is unknown. Use the intersections and the asymptote.*
+
+---
+
+## Question 7 — **A** $\;4-\sqrt3$
+
+$\sqrt{(x-2)^{2}}=\lvert x-2\rvert$, so the inequality is
+
+$$\lvert x-2\rvert\le x^{2}-3x \qquad\text{on } -3<x<3 .$$
+
+The parabola $x^{2}-3x$ is above the axis only for $x<0$ or $x>3$, and the right-hand arm of the V is out
+of range, so **the only crossing that matters is with the left arm $2-x$**:
+
+$$2-x=x^{2}-3x\iff x^{2}-2x-2=0\iff x=1\pm\sqrt3 ,$$
+
+and $1-\sqrt3\approx-0.73$ is the one in range. The solution set is $-3<x\le1-\sqrt3$, of length
+
+$$\left(1-\sqrt3\right)-(-3)=4-\sqrt3 .$$
+
+*The question says "total length of the intervals", plural — a hint that you should check whether a second
+piece exists. It does not, because $x^{2}-3x<0$ on $(0,3)$ while $\lvert x-2\rvert\ge0$.*
+
+---
+
+## Question 8 — **D** $\;8$
+
+$x^{2}\lvert1-x^{2}\rvert$ is **even**, so integrate over $[0,2]$ and double. Split at $x=1$, where
+$1-x^{2}$ changes sign:
+
+$$\int_{0}^{1}\left(x^{2}-x^{4}\right)dx=\frac13-\frac15=\frac{2}{15},\qquad
+\int_{1}^{2}\left(x^{4}-x^{2}\right)dx=\frac{31}{5}-\frac73=\frac{58}{15}.$$
+
+$$2\left(\frac{2}{15}+\frac{58}{15}\right)=2\times4=8 .$$
+
+*Two separate simplifications, and both are needed: evenness halves the work, and the split at $x=1$ is
+what the modulus demands. Forgetting the split gives $\tfrac{13}{2}$ — option F.*
+
+---
+
+## Question 9 — **A** $\;a>0,\ b>0,\ c<0$
+
+Factor every base into primes: $6=2\cdot3$, $10=2\cdot5$, $15=3\cdot5$. Then collect the exponent of each
+prime, subtracting for the denominator:
+
+| prime | from $6^{a+b+c}$ | from $10^{a-b-c}$ | from $15^{a-b+c}$ | total |
+|---|---|---|---|---|
+| $2$ | $a+b+c$ | $a-b-c$ | — | $2a$ |
+| $3$ | $a+b+c$ | — | $-(a-b+c)$ | $2b$ |
+| $5$ | — | $a-b-c$ | $-(a-b+c)$ | $-2c$ |
+
+$$\frac{6^{a+b+c}\cdot10^{a-b-c}}{15^{a-b+c}}=2^{2a}\cdot3^{2b}\cdot5^{-2c}.$$
+
+A positive integer needs **every** exponent $\ge0$, i.e. $a\ge0$, $b\ge0$, $c\le0$ — and since $a,b,c$ are
+**non-zero**, that is $a>0$, $b>0$, $c<0$. ✓
+
+*Options G and H drop a condition. They fail because each prime gets its own independent requirement: leave
+$b$ free and $3^{2b}$ can land in the denominator.*
+
+---
+
+## Question 10 — **D**
+
+The quickest route is to **eliminate**, using the fact that a multiple-choice question has exactly one
+answer.
+
+| | integrand | value |
+|---|---|---|
+| **A** | $\sin^{1/3}x$ is **odd** | $0$ |
+| **B** | $\left\lvert\cos\left(\tfrac\pi2-x\right)\right\rvert=\lvert\sin x\rvert$ | some $V$ |
+| **E** | $\sqrt{1-\cos^{2}x}=\sqrt{\sin^{2}x}=\lvert\sin x\rvert$ | **the same $V$** |
+| **C** | $\sin^{2}x\le\lvert\sin x\rvert$, since $\lvert\sin x\rvert\le1$ | $<V$ |
+| **D** | $\sqrt{\left\lvert\sin\left(x-\tfrac\pi2\right)\right\rvert}=\sqrt{\lvert\cos x\rvert}$ | ? |
+
+**B and E are identical**, so neither can be the unique answer; A is zero and C is smaller than B. By
+elimination the answer is **D**.
+
+*Confirming it:* over $[0,\pi]$, $\sqrt{\lvert\cos x\rvert}$ has the same area as
+$\sqrt{\lvert\sin x\rvert}$, and that beats $\lvert\sin x\rvert$ because $\sqrt{a}\ge a$ whenever
+$0\le a\le1$. Numerically: $A=0$, $B=E=2$, $C=\tfrac\pi2\approx1.571$, $D\approx2.396$. ✓
+
+*The two moves worth taking away: $\sqrt{1-\cos^{2}x}$ is $\lvert\sin x\rvert$ (not $\sin x$), and **two
+options that are equal are both wrong**.*
+
+---
+
+## Question 11 — **E** $\;67$
+
+Both terms have **period 3** in $n$: increasing $n$ by $1$ moves each angle on by $\tfrac{2\pi}{3}$.
+Tabulate one block:
+
+| $n$ | $\sin\!\left(\tfrac{2\pi}{3}n\right)$ | $\cos\!\left(\tfrac{\pi}{6}(1+4n)\right)$ | $a_n$ |
+|:-:|:-:|:-:|:-:|
+| $1$ | $\tfrac{\sqrt3}{2}$ | $-\tfrac{\sqrt3}{2}$ | $0$ |
+| $2$ | $-\tfrac{\sqrt3}{2}$ | $0$ | $-\tfrac{\sqrt3}{2}$ |
+| $3$ | $0$ | $\tfrac{\sqrt3}{2}$ | $\tfrac{\sqrt3}{2}$ |
+
+So each block of three sums to $0$, and the **running** totals inside a block are
+
+$$0,\qquad -\frac{\sqrt3}{2},\qquad 0 .$$
+
+Hence $S=0$ exactly when $k\equiv1$ or $0\pmod 3$ — two values in every three.
+
+From $1$ to $99$ there are $33$ complete blocks, giving $33\times2=66$; and $k=100$ is the first position
+of the next block, which also gives $S=0$. Total $66+1=\boxed{67}$.
+
+*The trap is answering $66$ (option D) by stopping at $99$. Whenever a count runs to $100$ and the period
+is $3$, the last partial block has to be handled by hand.*
+
+---
+
+## Question 12 — **F** $\;14$
+
+Let the three terms be those in $x^{r-1},x^{r},x^{r+1}$, so
+
+$$\binom{n}{r-1}:\binom{n}{r}:\binom{n}{r+1}=1:2:3 .$$
+
+Use the ratio identity $\dfrac{\binom{n}{r}}{\binom{n}{r-1}}=\dfrac{n-r+1}{r}$ — *this is what turns
+factorials into linear equations.* The two ratios give
+
+$$\frac{n-r+1}{r}=2 \;\Longrightarrow\; n+1=3r ,\qquad
+\frac{n-r}{r+1}=\frac32 \;\Longrightarrow\; 2n=5r+3 .$$
+
+Substituting $n=3r-1$: $\;6r-2=5r+3\Rightarrow r=5$, hence $n=14$.
+
+**Check:** $\binom{14}{4}=1001$, $\binom{14}{5}=2002$, $\binom{14}{6}=3003$ — ratio $1:2:3$ ✓
+
+*Never expand the binomial coefficients. The ratio of consecutive ones is a simple fraction, and two
+ratios give two linear equations.*
+
+---
+
+## Question 13 — **F** $\;16$
+
+Let the shared angle be $\theta$ and the radii $r,\ r+s,\ r+2s$. Arc $=r\theta$ and area
+$=\tfrac12r^{2}\theta$, so the three given facts are
+
+$$r\theta=6,\qquad \left(2rs+s^{2}\right)\theta=42,\qquad \left(2rs+3s^{2}\right)\theta=54 .$$
+
+**Subtract the last two:** $2s^{2}\theta=12$, so $s^{2}\theta=6$. Put that into the second:
+
+$$2s\underbrace{(r\theta)}_{6}+\underbrace{s^{2}\theta}_{6}=42\;\Longrightarrow\;12s+6=42\;\Longrightarrow\;s=3 .$$
+
+Then $\theta=\tfrac{6}{s^{2}}=\tfrac23$ and $r=\tfrac{6}{\theta}=9$. Radii $9,12,15$; arcs $6,8,10$.
+
+A sector's perimeter is $2r+r\theta$, giving $24,\ 32,\ 40$, so the difference is $40-24=\boxed{16}$.
+
+*The subtraction is the whole question — it removes $r$ and leaves $s^{2}\theta$ alone. Note also that
+$r\theta$ appears as a block, so you never need $r$ and $\theta$ separately until the end.*
+
+---
+
+## Question 14 — **D** $\;3$
+
+$\sqrt{1-\cos^{2}(2x)}=\lvert\sin 2x\rvert$, so the equation is
+
+$$\lvert\sin 2x\rvert=\left(x-\frac{3\pi}{4}\right)\cos 2x .$$
+
+The zeros of $\sin2x$ and $\cos2x$ never coincide, so no $x$ with $\cos2x=0$ can be a solution — check and
+discard them, then divide:
+
+$$\frac{\lvert\sin 2x\rvert}{\cos 2x}=x-\frac{3\pi}{4}
+\qquad\text{i.e.}\qquad
+\begin{cases}\tan 2x, & 0<x<\tfrac\pi2\\[2pt] -\tan 2x, & \tfrac\pi2<x<\pi\end{cases}
+\;=\;x-\frac{3\pi}{4}.$$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7.4, 4.4))
+for lo, hi in [(0, np.pi/4), (np.pi/4, np.pi/2), (np.pi/2, 3*np.pi/4), (3*np.pi/4, np.pi)]:
+    x = np.linspace(lo + 1e-3, hi - 1e-3, 500)
+    y = np.abs(np.sin(2*x))/np.cos(2*x)
+    ax.plot(x, y, color='#1f77b4', lw=2.2)
+x = np.linspace(0, np.pi, 200)
+ax.plot(x, x - 3*np.pi/4, color='#d62728', lw=2.2)
+
+xs = np.linspace(1e-6, np.pi - 1e-6, 400001)
+d = np.abs(np.sin(2*xs))/np.cos(2*xs) - (xs - 3*np.pi/4)
+hit = [xs[i] for i in range(len(xs)-1)
+       if d[i]*d[i+1] < 0 and abs(np.cos(2*xs[i])) > 1e-3]
+ax.plot(hit, [h - 3*np.pi/4 for h in hit], 'o', color='#2ca02c', ms=9, zorder=5)
+ax.text(0.03, 0.06, f'{len(hit)} intersections', transform=ax.transAxes, ha='left',
+        fontsize=11.5, color='#2ca02c')
+
+for v, lab in [(np.pi/4, '$\\pi/4$'), (np.pi/2, '$\\pi/2$'), (3*np.pi/4, '$3\\pi/4$')]:
+    ax.axvline(v, color='0.75', lw=0.9, ls=':')
+ax.axhline(0, color='0.6', lw=0.9)
+ax.set_xticks([0, np.pi/4, np.pi/2, 3*np.pi/4, np.pi])
+ax.set_xticklabels(['$0$', '$\\pi/4$', '$\\pi/2$', '$3\\pi/4$', '$\\pi$'])
+ax.set_ylim(-4, 4); ax.set_xlabel('$x$')
+ax.set_title('$y=\\dfrac{|\\sin 2x|}{\\cos 2x}$  against  $y=x-\\dfrac{3\\pi}{4}$', fontsize=11.5)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+The left-hand side has four branches, split by $x=\tfrac\pi4,\ \tfrac\pi2,\ \tfrac{3\pi}{4}$. The line
+runs from $-\tfrac{3\pi}{4}$ up to $\tfrac\pi4$, which leaves it far below the first branch and crossing
+each of the other three exactly once. **Three solutions.**
+
+*Dividing by $\cos2x$ is legal **only** after checking that $\cos2x=0$ gives no solutions, and here it does
+not because $\lvert\sin2x\rvert=1\neq0$ there. That check is the one line a marker looks for.*
+
+---
+
+## Question 15 — **E** $\;400$
+
+Centres $A(2,3)$, $B(11,15)$, radii $3$ and $4$, and
+
+$$AB=\sqrt{9^{2}+12^{2}}=15 .$$
+
+There are two kinds of common tangent, and the question says *"all distinct possible lengths"*, so both
+count.
+
+| tangent | the right-angled triangle uses | $XY^{2}$ |
+|---|---|---|
+| **external** — circles the same side | the **difference** of the radii, $4-3=1$ | $15^{2}-1^{2}=224$ |
+| **internal** — circles opposite sides | the **sum** of the radii, $4+3=7$ | $15^{2}-7^{2}=176$ |
+
+$$224+176=\boxed{400}.$$
+
+*Since $AB=15>3+4$, the circles are fully separate, so both types really exist — worth a one-line check
+before assuming four tangents. The sum of the squares is asked for precisely so that neither surd has to
+be evaluated.*
+
+---
+
+## Question 16 — **B** $\;\dfrac{32}{27}$
+
+Write $T_n=p+(n-1)d+qr^{\,n-1}$ and take **first differences**, which removes $p$:
+
+$$\Delta_1=d+q(r-1)=-1,\qquad \Delta_2=d+qr(r-1)=-\tfrac12,\qquad \Delta_3=d+qr^{2}(r-1)=-\tfrac38 .$$
+
+Take **second differences**, which removes $d$ as well:
+
+$$\Delta_2-\Delta_1=q(r-1)^{2}=\tfrac12 ,\qquad \Delta_3-\Delta_2=qr(r-1)^{2}=\tfrac18 .$$
+
+Dividing gives $r=\tfrac14$ — and $\lvert r\rvert<1$, as "convergent" requires. Then
+$q\cdot\tfrac{9}{16}=\tfrac12$, so $q=\tfrac89$, and
+
+$$S_\infty=\frac{q}{1-r}=\frac{8/9}{3/4}=\boxed{\frac{32}{27}} .$$
+
+*Differencing twice is the whole method: the first difference kills the arithmetic constant term, the
+second kills the common difference, and what survives is purely geometric. You never find $p$ or $d$.*
+
+---
+
+## Question 17 — **B** $\;\dfrac{\pi}{4}$
+
+The identity in the question is a hint to use
+
+$$\int_{a}^{b}\mathrm{f}(x)\,dx=\int_{a}^{b}\mathrm{f}(a+b-x)\,dx ,$$
+
+which is a **reflection in the midpoint** $x=\tfrac{a+b}{2}$ — here $x=\tfrac\pi4$. Replacing $x$ by
+$\tfrac\pi2-x$ leaves the interval alone:
+
+$$I=\int_{0}^{\pi/2}\frac{dx}{1+\tan x}
+=\int_{0}^{\pi/2}\frac{dx}{1+\tan\left(\frac\pi2-x\right)}
+=\int_{0}^{\pi/2}\frac{dx}{1+\frac{1}{\tan x}}
+=\int_{0}^{\pi/2}\frac{\tan x}{1+\tan x}\,dx .$$
+
+Add the first and last expressions — *the point of the trick is that the two integrands sum to $1$*:
+
+$$2I=\int_{0}^{\pi/2}\frac{1+\tan x}{1+\tan x}\,dx=\int_{0}^{\pi/2}1\,dx=\frac{\pi}{2}
+\qquad\Longrightarrow\qquad I=\frac{\pi}{4}.$$
+
+*No antiderivative is ever found. Whenever an integrand is ugly but the limits are symmetric about a
+convenient point, try $x\mapsto a+b-x$ and add.*
+
+---
+
+## Question 18 — **A** $\;\dfrac{\pi}{9}$
+
+**Choose a convenient edge.** The answer is a ratio, so set every edge to $\sqrt2$. Half a diagonal of the
+base is then $1$, and the height satisfies $H^{2}+1^{2}=\left(\sqrt2\right)^{2}$, so $H=1$ — the reason
+for that choice.
+
+At height $h$ the cross-section is a square scaled by $(1-h)$, so its side is $\sqrt2\,(1-h)$ and the
+largest circle inside it has
+
+$$r=\frac{\sqrt2}{2}(1-h) \qquad\Longrightarrow\qquad V_{\text{cyl}}=\pi r^{2}h=\frac{\pi}{2}\,h(1-h)^{2}.$$
+
+Maximise $h(1-h)^{2}=h-2h^{2}+h^{3}$:
+
+$$1-4h+3h^{2}=(1-h)(1-3h)=0 \;\Longrightarrow\; h=\tfrac13 \ \text{(the maximum; } h=1 \text{ gives } 0).$$
+
+Then $r=\tfrac{\sqrt2}{3}$, $V_{\text{cyl}}=\tfrac{2\pi}{27}$, and $V_{\text{pyr}}=\tfrac13\cdot2\cdot1=\tfrac23$:
+
+$$\frac{V_{\text{cyl}}}{V_{\text{pyr}}}=\frac{2\pi/27}{2/3}=\boxed{\frac{\pi}{9}} .$$
+
+*Two transferable moves: pick the edge length that makes the height come out as $1$, and remember that a
+cross-section at height $h$ of a pyramid of height $H$ is scaled by $\left(1-\tfrac hH\right)$, not by
+$\tfrac hH$.*
+
+---
+
+## Question 19 — **E** $\;2$
+
+Solve $\lvert x^{3}-p^{3}\rvert=p^{3}\lvert x-1\rvert$ exactly, rather than sketching.
+
+**$p<0$.** The left side is $\ge0$ and the right is $\le0$, so both must vanish — needing $x=p$ and $x=1$
+at once. **$n=0$.**
+
+**$p=0$.** The equation is $\lvert x\rvert^{3}=0$. **$n=1$.**
+
+**$p>0$.** Removing the moduli gives only two distinct equations:
+
+$$\text{same signs:}\quad x^{3}=p^{3}x \;\Longrightarrow\; x=0,\ \pm p^{3/2} ;
+\qquad
+\text{opposite signs:}\quad x^{3}+p^{3}x-2p^{3}=0 .$$
+
+The cubic on the right has derivative $3x^{2}+p^{3}>0$, so it is strictly increasing and has **exactly one**
+real root, and that root always falls in the branch that is allowed. Checking which of $0,\pm p^{3/2}$ lie
+in their own branches:
+
+| | roots | $n$ |
+|---|---|:-:|
+| $0<p<1$ | $0,\ \pm p^{3/2}$, and the cubic root in $(p,1)$ | $4$ |
+| $p=1$ | $0,\ \pm1$ — the cubic root **coincides** with $x=1$ | $3$ |
+| $p>1$ | $0,\ \pm p^{3/2}$, and the cubic root in $(1,p)$ | $4$ |
+
+So $n\in\{0,1,3,4\}$ and **$n=2$ is impossible**.
+
+**Check:** $p=\tfrac12\to\{-0.354,0,0.354,0.564\}$; $p=1\to\{-1,0,1\}$; $p=5\to\{-11.18,0,1.94,11.18\}$. ✓
+
+*Note $\pm p^{3/2}$, not $\pm p$ — the equation is $x^{3}=p^{3}x$, so $x^{2}=p^{3}$. Getting that wrong
+makes the $p=5$ case look like $n=2$ and would hand you the wrong answer.*
+
+---
+
+## Question 20 — **C** $\;\dfrac{1}{\sqrt2}<t<\sqrt2$
+
+Put $u=t^{\sin 2x}$, so $y=u-\dfrac2u$. This is **increasing** in $u$ for $u>0$, since
+
+$$\frac{d}{du}\left(u-\frac2u\right)=1+\frac{2}{u^{2}}>0 ,$$
+
+so the largest and smallest $y$ come from the largest and smallest $u$. With $-1\le\sin2x\le1$, $u$ runs
+between $t$ and $\tfrac1t$ — *which of the two is the maximum depends on whether $t>1$.*
+
+| | range of $u$ | $y_{\max}$ | $y_{\min}$ |
+|---|---|---|---|
+| $t\ge1$ | $\left[\tfrac1t,\ t\right]$ | $t-\tfrac2t$ | $\tfrac1t-2t$ |
+| $0<t<1$ | $\left[t,\ \tfrac1t\right]$ | $\tfrac1t-2t$ | $t-\tfrac2t$ |
+
+In **both** rows one factor is automatically negative: $\tfrac1t-2t<0$ when $t\ge1$, and $t-\tfrac2t<0$
+when $0<t<1$ (each reduces to $t^{2}<2$ or $\tfrac12<t^{2}$, both clear in range). So the **product is
+positive exactly when the other factor is also negative**:
+
+$$t\ge1:\quad t-\frac2t<0\iff t^{2}<2\iff t<\sqrt2 ,$$
+$$0<t<1:\quad \frac1t-2t<0\iff 1<2t^{2}\iff t>\frac{1}{\sqrt2}.$$
+
+Combining the two ranges:
+
+$$\boxed{\frac{1}{\sqrt2}<t<\sqrt2}$$
+
+**Check:** $t=0.71$ ✓, $t=1.41$ ✓, $t=0.70$ ✗, $t=1.42$ ✗ — matching the strict endpoints, so **C**, not D.
+
+*The sign of $y=u-\tfrac2u$ is negative exactly on $0<u<\sqrt2$; sketching that one curve replaces both
+algebraic checks.*
+
+---
+
+## What this paper is testing
+
+1. **$\sqrt{u^{2}}=\lvert u\rvert$** — Q7, Q10 and Q14, and Q8 is the same idea with the modulus written
+   out. Four of twenty marks ride on one identity.
+2. **Choose the variable, then the method.** Q1 ($u=\log_2x$), Q13 ($r\theta$ as a block), Q16 (differences),
+   Q20 ($u=t^{\sin2x}$) all collapse after one substitution.
+3. **Eliminate rather than evaluate.** Q6 (the *shape* of the solution set), Q10 (two equal options cannot
+   both be right) and Q19 (a case that is impossible) are all answered without finishing the mathematics.
+4. **Count the boundary.** Q11 ($k=100$), Q15 (both kinds of tangent) and Q20 (strict or non-strict) each
+   turn on a single endpoint.
+
+:::

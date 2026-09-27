@@ -1,0 +1,569 @@
+---
+title: "JZ Mock Set B · Paper 2 — Worked Mark Scheme"
+subtitle: "Answer key + concise full method for all 20 questions"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+::: {.callout-important}
+## Answer key
+
+**1 D · 2 C · 3 B · 4 A · 5 D · 6 A · 7 B · 8 E · 9 B · 10 D ·
+11 C · 12 D · 13 A · 14 C · 15 D · 16 A · 17 C · 18 F · 19 E · 20 B**
+:::
+
+An independently written worked mark scheme for **JZ Mock Set B, Paper 2**. Mark first, then read the
+method for anything missed **or solved slowly** — several of these collapse to two lines once the right
+substitution or the right logical form is seen.
+
+::: {.callout-note appearance="simple"}
+**Set B's running theme is squaring.** **Q2**, **Q8** and **Q18** all turn on the same fact: *squaring an
+inequality or an equation is not reversible unless both sides are known to be non-negative*. It produces
+extra roots in Q2 and a false implication in Q8. Add Set B Paper 1, where $\sqrt{u^{2}}=\lvert u\rvert$
+decides three more questions, and this one idea is worth about six marks across the set.
+:::
+
+Two of these have been worked in class: **Q12** is [S1 Q10](../../toolkit/s01_statement_forms.qmd), and
+**Q2** is [S7 Q14](../../toolkit/s07_spot_the_error.qmd).
+
+---
+
+## Question 1 — **D** — statements 1 and 3 only
+
+A counterexample needs the fact to **satisfy the hypothesis** and **break the conclusion**. Run all four:
+
+| | claim | does $1729$ qualify? | does it break the claim? |
+|---|---|---|---|
+| **1** | two ways as a sum of two cubes $\Rightarrow$ prime | ✓ $1729=1^{3}+12^{3}=9^{3}+10^{3}$ | ✓ $1729=7\times13\times19$, not prime — **counterexample** |
+| **2** | prime $p>5$ with $p=a^{3}+b^{3}$ $\Rightarrow$ $p\equiv1\pmod 6$ | ✗ $1729$ is **not prime** | outside the claim — no |
+| **3** | no product of three distinct odd primes is one more than a cube | ✓ $7\times13\times19$, three distinct odd primes | ✓ $1729=12^{3}+1$ — **counterexample** |
+| **4** | $a^{3}+b^{3}$ $\Rightarrow$ all prime factors $\ge3$ | ✓ | ✗ $7,13,19$ are all $\ge3$ — it **obeys** the claim |
+
+So **1 and 3 only**.
+
+*The two rejected statements fail in the two standard ways, and both appear in every counterexample
+question: **2** is not about $1729$ at all, and **4** is confirmed rather than refuted by it.*
+
+---
+
+## Question 2 — **C** — first error in Step (3)
+
+Steps (1) and (2) are fine: the denominator only forbids $x=-2$, and subtracting $2$ is reversible. After
+Step (2) the equation reads
+
+$$\sqrt{x^{3}+x^{2}-x}=x ,$$
+
+which **already carries the information $x\ge0$**, because a square root is never negative.
+
+**Step (3) squares both sides**, and that is where the logic breaks: squaring turns $\sqrt{A}=x$ into
+$A=x^{2}$, which is also satisfied by $\sqrt{A}=-x$. It is a one-way implication, so every root found
+afterwards has to be **checked in the original equation**.
+
+Steps (4)–(6) are algebraically correct, giving $x=-1,0,1$. Checking:
+
+| $x$ | $\sqrt{x^{3}+x^{2}-x}$ | $x$ | valid? |
+|:-:|:-:|:-:|:-:|
+| $-1$ | $\sqrt{1}=1$ | $-1$ | ✗ |
+| $0$ | $0$ | $0$ | ✓ |
+| $1$ | $1$ | $1$ | ✓ |
+
+So the final list is wrong ($x=-1$ is extraneous) and the first error is at **Step (3)**.
+
+*Note what "the error" means here. The algebra of Step (3) is right; the **step** is wrong because it is
+not an equivalence and no check follows. Compare [Set A Q3](../jz_mock_a/paper2_ms.qmd), where squaring
+was legitimate — there the previous line had already established that both sides were non-negative.*
+
+---
+
+## Question 3 — **B** $\;2$
+
+The nine options are not all independent: the statements that appear are $1,2,3,4$, but they appear in a
+restricted set of combinations.
+
+**One check is never enough.** Whatever single statement you test, at least two options remain consistent.
+For instance if statement $1$ is true, both **D** (1 and 2) and **F** (1 and 3) survive.
+
+**Two checks can be enough, if you are lucky.** Check $1$ and find it true; the surviving options are D and
+F. Now check $2$: true gives D, false gives F. Done in two.
+
+The question asks for *"the fewest checks after which it is **possible**"* — a best case, not a guarantee —
+so the answer is **2**.
+
+*Read the quantifier in the question. "If the student is lucky" makes this an $\exists$ question: you must
+exhibit **one** favourable run of two checks, not prove that two always suffice.*
+
+---
+
+## Question 4 — **A** $\;1$
+
+The identity the question offers gives, for any $k$,
+
+$$\tan k^\circ\cdot\tan(90-k)^\circ
+=\frac{\sin k^\circ}{\cos k^\circ}\cdot\frac{\sin(90-k)^\circ}{\cos(90-k)^\circ}
+=\frac{\sin k^\circ}{\cos k^\circ}\cdot\frac{\cos k^\circ}{\sin k^\circ}=1 .$$
+
+Pair the $89$ factors as $(1^\circ,89^\circ),(2^\circ,88^\circ),\dots,(44^\circ,46^\circ)$ — that is $44$
+pairs, each equal to $1$ — with $\tan45^\circ=1$ left in the middle. The product is $1$.
+
+*An odd number of factors with a self-paired middle one: $89=2\times44+1$. Checking that the middle term
+is $\tan45^\circ=1$ rather than something awkward is the one thing to verify.*
+
+---
+
+## Question 5 — **D** $\;k\ge\dfrac12$
+
+$$p(x)\ge q(x)\iff 2kx^{4}-x^{2}+5k\ge kx^{4}+x^{2}+k \iff kx^{4}-2x^{2}+4k\ge0 .$$
+
+Put $u=x^{2}$. Because $x$ is real, $u$ ranges over $u\ge0$, and the requirement is
+
+$$ku^{2}-2u+4k\ge0 \qquad\text{for all } u\ge0 .$$
+
+**$k\le0$ fails**: at large $u$ the expression is dominated by $ku^{2}-2u<0$ (and $k=0$ gives $-2u$).
+
+**For $k>0$** the parabola opens upwards, so non-negativity everywhere needs a non-positive discriminant:
+
+$$4-16k^{2}\le0\iff 4k^{2}\ge1\iff (2k-1)(2k+1)\ge0 .$$
+
+With $k>0$ that is $k\ge\tfrac12$. ✓
+
+*The substitution $u=x^{2}$ restricts $u$ to $[0,\infty)$, and it is worth noticing that the condition
+turned out the same as "for all real $u$" — the negative half was never the binding constraint. Option E
+is the same answer with the endpoint wrongly made strict: at $k=\tfrac12$ the discriminant is $0$, so the
+quadratic touches zero and $\ge$ still holds.*
+
+---
+
+## Question 6 — **A** $\;0,2,3,4$
+
+Since $x\ne2$, multiply up:
+
+$$x^{2}\lvert x-2\rvert=k .$$
+
+Sketch $y=x^{2}\lvert x-2\rvert$ and slide the horizontal line $y=k$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7.4, 4.4))
+x = np.linspace(-1.6, 3.1, 1400)
+ax.plot(x, x**2*np.abs(x-2), color='#1f77b4', lw=2.5)
+peak = (4/3)**2*abs(4/3-2)
+for kv, col, lab in [(2.4, '#d62728', '$k>\\frac{32}{27}$:  $n=2$'),
+                     (peak, '#2ca02c', '$k=\\frac{32}{27}$:  $n=3$  (tangent)'),
+                     (0.55, '#7a5195', '$0<k<\\frac{32}{27}$:  $n=4$')]:
+    ax.axhline(kv, color=col, lw=1.8, ls='--')
+    ax.text(3.15, kv, lab, color=col, fontsize=10, va='center')
+ax.axhline(0, color='0.55', lw=1.0)
+ax.plot([4/3], [peak], 'o', color='#2ca02c', ms=7, zorder=5)
+ax.set_xlim(-1.6, 3.1); ax.set_ylim(-0.4, 4.2)
+ax.set_xlabel('$x$'); ax.set_title('$y=x^{2}\\,|x-2|$', fontsize=11.5)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+The curve falls from $+\infty$ as $x$ increases through the negatives, touches $0$ at $x=0$, rises to a
+local maximum at $x=\tfrac43$ of height $\tfrac{32}{27}$, returns to $0$ at $x=2$, then rises again.
+
+| $k$ | solutions | $n$ |
+|---|---|:-:|
+| $k<0$ | none | $0$ |
+| $0<k<\tfrac{32}{27}$ | one left of $0$, two under the hump, one right of $2$ | $4$ |
+| $k=\tfrac{32}{27}$ | the two under the hump merge | $3$ |
+| $k>\tfrac{32}{27}$ | one left of $0$, one right of $2$ | $2$ |
+
+So $n\in\{0,2,3,4\}$. *($k=0$ and $x=0$ are both excluded by the question, and they are the only way to get
+$n=1$ — which is why $1$ is absent from the list.)*
+
+*The branch on $x<0$ is the one people miss: $x^{2}\lvert x-2\rvert\to+\infty$ as $x\to-\infty$, so **every**
+positive $k$ has a solution there. Miss it and the answer looks like $\{0,1,2,3\}$, option D.*
+
+---
+
+## Question 7 — **B** $\;\sqrt{20}$
+
+Complete the square: $(x-3)^{2}+(y+2)^{2}=25$, so $O=(3,-2)$ and the radius is $5$.
+
+A tangent meets the radius at right angles, so $\angle OAP=\angle OBP=90^{\circ}$. **Both $A$ and $B$
+therefore lie on the circle with diameter $OP$** — the converse of the angle-in-a-semicircle theorem — and
+that circle also passes through $P$. So it *is* $\Gamma$.
+
+$$OP^{2}=(11-3)^{2}+\left(2-(-2)\right)^{2}=64+16=80 \qquad\Longrightarrow\qquad
+r_\Gamma=\frac{OP}{2}=\frac{\sqrt{80}}{2}=\sqrt{20}.$$
+
+*Nothing about the radius $5$ is ever used. The question is the semicircle theorem in reverse: a right
+angle subtended by $OP$ puts the vertex on the circle with diameter $OP$.*
+
+---
+
+## Question 8 — **E** — first error in line (IV)
+
+**The conjecture is false**, which is the quickest way in. Take $\theta=\tfrac{5\pi}{6}$:
+
+$$\sin\theta=\tfrac12 ,\qquad \cos\theta=-\tfrac{\sqrt3}{2},$$
+
+so $\sin\theta>\cos\theta$ ✓ while $\sin\theta=\tfrac12<\tfrac{1}{\sqrt2}$ ✗. So an error exists; the
+question is where.
+
+| line | claim | verdict |
+|---|---|---|
+| **(I)** | $\sin\theta-\cos\theta>0$ | ✓ a rearrangement of the hypothesis |
+| **(II)** | squaring a **positive** quantity, then $\sin^2+\cos^2=1$, gives $\sin\theta\cos\theta<\tfrac12$ | ✓ squaring is safe here — both sides non-negative |
+| **(III)** | $(\sin\theta+\cos\theta)^{2}=1+2\sin\theta\cos\theta<2$, so $\sin\theta+\cos\theta>-\sqrt2$ | ✓ |
+| **(IV)** | adding (I) and (III) gives $\sin\theta>-\tfrac{1}{\sqrt2}$, **then squares it** to get $\sin^{2}\theta>\tfrac12$ | ✗ |
+
+**The addition in (IV) is fine; the squaring is not.** Squaring preserves an inequality only when both
+sides are non-negative, and here the left side may be negative or zero. Concretely $\sin\theta=0$ satisfies
+$\sin\theta>-\tfrac{1}{\sqrt2}$ but gives $\sin^{2}\theta=0<\tfrac12$ — and at the counterexample
+$\theta=\tfrac{5\pi}{6}$, $\sin^{2}\theta=\tfrac14<\tfrac12$ exactly as predicted.
+
+*Line (II) squares and is correct; line (IV) squares and is not. The difference is entirely the sign of
+what is being squared, which is the single most examinable point on this paper.*
+
+---
+
+## Question 9 — **B** $\;1<k<2$
+
+Substitute $X=2^{x}$, $Y=\log_2y$, $Z=\log_2z$. The **constraints become the whole question**:
+
+$$X>0\ \ (\text{always}),\qquad Y>0\ \ (\text{since } y>1),\qquad Z\in\mathbb R\ \ (\text{since } z>0).$$
+
+The system is now linear:
+
+$$kX+Y+Z=3,\qquad X+kY+Z=2,\qquad X+Y+Z=k .$$
+
+Subtracting the third from each of the first two eliminates $Z$ at once:
+
+$$(k-1)X=3-k\ \Rightarrow\ X=\frac{3-k}{k-1},\qquad
+(k-1)Y=2-k\ \Rightarrow\ Y=\frac{2-k}{k-1}\qquad (k\neq1),$$
+
+and $Z=k-X-Y$ is then automatically real — *it imposes nothing, which is why $z>0$ was the easy
+constraint.* Requiring both to be positive:
+
+$$\frac{3-k}{k-1}>0\iff 1<k<3 ,\qquad \frac{2-k}{k-1}>0\iff 1<k<2 .$$
+
+Both must hold, so $\boxed{1<k<2}$.
+
+*The exam's real question is which of $x,y,z$ actually restricts anything. $x$ is unrestricted but $2^{x}>0$
+always; $y>1$ makes $\log_2y>0$; $z>0$ makes $\log_2z$ merely real. Two constraints, two inequalities.*
+
+---
+
+## Question 10 — **D** — I and III only
+
+Factorise — *do not divide by $\sin x$*:
+
+$$\sin x\left(1-\cos^{2}x\right)=k\sin x \iff \sin x\left(\sin^{2}x-k\right)=0 .$$
+
+On $[0,2\pi]$, $\sin x=0$ gives $x=0,\pi,2\pi$ — **three solutions, always**. The rest come from
+$\sin^{2}x=k$:
+
+| $k$ | extra solutions | $n$ |
+|---|---|:-:|
+| $k<0$ | none | $3$ |
+| $k=0$ | $\sin x=0$ — already counted | $3$ |
+| $0<k<1$ | $\sin x=\pm\sqrt k$ gives $4$ | $7$ |
+| $k=1$ | $x=\tfrac\pi2,\tfrac{3\pi}{2}$ | $5$ |
+| $k>1$ | none | $3$ |
+
+So $\;n=7\iff 0<k<1$, $\;n=5\iff k=1$, $\;n=3\iff k\le0$ or $k>1$.
+
+| | claim | verdict |
+|---|---|---|
+| **I** | $n=7\Rightarrow0<k<1$ | **true** — and here it is an equivalence |
+| **II** | $n=3\Rightarrow k<0$ or $k>1$ | **false** — $k=0$ also gives $n=3$ |
+| **III** | $n=5$ and $k\neq1$ cannot both hold | **true** — $n=5$ forces $k=1$ |
+
+*Statement III is the useful one: "$P$ and not $Q$ cannot both be true" is just another way of writing
+$P\Rightarrow Q$. Recognising that form saves the whole case analysis.*
+
+---
+
+## Question 11 — **C** — $n$ is even
+
+**Test small $n$ first.** $n^{3}+5n$ for $n=1,2,3,4$ is $6,\ 18,\ 42,\ 84$ — only $n=4$ is a multiple of
+$12$. That single line kills **A**, **B**, **D**, **F** and **G**, since each of them is satisfied by one
+of $n=1,2,3$.
+
+That leaves **C** ($n$ even) and **E** ($4\mid n$), and the two are settled by what the question asks for.
+
+**The full fact.** Write $n^{3}+5n=n\left(n^{2}+5\right)$.
+
+- *Divisibility by $3$ is automatic:* $n^{3}\equiv n\pmod3$, so $n^{3}+5n\equiv n+2n=3n\equiv0$.
+- *Divisibility by $4$ is the whole condition:* if $n$ is odd then $n^{2}+5\equiv2\pmod4$ and the product is
+  $2\bmod4$; if $n=2m$ then $n^{2}+5$ is odd, so $4\mid2m\left(n^{2}+5\right)$ needs $m$ even.
+
+$$\boxed{12\mid n^{3}+5n\iff4\mid n}$$
+
+So **E is necessary *and* sufficient** — which disqualifies it, because the question asks for necessary
+**but not** sufficient. **C** is necessary (every multiple of $4$ is even) and not sufficient ($n=2$ gives
+$18$). ✓
+
+*There is a shortcut worth knowing. If **E** were the answer then **C**, being implied by it, would also be
+a necessary condition — and the answer would not be unique. A "necessary but not sufficient" question can
+never have as its answer a condition that implies another option.*
+
+---
+
+## Question 12 — **D** — if $P$ is true, then $\lvert x\rvert<2$
+
+*Also set as [S1 Q10](../../toolkit/s01_statement_forms.qmd).*
+
+Translate everything into arrows, writing $Q_1$ for $\lvert x\rvert<1$ and $Q_2$ for $\lvert x\rvert<2$.
+Note $x^{2}<1\iff Q_1$ and $x^{2}<4\iff Q_2$.
+
+| | statement | as an arrow |
+|---|---|---|
+| **A** | if $\lvert x\rvert<1$ then $P$ | $Q_1\Rightarrow P$ |
+| **B** | if $\lvert x\rvert<2$ then $P$ | $Q_2\Rightarrow P$ |
+| **C** | if $P$ then $\lvert x\rvert<1$ | $P\Rightarrow Q_1$ |
+| **D** | if $P$ then $\lvert x\rvert<2$ | $P\Rightarrow Q_2$ |
+| **E** | if not $P$ then $x^{2}\ge1$ | $\lnot P\Rightarrow\lnot Q_1$ |
+| **F** | if not $P$ then $x^{2}\ge4$ | $\lnot P\Rightarrow\lnot Q_2$ |
+| **G** | $P$ only if $x^{2}<1$ | $P\Rightarrow Q_1$ |
+
+**Three pairs are the same statement twice.** $\textbf{E}$ is the contrapositive of $\textbf{A}$,
+$\textbf{F}$ of $\textbf{B}$, and $\textbf{G}$ is literally $\textbf{C}$. Since **exactly one** statement
+is true, no member of an equivalent pair can be it — that removes **A, B, C, E, F, G** at a stroke, and the
+answer is **D**.
+
+*The consistency check: $Q_1\Rightarrow Q_2$, so $\textbf{B}\Rightarrow\textbf{A}$ and
+$\textbf{C}\Rightarrow\textbf{D}$. D is the only option that neither duplicates nor implies another, which
+is exactly what "exactly one is true" requires.*
+
+---
+
+## Question 13 — **A** $\;27$
+
+Set $a=\log_2x$, $b=\log_2y$, $c=\log_2z$, so $x=2^{a}$, $y=2^{b}$, $z=2^{c}$, and $a,b,c\ne0$ because none
+of $x,y,z$ is $1$.
+
+Then $y^{c/b}=\left(2^{b}\right)^{c/b}=2^{c}=z$, so $\log_yz=\dfrac cb$, and
+
+$$x^{\log_yz}=\left(2^{a}\right)^{c/b}=2^{ac/b}=8=2^{3}\qquad\Longrightarrow\qquad \frac{ac}{b}=3 .$$
+
+By the same argument on the other two, $\dfrac{ab}{c}=3$ and $\dfrac{bc}{a}=3$. **Multiply all three:**
+
+$$\frac{ac}{b}\cdot\frac{ab}{c}\cdot\frac{bc}{a}=\frac{a^{2}b^{2}c^{2}}{abc}=abc=27 .$$
+
+*Multiplying is the whole trick — every letter appears once in a numerator and once in a denominator, so
+the cyclic symmetry collapses in one step. Solving for $a,b,c$ individually is unnecessary (and they are
+not determined: $a=b=c=3$ is one solution among many).*
+
+---
+
+## Question 14 — **C** $\;\pi$
+
+Fix $k$ and substitute $\theta=2^{k}x$. As $x$ runs over $\left[0,\tfrac{2\pi}{2^{k}}\right]$, $\theta$ runs
+over exactly $[0,2\pi]$ — *the interval was chosen so that every $k$ sees one full period.*
+
+$$\sin\theta=\tfrac12 \ \text{ on } [0,2\pi] \iff \theta=\frac{\pi}{6},\ \frac{5\pi}{6},$$
+
+so the two solutions are $x=\dfrac{\pi}{6\cdot2^{k}}$ and $x=\dfrac{5\pi}{6\cdot2^{k}}$, and
+
+$$F(k)=\frac{\pi}{6\cdot2^{k}}+\frac{5\pi}{6\cdot2^{k}}=\frac{6\pi}{6\cdot2^{k}}=\frac{\pi}{2^{k}} .$$
+
+Summing the geometric series with first term $\tfrac\pi2$ and ratio $\tfrac12$:
+
+$$\sum_{k=1}^{\infty}F(k)=\frac{\pi/2}{1-\tfrac12}=\pi .$$
+
+*Two solutions, and their sum is $\pi/2^{k}$ because $\tfrac\pi6$ and $\tfrac{5\pi}{6}$ add to $\pi$ — the
+symmetry of $\sin$ about $\tfrac\pi2$. You never need the individual roots.*
+
+---
+
+## Question 15 — **D**
+
+A pure negation question. Write the definition as a chain and flip it one quantifier at a time.
+
+$$\text{cross-linked}\iff \forall x\in X\ \ \exists\,y,z\ \ \exists\,p\ \big[\,p\mid x,\ p\mid y,\ p\mid z\,\big]$$
+
+$$\lnot(\text{cross-linked})\iff \exists\,x\in Y\ \ \forall\,y,z\ \ \forall\,p\ \big[\,\lnot(p\mid x\ \text{and}\ p\mid y\ \text{and}\ p\mid z)\,\big]$$
+
+In English: **there exists an $x$ in $Y$ such that for every pair of distinct $y,z$ (both $\ne x$), no prime
+divides all three** — which is **D**.
+
+| | what went wrong |
+|---|---|
+| **A**, **B**, **F** | still begin "for every number $x$" — the outer $\forall$ was never flipped |
+| **C** | flips the outer quantifier but leaves the inner one as $\exists\,y,z$ instead of $\forall\,y,z$ |
+| **E** | "there **is** a prime which divides $x$ but neither $y$ nor $z$" is $\exists p\,\lnot(\dots)$, not $\lnot\exists p\,(\dots)$ |
+
+*The same two errors as always: forgetting to flip a quantifier, and reading $\lnot\exists p$ as "some $p$
+fails" instead of "no $p$ works". Compare [S4 Q18](../../toolkit/s04_quantifiers_negation.qmd), the 2017
+"stapled" question, which is this question with the numbers changed.*
+
+---
+
+## Question 16 — **A** $\;Z<Y<X<W$
+
+Transform all four to the **same interval** $[0,1]$, then compare integrands.
+
+| | as given | substitution | becomes |
+|---|---|---|---|
+| $W$ | $\displaystyle\int_{0}^{1}4^{\sqrt x}\,dx$ | $4=2^{2}$ | $\displaystyle\int_{0}^{1}2^{2\sqrt x}\,dx$ |
+| $X$ | $\displaystyle\int_{1}^{2}2^{\sqrt{x-1}}\,dx$ | shift left by $1$ | $\displaystyle\int_{0}^{1}2^{\sqrt x}\,dx$ |
+| $Y$ | $\displaystyle\int_{0}^{1/2}2\cdot2^{2x}\,dx$ | stretch $\times2$, halve the height | $\displaystyle\int_{0}^{1}2^{x}\,dx$ |
+| $Z$ | $\displaystyle\int_{-1}^{1}\tfrac12\left(\sqrt2\right)^{(x+1)/2}dx$ | shift, then stretch $\times\tfrac12$ and double | $\displaystyle\int_{0}^{1}2^{x/2}\,dx$ |
+
+Now $2^{t}$ is increasing, so the order of the integrals is the order of the **exponents** on $(0,1)$:
+
+$$2\sqrt x\;\ge\;\sqrt x\;\ge\;x\;\ge\;\frac x2 \qquad (0<x<1),$$
+
+with equality only at the endpoints. Hence $W>X>Y>Z$, i.e. $\boxed{Z<Y<X<W}$.
+
+**Check:** $W\approx2.649$, $X\approx1.608$, $Y\approx1.443$, $Z\approx1.195$. ✓
+
+*The middle inequality $\sqrt x\ge x$ holds precisely **because** $0<x<1$ — on $(1,\infty)$ it reverses. The
+question is engineered so that every comparison is decided on that one interval.*
+
+---
+
+## Question 17 — **C** $\;3$
+
+The units digit of $7^{N}$ cycles with period $4$:
+
+$$7^{1}\to7,\qquad 7^{2}\to9,\qquad 7^{3}\to3,\qquad 7^{4}\to1 .$$
+
+So everything depends on $N=7^{7^{7}}$ **modulo 4**, which is the hint the question gives.
+
+**Every odd power of $7$ is one less than a multiple of $4$.** Writing $7=8-1$,
+
+$$7^{2k+1}=(8-1)^{2k+1}=\underbrace{(\text{terms each containing }8)}_{\text{a multiple of }4}+(-1)^{2k+1}
+=\left(\text{multiple of }4\right)-1 ,$$
+
+so $7^{\text{odd}}\equiv3\pmod4$ — *and in particular it is itself odd, so the argument applies again.*
+
+Apply it up the tower: $7^{7}$ is an odd power of $7$, hence odd; so $7^{7^{7}}$ is an odd power of $7$,
+hence $\equiv3\pmod4$. The exponent sits at the **third** place of the cycle, so the units digit is $3$.
+
+*The recursion is the point: the conclusion "odd power of $7$" feeds straight back into the hypothesis, so
+the height of the tower is irrelevant. Three sevens or ten sevens, the answer is the same.*
+
+---
+
+## Question 18 — **F** — I and II only
+
+Put $h=\mathrm{f}-\mathrm{g}$; every statement is about the sign of $h$ or of an integral of $h$.
+
+**I is true.** $h'\ge0$ on $x\ge0$ makes $h$ increasing there, and $h(0)\ge0$, so $h(x)\ge h(0)\ge0$. ∎
+
+**II is true.** $h(t)\ge0$ and $t\ge0$ on $[0,x]$, so $t\,h(t)\ge0$ and its integral is $\ge0$. *Multiplying
+by a weight that is non-negative on the range of integration is always safe.* ∎
+
+**III is false.** *A non-negative running total does not force a non-negative integrand.* Take
+$\mathrm{g}=0$ and
+
+$$\mathrm{f}(x)=(x-1)(x-2)\qquad\Longrightarrow\qquad \int_{0}^{x}\mathrm{f}=\frac{x^{3}}{3}-\frac{3x^{2}}{2}+2x ,$$
+
+which is $\ge0$ for every $x\ge0$ (its minimum on $[0,\infty)$ is $0$, at $x=0$) — yet $\mathrm{f}$ is
+**negative** on $(1,2)$, e.g. $\mathrm{f}(1.5)=-0.25$.
+
+**IV is false**, and this is the subtle one. It looks like III weighted by the positive quantity $t^{2}$,
+but *the weight is not constant*: $t^{2}<1$ on $(0,1)$ and $t^{2}>1$ beyond, so it **shrinks the positive
+part and magnifies the negative part**. The same $\mathrm{f}$ works:
+
+$$\int_{0}^{1}t^{2}\mathrm{f}(t)\,dt=\frac{7}{60}>0 ,\qquad
+\int_{1}^{2}t^{2}\mathrm{f}(t)\,dt=-\frac{23}{60} ,$$
+
+so $\displaystyle\int_{0}^{2}t^{2}\mathrm{f}=-\frac{16}{60}<0$ while $\displaystyle\int_{0}^{x}\mathrm{f}\ge0$
+throughout. ∎
+
+*The contrast between II and IV is the lesson. In II the weight $t$ multiplies a function already known to
+be non-negative — safe. In IV the weight multiplies a function whose sign varies, and re-weighting can
+tip a positive total negative.*
+
+---
+
+## Question 19 — **E** $\;\dfrac{10}{3}$
+
+**Translate by $(-1,-2)$.** Gradients are unchanged, and $B\to O(0,0)$, $A\to C(5,5)$.
+
+$$OC^{2}=5^{2}+5^{2}=50 ,\qquad OP^{2}=\left(2\sqrt{10}\right)^{2}=40 ,$$
+
+and $\angle OPC=90^{\circ}$ (tangent $\perp$ radius), so $r^{2}=50-40=10$ and the circle is
+$(x-5)^{2}+(y-5)^{2}=10$.
+
+A tangent through the origin is $y=mx$. Substituting,
+
+$$(x-5)^{2}+(mx-5)^{2}=10 \;\Longrightarrow\; \left(m^{2}+1\right)x^{2}-10(m+1)x+40=0 ,$$
+
+and tangency means a repeated root, i.e. zero discriminant:
+
+$$100(m+1)^{2}-160\left(m^{2}+1\right)=0 \;\Longrightarrow\; 5(m+1)^{2}=8\left(m^{2}+1\right)
+\;\Longrightarrow\; 3m^{2}-10m+3=0 .$$
+
+The two gradients are the roots of that quadratic, so by Vieta
+
+$$m_1+m_2=\frac{10}{3}.$$
+
+*(They happen to be $\tfrac13$ and $3$, but you never need them.)*
+
+*Two labour-savers, and both are the point of the question: translating to the origin makes the tangent
+$y=mx$ with no intercept, and Vieta gives the **sum** without solving. Answering $\tfrac13+3$ by hand is the
+slow route to the same number.*
+
+---
+
+## Question 20 — **B** $\;2$
+
+**Step 1 — what the two zeros rule out.** A response of $0$ says *every* position is wrong, so `abcdef`
+and `feadbc` give, position by position,
+
+$$\pi_1\notin\{a,f\},\quad \pi_2\notin\{b,e\},\quad \pi_3\notin\{a,c\},\quad \pi_4\neq d,\quad
+\pi_5\notin\{b,e\},\quad \pi_6\notin\{c,f\} .$$
+
+**Step 2 — use the third response.** `fbdcae` scores $3$, so exactly three of
+$\pi_1=f,\ \pi_2=b,\ \pi_3=d,\ \pi_4=c,\ \pi_5=a,\ \pi_6=e$ hold. Step 1 already kills the first two, so
+**exactly one of the remaining four fails** — four cases.
+
+**Step 3 — enumerate.** Filling the free positions under the Step 1 constraints leaves exactly six
+candidates:
+
+$$\{\,\texttt{badcfe},\ \texttt{bcdfae},\ \texttt{bdfcae},\ \texttt{cfdbae},\ \texttt{dfbcae},\ \texttt{efdcab}\,\}$$
+
+**Step 4 — one more attempt is not enough.** Any two of the six agree in **at least two** positions
+(checking all $15$ pairs: the agreements are $2$ or $3$). A position where two candidates agree contributes
+equally to both of their scores, so their scores can differ by at most $6-2=4$. Six candidates, at most
+five distinct scores — by the pigeonhole principle two of them always respond identically. So $N\ge2$.
+
+*(Exhaustively: none of the $720$ possible attempts separates all six.)*
+
+**Step 5 — two attempts are enough.** Try `abcfde`:
+
+| candidate | score |
+|---|:-:|
+| `efdcab` | $0$ |
+| `badcfe`, `bdfcae`, `cfdbae`, `dfbcae` | $1$ |
+| `bcdfae` | $2$ |
+
+A $0$ or a $2$ identifies the password outright. A $1$ leaves four, and `baecdf` separates those:
+
+$$\texttt{badcfe}\to3,\qquad \texttt{bdfcae}\to2,\qquad \texttt{cfdbae}\to0,\qquad \texttt{dfbcae}\to1 .$$
+
+All distinct, so **$N=2$**.
+
+*The lower bound is the interesting half, and it is pure counting: **agreement between candidates
+compresses the range of possible scores**, and a compressed range cannot distinguish more candidates than
+it has values. That argument needs no search at all.*
+
+---
+
+## What this paper is testing
+
+1. **Squaring is not reversible.** Q2 (extra root), Q8 (false implication) and, by contrast, Q8's own line
+   (II), where squaring *is* legitimate because both sides are non-negative.
+2. **Translate the logic before the mathematics.** Q10, Q11, Q12 and Q15 are all decided by the *form* of
+   the statement — an equivalence, a "necessary but not sufficient", a contrapositive pair, a negation.
+3. **Substitute, then compare.** Q5 ($u=x^{2}$), Q9 ($X,Y,Z$), Q13 ($a,b,c$), Q14 ($\theta=2^{k}x$) and
+   Q16 (four integrals onto one interval) all become routine after one change of variable.
+4. **Counterexamples must satisfy the hypothesis.** Q1 and Q18 both hinge on it, and both include a decoy
+   that obeys the claim rather than breaking it.
+
+:::
