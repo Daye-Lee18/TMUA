@@ -1217,7 +1217,68 @@ Which of the following best describes the logical relationship between P and Q?
 ## Solution
 
 [*(Hard — a question already met on a mock)*]{style="color:#7a5195"}
-**A — necessary and sufficient.** First integrate without using a memorised $\cos^3\theta$ formula. Write
+**A — necessary and sufficient.**
+
+### The fast way — read it off the graphs
+
+*Do this first. It settles **sufficiency** in one line and costs no integration at all.*
+
+Both integrands have **zero signed area over any interval of length $\pi$ that starts at a multiple of
+$\pi$**:
+
+- $\cos x$ has period $2\pi$, but on $[0,\pi]$ the hump above the axis on $\left[0,\tfrac\pi2\right]$ is
+  the mirror image of the hump below it on $\left[\tfrac\pi2,\pi\right]$, so the two areas cancel.
+- $\cos 2x$ has period $\pi$, and cubing does not change the period or the sign, so $\cos^{3}2x$ also has
+  period $\pi$. Over one whole period its positive and negative lobes cancel.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+POS, NEG = '#2ca02c', '#d62728'
+fig, axes = plt.subplots(1, 2, figsize=(9.6, 3.9))
+
+def lobes(ax, f, title, note):
+    x = np.linspace(0, np.pi, 800)
+    y = f(x)
+    ax.fill_between(x, y, 0, where=y >= 0, color=POS, alpha=0.30, interpolate=True)
+    ax.fill_between(x, y, 0, where=y <= 0, color=NEG, alpha=0.30, interpolate=True)
+    xx = np.linspace(0, 2*np.pi, 1400)
+    ax.plot(xx, f(xx), color='#1f77b4', lw=2.4)
+    ax.axhline(0, color='0.5', lw=1.0)
+    ax.axvline(np.pi, color='0.55', lw=1.2, ls=':')
+    ax.set_xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])
+    ax.set_xticklabels(['$0$', '$\\pi/2$', '$\\pi$', '$3\\pi/2$', '$2\\pi$'])
+    ax.set_ylim(-1.45, 1.45)
+    ax.set_title(title, fontsize=11.5)
+    ax.text(0.5, -0.30, note, transform=ax.transAxes, ha='center', fontsize=10.5)
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+
+lobes(axes[0], np.cos, '$y=\\cos x$',
+      'on $[0,\\pi]$: one lobe up, one lobe down,\nequal areas  $\\rightarrow$  integral $0$')
+lobes(axes[1], lambda t: np.cos(2*t)**3, '$y=\\cos^{3}2x$',
+      '$[0,\\pi]$ is one whole period,\nso the lobes cancel  $\\rightarrow$  integral $0$')
+
+plt.tight_layout(rect=[0, 0.10, 1, 1]); plt.show()
+```
+
+So over **each** block $[m\pi,\,(m+1)\pi]$ both pieces contribute nothing, and therefore
+
+$$F(m\pi)=\int_{0}^{m\pi}\left(\cos x+\cos^{3}2x\right)dx=0 \qquad\text{for every integer }m .$$
+
+That is $P\Rightarrow Q$: **P is sufficient**, established from the pictures alone.
+
+**What the picture does not settle.** It says nothing about $k$ *between* the multiples of $\pi$. The
+running total could in principle dip back through zero somewhere inside a block — and if it did, Q would
+hold at some $k$ that is not a multiple of $\pi$, so P would **not** be necessary and the answer would be
+**C** rather than **A**. [Choosing between A and C is exactly the question of whether $F$ has any other
+zeros]{.hl}, and that needs the accumulated area, not the integrand.
+
+*In the exam, sketching the running total is usually enough to see it never comes back to zero mid-block,
+and A is safe. The work below is the proof of what the sketch suggests.*
+
+### The rigorous way — integrate, then factorise
+
+Now integrate, without using a memorised $\cos^3\theta$ formula. Write
 $$\cos^3(2x)=\cos(2x)\cos^2(2x)
 =\cos(2x)\left(1-\sin^2(2x)\right).$$
 Let
