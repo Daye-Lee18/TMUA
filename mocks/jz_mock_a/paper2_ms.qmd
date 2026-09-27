@@ -243,7 +243,7 @@ technique used above is the **method of differences** (*부분급수* / telescop
 Korean curriculum and in Further Maths but absent from MM2.
 
 It is worth learning properly, because the same move answers every non-geometric series the mocks set:
-**[Series methods — sums you have to build](../../lessons/sequences_series_clinic/series_methods.qmd)**.
+**[Sequences, Series & Binomial clinic](../../lessons/sequences_series_clinic/class_material.qmd)**, sections 4–8.
 :::
 
 ---

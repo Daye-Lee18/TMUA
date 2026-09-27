@@ -1,6 +1,6 @@
 ---
 title: "Sequences, Series & Binomial Clinic"
-subtitle: "Arithmetic & geometric series, sum to infinity, recurrences, and the binomial expansion (MM2)"
+subtitle: "Everything MM2 gives you — and the three ways to build the sums it does not"
 format: html
 jupyter: python3
 execute:
@@ -10,12 +10,18 @@ execute:
 
 ::: {.solutions}
 
-This is the **in-spec MM2** bank. TMUA sequence-and-series questions are short but unforgiving: one wrong
-formula and the whole answer is out. The recurring skills are **setting up two equations for an AP or GP**,
+TMUA sequence-and-series questions are short but unforgiving: one wrong formula and the whole answer is out. The recurring skills are **setting up two equations for an AP or GP**,
 **summing a geometric series to infinity** ($S_\infty=\dfrac{a}{1-r}$, valid only for $|r|<1$), **spotting a
 periodic recurrence**, and **extracting one coefficient from a binomial expansion** without expanding
 everything. Two of these are questions you got wrong (the combined-GP one and the $x^2$-coefficient one), so
 they are the anchors.
+
+**The second half of this page is the part no A-Level course teaches.** MM2 gives you four things — sequences
+from a formula or a recurrence, arithmetic series including $\sum k$, finite geometric series, and the sum to
+infinity of a **convergent** geometric series. That is the whole list. But $\sum k^{2}$, $\sum k\,2^{k}$ and
+$\sum\frac{1}{k(k+1)}$ are all set by the mocks and by the harder past papers, and none of them is on it. So
+sections 4–8 below cover [the three ways to build a sum you were never given]{.hl} — the **method of
+differences** (*부분급수* / telescoping), the shifted copy, and summing an identity.
 
 ::::: {.formulasheet}
 
@@ -53,27 +59,65 @@ the single $k$ that makes the power of $x$ right — don't expand the whole thin
 collect **every** way the target power can appear.
 :::
 
+
+
+::: {.fs-card}
+### A · [Method of differences (telescoping)]{.hl}
+If you can write $u_k=\mathrm{f}(k)-\mathrm{f}(k+1)$, then
+$$\sum_{k=1}^{n}u_k=\mathrm{f}(1)-\mathrm{f}(n+1)$$
+and everything in between cancels. **Partial fractions** is how you get that form.
+[$\frac{1}{k(k+1)}=\frac1k-\frac1{k+1}$]{.eg}
+:::
+
+::: {.fs-card}
+### B · [The shifted copy]{.hl}
+For $S=\sum k\,r^{k}$, write $rS$ underneath $S$ so the powers line up, then subtract. The $k$ collapses
+and what is left is geometric.
+[$\sum_{k=1}^{20}k\,2^{k}=19\cdot2^{21}+2$]{.eg}
+:::
+
+::: {.fs-card}
+### C · [Sum an identity]{.hl}
+To get $\sum k^{2}$, sum the identity $(k+1)^{3}-k^{3}=3k^{2}+3k+1$. The left side telescopes, and
+rearranging gives the answer.
+[the same trick with $k^{4}$ gives $\sum k^{3}$]{.eg}
+:::
+
+::: {.fs-card}
+### The three power sums
+$$\sum_{k=1}^{n}k=\frac{n(n+1)}{2}\quad\text{\small(on the spec)}$$
+$$\sum_{k=1}^{n}k^{2}=\frac{n(n+1)(2n+1)}{6}$$
+$$\sum_{k=1}^{n}k^{3}=\left(\frac{n(n+1)}{2}\right)^{2}$$
+[$\sum k^{3}=\left(\sum k\right)^{2}$ — worth remembering]{.eg}
+:::
+
+::: {.fs-card}
+### Two ways a $\sum$ to infinity can exist
+**Geometric:** $S_\infty=\dfrac{a}{1-r}$, needs $\lvert r\rvert<1$.
+**Telescoping:** the partial sum is $\mathrm{f}(1)-\mathrm{f}(n+1)$, so $S_\infty=\mathrm{f}(1)-\lim
+\mathrm{f}(n+1)$.
+[UK courses teach only the first; the mocks use both]{.eg}
+:::
+
+::: {.fs-card}
+### Quadratic sequences
+**Constant second difference** $\iff$ $n$th term is $an^{2}+bn+c$, and
+$$2a=\text{the second difference.}$$
+Then fit $b,c$ from the first two terms.
+[$2,7,16,29,46\to 2n^{2}-n+1$]{.eg}
+:::
 ::::
 
 :::::
 
-**On this page:** 1. Arithmetic, geometric & sum to infinity · 2. Combined series & recurrences · 3. Binomial
-coefficients. Answers are in the **Solution** toggles; use the **Working** box and **state the exact value**.
+**On this page — in-spec first, then the constructions:** 1. Arithmetic, geometric & sum to infinity ·
+2. Combined series & recurrences · 3. Binomial coefficients · **4. Quadratic sequences & the power sums ·
+5. The method of differences · 6. The shifted copy · 7. Which method? · 8. More practice.** Answers are in
+the **Solution** toggles; use the **Working** box and **state the exact value**.
 
 *(For a periodic **sequence of functions** integrated over a range, see the
 [Integrals-to-reason-about clinic](../integral_reasoning_clinic/class_material.qmd) — the 2016 Q4 periodic
 sequence lives there.)*
-
-::: {.callout-important}
-## If a mock asks for a sum that is not on this page
-
-This page is **MM2 as the specification writes it**. The mocks go further — $\sum k^{2}$,
-$\sum k\,2^{k}$ and $\sum\frac{1}{k(k+1)}$ are all set, and none of them is on the specification.
-
-Those belong to **[Series methods — sums you have to build](series_methods.qmd)**, which covers the three
-construction techniques (the **method of differences**, the shifted copy, and summing an identity) and
-works **JZ Mock A Paper 2 Q8** in full.
-:::
 
 ---
 
@@ -372,6 +416,519 @@ Working
 This is the specimen-paper Q20 you got wrong. The whole battle is refusing to expand: you only ever need the
 constant and the $x^2$ coefficient of each bracket, and the "$1-1=0$" constant is what makes the second product
 vanish.
+:::
+
+---
+
+## 4 · Quadratic sequences and the power sums
+
+### Finding the $n$th term of a quadratic sequence
+
+This part **is** on the specification (M4.19), and it is the cheapest mark in the topic.
+
+::: {.callout-tip}
+## Second differences give the leading coefficient
+
+A sequence has $n$th term $an^{2}+bn+c$ **exactly when** its second differences are constant, and then
+
+$$\boxed{\,2a=\text{the (constant) second difference}\,}$$
+
+*Why: the first difference of $an^{2}+bn+c$ is $a(2n+1)+b$, which is linear in $n$ with gradient $2a$; the
+difference of that is $2a$.*
+:::
+
+**Method.**
+
+1. Write the first differences, then the second differences.
+2. Halve the second difference to get $a$.
+3. Subtract $an^{2}$ from the sequence — what is left is **arithmetic**, and gives $b$ and $c$.
+
+::: {.example}
+[Example.]{.lbl} Find the $n$th term of $2,\ 7,\ 16,\ 29,\ 46,\ \dots$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+| | | | | | |
+|---|---|---|---|---|---|
+| sequence | $2$ | $7$ | $16$ | $29$ | $46$ |
+| 1st differences | | $5$ | $9$ | $13$ | $17$ |
+| 2nd differences | | | $4$ | $4$ | $4$ |
+
+Constant second difference $4$, so $2a=4$ and $a=2$. Subtract $2n^{2}$:
+
+| $n$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $u_n-2n^{2}$ | $0$ | $-1$ | $-2$ | $-3$ | $-4$ |
+
+which is arithmetic with $n$th term $1-n$. Hence
+
+$$u_n=2n^{2}-n+1 .$$
+
+**Check:** $n=5$ gives $50-5+1=46$ ✓
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+### Building $\sum k^{2}$ — method C
+
+You are given $\displaystyle\sum_{k=1}^{n}k=\frac{n(n+1)}{2}$ and nothing else. Here is how $\sum k^{2}$
+comes out of it in four lines.
+
+**Start from an identity that produces $k^{2}$ when expanded:**
+
+$$(k+1)^{3}-k^{3}=3k^{2}+3k+1 .$$
+
+**Sum both sides from $k=1$ to $n$.** The left side **telescopes** — write it out and watch:
+
+$$\underbrace{\left(2^{3}-1^{3}\right)+\left(3^{3}-2^{3}\right)+\cdots+\left((n+1)^{3}-n^{3}\right)}_{\text{everything cancels but the ends}}=(n+1)^{3}-1 .$$
+
+**So**
+
+$$(n+1)^{3}-1=3\sum_{k=1}^{n}k^{2}+3\cdot\frac{n(n+1)}{2}+n .$$
+
+**Rearrange.** Expanding the left as $n^{3}+3n^{2}+3n$:
+
+$$3\sum k^{2}=n^{3}+3n^{2}+3n-\frac{3n(n+1)}{2}-n=\frac{2n^{3}+3n^{2}+n}{2}=\frac{n(n+1)(2n+1)}{2},$$
+
+$$\boxed{\ \sum_{k=1}^{n}k^{2}=\frac{n(n+1)(2n+1)}{6}\ }$$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## The same trick for $\sum k^{3}$ — try it first
+
+Start from $(k+1)^{4}-k^{4}=4k^{3}+6k^{2}+4k+1$ and sum from $1$ to $n$:
+
+$$(n+1)^{4}-1=4\sum k^{3}+6\cdot\frac{n(n+1)(2n+1)}{6}+4\cdot\frac{n(n+1)}{2}+n .$$
+
+Rearranging gives
+
+$$\sum_{k=1}^{n}k^{3}=\frac{n^{2}(n+1)^{2}}{4}=\left(\frac{n(n+1)}{2}\right)^{2}=\left(\sum_{k=1}^{n}k\right)^{2}.$$
+
+**Check at $n=3$:** $1+8+27=36$ and $\left(\tfrac{3\cdot4}{2}\right)^{2}=6^{2}=36$ ✓
+
+*Each power sum is built from the ones below it, which is why the order matters: $\sum k$, then $\sum k^{2}$,
+then $\sum k^{3}$.*
+:::
+
+**Consequence.** Any sum of a **polynomial** in $k$ is now routine — split it term by term:
+
+$$\sum_{k=1}^{n}\left(3k^{2}-2k+5\right)=3\cdot\frac{n(n+1)(2n+1)}{6}-2\cdot\frac{n(n+1)}{2}+5n .$$
+
+---
+
+## 5 · The method of differences (telescoping)
+
+::: {.callout-important}
+## This is the one that is not in the UK course
+
+A British A-level student meets $\sum$ **to infinity** only through the geometric series, so a sum like
+$\displaystyle\sum_{k=1}^{\infty}\frac{1}{k(k+1)}$ looks impossible — it is not geometric, and no formula
+applies. The technique below is standard in the Korean curriculum (*부분급수* / partial sums) and in
+Further Maths, and **JZ Mock A Paper 2 Q8 is exactly this**.
+
+It is not hard. It is one idea.
+:::
+
+## The idea
+
+::: {.callout-tip}
+## Method of differences
+
+If the term can be written as a **difference of consecutive values of one function**,
+
+$$u_k=\mathrm{f}(k)-\mathrm{f}(k+1),$$
+
+then adding from $k=1$ to $n$ cancels everything in the middle:
+
+$$\sum_{k=1}^{n}u_k=\Big(\mathrm{f}(1)-\cancel{\mathrm{f}(2)}\Big)+\Big(\cancel{\mathrm{f}(2)}-\cancel{\mathrm{f}(3)}\Big)+\cdots+\Big(\cancel{\mathrm{f}(n)}-\mathrm{f}(n+1)\Big)
+=\mathrm{f}(1)-\mathrm{f}(n+1).$$
+
+**Only the ends survive.** And then
+
+$$\sum_{k=1}^{\infty}u_k=\mathrm{f}(1)-\lim_{n\to\infty}\mathrm{f}(n+1),$$
+
+which exists whenever that limit does.
+:::
+
+### Getting the term into that form: partial fractions
+
+Method: split the fraction, then check the pieces really are consecutive.
+
+| term | split | gap | what survives |
+|---|---|:-:|---|
+| $\dfrac{1}{k(k+1)}$ | $\dfrac1k-\dfrac1{k+1}$ | $1$ | **one** term at each end |
+| $\dfrac{1}{k(k+2)}$ | $\dfrac12\left(\dfrac1k-\dfrac1{k+2}\right)$ | $2$ | **two** terms at each end |
+| $\dfrac{1}{(2k-1)(2k+1)}$ | $\dfrac12\left(\dfrac1{2k-1}-\dfrac1{2k+1}\right)$ | $1$ | one at each end |
+
+[The gap is the thing to check]{.hl}. With a gap of $2$, the cancellation skips a term, so $\mathrm{f}(1)$
+**and** $\mathrm{f}(2)$ both survive at the front — and two survive at the back as well.
+
+::: {.example}
+[Example 1.]{.lbl} Find $\displaystyle\sum_{k=1}^{n}\frac{1}{k(k+1)}$ and hence $\displaystyle\sum_{k=1}^{\infty}\frac{1}{k(k+1)}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$$\frac{1}{k(k+1)}=\frac1k-\frac1{k+1}\qquad\text{(check: } \tfrac{(k+1)-k}{k(k+1)}=\tfrac{1}{k(k+1)}\text{ ✓)}$$
+
+$$\sum_{k=1}^{n}\left(\frac1k-\frac1{k+1}\right)
+=\left(1-\frac12\right)+\left(\frac12-\frac13\right)+\cdots+\left(\frac1n-\frac1{n+1}\right)
+=1-\frac{1}{n+1}=\frac{n}{n+1}.$$
+
+**Partial sums:** $\tfrac12,\ \tfrac23,\ \tfrac34,\ \tfrac45,\dots$ — the pattern alone tells you the limit.
+
+$$\sum_{k=1}^{\infty}\frac{1}{k(k+1)}=\lim_{n\to\infty}\frac{n}{n+1}=1 .$$
+:::
+
+::: {.example}
+[Example 2 — the gap-2 case.]{.lbl} Find $\displaystyle\sum_{k=1}^{\infty}\frac{1}{k(k+2)}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$$\frac{1}{k(k+2)}=\frac12\left(\frac1k-\frac1{k+2}\right).$$
+
+Writing out the first few and the last few, **two** terms survive at each end:
+
+$$2\sum_{k=1}^{n}\frac{1}{k(k+2)}=\underbrace{\frac11+\frac12}_{\text{front}}-\underbrace{\frac{1}{n+1}-\frac{1}{n+2}}_{\text{back}} .$$
+
+$$\sum_{k=1}^{n}\frac{1}{k(k+2)}=\frac12\left(\frac32-\frac{1}{n+1}-\frac{1}{n+2}\right)
+\;\xrightarrow[n\to\infty]{}\;\frac12\cdot\frac32=\boxed{\frac34}.$$
+
+**Check numerically:** the first six terms give $0.7202\ldots$, the first fifty $0.7452\ldots$ — creeping up
+to $0.75$ ✓
+
+*Answering $\tfrac12$ here, by assuming one term survives at each end, is the standard error. **Write out
+three terms from each end before cancelling.***
+:::
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.0))
+N = np.arange(1, 26)
+
+part = np.cumsum(1/(N*(N+1)))
+axes[0].plot(N, part, 'o-', color='#1f77b4', ms=4, lw=1.6)
+axes[0].axhline(1, color='#d62728', lw=1.6, ls='--')
+axes[0].text(25, 1.03, 'limit $1$', color='#d62728', ha='right', fontsize=10)
+axes[0].set_title('$\\sum \\frac{1}{k(k+1)}$  — telescoping\npartial sum is $\\frac{n}{n+1}$',
+                  fontsize=11)
+
+geo = np.cumsum(0.5**N)
+axes[1].plot(N, geo, 'o-', color='#2ca02c', ms=4, lw=1.6)
+axes[1].axhline(1, color='#d62728', lw=1.6, ls='--')
+axes[1].text(25, 1.03, 'limit $1$', color='#d62728', ha='right', fontsize=10)
+axes[1].set_title('$\\sum \\left(\\frac{1}{2}\\right)^{k}$  — geometric\npartial sum is $1-2^{-n}$',
+                  fontsize=11)
+
+for ax in axes:
+    ax.set_ylim(0, 1.18); ax.set_xlabel('number of terms $n$')
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+*Both sums converge to $1$, and for the same underlying reason — **the partial sum has a closed form whose
+limit you can read off**. The geometric one you are taught; the telescoping one you build.*
+
+### The mock question this was set for
+
+::: {.example}
+[JZ Mock A · Paper 2 · Q8.]{.lbl} A sequence has $a_1=1$ and $a_{n+1}=\dfrac{a_n}{1+a_n}$ for $n\ge1$.
+Find $\displaystyle\sum_{n=1}^{\infty}a_na_{n+1}$.
+
+&nbsp;&nbsp;**A** $0$ &nbsp; **B** $1$ &nbsp; **C** $2$ &nbsp; **D** $4$ &nbsp; **E** $\tfrac52$ &nbsp;
+**F** $\tfrac32$ &nbsp; **G** $\infty$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B** $\;1$
+
+**Step 1 — the recurrence (this part is in-spec, MM2.1).** A recurrence that *divides* by something
+involving $a_n$ is almost always linear in the **reciprocal**:
+
+$$a_{n+1}=\frac{a_n}{1+a_n}\;\Longrightarrow\;\frac{1}{a_{n+1}}=\frac{1+a_n}{a_n}=\frac{1}{a_n}+1 .$$
+
+So $b_n=\dfrac{1}{a_n}$ is **arithmetic** with $b_1=1$ and common difference $1$, giving $b_n=n$ and
+
+$$a_n=\frac1n .$$
+
+*(If you did not spot the reciprocal: computing $a_1=1,\ a_2=\tfrac12,\ a_3=\tfrac13$ suggests it in ten
+seconds, and the recurrence then confirms it.)*
+
+**Step 2 — the sum (this is the off-spec part).**
+
+$$a_na_{n+1}=\frac{1}{n(n+1)}=\frac1n-\frac1{n+1},$$
+
+which is Example 1 above:
+
+$$\sum_{n=1}^{\infty}a_na_{n+1}=1 .$$
+
+**Why this felt impossible.** The sum is not geometric, so the one $S_\infty$ formula on the specification
+does not apply — and nothing else on the specification does either. [The move that unlocks it is splitting
+the fraction so that consecutive terms cancel]{.hl}, and once you have seen it once it is never hard again.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## 6 · The shifted copy — sums like $\sum k\,r^{k}$
+
+A sum whose term is **a polynomial times a geometric term** is neither arithmetic nor geometric, so no
+formula applies. The fix is to **subtract a shifted copy of the sum from itself**, which collapses the
+polynomial factor.
+
+::: {.callout-tip}
+## The method
+
+For $S=\displaystyle\sum_{k=1}^{n}k\,r^{k}$, write $rS$ so that equal powers line up, and subtract. Each
+$k\,r^{k}-(k-1)r^{k}=r^{k}$, so what is left is a plain **geometric** series plus the two end terms.
+:::
+
+::: {.example}
+[Example.]{.lbl} Evaluate $\displaystyle\sum_{k=1}^{20}k\,2^{k}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Let $S=\displaystyle\sum_{k=1}^{20}k\,2^{k}$. Then
+
+$$2S=\sum_{k=1}^{20}k\,2^{k+1}=\sum_{j=2}^{21}(j-1)\,2^{j}.$$
+
+Subtract, lining up equal powers of $2$:
+
+$$S=2S-S=\underbrace{20\cdot2^{21}}_{j=21\text{ only in }2S}-\underbrace{1\cdot2^{1}}_{k=1\text{ only in }S}-\sum_{j=2}^{20}2^{j}.$$
+
+The remaining sum is geometric: $\displaystyle\sum_{j=2}^{20}2^{j}=2^{21}-4$. Hence
+
+$$S=20\cdot2^{21}-2-\left(2^{21}-4\right)=19\cdot2^{21}+2 .$$
+
+**Check:** $19\cdot2^{21}+2=39\,845\,890$, and summing directly gives the same. ✓
+
+*This is **JZ Mock B Paper 1 Q19** almost verbatim — there it is wrapped in a ceiling function, but
+$\lceil x\rceil=k$ on $(k-1,k]$ turns the integral into exactly this sum.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## The infinite version
+
+For $\lvert x\rvert<1$ the same subtraction gives
+
+$$\sum_{k=1}^{\infty}k\,x^{k}=\frac{x}{(1-x)^{2}} .$$
+
+*Derivation:* $S-xS=\sum_{k\ge1}x^{k}=\dfrac{x}{1-x}$, so $S(1-x)=\dfrac{x}{1-x}$.
+
+**Check at $x=\tfrac12$:** $\dfrac{1/2}{1/4}=2$, and $\tfrac12+\tfrac24+\tfrac38+\tfrac4{16}+\cdots$ does
+climb to $2$ ✓
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## 7 · Which method?
+
+::: {.callout-tip}
+## Read the term, pick the method
+
+| the term $u_k$ looks like | method | result |
+|---|---|---|
+| $a+(k-1)d$ — linear in $k$ | arithmetic formula | *on the spec* |
+| $a\,r^{k}$ | geometric formula | *on the spec* |
+| a **polynomial** in $k$ | split into $\sum k^{2},\sum k,\sum 1$ | build $\sum k^{2}$ by method C |
+| a **fraction that splits** into consecutive pieces | method of differences | Part 2 |
+| $k\,r^{k}$ — polynomial $\times$ geometric | the shifted copy | Part 3 |
+| already given as $\mathrm{f}(k)-\mathrm{f}(k+1)$ | method of differences, immediately | Part 2 |
+:::
+
+**And one warning that applies to all of them.** A sum to infinity exists only if the **partial sum** has a
+limit. For a geometric series that is the condition $\lvert r\rvert<1$; for a telescoping series it is
+$\lim\mathrm{f}(n+1)$ existing. *Never write $S_\infty$ without saying why the limit is there.*
+
+---
+
+## 8 · More practice
+
+### Question 10
+
+::: {.question}
+Find the $n$th term of $\;5,\ 12,\ 23,\ 38,\ 57,\ \dots$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+First differences $7,11,15,19$; second differences $4,4,4$. So $2a=4$, $a=2$.
+
+Subtracting $2n^{2}$ gives $3,\ 4,\ 5,\ 6,\ 7$, which is $n+2$. Hence
+
+$$u_n=2n^{2}+n+2 .$$
+
+**Check** $n=4$: $32+4+2=38$ ✓
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+### Question 11
+
+::: {.question}
+Evaluate $\displaystyle\sum_{k=1}^{n}\left(k^{2}-3k\right)$, giving a single factorised expression.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$$\sum_{k=1}^{n}k^{2}-3\sum_{k=1}^{n}k=\frac{n(n+1)(2n+1)}{6}-\frac{3n(n+1)}{2}
+=\frac{n(n+1)}{6}\Big[(2n+1)-9\Big]=\frac{n(n+1)(2n-8)}{6}=\frac{n(n+1)(n-4)}{3}.$$
+
+**Check** $n=3$: $(1-3)+(4-6)+(9-9)=-4$, and $\tfrac{3\cdot4\cdot(-1)}{3}=-4$ ✓
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+### Question 12
+
+::: {.question}
+Show that $\displaystyle\sum_{k=1}^{n}\frac{1}{(2k-1)(2k+1)}=\frac{n}{2n+1}$, and write down the sum to
+infinity.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$$\frac{1}{(2k-1)(2k+1)}=\frac12\left(\frac{1}{2k-1}-\frac{1}{2k+1}\right)$$
+
+*(check: $\tfrac12\cdot\tfrac{(2k+1)-(2k-1)}{(2k-1)(2k+1)}=\tfrac{1}{(2k-1)(2k+1)}$ ✓)*
+
+The pieces are consecutive, so one survives at each end:
+
+$$\sum_{k=1}^{n}=\frac12\left(\frac11-\frac{1}{2n+1}\right)=\frac12\cdot\frac{2n}{2n+1}=\frac{n}{2n+1}. \;\blacksquare$$
+
+$$S_\infty=\lim_{n\to\infty}\frac{n}{2n+1}=\frac12 .$$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Question 13
+
+::: {.question}
+A sequence satisfies $u_1=\tfrac12$ and $u_{n+1}=\dfrac{u_n}{2u_n+1}$.
+
+&nbsp;&nbsp;(a) Find a formula for $u_n$.
+&nbsp;&nbsp;(b) Evaluate $\displaystyle\sum_{n=1}^{\infty}u_nu_{n+1}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Take reciprocals:
+
+$$\frac{1}{u_{n+1}}=\frac{2u_n+1}{u_n}=\frac{1}{u_n}+2 ,$$
+
+so $\tfrac1{u_n}$ is arithmetic with first term $2$ and common difference $2$: $\tfrac1{u_n}=2n$, giving
+
+$$u_n=\frac{1}{2n}.$$
+
+**(b)**
+
+$$u_nu_{n+1}=\frac{1}{4n(n+1)}=\frac14\left(\frac1n-\frac1{n+1}\right),$$
+
+so by Example 1 the sum is $\tfrac14\times1=\boxed{\tfrac14}$.
+
+*The same two steps as the JZ question: reciprocal to solve the recurrence, then telescope.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+### Question 14
+
+::: {.question}
+Evaluate $\displaystyle\sum_{k=1}^{10}k\,3^{k}$, leaving your answer in the form $a\cdot3^{11}+b$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Let $S=\displaystyle\sum_{k=1}^{10}k\,3^{k}$, so $3S=\displaystyle\sum_{j=2}^{11}(j-1)3^{j}$. Subtracting,
+
+$$2S=3S-S=10\cdot3^{11}-3-\sum_{j=2}^{10}3^{j} .$$
+
+The geometric part is $\displaystyle\sum_{j=2}^{10}3^{j}=\frac{3^{11}-9}{2}$, so
+
+$$2S=10\cdot3^{11}-3-\frac{3^{11}-9}{2}=\frac{19\cdot3^{11}+3}{2}
+\qquad\Longrightarrow\qquad S=\frac{19}{4}\cdot3^{11}+\frac34 .$$
+
+**Check:** $S=841\,674$, and $\tfrac{19}{4}\cdot177147+\tfrac34=841\,673.25+0.75=841\,674$ ✓
+
+*With $r=3$ the subtraction gives $2S$, not $S$ — always write down which multiple you have produced.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+### Question 15
+
+::: {.question}
+Explain why $\displaystyle\sum_{k=1}^{\infty}\frac{1}{k}$ **cannot** be found by the method of differences
+with $\mathrm{f}(k)=\tfrac1k$, and what that tells you about the sum.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The method needs $u_k=\mathrm{f}(k)-\mathrm{f}(k+1)$. With $\mathrm{f}(k)=\tfrac1k$,
+
+$$\mathrm{f}(k)-\mathrm{f}(k+1)=\frac1k-\frac1{k+1}=\frac{1}{k(k+1)}\ \neq\ \frac1k .$$
+
+So $\tfrac1k$ is **not** a difference of consecutive values of $\tfrac1k$ — the method simply does not apply,
+and no amount of rearranging makes it.
+
+*And that is a hint, not an accident:* $\displaystyle\sum\frac1k$ **diverges**. Its partial sums grow
+without bound, slowly — past $10$ only after about $12\,000$ terms. A telescoping argument could never have
+given it a finite value.
+
+[A sum to infinity is not guaranteed to exist]{.hl}. Both methods on this page produce a *closed form for
+the partial sum* first, and only then take a limit — which is exactly the step that reveals whether the
+limit is there at all.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The three sentences to leave with
+
+1. **The specification gives you $\sum k$, finite and infinite geometric, and recurrences.** Everything
+   else you build.
+2. **Telescoping is one idea:** write $u_k=\mathrm{f}(k)-\mathrm{f}(k+1)$, and only the ends survive.
+   Partial fractions is how you get there; the **gap** tells you how many ends there are.
+3. **$\sum$ to infinity always means the limit of the partial sum.** Geometric is one way to have one;
+   telescoping is the other.
 :::
 
 :::

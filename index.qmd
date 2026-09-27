@@ -159,16 +159,11 @@ appear in the JZ mocks and the harder past papers — and **none of them is on t
 who has only met "sum to infinity = geometric" has no way in.
 
 The answer is not to memorise more formulas. [There are exactly three ways to build a sum you were never
-given]{.hl}, and the page below teaches all three.
+given]{.hl} — the **method of differences** (*부분급수* / telescoping), the shifted copy, and summing an
+identity. **Sections 4–8** of the
+**[Sequences, Series & Binomial clinic](lessons/sequences_series_clinic/class_material.qmd)** teach all
+three, and work **JZ Mock A Paper 2 Q8** in full.
 :::
-
-| Session | Class material | Assignment |
-|---|---|---|
-| **[Series methods — sums you have to build](lessons/sequences_series_clinic/series_methods.qmd)** — quadratic sequences, $\sum k^{2}$ and $\sum k^{3}$ derived from scratch, the **method of differences** (*부분급수* / telescoping), and the shifted copy for $\sum k\,r^{k}$ | **[Open](lessons/sequences_series_clinic/series_methods.qmd)** | *6 practice questions on the page* |
-| **[Sequences, series & binomial](lessons/sequences_series_clinic/class_material.qmd)** — the in-spec MM2 bank: AP, GP, sum to infinity, recurrences, binomial coefficients | **[Material](lessons/sequences_series_clinic/class_material.qmd)** | **[Questions](lessons/sequences_series_clinic/assignment_student.qmd)** · [MS](lessons/sequences_series_clinic/assignment_ms.qmd) |
-
-*The two pages are deliberately separate: the second is what the examiner may assume you know, the first is
-what the examiner may expect you to construct.*
 
 ### The clinics — by specification heading
 
@@ -178,7 +173,7 @@ what the examiner may expect you to construct.*
 | **MM1** | **Modulus** — $\lvert x\rvert$ equations, inequalities and graphs | **[Material](lessons/modulus_clinic/class_material.qmd)** · **[Part 2](lessons/modulus_clinic2/class_material.qmd)** | **[Questions](lessons/modulus_clinic/assignment_student.qmd)** · [MS](lessons/modulus_clinic/assignment_ms.qmd) |
 | **MM1** | **Range of a function** | **[Material](lessons/range_clinic/class_material.qmd)** | — |
 | **MM1** | **Floor and ceiling** — $\lfloor x\rfloor$, $\lceil x\rceil$ | **[Material](lessons/floor_ceiling_clinic/class_material.qmd)** | — |
-| **MM2** | **Sequences & series** | *see the two rows above* | |
+| **MM2** | **Sequences, series & binomial** — AP, GP, sum to infinity, recurrences, binomial; then quadratic sequences, $\sum k^{2}$, the **method of differences** and the shifted copy | **[Material](lessons/sequences_series_clinic/class_material.qmd)** | **[Questions](lessons/sequences_series_clinic/assignment_student.qmd)** · [MS](lessons/sequences_series_clinic/assignment_ms.qmd) |
 | **MM3** | **Coordinate geometry** — lines, circles, circle properties | **[Material](lessons/coordinate_geometry_clinic/class_material.qmd)** | **[Questions](lessons/coordinate_geometry_clinic/assignment_student.qmd)** · [MS](lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
 | **MM3** | **Parametric curves** | **[Material](lessons/parametric_clinic/class_material.qmd)** | — |
 | **MM4** | **Trigonometry** — sine/cosine rules, radians, identities, equations | **[Material](lessons/trig_clinic/class_material.qmd)** | **[Questions](lessons/trig_clinic/assignment_student.qmd)** · [MS](lessons/trig_clinic/assignment_ms.qmd) |
