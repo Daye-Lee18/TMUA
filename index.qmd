@@ -139,6 +139,64 @@ treat 2019–2023 as the best model of what the live test now asks.
 
 ---
 
+## Paper 1 Toolkit — the mathematics (MM1–MM8)
+
+Paper 1 is A-Level content, so the difficulty is rarely the topic — it is **speed**, and a short list of
+techniques that sit just outside the course. The clinics below are organised by specification heading;
+each is a bank of past-paper and mock questions with a **Solution** toggle and a working box on every one.
+
+### Beyond the specification — the sums you have to build
+
+::: {.callout-important}
+## Why a correct A-Level student can still be stuck
+
+**MM2** gives you exactly four things: sequences from a formula or a simple recurrence, arithmetic series
+**including $\sum k$**, finite geometric series, and the sum to infinity of a **convergent** geometric
+series. That is the entire list.
+
+But $\displaystyle\sum k^{2}$, $\displaystyle\sum k\,2^{k}$ and $\displaystyle\sum\frac{1}{k(k+1)}$ all
+appear in the JZ mocks and the harder past papers — and **none of them is on the specification**. A student
+who has only met "sum to infinity = geometric" has no way in.
+
+The answer is not to memorise more formulas. [There are exactly three ways to build a sum you were never
+given]{.hl}, and the page below teaches all three.
+:::
+
+| Session | Class material | Assignment |
+|---|---|---|
+| **[Series methods — sums you have to build](lessons/sequences_series_clinic/series_methods.qmd)** — quadratic sequences, $\sum k^{2}$ and $\sum k^{3}$ derived from scratch, the **method of differences** (*부분급수* / telescoping), and the shifted copy for $\sum k\,r^{k}$ | **[Open](lessons/sequences_series_clinic/series_methods.qmd)** | *6 practice questions on the page* |
+| **[Sequences, series & binomial](lessons/sequences_series_clinic/class_material.qmd)** — the in-spec MM2 bank: AP, GP, sum to infinity, recurrences, binomial coefficients | **[Material](lessons/sequences_series_clinic/class_material.qmd)** | **[Questions](lessons/sequences_series_clinic/assignment_student.qmd)** · [MS](lessons/sequences_series_clinic/assignment_ms.qmd) |
+
+*The two pages are deliberately separate: the second is what the examiner may assume you know, the first is
+what the examiner may expect you to construct.*
+
+### The clinics — by specification heading
+
+| Spec | Topic | Class material | Assignment |
+|---|---|---|---|
+| **MM1** | **Algebra & functions** — completing the square | **[Material](lessons/completing_square_clinic/class_material.qmd)** | — |
+| **MM1** | **Modulus** — $\lvert x\rvert$ equations, inequalities and graphs | **[Material](lessons/modulus_clinic/class_material.qmd)** · **[Part 2](lessons/modulus_clinic2/class_material.qmd)** | **[Questions](lessons/modulus_clinic/assignment_student.qmd)** · [MS](lessons/modulus_clinic/assignment_ms.qmd) |
+| **MM1** | **Range of a function** | **[Material](lessons/range_clinic/class_material.qmd)** | — |
+| **MM1** | **Floor and ceiling** — $\lfloor x\rfloor$, $\lceil x\rceil$ | **[Material](lessons/floor_ceiling_clinic/class_material.qmd)** | — |
+| **MM2** | **Sequences & series** | *see the two rows above* | |
+| **MM3** | **Coordinate geometry** — lines, circles, circle properties | **[Material](lessons/coordinate_geometry_clinic/class_material.qmd)** | **[Questions](lessons/coordinate_geometry_clinic/assignment_student.qmd)** · [MS](lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
+| **MM3** | **Parametric curves** | **[Material](lessons/parametric_clinic/class_material.qmd)** | — |
+| **MM4** | **Trigonometry** — sine/cosine rules, radians, identities, equations | **[Material](lessons/trig_clinic/class_material.qmd)** | **[Questions](lessons/trig_clinic/assignment_student.qmd)** · [MS](lessons/trig_clinic/assignment_ms.qmd) |
+| **MM4** | **Triangle geometry** | **[Material](lessons/triangle_clinic/class_material.qmd)** | **[Questions](lessons/triangle_clinic/assignment_student.qmd)** · [MS](lessons/triangle_clinic/assignment_ms.qmd) |
+| **MM5** | **Logarithms** | **[Material](lessons/log_clinic/class_material.qmd)** | — |
+| **MM5** | **Logarithms — extension** | **[Material](lessons/log_extension_clinic/class_material.qmd)** | **[Questions](lessons/log_extension_clinic/assignment_student.qmd)** · [MS](lessons/log_extension_clinic/assignment_ms.qmd) |
+| **MM6** | **Differentiation** — stationary points, tangents, max/min | **[Material](lessons/differentiation_clinic/class_material.qmd)** · **[Max/min supplement](lessons/differentiation_clinic/supplementary_minmax.qmd)** | **[Questions](lessons/differentiation_clinic/assignment_student.qmd)** · [MS](lessons/differentiation_clinic/assignment_ms.qmd) |
+| **MM7** | **Integration — area** | **[Material](lessons/integration_area_clinic/class_material.qmd)** | — |
+| **MM7** | **Integrals to reason about** — the ones you compare rather than evaluate | **[Material](lessons/integral_reasoning_clinic/class_material.qmd)** | **[Questions](lessons/integral_reasoning_clinic/assignment_student.qmd)** · [MS](lessons/integral_reasoning_clinic/assignment_ms.qmd) |
+| **MM8** | **Graphs — the main bank** | **[Concepts](lessons/graph_clinic/concepts.qmd)** · **[Material](lessons/graph_clinic/class_material.qmd)** | **[Questions](lessons/graph_clinic/assignment_student.qmd)** · [MS](lessons/graph_clinic/assignment_ms.qmd) |
+| **MM8** | **Graphs — transformations** | **[Concepts](lessons/graphs_transformations/concepts.qmd)** · **[Material](lessons/graphs_transformations/class_material.qmd)** | **[Questions](lessons/graphs_transformations/assignment_student.qmd)** · [MS](lessons/graphs_transformations/assignment_ms.qmd) |
+| **MM8** | **Graphs — sketching** | **[Concepts](lessons/graphs_sketching/concepts.qmd)** · **[Material](lessons/graphs_sketching/class_material.qmd)** | — |
+| **MM8** | **Graphs — extra bank** | **[Material](lessons/graphs_clinic/class_material.qmd)** | — |
+
+*(Full lesson index: **[all lessons](lessons/index.qmd)**.)*
+
+---
+
 ## Paper 2 Toolkit — Logic and Proof
 
 The part that is **not in the A-Level syllabus**. A student can be excellent at A-Level Maths and still

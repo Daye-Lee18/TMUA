@@ -64,6 +64,17 @@ coefficients. Answers are in the **Solution** toggles; use the **Working** box a
 [Integrals-to-reason-about clinic](../integral_reasoning_clinic/class_material.qmd) — the 2016 Q4 periodic
 sequence lives there.)*
 
+::: {.callout-important}
+## If a mock asks for a sum that is not on this page
+
+This page is **MM2 as the specification writes it**. The mocks go further — $\sum k^{2}$,
+$\sum k\,2^{k}$ and $\sum\frac{1}{k(k+1)}$ are all set, and none of them is on the specification.
+
+Those belong to **[Series methods — sums you have to build](series_methods.qmd)**, which covers the three
+construction techniques (the **method of differences**, the shifted copy, and summing an identity) and
+works **JZ Mock A Paper 2 Q8** in full.
+:::
+
 ---
 
 ## 1 · Arithmetic, geometric & sum to infinity
