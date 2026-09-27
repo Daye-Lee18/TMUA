@@ -1,0 +1,565 @@
+---
+title: "S7 Extended — When Is Squaring the Error?"
+subtitle: "Equivalence versus implication, and where the exam puts the blame"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+::: {.callout-important}
+## The question this page answers
+
+You square both sides, you get an extra root, and the question asks for the **first error**. Is the error
+
+&nbsp;&nbsp;**(a)** the squaring, or
+&nbsp;&nbsp;**(b)** the final line, which states a root without checking it?
+
+Both feel defensible, and choosing wrong costs the mark. Worse, the same paper contains attempts where
+squaring is **not** an error at all and the correct answer is *"the argument is valid"*.
+
+There is one rule that settles all three cases, and it is on this page.
+:::
+
+# 1 · The rule
+
+::: {.callout-tip}
+## Every line of working is one of two things
+
+**An equivalence ($\iff$)** — the set of solutions is exactly the same before and after. Safe.
+
+**An implication ($\Rightarrow$)** — the set can **grow** (you gain false roots) or **shrink** (you lose
+real ones). Not safe on its own.
+
+[A step is an error when it is a one-way step and nothing earlier in the working justifies it]{.hl}. That
+is the whole test.
+:::
+
+## Which operations are which
+
+| operation | status | what can go wrong |
+|---|---|---|
+| add or subtract the same thing | **$\iff$** always | — |
+| multiply or divide by a **non-zero constant** | **$\iff$** | — |
+| multiply both sides by an **expression** | $\Rightarrow$ | **gains** every root of that expression |
+| divide both sides by an **expression** | $\Rightarrow$ | **loses** every root of that expression |
+| **square** both sides | $\iff$ **only if both sides are known $\ge0$** | otherwise **gains** roots |
+| **take the square root** | $\sqrt{u^{2}}=\lvert u\rvert$, never $u$ | **loses** the negative branch |
+| apply an **increasing** function ($3^{x}$, $\log_2$) | **$\iff$**, direction kept | — |
+| apply a **decreasing** function ($\log_{1/2}$, $\times(-1)$) | **$\iff$**, direction **flips** | wrong direction if you forget |
+
+*Two of these are opposites worth saying out loud: **multiplying** by an expression **gains**, **dividing**
+by one **loses**. If a solution disappears, look for a division.*
+
+# 2 · Where the exam puts the blame
+
+Three principles, and they are all the same principle.
+
+::: {.callout-tip}
+## At the step, not at the symptom
+
+If line (2) squares without justification and line (5) then reports a false root, **the error is line (2)**.
+Line (5) is correctly telling you the roots of the corrupted equation from line (2) — it is not lying about
+anything.
+
+*Test: ask what each line claims **about the line immediately above it**. Line (5) claims "these are the
+roots of line (4)" — true. Line (2) claims "this has the same solutions as line (1)" — false.*
+:::
+
+::: {.callout-tip}
+## First, not worst
+
+A chain can contain **two** bad steps. The question asks for the **first**, even if a later one is more
+serious. [JZ Mock E Paper 2 Q2](#the-six-shapes) divides by $x-2$ at one step **and** squares an equation
+with an unknown sign two steps later; the answer is the division, because it came first.
+:::
+
+::: {.callout-tip}
+## Justified earlier means not an error
+
+Squaring is **not** intrinsically wrong. If an earlier line has already established that both sides are
+non-negative, the squaring is a genuine equivalence and the working is **valid** — even though it "squares
+both sides", which is what a student has been trained to distrust.
+
+[The justification must be **in the working**, not merely available]{.hl}. "It could have been said" earns
+nothing; "it was said on line (I)" makes the step legal.
+:::
+
+# 3 · The decision procedure
+
+When you meet a solve-an-equation chain, run these three in order.
+
+::: {.callout-important}
+## Three questions
+
+1. **Find every one-way step.** Scan for: multiply by an expression, divide by an expression, square,
+   take a root, apply something decreasing.
+2. **For each, ask whether an earlier line justifies it.** A stated sign condition, a stated $x\neq0$, a
+   domain restriction from a square root or a denominator. If yes, that step is fine — cross it off.
+3. **The answer is the earliest one still standing.** If none is standing, the argument is **valid** —
+   and on these papers *"valid"* is a real option that is right about a third of the time.
+:::
+
+---
+
+# 4 · The six shapes {#the-six-shapes}
+
+Every squaring-and-dividing question in the archive is one of these six. Work each, then read the verdict.
+
+## Shape 1 — squaring with the sign unknown &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q2</span>
+
+::: {.question}
+A student solves $\dfrac{\sqrt{x^{3}+x^{2}-x}+2}{x+2}=1$:
+
+&nbsp;&nbsp;**(1)** Multiply both sides by $x+2$: $\;\sqrt{x^{3}+x^{2}-x}+2=x+2$.
+&nbsp;&nbsp;**(2)** Subtract $2$: $\;\sqrt{x^{3}+x^{2}-x}=x$.
+&nbsp;&nbsp;**(3)** Square: $\;x^{3}+x^{2}-x=x^{2}$.
+&nbsp;&nbsp;**(4)** Rearrange: $\;x^{3}-x=0$.
+&nbsp;&nbsp;**(5)** Factorise: $\;x(x-1)(x+1)=0$.
+&nbsp;&nbsp;**(6)** Deduce $x=-1,\,0,\,1$.
+
+Where is the first error?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Step (3).**
+
+Run the procedure. The one-way steps are **(1)** (multiplying by an expression) and **(3)** (squaring).
+
+- **(1) is justified.** The original equation has $x+2$ in a denominator, so $x\neq-2$ is already forced
+  by the equation itself — multiplying by $x+2$ cannot gain anything. *The $+2$ sits **outside** the root,
+  so step (2) is ordinary subtraction and is an equivalence.*
+- **(3) is not.** After (2) the equation reads $\sqrt{\ \cdot\ }=x$, whose left side is $\ge0$. That
+  **forces $x\ge0$** — but the working never says so, and squaring throws the condition away. $x=-1$
+  enters here.
+
+Steps (4)–(6) are exact algebra on (3), so they are correct *about line (3)* — which is why the answer is
+not (6).
+
+**Check:** $x=-1$ gives $\sqrt{-1+1+1}=1\neq-1$ ✗; $x=0$ ✓; $x=1$ ✓.
+
+**The repair.** One extra clause on line (3): *"since $\sqrt{\ \cdot\ }\ge0$, the equation requires
+$x\ge0$; both sides are then non-negative, so squaring is reversible."* With that line present, the answer
+$x=0,1$ follows with no check needed.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Shape 2 — squaring with the sign established &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q3</span>
+
+::: {.question}
+A student solves $\sqrt{x-3}<x-2$:
+
+&nbsp;&nbsp;**(I)** Can only square-root a non-negative number, therefore $x-3\ge0\iff x\ge3$.
+&nbsp;&nbsp;**(II)** Squaring both sides gives $x-3<(x-2)^{2}$.
+&nbsp;&nbsp;**(III)** Simplifies to $0<x^{2}-5x+7$.
+&nbsp;&nbsp;**(IV)** The discriminant of $x^{2}-5x+7$ is $25-28=-3<0$.
+&nbsp;&nbsp;**(V)** Since the leading coefficient is positive, $x^{2}-5x+7>0$ for all real $x\ge3$.
+&nbsp;&nbsp;**(VI)** Therefore the solution is $x\ge3$.
+
+Where is the first error?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**There is no error — the attempt is valid.**
+
+This is the same operation as Shape 1 and it is **not** an error, because of one line.
+
+Step **(I)** establishes $x\ge3$. Therefore
+
+$$x-2\ge1>0 \qquad\text{and}\qquad \sqrt{x-3}\ge0 ,$$
+
+so **both sides are non-negative** and squaring is a genuine equivalence:
+
+$$\sqrt{x-3}<x-2 \iff x-3<(x-2)^{2}\qquad\text{on } x\ge3 .$$
+
+The rest is sound: $x-3<x^{2}-4x+4$ rearranges to $0<x^{2}-5x+7$, whose discriminant is negative, so with
+a positive leading coefficient it is positive everywhere — in particular on $x\ge3$.
+
+[Step (I) was placed first for exactly this reason]{.hl}. Delete it and the working becomes Shape 1.
+
+*This is why "squaring, therefore error" is a losing heuristic. On this paper it would cost you the mark.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Shape 3 — dividing by an expression &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q2</span>
+
+::: {.question}
+A student solves $(x-2)\sqrt{x+3}=x^{2}-5x+6$:
+
+&nbsp;&nbsp;**(I)** $(x-2)\sqrt{x+3}=x^{2}-5x+6$
+&nbsp;&nbsp;**(II)** $(x-2)\sqrt{x+3}=(x-2)(x-3)$
+&nbsp;&nbsp;**(III)** $\sqrt{x+3}=x-3$
+&nbsp;&nbsp;**(IV)** $x+3=(x-3)^{2}$
+&nbsp;&nbsp;**(V)** $x+3=x^{2}-6x+9$
+&nbsp;&nbsp;**(VI)** $x^{2}-7x+6=0$
+&nbsp;&nbsp;**(VII)** $(x-1)(x-6)=0$, so $x=1$ and $x=6$.
+
+Where is the first error?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Passing from (II) to (III).**
+
+**(I)$\to$(II)** is a correct factorisation: $x^{2}-5x+6=(x-2)(x-3)$ ✓
+
+**(II)$\to$(III)** divides both sides by $x-2$, which assumes $x\neq2$ — and $x=2$ **is** a solution of the
+original equation, since both sides are then $0$. That solution is **lost** here.
+
+*This chain contains a second one-way step: **(III)$\to$(IV)** squares $\sqrt{x+3}=x-3$ without establishing
+$x-3\ge0$, and that gains the false root $x=1$ — check it: $\sqrt4=2\neq-2$ ✗.* But the question asks for
+the **first** error, and the division came two lines earlier.
+
+**The true solution set** is $x=2$ and $x=6$. The student's list, $\{1,6\}$, manages to **lose one and gain
+one**.
+
+**The repair.** Never divide by an expression — **move everything to one side and factorise**:
+
+$$(x-2)\sqrt{x+3}-(x-2)(x-3)=0 \iff (x-2)\left(\sqrt{x+3}-(x-3)\right)=0 ,$$
+
+which gives $x=2$ **or** $\sqrt{x+3}=x-3$, and the second branch is then handled with its own sign check.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Shape 4 — dividing by something provably positive &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q6</span>
+
+::: {.question}
+For $x\neq0$, let $\mathrm{f}(x)=\tfrac37x^{7/3}+\tfrac34x^{4/3}-6x^{1/3}$. A student finds where the curve
+is increasing:
+
+&nbsp;&nbsp;**I.** $\mathrm{f}'(x)=x^{4/3}+x^{1/3}-2x^{-2/3}$
+&nbsp;&nbsp;**II.** $\mathrm{f}'(x)=x^{-2/3}\left(x^{2}+x-2\right)$
+&nbsp;&nbsp;**III.** $x^{-2/3}\left(x^{2}+x-2\right)\ge0$
+&nbsp;&nbsp;**IV.** $x^{2}+x-2\ge0$
+&nbsp;&nbsp;**V.** $(x-1)(x+2)\ge0$
+&nbsp;&nbsp;**VI.** $x\le-2$ or $x\ge1$
+
+Where is the first error?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**There is no error — the answer is correct.**
+
+The suspicious step is **III$\to$IV**, which divides an **inequality** by $x^{-2/3}$. Two things could go
+wrong, and neither does:
+
+- **Could it be zero?** No. $x^{-2/3}=\dfrac{1}{\sqrt[3]{x^{2}}}$ is never $0$.
+- **Could it be negative?** No. $x^{2}>0$ for $x\neq0$, and the real cube root of a positive number is
+  positive, so $x^{-2/3}>0$ **for every $x\neq0$** — including negative $x$.
+
+Dividing by a **provably positive** quantity keeps both the solutions and the direction, so IV is an
+equivalence.
+
+*The trap is the negative exponent: it looks as though $x<0$ might flip the sign. It cannot, because the
+exponent has an **even** numerator — $x^{-2/3}$ is $\left(x^{2}\right)^{-1/3}$, and $x^{2}$ is positive.
+Compare $x^{-1/3}$, which **is** negative for $x<0$ and would make step IV an error.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Shape 5 — taking a root: $\sqrt{u^{2}}=\lvert u\rvert$ &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q5 and 2018 · P2 Q13</span>
+
+Squaring **gains**; rooting **loses**. Both real past-paper versions are already set as
+[S7 Q23](s07_spot_the_error.qmd) and [S7 Q24](s07_spot_the_error.qmd); the point to carry here is the
+shape they share.
+
+::: {.callout-tip}
+## The two halves of one identity
+
+$$\sqrt{u^{2}}=\lvert u\rvert \qquad\text{never}\qquad \sqrt{u^{2}}=u$$
+
+so
+
+- from $u^{2}=k$ you get $u=\pm\sqrt k$, **not** $u=\sqrt k$;
+- from $u^{2}>k$ you get $\lvert u\rvert>\sqrt k$, i.e. $u>\sqrt k$ **or** $u<-\sqrt k$.
+
+[Every time a square disappears, a $\pm$ or a modulus must appear]{.hl}. Removing one branch is an error
+**at that line**, whether or not the discarded branch happens to be occupied.
+:::
+
+**2021 P2 Q5** puts it at the *start*: from $\sin^{2}x+\cos^{2}x=1$ the working writes
+$\cos x=\sqrt{1-\sin^{2}x}$, which is false wherever $\cos x<0$ — at $x=\pi$, $\cos\pi=-1$ but the root is
+$+1$. Everything after is a valid operation on a false line.
+
+**2018 P2 Q13** puts it at the *end*: the proof correctly reaches
+$(\sin\theta+\cos\theta)^{2}>1$ and then asserts $\sin\theta+\cos\theta>1$, discarding the branch
+$\sin\theta+\cos\theta<-1$ — which is exactly where $\theta=225^{\circ}$ lives, and where $\tan\theta>0$
+still holds.
+
+*Same fault, opposite ends of the proof. The answer is the line that drops the branch, in both cases.*
+
+## Shape 6 — a decreasing function flips the inequality &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q18</span>
+
+Not squaring at all, but the same rule: an operation that is only conditionally reversible, applied without
+the condition.
+
+::: {.callout-tip}
+## Applying a function to both sides of an **inequality**
+
+- **Increasing** function ($3^{x}$, $\log_2$, $x^{3}$): the inequality is preserved. $\iff$, direction kept.
+- **Decreasing** function ($\log_{1/2}$, $\times(-1)$, $\tfrac1x$ on one sign): the inequality is still
+  $\iff$, but the direction **reverses**.
+
+The error is never "you applied a function"; it is "you kept the direction when the function reverses it".
+:::
+
+In **2017 P2 Q18** the student takes $\log_{1/2}$ of both sides of
+$\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}$ and keeps the "$<$". Base $\tfrac12<1$, so
+$\log_{1/2}$ is decreasing and the sign must flip. Every later line is impeccable — the damage is done on
+the first one, and the student's answer $1\le n\le24$ turns out to be the exact **complement** of the truth
+$n\ge26$. *See [S7 Q22](s07_spot_the_error.qmd).*
+
+---
+
+# 5 · Practice
+
+Six attempts in the six shapes, shuffled. For each, name the **first** defective line — or say the
+argument is valid.
+
+## Question 1
+
+::: {.question}
+Solving $\sqrt{3x+4}=x$:
+
+&nbsp;&nbsp;**(1)** $\sqrt{3x+4}=x$
+&nbsp;&nbsp;**(2)** Square: $3x+4=x^{2}$
+&nbsp;&nbsp;**(3)** $x^{2}-3x-4=0$, so $(x-4)(x+1)=0$
+&nbsp;&nbsp;**(4)** Therefore $x=4$ or $x=-1$
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** line (4) &nbsp; **D** valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — line (2).**
+
+Line (1) has a square root on the left, so it silently requires $x\ge0$. Line (2) squares without saying
+so, and that is where $x=-1$ becomes available. Lines (3) and (4) are exact algebra on line (2), and
+report its roots correctly.
+
+**Check:** $x=4$ gives $\sqrt{16}=4$ ✓; $x=-1$ gives $\sqrt{1}=1\neq-1$ ✗. Only $x=4$ solves the original.
+
+*Line (4) is where the wrong answer appears, but it is not the error — it is an accurate statement about a
+corrupted equation.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+## Question 2
+
+::: {.question}
+Solving $\sqrt{x-1}<x-1$:
+
+&nbsp;&nbsp;**(1)** The square root requires $x-1\ge0$, so $x\ge1$.
+&nbsp;&nbsp;**(2)** Write $u=x-1\ge0$, so the inequality is $\sqrt u<u$.
+&nbsp;&nbsp;**(3)** Both sides are $\ge0$, so squaring is reversible: $u<u^{2}$.
+&nbsp;&nbsp;**(4)** $u^{2}-u>0$, so $u(u-1)>0$, and since $u\ge0$ this gives $u>1$.
+&nbsp;&nbsp;**(5)** Therefore $x>2$.
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** line (4) &nbsp; **D** line (5) &nbsp; **E** valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E — valid.**
+
+Line (3) squares, and it is explicitly justified by line (1): $\sqrt u\ge0$ and $u\ge0$, so both sides are
+non-negative and the squaring is an **equivalence**. Line (4) uses $u\ge0$ again to discard the branch
+$u<0$, which is legitimate for the same reason.
+
+**Check:** $x=2.5$ gives $\sqrt{1.5}=1.22<1.5$ ✓; $x=2$ gives $1<1$ ✗; $x=1.5$ gives $0.71<0.5$ ✗. The
+solution really is $x>2$.
+
+*Structurally this is [Question 1](#question-1) with one line added. That line is the difference between an
+error and a valid proof.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+## Question 3
+
+::: {.question}
+Solving $(x-1)(x+4)=(x-1)\sqrt{x+7}$:
+
+&nbsp;&nbsp;**(1)** $(x-1)(x+4)=(x-1)\sqrt{x+7}$
+&nbsp;&nbsp;**(2)** Divide by $x-1$: $\;x+4=\sqrt{x+7}$
+&nbsp;&nbsp;**(3)** Square: $\;x^{2}+8x+16=x+7$
+&nbsp;&nbsp;**(4)** $x^{2}+7x+9=0$, so $x=\dfrac{-7\pm\sqrt{13}}{2}$
+&nbsp;&nbsp;**(5)** Both are solutions.
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** line (4) &nbsp; **D** line (5) &nbsp; **E** valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — line (2).**
+
+**Two lines are defective, and the question wants the first.**
+
+- **Line (2)** divides by $x-1$, losing $x=1$ — which **is** a solution, since both sides are then $0$.
+- **Line (3)** then squares $x+4=\sqrt{x+7}$ without checking $x+4\ge0$, which gains
+  $x=\tfrac{-7-\sqrt{13}}{2}\approx-5.30$: there $x+4\approx-1.30$ while $\sqrt{x+7}\approx+1.30$ ✗.
+
+So the working **loses one root and gains another**. The true solution set is
+
+$$\left\{\,1,\ \frac{-7+\sqrt{13}}{2}\approx-1.697\,\right\},$$
+
+and the student reports $\left\{\tfrac{-7\pm\sqrt{13}}{2}\right\}$ — one right, one wrong, one missing.
+
+**The repair.** Move everything to one side and factorise instead of dividing:
+
+$$(x-1)\left[(x+4)-\sqrt{x+7}\right]=0 ,$$
+
+which gives $x=1$ **or** $x+4=\sqrt{x+7}$, and the second branch then gets its own sign check.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 4
+
+::: {.question}
+Solving $\dfrac{x}{x-3}=\dfrac{3}{x-3}$:
+
+&nbsp;&nbsp;**(1)** $\dfrac{x}{x-3}=\dfrac{3}{x-3}$
+&nbsp;&nbsp;**(2)** Multiply both sides by $x-3$: $\;x=3$
+&nbsp;&nbsp;**(3)** Therefore the solution is $x=3$.
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — line (2).**
+
+Multiplying by an expression **gains** every root of that expression. Here $x-3$ is multiplied in, and
+$x=3$ arrives as a consequence — but $x=3$ is precisely the value the original equation **forbids**,
+because both denominators vanish there.
+
+The original equation therefore has **no solutions at all**.
+
+*Note the direction. Dividing by an expression loses roots ([Question 3](#question-3)); multiplying by one
+gains them. Both are one-way steps, and here the gained root is the only "answer" produced.*
+
+**The repair.** State the domain first: *"the equation requires $x\neq3$"*. Then line (2) gives $x=3$,
+which contradicts the domain, so the solution set is empty.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+## Question 5
+
+::: {.question}
+Solving $\sqrt{(2x-6)^{2}}=x$:
+
+&nbsp;&nbsp;**(1)** $\sqrt{(2x-6)^{2}}=x$
+&nbsp;&nbsp;**(2)** So $2x-6=x$
+&nbsp;&nbsp;**(3)** Therefore $x=6$.
+
+&nbsp;&nbsp;**A** line (2) &nbsp; **B** line (3) &nbsp; **C** valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — line (2).**
+
+$\sqrt{(2x-6)^{2}}=\lvert2x-6\rvert$, so line (1) says $\lvert2x-6\rvert=x$ and line (2) keeps only one
+branch. The other, $6-2x=x$, gives $x=2$ — and it is a genuine solution:
+
+$$\sqrt{(2\cdot2-6)^{2}}=\sqrt{4}=2=x \ \checkmark$$
+
+So the solution set is $\{2,6\}$ and line (3) reports half of it.
+
+*Rooting **loses**; the discarded branch here is occupied. Compare [Question 1](#question-1), where
+squaring **gained** a branch that was not.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+## Question 6
+
+::: {.question}
+Solving $\left(\tfrac13\right)^{x}>\left(\tfrac19\right)^{4}$:
+
+&nbsp;&nbsp;**(1)** $\left(\tfrac13\right)^{x}>\left(\tfrac19\right)^{4}=\left(\tfrac13\right)^{8}$
+&nbsp;&nbsp;**(2)** Take $\log_{1/3}$ of both sides: $\;x>8$
+&nbsp;&nbsp;**(3)** Therefore $x>8$.
+
+&nbsp;&nbsp;**A** line (1) &nbsp; **B** line (2) &nbsp; **C** line (3) &nbsp; **D** valid
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B — line (2).**
+
+Line (1) is a correct rewrite: $\left(\tfrac19\right)^{4}=\left(\tfrac13\right)^{8}$ ✓
+
+Line (2) applies $\log_{1/3}$, whose base is **less than 1**, so the function is **decreasing** and the
+inequality must **reverse**:
+
+$$\left(\tfrac13\right)^{x}>\left(\tfrac13\right)^{8}\iff x<8 .$$
+
+**Check:** $x=0$ gives $1>\left(\tfrac13\right)^{8}$ ✓, and $0<8$; $x=10$ gives
+$\left(\tfrac13\right)^{10}<\left(\tfrac13\right)^{8}$ ✗. The answer is $x<8$, the exact opposite of the
+student's.
+
+*As in [2017 P2 Q18](s07_spot_the_error.qmd), the whole question is decided on the first operation, and
+every later line is flawless. A base below $1$ behaves exactly like multiplying by a negative number.*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The page in four lines
+
+1. **A step is an error when it is one-way and nothing earlier justifies it.** Squaring, dividing,
+   multiplying by an expression, dropping a modulus, applying a decreasing function.
+2. **Blame the step, not the symptom.** A later line that faithfully reports a corrupted equation is not
+   the error.
+3. **First, not worst.** Two bad steps in one chain means the answer is the earlier one.
+4. **"Valid" is a real answer.** If the sign condition or the domain is stated *in the working* before the
+   step that needs it, the chain is an equivalence throughout and there is nothing to find.
+:::
+
+:::

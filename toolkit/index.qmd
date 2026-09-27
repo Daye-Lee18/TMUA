@@ -66,6 +66,7 @@ answer checked against the official solution.
 | **S5** Proof methods | 39 | 12 |
 | **S6** Scrambled proofs | 11 | 1 |
 | **S7** Spot the error | 27 | 17 |
+| **S7 Extended** · [when is squaring the error?](s07_extended_equivalence.qmd) | 6 shapes + 6 | all real |
 | **T1** Divisors & primes | 15 checks + 19 past-paper | — |
 | **T2** Shapes as logic | 8 checks + 8 past-paper | — |
 

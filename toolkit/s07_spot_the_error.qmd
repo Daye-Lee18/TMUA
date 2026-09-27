@@ -21,6 +21,13 @@ the kind of fault rather than by topic. Some of them are **valid**: the honest a
 **Method.** Read line by line. At each step ask *"does this follow, for **every** value the line above
 allows?"* Watch the four hotspots: a **cancel/division** (could it be $0$?), a **square or root** (lost
 sign / gained root?), a **converse** used as proved, the **conclusion** slipping into a premise.
+
+**Where the blame goes.** The error is at the line where a step stops being reversible — **not** at the
+later line where the wrong answer finally appears. If squaring on line 2 lets in a false root that line 5
+then reports, the error is **line 2**: line 5 is only telling you the truth about a corrupted equation.
+And *first* means first — a chain can contain two bad steps, and the answer is the earlier one. See
+**[S7 Extended](s07_extended_equivalence.qmd)** for the full rule, which is the single most common source
+of a wrong answer on this question type.
 :::
 
 ---
@@ -169,14 +176,35 @@ Solving $\sqrt{2x+3}=x$. Which line contains the first error?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Medium — extraneous root)*]{style="color:#7a5195"}
-**C.** The algebra is correct, but squaring can add roots, so each must be checked. $x=3$:
-$\sqrt9=3$ ✓. $x=-1$: $\sqrt1=1\neq-1$ ✗. Line (4) states both without checking; $x=-1$ is extraneous, so
-only $x=3$ is a solution. $\;\blacksquare$
+[*(Medium — extraneous root; and the line the exam blames is not the obvious one)*]{style="color:#7a5195"}
+**A — line (2).**
 
-**Do it right.** After squaring, **substitute every candidate back into the original equation** and keep
-only the ones that satisfy it — here only $x=3$. (It also helps to note the original forces $x\ge0$,
-since $\sqrt{\;}$ is never negative.)
+Two lines look wrong here, and **which one the exam calls the error is the whole question.**
+
+| line | what it does | verdict |
+|---|---|---|
+| **(2)** | squares $\sqrt{2x+3}=x$ | ✗ **the error.** Squaring is reversible **only when both sides are known to be non-negative**. The left side is; nothing so far says $x\ge0$ about the right. This is the line at which the solution set changes, and where $x=-1$ gets in. |
+| **(3)** | rearranges and factorises line (2) | ✓ exact algebra |
+| **(4)** | states the roots of line (3) | ✓ correct — $3$ and $-1$ **are** the roots of that quadratic |
+
+So line (4) is where the damage becomes **visible**; line (2) is where it was **done**. [The question asks
+for the *first* error, and a later line that faithfully reports a corrupted equation is not an error]{.hl}.
+
+**The check anyway:** $x=3$ gives $\sqrt9=3$ ✓; $x=-1$ gives $\sqrt1=1\neq-1$ ✗. $\;\blacksquare$
+
+**Do it right — two repairs, and they are not the same.**
+
+1. **Keep the chain an equivalence.** Write the sign condition *before* squaring: "since $\sqrt{\;}\ge0$,
+   the equation forces $x\ge0$; both sides are now non-negative, so squaring is reversible." Then no
+   candidate needs checking, because none is ever gained.
+2. **Accept a one-way chain, and filter at the end.** Square, solve, then **substitute every candidate into
+   the original** and keep only those that fit.
+
+Both give $x=3$. But **only the first makes line (2) legitimate** — and the exam marks the missing
+justification at the line where it was needed, not at the line where the wrong answer appears.
+
+*This is [Question 14](#question-14) (JZ Mock B P2 Q2) in miniature: identical shape, and its official
+answer is the squaring step too.*
 :::
 
 ::: {.workspace style="min-height:3.5cm"}
