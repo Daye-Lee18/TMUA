@@ -1,0 +1,196 @@
+---
+title: "Solid Geometry Clinic — Assignment"
+subtitle: "Distances in three dimensions"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+
+This tests the five methods on the
+[Solid Geometry clinic](class_material.qmd) page. Close that page before you start.
+
+::: {.callout-important}
+## What earns the marks
+
+**Read "across the surface" or "through the solid" before you begin.** Both give a clean surd and only one
+is asked for; an answer of the wrong kind scores nothing.
+
+For any surface path, **name the faces you unfold** and **check the other routes**. A single unfolding with
+no comparison is an incomplete answer even when the number is right.
+
+**Give exact surds.** A decimal earns the method mark at most.
+:::
+
+| Section | What it covers | Marks |
+|---|---|---|
+| **A — Recall** | the five methods, stated back | 8 |
+| **B — Standard** | unfolding, coordinates, heights | 16 |
+| **C — Stretch** | two results you derive yourself | 8 |
+
+---
+
+# Section A — Recall
+
+## Question 1 **[4]**
+
+::: {.question}
+Complete each statement.
+
+&nbsp;&nbsp;(a) The shortest path **across the surface** of a cube of edge $a$, between opposite corners,
+is \_\_\_\_\_\_, and the distance **through** the cube is \_\_\_\_\_\_. **[1]**
+
+&nbsp;&nbsp;(b) A regular tetrahedron of edge $a$ has height \_\_\_\_\_\_. **[1]**
+
+&nbsp;&nbsp;(c) A cross-section of a pyramid of height $H$, taken at height $h$ above the base, is the base
+scaled by a factor of \_\_\_\_\_\_. **[1]**
+
+&nbsp;&nbsp;(d) For a regular tetrahedron, $R_{\text{circum}}:r_{\text{in}}=$ \_\_\_\_\_\_, so the volumes of
+the two spheres are in the ratio \_\_\_\_\_\_. **[1]**
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 2 **[4]**
+
+::: {.question}
+A cuboid has edges $2$, $3$ and $6$.
+
+&nbsp;&nbsp;(a) Find the length of a space diagonal. **[1]**
+
+&nbsp;&nbsp;(b) Find the shortest path **across the surface** between two opposite corners, showing all
+three unfoldings you compared. **[3]**
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section B — Standard
+
+## Question 3 **[4]**
+
+::: {.question}
+$OABC$ is a regular tetrahedron of edge $6$. The point $X$ is the midpoint of $OA$, and $Y$ lies on $BC$
+with $BY=2$.
+
+Find the shortest distance from $X$ to $Y$ **measured along the surface**, stating which two faces you
+unfold.
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 4 **[4]**
+
+::: {.question}
+A square-based pyramid $ABCDT$ has **all** edges of length $4$.
+
+&nbsp;&nbsp;(a) Find its height. **[1]**
+
+&nbsp;&nbsp;(b) Find the distance from the apex $T$ to the midpoint of a base edge. **[1]**
+
+&nbsp;&nbsp;(c) Find the shortest path **along the surface** from $A$ to the opposite base vertex $C$.
+**[2]**
+
+*Part (c) is not the obvious one — think about which faces are available.*
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 5 **[4]**
+
+::: {.question}
+A cube has edge $1$. One face has a diagonal $d$. Find the perpendicular distance from a vertex **not on
+that face** to the line $d$, given that the vertex lies directly above one end of $d$.
+
+Give the answer exactly, and say which method you used.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 6 **[4]**
+
+::: {.question}
+A right circular cone has height $H$ and base radius $R$. A cylinder is inscribed in it, with one circular
+face on the base of the cone.
+
+&nbsp;&nbsp;(a) Show that a cylinder of height $h$ has radius $R\left(1-\dfrac hH\right)$. **[1]**
+
+&nbsp;&nbsp;(b) Find the height that maximises the cylinder's volume. **[2]**
+
+&nbsp;&nbsp;(c) Hence find $\dfrac{\text{largest cylinder}}{\text{cone}}$ as a fraction. **[1]**
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+# Section C — Stretch
+
+## Question 7 **[4]**
+
+::: {.question}
+A sphere is inscribed in a cube, and the cube is inscribed in a larger sphere.
+
+&nbsp;&nbsp;(a) Taking the cube's edge to be $a$, write down the radius of each sphere. **[2]**
+
+&nbsp;&nbsp;(b) Find the ratio of the two sphere **volumes**, in the form $k\sqrt3$. **[2]**
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 8 **[4]**
+
+::: {.question}
+$OABC$ is a regular tetrahedron of edge $a$.
+
+&nbsp;&nbsp;(a) By placing the four vertices at alternate corners of a cube, prove that $OA$ and $BC$ are
+perpendicular. **[2]**
+
+&nbsp;&nbsp;(b) Hence, or otherwise, find the distance between the midpoints of $OA$ and $BC$ in terms of
+$a$. **[2]**
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand this in
+
+1. Every surface-path answer should name the **faces unfolded** and mention the routes you rejected.
+2. Check you have not answered "through" when the question said "across", or the reverse.
+3. Every answer should be an **exact surd**, simplified — $2\sqrt2$, not $\sqrt8$.
+:::
+
+:::
