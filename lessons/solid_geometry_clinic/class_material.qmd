@@ -1,0 +1,768 @@
+---
+title: "Solid Geometry Clinic — Distances in Three Dimensions"
+subtitle: "Shortest paths across a surface, distances through a solid, heights, and inscribed shapes"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Three-dimensional distance questions look frightening and are usually **two-dimensional once you set them
+up**. Every one of them reduces to a triangle you can draw flat on the page. The skill being tested is
+knowing **which** flat picture to draw, and there are only a few possibilities.
+
+::: {.callout-important}
+## The first question to ask, every time
+
+**Does the path stay on the surface, or go through the inside?**
+
+| | | what to draw |
+|---|---|---|
+| **across the surface** — "along the outer surface", "a spider walks along the wall" | **unfold** the faces into a plane | a net, with a straight line on it |
+| **through the solid** — "the distance between", a diagonal, a point inside | **coordinates** | a right-angled triangle in 3D |
+
+Answering the wrong one is the commonest way to lose the mark, because both give a clean surd. In
+[Question 1](#question-1) the surface answer is $3\sqrt{13}\approx10.82$ and the straight-through answer is
+about $8.5$ — both plausible-looking, only one asked for.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM3 / MM4 · three dimensions</div>
+<div class="fs-title">Solid Geometry — Exam Skim Sheet</div>
+<div class="fs-sub">Five pictures. Every question on this page is one of them.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 1 · [Across a surface → unfold]{.hl}
+The shortest path over a surface is a **straight line in some net**. Unfold the faces it crosses about
+their shared edge, then use coordinates or the cosine rule.
+[**and test every route** — different unfoldings give different lengths]{.eg}
+:::
+
+::: {.fs-card}
+### 2 · [Through a solid → coordinates]{.hl}
+$$d=\sqrt{(\Delta x)^{2}+(\Delta y)^{2}+(\Delta z)^{2}}$$
+Space diagonal of an $a\times b\times c$ box: $\sqrt{a^{2}+b^{2}+c^{2}}$.
+[put one vertex at the origin and read the coordinates off]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · [Height of a pyramid → base circumradius]{.hl}
+Drop the perpendicular from the apex to the **centre** of the base. Then
+$$H^{2}=(\text{slant edge})^{2}-(\text{base circumradius})^{2}$$
+[square base side $a$: circumradius $\frac{a}{\sqrt2}$ · equilateral base: $\frac{a}{\sqrt3}$]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · [Point to a line or plane → area or volume]{.hl}
+$$d(\text{point},\text{line})=\frac{2\times\text{area of triangle}}{\text{base}}$$
+$$d(\text{point},\text{plane})=\frac{3\times\text{volume}}{\text{area of face}}$$
+[both avoid finding the foot of the perpendicular]{.eg}
+:::
+
+::: {.fs-card}
+### 5 · [Inscribed and circumscribed → ratios]{.hl}
+A cross-section of a pyramid at height $h$ is the base scaled by $\left(1-\frac hH\right)$.
+Regular tetrahedron: $\;R_{\text{circum}}:r_{\text{in}}=3:1$.
+[so the sphere volumes shrink by $27$ each time]{.eg}
+:::
+
+::: {.fs-card}
+### The regular tetrahedron, edge $a$
+$$H=a\sqrt{\tfrac23}=\tfrac{a\sqrt6}{3},\qquad R=\tfrac{a\sqrt6}{4},\qquad r=\tfrac{a\sqrt6}{12}$$
+Opposite edges are **perpendicular**, and the distance between their midpoints is $\dfrac{a}{\sqrt2}$.
+[every face is equilateral, so every unfolding is made of $60^\circ$ angles]{.eg}
+:::
+
+::::
+
+:::::
+
+**On this page:** 1. The five methods, with worked examples · 2. Quick checks · 3. Problems.
+Answers are in the **Solution** toggles; use the **Working** box, and **give every answer as an exact
+surd** unless a question says otherwise.
+
+---
+
+# 1 · The five methods
+
+## Method 1 — a path across a surface
+
+Before the steps, the idea they rest on.
+
+::: {.callout-tip}
+## Concept — a surface path is straight once the surface is flat
+
+Walking over a polyhedron, you cross one face, then another. **Each face is flat**, so the path is a
+straight segment on each one. Flatten the faces into a single plane and those segments line up into one
+straight line — the shortest path becomes the shortest distance in ordinary 2D geometry.
+
+Nothing is distorted by unfolding: lengths and angles inside a face are unchanged. That is the whole
+justification, and it is why the answer always comes out of the **cosine rule** or **Pythagoras**.
+:::
+
+::: {.callout-important}
+## Method — unfolding
+
+1. **Decide which faces the path crosses.** Usually two; list the edge they share.
+2. **Unfold** them about that shared edge, so both lie flat with the edge between them.
+3. **Put in coordinates**, or mark the two known sides and the angle between them.
+4. **Straight line** — Pythagoras if the coordinates are easy, cosine rule if you have two sides and the
+   included angle.
+5. **Repeat for every other route** and take the smallest.
+
+Step 5 is the one that is skipped, and it is often worth a whole mark.
+:::
+
+::: {.example}
+[Example.]{.lbl} A cube has edge $a$. Find the shortest path **across the surface** between two opposite
+corners, and compare it with the distance **through** the cube.
+:::
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.0))
+
+# --- left: the net of two faces
+ax = axes[0]
+for (x0, y0) in [(0, 0), (1, 0)]:
+    ax.add_patch(plt.Rectangle((x0, y0), 1, 1, fc='#eef2f7', ec='0.35', lw=1.6))
+ax.plot([0, 2], [0, 1], color='#d62728', lw=2.6, zorder=4)
+ax.plot([0, 2], [0, 1], 'o', color='#d62728', ms=8, zorder=5)
+ax.plot([1, 1], [0, 1], color='#2ca02c', lw=2.4, ls='--')
+ax.text(1.0, 1.12, 'the shared edge', color='#2ca02c', fontsize=10, ha='center')
+ax.annotate('start', (0, 0), textcoords='offset points', xytext=(-6, -16), fontsize=10)
+ax.annotate('finish', (2, 1), textcoords='offset points', xytext=(-16, 10), fontsize=10)
+ax.text(1.0, -0.33, 'length $\\sqrt{a^{2}+(2a)^{2}}=a\\sqrt{5}$', ha='center', fontsize=11.5,
+        color='#d62728')
+ax.set_xlim(-0.35, 2.35); ax.set_ylim(-0.6, 1.45)
+ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('two faces unfolded — the path is one straight line', fontsize=11)
+
+# --- right: the 3D cube with both routes
+ax = axes[1]; ax.remove()
+ax = fig.add_subplot(1, 2, 2, projection='3d')
+r = [0, 1]
+for s, e in [((0,0,0),(1,0,0)),((0,0,0),(0,1,0)),((0,0,0),(0,0,1)),
+             ((1,1,1),(0,1,1)),((1,1,1),(1,0,1)),((1,1,1),(1,1,0)),
+             ((1,0,0),(1,1,0)),((1,0,0),(1,0,1)),((0,1,0),(1,1,0)),
+             ((0,1,0),(0,1,1)),((0,0,1),(1,0,1)),((0,0,1),(0,1,1))]:
+    ax.plot(*zip(s, e), color='0.45', lw=1.3)
+ax.plot([0,1],[0,1],[0,1], color='#1f77b4', lw=2.6)
+ax.text(0.30, 0.62, 0.02, '$a\\sqrt{3}$ through', color='#1f77b4', fontsize=10)
+ax.plot([0,1,1],[0,0,1],[0,1,1], color='#d62728', lw=2.6)
+ax.text(1.02, -0.30, 0.55, '$a\\sqrt{5}$ across', color='#d62728', fontsize=10)
+ax.set_box_aspect((1,1,1)); ax.set_axis_off()
+ax.view_init(elev=18, azim=-58)
+ax.set_title('the two answers are different', fontsize=11)
+
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Across the surface: $a\sqrt5$.**
+
+The path crosses two faces. Unfold them into a $2a\times a$ rectangle; the two corners are then at
+opposite ends of its diagonal:
+
+$$d=\sqrt{(2a)^{2}+a^{2}}=a\sqrt5\approx2.236a .$$
+
+*Every choice of two faces gives the same rectangle by symmetry, so $a\sqrt5$ is genuinely the smallest.
+The naive route — along one edge and then across a face diagonal — gives $a+a\sqrt2\approx2.414a$, which is
+longer.*
+
+**Through the cube: $a\sqrt3$.**
+
+$$d=\sqrt{a^{2}+a^{2}+a^{2}}=a\sqrt3\approx1.732a .$$
+
+**Answer form: an exact surd.** The two differ by about $29\%$, so reading the question correctly is worth
+the whole mark.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Method 2 — a distance through a solid
+
+::: {.callout-tip}
+## Concept — three dimensions is Pythagoras twice
+
+$\sqrt{a^{2}+b^{2}+c^{2}}$ is not a new formula. Going from a corner of a box to the opposite corner, first
+cross the floor — that diagonal is $\sqrt{a^{2}+b^{2}}$ — and then rise by $c$. The second right-angled
+triangle has legs $\sqrt{a^{2}+b^{2}}$ and $c$, so its hypotenuse is $\sqrt{a^{2}+b^{2}+c^{2}}$.
+
+*Once you see it as two triangles you never need to remember it.*
+:::
+
+::: {.callout-important}
+## Method — coordinates
+
+1. **Put a convenient vertex at the origin**, and the edges along the axes where you can.
+2. **Read off both points.** Midpoints are averages; a point "$\tfrac13$ of the way along" is a weighted
+   average.
+3. **Subtract and apply Pythagoras.**
+
+For a **regular** solid the coordinates are worth memorising rather than deriving. A regular tetrahedron of
+edge $2\sqrt2$ sits at $(1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)$ — four alternate corners of a cube of edge
+$2$.
+:::
+
+## Method 3 — the height of a pyramid
+
+::: {.callout-tip}
+## Concept — the apex sits over the centre
+
+In a pyramid whose slant edges are all equal, the apex is the same distance from every base vertex, so it
+lies directly above the **circumcentre** of the base. That makes one right-angled triangle with
+
+- hypotenuse = a slant edge,
+- one leg = the base circumradius (centre to a base vertex),
+- the other leg = the height.
+
+Everything else about the pyramid follows from that triangle.
+:::
+
+| base | side | circumradius (centre to vertex) |
+|---|---|---|
+| square | $a$ | $\dfrac{a}{\sqrt2}$ — half the diagonal |
+| equilateral triangle | $a$ | $\dfrac{a}{\sqrt3}$ — two-thirds of the median |
+
+::: {.example}
+[Example.]{.lbl} A regular tetrahedron has edge $a$. Find its height.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The base is equilateral with side $a$, so its circumradius is $\dfrac{a}{\sqrt3}$. The slant edge is also
+$a$, so
+
+$$H^{2}=a^{2}-\frac{a^{2}}{3}=\frac{2a^{2}}{3} \qquad\Longrightarrow\qquad
+H=a\sqrt{\frac23}=\frac{a\sqrt6}{3}.$$
+
+**Check:** $a=1$ gives $H\approx0.8165$, comfortably less than the edge ✓ — a height larger than an edge
+would be impossible.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+## Method 4 — point to a line, point to a plane
+
+::: {.callout-tip}
+## Concept — use an area or a volume you already know
+
+The perpendicular distance from a point to a line is the **height** of a triangle. You do not have to find
+where the foot of that perpendicular lands: if you know the triangle's area and its base, the height falls
+out of $\text{area}=\tfrac12\times\text{base}\times\text{height}$.
+
+The same trick one dimension up. The distance from a point to a plane is the height of a tetrahedron, and
+$V=\tfrac13\times(\text{base area})\times\text{height}$.
+:::
+
+::: {.callout-important}
+## Method
+
+$$d(\text{point},\text{line})=\frac{2\,\times\,\text{area of the triangle}}{\text{the base}} ,
+\qquad
+d(\text{point},\text{plane})=\frac{3\,\times\,\text{volume}}{\text{area of the face}} .$$
+
+So the work is finding **one area** or **one volume** by the easiest route available, which is usually
+coordinates and a right angle you can spot.
+:::
+
+## Method 5 — inscribed and circumscribed shapes
+
+::: {.callout-tip}
+## Concept — a cross-section is a scaled copy
+
+Slice a pyramid of height $H$ with a plane parallel to the base, at height $h$. The piece above the slice
+is a **similar** pyramid of height $H-h$, so every length in the cross-section is the base length scaled by
+
+$$\frac{H-h}{H}=1-\frac hH .$$
+
+That single factor turns almost every "largest object that fits inside" question into a one-variable
+maximisation.
+:::
+
+::: {.callout-important}
+## Two ratios worth knowing
+
+**Regular tetrahedron.** The centre of the circumscribed sphere and of the inscribed sphere is the same
+point, and
+
+$$R_{\text{circum}}=\frac{a\sqrt6}{4},\qquad r_{\text{in}}=\frac{a\sqrt6}{12},\qquad \frac Rr=3 .$$
+
+**Consequence:** an inscribed sphere has $\left(\tfrac13\right)^{3}=\tfrac1{27}$ of the volume of the
+circumscribed one — which is what makes nested-sphere questions a geometric series.
+:::
+
+---
+
+# 2 · Quick checks
+
+Eight one-liners. Answer them all, then open the key. Anything you hesitate on is the concept to reread.
+
+| | question | answer |
+|---|:-:|---|
+| 1 | Shortest path **across the surface** of a cube of edge $a$, corner to opposite corner | |
+| 2 | Shortest path **through** the same cube, same two corners | |
+| 3 | Height of a square-based pyramid with all edges $a$ | |
+| 4 | Height of a regular tetrahedron of edge $a$ | |
+| 5 | Distance from a point to a line, given the triangle's area $A$ and base $b$ | |
+| 6 | A cross-section of a pyramid at height $h$ is the base scaled by | |
+| 7 | $R_{\text{circum}}:r_{\text{in}}$ for a regular tetrahedron | |
+| 8 | Distance between the midpoints of two **opposite** edges of a regular tetrahedron of edge $a$ | |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Answers
+
+1. $a\sqrt5$ — unfold two faces into a $2a\times a$ rectangle.
+2. $a\sqrt3$ — $\sqrt{a^{2}+a^{2}+a^{2}}$.
+3. $\dfrac{a}{\sqrt2}$ — the base circumradius is $\dfrac{a}{\sqrt2}$, so $H^{2}=a^{2}-\dfrac{a^{2}}{2}$.
+4. $\dfrac{a\sqrt6}{3}$ — base circumradius $\dfrac{a}{\sqrt3}$, so $H^{2}=a^{2}-\dfrac{a^{2}}{3}$.
+5. $\dfrac{2A}{b}$.
+6. $1-\dfrac hH$ — **not** $\dfrac hH$.
+7. $3:1$, so the volumes are in the ratio $27:1$.
+8. $\dfrac{a}{\sqrt2}$ — and those two edges are **perpendicular**, which is the fact that makes it come
+   out so cleanly.
+
+*Numbers 3 and 4 have the same shape and different answers, because the base circumradius differs. If you
+wrote the same thing twice, that is the line to revisit.*
+:::
+
+---
+
+# 3 · Problems
+
+## Question 1 · anchor &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q15</span>
+
+::: {.question}
+A regular tetrahedron $OABC$ has every edge of length $12$ metres. The point $X$ is the midpoint of edge
+$OA$, and the point $Y$ lies on edge $BC$ with $BY=3$ metres.
+
+What is the shortest distance, in metres, from $X$ to $Y$ measured **entirely along the outer surface** of
+the tetrahedron?
+
+&nbsp;&nbsp;**A** $3\sqrt3$ &nbsp; **B** $3\sqrt7$ &nbsp; **C** $3\sqrt{13}$ &nbsp; **D** $3\sqrt{21}$
+&nbsp; **E** $21$
+
+**Answer form: an exact surd.**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C** $\;3\sqrt{13}$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+s3 = np.sqrt(3)
+A, B = np.array([0, 0]), np.array([12, 0])
+C, O = np.array([6, 6*s3]), np.array([6, -6*s3])
+X, Z = (O + A)/2, (B + C)/2
+Y = B + 3*(C - B)/12
+
+fig, ax = plt.subplots(figsize=(6.6, 5.0))
+for tri, col in [((A, B, C), '#1f77b4'), ((A, B, O), '#2ca02c')]:
+    P = np.array(tri + (tri[0],)); ax.plot(P[:, 0], P[:, 1], color=col, lw=2.0)
+ax.plot([X[0], Y[0]], [X[1], Y[1]], color='#d62728', lw=2.8, zorder=4)
+ax.plot([X[0], Z[0]], [X[1], Z[1]], color='#7a5195', lw=1.6, ls='--')
+for P, lab, dx, dy in [(A, '$A$', -18, -6), (B, '$B$', 8, -6), (C, '$C$', 4, 8),
+                       (O, '$O$', 4, -18), (X, '$X$', -20, -4), (Y, '$Y$', 8, 4), (Z, '$Z$', 6, 6)]:
+    ax.plot([P[0]], [P[1]], 'o', color='0.25', ms=5, zorder=5)
+    ax.annotate(lab, P, textcoords='offset points', xytext=(dx, dy), fontsize=11)
+ax.annotate('$XZ=12$', 0.5*(X + Z), textcoords='offset points', xytext=(-18, 8),
+            fontsize=10, color='#7a5195')
+ax.annotate('$ZY=3$', 0.5*(Z + Y), textcoords='offset points', xytext=(12, -2), fontsize=10)
+ax.annotate('$XY=3\\sqrt{13}$', 0.5*(X + Y), textcoords='offset points', xytext=(-8, -22),
+            fontsize=11.5, color='#d62728')
+ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('faces $ABC$ and $ABO$ unfolded about $AB$', fontsize=11.5)
+plt.tight_layout(); plt.show()
+```
+
+**Unfold the two faces the path crosses**, $OAB$ and $ABC$, about their shared edge $AB$. Both are
+equilateral of side $12$, so the net is a rhombus and the path becomes the straight segment $XY$.
+
+Let $Z$ be the midpoint of $BC$. Since $X$ and $Z$ are midpoints of $OA$ and $BC$:
+
+$$XZ=12 \ \text{(parallel and equal to } AC),\qquad ZY=BZ-BY=6-3=3,\qquad \angle XZY=60^{\circ}.$$
+
+Cosine rule:
+
+$$XY^{2}=12^{2}+3^{2}-2(12)(3)\cos60^{\circ}=144+9-36=117 \quad\Longrightarrow\quad XY=\sqrt{117}=3\sqrt{13}\approx10.82 .$$
+
+**Check the other routes** — this is step 5 of the method, and it is not optional:
+
+| unfolding | $XY^{2}$ |
+|---|---|
+| about $AB$ (faces $OAB$, $ABC$) | $117$ |
+| about $OB$ (faces $OAB$, $OBC$) | $117$ — the same, by symmetry |
+| about $AC$ (faces $OAC$, $ABC$) | $189$ — longer |
+
+So $3\sqrt{13}$ is the shortest. *Option **D** $3\sqrt{21}=\sqrt{189}$ is exactly the wrong unfolding, and
+**E** $21$ is the path that goes along the edges $XA+AB+BY$ without ever cutting across a face.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · Q16</span>
+
+::: {.question}
+A square-based pyramid with base $ABCD$ and apex $T$ has all edges of length $2\,\mathrm{m}$.
+
+Find the shortest distance, in metres, **along the outer surface** from the midpoint of $AB$ to the
+midpoint of $CT$.
+
+&nbsp;&nbsp;**A** $\sqrt3-1$ &nbsp; **B** $2$ &nbsp; **C** $\sqrt2+1$ &nbsp; **D** $\sqrt{4+\sqrt3}$
+&nbsp; **E** $2\sqrt2$
+
+**Answer form: an exact value.**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B** $\;2$
+
+All four lateral faces are **equilateral** triangles of side $2$, because every edge is $2$.
+
+**Route 1 — over the lateral faces $ABT$ and $BCT$**, unfolded about their shared edge $BT$. Place
+$B=(0,0)$, $T=(2,0)$; then $A=(1,-\sqrt3)$ and $C=(1,\sqrt3)$, so
+
+$$M=\text{mid }AB=\left(\tfrac12,-\tfrac{\sqrt3}{2}\right),\qquad N=\text{mid }CT=\left(\tfrac32,\tfrac{\sqrt3}{2}\right),$$
+
+$$MN=\sqrt{1^{2}+\left(\sqrt3\right)^{2}}=\sqrt4=2 .$$
+
+*Check the segment really crosses $BT$: it meets $y=0$ at $x=1$, which lies between $B$ and $T$ ✓*
+
+**Route 2 — across the base and then face $BCT$**, unfolded about $BC$. With $A=(0,0)$, $B=(2,0)$,
+$C=(2,2)$ the unfolded apex is at $T'=(2+\sqrt3,1)$, so
+
+$$M=(1,0),\qquad N=\text{mid }CT'=\left(2+\tfrac{\sqrt3}{2},\tfrac32\right),
+\qquad MN^{2}=\left(1+\tfrac{\sqrt3}{2}\right)^{2}+\tfrac94=4+\sqrt3 ,$$
+
+giving $\sqrt{4+\sqrt3}\approx2.394$ — **longer**, and it is option **D**.
+
+Routes over three faces are longer still. So the answer is $2$.
+
+*The two plausible answers are both on the list. Doing only one unfolding gives you a $50\%$ chance, which
+is what step 5 of the method exists to remove.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 3 — the spider and the fly
+
+::: {.question}
+A room is a cuboid $30$ feet long, $12$ feet wide and $12$ feet high. A spider sits on one of the
+$12\times12$ end walls, at the middle of that wall and $1$ foot above the floor. A fly sits on the
+**opposite** end wall, at the middle and $1$ foot below the ceiling.
+
+What is the shortest distance the spider can crawl along the walls, floor and ceiling to reach the fly?
+
+**Answer form: an exact value in feet.**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**$40$ feet.**
+
+*This is Dudeney's puzzle of 1903, and it is here because the obvious route is not the answer.*
+
+**The obvious route** — up the end wall to the ceiling, along the ceiling, down the far wall — is
+
+$$11+30+1=42\ \text{feet} .$$
+
+**The shortest route crosses five faces:** the end wall, the ceiling, a side wall, the floor, and the far
+end wall. Unfold all five into one flat strip and the path becomes a single straight line.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(9.2, 4.0))
+# unfolded strip: x runs -1 .. 31 (end wall, room length, far end wall)
+# u runs 0 .. 30 across (half end wall 6, side wall 12, ... )
+rects = [(-1, 24, 1, 12, 'end wall',  '#e8f0f7'),
+         (0, 24, 30, 12, 'ceiling',   '#eef7ee'),
+         (0, 12, 30, 12, 'side wall', '#f7f0e8'),
+         (0,  0, 30, 12, 'floor',     '#eef7ee'),
+         (30, 0, 1, 12, 'far end wall', '#e8f0f7')]
+for x, y, w, h, lab, col in rects:
+    ax.add_patch(plt.Rectangle((x, y), w, h, fc=col, ec='0.45', lw=1.3))
+    if w < 3:
+        ax.annotate(lab, (x + w/2, y + h + 0.6), ha='center', fontsize=9, color='0.35')
+    else:
+        ax.text(x + w/2, y + h/2, lab, ha='center', va='center', fontsize=10, color='0.35')
+Sx, Su = -1, 30      # spider, unfolded over the ceiling edge
+Fx, Fu = 31,  6      # fly,    unfolded over the floor edge
+ax.plot([Sx, Fx], [Su, Fu], color='#d62728', lw=2.8, zorder=5)
+ax.plot([Sx, Fx], [Su, Fu], 'o', color='#d62728', ms=9, zorder=6)
+ax.annotate('spider', (Sx, Su), textcoords='offset points', xytext=(6, 10), fontsize=10.5)
+ax.annotate('fly', (Fx, Fu), textcoords='offset points', xytext=(8, -4), fontsize=10.5)
+ax.annotate('', (Sx, -3.2), (Fx, -3.2), arrowprops=dict(arrowstyle='<->', color='#7a5195', lw=1.4))
+ax.text(15, -5.6, 'along: $1+30+1=32$', ha='center', fontsize=11, color='#7a5195')
+ax.annotate('', (33.2, Fu), (33.2, Su), arrowprops=dict(arrowstyle='<->', color='#2ca02c', lw=1.4))
+ax.text(34, 18, 'across:\n$6+12+6=24$', fontsize=11, color='#2ca02c', va='center')
+ax.text(8.5, 1.4, '$\\sqrt{32^{2}+24^{2}}=40$', fontsize=13, color='#d62728', ha='center')
+ax.set_xlim(-4, 42); ax.set_ylim(-8, 41)
+ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('five faces unfolded into one strip', fontsize=11.5)
+plt.tight_layout(); plt.show()
+```
+
+**Reading the two legs off the picture.**
+
+$$\text{along the room } = \underbrace{1}_{\text{up the end wall}}+\underbrace{30}_{\text{the length}}+\underbrace{1}_{\text{down the far wall}}=32 ,$$
+
+$$\text{across } = \underbrace{6}_{\text{half the end wall}}+\underbrace{12}_{\text{the side wall}}+\underbrace{6}_{\text{half the far wall}}=24 ,$$
+
+$$d=\sqrt{32^{2}+24^{2}}=\sqrt{1024+576}=\sqrt{1600}=40 .$$
+
+Since $40<42$, the five-face route wins by two feet.
+
+*Every other unfolding was checked: the next best is $\approx40.72$, and the four-face routes are $42$ or
+more.*
+
+**The lesson.** [The shortest surface path need not cross the fewest faces]{.hl}. Unfolding is cheap;
+guessing the route is not. When a question says "along the surface" and the solid has more than two faces
+between the points, list the candidate nets before computing anything.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 4
+
+::: {.question}
+A cube has edge $1$. Find the perpendicular distance from a vertex to a space diagonal **that does not
+pass through it**.
+
+**Answer form: an exact surd.**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**$\sqrt{\dfrac23}=\dfrac{\sqrt6}{3}\approx0.8165$.**
+
+Put the cube at $O=(0,0,0)$ with the opposite corner $D=(1,1,1)$, and take the vertex $V=(1,0,0)$. The
+space diagonal is the line $OD$.
+
+**Use Method 4 — area over base.** The triangle $OVD$ has base $OD=\sqrt3$, and its area is
+
+$$\tfrac12\left\lvert \overrightarrow{OV}\times\overrightarrow{OD}\right\rvert
+=\tfrac12\left\lvert(1,0,0)\times(1,1,1)\right\rvert=\tfrac12\left\lvert(0,-1,1)\right\rvert=\tfrac{\sqrt2}{2} .$$
+
+$$d=\frac{2\times\text{area}}{\text{base}}=\frac{\sqrt2}{\sqrt3}=\sqrt{\frac23}=\frac{\sqrt6}{3}.$$
+
+**Without vectors.** The foot of the perpendicular from $V$ divides $OD$; projecting, $OV=1$ and the
+component of $\overrightarrow{OV}$ along $\overrightarrow{OD}$ is $\tfrac{1}{\sqrt3}$, so by Pythagoras
+
+$$d^{2}=1^{2}-\left(\frac{1}{\sqrt3}\right)^{2}=1-\frac13=\frac23 . \ \checkmark$$
+
+*Both routes are short. The second needs no cross product and is the one to use under time pressure.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 5
+
+::: {.question}
+$OABC$ is a regular tetrahedron of edge $a$. $M$ is the midpoint of $OA$ and $N$ is the midpoint of $BC$.
+
+&nbsp;&nbsp;(a) Show that $OA$ and $BC$ are **perpendicular**.
+&nbsp;&nbsp;(b) Find $MN$ in terms of $a$.
+
+**Answer form: an exact expression in $a$.**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Take the four alternate vertices of a cube of edge $2$:
+
+$$O=(1,1,1),\quad A=(1,-1,-1),\quad B=(-1,1,-1),\quad C=(-1,-1,1),$$
+
+every pair of which is $2\sqrt2$ apart, so this is a regular tetrahedron of edge $a=2\sqrt2$.
+
+**(a)** $\overrightarrow{OA}=(0,-2,-2)$ and $\overrightarrow{BC}=(0,-2,2)$, so
+
+$$\overrightarrow{OA}\cdot\overrightarrow{BC}=0+4-4=0 ,$$
+
+and the two edges are perpendicular. *By symmetry the same holds for all three pairs of opposite edges.*
+
+**(b)** $M=(1,0,0)$ and $N=(-1,0,0)$, so $MN=2$. Scaling to a general edge,
+
+$$\frac{MN}{a}=\frac{2}{2\sqrt2}=\frac{1}{\sqrt2}
+\qquad\Longrightarrow\qquad MN=\frac{a}{\sqrt2}=\frac{a\sqrt2}{2}.$$
+
+*Note what the coordinates did: both midpoints landed on the $x$-axis, so the distance was immediate. The
+cube embedding is worth remembering for any regular-tetrahedron question — it converts the whole solid into
+integer coordinates.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P1 Q18</span>
+
+::: {.question}
+A right circular cylinder is placed inside a regular square-based pyramid. One circular face lies in the
+square base, the other is parallel to it, and **all edges of the pyramid have the same length**.
+
+What is the largest possible value of $\dfrac{\text{volume of the cylinder}}{\text{volume of the pyramid}}$?
+
+&nbsp;&nbsp;**A** $\dfrac{\pi}{9}$ &nbsp; **B** $\dfrac{\pi}{10}$ &nbsp; **C** $\dfrac{\sqrt2\pi}{9}$
+&nbsp; **D** $\dfrac{\pi}{12}$ &nbsp; **E** $\dfrac{2\sqrt2\pi}{27}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A** $\;\dfrac{\pi}{9}$
+
+**Choose the edge to make the height $1$.** With every edge $\sqrt2$, the base circumradius is $1$, so
+
+$$H^{2}+1^{2}=\left(\sqrt2\right)^{2}\qquad\Longrightarrow\qquad H=1 .$$
+
+**Method 5.** At height $h$ the cross-section is the base scaled by $(1-h)$, so its side is
+$\sqrt2\,(1-h)$ and the largest circle inside it has radius
+
+$$r=\frac{\sqrt2}{2}(1-h)\qquad\Longrightarrow\qquad V_{\text{cyl}}=\pi r^{2}h=\frac{\pi}{2}h(1-h)^{2}.$$
+
+Maximise $h(1-h)^{2}$:
+
+$$\frac{d}{dh}\left(h-2h^{2}+h^{3}\right)=1-4h+3h^{2}=(1-h)(1-3h)=0 ,$$
+
+so $h=\tfrac13$ (the maximum; $h=1$ gives zero volume). Then $r=\tfrac{\sqrt2}{3}$ and
+$V_{\text{cyl}}=\tfrac{2\pi}{27}$, while $V_{\text{pyr}}=\tfrac13\cdot2\cdot1=\tfrac23$:
+
+$$\frac{V_{\text{cyl}}}{V_{\text{pyr}}}=\frac{2\pi/27}{2/3}=\frac{\pi}{9}.$$
+
+*Two reusable moves: pick the edge length that makes $H=1$, and remember the cross-section scales by
+$\left(1-\tfrac hH\right)$ — **not** by $\tfrac hH$, which is the standard slip and gives $\tfrac{\pi}{12}$.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q17</span>
+
+::: {.question}
+A sphere has volume $1$ cubic unit. A regular tetrahedron is inscribed in it, with all four vertices on the
+sphere. A second sphere is inscribed in that tetrahedron, tangent to all four faces. The process repeats
+indefinitely.
+
+Find the **sum of the volumes of all the spheres**, including the original.
+
+&nbsp;&nbsp;**A** $\dfrac{5+\sqrt5}{4}$ &nbsp; **B** $\dfrac54$ &nbsp; **C** $\dfrac{27}{26}$
+&nbsp; **D** $\dfrac{3+\sqrt3}{2}$ &nbsp; **E** $\dfrac{9+3\sqrt2}{7}$ &nbsp; **F** $\dfrac43$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C** $\;\dfrac{27}{26}$
+
+The volumes form a **geometric series**, so the only thing to find is the ratio between one sphere and the
+next — and that is Method 5.
+
+For a regular tetrahedron the inscribed and circumscribed spheres share a centre, and
+
+$$\frac{r_{\text{in}}}{R_{\text{circum}}}=\frac{a\sqrt6/12}{a\sqrt6/4}=\frac13 .$$
+
+So each sphere has $\left(\tfrac13\right)^{3}=\tfrac1{27}$ of the volume of the one before:
+
+$$S_\infty=\frac{1}{1-\tfrac1{27}}=\frac{1}{\tfrac{26}{27}}=\frac{27}{26}.$$
+
+*Why $R:r=3$:* the centre divides the line from a vertex to the opposite face's centroid in the ratio
+$3:1$, which is the three-dimensional version of the centroid dividing a median $2:1$.
+
+*The whole question is one ratio and one geometric series — see the
+[Sequences & Series clinic](../sequences_series_clinic/class_material.qmd) for $S_\infty$.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 8
+
+::: {.question}
+A cuboid has edges $3$, $4$ and $12$. Find
+
+&nbsp;&nbsp;(a) the length of a space diagonal;
+&nbsp;&nbsp;(b) the shortest path across the surface between two opposite corners.
+
+**Answer form: exact values.**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\sqrt{3^{2}+4^{2}+12^{2}}=\sqrt{9+16+144}=\sqrt{169}=13$.
+
+**(b)** Unfolding two faces gives a rectangle whose sides pair one edge with the sum of the other two.
+There are **three** ways to pair them, and all three must be tested:
+
+| unfolding | rectangle | length |
+|---|---|---|
+| $3$ with $4+12$ | $3\times16$ | $\sqrt{9+256}=\sqrt{265}\approx16.28$ |
+| $4$ with $3+12$ | $4\times15$ | $\sqrt{16+225}=\sqrt{241}\approx15.52$ |
+| $12$ with $3+4$ | $12\times7$ | $\sqrt{144+49}=\sqrt{193}\approx13.89$ |
+
+So the shortest is $\boxed{\sqrt{193}}$.
+
+[The winner pairs the **longest** edge with the sum of the two shortest]{.hl} — because squaring punishes a
+large sum more than a large single edge. That is worth knowing as a shortcut, but on a $3$-option check it
+is quicker just to compute all three.
+
+*Note how far apart (a) and (b) are: $13$ against $\approx13.89$. A question that says "along the surface"
+and is answered with $13$ loses the mark to a number that looks entirely reasonable.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## The five things to leave with
+
+1. **Read "across the surface" versus "through" first.** They give different answers, and both look right.
+2. **Across a surface → unfold, then a straight line.** Cosine rule when you have two sides and the angle;
+   coordinates when the net is rectangular.
+3. **Test every unfolding.** Two of the questions above put the wrong route in the option list on purpose,
+   and the spider-and-fly shows the shortest path need not cross the fewest faces.
+4. **Through a solid → put a vertex at the origin.** For a regular tetrahedron, use the four alternate
+   corners of a cube.
+5. **Point to a line or plane → area over base, or three times volume over face area.** You never have to
+   locate the foot of the perpendicular.
+:::
+
+:::
