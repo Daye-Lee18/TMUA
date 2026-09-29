@@ -196,7 +196,7 @@ three, and work **JZ Mock A Paper 2 Q8** in full.
 The part that is **not in the A-Level syllabus**. A student can be excellent at A-Level Maths and still
 score badly on Paper 2, simply because nobody ever told them what *"A only if B"* means.
 
-**One-page revision:** the **[Paper 2 Formula Sheet & Concept Summary](toolkit/paper2_formula_sheet.qmd)**
+**One-page revision:** the **[Paper 2 Formula Sheet & Concept Summary](formula_sheets/paper2_formula_sheet.qmd)**
 carries all of this — S1–S7, T1, T2 and an exam-day card — on a single printable page.
 
 ### What comes up most — the two topics to memorise
@@ -208,7 +208,7 @@ being learnt by heart.
 
 | Topic session | Assignments |
 |---|---|
-| **[Paper 2 — Formula Sheet & Concept Summary](toolkit/paper2_formula_sheet.qmd)** — all of S1–S7, T1 and T2 on one printable page, plus an exam-day card | *revision page — no assignment* |
+| **[Paper 2 — Formula Sheet & Concept Summary](formula_sheets/paper2_formula_sheet.qmd)** — all of S1–S7, T1 and T2 on one printable page, plus an exam-day card | *revision page — no assignment* |
 | **[T1 · Divisors & primes](toolkit/t01_divisors_primes.qmd)** — seventeen facts, each with a True/False trap table, six proof patterns, fourteen quick checks and **all 19 past-paper questions** worked in full | **[Questions](toolkit/t01_assignment_student.qmd)** · [MS](toolkit/t01_assignment_ms.qmd) |
 | **[T2 · Shapes as logical conditions](toolkit/t02_shapes_as_logic.qmd)** — the quadrilateral lattice, the diagonal table, the three counterexamples, congruence and polygon facts, plus **all 8 past-paper questions** worked in full | **[Questions](toolkit/t02_assignment_student.qmd)** · [MS](toolkit/t02_assignment_ms.qmd) |
 
@@ -238,7 +238,7 @@ Work through these in order — each is built on the one before.
 | [Content Specification](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/03165619/TMUA_Content_Specification.pdf) | The syllabus, for the October 2026 and January 2027 sittings. Section 1 = maths (both papers), Section 2 = logic and proof (Paper 2 only) |
 | [Notes on Mathematics](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2026/06/30103537/Notes_on_Mathematics_-for_TMUA_and_ESAT_M2.pdf) | 159 pages, MM1–MM8, mapped one-to-one onto Section 1. The setters' own commentary on what each spec line means |
 | [Notes on Logic and Proof](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2025/06/25160507/Notes_on_Logic_and_Proof_June2025.pdf) | 74 pages on Section 2. Effectively the **only** textbook for Paper 2 |
-| [Formula Sheet](formula_sheet.qmd) | Everything the test can assume you know by heart — the TMUA gives no formula booklet |
+| [Formula Sheet](formula_sheets/paper1_formula_sheet.qmd) | Everything the test can assume you know by heart — the TMUA gives no formula booklet |
 | [Pearson VUE practice tests](https://www.pearsonvue.com/us/en/uatuk.html) | The on-screen interface. Sit one, for the format rather than the maths |
 
 To keep local copies of every PDF above, run `bash scripts/fetch_resources.sh` from the repository root.

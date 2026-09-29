@@ -22,12 +22,16 @@ website:
         href: toolkit/index.qmd
       - text: "Phrasebook"
         href: phrasebook.qmd
-      - text: "Formula Sheet"
+      - text: "Formula Sheets"
         menu:
-          - text: "Blank — fill it in yourself"
-            href: formula_sheet_blank.qmd
-          - text: "Completed reference copy"
-            href: formula_sheet.qmd
+          - text: "All three"
+            href: formula_sheets/index.qmd
+          - text: "Paper 1 — blank, fill it in yourself"
+            href: formula_sheets/paper1_formula_sheet_blank.qmd
+          - text: "Paper 1 — completed reference copy"
+            href: formula_sheets/paper1_formula_sheet.qmd
+          - text: "Paper 2 — formula sheet & concepts"
+            href: formula_sheets/paper2_formula_sheet.qmd
 
 format:
   html:

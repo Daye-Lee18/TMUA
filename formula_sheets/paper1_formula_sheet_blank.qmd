@@ -29,7 +29,7 @@ yourself is remembered far better than one you were given]{.hl}.
 **Where to start.** Sections 1–2 (algebra, sequences) first — those are what 2020 Paper 1 uses.
 Sections 4, 6, 7 follow the trig and calculus papers. Section 9 is Paper 2 only.
 
-Stuck? The completed version is at **[Formula Sheet](formula_sheet.qmd)** — but write your own attempt
+Stuck? The completed version is at **[Formula Sheet](paper1_formula_sheet.qmd)** — but write your own attempt
 **first**, then check. Copying it straight across defeats the point.
 :::
 

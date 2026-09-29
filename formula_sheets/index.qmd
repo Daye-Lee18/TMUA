@@ -1,0 +1,30 @@
+---
+title: "Formula Sheets"
+subtitle: "The TMUA supplies no formula booklet — everything below has to be in your head on the day"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+Three printable pages. The Paper 1 sheet is the mathematics both papers assume; the Paper 2 sheet is the
+reasoning vocabulary and the two topics that appear in every sitting.
+
+| | Sheet | What it carries |
+|---|---|---|
+| **Paper 1** | **[Blank — fill it in yourself](paper1_formula_sheet_blank.qmd)** | the same headings with the formulas removed |
+| **Paper 1** | **[Completed reference copy](paper1_formula_sheet.qmd)** | MM1–MM8: indices and surds, quadratics, sequences and series, coordinate geometry, trigonometry, logarithms, differentiation, integration, graphs |
+| **Paper 2** | **[Formula sheet & concept summary](paper2_formula_sheet.qmd)** | S1–S7 reasoning, T1 divisors and primes, T2 shapes as logical conditions, and an exam-day card |
+
+::: {.callout-tip}
+## Use the blank one first
+
+Writing a formula sheet from memory is worth more than reading one. Fill in
+**[the blank copy](paper1_formula_sheet_blank.qmd)** cold, then open
+**[the reference copy](paper1_formula_sheet.qmd)** and mark it. What you could not produce is your revision
+list — not what you could not recognise.
+:::
+
+:::

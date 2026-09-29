@@ -24,7 +24,7 @@ is simply better at algebra. Each question below carries a timing flag:
 | ⏱ 6 min+ | **recognise, mark, and come back.** Getting this on a second pass is a win |
 
 ::: {.callout-note appearance="simple"}
-**Formula sheet.** From this session on, keep the [Formula Sheet](../../formula_sheet.qmd) beside you.
+**Formula sheet.** From this session on, keep the [Formula Sheet](../../formula_sheets/paper1_formula_sheet.qmd) beside you.
 Every time a question needs a result you had to stop and reconstruct, write it on the sheet. Today's
 paper will fill most of the **algebra** and **sequences** rows.
 :::
@@ -1317,7 +1317,7 @@ Working
 1. **2018 Paper 1 — cold and timed, 75 minutes, no calculator.** Mark it yourself against the official
    answer key, then sort every question into the four boxes: *right and fast* / *silly slip* /
    **right but slow** / *no idea*.
-2. **Fill in the [Formula Sheet](../../formula_sheet.qmd)** — the algebra and sequences rows at minimum.
+2. **Fill in the [Formula Sheet](../../formula_sheets/paper1_formula_sheet.qmd)** — the algebra and sequences rows at minimum.
    Anything you had to stop and reconstruct today belongs on it: the sum to infinity, the discriminant
    condition, sum and product of roots, the transformation rules.
 :::

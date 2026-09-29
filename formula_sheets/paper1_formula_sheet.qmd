@@ -305,7 +305,7 @@ Not formulae, but the facts you must have automatic. There is no symbol notation
 in words.
 
 *This is the short version. The full Paper 2 sheet — including divisors/primes and the shape
-conditions — is **[here](toolkit/paper2_formula_sheet.qmd)**.*
+conditions — is **[here](paper2_formula_sheet.qmd)**.*
 
 **Statement forms.** ★
 $$A \Rightarrow B \;=\; \text{"if } A \text{ then } B\text{"} \;=\; \text{"} A \text{ only if } B\text{"} \;=\; \text{"} B \text{ if } A\text{".}$$

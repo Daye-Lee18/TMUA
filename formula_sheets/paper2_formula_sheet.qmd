@@ -22,7 +22,7 @@ The TMUA gives you **no formula booklet and no calculator**, so everything here 
 - **Part 4** is the exam-day card.
 
 Cards marked ★ appear on almost every paper. For the Paper 1 mathematics (MM1–MM8), use the
-**[main formula sheet](../formula_sheet.qmd)**.
+**[main formula sheet](paper1_formula_sheet.qmd)**.
 :::
 
 ---
@@ -167,7 +167,7 @@ Read downwards; stop at the **first** line that fails.
 # Part 2 · T1 — Divisors and primes
 
 *Fifteen-plus Paper 2 questions across 2016–2023, and **not one of them a calculation**. The mathematics is
-tiny and repeats; learn it cold. Full page: **[T1](t01_divisors_primes.qmd)**.*
+tiny and repeats; learn it cold. Full page: **[T1](../toolkit/t01_divisors_primes.qmd)**.*
 
 ::::: {.formulasheet}
 
@@ -274,7 +274,7 @@ slide between them deliberately.
 
 *Eight sittings, eight appearances. The geometry never goes beyond GCSE; what is tested is which property
 forces which, and whether you can produce the standard counterexample on demand. Full page:
-**[T2](t02_shapes_as_logic.qmd)**.*
+**[T2](../toolkit/t02_shapes_as_logic.qmd)**.*
 
 ::::: {.formulasheet}
 
@@ -410,8 +410,8 @@ as a logical condition appears in **every** sitting.
 :::
 
 ::: {.callout-note appearance="simple"}
-Full sessions: **[S1](s01_concepts.qmd)** · **[S2](s02_concepts.qmd)** · **[S3](s03_concepts.qmd)** ·
-**[S4](s04_concepts.qmd)** · **[S5](s05_concepts.qmd)** · **[S6](s06_concepts.qmd)** ·
-**[S7](s07_concepts.qmd)** · **[T1](t01_divisors_primes.qmd)** · **[T2](t02_shapes_as_logic.qmd)** ·
-overview: **[Paper 2 Toolkit](index.qmd)**.
+Full sessions: **[S1](../toolkit/s01_concepts.qmd)** · **[S2](../toolkit/s02_concepts.qmd)** · **[S3](../toolkit/s03_concepts.qmd)** ·
+**[S4](../toolkit/s04_concepts.qmd)** · **[S5](../toolkit/s05_concepts.qmd)** · **[S6](../toolkit/s06_concepts.qmd)** ·
+**[S7](../toolkit/s07_concepts.qmd)** · **[T1](../toolkit/t01_divisors_primes.qmd)** · **[T2](../toolkit/t02_shapes_as_logic.qmd)** ·
+overview: **[Paper 2 Toolkit](../toolkit/index.qmd)**.
 :::
