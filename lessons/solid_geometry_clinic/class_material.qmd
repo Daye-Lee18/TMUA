@@ -283,6 +283,55 @@ So the work is finding **one area** or **one volume** by the easiest route avail
 coordinates and a right angle you can spot.
 :::
 
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Optional — the three perpendiculars theorem (*삼수선의 정리*)
+
+**Skip this box unless you already know the theorem.** It is taught in the Korean **기하** course and not in
+any A-Level syllabus, and **no question in the TMUA archive requires it** — Method 4 above answers all of
+them. But if it is already in your hands it is faster than the area route, so it is here rather than left
+out.
+
+**The theorem.** Let $P$ be a point off a plane $\pi$, let $H$ be the foot of the perpendicular from $P$ to
+$\pi$, let $\ell$ be a line in $\pi$, and let $A$ be a point on $\ell$. Then **any two** of the following
+force the third:
+
+$$PH\perp\pi ,\qquad HA\perp\ell ,\qquad PA\perp\ell .$$
+
+**Why it is useful.** It turns a three-dimensional perpendicular into a two-dimensional one. To reach a
+line $\ell$ lying in the base from a point $P$ above it:
+
+1. Drop $PH$ perpendicular to the base — usually $H$ is a vertex you already have.
+2. **Inside the base**, which is a flat picture, drop $HA\perp\ell$.
+3. The theorem gives $PA\perp\ell$ automatically, so
+
+$$d(P,\ell)=PA=\sqrt{PH^{2}+HA^{2}} .$$
+
+*Step 2 is ordinary plane geometry, and step 3 is the part you would otherwise have to justify with vectors.*
+
+::: {.example}
+[Example.]{.lbl} A cuboid has base $ABCD$ with $AB=15$ and $AD=20$, and a vertical edge $AE=5$. Find the
+distance from $E$ to the line $BD$.
+:::
+
+**With the theorem.** $E$ is directly above $A$, so $EA\perp$ base and $H=A$. In the base, $BD=25$
+(a $15$–$20$–$25$ triangle), and the perpendicular from $A$ to $BD$ is the altitude of right-angled
+triangle $ABD$:
+
+$$AH=\frac{AB\cdot AD}{BD}=\frac{15\times20}{25}=12 .$$
+
+The theorem gives $EH\perp BD$, so
+
+$$d(E,BD)=\sqrt{EA^{2}+AH^{2}}=\sqrt{5^{2}+12^{2}}=13 .$$
+
+**Without it**, you would place coordinates and compute
+$\dfrac{\left\lvert\overrightarrow{BE}\times\overrightarrow{BD}\right\rvert}{\lvert\overrightarrow{BD}\rvert}$
+— the same $13$, and about three times the writing.
+
+*The related tool from the same course, **정사영** (orthogonal projection, $S'=S\cos\theta$), has no use on
+this page at all: TMUA never asks for a dihedral angle.*
+:::
+
+
 ## Method 5 — inscribed and circumscribed shapes
 
 ::: {.callout-tip}
