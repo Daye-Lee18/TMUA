@@ -91,6 +91,59 @@ surd** unless a question says otherwise.
 
 ---
 
+```{python}
+#| echo: false
+import numpy as np, matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+
+EDGE, FILL, MARK, DASH = '0.35', '#dce8f2', '#d62728', '#7a5195'
+
+def new3d(figsize=(6.4, 4.6), title='', elev=16, azim=-62):
+    fig = plt.figure(figsize=figsize)
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_axis_off(); ax.view_init(elev=elev, azim=azim)
+    ax.set_title(title, fontsize=11)
+    return fig, ax
+
+def solid(ax, V, polys, alpha=0.16, fc=FILL):
+    ax.add_collection3d(Poly3DCollection([[V[i] for i in p] for p in polys],
+                        facecolors=fc, edgecolors=EDGE, linewidths=1.2, alpha=alpha))
+
+def mark(ax, P, lab, off=(0, 0, 0), col=MARK, size=60, fs=11.5):
+    ax.scatter(*P, color=col, s=size, depthshade=False, zorder=8)
+    ax.text(P[0]+off[0], P[1]+off[1], P[2]+off[2], lab, fontsize=fs, color='0.1', zorder=9)
+
+def seg(ax, P, Q, col=DASH, lw=1.6, ls='--'):
+    ax.plot(*zip(P, Q), color=col, lw=lw, ls=ls, zorder=7)
+
+def fit(ax, V, pad=0.01, true_shape=False):
+    V = np.asarray(V, dtype=float)
+    lo, hi = V.min(0), V.max(0)
+    if true_shape:
+        for setlim, i in ((ax.set_xlim, 0), (ax.set_ylim, 1), (ax.set_zlim, 2)):
+            m = (hi[i]-lo[i])*pad + 1e-9
+            setlim(lo[i]-m, hi[i]+m)
+        ax.set_box_aspect(tuple(hi - lo))
+    else:
+        span = (hi - lo).max(); c = (hi + lo)/2
+        for setlim, i in ((ax.set_xlim, 0), (ax.set_ylim, 1), (ax.set_zlim, 2)):
+            setlim(c[i]-span*(0.5+pad), c[i]+span*(0.5+pad))
+        ax.set_box_aspect((1, 1, 1))
+
+def regular_tetra(a=1.0):
+    A = np.array([0, 0, 0.]); B = np.array([a, 0, 0.])
+    C = np.array([a/2, a*np.sqrt(3)/2, 0.])
+    O = np.array([a/2, a/(2*np.sqrt(3)), a*np.sqrt(2/3)])
+    return A, B, C, O
+
+def box(L, W, H):
+    return np.array([[0,0,0],[L,0,0],[L,W,0],[0,W,0],
+                     [0,0,H],[L,0,H],[L,W,H],[0,W,H]], dtype=float)
+
+BOXF = [[0,1,2,3],[4,5,6,7],[0,1,5,4],[2,3,7,6],[1,2,6,5],[0,3,7,4]]
+```
+
+
 # 1 · The five methods
 
 ## Method 1 — a path across a surface
@@ -411,6 +464,23 @@ the tetrahedron?
 **Answer form: an exact surd.**
 :::
 
+```{python}
+A, B, C, O = regular_tetra(12)
+fig, ax = new3d(title='the given data — no path drawn yet', elev=24, azim=-100)
+solid(ax, [A, B, C, O], [[0,1,2],[0,1,3],[1,2,3],[0,2,3]])
+X = (O + A)/2; Y = B + 3*(C - B)/12
+for P, lab, off in [(A,'$A$',(-0.6,-1.4,-1.1)), (B,'$B$',(0.8,-0.8,-0.9)),
+                    (C,'$C$',(-0.4,1.1,-0.4)), (O,'$O$',(0.3,0.3,0.9))]:
+    mark(ax, P, lab, off, col='0.3', size=28)
+mark(ax, X, '$X$', (-1.6, -0.6, 0.6))
+mark(ax, Y, '$Y$', (0.9, 0.5, 0.7))
+fit(ax, [A, B, C, O]); plt.tight_layout(); plt.show()
+```
+
+*$X$ is the **midpoint** of $OA$; &nbsp; $Y$ lies on $BC$ with $BY=3$, so $Y$ is a quarter of the way
+from $B$ to $C$.*
+
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
@@ -484,6 +554,26 @@ midpoint of $CT$.
 **Answer form: an exact value.**
 :::
 
+```{python}
+a = 2.0
+A2 = np.array([0,0,0.]); B2 = np.array([a,0,0.]); C2 = np.array([a,a,0.]); D2 = np.array([0,a,0.])
+T2 = np.array([a/2, a/2, a/np.sqrt(2)])
+fig, ax = new3d(title='all edges $2\\,$m — the two midpoints marked', azim=-56)
+solid(ax, [A2,B2,C2,D2,T2], [[0,1,2,3],[0,1,4],[1,2,4],[2,3,4],[3,0,4]])
+M = (A2+B2)/2; N = (C2+T2)/2
+for P, lab, off in [(A2,'$A$',(-0.28,-0.12,-0.16)), (B2,'$B$',(0.12,-0.16,-0.16)),
+                    (C2,'$C$',(0.12,0.10,-0.16)), (D2,'$D$',(-0.30,0.10,-0.16)),
+                    (T2,'$T$',(0.05,0.05,0.14))]:
+    mark(ax, P, lab, off, col='0.3', size=28)
+mark(ax, M, '$M$', (-0.12, -0.22, 0.10))
+mark(ax, N, '$N$', (0.16, 0.06, 0.06))
+fit(ax, [A2,B2,C2,D2,T2]); plt.tight_layout(); plt.show()
+```
+
+*$M$ is the midpoint of the base edge $AB$; &nbsp; $N$ is the midpoint of the slant edge $CT$. Because
+**every** edge is $2$, all four triangular faces are **equilateral**.*
+
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
@@ -529,6 +619,23 @@ What is the shortest distance the spider can crawl along the walls, floor and ce
 
 **Answer form: an exact value in feet.**
 :::
+
+```{python}
+V = box(30, 12, 12)
+fig, ax = new3d(figsize=(7.0, 4.4), title='the room, with the two insects marked', elev=14, azim=-64)
+solid(ax, V, BOXF, alpha=0.10)
+Sp = np.array([0, 6, 1.]); Fl = np.array([30, 6, 11.])
+mark(ax, Sp, 'spider', (-1.0, 1.4, 1.4))
+mark(ax, Fl, 'fly', (-1.0, 1.4, 1.4))
+ax.text(15, 0, -3.4, '$30$', fontsize=11, color='0.3')
+ax.text(31, 6, -3.4, '$12$', fontsize=11, color='0.3')
+ax.text(32, 12, 6, '$12$', fontsize=11, color='0.3')
+fit(ax, V, true_shape=True); plt.tight_layout(); plt.show()
+```
+
+*Both insects are at the **middle** of their end wall. The spider is $1$ ft above the floor, the fly $1$ ft
+below the ceiling — so they are not at the same height, and the room is not symmetric between them.*
+
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
@@ -609,6 +716,21 @@ pass through it**.
 **Answer form: an exact surd.**
 :::
 
+```{python}
+V = box(1, 1, 1)
+fig, ax = new3d(title='the space diagonal, and the vertex it misses', azim=-58)
+solid(ax, V, BOXF, alpha=0.10)
+Oc = np.array([0,0,0.]); Dg = np.array([1,1,1.]); Vx = np.array([1,0,0.])
+ax.plot(*zip(Oc, Dg), color='#1f77b4', lw=2.6, zorder=7)
+ax.text(0.42, 0.55, 0.40, 'space diagonal', fontsize=10.5, color='#1f77b4')
+mark(ax, Vx, '$V$', (0.07, -0.10, -0.12))
+fit(ax, V); plt.tight_layout(); plt.show()
+```
+
+*The blue segment is the space diagonal. $V$ is a vertex **not** on it, and the question asks for the
+perpendicular distance from $V$ to that line.*
+
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
@@ -646,6 +768,26 @@ $OABC$ is a regular tetrahedron of edge $a$. $M$ is the midpoint of $OA$ and $N$
 
 **Answer form: an exact expression in $a$.**
 :::
+
+```{python}
+A5, B5, C5, O5 = regular_tetra(1.0)
+fig, ax = new3d(title='$M$ and $N$ are midpoints of the opposite edges $OA$ and $BC$',
+                elev=24, azim=-100)
+solid(ax, [A5,B5,C5,O5], [[0,1,2],[0,1,3],[1,2,3],[0,2,3]])
+M5 = (O5+A5)/2; N5 = (B5+C5)/2
+for P, lab, off in [(A5,'$A$',(-0.05,-0.12,-0.09)), (B5,'$B$',(0.07,-0.07,-0.07)),
+                    (C5,'$C$',(-0.04,0.09,-0.03)), (O5,'$O$',(0.02,0.02,0.07))]:
+    mark(ax, P, lab, off, col='0.3', size=28)
+seg(ax, O5, A5, col='#1f77b4', lw=2.4, ls='-')
+seg(ax, B5, C5, col='#2ca02c', lw=2.4, ls='-')
+mark(ax, M5, '$M$', (-0.14, -0.04, 0.04))
+mark(ax, N5, '$N$', (0.07, 0.05, 0.04))
+fit(ax, [A5,B5,C5,O5]); plt.tight_layout(); plt.show()
+```
+
+*$OA$ (blue) and $BC$ (green) are **opposite** edges — they share no vertex. A regular tetrahedron has
+three such pairs.*
+
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
@@ -687,6 +829,26 @@ What is the largest possible value of $\dfrac{\text{volume of the cylinder}}{\te
 &nbsp;&nbsp;**A** $\dfrac{\pi}{9}$ &nbsp; **B** $\dfrac{\pi}{10}$ &nbsp; **C** $\dfrac{\sqrt2\pi}{9}$
 &nbsp; **D** $\dfrac{\pi}{12}$ &nbsp; **E** $\dfrac{2\sqrt2\pi}{27}$
 :::
+
+```{python}
+a = np.sqrt(2)
+A6 = np.array([0,0,0.]); B6 = np.array([a,0,0.]); C6 = np.array([a,a,0.]); D6 = np.array([0,a,0.])
+T6 = np.array([a/2, a/2, 1.0])
+fig, ax = new3d(figsize=(6.4, 4.8), title='the cylinder sits on the base; its height $h$ is free',
+                elev=14, azim=-58)
+solid(ax, [A6,B6,C6,D6,T6], [[0,1,2,3],[0,1,4],[1,2,4],[2,3,4],[3,0,4]], alpha=0.12)
+h = 1/3; r = (a/2)*(1-h)
+th = np.linspace(0, 2*np.pi, 80)
+cx, cy = a/2 + r*np.cos(th), a/2 + r*np.sin(th)
+for z, lw in ((0, 1.8), (h, 2.0)):
+    ax.plot(cx, cy, z*np.ones_like(th), color='#d62728', lw=lw, zorder=7)
+for k in (0, 20, 40, 60):
+    ax.plot([cx[k]]*2, [cy[k]]*2, [0, h], color='#d62728', lw=1.0, zorder=6)
+ax.text(a/2 + r + 0.10, a/2, h/2, '$h$', fontsize=12.5, color='#d62728')
+ax.text(a/2 - 0.10, a/2 - r - 0.42, -0.10, 'radius $r$', fontsize=11, color='#d62728')
+fit(ax, [A6,B6,C6,D6,T6]); plt.tight_layout(); plt.show()
+```
+
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
@@ -732,6 +894,47 @@ Find the **sum of the volumes of all the spheres**, including the original.
 &nbsp; **D** $\dfrac{3+\sqrt3}{2}$ &nbsp; **E** $\dfrac{9+3\sqrt2}{7}$ &nbsp; **F** $\dfrac43$
 :::
 
+```{python}
+fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.4))
+
+A7, B7, C7, O7 = regular_tetra(1.0)
+ax = axes[0]; ax.remove()
+ax = fig.add_subplot(1, 2, 1, projection='3d')
+ax.set_axis_off(); ax.view_init(elev=24, azim=-100)
+ax.add_collection3d(Poly3DCollection([[A7,B7,C7],[A7,B7,O7],[B7,C7,O7],[A7,C7,O7]],
+                    facecolors=FILL, edgecolors=EDGE, linewidths=1.2, alpha=0.18))
+cen = (A7 + B7 + C7 + O7)/4
+ax.scatter(*cen, color='0.25', s=26, depthshade=False)
+ax.text(*(cen + np.array([0.02, 0.02, 0.05])), 'centre', fontsize=10, color='0.25')
+V7 = np.array([A7,B7,C7,O7]); lo, hi = V7.min(0), V7.max(0)
+sp = (hi-lo).max(); c = (hi+lo)/2
+ax.set_xlim(c[0]-sp/2, c[0]+sp/2); ax.set_ylim(c[1]-sp/2, c[1]+sp/2); ax.set_zlim(c[2]-sp/2, c[2]+sp/2)
+ax.set_box_aspect((1,1,1))
+ax.set_title('the tetrahedron between the two spheres\nboth spheres share its centre', fontsize=10.5)
+
+ax = axes[1]
+th = np.linspace(0, 2*np.pi, 400)
+for rad, col, lw in [(1, '#1f77b4', 2.4), (1/3, '#d62728', 2.2),
+                     (1/9, '#2ca02c', 1.8), (1/27, '#7a5195', 1.4)]:
+    ax.plot(rad*np.cos(th), rad*np.sin(th), color=col, lw=lw)
+ax.annotate('sphere 1 — radius $R$', (0, 1), textcoords='offset points', xytext=(-40, 10),
+            fontsize=10.5, color='#1f77b4')
+ax.annotate('sphere 2 — radius $R/3$', (0, 1/3), textcoords='offset points', xytext=(-46, 8),
+            fontsize=10.5, color='#d62728')
+ax.text(0, -1.30, 'and so on — each radius is $\\frac{1}{3}$ of the last,\nso each volume is $\\frac{1}{27}$',
+        ha='center', fontsize=10.5, color='0.3')
+ax.plot([0, 1], [0, 0], color='0.35', lw=1.2, ls=':')
+ax.set_xlim(-1.3, 1.3); ax.set_ylim(-1.75, 1.3)
+ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('the radii, drawn to scale: each is $\\frac{1}{3}$ of the one before', fontsize=10.5)
+
+plt.tight_layout(); plt.show()
+```
+
+*For a regular tetrahedron the inscribed and circumscribed spheres share a centre, and $r_{\text{in}}=\tfrac13R_{\text{circum}}$ — so the radii fall by a factor of $3$ at every stage, and the **volumes** by a factor of $27$.*
+
+
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
@@ -769,6 +972,20 @@ A cuboid has edges $3$, $4$ and $12$. Find
 
 **Answer form: exact values.**
 :::
+
+```{python}
+V = box(3, 4, 12)
+fig, ax = new3d(figsize=(5.4, 5.4), title='edges $3$, $4$ and $12$', elev=14, azim=-62)
+solid(ax, V, BOXF, alpha=0.10)
+mark(ax, V[0], '', (0,0,0)); mark(ax, V[6], '', (0,0,0))
+ax.text(V[0][0]-1.6, V[0][1]-0.6, V[0][2]-0.9, 'start', fontsize=11, color=MARK)
+ax.text(V[6][0]+0.4, V[6][1]+0.4, V[6][2]+0.5, 'finish', fontsize=11, color=MARK)
+ax.text(1.5, -1.1, -1.2, '$3$', fontsize=11, color='0.3')
+ax.text(3.6, 2.0, -1.2, '$4$', fontsize=11, color='0.3')
+ax.text(3.7, 4.5, 6, '$12$', fontsize=11, color='0.3')
+fit(ax, V, true_shape=True); plt.tight_layout(); plt.show()
+```
+
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution

@@ -2,6 +2,7 @@
 title: "Solid Geometry Clinic — Assignment"
 subtitle: "Distances in three dimensions"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -160,6 +161,27 @@ A sphere is inscribed in a cube, and the cube is inscribed in a larger sphere.
 
 &nbsp;&nbsp;(b) Find the ratio of the two sphere **volumes**, in the form $k\sqrt3$. **[2]**
 :::
+
+```{python}
+#| echo: false
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(5.0, 5.0))
+th = np.linspace(0, 2*np.pi, 400)
+ax.plot(np.cos(th), np.sin(th), color='#1f77b4', lw=2.2)
+ax.annotate('outer sphere — through every vertex', (0, 1), textcoords='offset points',
+            xytext=(-84, 8), fontsize=10, color='#1f77b4')
+s = 1/np.sqrt(3)
+ax.add_patch(plt.Rectangle((-s, -s), 2*s, 2*s, fill=False, ec='0.35', lw=1.8))
+ax.plot(s*np.cos(th), s*np.sin(th), color='#d62728', lw=2.2)
+ax.annotate('inner sphere — touching every face', (0, -s), textcoords='offset points',
+            xytext=(-80, -20), fontsize=10, color='#d62728')
+ax.text(0, -1.30, 'cube of edge $a$, shown in cross-section', ha='center', fontsize=10.5, color='0.35')
+ax.set_xlim(-1.35, 1.35); ax.set_ylim(-1.55, 1.35)
+ax.set_aspect('equal'); ax.axis('off')
+plt.tight_layout(); plt.show()
+```
+
+*The cross-section is taken through the centre and parallel to a face, so the cube appears as a square.*
 
 ::: {.workspace style="min-height:8cm"}
 Working
