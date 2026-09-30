@@ -66,7 +66,7 @@ This does **not** mean that every number $6n\pm1$ is prime.
 |---|:-:|---|
 | Every prime $p>3$ is of the form $6n\pm1$ | **True** | *the stated fact* |
 | *Converse:* every $6n\pm1$ is prime | **False** | *$25,\,35,\,49$* |
-| $1$ counts as $6n\pm1$ | **True** | *$1=6(1)-5$ — and it is **not** prime* |
+| $1$ has the form $6n\pm1$ | **True** | *$1=6(0)+1$ — and it is **not** prime* |
 
 [2016 Q5 · 2023 Q11 sit on exactly this]{.eg}
 :::
@@ -98,8 +98,8 @@ If $n=p_1^{e_1}p_2^{e_2}\cdots$ then $n^2=p_1^{2e_1}p_2^{2e_2}\cdots$. So $n^2$ 
 of each prime.
 
 Consequences: $p\mid n^{2}\Rightarrow p\mid n$ for **prime** $p$; in words, if a prime divides a square,
-it already divides its square root. But for a composite divisor you recover
-only the square root of it:
+it already divides its square root. For a composite divisor, prime-factorise it and halve each required
+exponent, rounding up. Since $12=2^2\cdot3^1$, this gives $2^1\cdot3^1=6$:
 $$12\mid n^{2}\iff 6\mid n,\qquad\text{not } 12\mid n .$$
 
 
@@ -107,7 +107,7 @@ $$12\mid n^{2}\iff 6\mid n,\qquad\text{not } 12\mid n .$$
 |---|:-:|---|
 | $p\mid n^{2}\Rightarrow p\mid n$ for **prime** $p$ | **True** | *exponents double* |
 | $12\mid n^{2}\Rightarrow12\mid n$ | **False** | *$n=6$: $36=12\times3$* |
-| $12\mid n^{2}\iff6\mid n$ | **True** | *you recover the square root of the divisor* |
+| $12\mid n^{2}\iff6\mid n$ | **True** | *halve prime exponents and round up* |
 
 [2019 Q5 · 2021 Q4 · 2023 Q3 in S4 · the whole of S5 Q29–Q30]{.eg}
 :::
@@ -169,7 +169,7 @@ survives down a whole recurrence.
 |---|:-:|---|
 | $\gcd(a,b)$ divides $a+b$ and $a-b$ | **True** | *it divides every combination* |
 | $\gcd(n,n+1)=1$ | **True** | *a common divisor divides $1$* |
-| *Trap:* $\gcd(a,b)=d\Rightarrow\gcd(a,\,xa+yb)=d$ | **True** | *this is why $d$ survives a recurrence* |
+| $\gcd(a,b)=d\Rightarrow d\mid(xa+yb)$ | **True** | *this is why $d$ survives a recurrence* |
 
 [2023 Q16: $\gcd(a,b)=7$ forces $7\mid u_n$ for every $n$]{.eg}
 :::
@@ -482,9 +482,26 @@ the expression tells you **nothing** about them (fact 17). $x^{2}+1$ is irreduci
 ::: {.callout-tip}
 ## Pattern D · "Counting / pigeonhole"
 
-Among any $k+1$ integers chosen from $k$ residue classes, two share a class — so their difference is
+**The principle.** Put $n$ objects into $k$ boxes with $n>k$; some box holds two. The work is never the
+principle — it is **choosing what the boxes are**.
+
+Among any $k+1$ integers chosen from $k$ residue classes, two share a class, so their difference is
 divisible by $k$. Used whenever a question asks for the **smallest $n$ that forces** something.
 
+**Example 1 — the boxes are obvious.** How many people are needed to guarantee that two share a birth
+month? Twelve months are the boxes, so **13 people** forces a repeat — and $12$ does not, since they could
+have one month each. *(Same argument, same answer shape: $367$ people force a shared birthday.)*
+
+**Example 2 — the boxes are the hard part.** Choose any **six** numbers from $1,2,\dots,10$. Show that one
+of them must divide another.
+
+> Write each number as $2^{a}\times m$ with $m$ **odd**. For $1$ to $10$ the odd part $m$ can only be
+> $1,3,5,7$ or $9$ — **five boxes**. Six numbers, five boxes, so two share an odd part: say $2^{a}m$ and
+> $2^{b}m$ with $a<b$. Then the first divides the second. ∎
+
+*And six is sharp: $\{4,5,6,7,9\}$ is five numbers with no such pair.* [The whole difficulty was seeing
+that the box should be the **odd part**, not the number itself]{.hl} — which is the skill this pattern is
+really testing.
 
 [2022 Q8 is this exactly]{.eg}
 :::
@@ -513,8 +530,16 @@ Three tests dismiss a primality claim **without factorising anything**:
 | shape of the exponent *(facts 12–13)* | $2^{n}-1$ prime $\Rightarrow n$ prime; $2^{n}+1$ prime $\Rightarrow n=2^{k}$ | both **converses false**: $2^{11}-1=23\times89$ |
 | Fermat *(fact 11)* | $p$ prime $\Rightarrow2^{p-1}\equiv1\pmod p$ | **converse false**: $341=11\times31$ passes it |
 
-**All three are necessary, none is sufficient.** They can *disprove* primality instantly; passing them
-proves nothing — which is exactly what makes them Arg2 material.
+**All three are necessary, none is sufficient.** Say that as two separate sentences, because the exam
+tests them separately:
+
+- **If $N$ is prime, it *must* pass every test.** So **failing one settles it** — $N$ is composite, at
+  once, with no factorisation.
+- **A composite can pass every test.** So **passing proves nothing**: $341=11\times31$ passes Fermat,
+  and $2^{11}-1=23\times89$ has a prime exponent.
+
+[The first direction is a **necessary** condition doing its job; the second is why it is **not
+sufficient**]{.hl} — which is exactly what makes these Arg2 material.
 
 *Worked example.* Is $2^{15}-1$ prime? $15=3\times5$ is composite, so $2^{3}-1=7$ is a proper factor.
 **No** — and you never computed $32767$.
@@ -522,7 +547,266 @@ proves nothing — which is exactly what makes them Arg2 material.
 
 ---
 
-# Part 2 — Quick checks
+# Part 2 — Understand Each Fact
+
+This section breaks down each of the seventeen core facts: the exact mathematical meaning, the underlying proof and mechanics (Why), common examiner traps with counterexamples, and worked solutions to checkpoint examples.
+
+---
+
+### Fact 1 · Every prime $p > 3$ has the form $6n \pm 1$
+
+* **Meaning of the statement:** Every prime strictly greater than $3$ leaves a remainder of either $1$ or $5$ ($=-1$) when divided by $6$.
+* **Why it works (Residue classification mod 6):**
+  * Any integer can be uniquely partitioned into one of six residue classes modulo $6$: $6n, 6n+1, 6n+2, 6n+3, 6n+4,$ or $6n+5$.
+  * The classes $6n, 6n+2,$ and $6n+4$ are divisible by $2$, so none can be prime except $2$.
+  * The class $6n+3 = 3(2n+1)$ is divisible by $3$, so it cannot be prime except $3$.
+  * Primes greater than $3$ are confined entirely to the remaining two classes: $6n+1$ and $6n+5 \equiv 6n-1$.
+* **The Trap — The converse is false:**
+  * Being of the form $6n \pm 1$ is a necessary condition, never a sufficient condition for primality.
+  * Standard counterexamples: $25 = 6(4)+1 = 5^2$, $35 = 6(6)-1 = 5 \times 7$, $49 = 6(8)+1 = 7^2$.
+  * Boundary trap: $n=0$ gives $1 = 6(0)+1$, and $1$ is not prime.
+* **Example walkthrough:**
+  * *Prompt:* Explain why $91$ passes the $6n\pm1$ filter but is not prime.
+  * *Solution:* $91 = 6(15) + 1$, matching the form $6n+1$. However, $91 = 7 \times 13$, demonstrating that passing the form filter does not guarantee primality.
+
+---
+
+### Fact 2 · $p \mid ab \implies p \mid a$ or $p \mid b$ — only when $p$ is prime
+
+* **Meaning of the statement:** If a prime $p$ divides a product $ab$, it must divide at least one of the individual factors (Euclid's Lemma).
+* **Why it works (Uniqueness of prime factorisation):**
+  * A prime is an indivisible arithmetic building block. When $ab$ is decomposed into prime factors, the prime factor $p$ must originate from the prime factorisation of $a$ or that of $b$.
+* **The Trap — Omitting "prime" causes the property to collapse:**
+  * A composite number can be split across both factors without either individual factor being a multiple of it.
+  * Standard counterexample: $a=4, b=2, c=2$. Here, $4 \mid (2 \times 2)$, yet $4 \nmid 2$.
+* **Example walkthrough:**
+  * *Prompt:* Find the smallest $m > 1$ for which $m \mid 2 \cdot 3$ but $m \nmid 2$ and $m \nmid 3$.
+  * *Solution:* $m = 6$. The factors $2$ and $3$ are distributed across separate factors in the product $2 \cdot 3$, an arrangement impossible for prime divisors.
+
+---
+
+### Fact 3 · Squaring doubles every exponent: $12 \mid n^2 \iff 6 \mid n$
+
+* **Meaning of the statement:** Squaring an integer doubles every exponent in its prime factorisation. To determine the divisibility requirements for $n$ from $d \mid n^2$, prime-factorise $d$, divide each exponent by $2$, and round up ($\lceil e/2 \rceil$).
+* **Why it works ($n = \prod p_i^{e_i} \implies n^2 = \prod p_i^{2e_i}$):**
+  * All prime exponents in a square are strictly even.
+  * For prime $p$, $p \mid n^2 \implies p \mid n$.
+  * For composite divisors such as $12 = 2^2 \times 3^1$: if $12 \mid n^2$, then $n^2$ must contain at least $2^2$ and $3^1$. Because exponents in $n^2$ must be even, $n^2$ contains at least $2^2 \times 3^2$. Taking square roots forces $n$ to contain at least $2^1 \times 3^1 = 6$. Hence $12 \mid n^2 \iff 6 \mid n$.
+* **The Trap — Assuming $12 \mid n^2 \implies 12 \mid n$:**
+  * Counterexample: $n = 6$. Here $n^2 = 36$ is divisible by $12$, yet $n = 6$ is not divisible by $12$.
+* **Example walkthrough:**
+  * *Prompt:* If $72 \mid n^2$, what is the smallest positive integer that must divide $n$?
+  * *Solution:* Prime-factorise $72 = 2^3 \times 3^2$. Halve the exponents and round up: $2^{\lceil 3/2 \rceil} \times 3^{\lceil 2/2 \rceil} = 2^2 \times 3^1 = 12$. Thus, $12 \mid n$.
+
+---
+
+### Fact 4 · A remainder satisfies $0 \le r < a$ — the size is half the definition
+
+* **Meaning of the statement:** In Euclidean division $b = aq + r$, $r$ is a true remainder if and only if it strictly satisfies $0 \le r < a$.
+* **Why it works (Algebraic product vs. remainder):**
+  * Let $b = ax + r$ and $c = ay + s$ with $0 \le r, s < a$.
+  * The product expands as $bc = a(axy + xs + yr) + rs$. While $rs$ is separated algebraically, it may be greater than or equal to $a$, requiring reduction modulo $a$ to yield the true remainder.
+* **The Trap — Claiming the remainder of $bc$ is $rs$:**
+  * Counterexample: Let $a = 4$ and $b = c = 6$. The individual remainders are $r = 2$ and $s = 2$. Multiplying them gives $rs = 4$. However, $bc = 36 = 4 \times 9$, so the true remainder is $0$, not $4$.
+* **Example walkthrough:**
+  * *Prompt:* Numbers $b$ and $c$ both leave remainder $4$ on division by $7$. What remainder does $bc$ leave?
+  * *Solution:* $bc \equiv 4 \times 4 = 16 \equiv 2 \pmod 7$. The true remainder is $2$, since $16 \ge 7$.
+
+---
+
+### Fact 5 · Square residues: $n^2 \equiv 0, 1 \pmod{3, 4}$ and $0, 1, 4 \pmod 8$
+
+* **Meaning of the statement:** Perfect squares can only occupy restricted residue classes modulo small integers, eliminating large sets of integers from ever being square.
+* **Why it works (Exhaustive modular evaluation):**
+  * Modulo $3$: $0^2 \equiv 0$, $(\pm 1)^2 \equiv 1$. A square is never $2 \pmod 3$.
+  * Modulo $4$: Even numbers $(2k)^2 = 4k^2 \equiv 0$; odd numbers $(2k+1)^2 = 4k(k+1) + 1 \equiv 1$. A square is never $2$ or $3 \pmod 4$.
+  * Modulo $8$: Any odd square satisfies $(2k+1)^2 = 8 \cdot \frac{k(k+1)}{2} + 1 \equiv 1 \pmod 8$. Even squares yield $0$ or $4 \pmod 8$.
+* **The Trap — Assuming sums of squares can produce arbitrary residues:**
+  * $a^2 + b^2 \equiv 3 \pmod 4$ is impossible because the only available combinations mod $4$ are $0+0 \equiv 0$, $0+1 \equiv 1$, and $1+1 \equiv 2$.
+* **Example walkthrough:**
+  * *Prompt:* Show that no integer square can be two more than a multiple of $4$.
+  * *Solution:* Any such square would satisfy $n^2 \equiv 2 \pmod 4$. Because squares mod $4$ can only be $0$ or $1$, no such integer exists.
+
+---
+
+### Fact 6 · $\gcd(a, b) \mid (a \pm b)$, $\gcd(a, b+ka) = \gcd(a, b)$, $\gcd(n, n+1) = 1$
+
+* **Meaning of the statement:** Any common divisor of two integers divides their sum, difference, and every linear combination. Consequently, the greatest common divisor remains invariant when adding multiples of one term to the other.
+* **Why it works (Linear combinations and Euclidean steps):**
+  * If $d \mid a$ and $d \mid b$, then $a = dm$ and $b = dn$. For any integers $x, y$, $xa + yb = d(xm + yn)$, so $d \mid (xa + yb)$.
+  * Consecutive integers: Any common divisor $g$ of $n$ and $n+1$ must divide their difference $(n+1) - n = 1$. Since $g \mid 1$, $g = 1$ strictly.
+* **The Trap — Assuming $\gcd(u_1, u_n)$ never exceeds the initial $\gcd$:**
+  * While the initial factor $d$ is preserved through recurrences ($d \mid u_n$), the greatest common divisor between non-consecutive terms can grow.
+  * Counterexample: $u_1 = a = 21, u_2 = b = 7$ gives $\gcd(a, b) = 7$. For Fibonacci-type recurrences, $u_5 = 2a + 3b = 63$. Here, $\gcd(u_1, u_5) = \gcd(21, 63) = 21 > 7$.
+* **Example walkthrough:**
+  * *Prompt:* Given $\gcd(84, 30) = 6$, find $\gcd(30, 84 - 2 \cdot 30)$.
+  * *Solution:* $84 - 2(30) = 24$. By Euclidean reduction, $\gcd(30, 84 - 2 \cdot 30) = \gcd(30, 84) = 6$.
+
+---
+
+### Fact 7 · An irreducible polynomial still takes composite values
+
+* **Meaning of the statement:** An algebraic expression that cannot be factored into lower-degree integer polynomials can still generate composite integers when evaluated at integer inputs.
+* **Why it works (Polynomial structure vs. integer arithmetic):**
+  * Irreducibility is an algebraic property of polynomial rings over $\mathbb{Z}$, whereas primality is an arithmetic property of individual integers. No non-constant polynomial $P(x) \in \mathbb{Z}[x]$ can take only prime values across all integer inputs.
+* **The Trap — Treating algebraic irreducibility as proof of prime outputs:**
+  * The polynomial $P(x) = 3x^2 + 3x + 1$ has discriminant $\Delta = 9 - 12 = -3 < 0$, so it is irreducible over $\mathbb{Z}$.
+  * Evaluating at $x = 5$ yields $P(5) = 3(25) + 15 + 1 = 91 = 7 \times 13$, a composite value.
+* **Example walkthrough:**
+  * *Prompt:* The polynomial $x^2 + x + 1$ is irreducible over the integers. Find a positive integer input that gives a composite value.
+  * *Solution:* For $x = 4$, $P(4) = 16 + 4 + 1 = 21 = 3 \times 7$, which is composite.
+
+---
+
+### Fact 8 · $1$ is not prime; $2$ is the only even prime; $pk$ is composite only if $k > 1$
+
+* **Meaning of the statement:** Structural proofs frequently fail at the boundary cases: $1$ is neither prime nor composite, $2$ is the sole even prime, and divisibility by a prime $p$ proves compositeness only when the number strictly exceeds $p$.
+* **Why it works (Definitional boundaries):**
+  * A prime is defined as an integer strictly greater than $1$ with exactly two distinct positive divisors ($1$ and itself).
+  * If an integer $N$ satisfies $p \mid N$, then $N = pk$. For $N$ to be composite, $k$ must be strictly greater than $1$. If $k = 1$, $N = p$, which is prime.
+* **The Trap — Concluding "divisible by $3$, hence composite":**
+  * Counterexample: $N = 3$ is divisible by $3$, yet it is prime. The triplet $\{3, 5, 7\}$ consists of three consecutive odd primes because the first multiple of $3$ encountered is $3$ itself.
+* **Example walkthrough:**
+  * *Prompt:* A proof shows that a positive integer $N$ is divisible by $5$. What extra check is needed before concluding that $N$ is composite?
+  * *Solution:* Verify that $N \neq 5$. If $N = 5(1)$, it is prime; only $N = 5k$ with $k > 1$ is composite.
+
+---
+
+### Fact 9 · "Factor" means a divisor of an integer OR a factor of a polynomial
+
+* **Meaning of the statement:** Maintain a distinction between an algebraic factor $A(x)$ dividing $P(x)$ and an integer divisor $d$ dividing an integer $N$.
+* **Why it works (Category distinctions in algebra):**
+  * Saying $(x-1)$ is a factor of $x^2-1$ is an algebraic identity. Saying $7$ is a factor of $91$ is an arithmetic divisibility statement.
+  * The absence of polynomial factors does not prevent the integer outputs from having non-trivial integer divisors.
+* **The Trap — Conflating polynomial and integer factorisability:**
+  * Confusing the two allows an arguer to falsely leap from "the quadratic expression cannot be factored" to "every evaluated number has no factors".
+* **Example walkthrough:**
+  * *Prompt:* In the two statements "$x+2$ is a factor of $x^2+5x+6$" and "$5$ is a factor of $30$", what does "factor" mean in each?
+  * *Solution:* The former denotes polynomial factorisation over $\mathbb{Z}[x]$ ($x^2+5x+6 = (x+2)(x+3)$), whereas the latter denotes integer divisibility ($5 \mid 30$).
+
+---
+
+### Fact 10 · One counterexample disproves "for all"; no number of examples proves it
+
+* **Meaning of the statement:** Disproving a universal statement ($\forall n, P(n) \implies Q(n)$) requires a single instance where the premise $P(n)$ is true and the conclusion $Q(n)$ is false.
+* **Why it works (Truth conditions of conditional statements):**
+  * A conditional statement $P \implies Q$ is false only when $P$ is true and $Q$ is false.
+  * An example where $P$ is false does not test the claim; it is irrelevant to the truth value of the implication.
+* **The Trap — Using an instance where the premise fails as a counterexample:**
+  * To challenge "for all primes $n$, $n^2+2$ is composite", picking $n = 4$ is invalid because $4$ is not prime. The claim never asserted anything about $n = 4$.
+* **Example walkthrough:**
+  * *Prompt:* Is $n=9$ a counterexample to "if $n$ is even, then $n^2$ is even"?
+  * *Solution:* No. The hypothesis "$n$ is even" is false for $n=9$, so this case does not violate the implication.
+
+---
+
+### Fact 11 · Fermat's Little Theorem: $p\text{ prime} \implies a^p \equiv a \pmod p$
+
+* **Meaning of the statement:** For any prime $p$ and integer $a$, $a^p - a$ is a multiple of $p$. If $p \nmid a$, this simplifies to $a^{p-1} \equiv 1 \pmod p$.
+* **Why it works (Permutations of residue classes):**
+  * When $\gcd(a, p) = 1$, multiplication by $a$ permutes the non-zero residues $\{1, 2, \dots, p-1\} \pmod p$.
+  * Multiplying the elements: $a \cdot 2a \cdots (p-1)a \equiv 1 \cdot 2 \cdots (p-1) \pmod p$, which yields $a^{p-1}(p-1)! \equiv (p-1)! \pmod p$. Cancelling $(p-1)!$ yields $a^{p-1} \equiv 1 \pmod p$.
+* **The Trap — The converse is false (Pseudoprimes):**
+  * Passing Fermat's test does not prove a number is prime.
+  * Standard counterexample: $341 = 11 \times 31$ is composite, yet $2^{340} \equiv 1 \pmod{341}$.
+* **Example walkthrough:**
+  * *Prompt:* Without calculating a huge power, find the remainder of $3^{12}$ on division by $13$.
+  * *Solution:* Since $13$ is prime and $13 \nmid 3$, Fermat's Little Theorem states $3^{13-1} = 3^{12} \equiv 1 \pmod{13}$. The remainder is $1$.
+
+---
+
+### Fact 12 · If $m$ is odd, then $x^m+1$ has factor $x+1$
+
+* **Meaning of the statement:** A sum of equal powers $x^m + 1$ factors algebraically over the integers whenever the exponent $m$ is odd.
+* **Why it works (Alternating power series identity):**
+  * For odd $m$, setting $x = -1$ gives $(-1)^m + 1 = -1 + 1 = 0$. By the Factor Theorem, $(x+1)$ is a factor:
+    $$x^m + 1 = (x+1)(x^{m-1} - x^{m-2} + \dots - x + 1)$$
+  * For any integer $n = 2^k m$ with odd $m > 1$, setting $x = 2^{2^k}$ produces $2^n + 1 = (2^{2^k})^m + 1$, which contains the proper factor $2^{2^k} + 1$.
+* **The Trap — Applying the identity to even exponents:**
+  * For even $m$, $(-1)^m + 1 = 1 + 1 = 2 \neq 0$, so $(x+1)$ does not divide $x^m + 1$.
+* **Example walkthrough:**
+  * *Prompt:* Factorise $x^7+1$ enough to exhibit a proper factor of $3^7+1$.
+  * *Solution:* Since $7$ is odd, $x^7+1 = (x+1)(x^6 - x^5 + \dots + 1)$. Setting $x=3$ yields the proper factor $3+1 = 4$. Thus $4 \mid (3^7+1)$, proving it is composite.
+
+---
+
+### Fact 13 · $2^n - 1\text{ prime} \implies n\text{ prime}$; &nbsp;$2^n + 1\text{ prime} \implies n = 2^k$
+
+* **Meaning of the statement:** Necessary conditions on the exponent for Mersenne numbers ($2^n-1$) and Fermat numbers ($2^n+1$) to be prime.
+* **Why it works (Algebraic factorisation of composite powers):**
+  * If $n = ab$ is composite ($a, b > 1$), then $2^{ab} - 1 = (2^a - 1)(2^{a(b-1)} + \dots + 1)$, creating non-trivial factors. Thus, $n$ must be prime for $2^n - 1$ to be prime.
+  * If $n$ has an odd factor $m > 1$ ($n = 2^k m$), then Fact 12 factors $2^n + 1 = (2^{2^k})^m + 1$. To prevent this factorisation, $n$ cannot have any odd factors $> 1$, meaning $n$ must be a power of $2$.
+* **The Trap — Both converses are false:**
+  * $n = 11$ is prime, yet $2^{11}-1 = 2047 = 23 \times 89$ (composite).
+  * $n = 32 = 2^5$ is a power of $2$, yet $2^{32}+1 = 4294967297 = 641 \times 6700417$ (composite).
+* **Example walkthrough:**
+  * *Prompt:* Explain immediately why $2^{21}-1$ and $2^{12}+1$ are composite.
+  * *Solution:* $21 = 3 \times 7$ is composite, so $2^3 - 1 = 7$ is a proper factor of $2^{21}-1$. The exponent $12 = 4 \times 3$ contains the odd factor $3$, so $2^{12}+1 = (2^4)^3 + 1$ has the proper factor $2^4 + 1 = 17$.
+
+---
+
+### Fact 14 · A composite $N$ has a prime factor $\le \sqrt{N}$
+
+* **Meaning of the statement:** To test whether an integer $N > 1$ is prime, it is sufficient to test whether it is divisible by any prime up to $\lfloor\sqrt{N}\rfloor$.
+* **Why it works (Symmetry of complementary divisors):**
+  * If $N$ is composite, it can be written as $N = ab$ with $1 < a \le b$.
+  * If both $a > \sqrt{N}$ and $b > \sqrt{N}$, then $ab > \sqrt{N}\sqrt{N} = N$, a contradiction.
+  * Thus, the smaller factor satisfies $a \le \sqrt{N}$, and any prime factor dividing $a$ also satisfies $p \le \sqrt{N}$.
+* **The Trap — Stopping after a single non-divisibility test:**
+  * Demonstrating that $N$ is not divisible by $2$ or $3$ does not prove primality; all primes up to $\sqrt{N}$ must be checked.
+  * Example: $221$ is not divisible by $2, 3, 5, 7, 11$, but testing up to $\sqrt{221} \approx 14.86$ reveals $13 \mid 221$ ($221 = 13 \times 17$).
+* **Example walkthrough:**
+  * *Prompt:* Which primes must be tested to decide whether $143$ is prime?
+  * *Solution:* $\sqrt{143} < 12$. The test primes are $2, 3, 5, 7,$ and $11$. Testing $11$ gives $143 = 11 \times 13$, confirming it is composite.
+
+---
+
+### Fact 15 · $N = \prod p_i^{a_i} \implies d(N) = \prod(a_i + 1)$
+
+* **Meaning of the statement:** The total number of positive integer divisors of $N$, denoted $d(N)$, is calculated by adding $1$ to each exponent in its prime factorisation and multiplying the results.
+* **Why it works (Combinatorial choice of exponents):**
+  * Any divisor of $N = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$ must have the form $p_1^{c_1} p_2^{c_2} \cdots p_k^{c_k}$, where each exponent $c_i$ is chosen independently from the range $0 \le c_i \le a_i$.
+  * There are $(a_i + 1)$ choices for each prime factor. By the fundamental counting principle, the total number of combinations is $\prod (a_i + 1)$.
+* **The Trap — Multiplying raw exponents, or overlooking odd divisor counts:**
+  * Do not multiply the exponents themselves ($a_1 a_2 \cdots$); each must be incremented by $1$ first to account for the $p_i^0 = 1$ choice.
+  * Structural consequence: $d(N)$ is odd if and only if every $(a_i + 1)$ is odd, meaning every $a_i$ is even. Hence, $d(N)$ is odd $\iff N$ is a perfect square.
+* **Example walkthrough:**
+  * *Prompt:* How many positive divisors does $600 = 2^3 \cdot 3^1 \cdot 5^2$ have?
+  * *Solution:* Increment each prime exponent: $(3+1)(1+1)(2+1) = 4 \times 2 \times 3 = 24$ divisors.
+
+---
+
+### Fact 16 · $\gcd(a, b) = 1$ and $a \mid bc \implies a \mid c$ — coprime cancellation
+
+* **Meaning of the statement:** If $a$ divides a product $bc$ and shares no common factors with $b$, then $a$ must divide $c$.
+* **Why it works (Disjoint prime factor distributions):**
+  * Because $\gcd(a, b) = 1$, $a$ and $b$ share no prime factors. Every prime factor necessary to construct $a$ in the product $bc$ must therefore be supplied entirely by $c$.
+  * Bezout's identity provides the direct algebraic proof: $\gcd(a, b) = 1 \implies ax + by = 1$ for some integers $x, y$. Multiplying by $c$ gives $acx + bcy = c$. Since $a \mid acx$ and $a \mid bcy$ (as $a \mid bc$), $a$ divides their sum, which is $c$.
+* **The Trap — Cancelling without establishing coprimality:**
+  * Counterexample: $6 \mid (9 \times 4) = 36$. Here $6 \nmid 9$ and $6 \nmid 4$. Cancellation fails because $\gcd(6, 9) = 3 \neq 1$.
+* **Example walkthrough:**
+  * *Prompt:* Given $15 \mid 14m$, what follows, and why?
+  * *Solution:* $\gcd(15, 14) = 1$. By coprime cancellation, $15 \mid m$.
+
+---
+
+### Fact 17 · Factorising the expression $\neq$ factorising its values
+
+* **Meaning of the statement:** An algebraic factorisation $P(x) = A(x)B(x)$ guarantees a factorisation of the integer value $P(n) = A(n)B(n)$, but this particular factorisation proves $|P(n)|$ is composite only when $|A(n)| > 1$ and $|B(n)| > 1$.
+* **Why it works (The role of units $\pm 1$ in integer factorisation):**
+  * In algebra, $(x-1)(x+1)$ is a non-trivial factorisation into polynomials of degree $\ge 1$.
+  * In integer arithmetic, multiplying by $1$ or $-1$ is trivial (e.g., $3 = 1 \times 3$). If evaluating at $n$ causes either $|A(n)| = 1$ or $|B(n)| = 1$, the algebraic factorisation degenerates into a trivial factorization, allowing $P(n)$ to be prime.
+* **The Trap — Two complementary false assumptions:**
+  * Trap A: "Expression factors $\implies$ all output values are composite." Counterexample: $P(x) = x^2 - 1 = (x-1)(x+1)$. At $x = 2$, $P(2) = (1)(3) = 3$, which is prime.
+  * Trap B: "Expression is irreducible $\implies$ all output values are prime." Counterexample: $Q(x) = x^2 + 1$ is irreducible over $\mathbb{Z}$, but $Q(3) = 10 = 2 \times 5$, which is composite.
+* **Example walkthrough:**
+  * *Prompt:* Although $x^2-1 = (x-1)(x+1)$, why does this not prove that $x^2-1$ is composite at every integer $x > 1$?
+  * *Solution:* For $x = 2$, the factor $(x-1)$ evaluates to $1$. This gives $P(2) = 1 \times 3 = 3$, a prime number. An integer is proved composite by a product decomposition only when both factors have absolute value strictly greater than $1$.
+
+---
+
+
+# Part 3 — Quick checks
 
 Fifteen items on the facts that are easy to half-remember. Answer all fifteen, then open the toggle.
 
@@ -628,7 +912,7 @@ Working
 
 ---
 
-# Part 3 — Where the real questions live
+# Part 4 — Where the real questions live
 
 **All 19 of them are written out below the table**, with full solutions in toggles — this is the class
 set. The table is the index: it names each question's reasoning type and the facts it leans on.
