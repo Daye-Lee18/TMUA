@@ -16,6 +16,7 @@ wrong or uncertain and turns the underlying methods into targeted practice.
 | Paper | Marked paper | Dedicated clinic | Related clinic |
 |---|---|---|---|
 | **2016 Paper 1** | **[Open marked paper](<tackled_papers/2016 P1.pdf>)** | **[Q1, Q8, Q13, Q17, Q18 & Q20 clinic](dedicated_paper_clinic_for_woonju/2016_p1_only_for_woonju.qmd)** | Graphs — sketching: **[Concepts](../../lessons/graphs_sketching/concepts.qmd)** · **[Class material](../../lessons/graphs_sketching/class_material.qmd)** |
+| **2016 Paper 2** | **[Open marked paper](<tackled_papers/2016 P2.pdf>)** | **[Q5, Q7, Q17, Q18 & Q20 clinic](dedicated_paper_clinic_for_woonju/2016_p2_only_for_woonju.qmd)** | Paper 2 toolkit: **[Counterexamples](../../toolkit/s04_quantifiers_negation.qmd)** · **[Statement forms](../../toolkit/s01_statement_forms.qmd)** · **[Proof methods](../../toolkit/s05_proof_methods.qmd)** · **[Divisors & primes](../../toolkit/t01_divisors_primes.qmd)** |
 
 ::: {.callout-tip}
 ## 📅 [D-day plan → 15 Oct](schedule.qmd)

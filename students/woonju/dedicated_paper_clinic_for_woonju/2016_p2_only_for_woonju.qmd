@@ -1,0 +1,641 @@
+---
+title: "2016 Paper 2 · Dedicated Clinic"
+subtitle: "Questions 5, 7, 17, 18 and 20"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+BLUE = "#2b6cb0"
+RED = "#c53030"
+GREY = "0.35"
+```
+
+This page collects the questions from the 2016 Paper 2 that were answered wrongly, or answered correctly
+but with doubt. Each one is rebuilt into the method it was testing, followed by extra practice on that
+method at the same level or harder.
+
+**Related clinics:** Paper 2 reasoning toolkit —
+**[Counterexamples](../../../toolkit/s04_quantifiers_negation.qmd)** ·
+**[Statement forms](../../../toolkit/s01_statement_forms.qmd)** ·
+**[Proof methods](../../../toolkit/s05_proof_methods.qmd)** ·
+**[Divisors & primes](../../../toolkit/t01_divisors_primes.qmd)**.
+
+# Question 5 - Counterexamples to a claim about primes
+
+## Original question
+
+Consider the statement:
+
+&nbsp;&nbsp;(\*) A whole number $n$ is prime **if** it is 1 less or 5 less than a multiple of 6.
+
+How many counterexamples to (\*) are there in the range $0<n<50$?
+
+&nbsp;&nbsp;**A** 2 &nbsp;&nbsp; **B** 3 &nbsp;&nbsp; **C** 4 &nbsp;&nbsp; **D** 5 &nbsp;&nbsp; **E** 6
+
+---
+
+## The method to recall
+
+Two separate things have to be right here, and only one of them is arithmetic.
+
+**First, read the "if" in the right direction.** "$n$ is prime **if** $P$" means $P\Rightarrow n$ prime —
+*not* the other way round. So rewrite it before doing anything else:
+
+> If $n$ is 1 less or 5 less than a multiple of 6, then $n$ is prime.
+
+A counterexample is therefore a number that **does** have the stated form but is **not** prime. You never
+have to look at any other number.
+
+**Second, $1$ is not prime.** A prime has exactly two distinct positive divisors, $1$ and itself. The number
+$1$ has only one divisor, so it fails the definition — and it is deliberately the first number the candidate
+list throws at you here.
+
+::: {.callout-tip}
+## The form in one line
+
+"1 less than a multiple of 6" is $n=6k-1$, and "5 less than a multiple of 6" is $n=6k-5=6(k-1)+1$. So the
+condition is simply
+
+$$n\equiv\pm1 \pmod 6 .$$
+
+Every prime above $3$ has this form, which is exactly why the false statement looks plausible. The converse
+is the true one.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+List every $n$ with $0<n<50$ and $n\equiv\pm1\pmod 6$, then test each for primality.
+
+| $n$ | 1 | 5 | 7 | 11 | 13 | 17 | 19 | 23 | 25 | 29 | 31 | 35 | 37 | 41 | 43 | 47 | 49 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| prime? | **no** | yes | yes | yes | yes | yes | yes | yes | **no** | yes | yes | **no** | yes | yes | yes | yes | **no** |
+
+The four that have the right form but are not prime are
+
+$$1,\qquad 25=5^2,\qquad 35=5\times7,\qquad 49=7^2 .$$
+
+*Apart from $1$, each is a product of primes that are themselves $\equiv\pm1\pmod 6$ — and
+$(\pm1)(\pm1)\equiv\pm1$, so the product keeps the form while losing the primality.* So there are **4**
+counterexamples: **C**.
+
+**Where the mark is lost.** Forgetting $1$ gives $3$, which is option B — a distractor placed there for
+exactly that slip.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Question 5 practice
+
+Same shape of question: a plausible claim about primes, and you must hunt for the cases that satisfy the
+hypothesis but fail the conclusion. State a counterexample explicitly, or say that none exists.
+
+1. For the same statement (\*), how many counterexamples are there in the range $0<n<100$?
+2. "Every number of the form $n^2+n+41$, for $n=0,1,2,\dots$, is prime." Find the **smallest** counterexample.
+3. "If $p$ is prime then $2^p-1$ is prime." Find the smallest prime $p$ that is a counterexample.
+4. "If $n$ is an odd whole number greater than 1, then $n$ is prime." How many counterexamples are there with
+   $0<n<50$?
+5. "For every whole number $n\ge1$, $n^2+1$ is prime." Find the smallest counterexample.
+6. "If $n>1$ is not prime, then $n$ has a prime factor $p$ with $p\le\sqrt n$." Find a counterexample, or
+   explain why there is none.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **10.** The list grows to $1,25,35,49,55,65,77,85,91,95$. *Every one except $1$ is a product of two
+   primes that are themselves $\equiv\pm1\pmod 6$; $1$ is a counterexample for the separate reason that it
+   is not prime by definition.*
+2. **$n=40$**, giving $40^2+40+41=1681=41^2$. *The formula cannot possibly stay prime: putting $n=41$ makes
+   every term a multiple of $41$, and $n=40$ fails first because $1681=41^2$.*
+3. **$p=11$**, giving $2^{11}-1=2047=23\times89$. *The small cases $p=2,3,5,7$ all work, which is what makes
+   the claim tempting.*
+4. **10.** They are $9,15,21,25,27,33,35,39,45,49$. *The number $1$ is odd and not prime, but the claim
+   says "greater than 1", so it is outside the hypothesis and does not count.*
+5. **$n=3$**, giving $3^2+1=10=2\times5$. *Note $n=1$ and $n=2$ give $2$ and $5$, both prime.*
+6. **No counterexample exists.** *If $n=ab$ with $1<a\le b$ then $a^2\le ab=n$, so $a\le\sqrt n$, and any
+   prime factor of $a$ is at most $a$.* This is the fact behind trial division up to $\sqrt n$.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+# Question 7 - The direction a proof must run
+
+## Original question
+
+The four real numbers $a,b,c,d$ are all greater than 1. Suppose that they satisfy the equation
+$\log_c d=(\log_a b)^2$. Use some of the lines given to construct a proof that, in this case, it follows that
+
+$$(*)\qquad \log_b d=(\log_a b)(\log_a c).$$
+
+&nbsp;&nbsp;**(1)** Let $x=\log_a b$ and $y=\log_a c$
+
+&nbsp;&nbsp;**(2)** $d=(c^x)^2$ &nbsp;&nbsp; **(3)** $d=c^{(x^2)}$ &nbsp;&nbsp; **(4)** $d=b^{xy}$
+
+&nbsp;&nbsp;**(5)** $d=(a^y)^{(x^2)}$ &nbsp;&nbsp; **(6)** $d=((a^y)^x)^2$ &nbsp;&nbsp; **(7)** $d=(a^x)^{xy}$
+
+&nbsp;&nbsp;**(8)** $d=a^{(y^2x)}$ &nbsp;&nbsp; **(9)** $d=a^{(x^2y)}$
+
+&nbsp;&nbsp;**A** (1). Then (2), so (6), so (8), so (7), and therefore (4), hence (\*) as required.
+
+&nbsp;&nbsp;**B** (1). Then (2), so (7), so (8), so (6), and therefore (4), hence (\*) as required.
+
+&nbsp;&nbsp;**C** (1). Then (3), so (5), so (9), so (7), and therefore (4), hence (\*) as required.
+
+&nbsp;&nbsp;**D** (1). Then (3), so (7), so (9), so (5), and therefore (4), hence (\*) as required.
+
+&nbsp;&nbsp;**E** (1). Then (4), so (5), so (9), so (7), and therefore (3), hence (\*) as required.
+
+&nbsp;&nbsp;**F** (1). Then (4), so (6), so (8), so (7), and therefore (2), hence (\*) as required.
+
+&nbsp;&nbsp;**G** (1). Then (4), so (7), so (8), so (6), and therefore (2), hence (\*) as required.
+
+&nbsp;&nbsp;**H** (1). Then (4), so (7), so (9), so (5), and therefore (3), hence (\*) as required.
+
+---
+
+## The method to recall
+
+::: {.callout-important}
+## The error to stop making
+
+The four options **E, F, G, H** all go **(1), then (4)**. Line (4) is $d=b^{xy}$ — and taking $\log_b$ of
+that gives exactly $\log_b d=xy=(\log_a b)(\log_a c)$, which **is** the statement $(*)$ you were asked to
+prove.
+
+So those four start by writing down the conclusion. A proof of $A\Rightarrow B$ has to **start at $A$** and
+finish at $B$. Starting at $B$ and arriving at $A$ proves the converse $B\Rightarrow A$, which is a different
+statement and not what was asked.
+
+Before choosing, label the lines: which one is the **hypothesis** in disguise, and which is the
+**conclusion** in disguise? Then eliminate every option that begins at the conclusion.
+:::
+
+**How to run the chain.** The hypothesis is $\log_c d=(\log_a b)^2$. With $x=\log_a b$ and $y=\log_a c$ it
+reads $\log_c d=x^2$, i.e. $d=c^{(x^2)}$ — line **(3)**. That is where the proof must begin. From there,
+each step converts one base into another until the base is $b$.
+
+| Line | What it says | Why it is legal |
+|---|---|---|
+| (3) $d=c^{(x^2)}$ | the hypothesis, in index form | $\log_c d=x^2$ |
+| (5) $d=(a^y)^{(x^2)}$ | rewrite $c$ in base $a$ | $y=\log_a c$, so $c=a^{y}$ |
+| (9) $d=a^{(x^2y)}$ | multiply the indices | $(a^{y})^{(x^2)}=a^{x^2y}$ |
+| (7) $d=(a^x)^{xy}$ | split the index for base $b$ | $x^2y=x\cdot xy$ |
+| (4) $d=b^{xy}$ | rewrite $a^x$ as $b$ | $x=\log_a b$, so $b=a^{x}$ |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Only **C** and **D** begin at the hypothesis, (3). Of those two, D goes $(3)\to(7)$, which would need
+$c^{(x^2)}=(a^x)^{xy}$ with no intermediate step converting $c$ into a power of $a$ — not a single legal
+move. C makes each conversion one at a time:
+
+$$d=c^{(x^2)}=(a^{y})^{(x^2)}=a^{(x^2y)}=(a^{x})^{xy}=b^{xy},$$
+
+and taking $\log_b$ of both ends gives $\log_b d=xy=(\log_a b)(\log_a c)$, which is $(*)$.
+
+The answer is **C**.
+
+*The whole question is decided before any algebra: four of the eight options begin at the conclusion, and two
+of the remaining four take an illegal shortcut.*
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Question 7 practice
+
+For each one, set $x=\log_a b$ and $y=\log_a c$, then write the chain from the hypothesis to the conclusion,
+one base change at a time. State at each step which law you used.
+
+1. $a,b,c,d>1$ and $\log_c d=(\log_a b)^3$. Prove that $\log_b d=(\log_a b)^2(\log_a c)$.
+2. $a,b,c,d>1$ and $\log_c d=(\log_a b)(\log_a c)$. Prove that $\log_a d=(\log_a b)(\log_a c)^2$.
+3. Someone writes: *"Suppose $\log_b d=(\log_a b)(\log_a c)$. Then $d=b^{xy}=(a^x)^{xy}=a^{x^2y}=(a^y)^{x^2}=c^{(x^2)}$, so $\log_c d=(\log_a b)^2$ as required."* The algebra is correct at every step. What has **not** been proved, and what has?
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. $\log_c d=x^3$ gives $d=c^{(x^3)}=(a^{y})^{(x^3)}=a^{(x^3y)}=(a^{x})^{(x^2y)}=b^{(x^2y)}$. So
+   $\log_b d=x^2y=(\log_a b)^2(\log_a c)$. $\blacksquare$
+2. $\log_c d=xy$ gives $d=c^{(xy)}=(a^{y})^{(xy)}=a^{(xy^2)}$. So $\log_a d=xy^2=(\log_a b)(\log_a c)^2$.
+   $\blacksquare$
+3. The chain starts at the **conclusion** and ends at the **hypothesis**, so what it proves is the
+   **converse**: $\log_b d=(\log_a b)(\log_a c)\Rightarrow\log_c d=(\log_a b)^2$. *Here every step happens to
+   be reversible, so both directions are in fact true — but the argument as written establishes only the
+   converse, and in a question that asked for the forward direction it earns nothing.* To repair it, either
+   run the chain the other way, or state explicitly that every step is an equivalence.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+# Question 17 - Quantifiers over a parameter, settled by a graph
+
+## Original question
+
+Consider these simultaneous equations, where $c$ is a constant:
+
+$$y=3\sin x+2,\qquad y=x+c.$$
+
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**1** For some value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there is at
+least one solution with $-\pi<x<0$.
+
+&nbsp;&nbsp;**2** For some value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there are
+no solutions with $-\pi<x<0$.
+
+&nbsp;&nbsp;**3** For some value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there are
+no solutions with $x>\pi$.
+
+&nbsp;&nbsp;**A** none &nbsp;&nbsp; **B** 1 only &nbsp;&nbsp; **C** 2 only &nbsp;&nbsp; **D** 3 only
+&nbsp;&nbsp; **E** 1 and 2 only &nbsp;&nbsp; **F** 1 and 3 only &nbsp;&nbsp; **G** 2 and 3 only
+&nbsp;&nbsp; **H** 1, 2 and 3
+
+---
+
+## The method to recall
+
+Each statement says **"for some value of $c$"**. To make one true you only have to **produce a single $c$**
+that works — you do not have to describe all of them, and you never solve the equation.
+
+So draw the fixed curve $y=3\sin x+2$ once, then slide the line $y=x+c$ up and down and watch the crossings.
+The line always has gradient $1$; changing $c$ only translates it vertically.
+
+::: {.callout-tip}
+## Reading the fixed curve first
+
+$y=3\sin x+2$ is the sine curve stretched by $3$ vertically and then raised by $2$. So it
+
+- oscillates between $2-3=-1$ and $2+3=5$,
+- crosses the $y$-axis at $2$,
+- reaches its maximum $5$ at $x=\pi/2$ and comes back down to $2$ at $x=\pi$.
+
+The line $y=x+c$ is unbounded, so far enough to the right it is above $5$ and can never meet the curve again.
+That single observation is what settles statement 3.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The fixed curve with two useful positions of the line: c=1.9 (statement 1) and c=0 (statements 2 and 3)."
+x = np.linspace(-np.pi, 2*np.pi + 1.2, 1600)
+fig, ax = plt.subplots(figsize=(7.4, 4.0))
+ax.plot(x, 3*np.sin(x) + 2, color=BLUE, lw=2, label=r"$y=3\sin x+2$")
+ax.plot(x, x + 1.9, color=RED, lw=1.5, ls="--", label=r"$y=x+1.9$")
+ax.plot(x, x + 0.0, color="#2f855a", lw=1.5, label=r"$y=x$")
+for xv, lab in [(0, "0"), (np.pi, r"$\pi$")]:
+    ax.axvline(xv, color=GREY, lw=0.7, ls=":")
+ax.axhline(5, color=GREY, lw=0.7, ls=":")
+ax.axhline(-1, color=GREY, lw=0.7, ls=":")
+ax.text(2*np.pi - 0.1, 5.15, "max 5", color=GREY, fontsize=9)
+ax.text(2*np.pi - 0.1, -1.55, "min −1", color=GREY, fontsize=9)
+ax.scatter([-1.8955, 0.0, 1.8955], [-1.8955, 0.0, 1.8955], s=0)   # keep limits stable
+ax.set_xlim(-np.pi, 2*np.pi + 1.2)
+ax.set_ylim(-4, 8)
+ax.set_xticks([-np.pi, 0, np.pi/2, np.pi, 2*np.pi])
+ax.set_xticklabels([r"$-\pi$", "0", r"$\pi/2$", r"$\pi$", r"$2\pi$"])
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(fontsize=8, loc="upper left")
+ax.grid(alpha=0.18)
+plt.tight_layout()
+plt.show()
+```
+
+**Statement 1 — true.** Take $c$ just below $2$, say $c=1.9$. The line then passes just under the curve's
+$y$-intercept, so it cuts the curve twice on $-\pi<x<0$ and once on the descending part of $0\le x\le\pi$.
+*One crossing on $[0,\pi]$ and two on $(-\pi,0)$ satisfies "exactly one" and "at least one".*
+
+**Statement 2 — true.** Take $c=0$, so the line is $y=x$. On $-\pi<x<0$ the curve is below $2$ and falling
+towards $-1$ while the line is negative but above the curve throughout, so there is no crossing there. On
+$0\le x\le\pi$ there is exactly one, at $x\approx2.85$.
+
+**Statement 3 — true.** The same $c=0$ works. For $x>\pi$ the curve never exceeds $5$, and the line
+$y=x$ is already above $3.14$ at $x=\pi$ and increasing. *Checking the one place they could still meet: on
+$\pi<x<2\pi$ the curve is below $2$ while the line is above $\pi$, so there is no crossing; and for
+$x\ge5$ the line is above $5$, which the curve can never reach.*
+
+All three are true, so the answer is **H**.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Question 17 practice
+
+Same method: draw the fixed curve, slide the line, and remember that "for some $c$" needs only one witness —
+while "for every $c$" or "there is no $c$" needs an argument that covers them all.
+
+1. For $y=2\sin x+1$ and $y=x+c$, decide whether each is true.
+   &nbsp;&nbsp;**(a)** For some $c$ there are exactly two solutions with $0\le x\le\pi$.
+   &nbsp;&nbsp;**(b)** For some $c$ there are no solutions at all.
+   &nbsp;&nbsp;**(c)** For some $c$ there are exactly three solutions in total.
+2. For $y=3\cos x+2$ and $y=x+c$: is it possible to choose $c$ so that there are exactly two solutions with
+   $0\le x\le\pi$?
+3. For $y=3\sin x+2$ and $y=x+c$, what is the largest number of solutions the system can have in total, and
+   roughly which $c$ achieves it?
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **(a) True, (b) False, (c) True.**
+   For (a) and (c) take $c=1$: the equation becomes $2\sin x+1=x+1$, i.e. $2\sin x=x$, whose solutions are
+   $x=0$ and $x=\pm1.8955$. *Two of them, $0$ and $1.8955$, lie in $[0,\pi]$, and there are three in total.*
+   For (b), put $h(x)=2\sin x+1-x$. *As $x\to-\infty$, $h(x)\to+\infty$; as $x\to+\infty$, $h(x)\to-\infty$;
+   and $h$ is continuous. So $h(x)=c$ has a solution for **every** $c$* — the same argument works for any
+   line of non-zero gradient against a bounded curve.
+2. **No.** On $0\le x\le\pi$, $h(x)=3\cos x+2-x$ has $h'(x)=-3\sin x-1$, which is at most $-1$ and so
+   strictly negative. *A strictly decreasing function takes each value at most once,* so there is never more
+   than one solution in that interval.
+3. **Three.** $h(x)=3\sin x+2-x$ has $h'(x)=3\cos x-1=0$ at $x=\pm1.231$, giving a local maximum
+   $h(1.231)\approx3.597$ and a local minimum $h(-1.231)\approx0.405$. *Any $c$ strictly between those two
+   values is met three times; outside that range, once.* For example $c=2$ gives three solutions.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+# Question 18 - A counterexample to an inequality between integrals
+
+## Original question
+
+Consider this statement about a function $f(x)$:
+
+&nbsp;&nbsp;(\*) If $\bigl(f(x)\bigr)^2\le1$ for all $-1\le x\le1$ then
+$\displaystyle\int_{-1}^{1}\bigl(f(x)\bigr)^2\,\mathrm dx\le\int_{-1}^{1}f(x)\,\mathrm dx$.
+
+Which one of the following functions provides a **counterexample** to (\*)?
+
+&nbsp;&nbsp;**A** $f(x)=x+\tfrac12$ &nbsp;&nbsp; **B** $f(x)=x-\tfrac12$ &nbsp;&nbsp; **C** $f(x)=x+x^3$
+
+&nbsp;&nbsp;**D** $f(x)=x-x^3$ &nbsp;&nbsp; **E** $f(x)=x^2+x^4$ &nbsp;&nbsp; **F** $f(x)=x^2-x^4$
+
+---
+
+## The method to recall
+
+A counterexample to "if $P$ then $Q$" must make $P$ **true** and $Q$ **false**. Both halves have to be
+checked, and the first half is the cheap one:
+
+1. **Test the hypothesis first.** Does $\bigl(f(x)\bigr)^2\le1$ hold on the *whole* of $[-1,1]$? One point
+   where it fails kills the option immediately — no integration needed.
+2. **Only then test the conclusion.** Compute both integrals and see whether the inequality fails.
+
+::: {.callout-tip}
+## The shortcut that decides this question
+
+If $f$ is an **odd** function then $\displaystyle\int_{-1}^{1}f(x)\,\mathrm dx=0$, while $f^2$ is **even** and
+non-negative, so $\displaystyle\int_{-1}^{1}\bigl(f(x)\bigr)^2\,\mathrm dx>0$ unless $f$ is identically zero.
+
+So **every odd $f$ that satisfies the hypothesis is automatically a counterexample.** Scan the list for an
+odd function whose square stays below $1$, and you are done.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Step 1 — which options even satisfy the hypothesis?**
+
+| Option | $\max\lvert f\rvert$ on $[-1,1]$ | $\bigl(f(x)\bigr)^2\le1$? |
+|---|---|---|
+| **A** $x+\tfrac12$ | $\tfrac32$ at $x=1$ | no |
+| **B** $x-\tfrac12$ | $\tfrac32$ at $x=-1$ | no |
+| **C** $x+x^3$ | $2$ at $x=1$ | no |
+| **D** $x-x^3$ | $\tfrac{2\sqrt3}{9}\approx0.385$ | **yes** |
+| **E** $x^2+x^4$ | $2$ at $x=1$ | no |
+| **F** $x^2-x^4$ | $\tfrac14$ at $x=\pm\tfrac1{\sqrt2}$ | **yes** |
+
+*Four options are eliminated without a single integral.* For D, $f'(x)=1-3x^2=0$ at $x=\pm\tfrac1{\sqrt3}$,
+and $f\bigl(\tfrac1{\sqrt3}\bigr)=\tfrac{2}{3\sqrt3}=\tfrac{2\sqrt3}{9}$, whose square is about $0.148$.
+
+**Step 2 — which of D and F makes the conclusion fail?**
+
+For **D**, $f(x)=x-x^3$ is odd, so
+
+$$\int_{-1}^{1}(x-x^3)\,\mathrm dx=0,
+\qquad
+\int_{-1}^{1}(x-x^3)^2\,\mathrm dx=2\left(\tfrac13-\tfrac25+\tfrac17\right)=\tfrac{16}{105}.$$
+
+Since $\tfrac{16}{105}>0$, the conclusion fails. **D is a counterexample.**
+
+For **F**, $f(x)=x^2-x^4$ is even and non-negative, and
+
+$$\int_{-1}^{1}(x^2-x^4)\,\mathrm dx=\tfrac{4}{15},
+\qquad
+\int_{-1}^{1}(x^2-x^4)^2\,\mathrm dx=\tfrac{16}{315}.$$
+
+Here $\tfrac{16}{315}\approx0.051\le\tfrac{4}{15}\approx0.267$, so the conclusion holds and F is **not** a
+counterexample.
+
+The answer is **D**.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "D (odd): the signed area cancels to 0 while the squared area is positive. F (even, non-negative): both areas are positive and f dominates f² because 0 ≤ f ≤ 1."
+x = np.linspace(-1, 1, 1000)
+fig, axes = plt.subplots(2, 1, figsize=(7.0, 6.0))
+for ax, (fn, lab) in zip(axes, [(lambda t: t - t**3, r"D:  $f(x)=x-x^3$   (odd)"),
+                                (lambda t: t**2 - t**4, r"F:  $f(x)=x^2-x^4$   (even)")]):
+    y = fn(x)
+    ax.plot(x, y, color=BLUE, lw=2, label=r"$f(x)$")
+    ax.plot(x, y**2, color=RED, lw=2, ls="--", label=r"$(f(x))^2$")
+    ax.fill_between(x, y, 0, color=BLUE, alpha=0.14)
+    ax.fill_between(x, y**2, 0, color=RED, alpha=0.14)
+    ax.axhline(0, color=GREY, lw=0.8)
+    ax.axvline(0, color=GREY, lw=0.8)
+    ax.set_title(lab, fontsize=10)
+    ax.set_xlabel("x"); ax.set_ylabel("y")
+    ax.legend(fontsize=8)
+    ax.grid(alpha=0.18)
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Question 18 practice
+
+Throughout, (\*) is the statement above. Check the hypothesis before the conclusion, and look for parity.
+
+1. Is $f(x)=\tfrac12x$ a counterexample to (\*)?
+2. Is $f(x)=x-x^5$ a counterexample to (\*)?
+3. Is $f(x)=x^2-x^6$ a counterexample to (\*)?
+4. Is $f(x)=x^3$ a counterexample to (\*)?
+5. Explain why **no even, non-negative** $f$ with $\bigl(f(x)\bigr)^2\le1$ on $[-1,1]$ can be a counterexample
+   to (\*).
+6. Give a counterexample to (\*) that is **not** an odd function, and that is simpler than any option on the
+   paper.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **Yes.** $\lvert f\rvert\le\tfrac12$ so the hypothesis holds; $f$ is odd so $\int_{-1}^1f=0$, while
+   $\int_{-1}^1\tfrac14x^2\,\mathrm dx=\tfrac16>0$.
+2. **Yes.** $f'(x)=1-5x^4=0$ at $x=5^{-1/4}$, where $f\approx0.535$, so $f^2\le0.287\le1$. $f$ is odd, and
+   $\int_{-1}^1(x-x^5)^2\,\mathrm dx=\tfrac{64}{231}>0=\int_{-1}^1 f$.
+3. **No.** The hypothesis holds ($\max\lvert f\rvert=\tfrac{2\sqrt3}{9}\approx0.385$), but
+   $\int_{-1}^1 f^2=\tfrac{64}{585}\approx0.109$ and $\int_{-1}^1 f=\tfrac{8}{21}\approx0.381$, so the
+   conclusion is true.
+4. **Yes.** $\lvert x^3\rvert\le1$ on $[-1,1]$, so the hypothesis holds (with equality at the endpoints);
+   $f$ is odd, and $\int_{-1}^1x^6\,\mathrm dx=\tfrac27>0$.
+5. *If $f$ is even and $0\le f(x)\le1$ on $[-1,1]$ then $\bigl(f(x)\bigr)^2\le f(x)$ at every point, because
+   multiplying $f(x)\le1$ by the non-negative number $f(x)$ preserves the inequality.* Integrating a
+   pointwise inequality preserves it, so $\int_{-1}^1 f^2\le\int_{-1}^1 f$ and the conclusion always holds.
+   Evenness is not even needed — non-negativity and $f\le1$ are enough.
+6. **$f(x)=-1$.** *It satisfies the hypothesis exactly, since $(-1)^2=1\le1$; then $\int_{-1}^1f^2=2$ while
+   $\int_{-1}^1f=-2$, and $2\le-2$ is false.* Oddness was only a convenient route to $\int f=0$ — any
+   function whose signed area is small or negative while its square has real area will do, and the constant
+   $-1$ is the cheapest of all. The paper simply did not offer it among the options.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+# Question 20 - Regular polygons and interior angles
+
+## Original question
+
+Each interior angle of a regular polygon with $n$ sides is $\tfrac34$ of each interior angle of a second
+regular polygon with $m$ sides.
+
+How many pairs of positive integers $n$ and $m$ are there for which this statement is true?
+
+&nbsp;&nbsp;**A** none &nbsp;&nbsp; **B** 1 &nbsp;&nbsp; **C** 2 &nbsp;&nbsp; **D** 3 &nbsp;&nbsp; **E** 4
+&nbsp;&nbsp; **F** 5 &nbsp;&nbsp; **G** 6 &nbsp;&nbsp; **H** infinitely many
+
+---
+
+## The method to recall
+
+::: {.callout-tip}
+## The one formula, derived not memorised
+
+The exterior angles of any polygon add to $360^\circ$, so for a **regular** $n$-gon each exterior angle is
+$\dfrac{360^\circ}{n}$ and therefore each interior angle is
+
+$$180^\circ-\frac{360^\circ}{n}.$$
+
+A polygon needs at least three sides, so **$n\ge3$ and $m\ge3$** — that constraint does as much work in
+these questions as the algebra does.
+:::
+
+**The method.** Write the condition, clear the $180^\circ$, and rearrange into a form where one variable is
+**bounded**. Then test the finitely many cases by hand.
+
+1. Write $180-\dfrac{360}{n}=\dfrac34\left(180-\dfrac{360}{m}\right)$.
+2. Divide by $180$: $\;1-\dfrac2n=\dfrac34\left(1-\dfrac2m\right)$.
+3. Multiply by $4$ and expand: $\;4-\dfrac8n=3-\dfrac6m$, so $\;\dfrac8n-\dfrac6m=1$.
+4. Bound a variable: since $\dfrac6m>0$ we need $\dfrac8n>1$, so $n<8$, i.e. $n\in\{3,4,5,6,7\}$.
+5. Test each, and keep only the integer $m\ge3$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+From $\dfrac8n-\dfrac6m=1$ we get $\dfrac6m=\dfrac8n-1=\dfrac{8-n}{n}$, so
+
+$$m=\frac{6n}{8-n}.$$
+
+| $n$ | $m=\dfrac{6n}{8-n}$ | integer $\ge3$? |
+|---|---|---|
+| 3 | $\tfrac{18}{5}$ | no |
+| 4 | $6$ | **yes** |
+| 5 | $10$ | **yes** |
+| 6 | $18$ | **yes** |
+| 7 | $42$ | **yes** |
+
+*The case $n=3$ fails only because $5\nmid18$; nothing geometric rules it out, which is why every case has to
+be tested rather than guessed.*
+
+The four pairs are
+
+$$(n,m)=(4,6),\quad(5,10),\quad(6,18),\quad(7,42),$$
+
+so the answer is **E**.
+
+**Check one.** A square has interior angle $90^\circ$ and a regular hexagon has $120^\circ$, and
+$90=\tfrac34\times120$. ✓
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Question 20 practice
+
+Same five steps each time: interior angle $=180-\dfrac{360}{n}$, divide out the $180$, rearrange until one
+variable is bounded, then test the finitely many cases with $n,m\ge3$.
+
+1. Each interior angle of a regular $n$-gon is $\tfrac23$ of each interior angle of a regular $m$-gon. How
+   many pairs $(n,m)$ are there?
+2. Each interior angle of a regular $n$-gon is $\tfrac45$ of each interior angle of a regular $m$-gon. How
+   many pairs $(n,m)$ are there?
+3. Each interior angle of a regular $n$-gon is **half** of each interior angle of a regular $m$-gon. How many
+   pairs $(n,m)$ are there?
+4. Harder. Each interior angle of a regular $n$-gon is $\tfrac56$ of each interior angle of a regular
+   $m$-gon. How many pairs $(n,m)$ are there?
+5. Harder. For which fractions $\tfrac pq$ with $0<\tfrac pq<1$ does the equation have **no** solution at
+   all? Give one such fraction and justify it.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **3 pairs:** $(3,4),(4,8),(5,20)$. *From $1-\tfrac2n=\tfrac23\bigl(1-\tfrac2m\bigr)$ we get
+   $\tfrac6n-\tfrac4m=1$, so $n<6$ and only $n=3,4,5$ need testing.*
+2. **4 pairs:** $(5,8),(6,12),(8,32),(9,72)$. *Here $\tfrac{10}{n}-\tfrac8m=1$ gives $n<10$; $n=3,4$ make
+   $m$ negative and $n=7$ makes $m=\tfrac{56}{3}$.*
+3. **1 pair:** $(3,6)$. *$\tfrac4n-\tfrac2m=1$ forces $n<4$, so $n=3$ is the only candidate, and it gives
+   $m=6$* — an equilateral triangle ($60^\circ$) and a regular hexagon ($120^\circ$).
+4. **7 pairs:** $(4,5),(6,10),(7,14),(8,20),(9,30),(10,50),(11,110)$. *$\tfrac{12}{n}-\tfrac{10}{m}=1$ gives
+   $n<12$, and $n=3,5$ fail the integer test.*
+5. Take $\tfrac pq$ very small, for instance $\tfrac1{10}$. *The general equation is
+   $\tfrac{2q}{n}-\tfrac{2p}{m}=q-p$, so $\tfrac{2q}{n}>q-p$ and hence $n<\dfrac{2q}{q-p}$. With
+   $p=1,q=10$ this gives $n<\tfrac{20}{9}<3$, which contradicts $n\ge3$.* So no pair exists: the smallest
+   interior angle available is the triangle's $60^\circ$, and one tenth of even the largest possible interior
+   angle (just under $180^\circ$) is still under $18^\circ$.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Final checklist
+
+- [ ] I read "$Q$ **if** $P$" as $P\Rightarrow Q$, and I know $1$ is not prime.
+- [ ] I find a counterexample by making the hypothesis true and the conclusion false — in that order.
+- [ ] I start a proof at the hypothesis, and I can spot an option that begins at the conclusion.
+- [ ] For "for some $c$" I produce one witness; for "for no $c$" I give an argument covering every $c$.
+- [ ] I check the hypothesis of an integral statement before computing any integral, and I look for parity.
+- [ ] I derive the interior angle as $180^\circ-\tfrac{360^\circ}{n}$ and use $n,m\ge3$ to bound the search.
