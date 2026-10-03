@@ -43,7 +43,7 @@ For any unfamiliar $y=f(x)$, find in this order:
 **Cubic** — up to two turning points; positive leading term goes $-\infty\to+\infty$.
 **Repeated root** decides touch vs cross.
 
-$$(x-a)^2:\ \text{touches at } a \qquad (x-a)^3:\ \text{flattens & crosses at } a$$
+$$(x-a)^2:\ \text{touches at } a \qquad (x-a)^3:\ \text{flattens and crosses at } a$$
 
 [MAT Q1: "which graph could this be?" is almost always shape + roots]{.eg}
 :::
