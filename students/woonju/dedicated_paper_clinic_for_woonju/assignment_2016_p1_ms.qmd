@@ -1,0 +1,376 @@
+---
+title: "2016 Paper 1 · Assignment — Mark Scheme"
+subtitle: "Question 13 follow-up — counting real roots when nothing factorises"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+BLUE = "#2b6cb0"
+RED = "#c53030"
+GREEN = "#2f855a"
+GREY = "0.35"
+
+def curve_with_line(g, xlim, ylim, c, turns, title, figsize=(6.6, 3.9)):
+    """Plot y=g(x), the line y=c, the stationary points and the crossings."""
+    x = np.linspace(*xlim, 2000)
+    fig, ax = plt.subplots(figsize=figsize)
+    ax.plot(x, g(x), color=BLUE, lw=2)
+    ax.axhline(c, color=RED, lw=1.4, ls="--", label=f"y = {c:g}")
+    ax.axhline(0, color=GREY, lw=0.7)
+    ax.axvline(0, color=GREY, lw=0.7)
+    for tx, ty, lab in turns:
+        ax.plot(tx, ty, "o", color=GREEN, ms=6, zorder=4)
+        ax.annotate(lab, (tx, ty), xytext=(0, 10), textcoords="offset points",
+                    ha="center", color=GREEN, fontsize=9, zorder=5,
+                    bbox=dict(boxstyle="round,pad=0.16", fc="white", ec="none", alpha=0.88))
+    y = g(x) - c
+    s = np.signbit(y)
+    cross = x[:-1][s[:-1] != s[1:]]
+    ax.plot(cross, np.full(len(cross), c), "o", color=RED, ms=6, zorder=6)
+    ax.set_xlim(*xlim); ax.set_ylim(*ylim)
+    ax.set_xlabel("x"); ax.set_ylabel("y")
+    ax.set_title(title, fontsize=10)
+    ax.legend(fontsize=8, loc="upper center")
+    ax.grid(alpha=0.18)
+    plt.tight_layout(); plt.show()
+    return len(cross)
+```
+
+Marks in brackets. **Total 42.** Throughout, $g$ is the polynomial left on the left-hand side after the
+constant has been moved across, and the question becomes "how many times does $y=g(x)$ meet $y=c$".
+
+---
+
+# Section A — count the roots
+
+## Question 1 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+$x^{4}-8x^{2}+10=0$, so take $g(x)=x^{4}-8x^{2}$ and $c=-10$. **[1]**
+
+$$g'(x)=4x^{3}-16x=4x(x-2)(x+2),$$
+
+so the stationary points are $x=-2,0,2$, with
+
+$$g(-2)=-16,\qquad g(0)=0,\qquad g(2)=-16. \tag*{[1]}$$
+
+Even degree with a positive leading coefficient, so both ends go up: the shape is a **W** with two minima of
+$-16$ and a local maximum of $0$.
+
+*The line $y=-10$ lies strictly between the minimum value $-16$ and the local maximum $0$, so it cuts each of
+the four monotone stretches once.*
+
+**4 distinct real roots.** **[1]**
+
+## Question 2 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+Take $g(x)=3x^{4}-4x^{3}-12x^{2}$ and $c=-20$. **[1]**
+
+$$g'(x)=12x^{3}-12x^{2}-24x=12x\bigl(x^{2}-x-2\bigr)=12x(x-2)(x+1),$$
+
+so $x=-1,0,2$ and
+
+$$g(-1)=3+4-12=-5,\qquad g(0)=0,\qquad g(2)=48-32-48=-32. \tag*{[2]}$$
+
+The four monotone stretches and the values they run between are
+
+| stretch | from | to | contains $-20$? |
+|---|---|---|---|
+| $(-\infty,-1]$ | $+\infty$ | $-5$ | no |
+| $[-1,0]$ | $-5$ | $0$ | no |
+| $[0,2]$ | $0$ | $-32$ | **yes** |
+| $[2,\infty)$ | $-32$ | $+\infty$ | **yes** |
+
+*The two left-hand stretches never get below $-5$, so the line $y=-20$ passes underneath them entirely — this
+is the case the "W must give four roots" habit gets wrong.*
+
+**2 distinct real roots.** **[1]**
+
+## Question 3 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+Take $g(x)=3x^{5}-5x^{3}$ and $c=-1$. **[1]**
+
+$$g'(x)=15x^{4}-15x^{2}=15x^{2}\bigl(x^{2}-1\bigr)=15x^{2}(x-1)(x+1),$$
+
+so the stationary points are $x=-1,0,1$. **[1]**
+
+**The one that is not a turning point is $x=0$.** The factor $x^{2}$ is squared, so $g'$ **touches** zero
+there without changing sign: $g'<0$ on both $-1<x<0$ and $0<x<1$. *A stationary point where the derivative
+does not change sign is a point of inflection, so $g$ carries on decreasing through it and the interval
+$(-1,1)$ is a single monotone stretch, not two.* **[1]**
+
+$$g(-1)=-3+5=2,\qquad g(1)=3-5=-2.$$
+
+So there are only **three** monotone stretches, running $-\infty\to2$, then $2\to-2$, then $-2\to+\infty$.
+The line $y=-1$ lies in all three ranges.
+
+**3 distinct real roots.** **[1]**
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q3. The stationary point at x=0 is an inflection: the curve flattens but keeps falling, so (−1,1) is one monotone stretch."
+n = curve_with_line(lambda t: 3*t**5 - 5*t**3, (-1.6, 1.6), (-5, 5), -1,
+                    [(-1, 2, "max (−1, 2)"), (0, 0, "inflection"), (1, -2, "min (1, −2)")],
+                    r"$y=3x^5-5x^3$ against $y=-1$")
+```
+
+## Question 4 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+Take $g(x)=2x^{5}-5x^{4}$ and $c=-40$. **[1]**
+
+$$g'(x)=10x^{4}-20x^{3}=10x^{3}(x-2),$$
+
+so $x=0$ and $x=2$. *Here the repeated factor is $x^{3}$, an **odd** power, so $g'$ does change sign at $0$ —
+it is a genuine turning point, unlike Question 3.* The signs of $10x^{3}(x-2)$ are $+,-,+$ on
+$x<0$, $0<x<2$, $x>2$, so $x=0$ is a maximum and $x=2$ a minimum, with
+
+$$g(0)=0,\qquad g(2)=64-80=-16. \tag*{[1]}$$
+
+| stretch | from | to | contains $-40$? |
+|---|---|---|---|
+| $(-\infty,0]$ | $-\infty$ | $0$ | **yes** |
+| $[0,2]$ | $0$ | $-16$ | no |
+| $[2,\infty)$ | $-16$ | $+\infty$ | no |
+
+*The line is below the minimum value $-16$, so the whole wiggle sits above it and only the far left-hand tail
+reaches down that far.*
+
+**1 distinct real root.** **[1]**
+
+## Question 5 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+Take $g(x)=4x^{6}-18x^{4}+24x^{2}$ and $c=9$. **[1]**
+
+$$g'(x)=24x^{5}-72x^{3}+48x=24x\bigl(x^{4}-3x^{2}+2\bigr)=24x\bigl(x^{2}-1\bigr)\bigl(x^{2}-2\bigr),$$
+
+so the stationary points are
+
+$$x=0,\ \pm1,\ \pm\sqrt2 \tag*{[2]}$$
+
+— five of them, so **six** monotone stretches. *Only even powers appear in $g$, so $g$ is even and the
+picture is symmetric about the $y$-axis; it is enough to work out $x\ge0$ and reflect.*
+
+$$g(0)=0,\qquad g(\pm1)=4-18+24=10,\qquad g(\pm\sqrt2)=4(8)-18(4)+24(2)=8. \tag*{[1]}$$
+
+Reading left to right the heights go $+\infty\to8\to10\to0\to10\to8\to+\infty$. The line $y=9$ lies strictly
+between $8$ and $10$, so it cuts **every one** of the six stretches. **[1]**
+
+**6 distinct real roots.** *This is the maximum a sextic can have, and the question is built so that $9$ is
+squeezed into the narrow band between the local minima $8$ and the local maxima $10$.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q5. The line y=9 threads the gap between the local minima (8) and the local maxima (10), so it meets all six monotone stretches."
+n = curve_with_line(lambda t: 4*t**6 - 18*t**4 + 24*t**2, (-1.75, 1.75), (-1, 18), 9,
+                    [(-np.sqrt(2), 8, "8"), (-1, 10, "10"), (0, 0, "0"),
+                     (1, 10, "10"), (np.sqrt(2), 8, "8")],
+                    r"$y=4x^6-18x^4+24x^2$ against $y=9$", figsize=(7.0, 4.2))
+```
+
+---
+
+# Section B — find the constant
+
+## Question 6 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+$x^{4}-8x^{2}+c=0$ means $g(x)=-c$ with $g(x)=x^{4}-8x^{2}$ as in Question 1, whose turning values are
+$-16,\ 0,\ -16$. **[1]**
+
+Four distinct roots need the line to cut all four stretches, which happens exactly when it lies **strictly**
+between the minimum and the local maximum:
+
+$$-16<-c<0. \tag*{[1]}$$
+
+*Both ends must be strict: at $-c=0$ the line passes through the local maximum and the two middle crossings
+merge into one, giving three roots; at $-c=-16$ it passes through both minima and gives two.*
+
+Multiplying by $-1$ reverses the inequalities:
+
+$$\boxed{0<c<16} \tag*{[1]}$$
+
+## Question 7 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+From Question 3, $g(x)=3x^{5}-5x^{3}$ has turning values $g(-1)=2$ and $g(1)=-2$, and the stationary point
+at $x=0$ is an inflection. **[1]**
+
+Three distinct roots requires the line $y=-c$ to cut all three monotone stretches:
+
+$$-2<-c<2,\qquad\text{so}\qquad \boxed{-2<c<2} \tag*{[2]}$$
+
+*At $c=\pm2$ the line runs through a turning point, two crossings merge, and only two distinct roots remain.*
+
+## Question 8 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+Take $g(x)=2x^{3}-3x^{2}-12x$, so the equation is $g(x)=-c$. **[1]**
+
+$$g'(x)=6x^{2}-6x-12=6(x-2)(x+1),$$
+
+so $x=-1$ and $x=2$, with
+
+$$g(-1)=-2-3+12=7,\qquad g(2)=16-12-24=-20. \tag*{[1]}$$
+
+*A cubic has three distinct real roots exactly when the horizontal line lies strictly between the local
+maximum and the local minimum — one crossing on each of the three monotone stretches.*
+
+$$-20<-c<7 \tag*{[1]}$$
+
+$$\boxed{-7<c<20}\qquad\textbf{B} \tag*{[1]}$$
+
+## Question 9 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+From Question 2, $g(x)=3x^{4}-4x^{3}-12x^{2}$ has turning values
+
+$$g(-1)=-5\ (\text{min}),\qquad g(0)=0\ (\text{max}),\qquad g(2)=-32\ (\text{min}),$$
+
+and the equation is $g(x)=-c$. **[1]**
+
+*This is an **asymmetric** W: the two minima are at different heights, $-32$ and $-5$. That is what makes the
+case list longer than for Question 6 — there are two separate levels at which a pair of crossings merges.*
+
+| value of $-c$ | value of $c$ | distinct real roots |
+|---|---|---|
+| $-c>0$ | $c<0$ | 2 |
+| $-c=0$ | $c=0$ | 3 |
+| $-5<-c<0$ | $0<c<5$ | **4** |
+| $-c=-5$ | $c=5$ | 3 |
+| $-32<-c<-5$ | $5<c<32$ | 2 |
+| $-c=-32$ | $c=32$ | 1 |
+| $-c<-32$ | $c>32$ | 0 |
+
+**[3]** — one mark for the four-root interval, one for the three boundary cases, one for the rest.
+
+**[1]** for stating the headline answer: exactly four distinct real roots when $0<c<5$.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q9. The asymmetric W: the shallow minimum at −5 and the deep minimum at −32 are two different levels at which the root count drops."
+x = np.linspace(-2.1, 3.1, 2000)
+g = 3*x**4 - 4*x**3 - 12*x**2
+fig, ax = plt.subplots(figsize=(7.0, 4.2))
+ax.plot(x, g, color=BLUE, lw=2)
+for lvl, lab, col in [(0, "−c = 0  → 3 roots", "#b7791f"),
+                      (-5, "−c = −5  → 3 roots", RED),
+                      (-32, "−c = −32  → 1 root", "#6b46c1")]:
+    ax.axhline(lvl, color=col, lw=1.3, ls="--")
+    ax.text(3.15, lvl, lab, color=col, fontsize=8.5, va="center")
+ax.axhline(-2.5, color=GREEN, lw=1.3, ls=":")
+ax.text(3.15, -2.5, "−5 < −c < 0  → 4 roots", color=GREEN, fontsize=8.5, va="center")
+for tx, ty in [(-1, -5), (0, 0), (2, -32)]:
+    ax.plot(tx, ty, "o", color=GREEN, ms=6, zorder=4)
+ax.axvline(0, color=GREY, lw=0.7)
+ax.set_xlim(-2.1, 3.1); ax.set_ylim(-45, 25)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_title(r"$y=3x^4-4x^3-12x^2$", fontsize=10)
+ax.grid(alpha=0.18)
+plt.tight_layout(); plt.show()
+```
+
+---
+
+# Section C — push harder
+
+## Question 10 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+Again $g(x)=x^{4}-8x^{2}$ with turning values $-16,\ 0,\ -16$, and the equation is $g(x)=-c$.
+
+Exactly two distinct roots happens in **two quite different ways**: **[1]**
+
+- **The line is above the local maximum:** $-c>0$, i.e. $c<0$. *Then only the two outer stretches reach it;
+  the whole dip lies below.* **[1]**
+- **The line passes exactly through the two minima:** $-c=-16$, i.e. $c=16$. *Then the four crossings merge
+  in pairs into two double roots at $x=\pm2$ — still two **distinct** values of $x$.* **[1]**
+
+$$\boxed{c<0\ \text{ or }\ c=16} \tag*{[1]}$$
+
+*The isolated value $c=16$ is the whole point of the question: "exactly two distinct roots" counts values of
+$x$, not multiplicities, so a repeated root still counts once. Writing only $c<0$ loses the mark.*
+
+## Question 11 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+The curves meet where $x^{3}-12x=k-(x-2)^{2}$, i.e.
+
+$$f(x)=x^{3}+x^{2}-16x-k+4=0. \tag*{[1]}$$
+
+$$f'(x)=3x^{2}+2x-16=(3x+8)(x-2)=0\quad\Longrightarrow\quad x=-\tfrac83,\ 2,$$
+
+with
+
+$$f\!\left(-\tfrac83\right)=\tfrac{940}{27}-k\ \ (\text{local max}),\qquad f(2)=-16-k\ \ (\text{local min}).
+\tag*{[1]}$$
+
+**Three distinct intersections** needs the local maximum above the axis and the local minimum below it:
+
+$$\tfrac{940}{27}-k>0\ \text{ and }\ -16-k<0 \quad\Longrightarrow\quad -16<k<\tfrac{940}{27}\approx34.8.$$
+
+**Exactly two with positive $x$.** The three roots lie one in $\left(-\infty,-\tfrac83\right)$, one in
+$\left(-\tfrac83,2\right)$ and one in $(2,\infty)$. *The smallest is always negative and the largest is always
+greater than $2$, so the condition is entirely about the middle root, and that root is positive exactly when
+$f(0)>0$ — because $f$ is decreasing on $\left(-\tfrac83,2\right)$, so it is still above the axis at $x=0$
+precisely when the crossing has not yet happened.* **[1]**
+
+$$f(0)=4-k>0\quad\Longrightarrow\quad k<4 .$$
+
+Combining, $-16<k<4$. **[1]**
+
+$$\boxed{-16<k<4}\qquad\textbf{E}$$
+
+*Check the endpoints: at $k=4$ the middle root is exactly $x=0$, which is not positive, so only one root is
+positive; at $k=-16$ the curve is tangent at $x=2$ and there are only two distinct intersections. Both are
+correctly excluded.*
+
+## Question 12 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+Take $g(x)=-x^{4}+4x^{3}$, so the equation is $g(x)=-c$. **[1]**
+
+$$g'(x)=-4x^{3}+12x^{2}=-4x^{2}(x-3).$$
+
+So the stationary points are $x=0$ and $x=3$. **[1]**
+
+**The stationary point that is not a turning point is $x=0$.** *The factor $x^{2}$ is an even power, so $g'$
+touches zero at $0$ without changing sign — $g'>0$ on both sides — and the curve simply flattens for an
+instant while continuing to rise. It therefore does not split $(-\infty,3]$ into two stretches, so it
+contributes nothing to the root count.* **[1]**
+
+Hence $g$ increases on $(-\infty,3]$ and decreases on $[3,\infty)$: just **two** monotone stretches, with a
+single maximum
+
+$$g(3)=-81+108=27,$$
+
+and $g\to-\infty$ at both ends.
+
+| value of $-c$ | value of $c$ | distinct real roots |
+|---|---|---|
+| $-c<27$ | $c>-27$ | 2 |
+| $-c=27$ | $c=-27$ | 1 |
+| $-c>27$ | $c<-27$ | 0 |
+
+**[1]**
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q12. x=0 is a stationary inflection — the curve flattens but keeps rising — so there is one maximum and only two monotone stretches."
+n = curve_with_line(lambda t: -t**4 + 4*t**3, (-1.6, 4.4), (-30, 40), 10,
+                    [(0, 0, "inflection (0, 0)"), (3, 27, "max (3, 27)")],
+                    r"$y=-x^4+4x^3$ against a typical line $y=-c$")
+```
+
+---
+
+::: {.callout-tip}
+## What this sheet was testing
+
+1. **The derivative does the factorising, not the original expression.** In every question $g$ was
+   unfactorisable but $g'$ came apart cleanly — that is how these are built.
+2. **Count monotone stretches, not brackets.** A quartic does not automatically have four roots; it has as
+   many as the line's position allows.
+3. **An even repeated factor in $g'$ is a point of inflection, not a turning point** (Q3, Q12), while an odd
+   one is a genuine turning point (Q4).
+4. **Boundary values need their own sentence.** Q6, Q7, Q8 excluded them; Q10 needed one of them included.
+:::
