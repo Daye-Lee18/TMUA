@@ -8,6 +8,15 @@ format: html
 self-study. The **past papers, Paper 2 toolkit, mock-exam banks and official resources** are on the
 **[common home page](../../index.qmd)**.
 
+## Dedicated paper clinics
+
+Focused follow-up built directly from Chloe's marked papers. Each page collects the questions that were
+wrong or uncertain and turns the underlying methods into targeted practice.
+
+| Paper | Marked paper | Dedicated clinic | Related clinic |
+|---|---|---|---|
+| **2016 Paper 1** | **[Open marked paper](<tackled_papers/2016 P1.pdf>)** | **[Q1, Q8, Q13, Q17, Q18 & Q20 clinic](dedicated_paper_clinic_for_woonju/2016_p1_only_for_woonju.qmd)** | Graphs — sketching: **[Concepts](../../lessons/graphs_sketching/concepts.qmd)** · **[Class material](../../lessons/graphs_sketching/class_material.qmd)** |
+
 ::: {.callout-tip}
 ## 📅 [D-day plan → 15 Oct](schedule.qmd)
 
@@ -39,8 +48,7 @@ sees the question**. The *wrong-questions booklet* is separate: it is her own si
 | ✅ | **Seq** ⭐ | **Sequences, series & binomial (MM2)** | AP/GP & **sum to infinity** · mixed AP/GP · **combined series** (2016 Q14, you got wrong) · periodic recurrences · **binomial coefficients** (specimen Q20, you got wrong). **All real TMUA / exam-standard.** | **[Class problems](../../lessons/sequences_series_clinic/class_material.qmd)** — 9 | **[Questions](../../lessons/sequences_series_clinic/assignment_student.qmd)** — 12 · [MS](../../lessons/sequences_series_clinic/assignment_ms.qmd) |
 | ▶ | **Coord** ⭐ | **Coordinate geometry (MM3)** | **Normal to a curve** (you got this wrong in *both* 2016 Q3 and 2018 Q11) · perpendicular bisector · circle equation & "is it a circle" · two-circle distance / tangency / intersection · common tangents · radical axis · chord properties. **All real TMUA/mock questions.** | **[Class problems](../../lessons/coordinate_geometry_clinic/class_material.qmd)** — 25 | **[Questions](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** — 15 · [MS](../../lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
 | ▶ | **Diff** ⭐ | **Differentiation (MM6)** | Differentiate $x^n$ & second derivatives · stationary points & max/min · increasing/decreasing (sign of $f'$) · **optimising a gradient as a parameter varies** · calculus to count roots (you got 2016 Q13/Q15/Q18 wrong). **All real TMUA questions.** | **[Class problems](../../lessons/differentiation_clinic/class_material.qmd)** — 9 · **[Supplement: min/max of polynomials](../../lessons/differentiation_clinic/supplementary_minmax.qmd)** | **[Questions](../../lessons/differentiation_clinic/assignment_student.qmd)** — 14 · [MS](../../lessons/differentiation_clinic/assignment_ms.qmd) |
-| ▶ | **Log** | **Logarithms** | Log laws & change of base · solving equations (domain & extraneous roots) · inequalities (base $<1$ flip) · counting solutions with a parameter · log graphs | **[Class problems](../../lessons/log_clinic/class_material.qmd)** — 16 | — |
-| ▶ | **LogX** ⭐ | **Logarithms — extension** | **Quadratic in $a^x$** (specimen Q11, you got wrong) · quadratic in $\log x$ · **simultaneous log/exp** (2016 Q16 & 2017 Q14, you got wrong) · **log–log linearisation** (specimen Q14, you got wrong). **All real TMUA questions.** | **[Class problems](../../lessons/log_extension_clinic/class_material.qmd)** — 9 | **[Questions](../../lessons/log_extension_clinic/assignment_student.qmd)** — 11 · [MS](../../lessons/log_extension_clinic/assignment_ms.qmd) |
+| ▶ | **Log** ⭐ | **Logarithms (MM5)** | **When a log exists** ($a>0,\ a\ne1,\ b>0$) · **the four base/argument cases** and how $y=\log_a x$ changes for $a>1$ vs $0<a<1$ · comparing & ordering logs · laws & change of base · equations (domain & extraneous roots) · **quadratic in $a^x$** (specimen Q11, you got wrong) · quadratic in $\log x$ · **simultaneous log/exp** (2016 Q16 & 2017 Q14, you got wrong) · inequalities (base $<1$ flip, unknown base) · counting solutions · **log–log linearisation** (specimen Q14, you got wrong) | **[Class problems](../../lessons/log_clinic/class_material.qmd)** — 46 | **[Questions](../../lessons/log_clinic/assignment_student.qmd)** — 15 · [MS](../../lessons/log_clinic/assignment_ms.qmd) |
 | ▶ | **Range** | **Range & the $y$-parameter method** | "$y=f(x)$ has a real root" $\to$ discriminant in $y$ · max/min of rational functions · "range $=\mathbb{R}$" conditions | **[Class problems](../../lessons/range_clinic/class_material.qmd)** — 13 | — |
 | ▶ | **IntR** ⭐ | **Integrals to reason about** | **Modulus inside the integral** (sign/area, $f(\lvert x\rvert)$) · **self-referential** integral equations ($\int f=$ const) · **sequences of functions** & integrals-in-a-sum (incl. the 2021 P2 Q20 $f_{99}$ you flagged, and 2016 Q4 you got wrong). **All real TMUA questions.** | **[Class problems](../../lessons/integral_reasoning_clinic/class_material.qmd)** — 9 | **[Questions](../../lessons/integral_reasoning_clinic/assignment_student.qmd)** — 10 · [MS](../../lessons/integral_reasoning_clinic/assignment_ms.qmd) |
 

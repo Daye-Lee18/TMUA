@@ -1202,8 +1202,8 @@ $$g(-4)=-1952<-30,\quad g(-2)=224>-30,$$
 $$g(0)=0>-30,\quad g(1)=-127<-30,$$
 $$g(2)=-224<-30,\quad g(4)=1952>-30.$$
 
-*$g$ is a polynomial, hence continuous, so a sign change of $g(x)+30$ across an interval forces a root inside
-it.* The three disjoint intervals
+*$g$ is a polynomial, hence continuous, so by the **intermediate value theorem** a sign change of $g(x)+30$
+across an interval forces a root inside it.* The three disjoint intervals
 
 $$(-4,-2),\qquad (0,1),\qquad (2,4)$$
 

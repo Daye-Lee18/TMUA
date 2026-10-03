@@ -1,0 +1,903 @@
+---
+title: "2016 Paper 1 · Dedicated Clinic"
+subtitle: "Questions 1, 8, 13, 17, 18 and 20"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+BLUE = "#2b6cb0"
+RED = "#c53030"
+
+def plot_polynomial_bank(items, xlim):
+    """Plot one polynomial per row and mark all distinct real roots."""
+    x = np.linspace(xlim[0], xlim[1], 1600)
+    fig, axes = plt.subplots(len(items), 1, figsize=(7.2, 3.0 * len(items)))
+    axes = np.atleast_1d(axes)
+    for ax, (label, fn, roots) in zip(axes, items):
+        y = fn(x)
+        # Use a central quantile so large polynomial tails do not flatten the
+        # intercepts and turning behaviour that the student needs to inspect.
+        scale = max(1.0, float(np.quantile(np.abs(y), 0.60)))
+        ax.plot(x, y, color=BLUE, lw=2)
+        ax.axhline(0, color="0.35", lw=0.8)
+        ax.axvline(0, color="0.35", lw=0.8)
+        ax.scatter(roots, np.zeros(len(roots)), color=RED, s=34, zorder=3)
+        for root in roots:
+            ax.annotate(f"{root:g}", (root, 0), xytext=(0, 8),
+                        textcoords="offset points", ha="center", color=RED, fontsize=8)
+        ax.set_xlim(*xlim)
+        ax.set_ylim(-1.15 * scale, 1.15 * scale)
+        ax.set_title(label, fontsize=10)
+        ax.set_xlabel("x")
+        ax.set_ylabel("y")
+        ax.grid(alpha=0.18)
+    plt.tight_layout()
+    plt.show()
+```
+
+This page collects the questions from the 2016 Paper 1 that were answered wrongly, or answered correctly
+but with doubt. Each one is rebuilt into the method it was testing, followed by practice on that method.
+
+**Related clinic:** the Question 13 material below is the personal version of
+**[Graphs — sketching · Part 4](../../../lessons/graphs_sketching/class_material.qmd)**
+(concepts: **[here](../../../lessons/graphs_sketching/concepts.qmd)**).
+
+# Question 1 - Sign slip
+
+A sign was dropped in the working. The method was right; the arithmetic was not. Re-do the question and
+check every sign change as it happens, rather than at the end.
+
+# Question 8 - Range slip
+
+The range of the function was read incorrectly. Before writing an answer, state what the input is allowed
+to be and what the output can therefore reach.
+
+# Question 13 - Counting the real roots of a quintic
+
+## Original question
+
+How many real roots does the equation
+
+$$3x^5-10x^3-120x+30=0$$
+
+have?
+
+&nbsp;&nbsp;**A** 1 &nbsp;&nbsp; **B** 2 &nbsp;&nbsp; **C** 3 &nbsp;&nbsp; **D** 4 &nbsp;&nbsp; **E** 5
+
+---
+
+## The thought to fix
+
+This question does not ask for the roots. It asks only how many there are. Move the constant to the
+right-hand side first:
+
+$$3x^5-10x^3-120x=-30.$$
+
+Now put
+
+$$g(x)=3x^5-10x^3-120x$$
+
+and count how many times the curve $y=g(x)$ meets the horizontal line $y=-30$. Only odd powers are left, so
+$g$ is an odd function and the graph is symmetric about the origin — that is free information.
+
+> **The principle:** move the constant to the right, then count the intersections of the left-hand curve
+> with the horizontal line the right-hand constant makes.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+### Route 1 - building the skeleton from the derivative
+
+### 1. The direction of the two ends
+
+The leading term is $3x^5$: odd degree with a positive coefficient, so
+
+$$x\to-\infty\Rightarrow g(x)\to-\infty,
+\qquad
+x\to\infty\Rightarrow g(x)\to\infty.$$
+
+The curve starts at the bottom left and finishes at the top right.
+
+### 2. Finding the stationary points
+
+$$
+\begin{aligned}
+g'(x)
+&=15x^4-30x^2-120\\
+&=15(x^4-2x^2-8)\\
+&=15(x^2-4)(x^2+2).
+\end{aligned}
+$$
+
+*$x^2+2$ is positive for every real $x$, so it produces no stationary point and no sign change.* The only
+real solutions of $g'(x)=0$ are
+
+$$x=-2,\ 2.$$
+
+### 3. Increasing or decreasing
+
+| Interval | $x<-2$ | $-2<x<2$ | $x>2$ |
+|---|---:|---:|---:|
+| $x^2-4$ | $+$ | $-$ | $+$ |
+| $g'(x)$ | $+$ | $-$ | $+$ |
+| $g(x)$ | increasing | decreasing | increasing |
+
+So $x=-2$ gives a maximum and $x=2$ gives a minimum.
+
+### 4. Compare the turning values with the line $y=-30$
+
+$$g(-2)=-96+80+240=224,$$
+
+$$g(2)=96-80-240=-224.$$
+
+Therefore
+
+$$-224<-30<224.$$
+
+The line $y=-30$ lies between the minimum value and the maximum value. *Each monotone stretch therefore runs
+from one side of the line to the other, so each one crosses it exactly once:*
+
+1. once on the increasing stretch on the left,
+2. once on the decreasing stretch in the middle,
+3. once on the increasing stretch on the right.
+
+So there are **3** real roots, and the answer is **C**.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The curve y=g(x) meets the horizontal line y=-30 three times."
+x = np.linspace(-4.2, 4.2, 1800)
+y = 3*x**5 - 10*x**3 - 120*x
+real_roots = np.roots([3, 0, -10, 0, -120, 30])
+real_roots = np.sort(real_roots[np.isclose(real_roots.imag, 0)].real)
+plt.figure(figsize=(7.2, 4.2))
+plt.plot(x, y, color=BLUE, lw=2)
+plt.axhline(-30, color=RED, lw=1.4, ls="--", label=r"$y=-30$")
+plt.axvline(0, color="0.3", lw=0.9)
+plt.scatter([-2, 2], [224, -224], color=BLUE, edgecolor="white", zorder=4)
+plt.scatter(real_roots, np.full(3, -30), color=RED, s=38, zorder=5)
+plt.annotate("local max (-2, 224)", (-2, 224), xytext=(-70, 12),
+             textcoords="offset points", color=BLUE, fontsize=9)
+plt.annotate("local min (2, -224)", (2, -224), xytext=(10, -18),
+             textcoords="offset points", color=BLUE, fontsize=9)
+plt.xlim(-4.2, 4.2)
+plt.ylim(-500, 500)
+plt.xlabel("x")
+plt.ylabel("g(x)")
+plt.legend()
+plt.grid(alpha=0.2)
+plt.tight_layout()
+plt.show()
+```
+
+The sketch does not have to be to scale. The only thing it has to show is that $y=-30$ lies between the
+maximum $224$ and the minimum $-224$.
+
+---
+
+## Route 2 - the algebraic method for when the sketch will not come
+
+Even with a poor drawing, these two statements settle the question.
+
+### At least three
+
+Compare the values of the continuous function $g$ with the height $-30$:
+
+$$g(-4)=-1952<-30,\quad g(-2)=224>-30,$$
+$$g(0)=0>-30,\quad g(1)=-127<-30,$$
+$$g(2)=-224<-30,\quad g(4)=1952>-30.$$
+
+*A polynomial is continuous, so a change of sign in $g(x)+30$ across an interval forces a root inside it.*
+By the intermediate value theorem each of the three disjoint intervals
+
+$$(-4,-2),\qquad(0,1),\qquad(2,4)$$
+
+contains at least one root. So there are at least three real roots.
+
+### At most three
+
+$g'(x)=0$ only at $x=-2$ and $x=2$. Hence $g$ is monotone on each of
+
+$$(-\infty,-2),\qquad(-2,2),\qquad(2,\infty).$$
+
+*A monotone function takes any one value at most once,* so each stretch meets $y=-30$ at most once. There
+are at most three real roots.
+
+So there are **exactly three**.
+
+> **The sentence to write in the exam:** Let $g(x)=3x^5-10x^3-120x$. Then $g$ has stationary points only at
+> $x=-2$ and $x=2$, with $g(-2)=224$ and $g(2)=-224$. Since $-224<-30<224$, the line $y=-30$ meets $y=g(x)$
+> exactly three times.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## The standard procedure for sketching a higher-degree polynomial
+
+Whenever a polynomial $y=f(x)$ appears, follow this order.
+
+1. **Leading term:** the parity of the degree and the sign of the leading coefficient fix the direction of
+   the two ends.
+2. **Check whether the function is odd or even:** compute $f(-x)$ and look for a symmetry.
+   - $f(-x)=f(x)$ means an **even function**: symmetric about the $y$-axis. Draw the right half and reflect it.
+   - $f(-x)=-f(x)$ means an **odd function**: symmetric about the origin. Draw one half and rotate it by
+     $180^\circ$ about the origin.
+   - Otherwise, use no symmetry.
+3. **Intercepts, or the line to compare with:** find $f(0)$ and any roots that are easy to see. If the
+   constant has been moved across, mark the horizontal line that the right-hand constant makes.
+4. **Repeated roots:** if the expression factorises, check the multiplicity of each root.
+   - Odd multiplicity: the curve **crosses** the $x$-axis.
+   - Even multiplicity: the curve **touches** the $x$-axis and turns back.
+5. **Derivative:** solve $f'(x)=0$ for the candidate turning points.
+6. **Heights:** if the exact value at a stationary point is awkward, decide only whether it is above or below
+   the line you are comparing with.
+7. **Count:** count the meetings with the line, or with the $x$-axis, one monotone stretch at a time.
+
+> **Warning:** "the degree is odd" and "the function is odd" are different statements. For example $x^3+1$
+> is a cubic but it is not an odd function. Always check with $f(-x)$.
+
+### Quick odd/even check
+
+| Terms appearing in the formula | Verdict | Symmetry |
+|---|---|---|
+| only even powers, counting a constant term | even | about the $y$-axis |
+| only odd powers, with no constant term | odd | about the origin |
+| odd and even powers mixed | usually neither | usually none |
+
+In Question 13, moving the constant $30$ to the right leaves
+
+$$g(x)=3x^5-10x^3-120x,$$
+
+which contains only odd powers. So $g(-x)=-g(x)$ and the graph is symmetric about the origin.
+
+### The end-direction table
+
+| Leading term | $x\to-\infty$ | $x\to\infty$ |
+|---|---|---|
+| $+x^{\text{odd}}$ | down | up |
+| $-x^{\text{odd}}$ | up | down |
+| $+x^{\text{even}}$ | up | up |
+| $-x^{\text{even}}$ | down | down |
+
+The first two rows have ends on **opposite** sides, which is why an odd-degree polynomial equation always has
+at least one real root.
+
+### A very important upper bound
+
+- A polynomial of degree $n$ has at most $n$ distinct real roots.
+- If $f'(x)$ has $k$ distinct real roots, then $f$ has at most $k+1$ monotone stretches.
+- So the number of meetings with a horizontal line is also at most one per monotone stretch.
+
+---
+
+## $x^3$ practice - 1, 2 and 3 distinct real roots
+
+The two ends of a cubic always point in opposite directions, so a cubic always has at least one real root.
+
+Sketch each one, by factorising or by using the derivative, and count the distinct real roots.
+
+1. $y=x^3-8$
+2. $y=x^3-3x$
+3. $y=(x-1)^2(x+2)$
+4. $y=x^3-3x+3$
+5. $y=-x^3+4x$
+6. $y=(x+1)^3$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution - answers and graphs
+
+1. **1:** $x=2$. This is $y=x^3$ translated down by $8$, and a translation creates no turning point.
+2. **3:** $x=-\sqrt3,0,\sqrt3$. The curve crosses at all three.
+3. **2:** $x=-2,1$. $x=1$ is a double root, so the curve touches there and turns back.
+4. **1:** $f'=3(x^2-1)$, with $f(-1)=5$ and $f(1)=1$. *Both turning values are above the axis, so the curve
+   crosses only once, away to the left.*
+5. **3:** $x=-2,0,2$. The leading coefficient is negative, so the curve goes from top left to bottom right.
+6. **1:** $x=-1$ is a triple root. The curve crosses, but the tangent there is horizontal.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Cubic answers. Red points are the distinct real roots."
+plot_polynomial_bank([
+    (r"1. $y=x^3-8$ — 1 root", lambda x: x**3-8, [2]),
+    (r"2. $y=x^3-3x$ — 3 roots", lambda x: x**3-3*x, [-np.sqrt(3), 0, np.sqrt(3)]),
+    (r"3. $y=(x-1)^2(x+2)$ — 2 roots; touch at 1", lambda x: (x-1)**2*(x+2), [-2, 1]),
+    (r"4. $y=x^3-3x+3$ — 1 root", lambda x: x**3-3*x+3, [-2.103803]),
+    (r"5. $y=-x^3+4x$ — 3 roots", lambda x: -x**3+4*x, [-2, 0, 2]),
+    (r"6. $y=(x+1)^3$ — 1 triple root", lambda x: (x+1)**3, [-1]),
+], (-3.2, 3.2))
+```
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## $x^4$ practice - from 0 to 4 distinct real roots
+
+The degree is even, so the two ends point the same way. With a positive leading coefficient both ends go up.
+
+1. $y=x^4+1$
+2. $y=(x-1)^2(x^2+1)$
+3. $y=x^4-16$
+4. $y=x^2(x^2-4)$
+5. $y=(x^2-1)(x^2-4)$
+6. $y=-(x^2-1)^2$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution - answers and graphs
+
+1. **0:** $x^4+1>0$, so the curve is always above the axis.
+2. **1:** only $x=1$ is real, and it is a double root, so the curve touches and turns back.
+3. **2:** $x=\pm2$. The curve crosses at both.
+4. **3:** $x=-2,0,2$. $x=0$ is a double root so the curve touches; at $\pm2$ it crosses.
+5. **4:** $x=-2,-1,1,2$, crossing at all four.
+6. **2:** $x=\pm1$, both double. *The expression is minus a square, so the curve is never above the axis — it
+   rises to touch $y=0$ twice and falls away again.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Quartic answers. A repeated root touches the x-axis instead of crossing it."
+plot_polynomial_bank([
+    (r"1. $y=x^4+1$ — 0 roots", lambda x: x**4+1, []),
+    (r"2. $y=(x-1)^2(x^2+1)$ — 1 root; touch", lambda x: (x-1)**2*(x**2+1), [1]),
+    (r"3. $y=x^4-16$ — 2 roots", lambda x: x**4-16, [-2, 2]),
+    (r"4. $y=x^2(x^2-4)$ — 3 roots; touch at 0", lambda x: x**2*(x**2-4), [-2, 0, 2]),
+    (r"5. $y=(x^2-1)(x^2-4)$ — 4 roots", lambda x: (x**2-1)*(x**2-4), [-2, -1, 1, 2]),
+    (r"6. $y=-(x^2-1)^2$ — 2 touching roots", lambda x: -(x**2-1)**2, [-1, 1]),
+], (-3.0, 3.0))
+```
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## $x^5$ practice - from 1 to 5 distinct real roots
+
+A quintic also has ends pointing opposite ways, so it has at least one real root. But it can have up to four
+turning points, so 1, 2, 3, 4 and 5 distinct real roots are all possible.
+
+1. $y=x^5-32$
+2. $y=(x-1)^2(x+1)(x^2+1)$
+3. $y=(x^2-1)^2(x-3)$
+4. $y=(x-2)^2(x+2)(x-1)(x+1)$
+5. $y=x(x^2-1)(x^2-4)$
+6. $y=x^5-5x$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution - answers and graphs
+
+1. **1:** $x=2$.
+2. **2:** $x=-1,1$. $x=1$ is a double root so the curve touches; at $x=-1$ it crosses.
+3. **3:** $x=-1,1,3$. It touches at $\pm1$ and crosses at $3$.
+4. **4:** $x=-2,-1,1,2$. It touches only at $x=2$ and crosses at the other three.
+5. **5:** $x=-2,-1,0,1,2$. All are simple roots, so it crosses at all five.
+6. **3:** $x(x^4-5)=0$, so $x=0,\pm5^{1/4}$. The expression is odd, so the graph is symmetric about the origin.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Quintic answers. Odd degree guarantees at least one real root."
+r5 = 5**0.25
+plot_polynomial_bank([
+    (r"1. $y=x^5-32$ — 1 root", lambda x: x**5-32, [2]),
+    (r"2. $(x-1)^2(x+1)(x^2+1)$ — 2 roots", lambda x: (x-1)**2*(x+1)*(x**2+1), [-1, 1]),
+    (r"3. $(x^2-1)^2(x-3)$ — 3 roots", lambda x: (x**2-1)**2*(x-3), [-1, 1, 3]),
+    (r"4. $(x-2)^2(x+2)(x-1)(x+1)$ — 4 roots", lambda x: (x-2)**2*(x+2)*(x-1)*(x+1), [-2, -1, 1, 2]),
+    (r"5. $x(x^2-1)(x^2-4)$ — 5 roots", lambda x: x*(x**2-1)*(x**2-4), [-2, -1, 0, 1, 2]),
+    (r"6. $x^5-5x$ — 3 roots", lambda x: x**5-5*x, [-r5, 0, r5]),
+], (-3.5, 3.5))
+```
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## $x^6$ practice - from 0 to 6 distinct real roots
+
+A sextic has ends pointing the same way. These seven show every possible count: 0, 1, 2, 3, 4, 5 and 6.
+
+1. $y=x^6+1$
+2. $y=x^2(x^4+1)$
+3. $y=(x^2-4)(x^2+1)^2$
+4. $y=x^2(x^2-1)(x^2+1)$
+5. $y=(x^2-1)(x^2-4)(x^2+1)$
+6. $y=x^2(x-1)(x+1)(x-2)(x+2)$
+7. $y=(x^2-1)(x^2-4)(x^2-9)$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution - answers and graphs
+
+1. **0:** always positive.
+2. **1:** only $x=0$ is real, and it is a double root.
+3. **2:** $x=\pm2$.
+4. **3:** $x=-1,0,1$, with $x=0$ a double root.
+5. **4:** $x=-2,-1,1,2$.
+6. **5:** $x=-2,-1,0,1,2$, with $x=0$ a double root.
+7. **6:** $x=-3,-2,-1,1,2,3$.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Sextic answers, covering every possible number of distinct real roots from 0 to 6."
+plot_polynomial_bank([
+    (r"1. $y=x^6+1$ — 0 roots", lambda x: x**6+1, []),
+    (r"2. $y=x^2(x^4+1)$ — 1 touching root", lambda x: x**2*(x**4+1), [0]),
+    (r"3. $(x^2-4)(x^2+1)^2$ — 2 roots", lambda x: (x**2-4)*(x**2+1)**2, [-2, 2]),
+    (r"4. $x^2(x^2-1)(x^2+1)$ — 3 roots", lambda x: x**2*(x**2-1)*(x**2+1), [-1, 0, 1]),
+    (r"5. $(x^2-1)(x^2-4)(x^2+1)$ — 4 roots", lambda x: (x**2-1)*(x**2-4)*(x**2+1), [-2, -1, 1, 2]),
+    (r"6. $x^2(x^2-1)(x^2-4)$ — 5 roots", lambda x: x**2*(x**2-1)*(x**2-4), [-2, -1, 0, 1, 2]),
+    (r"7. $(x^2-1)(x^2-4)(x^2-9)$ — 6 roots", lambda x: (x**2-1)*(x**2-4)*(x**2-9), [-3, -2, -1, 1, 2, 3]),
+], (-4.0, 4.0))
+```
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Practice with a horizontal line
+
+Do not stop at counting the roots of a factorised expression. Practise moving a constant across and counting
+the meetings with a horizontal line, as in Question 13.
+
+1. Find the number of real roots of $x^3-3x=1$.
+2. Find the number of real roots of $x^4-4x^2=1$.
+3. Find the number of real roots of $x^5-5x=0$.
+4. Find the number of distinct real roots of $x^6-5x^4+4x^2=0$.
+5. Find the number of real roots of $3x^5-10x^3-120x=-30$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **3.** $g(x)=x^3-3x$ has maximum value $2$ at $x=-1$ and minimum value $-2$ at $x=1$. *Since $-2<1<2$, the
+   line $y=1$ meets the curve three times.*
+2. **2.** Put $u=x^2\ (\ge0)$, giving $u^2-4u-1=0$. *Only one solution for $u$ is positive, and that single
+   positive $u$ produces the pair $x=\pm\sqrt u$.*
+3. **3.** $x(x^4-5)=0$, so $x=0,\pm5^{1/4}$.
+4. **5.** $x^2(x^2-1)(x^2-4)=0$, so $x=0,\pm1,\pm2$.
+5. **3.** This is the equation at the top of this page. The turning values are $224$ and $-224$, and the
+   line $y=-30$ lies between them.
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Final checklist
+
+- [ ] I can state the direction of the two ends from the leading term alone.
+- [ ] I know that the curve crosses at a root of odd multiplicity and touches at a root of even multiplicity.
+- [ ] I can solve $f'(x)=0$ and build the increasing/decreasing table.
+- [ ] I can count the meetings using only "above or below" at each stationary point, not its exact value.
+- [ ] When a drawing is hard, I can prove the number of roots using sign changes and monotonicity.
+- [ ] I can explain that Question 13 needs no exact root values and that the answer is **3 (C)**.
+
+# Question 17 - Double angles and sign intervals
+
+## Original question
+
+For $0<x<\pi$,
+
+$$y=(1+2\cos x)\cos 2x.$$
+
+Find the complete set of values of $x$ for which $y<0$.
+
+## The method to recall
+
+Both factors must be written in terms of the **same basic trig function**. Here the first factor already
+contains $\cos x$, so use
+
+$$\cos 2x=2\cos^2x-1.$$
+
+Do not try to solve the product inequality in one step. Find every zero, place the zeros in order, and use
+a sign chart.
+
+### Double-angle conversion sheet
+
+| Expression to replace | Equivalent forms | Choose this form when... |
+|---|---|---|
+| $\cos 2x$ | $2\cos^2x-1$ | the rest of the question uses $\cos x$ |
+| $\cos 2x$ | $1-2\sin^2x$ | the rest uses $\sin x$ |
+| $\cos 2x$ | $\cos^2x-\sin^2x$ | both $\sin x$ and $\cos x$ are useful |
+| $\sin 2x$ | $2\sin x\cos x$ | factorisation or a sign chart is needed |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Rewrite the double angle:
+
+$$
+y=(1+2\cos x)(2\cos^2x-1).
+$$
+
+The product can change sign only when one of its factors is zero.
+
+**First factor**
+
+$$
+1+2\cos x=0
+\iff \cos x=-\frac12
+\iff x=\frac{2\pi}{3}.
+$$
+
+**Second factor**
+
+$$
+2\cos^2x-1=0
+\iff \cos x=\pm\frac1{\sqrt2}
+\iff x=\frac\pi4,\frac{3\pi}{4}.
+$$
+
+Put the three zeros in order:
+
+$$0<\frac\pi4<\frac{2\pi}{3}<\frac{3\pi}{4}<\pi.$$
+
+| Interval | $1+2\cos x$ | $\cos2x$ | Product |
+|---|---:|---:|---:|
+| $(0,\frac\pi4)$ | $+$ | $+$ | $+$ |
+| $(\frac\pi4,\frac{2\pi}{3})$ | $+$ | $-$ | $-$ |
+| $(\frac{2\pi}{3},\frac{3\pi}{4})$ | $-$ | $-$ | $+$ |
+| $(\frac{3\pi}{4},\pi)$ | $-$ | $+$ | $-$ |
+
+The inequality is strict, so the three zero points are excluded:
+
+$$
+\boxed{\frac\pi4<x<\frac{2\pi}{3}
+\quad\text{or}\quad
+\frac{3\pi}{4}<x<\pi}.
+$$
+
+This is **option D**.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The graph is below the x-axis on exactly the two required intervals."
+x = np.linspace(0, np.pi, 1400)
+y = (1 + 2*np.cos(x))*np.cos(2*x)
+zeros = [np.pi/4, 2*np.pi/3, 3*np.pi/4]
+plt.figure(figsize=(7.2, 3.8))
+plt.plot(x, y, color=BLUE, lw=2)
+plt.axhline(0, color="0.3", lw=0.8)
+plt.fill_between(x, y, 0, where=(y < 0), color=RED, alpha=0.18)
+plt.scatter(zeros, [0, 0, 0], color=RED, zorder=3)
+plt.xticks([0, *zeros, np.pi],
+           ["0", r"$\pi/4$", r"$2\pi/3$", r"$3\pi/4$", r"$\pi$"])
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(alpha=0.18)
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Question 17 practice
+
+For each question, use a double-angle identity and show the critical values in order.
+
+1. Solve $(1-2\cos x)\cos2x<0$ for $0<x<\pi$.
+2. Solve $\sin2x>\sin x$ for $0<x<\pi$.
+3. Solve $\cos2x=\cos x$ for $0<x<\pi$.
+4. Solve $\sin2x=\cos x$ for $0<x<\pi$.
+5. Find where $(1-2\sin x)\cos2x>0$ for $0<x<\pi$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. The zeros are $\pi/4,\pi/3,3\pi/4$. The answer is
+   $$0<x<\frac\pi4\quad\text{or}\quad\frac\pi3<x<\frac{3\pi}{4}.$$
+2. $\sin2x-\sin x=\sin x(2\cos x-1)$. Since $\sin x>0$ on $(0,\pi)$, the answer is
+   $$0<x<\frac\pi3.$$
+3. $2\cos^2x-1=\cos x$, so $(2\cos x+1)(\cos x-1)=0$. The only permitted answer is
+   $$x=\frac{2\pi}{3}.$$
+4. $2\sin x\cos x=\cos x$, so $\cos x(2\sin x-1)=0$. Hence
+   $$x=\frac\pi6,\frac\pi2,\frac{5\pi}{6}.$$
+5. The zeros are $\pi/6,\pi/4,3\pi/4,5\pi/6$. A sign chart gives
+   $$0<x<\frac\pi6\quad\text{or}\quad
+   \frac\pi4<x<\frac{3\pi}{4}\quad\text{or}\quad
+   \frac{5\pi}{6}<x<\pi.$$
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Question 18 - Decreasing intervals with fractional powers
+
+## Original question
+
+The function
+
+$$f(x)=\frac{1-x}{\sqrt[3]{x^2}}$$
+
+is defined for $x\ne0$. Find the complete set of values of $x$ for which it is decreasing.
+
+::: {.callout-warning appearance="simple"}
+## Symmetry check
+
+The denominator $\sqrt[3]{x^2}=|x|^{2/3}$ is even, but the numerator $1-x$ is not. In fact,
+
+$$f(-x)=\frac{1+x}{\sqrt[3]{x^2}},$$
+
+which is neither $f(x)$ nor $-f(x)$. The whole function is **neither even nor odd**. Never decide the
+symmetry of a quotient by inspecting only its denominator.
+:::
+
+## The easier substitution
+
+Direct differentiation is possible, but the absolute-value fractional power makes it easy to lose a sign.
+Instead, let
+
+$$u=\sqrt[3]x.$$
+
+Then $x=u^3$, $\sqrt[3]{x^2}=u^2$, and $u$ increases whenever $x$ increases. Therefore
+
+$$
+f(x)=\frac{1-u^3}{u^2}=u^{-2}-u.
+$$
+
+We can differentiate this much simpler expression with respect to $u$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Let $h(u)=u^{-2}-u$, where $u=\sqrt[3]x$ and $u\ne0$. Since cube root is an increasing function, $f$
+decreases in $x$ exactly when $h$ decreases in $u$.
+
+$$
+\begin{aligned}
+h'(u)
+&=-2u^{-3}-1\\
+&=-\frac{u^3+2}{u^3}.
+\end{aligned}
+$$
+
+We need $h'(u)<0$, so $(u^3+2)/u^3>0$. The numerator and denominator must have the same sign:
+
+- $u>0$, which gives $x=u^3>0$;
+- or $u^3<-2$, which gives $x<-2$.
+
+At $x=-2$ the derivative is zero and the function changes from decreasing to increasing, so the complete
+interval is conventionally written
+
+$$\boxed{x\le-2\quad\text{or}\quad x>0}.$$
+
+This is **option A**.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The left branch decreases to its minimum at x=-2, then increases; the entire positive branch decreases."
+x_left = np.linspace(-12, -0.03, 1800)
+x_right = np.linspace(0.03, 12, 1800)
+f = lambda z: (1-z)/np.cbrt(z**2)
+plt.figure(figsize=(7.2, 4.2))
+plt.plot(x_left, f(x_left), color=BLUE, lw=2)
+plt.plot(x_right, f(x_right), color=BLUE, lw=2)
+plt.axhline(0, color="0.35", lw=0.8)
+plt.axvline(0, color=RED, lw=1, ls="--", label=r"undefined at $x=0$")
+minimum = 3/(2**(2/3))
+plt.scatter([-2], [minimum], color=RED, zorder=3)
+plt.annotate(r"minimum at $x=-2$", (-2, minimum), xytext=(-95, -28),
+             textcoords="offset points", color=RED, fontsize=9)
+plt.xlim(-12, 12)
+plt.ylim(-3, 8)
+plt.xlabel("x")
+plt.ylabel("f(x)")
+plt.legend()
+plt.grid(alpha=0.18)
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+## Question 18 practice
+
+1. Explain why $(1-x)/\sqrt[3]{x^2}$ is neither even nor odd.
+2. Find where $(1+x)/\sqrt[3]{x^2}$ is decreasing.
+3. For $a>0$, find where $(a-x)/\sqrt[3]{x^2}$ is decreasing.
+4. State the vertical asymptote, intercept, and end behaviour of the original function.
+5. Decide whether $(1-x^2)/\sqrt[3]{x^2}$ is odd, even, or neither.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. $f(-x)=(1+x)/\sqrt[3]{x^2}$, which equals neither $f(x)$ nor $-f(x)$.
+2. Put $u=\sqrt[3]x$. Then $h(u)=u^{-2}+u$ and
+   $$h'(u)=1-\frac2{u^3}.$$
+   This is negative only when $0<u^3<2$, so the function decreases for $0<x<2$.
+3. The substitution gives $h(u)=au^{-2}-u$ and
+   $$h'(u)=-\frac{u^3+2a}{u^3}.$$
+   Therefore the function decreases for $x<-2a$ and for $x>0$ (with the stationary endpoint included as
+   $x\le-2a$ when stating the complete decreasing interval).
+4. The vertical asymptote is $x=0$. The graph crosses the $x$-axis at $x=1$. As $x\to-\infty$,
+   $f(x)\to+\infty$; as $x\to+\infty$, $f(x)\to-\infty$.
+5. Both numerator and denominator are even, so the quotient is **even** on its domain $x\ne0$.
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Question 20 - Shortest paths on a pyramid
+
+## Original question
+
+A square-based pyramid has base $PQRS$ and vertex $O$. Every edge has length $20$ metres. Find the shortest
+distance along the outer surface from $P$ to the midpoint $M$ of $OR$.
+
+## The method to recall
+
+A shortest path on a flat surface is a straight line. For a shortest path on a polyhedron:
+
+1. identify the faces the route can cross;
+2. unfold those faces into one plane;
+3. join the two points with a straight line;
+4. check that the line crosses the shared edge inside the faces.
+
+Because all edges are $20$, every triangular side face is equilateral. The two adjacent faces $OPQ$ and
+$OQR$ unfold into two equilateral triangles sharing the edge $OQ$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Unfold faces $OPQ$ and $OQR$ on opposite sides of $OQ$. Give the points coordinates
+
+$$O=(0,0),\qquad Q=(20,0).$$
+
+The altitude of an equilateral triangle of side $20$ is
+
+$$\sqrt{20^2-10^2}=10\sqrt3.$$
+
+Hence we may take
+
+$$P=(10,10\sqrt3),\qquad R=(10,-10\sqrt3).$$
+
+Since $M$ is the midpoint of $OR$,
+
+$$M=(5,-5\sqrt3).$$
+
+The straight-line distance in the net is
+
+$$
+\begin{aligned}
+PM^2
+&=(10-5)^2+(10\sqrt3+5\sqrt3)^2\\
+&=5^2+(15\sqrt3)^2\\
+&=25+675\\
+&=700.
+\end{aligned}
+$$
+
+Therefore
+
+$$\boxed{PM=\sqrt{700}=10\sqrt7\text{ metres}}.$$
+
+This is **option D**.
+
+The red segment crosses the shared edge $OQ$ between $O$ and $Q$, so it represents a valid route on the
+two faces. The reflected route through faces $OPS$ and $OSR$ has the same length by symmetry.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Unfold the two adjacent equilateral faces. The shortest surface route becomes the straight red segment PM."
+s = 20
+h = 10*np.sqrt(3)
+O = np.array([0.0, 0.0]); Q = np.array([20.0, 0.0])
+P = np.array([10.0, h]); R = np.array([10.0, -h]); M = (O+R)/2
+fig, ax = plt.subplots(figsize=(6.4, 5.4))
+ax.fill([O[0], Q[0], P[0]], [O[1], Q[1], P[1]], color="#dbeafe", alpha=0.8)
+ax.fill([O[0], Q[0], R[0]], [O[1], Q[1], R[1]], color="#e0f2fe", alpha=0.8)
+for A, B in [(O,Q),(Q,P),(P,O),(Q,R),(R,O)]:
+    ax.plot([A[0],B[0]],[A[1],B[1]], color=BLUE, lw=1.8)
+ax.plot([P[0],M[0]],[P[1],M[1]], color=RED, lw=2.5)
+for name, point in {"O":O,"Q":Q,"P":P,"R":R,"M":M}.items():
+    ax.scatter(*point, color=RED if name in {"P","M"} else BLUE, zorder=3)
+    ax.annotate(name, point, xytext=(5,5), textcoords="offset points", fontsize=10)
+ax.set_aspect("equal")
+ax.axis("off")
+plt.tight_layout()
+plt.show()
+```
+
+### Cosine-rule check
+
+In the unfolded triangle $POR$, $PO=OR=20$ and the angle $POR=120^\circ$. Since $OM=10$,
+
+$$
+\begin{aligned}
+PM^2
+&=20^2+10^2-2(20)(10)\cos120^\circ\\
+&=400+100+200\\
+&=700.
+\end{aligned}
+$$
+
+This gives the same answer, $PM=10\sqrt7$.
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 20 practice
+
+Two equilateral triangular faces of side length $a$ share an edge. After unfolding, let $M$ lie a fraction
+$\lambda$ of the way from $O$ to $R$, so $OM=\lambda OR$.
+
+1. Show that the straight route from $P$ to $M$ has length
+   $$a\sqrt{\lambda^2+\lambda+1}.$$
+2. Use the formula for $a=20$ and $\lambda=\tfrac12$.
+3. Find the route length when $a=12$ and $OM=\tfrac13OR$.
+4. Find the route length when $a=18$ and $OM=\tfrac23OR$.
+5. Explain why measuring a straight line on the original 3D drawing does not solve a surface-distance problem.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. In the unfolded diagram,
+   $$P=\left(\frac a2,\frac{\sqrt3a}{2}\right),\qquad
+   M=\left(\frac{\lambda a}{2},-\frac{\lambda\sqrt3a}{2}\right).$$
+   Therefore
+   $$
+   \begin{aligned}
+   PM^2
+   &=\frac{a^2}{4}\left[(1-\lambda)^2+3(1+\lambda)^2\right]\\
+   &=a^2(\lambda^2+\lambda+1),
+   \end{aligned}
+   $$
+   which gives $PM=a\sqrt{\lambda^2+\lambda+1}$.
+2. $20\sqrt{\frac14+\frac12+1}=20\sqrt{\frac74}=10\sqrt7$.
+3. $12\sqrt{\frac19+\frac13+1}=12\sqrt{\frac{13}{9}}=4\sqrt{13}$.
+4. $18\sqrt{\frac49+\frac23+1}=18\sqrt{\frac{19}{9}}=6\sqrt{19}$.
+5. A line through the solid may leave the pyramid's outer surface. Unfolding preserves distances within each
+   face and turns a valid surface route into a planar straight line.
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
