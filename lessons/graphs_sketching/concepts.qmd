@@ -100,6 +100,9 @@ To solve $f(x)=g(x)$, or to count roots: **draw the two graphs and count interse
 Count real roots of $f(x)=0$ from the **signs of the turning-point values**: a positive max and a
 negative min force **three** crossings; same sign → **one**.
 
+Above cubic degree, move the constant across first and count where $y=g(x)$ meets the line $y=c$;
+each monotone block of $g$ gives at most one crossing.
+
 [so $x^3-3x=k$ has 3 roots exactly when $-2<k<2$]{.eg}
 :::
 

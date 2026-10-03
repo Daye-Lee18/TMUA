@@ -1,6 +1,6 @@
 ---
 title: "Graphs Clinic 2 · Sketching & Graph-Solving"
-subtitle: "Session 9 — 20 exam-standard questions; sketch it, or draw-and-count"
+subtitle: "Session 9 — 26 exam-standard questions; sketch it, draw-and-count, or count the roots"
 format: html
 jupyter: python3
 execute:
@@ -11,8 +11,9 @@ execute:
 ::: {.solutions}
 
 Clinic 1 was *"the graph is given — move it or read it"*. This clinic is the other half: **you produce the
-graph** (sketch from scratch) or **use a graph to solve** (draw two things and count crossings). Twenty
-exam-standard questions in three parts. As before, the aim is volume and speed — meet each idea enough times
+graph** (sketch from scratch) or **use a graph to solve** (draw two things and count crossings), and it
+closes on the question the TMUA asks most often of all — **how many real roots?** Twenty-six exam-standard
+questions in four parts. As before, the aim is volume and speed — meet each idea enough times
 that the method is in your head before you pick up the pen.
 
 ::: {.callout-tip}
@@ -1025,14 +1026,504 @@ Working
 
 ---
 
+# Part 4 — Counting real roots: the horizontal-line method
+
+```{python}
+#| include: false
+import numpy as np, matplotlib.pyplot as plt
+
+BK_C = '#1f77b4'; BK_R = '#d62728'
+
+def plot_polynomial_bank(items, xlim, row_h=2.5, width=6.4):
+    """One polynomial per row; mark and label every distinct real root."""
+    x = np.linspace(xlim[0], xlim[1], 1600)
+    fig, axes = plt.subplots(len(items), 1, figsize=(width, row_h*len(items)))
+    axes = np.atleast_1d(axes)
+    for ax, (label, fn, roots) in zip(axes, items):
+        y = fn(x)
+        # Scale to the turning values, not to the tails: on a high-degree
+        # polynomial the ends are enormous and would flatten the very part of
+        # the curve the root count depends on.
+        d = np.diff(y)
+        tol = 1e-12*max(1.0, float(np.max(np.abs(y))))
+        sg = np.sign(np.where(np.abs(d) < tol, 0.0, d))
+        keep = np.where(sg != 0, np.arange(sg.size), 0)
+        np.maximum.accumulate(keep, out=keep)      # a numerically flat plateau
+        sg = sg[keep]                              # keeps the sign it came in with
+        turn = np.where(sg[:-1]*sg[1:] < 0)[0] + 1
+        ext = float(np.max(np.abs(y[turn]))) if turn.size else 0.0
+        q60 = float(np.quantile(np.abs(y), 0.60))
+        if ext > 1e-6*max(1.0, float(np.max(np.abs(y)))):
+            scale, pad = ext, 1.45
+        elif turn.size:                            # every turning value is 0
+            scale, pad = max(0.12*q60, 1e-6), 1.30
+        else:                                      # monotone: nothing to frame
+            scale, pad = max(q60, 1.0), 1.15
+        scale *= pad
+        ax.plot(x, y, color=BK_C, lw=2)
+        ax.axhline(0, color='0.35', lw=0.8); ax.axvline(0, color='0.35', lw=0.8)
+        for r in roots:
+            v, tag = r if isinstance(r, tuple) else (r, f'{r:g}'.replace('-', '\u2212'))
+            ax.plot(v, 0, 'o', color=BK_R, ms=5, zorder=4)
+            # white backing: several of these curves pass steeply through the root
+            # and would otherwise be drawn across the label
+            ax.annotate(tag, (v, 0), xytext=(0, 10), textcoords='offset points',
+                        ha='center', color=BK_R, fontsize=9, zorder=5,
+                        bbox=dict(boxstyle='round,pad=0.16', fc='white', ec='none', alpha=0.88))
+        ax.set_xlim(*xlim); ax.set_ylim(-scale, scale)
+        ax.set_title(label, fontsize=10)
+        ax.set_xlabel('x'); ax.set_ylabel('y'); ax.grid(alpha=0.18)
+    plt.tight_layout(); plt.show()
+```
+
+Parts 1–3 asked you to *draw* a curve. This part asks a narrower question that the TMUA likes a great deal:
+**how many real roots does this equation have?** You are never asked for the roots — a quintic has no root
+formula — so the only sane route is a shape argument.
+
 ::: {.callout-tip}
-## The two habits to leave with
+## Why you move the constant across
+
+$f(x)=0$ and $g(x)=c$ ask the same thing, but they are not equally easy to *see*. Written as $g(x)=c$ the
+question becomes [how many times does the curve $y=g(x)$ meet the horizontal line $y=c$]{.hl} — and that is
+settled by the **heights of the turning points**, which you can compute exactly even when the roots are
+hopeless. There is a second prize: once the constant has been moved away, what is left is very often an odd
+or an even function, and the symmetry is free information.
+:::
+
+::: {.callout-important}
+## Method — counting the real roots of a polynomial equation
+
+1. **Move the constant.** Turn $f(x)=0$ into $g(x)=c$, and draw the line $y=c$.
+2. **Ends.** The parity of the degree and the sign of the leading coefficient fix both ends.
+3. **Symmetry.** Compute $g(-x)$: equal to $g(x)$ is even ($y$-axis), equal to $-g(x)$ is odd (origin).
+4. **Stationary points.** Solve $g'(x)=0$.
+5. **Sign table** for $g'$ — this splits the line into *monotone blocks*.
+6. **Heights.** Evaluate $g$ at each stationary point and compare it with $c$. **Above or below is all you
+   need**; the exact value is not part of the answer.
+7. **Count.** One crossing for each monotone block whose two ends lie on opposite sides of $y=c$.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** A whole number, or the MCQ letter. Never the roots themselves.
+:::
+
+## Question 21
+
+::: {.question}
+How many real roots does the equation $3x^{5}-10x^{3}-120x+30=0$ have?
+
+&nbsp;&nbsp;**A** 1 &nbsp;&nbsp; **B** 2 &nbsp;&nbsp; **C** 3 &nbsp;&nbsp; **D** 4 &nbsp;&nbsp; **E** 5
+
+*(TMUA 2016 Paper 1 Q13)*
+:::
+
+A fifth-degree equation with no obvious factor: that is the paper telling you **not** to solve it. Move the
+$30$ across and put $g(x)=3x^{5}-10x^{3}-120x$, then count how often $y=g(x)$ meets [$y=-30$]{.hl}. Only odd
+powers are left, so $g$ is odd and the picture is symmetric about the origin.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+### Route 1 — build the skeleton from the derivative
+
+**Ends.** The leading term is $3x^{5}$: odd degree, positive coefficient, so
+
+$$x\to-\infty\Rightarrow g(x)\to-\infty,\qquad x\to\infty\Rightarrow g(x)\to\infty.$$
+
+The curve starts bottom-left and finishes top-right.
+
+**Stationary points.**
+
+$$
+\begin{aligned}
+g'(x)&=15x^{4}-30x^{2}-120\\
+&=15(x^{4}-2x^{2}-8)\\
+&=15(x^{2}-4)(x^{2}+2).
+\end{aligned}
+$$
+
+*The factor $x^{2}+2$ is positive for every real $x$, so it contributes no stationary point and no sign
+change — the whole shape is decided by $x^{2}-4$.* Hence $x=-2$ and $x=2$ only.
+
+**Sign table.**
+
+| | $x<-2$ | $-2<x<2$ | $x>2$ |
+|---|---:|---:|---:|
+| $x^{2}-4$ | $+$ | $-$ | $+$ |
+| $g'(x)$ | $+$ | $-$ | $+$ |
+| $g(x)$ | increasing | decreasing | increasing |
+
+So $x=-2$ gives a maximum and $x=2$ a minimum — three monotone blocks.
+
+**Heights against the line.**
+
+$$g(-2)=-96+80+240=224,\qquad g(2)=96-80-240=-224,$$
+
+and therefore
+
+$$-224<-30<224 .$$
+
+*The line $y=-30$ is strictly between the minimum value and the maximum value, so each of the three monotone
+blocks runs from one side of the line to the other, and each contributes exactly one crossing.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "y=g(x) against the line y=−30: the line sits between the minimum −224 and the maximum 224, so it is cut three times."
+import numpy as np, matplotlib.pyplot as plt
+x = np.linspace(-4.2, 4.2, 1600)
+y = 3*x**5 - 10*x**3 - 120*x
+rts = np.roots([3, 0, -10, 0, -120, 30])
+rts = np.sort(rts[np.isclose(rts.imag, 0)].real)
+fig, ax = plt.subplots(figsize=(6.2, 3.8))
+ax.plot(x, y, color='#1f77b4', lw=2)
+ax.axhline(-30, color='#d62728', lw=1.4, ls='--', label='y=−30')
+ax.axhline(0, color='0.6', lw=0.6); ax.axvline(0, color='0.6', lw=0.6)
+ax.plot([-2, 2], [224, -224], 'o', color='#1f77b4')
+ax.plot(rts, np.full(len(rts), -30), 'o', color='#d62728', ms=6, zorder=4)
+ax.annotate('max (−2, 224)', (-2, 224), xytext=(-78, 10), textcoords='offset points',
+            color='#1f77b4', fontsize=9)
+ax.annotate('min (2, −224)', (2, -224), xytext=(8, -18), textcoords='offset points',
+            color='#1f77b4', fontsize=9)
+ax.set_xlim(-4.2, 4.2); ax.set_ylim(-520, 520)
+ax.set_xlabel('x'); ax.set_ylabel('g(x)'); ax.legend(fontsize=8, loc='upper left')
+ax.grid(alpha=0.2); plt.tight_layout(); plt.show()
+```
+
+The sketch does not have to be to scale. The only thing it must show is that $y=-30$ lies between $-224$
+and $224$. **Three roots — C.**
+
+### Route 2 — when the sketch will not come out
+
+Two one-line arguments do the same job without a picture.
+
+**At least three.** Compare $g$ with the height $-30$ at six points:
+
+$$g(-4)=-1952<-30,\quad g(-2)=224>-30,$$
+$$g(0)=0>-30,\quad g(1)=-127<-30,$$
+$$g(2)=-224<-30,\quad g(4)=1952>-30.$$
+
+*$g$ is a polynomial, hence continuous, so a sign change of $g(x)+30$ across an interval forces a root inside
+it.* The three disjoint intervals
+
+$$(-4,-2),\qquad (0,1),\qquad (2,4)$$
+
+each contain at least one root, so there are at least three.
+
+**At most three.** $g'(x)=0$ only at $x=\pm2$, so $g$ is monotone on each of
+$(-\infty,-2)$, $(-2,2)$, $(2,\infty)$. *A monotone function takes the value $-30$ at most once, so each block
+contributes at most one root* — at most three in total.
+
+Exactly three. **C**
+
+> **The sentence to write in the exam.** Let $g(x)=3x^{5}-10x^{3}-120x$. Then $g'(x)=15(x^{2}-4)(x^{2}+2)$,
+> so the only stationary points are $x=\pm2$, with $g(-2)=224$ and $g(2)=-224$. Since $-224<-30<224$, the line
+> $y=-30$ meets $y=g(x)$ exactly three times. $\blacksquare$
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+Two small things decide most of these questions before any calculus happens: which way the ends go, and
+whether the curve has a symmetry. Both are read straight off the formula.
+
+::: {.callout-tip}
+## Odd degree is not the same as an odd function
+
+$x^{3}+1$ has odd degree but is **not** an odd function — $f(-1)=0$ while $-f(1)=-2$. Parity of the *degree*
+controls the **ends**; parity of the *function* controls the **symmetry**. They are separate pieces of
+information and you get them from different places: the degree from the leading term, the symmetry from
+$f(-x)$.
+
+| What appears in the formula | Verdict | Symmetry |
+|---|---|---|
+| only even powers (a constant counts as $x^{0}$) | even | about the $y$-axis |
+| only odd powers, no constant term | odd | about the origin |
+| odd and even powers mixed | usually neither | usually none |
+
+This is exactly why Question 21 moved the $30$ across first: $3x^{5}-10x^{3}-120x$ has only odd powers, so
+$g(-x)=-g(x)$ and half the curve is a free $180^{\circ}$ rotation of the other half.
+:::
+
+::: {.callout-tip}
+## The ends, from the leading term alone
+
+| Leading term | $x\to-\infty$ | $x\to\infty$ |
+|---|---|---|
+| $+x^{\text{odd}}$ | down | up |
+| $-x^{\text{odd}}$ | up | down |
+| $+x^{\text{even}}$ | up | up |
+| $-x^{\text{even}}$ | down | down |
+
+The first two rows have **opposite** ends, which is why **every odd-degree polynomial equation has at least
+one real root**. The last two rows have ends on the same side, so an even-degree equation may well have none.
+:::
+
+::: {.callout-tip}
+## Three bounds that cap the count
+
+- A polynomial of degree $n$ has **at most $n$** distinct real roots.
+- If $f'$ has $k$ distinct real roots, $f$ has **at most $k+1$** monotone blocks.
+- Each monotone block meets a horizontal line **at most once**, so the number of crossings is at most $k+1$.
+
+In Question 21, $k=2$, so three was the ceiling as well as the answer — nothing further had to be checked.
+:::
+
+## Question 22
+
+::: {.question}
+Sketch each cubic and state the number of **distinct** real roots.
+
+&nbsp;&nbsp;**(1)** $y=x^{3}-8$ &nbsp;&nbsp; **(2)** $y=x^{3}-3x$ &nbsp;&nbsp; **(3)** $y=(x-1)^{2}(x+2)$
+
+&nbsp;&nbsp;**(4)** $y=x^{3}-3x+3$ &nbsp;&nbsp; **(5)** $y=-x^{3}+4x$ &nbsp;&nbsp; **(6)** $y=(x+1)^{3}$
+:::
+
+The ends of a cubic always point opposite ways, so **1, 2 or 3** are the only possible answers — never $0$.
+Factorise where you can; otherwise compare the two turning values with $0$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **1.** $x=2$. This is $y=x^{3}$ translated down by $8$, and a translation cannot create a turning point.
+2. **3.** $x=-\sqrt3,\,0,\,\sqrt3$, all single factors, so the curve crosses at all three.
+3. **2.** $x=-2$ and $x=1$. *The squared factor makes $x=1$ a double root, so the curve touches there and
+   turns back instead of crossing — two distinct roots from three linear factors.*
+4. **1.** $f'(x)=3(x^{2}-1)$, so the turning values are $f(-1)=5$ and $f(1)=1$. *Both are above the axis, so
+   the curve has already risen clear of $y=0$ before the wiggle starts and only crosses once, far to the left*
+   (at $x\approx-2.10$).
+5. **3.** $-x(x^{2}-4)=0$ gives $x=-2,0,2$. The negative leading coefficient flips the ends: top-left to
+   bottom-right.
+6. **1.** $x=-1$ is a triple root. *An odd multiplicity still crosses, but the tangent there is horizontal, so
+   the curve flattens as it passes through.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The six cubics. Red dots mark the distinct real roots; note the touch in (3) and the flattening in (6)."
+import numpy as np
+r3 = np.sqrt(3)
+plot_polynomial_bank([
+    (r'(1) $y=x^3-8$ — 1 root', lambda x: x**3-8, [2]),
+    (r'(2) $y=x^3-3x$ — 3 roots', lambda x: x**3-3*x,
+     [(-r3, r'$-\sqrt{3}$'), (0, '0'), (r3, r'$\sqrt{3}$')]),
+    (r'(3) $y=(x-1)^2(x+2)$ — 2 roots, touches at 1', lambda x: (x-1)**2*(x+2), [-2, 1]),
+    (r'(4) $y=x^3-3x+3$ — 1 root', lambda x: x**3-3*x+3, [(-2.103803, '≈−2.10')]),
+    (r'(5) $y=-x^3+4x$ — 3 roots', lambda x: -x**3+4*x, [-2, 0, 2]),
+    (r'(6) $y=(x+1)^3$ — 1 triple root', lambda x: (x+1)**3, [-1]),
+], (-3.2, 3.2))
+```
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 23
+
+::: {.question}
+Sketch each quartic and state the number of **distinct** real roots.
+
+&nbsp;&nbsp;**(1)** $y=x^{4}+1$ &nbsp;&nbsp; **(2)** $y=(x-1)^{2}(x^{2}+1)$ &nbsp;&nbsp; **(3)** $y=x^{4}-16$
+
+&nbsp;&nbsp;**(4)** $y=x^{2}(x^{2}-4)$ &nbsp;&nbsp; **(5)** $y=(x^{2}-1)(x^{2}-4)$ &nbsp;&nbsp;
+**(6)** $y=-(x^{2}-1)^{2}$
+:::
+
+Even degree, so both ends go the same way — and with a positive leading coefficient both go **up**. That
+makes $0$ roots possible for the first time. These six run through every count from $0$ to $4$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **0.** $x^{4}\ge0$, so $x^{4}+1\ge1$ and the curve never reaches the axis.
+2. **1.** *$x^{2}+1$ has no real zero, so it contributes nothing but a positive factor;* only $x=1$ survives,
+   and it is a double root, so the curve touches.
+3. **2.** $x^{4}=16$ gives $x=\pm2$ (and two non-real roots). Both are single, so both cross.
+4. **3.** $x^{2}(x-2)(x+2)$: touches at $x=0$ (double), crosses at $x=\pm2$.
+5. **4.** $x=-2,-1,1,2$, four single factors, four crossings.
+6. **2.** $x=\pm1$, both double. *The leading coefficient is negative and the expression is minus a square, so
+   the curve is never above the axis — it rises to touch $y=0$ twice and falls away again.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The six quartics, covering 0, 1, 2, 3 and 4 distinct real roots. A repeated root touches instead of crossing."
+plot_polynomial_bank([
+    (r'(1) $y=x^4+1$ — 0 roots', lambda x: x**4+1, []),
+    (r'(2) $y=(x-1)^2(x^2+1)$ — 1 root, touches', lambda x: (x-1)**2*(x**2+1), [1]),
+    (r'(3) $y=x^4-16$ — 2 roots', lambda x: x**4-16, [-2, 2]),
+    (r'(4) $y=x^2(x^2-4)$ — 3 roots, touches at 0', lambda x: x**2*(x**2-4), [-2, 0, 2]),
+    (r'(5) $y=(x^2-1)(x^2-4)$ — 4 roots', lambda x: (x**2-1)*(x**2-4), [-2, -1, 1, 2]),
+    (r'(6) $y=-(x^2-1)^2$ — 2 touching roots', lambda x: -(x**2-1)**2, [-1, 1]),
+], (-3.0, 3.0))
+```
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 24
+
+::: {.question}
+Sketch each quintic and state the number of **distinct** real roots.
+
+&nbsp;&nbsp;**(1)** $y=x^{5}-32$ &nbsp;&nbsp; **(2)** $y=(x-1)^{2}(x+1)(x^{2}+1)$ &nbsp;&nbsp;
+**(3)** $y=(x^{2}-1)^{2}(x-3)$
+
+&nbsp;&nbsp;**(4)** $y=(x-2)^{2}(x+2)(x-1)(x+1)$ &nbsp;&nbsp; **(5)** $y=x(x^{2}-1)(x^{2}-4)$ &nbsp;&nbsp;
+**(6)** $y=x^{5}-5x$
+:::
+
+Odd degree again, so at least one root is guaranteed; but $g'$ can now have up to four roots, so every count
+from $1$ to $5$ is reachable. This is the family Question 21 came from.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **1.** $x=2$, and the other four fifth roots of $32$ are non-real.
+2. **2.** $x=-1$ (crosses) and $x=1$ (double, touches); $x^{2}+1$ contributes nothing real.
+3. **3.** $x=\pm1$ are double so the curve touches there; $x=3$ is single so it crosses.
+4. **4.** $x=-2,-1,1$ cross and $x=2$ touches — four distinct values from five linear factors.
+5. **5.** $x=-2,-1,0,1,2$, all single. *Five simple roots is the maximum a quintic can have, so no further
+   checking is needed.*
+6. **3.** $x(x^{4}-5)=0$, so $x=0$ and $x=\pm5^{1/4}$; the other two fourth roots of $5$ are non-real. Only
+   odd powers appear, so the curve is symmetric about the origin.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The six quintics, covering 1 to 5 distinct real roots. Odd degree forces at least one crossing."
+r5 = 5**0.25
+plot_polynomial_bank([
+    (r'(1) $y=x^5-32$ — 1 root', lambda x: x**5-32, [2]),
+    (r'(2) $y=(x-1)^2(x+1)(x^2+1)$ — 2 roots', lambda x: (x-1)**2*(x+1)*(x**2+1), [-1, 1]),
+    (r'(3) $y=(x^2-1)^2(x-3)$ — 3 roots', lambda x: (x**2-1)**2*(x-3), [-1, 1, 3]),
+    (r'(4) $y=(x-2)^2(x+2)(x-1)(x+1)$ — 4 roots',
+     lambda x: (x-2)**2*(x+2)*(x-1)*(x+1), [-2, -1, 1, 2]),
+    (r'(5) $y=x(x^2-1)(x^2-4)$ — 5 roots', lambda x: x*(x**2-1)*(x**2-4), [-2, -1, 0, 1, 2]),
+    (r'(6) $y=x^5-5x$ — 3 roots', lambda x: x**5-5*x,
+     [(-r5, r'$-5^{1/4}$'), (0, '0'), (r5, r'$5^{1/4}$')]),
+], (-3.5, 3.5))
+```
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 25
+
+::: {.question}
+Sketch each sextic and state the number of **distinct** real roots.
+
+&nbsp;&nbsp;**(1)** $y=x^{6}+1$ &nbsp;&nbsp; **(2)** $y=x^{2}(x^{4}+1)$ &nbsp;&nbsp;
+**(3)** $y=(x^{2}-4)(x^{2}+1)^{2}$ &nbsp;&nbsp; **(4)** $y=x^{2}(x^{2}-1)(x^{2}+1)$
+
+&nbsp;&nbsp;**(5)** $y=(x^{2}-1)(x^{2}-4)(x^{2}+1)$ &nbsp;&nbsp;
+**(6)** $y=x^{2}(x^{2}-1)(x^{2}-4)$ &nbsp;&nbsp; **(7)** $y=(x^{2}-1)(x^{2}-4)(x^{2}-9)$
+:::
+
+Seven curves this time, one for every possible count from $0$ to $6$. Every one of them is even, so you only
+ever have to think about $x\ge0$ and reflect.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **0.** Always at least $1$.
+2. **1.** $x^{4}+1>0$ for every real $x$, so only $x=0$ — a double root, so a touch.
+3. **2.** $x=\pm2$; the squared factor $(x^{2}+1)^{2}$ is positive throughout and changes nothing.
+4. **3.** $x=0$ (double, touches) and $x=\pm1$ (cross).
+5. **4.** $x=\pm1,\pm2$, all single.
+6. **5.** $x=0$ (double) together with $\pm1,\pm2$.
+7. **6.** $x=\pm1,\pm2,\pm3$ — six simple roots, the most a sextic can have.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The seven sextics, covering every possible count of distinct real roots from 0 to 6."
+plot_polynomial_bank([
+    (r'(1) $y=x^6+1$ — 0 roots', lambda x: x**6+1, []),
+    (r'(2) $y=x^2(x^4+1)$ — 1 touching root', lambda x: x**2*(x**4+1), [0]),
+    (r'(3) $y=(x^2-4)(x^2+1)^2$ — 2 roots', lambda x: (x**2-4)*(x**2+1)**2, [-2, 2]),
+    (r'(4) $y=x^2(x^2-1)(x^2+1)$ — 3 roots', lambda x: x**2*(x**2-1)*(x**2+1), [-1, 0, 1]),
+    (r'(5) $y=(x^2-1)(x^2-4)(x^2+1)$ — 4 roots',
+     lambda x: (x**2-1)*(x**2-4)*(x**2+1), [-2, -1, 1, 2]),
+    (r'(6) $y=x^2(x^2-1)(x^2-4)$ — 5 roots', lambda x: x**2*(x**2-1)*(x**2-4), [-2, -1, 0, 1, 2]),
+    (r'(7) $y=(x^2-1)(x^2-4)(x^2-9)$ — 6 roots',
+     lambda x: (x**2-1)*(x**2-4)*(x**2-9), [-3, -2, -1, 1, 2, 3]),
+], (-4.0, 4.0))
+```
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 26
+
+::: {.question}
+State the number of distinct real roots of each equation.
+
+&nbsp;&nbsp;**(1)** $x^{3}-3x=1$ &nbsp;&nbsp; **(2)** $x^{4}-4x^{2}=1$ &nbsp;&nbsp; **(3)** $x^{5}-5x=0$
+
+&nbsp;&nbsp;**(4)** $x^{6}-5x^{4}+4x^{2}=0$ &nbsp;&nbsp; **(5)** $3x^{5}-10x^{3}-120x=-30$
+:::
+
+Questions 22–25 had the constant already at $0$, so factorising was enough. Here the line is somewhere else,
+and you have to compare the turning values with it — the Question 21 move.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **3.** $g(x)=x^{3}-3x$ has a maximum $g(-1)=2$ and a minimum $g(1)=-2$. *The line $y=1$ lies strictly
+   between $-2$ and $2$, so all three monotone blocks cross it.*
+2. **2.** Put $u=x^{2}\ (\ge0)$: $u^{2}-4u-1=0$ gives $u=2\pm\sqrt5$. *Only $u=2+\sqrt5$ is non-negative, and
+   a positive $u$ yields the pair $x=\pm\sqrt u$* — so two roots, $x\approx\pm2.06$.
+3. **3.** $x(x^{4}-5)=0$, so $x=0,\pm5^{1/4}$.
+4. **5.** $x^{2}(x^{2}-1)(x^{2}-4)=0$, so $x=0,\pm1,\pm2$ — and $x=0$ is a repeated root counted once.
+5. **3.** This is Question 21 again. The turning values are $\pm224$ and the line is $y=-30$, which lies
+   between them.
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Checklist before you leave Part 4
+
+- [ ] I can state the direction of both ends from the leading term alone.
+- [ ] I can say which way a curve behaves at a root of multiplicity $1$, $2$ and $3$ — cross, touch, flatten
+      and cross.
+- [ ] I test for symmetry with $f(-x)$, and I do not confuse odd degree with an odd function.
+- [ ] I can solve $f'(x)=0$ and build the increasing/decreasing table.
+- [ ] I count crossings from **whether** each turning value is above or below the line, not from its exact
+      value.
+- [ ] When the sketch will not come, I can still argue "at least $n$" by sign changes and "at most $n$" by
+      monotone blocks.
+:::
+
+---
+
+::: {.callout-tip}
+## The three habits to leave with
 
 1. **Sketch:** run the checklist — intercepts, repeated roots (touch vs cross), turning points, asymptotes,
    ends. The leading term fixes the ends; a squared factor touches, a single factor crosses.
 2. **Draw-and-count:** to solve or to count roots, draw the two graphs and count crossings. A line strictly
    between a cubic's turning-point heights gives three roots; tangency means discriminant $0$; and the cubic
    $1:\sqrt3$ and $2:1$ ratios place turning points and return-heights with no calculus.
+3. **Count:** to count the real roots of $f(x)=0$, move the constant across, find where $g'=0$, and compare
+   each turning value with the line — above or below is enough. If the sketch will not come, bound the count
+   from below by sign changes and from above by the number of monotone blocks.
 :::
 
 :::

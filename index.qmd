@@ -185,7 +185,7 @@ three, and work **JZ Mock A Paper 2 Q8** in full.
 | **MM7** | **Integrals to reason about** — the ones you compare rather than evaluate | **[Material](lessons/integral_reasoning_clinic/class_material.qmd)** | **[Questions](lessons/integral_reasoning_clinic/assignment_student.qmd)** · [MS](lessons/integral_reasoning_clinic/assignment_ms.qmd) |
 | **MM8** | **Graphs — the main bank** | **[Concepts](lessons/graph_clinic/concepts.qmd)** · **[Material](lessons/graph_clinic/class_material.qmd)** | **[Questions](lessons/graph_clinic/assignment_student.qmd)** · [MS](lessons/graph_clinic/assignment_ms.qmd) |
 | **MM8** | **Graphs — transformations** | **[Concepts](lessons/graphs_transformations/concepts.qmd)** · **[Material](lessons/graphs_transformations/class_material.qmd)** | **[Questions](lessons/graphs_transformations/assignment_student.qmd)** · [MS](lessons/graphs_transformations/assignment_ms.qmd) |
-| **MM8** | **Graphs — sketching** | **[Concepts](lessons/graphs_sketching/concepts.qmd)** · **[Material](lessons/graphs_sketching/class_material.qmd)** | — |
+| **MM8** | **Graphs — sketching** — produce the shape, draw-and-count, and **count the real roots** of a polynomial equation by the horizontal-line method | **[Concepts](lessons/graphs_sketching/concepts.qmd)** · **[Material](lessons/graphs_sketching/class_material.qmd)** | — |
 | **MM8** | **Graphs — extra bank** | **[Material](lessons/graphs_clinic/class_material.qmd)** | — |
 
 *(Full lesson index: **[all lessons](lessons/index.qmd)**.)*
