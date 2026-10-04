@@ -1,0 +1,570 @@
+---
+title: "TMUA 2017 · Paper 2 — Dedicated Clinic"
+subtitle: "Question 20 in depth, plus Q12 and the four that took too long"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+from itertools import permutations
+
+BLUE = "#2b6cb0"
+RED = "#c53030"
+GREEN = "#2f855a"
+AMBER = "#b7791f"
+GREY = "0.35"
+```
+
+**18 / 20** on this paper, with only two wrong: **Q12** and **Q20**. Question 20 is the one to review, so it
+comes first and in full; Q12 follows, and then short notes on the four questions that were answered correctly
+but took far too long.
+
+**Related clinics:** **[Necessary & sufficient](../../../toolkit/s03_necessary_sufficient.qmd)** ·
+**[Counting & pigeonhole](../../../toolkit/t01_divisors_primes.qmd)** ·
+**[Trigonometry](../../../lessons/trig_clinic/class_material.qmd)** ·
+**[Integrals to reason about](../../../lessons/integral_reasoning_clinic/class_material.qmd)**.
+
+# Question 20 ★ - Deducing a password
+
+## Original question
+
+I have forgotten my 5-character computer password, but I know that it consists of the letters
+$a,b,c,d,e$ in some order. When I enter a potential password into the computer, it tells me exactly **how
+many** of the letters are in the correct position.
+
+When I enter **abcde**, it tells me that **none** of the letters are in the correct position. The same happens
+when I enter **cdbea** and **eadbc**.
+
+Using the best strategy, how many **further** attempts must I make in order to **guarantee** that I can
+**deduce** the correct password?
+
+&nbsp;&nbsp;**A** None: I can deduce it immediately &nbsp;&nbsp; **B** One &nbsp;&nbsp; **C** Two
+&nbsp;&nbsp; **D** Three &nbsp;&nbsp; **E** More than three
+
+---
+
+## Concepts first - what the machine is actually telling you
+
+::: {.callout-tip}
+## The feedback is a number, not a yes or no
+
+This is the whole question. The computer does not say "right" or "wrong" — it returns **how many letters sit
+in the correct position**, a number from $0$ to $5$. One guess therefore does not split the possibilities into
+two; it splits them into as many groups as there are possible answers.
+
+So a single guess can, at best, tell apart as many passwords as there are distinct feedback values. Counting
+those values is the first thing to do, not the last.
+
+**A free restriction.** The password and every guess are **rearrangements of the same five letters**. If four
+of the five letters are in the correct position, the fifth has nowhere else to go — so it is correct too.
+Feedback $4$ is **impossible**, and the possible values are
+
+$$0,\ 1,\ 2,\ 3,\ 5 \qquad\text{— five of them.}$$
+:::
+
+::: {.callout-tip}
+## What "guarantee" means
+
+"How many attempts must I make to **guarantee** that I can deduce the password" is a **worst-case** question,
+not a lucky-guess question. An answer of *One* means: there is a single guess such that **whatever number it
+comes back with**, only one candidate is left standing.
+
+So you are not asked to find the password. You are asked to find a guess whose five possible replies separate
+the survivors.
+:::
+
+::: {.callout-important}
+## Method - turning "none are correct" into a grid
+
+1. **Translate each guess into eliminations.** "abcde gives $0$" means
+   $a$ is not in position 1, $b$ not in position 2, $c$ not in position 3, $d$ not in position 4, $e$ not in
+   position 5. One guess with feedback $0$ removes exactly one letter from each position.
+2. **Build the position grid.** Five positions, five letters, and strike out what each guess forbids.
+3. **Read off the survivors**, remembering the answer must still be a permutation — no letter twice.
+4. **Count them.** If one survivor is left, the answer is *None*. Otherwise compare the count with the number
+   of available feedback values and look for a single separating guess.
+5. **Check that a separating guess exists** — the count being small enough makes it possible, not certain.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Step 1 — the eliminations.** Each of the three guesses returned $0$, so each one forbids one letter in each
+position:
+
+| position | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| abcde forbids | $a$ | $b$ | $c$ | $d$ | $e$ |
+| cdbea forbids | $c$ | $d$ | $b$ | $e$ | $a$ |
+| eadbc forbids | $e$ | $a$ | $d$ | $b$ | $c$ |
+| **left over** | $b,d$ | $c,e$ | $a,e$ | $a,c$ | $b,d$ |
+
+*The three guesses were chosen so that no letter is forbidden twice in the same position — so every position
+loses three different letters and keeps exactly two.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The elimination grid. Three guesses knock out three letters in every position, leaving two candidates per position."
+rows = list("abcde")
+forb = {"abcde": BLUE, "cdbea": RED, "eadbc": GREEN}
+grid = {}
+for g, col in forb.items():
+    for i, ch in enumerate(g):
+        grid[(ch, i)] = col
+fig, ax = plt.subplots(figsize=(5.6, 3.6))
+for i in range(5):
+    for j, ch in enumerate(rows):
+        y = 4 - j
+        if (ch, i) in grid:
+            ax.add_patch(plt.Rectangle((i, y), 1, 1, color=grid[(ch, i)], alpha=0.22))
+            ax.plot([i+0.18, i+0.82], [y+0.18, y+0.82], color=grid[(ch, i)], lw=1.6)
+            ax.plot([i+0.18, i+0.82], [y+0.82, y+0.18], color=grid[(ch, i)], lw=1.6)
+        else:
+            ax.text(i+0.5, y+0.5, ch, ha="center", va="center", fontsize=13, fontweight="bold")
+for i in range(6):
+    ax.plot([i, i], [0, 5], color="0.75", lw=0.8)
+    ax.plot([0, 5], [i, i], color="0.75", lw=0.8)
+ax.set_xticks(np.arange(5)+0.5); ax.set_xticklabels([f"pos {i+1}" for i in range(5)], fontsize=9)
+ax.set_yticks(np.arange(5)+0.5); ax.set_yticklabels(rows[::-1], fontsize=11)
+ax.set_xlim(0, 5); ax.set_ylim(0, 5)
+ax.set_aspect("equal")
+for sp in ax.spines.values(): sp.set_visible(False)
+ax.tick_params(length=0)
+handles = [plt.Line2D([], [], color=c, lw=2, label=g) for g, c in forb.items()]
+ax.legend(handles=handles, fontsize=8, loc="upper center",
+          bbox_to_anchor=(0.5, -0.09), ncol=3, frameon=False,
+          title="struck out by", title_fontsize=8)
+plt.tight_layout(); plt.show()
+```
+
+**Step 2 — the survivors.** The grid allows
+
+$$\text{pos 1}\in\{b,d\},\quad \text{pos 2}\in\{c,e\},\quad \text{pos 3}\in\{a,e\},\quad
+\text{pos 4}\in\{a,c\},\quad \text{pos 5}\in\{b,d\}$$
+
+which is $2^{5}=32$ strings, but most repeat a letter. *Positions 1 and 5 both draw from $\{b,d\}$, so they
+must take one each; the same for positions 2 and 4 drawing $c$, and for 3 and 4 drawing $a$.* Keeping only the
+genuine permutations leaves exactly **four**:
+
+$$\textbf{bcead},\qquad \textbf{beacd},\qquad \textbf{dceab},\qquad \textbf{deacb}.$$
+
+So **A is wrong** — four candidates is not a deduction.
+
+**Step 3 — can one more attempt always finish it?** There are four candidates and five possible feedback
+values, so it is not ruled out. And a guess that works is easy to find: **guess one of the four candidates**,
+say **bcead**. Counting matches against each candidate:
+
+| if the password is | bcead | beacd | dceab | deacb |
+|---|---|---|---|---|
+| feedback from guessing **bcead** | $5$ | $2$ | $3$ | $0$ |
+
+*All four replies are different, so whatever number comes back identifies the password uniquely — and if the
+reply is $5$ the guess was simply right.*
+
+One further attempt is enough, and four candidates means none is not. **B**
+
+**Where the mark went.** Choosing **C** (*Two*) is what you get by imagining the attempts as yes/no tests:
+with four candidates, testing them one at a time, you would expect to need two or three. *But the machine
+answers with a number, not a yes or no — a single guess sorts the four candidates into four different
+buckets.* Reading the feedback as one bit of information instead of roughly $\log_2 5$ bits is the whole
+error.
+
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 20 practice
+
+::: {.question}
+1. Suppose only the first two guesses had been made — **abcde** and **cdbea**, both returning $0$.
+   &nbsp;&nbsp;**(a)** How many candidates remain?
+   &nbsp;&nbsp;**(b)** Can one further attempt guarantee the password? How many are needed?
+2. Explain carefully why a single further attempt can never distinguish more than **five** candidates.
+3. Prove that the feedback can never be exactly $4$.
+4. A **four**-character version: the password uses $a,b,c,d$ in some order, and both **abcd** and **cdab**
+   return $0$.
+   &nbsp;&nbsp;**(a)** List the candidates.
+   &nbsp;&nbsp;**(b)** There are four of them, as in the exam question. Is one further attempt enough this
+   time? Explain what is different.
+5. Back in the exam question, is guessing one of the four candidates the **only** kind of guess that works, or
+   do non-candidates work too? What is the advantage of guessing a candidate?
+6. Harder. Suppose the three guesses returning $0$ had been **abcde**, **badec** and **cedab** instead. How
+   many candidates remain, and how many further attempts are then needed?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **(a) 13.** *Two guesses forbid only two letters per position, leaving three per position, and far more of
+   those combinations survive as permutations.*
+   **(b) No — two are needed.** *With $13$ candidates and only five possible replies, the best any single
+   guess can do is split them $4\,/\,4\,/\,4\,/\,1$, so some reply still leaves four candidates standing.*
+   Two further attempts are enough.
+2. The feedback is one of $0,1,2,3,5$ — five values. *A guess sorts the candidates into groups by the reply
+   they would produce, and candidates in the same group are indistinguishable. With six or more candidates,
+   two must share a reply by the pigeonhole principle.*
+3. If four positions hold the correct letter, the remaining position holds the only letter not yet used — *and
+   that letter is forced to be the correct one, because the password uses each letter exactly once.* So four
+   matches always means five.
+4. **(a)** badc, bcda, dabc, dcba.
+   **(b) No.** *For four-letter permutations the possible feedbacks are $0,1,2,4$ — only four values — and no
+   single guess happens to spread these four candidates across four different replies.* Having few enough
+   candidates makes a one-guess finish **possible**, not automatic: you still have to produce the guess. This
+   is exactly why step 5 of the method is there.
+5. Non-candidates work too — there are $28$ guesses in all that separate the four. *The advantage of guessing
+   a candidate is that it might simply be right, so you can finish in that attempt rather than merely learn
+   the answer and have to type it afterwards.*
+6. **3 candidates**, and one further attempt is still enough. *Fewer candidates survive because those three
+   guesses overlap — some position is forbidden the same letter twice — so the eliminations are less
+   efficient than the exam's three.*
+
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Question 12 - Ordering $\sin 2x$, $\cos 2x$ and $\tan x$
+
+## Original question
+
+The diagram shows the graphs of $y=\sin 2x$ and $y=\cos 2x$ for $-\tfrac\pi2<x<\tfrac\pi2$.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The two curves given in the question. tan x is not drawn — adding it is the first thing to do."
+xs = np.linspace(-np.pi/2 + 1e-3, np.pi/2 - 1e-3, 1200)
+fig, ax = plt.subplots(figsize=(6.6, 3.4))
+ax.plot(xs, np.sin(2*xs), color=BLUE, lw=2, label=r"$y=\sin 2x$")
+ax.plot(xs, np.cos(2*xs), color=RED, lw=2, label=r"$y=\cos 2x$")
+ax.axhline(0, color=GREY, lw=0.8); ax.axvline(0, color=GREY, lw=0.8)
+for v in (-np.pi/2, np.pi/2):
+    ax.axvline(v, color="0.6", lw=1.0, ls=":")
+ax.set_xticks([-np.pi/2, -np.pi/4, 0, np.pi/4, np.pi/2])
+ax.set_xticklabels([r"$-\frac{\pi}{2}$", r"$-\frac{\pi}{4}$", "0", r"$\frac{\pi}{4}$", r"$\frac{\pi}{2}$"])
+ax.set_ylim(-1.6, 1.6)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(fontsize=8, loc="lower left")
+ax.grid(alpha=0.18)
+plt.tight_layout(); plt.show()
+```
+
+Which one of the following is **not** true?
+
+&nbsp;&nbsp;**A** $\cos 2x<\sin 2x<\tan x$ for some real number $x$ with $-\tfrac\pi2<x<\tfrac\pi2$
+
+&nbsp;&nbsp;**B** $\cos 2x<\tan x<\sin 2x$ for some real number $x$ with $-\tfrac\pi2<x<\tfrac\pi2$
+
+&nbsp;&nbsp;**C** $\sin 2x<\cos 2x<\tan x$ for some real number $x$ with $-\tfrac\pi2<x<\tfrac\pi2$
+
+&nbsp;&nbsp;**D** $\sin 2x<\tan x<\cos 2x$ for some real number $x$ with $-\tfrac\pi2<x<\tfrac\pi2$
+
+&nbsp;&nbsp;**E** $\tan x<\sin 2x<\cos 2x$ for some real number $x$ with $-\tfrac\pi2<x<\tfrac\pi2$
+
+&nbsp;&nbsp;**F** $\tan x<\cos 2x<\sin 2x$ for some real number $x$ with $-\tfrac\pi2<x<\tfrac\pi2$
+
+---
+
+## The method to recall
+
+::: {.callout-tip}
+## Five of the six are true, so hunt for the one that is impossible
+
+Each option says "**for some** $x$", so an option is true as soon as you can point at a single $x$ that
+works. Five of the six will fall out of a decent sketch in seconds. The marks are all in the sixth — the one
+you have to **prove impossible**, and for that a sketch is not enough.
+
+So: sketch first to clear away the easy five, then argue about the survivor.
+:::
+
+::: {.callout-important}
+## Memorise this box
+
+**Add the missing curve.** The diagram gives you two of the three expressions. Draw $y=\tan x$ on the same
+axes before anything else: it passes through the origin, increases throughout
+$-\tfrac\pi2<x<\tfrac\pi2$, and shoots off to $\pm\infty$ at the two ends.
+
+**To show an ordering is impossible, cut the problem in two:**
+
+1. Find the exact set of $x$ on which the **first** inequality holds. Use the harmonic form:
+   $$\cos 2x-\sin 2x=\sqrt2\,\cos\!\left(2x+\tfrac\pi4\right),$$
+   so $\sin 2x<\cos 2x$ exactly when $-\tfrac\pi2<2x+\tfrac\pi4<\tfrac\pi2$, i.e. on
+   $-\tfrac{3\pi}8<x<\tfrac\pi8$.
+2. On **that interval only**, show the second inequality always fails. Bounding each side separately on a few
+   sub-intervals is usually enough — you rarely need calculus.
+
+**Useful exact values:** $\tan\tfrac\pi8=\sqrt2-1\approx0.414$ and $\cos\tfrac\pi4=\tfrac{\sqrt2}2\approx0.707$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+```{python}
+#| fig-align: center
+#| fig-cap: "All three curves. The shaded strip is where sin 2x < cos 2x; throughout it the tan curve (green) stays below the cos curve, which is why one ordering is unreachable."
+xs = np.linspace(-np.pi/2 + 1e-3, np.pi/2 - 1e-3, 3000)
+fig, ax = plt.subplots(figsize=(7.0, 4.0))
+ax.plot(xs, np.sin(2*xs), color=BLUE, lw=2, label=r"$y=\sin 2x$")
+ax.plot(xs, np.cos(2*xs), color=RED, lw=2, label=r"$y=\cos 2x$")
+ax.plot(xs, np.tan(xs), color=GREEN, lw=2, label=r"$y=\tan x$")
+ax.axvspan(-3*np.pi/8, np.pi/8, color=AMBER, alpha=0.13)
+ax.text(-0.62, 1.72, r"$\sin 2x<\cos 2x$ here", color=AMBER, fontsize=9)
+ax.axhline(0, color=GREY, lw=0.8); ax.axvline(0, color=GREY, lw=0.8)
+ax.set_xticks([-np.pi/2, -3*np.pi/8, -np.pi/4, 0, np.pi/8, np.pi/2])
+ax.set_xticklabels([r"$-\frac{\pi}{2}$", r"$-\frac{3\pi}{8}$", r"$-\frac{\pi}{4}$", "0",
+                    r"$\frac{\pi}{8}$", r"$\frac{\pi}{2}$"], fontsize=9)
+ax.set_ylim(-2.2, 2.2)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(fontsize=8, loc="lower right")
+ax.grid(alpha=0.18)
+plt.tight_layout(); plt.show()
+```
+
+**The five that are true.** Reading the picture:
+
+| | ordering | a witness |
+|---|---|---|
+| **A** | $\cos 2x<\sin 2x<\tan x$ | $x=\tfrac{3\pi}8$: $\cos\tfrac{3\pi}4<\sin\tfrac{3\pi}4<\tan\tfrac{3\pi}8$ |
+| **B** | $\cos 2x<\tan x<\sin 2x$ | $x\approx0.64$ |
+| **D** | $\sin 2x<\tan x<\cos 2x$ | $x=-\tfrac\pi8$ |
+| **E** | $\tan x<\sin 2x<\cos 2x$ | $x=0^{-}$, just left of the origin |
+| **F** | $\tan x<\cos 2x<\sin 2x$ | $x\approx-1.32$ |
+
+**Why C is impossible.** It asks for $\sin 2x<\cos 2x$ **and** $\cos 2x<\tan x$ at the same $x$.
+
+*Step 1 — where does the first inequality hold?*
+
+$$\cos 2x-\sin 2x=\sqrt2\,\cos\!\left(2x+\tfrac\pi4\right)>0
+\iff -\tfrac\pi2<2x+\tfrac\pi4<\tfrac\pi2
+\iff -\tfrac{3\pi}8<x<\tfrac\pi8 .$$
+
+*Step 2 — on that interval, $\cos 2x$ is always above $\tan x$.* Split it into three pieces and bound each
+side separately:
+
+| interval | $\cos 2x$ | $\tan x$ | conclusion |
+|---|---|---|---|
+| $-\tfrac{3\pi}8<x<-\tfrac\pi4$ | $>\cos\tfrac{3\pi}4=-\tfrac{\sqrt2}2\approx-0.707$ | $<\tan\!\left(-\tfrac\pi4\right)=-1$ | $\cos 2x>-0.707>-1>\tan x$ |
+| $-\tfrac\pi4\le x\le0$ | $\ge0$ | $\le0$ | $\cos 2x\ge0\ge\tan x$, equal nowhere |
+| $0<x<\tfrac\pi8$ | $>\cos\tfrac\pi4=\tfrac{\sqrt2}2\approx0.707$ | $<\tan\tfrac\pi8=\sqrt2-1\approx0.414$ | $\cos 2x>0.707>0.414>\tan x$ |
+
+*Both functions are monotone on each piece, so the endpoint values really are bounds for the whole piece.* So
+$\cos 2x>\tan x$ everywhere that $\sin 2x<\cos 2x$, and the two halves of C can never hold together.
+
+**C**
+
+**Where the mark went.** Choosing **E** means rejecting an ordering that the picture already shows: just to
+the left of the origin, $\tan x<0$, $\sin 2x<0$ but larger, and $\cos 2x\approx1$. *The five true options only
+need one witness each — do not try to prove them in general, just find a point.* Spend the time on the one
+that resists.
+
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 12 practice
+
+::: {.question}
+1. Find the exact set of $x$ in $-\tfrac\pi2<x<\tfrac\pi2$ for which $\sin 2x>\cos 2x$.
+2. Is there an $x$ in $-\tfrac\pi2<x<\tfrac\pi2$ with $\tan x<\cos 2x<\sin 2x$? Give a witness or prove not.
+3. Solve $\cos 2x=\tan x$ has how many solutions in $-\tfrac\pi2<x<\tfrac\pi2$? Justify from the graphs.
+4. Write $3\sin\theta+4\cos\theta$ in the form $R\cos(\theta-\alpha)$, and hence find the exact set of
+   $\theta$ in $0<\theta<2\pi$ with $3\sin\theta+4\cos\theta>0$.
+5. Harder. For which $x$ in $0<x<\tfrac\pi2$ is $\tan x>2\sin x$? Give the answer exactly.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. $\sin 2x-\cos 2x=\sqrt2\sin\!\left(2x-\tfrac\pi4\right)>0$, so $0<2x-\tfrac\pi4<\pi$, giving
+   $\tfrac\pi8<x<\tfrac{5\pi}8$. Intersecting with $-\tfrac\pi2<x<\tfrac\pi2$ leaves
+   $\boxed{\tfrac\pi8<x<\tfrac\pi2}$.
+2. **Yes** — this is option F. *By question 1 the right-hand inequality holds on $\tfrac\pi8<x<\tfrac\pi2$ and
+   also, by periodicity of the harmonic form, on $-\tfrac\pi2<x<-\tfrac{3\pi}8$; on that left piece
+   $\tan x<\tan\!\left(-\tfrac{3\pi}8\right)\approx-2.41$ while $\cos 2x>-0.71$.* For example $x=-1.32$.
+3. **One.** *$\tan x$ increases from $-\infty$ to $+\infty$ across the interval while $\cos 2x$ is bounded
+   between $-1$ and $1$, so $\tan x-\cos 2x$ is negative at the left end, positive at the right end, and —
+   since $\tan$ rises much faster than $\cos 2x$ can fall — crosses once.*
+4. $R=\sqrt{3^{2}+4^{2}}=5$ and $\tan\alpha=\tfrac34$, so $3\sin\theta+4\cos\theta=5\cos(\theta-\alpha)$ with
+   $\alpha=\arctan\tfrac34$. This is positive when $-\tfrac\pi2<\theta-\alpha<\tfrac\pi2$, i.e.
+   $\boxed{0<\theta<\alpha+\tfrac\pi2}$ together with $\alpha+\tfrac{3\pi}2<\theta<2\pi$.
+5. $\tan x>2\sin x \iff \dfrac{\sin x}{\cos x}>2\sin x$. *On $0<x<\tfrac\pi2$ both $\sin x>0$ and
+   $\cos x>0$, so we may divide by $\sin x$ and multiply by $\cos x$ without reversing anything:*
+   $1>2\cos x$, i.e. $\cos x<\tfrac12$, giving $\boxed{\tfrac\pi3<x<\tfrac\pi2}$.
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+# The four that took too long
+
+All four of these were answered **correctly**, but slowly. The point here is the cue that gets you there
+quickly, not the full working.
+
+## Question 7 — two exponential graphs &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">6:19</span>
+
+::: {.question}
+$y=a^{x}$ (solid, $a$ a positive real number) and $y=f(x)$ (dashed) are sketched on the same axes. The dashed
+curve passes through the same point on the $y$-axis and rises **more steeply**. Which of these could be true?
+
+&nbsp;&nbsp;**1** $f(x)=b^{x}$ for some $b>a$ &nbsp;&nbsp; **2** $f(x)=b^{x}$ for some $b<a$
+
+&nbsp;&nbsp;**3** $f(x)=a^{kx}$ for some $k>1$ &nbsp;&nbsp; **4** $f(x)=a^{kx}$ for some $k<1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The cue: **$a^{kx}=(a^{k})^{x}$**. Statements 1 and 3 are therefore the *same* statement in two costumes,
+since $a>1$ and $k>1$ give $a^{k}>a$. *Once you see that, you only have to decide whether a steeper curve
+means a bigger base — it does — and both 1 and 3 are in, both 2 and 4 are out.*
+
+**E** (1 and 3 only)
+
+**The time saving.** Rewrite every $a^{kx}$ as $(a^{k})^{x}$ the moment you see it; then all four statements
+are about one thing, the size of the base.
+
+:::
+
+## Question 10 — a sufficient condition for a zero integral &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">7:51</span>
+
+::: {.question}
+$f(x)$ is a function defined for all real values of $x$. Which one of the following is a **sufficient**
+condition for $\displaystyle\int_1^3 f(x)\,\mathrm dx=0$?
+
+&nbsp;&nbsp;**A** $f(2)=0$ &nbsp;&nbsp; **B** $f(1)=f(3)=0$ &nbsp;&nbsp; **C** $f(-x)=-f(x)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x+2)=-f(2-x)$ for all $x$ &nbsp;&nbsp; **E** $f(x-2)=-f(2-x)$ for all $x$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The cue: **the integral runs from $1$ to $3$, so the symmetry has to be about the midpoint $x=2$** — not
+about the origin.
+
+- **C** and **E** both say $f$ is odd **about $0$**. *Substituting $y=x-2$ turns E into $f(y)=-f(-y)$, which
+  is exactly C — so they are the same condition, and two identical options can neither of them be the answer.*
+  Neither controls what happens between $1$ and $3$: take $f(x)=x$, which is odd, yet
+  $\int_1^3 x\,\mathrm dx=4$.
+- **D** says $f(x+2)=-f(2-x)$. Putting $u=x+2$ gives $f(u)=-f(4-u)$: the graph has **rotational symmetry
+  about the point $(2,0)$**, the midpoint of the interval. *Reflecting the integral through that point sends
+  it to minus itself, so it must be zero.* Formally, substituting $t=4-x$,
+  $$\int_1^3 f(x)\,\mathrm dx=\int_1^3 f(4-t)\,\mathrm dt=-\int_1^3 f(t)\,\mathrm dt,$$
+  so the integral equals its own negative and is $0$.
+- **A** and **B** fix $f$ at one or two points, which cannot control an area: $(x-2)^{2}$ and $(x-1)(x-3)$ are
+  counterexamples.
+
+**D**
+
+**The time saving.** Two options that say the same thing can both be eliminated at once. *And "sufficient"
+means you must argue forwards from the condition — testing a function that happens to have zero integral
+checks necessity instead, which is the wrong direction.*
+
+:::
+
+## Question 11 — area after a vertical shift &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">2:51</span>
+
+::: {.question}
+$f(x)$ is increasing with $f(0)=0$. The positive constants $a,b$ satisfy $a<b$. The area enclosed by
+$y=f(x)$, the $x$-axis and the lines $x=a$, $x=b$ is $R$. Let $g(x)=f(x)+2f(b)$. What is the area enclosed by
+$y=g(x)$, the $x$-axis and the lines $x=a$ and $x=b$?
+
+&nbsp;&nbsp;**A** $R+(b-a)f(b)$ &nbsp;&nbsp; **B** $R+2(b-a)f(b)$ &nbsp;&nbsp; **C** $R+2f(b)-f(a)$
+&nbsp;&nbsp; **D** $R+2f(b)$ &nbsp;&nbsp; **E** $R+(f(b))^{2}$ &nbsp;&nbsp;
+**F** $R+(f(b))^{2}-(f(a))^{2}$ &nbsp;&nbsp; **G** $R+2(f(b)-f(a))f(b)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The cue: **$2f(b)$ is a constant**, so $g$ is $f$ shifted **up** by a fixed amount, and the extra area is a
+rectangle.
+
+$$\int_a^b g(x)\,\mathrm dx=\int_a^b f(x)\,\mathrm dx+\int_a^b 2f(b)\,\mathrm dx=R+2f(b)(b-a).$$
+
+*The width of the rectangle is $b-a$ and its height is $2f(b)$ — the options that leave out the width (D) or
+use a height difference (C, G) are the traps.* Since $f$ is increasing with $f(0)=0$ and $0<a<b$, we have
+$f>0$ on $[a,b]$, so the region really is above the axis and nothing has to be split into signed pieces.
+
+**B**
+
+**The time saving.** Shift up by a constant $\Rightarrow$ add **constant $\times$ width**. There is nothing
+to integrate.
+
+:::
+
+## Question 13 — standard form &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">5:11</span>
+
+::: {.question}
+The positive real numbers $a\times10^{-3}$, $b\times10^{-2}$ and $c\times10^{-1}$ are each in standard form,
+and
+
+$$\bigl(a\times10^{-3}\bigr)+\bigl(b\times10^{-2}\bigr)=\bigl(c\times10^{-1}\bigr).$$
+
+Which of the following must be true?
+
+&nbsp;&nbsp;**I** $a>9$ &nbsp;&nbsp; **II** $b>9$ &nbsp;&nbsp; **III** $a<c$ &nbsp;&nbsp; **IV** $b<c$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The cue: **"in standard form" is the hypothesis**, and it says $1\le a,b,c<10$. Write that down first; the
+rest is arithmetic.
+
+Multiplying the equation by $10^{3}$:
+
+$$a+10b=100c .$$
+
+Since $c\ge1$, the right-hand side is at least $100$. But $a<10$, so
+
+$$10b>100-10=90\quad\Longrightarrow\quad b>9 .$$
+
+So **II must be true**. The others need only one counterexample each:
+
+| | claim | counterexample |
+|---|---|---|
+| **I** | $a>9$ | $a=1$, $b=9.9$, $c=1$ — check $1+99=100$ ✓ |
+| **III** | $a<c$ | $a=5$, $b=9.5$, $c=1$ — check $5+95=100$ ✓, and $5>1$ |
+| **IV** | $b<c$ | always false, since $b>9$ while $c<10$ needs $100c=a+10b<110$, so $c<1.1$ |
+
+**B** (II only)
+
+**The time saving.** *Convert the whole equation to integers in one step by multiplying by $10^{3}$, then use
+the bounds $1\le a,b,c<10$ immediately.* The question is not about standard form at all once that is done.
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Final checklist
+
+- [ ] **Q20.** I read numeric feedback as a number, not a yes/no, and I count how many different replies are
+      possible before deciding how many guesses are needed.
+- [ ] **Q20.** I turn "none correct" into one elimination per position and draw the grid.
+- [ ] **Q20.** I know that having few candidates makes a one-guess finish possible, not certain — I still have
+      to exhibit a separating guess.
+- [ ] **Q12.** For "which is **not** true", I find one witness for each of the easy options and spend the time
+      on the survivor.
+- [ ] **Q12.** I turn $\cos 2x-\sin 2x$ into $\sqrt2\cos\!\left(2x+\tfrac\pi4\right)$ to get an exact
+      interval, then bound each side separately on sub-intervals.
+- [ ] **Speed.** $a^{kx}=(a^{k})^{x}$; a symmetry for $\int_1^3$ must be about $x=2$; a constant shift adds
+      constant $\times$ width; "standard form" means $1\le\text{digit part}<10$ and is a hypothesis to use.
+:::
