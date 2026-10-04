@@ -1,0 +1,984 @@
+---
+title: "Tyler Exam Set A · Paper 2 — Dedicated Clinic"
+subtitle: "Questions 3, 5, 6, 10, 16 and 18"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+BLUE = "#2b6cb0"
+RED = "#c53030"
+GREEN = "#2f855a"
+AMBER = "#b7791f"
+GREY = "0.35"
+```
+
+This page collects the six questions that were marked wrong on Tyler Exam Set A Paper 2. Each one is rebuilt
+into the method it was testing, with a box of the facts to memorise, and then extra practice on the same
+method at the same level or harder.
+
+**Related clinics:** **[Necessary & sufficient](../../../toolkit/s03_necessary_sufficient.qmd)** ·
+**[Quantifiers & negation](../../../toolkit/s04_quantifiers_negation.qmd)** ·
+**[Spot the error](../../../toolkit/s07_spot_the_error.qmd)** ·
+**[Logarithms](../../../lessons/log_clinic/class_material.qmd)** ·
+**[Triangles](../../../lessons/triangle_clinic/class_material.qmd)** ·
+**[Integration & area](../../../lessons/integration_area_clinic/class_material.qmd)**.
+
+# Question 3 - Trapezium rule, concavity, and which way the implication runs
+
+## Original question
+
+Consider the following statements about the polynomial function $f(x)$:
+
+&nbsp;&nbsp;$P$: The trapezium rule with $n$ equal intervals is used to estimate
+$\displaystyle\int_a^b f(x)\,\mathrm dx$ and produces an **underestimate**.
+
+&nbsp;&nbsp;$Q$: $f''(x)<0$ for $a\le x\le b$.
+
+Which of the following is correct?
+
+&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$. &nbsp;&nbsp;
+**B** $P$ is necessary but not sufficient for $Q$.
+
+&nbsp;&nbsp;**C** $P$ is both necessary and sufficient for $Q$. &nbsp;&nbsp;
+**D** $P$ is neither necessary nor sufficient for $Q$.
+
+---
+
+## The method to recall
+
+::: {.callout-tip}
+## What the trapezium rule does to a curved graph
+
+The trapezium rule replaces the curve on each strip by the **straight chord** joining the two endpoints. So
+the only question is ever: **is the chord above the curve, or below it?**
+
+- **Concave down** on the strip ($f''<0$, curve bending downwards): the chord lies **below** the curve, so
+  the rule gives an **underestimate**.
+- **Concave up** on the strip ($f''>0$, curve bending upwards): the chord lies **above** the curve, so the
+  rule gives an **overestimate**.
+
+This is about the **second** derivative. Whether $f$ is increasing or decreasing makes no difference at all.
+:::
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Left: concave down — every chord lies below the curve, so the trapezium rule underestimates. Right: concave up — every chord lies above, so it overestimates."
+fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.1))
+for ax, (fn, lab, verdict) in zip(axes, [
+        (lambda t: 4 - (t - 2)**2 / 1.4, "concave down  ($f''<0$)", "chords BELOW → underestimate"),
+        (lambda t: 0.6 + (t - 2)**2 / 1.4, "concave up  ($f''>0$)", "chords ABOVE → overestimate")]):
+    xs = np.linspace(0.3, 3.7, 400)
+    ax.plot(xs, fn(xs), color=BLUE, lw=2)
+    nodes = np.linspace(0.3, 3.7, 4)
+    ax.plot(nodes, fn(nodes), color=RED, lw=1.5, marker="o", ms=4)
+    for nd in nodes:
+        ax.plot([nd, nd], [0, fn(nd)], color=RED, lw=0.8, alpha=0.5)
+    ax.fill_between(nodes, fn(nodes), 0, color=RED, alpha=0.10)
+    ax.set_title(lab, fontsize=10)
+    ax.set_xlabel(verdict, fontsize=8.5, color=GREY)
+    ax.set_xticks([]); ax.set_yticks([])
+    ax.set_ylim(0, 5)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-important}
+## Memorise this box
+
+| Shape on $[a,b]$ | Chord vs curve | Trapezium rule gives |
+|---|---|---|
+| $f''(x)<0$ everywhere (concave down) | chord below | **underestimate** |
+| $f''(x)>0$ everywhere (concave up) | chord above | **overestimate** |
+| $f''(x)=0$ everywhere (straight line) | chord on the curve | **exact** |
+| $f''$ changes sign (an inflection inside) | some above, some below | **either, or exact** — no rule |
+
+**The two directions, in words.**
+
+- "Concave down $\Rightarrow$ underestimate" is **true**.
+- "Underestimate $\Rightarrow$ concave down" is **false**: the over- and under-shoots on different strips can
+  cancel, or an overshoot can simply be outweighed.
+
+So *underestimate* is the **weaker** condition — the larger set — and *concave down* is the stronger one.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Does $Q$ imply $P$?** If $f''(x)<0$ throughout $[a,b]$ then $f$ is concave down on the whole interval, so
+every chord lies below the graph and every strip is underestimated. *A sum of underestimates is an
+underestimate,* so $Q\Rightarrow P$. Hence **$P$ is necessary for $Q$**.
+
+**Does $P$ imply $Q$?** No. Take
+
+$$f(x)=x^{2}-x^{4}\quad\text{on }[-1,1]\text{ with }n=1 .$$
+
+Since $f(-1)=f(1)=0$, the single trapezium has height $0$ at both ends, so the rule gives $0$. The exact value
+is
+
+$$\int_{-1}^{1}\bigl(x^{2}-x^{4}\bigr)\,\mathrm dx=2\left(\tfrac13-\tfrac15\right)=\tfrac{4}{15}>0 .$$
+
+So the rule underestimates and $P$ is true. But
+
+$$f''(x)=2-12x^{2},\qquad f''(0)=2>0,$$
+
+so $f$ is concave **up** near $x=0$ and $Q$ is false. *One point where $f''>0$ is enough to kill $Q$, while
+$P$ only cares about the total.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The counterexample: the single chord from (−1,0) to (1,0) lies below the hump, so the rule underestimates — yet the curve is concave up in the middle, where f''(0)=2>0."
+xs = np.linspace(-1, 1, 500)
+ys = xs**2 - xs**4
+fig, ax = plt.subplots(figsize=(6.4, 3.4))
+ax.plot(xs, ys, color=BLUE, lw=2, label=r"$y=x^2-x^4$")
+ax.plot([-1, 1], [0, 0], color=RED, lw=2, marker="o", ms=5, label="trapezium chord ($n=1$)")
+ax.fill_between(xs, ys, 0, color=BLUE, alpha=0.14)
+inner = np.abs(xs) < 1/np.sqrt(6)
+ax.plot(xs[inner], ys[inner], color=AMBER, lw=3.2, label=r"concave up here ($f''>0$)")
+ax.axhline(0, color=GREY, lw=0.7)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(fontsize=8, loc="upper right")
+ax.grid(alpha=0.18)
+plt.tight_layout(); plt.show()
+```
+
+$P$ is necessary but not sufficient for $Q$: **B**.
+
+**Where the mark went.** Choosing **C** means reading the two conditions as the same thing. *They are not:
+$Q$ is a statement about every single point, while $P$ is a statement about one total.*
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 3 practice
+
+::: {.question}
+1. $f(x)=x^{2}$ on $[0,2]$ with $n=2$. Compute the trapezium estimate and the exact integral, and say which
+   way the error goes. Which row of the memorise box is this?
+2. $f(x)=\sqrt{x}$ on $[1,4]$. Without computing anything, say whether the trapezium rule over- or
+   underestimates, and why.
+3. $f(x)=x^{3}$ on $[-1,1]$ with $n=2$. Compute both. What happened, and which row of the box is it?
+4. True or false: *"If the trapezium rule overestimates on $[a,b]$, then $f''(x)>0$ for at least one $x$ in
+   $[a,b]$."*
+5. Let $P$ be as in the question and let $R$ be "$f''(x)\le0$ for $a\le x\le b$". Is $R$ sufficient for $P$?
+   Is $R$ necessary for $P$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. Strips at $x=0,1,2$: estimate $=\tfrac12\bigl(f(0)+2f(1)+f(2)\bigr)=\tfrac12(0+2+4)=3$; exact
+   $=\bigl[\tfrac13x^3\bigr]_0^2=\tfrac83$. **Overestimate**, and $f''=2>0$ — the concave-up row.
+2. $f''(x)=-\tfrac14x^{-3/2}<0$ on $[1,4]$, so the curve is concave down throughout: **underestimate**.
+   *No arithmetic is needed; the sign of $f''$ settles it.*
+3. Estimate $=\tfrac12\bigl(f(-1)+2f(0)+f(1)\bigr)=\tfrac12(-1+0+1)=0$; exact $=0$ as well. The rule is
+   **exact** here, by accident: *$f''(x)=6x$ changes sign at $0$, so the left strip is overestimated by
+   exactly as much as the right strip is underestimated.* This is the "inflection inside" row.
+4. **True.** *If $f''\le0$ everywhere on $[a,b]$ the curve is concave down (or straight) throughout, so no
+   chord is ever above it and the rule cannot overestimate.* So an overestimate forces $f''>0$ somewhere.
+5. $R$ is **sufficient** for $P$ — concave down or straight gives an underestimate (possibly exact). $R$ is
+   **not necessary** for $P$: the counterexample $x^{2}-x^{4}$ above underestimates while $f''(0)=2>0$.
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+# Question 5 - "Necessarily true" with a discriminant
+
+## Original question
+
+Consider the equation
+
+$$x^{2}-2kx+k+2=0 .$$
+
+Let $n(k)$ represent the number of distinct real solutions to this equation. Which of the following statements
+is **necessarily** true?
+
+&nbsp;&nbsp;**A** $n(k)=0$ for $k<-1$ &nbsp;&nbsp; **B** $n(k)=0$ for $k=-1$ &nbsp;&nbsp;
+**C** $n(k)=1$ for $k=1$
+
+&nbsp;&nbsp;**D** $n(k)=2$ for $1<k<2$ &nbsp;&nbsp; **E** $n(k)=2$ for $k<-2$
+
+---
+
+## The method to recall
+
+There is nothing clever here. **Work out the complete picture once, then test the five options against it.**
+The mistake is to check the options one at a time and stop at the first that looks plausible.
+
+::: {.callout-important}
+## Memorise this box
+
+For $ax^{2}+bx+c=0$ with $a\ne0$, everything is the sign of $\Delta=b^{2}-4ac$:
+
+| $\Delta>0$ | $\Delta=0$ | $\Delta<0$ |
+|---|---|---|
+| two distinct real roots | one (repeated) real root | no real roots |
+
+**The method for "which is necessarily true":**
+
+1. Compute $\Delta$ and **factorise it**.
+2. Write the three cases as intervals of $k$ — the complete map, once.
+3. Read each option against the map. An option is true only if **every** $k$ in its stated range gives the
+   stated count. One bad value kills it.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$$\Delta=(-2k)^{2}-4(k+2)=4k^{2}-4k-8=4\bigl(k^{2}-k-2\bigr)=4(k-2)(k+1).$$
+
+| | condition on $k$ | $n(k)$ |
+|---|---|---|
+| $\Delta>0$ | $k<-1$ or $k>2$ | **2** |
+| $\Delta=0$ | $k=-1$ or $k=2$ | **1** |
+| $\Delta<0$ | $-1<k<2$ | **0** |
+
+Now the options:
+
+| | claim | verdict |
+|---|---|---|
+| **A** | $n(k)=0$ for $k<-1$ | false — that range gives $n=2$ |
+| **B** | $n(k)=0$ for $k=-1$ | false — $\Delta=0$ there, so $n=1$ |
+| **C** | $n(k)=1$ for $k=1$ | false — $k=1$ sits inside $-1<k<2$, so $n=0$ |
+| **D** | $n(k)=2$ for $1<k<2$ | false — still inside $-1<k<2$, so $n=0$ |
+| **E** | $n(k)=2$ for $k<-2$ | **true** |
+
+*Option E works because $k<-2$ is **contained in** $k<-1$, where $n=2$ throughout. The statement does not have
+to describe the whole region — it only has to be true everywhere it claims.* That is what "necessarily true"
+means here.
+
+**E**
+
+**Where the mark went.** Choosing **B** reads $\Delta=0$ as "no real roots". *$\Delta=0$ gives a repeated
+root, which is still one real solution.*
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 5 practice
+
+::: {.question}
+1. For $x^{2}+kx+k=0$, build the complete map of $n(k)$, then decide which of these are necessarily true.
+   &nbsp;&nbsp;**(a)** $n(k)=2$ for $k<0$ &nbsp;&nbsp; **(b)** $n(k)=0$ for $k=4$ &nbsp;&nbsp;
+   **(c)** $n(k)=0$ for $1<k<3$ &nbsp;&nbsp; **(d)** $n(k)=2$ for $k>5$
+2. For $kx^{2}+4x+k=0$, build the complete map of $n(k)$. **Careful:** one value of $k$ does not give a
+   quadratic at all.
+3. For $x^{2}-2kx+k+2=0$ again, write down a statement of the form "$n(k)=1$ for …" that is necessarily
+   true, and one that is not.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. $\Delta=k^{2}-4k=k(k-4)$, so $n=2$ for $k<0$ or $k>4$; $n=1$ for $k=0$ or $k=4$; $n=0$ for $0<k<4$.
+   **(a) true. (b) false** — $\Delta=0$ there, so $n=1$. **(c) true** — $(1,3)\subset(0,4)$.
+   **(d) true** — $k>5$ sits inside $k>4$.
+2. $\Delta=16-4k^{2}=4(4-k^{2})$, but first: **if $k=0$ the equation is $4x=0$**, which is linear with the
+   single solution $x=0$, so $n(0)=1$. For $k\ne0$: $n=2$ for $-2<k<2$ (and $k\ne0$); $n=1$ for $k=\pm2$;
+   $n=0$ for $k<-2$ or $k>2$. *Collecting, $n(k)=1$ at the three values $k=-2,0,2$ — and the $k=0$ one is
+   there for a completely different reason.*
+3. Necessarily true, for example: "$n(k)=1$ for $k=2$". Not true, for example: "$n(k)=1$ for $k\ge2$" —
+   *it fails at every $k>2$, where $n=2$.*
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+# Question 6 - Where a log step changes the solution set
+
+## Original question
+
+A student attempts to solve
+
+$$\log_2(3x-1)=1+2\log_2(x-1).$$
+
+Their working is shown below. At each step, the equation written is **intended to be equivalent** to the
+equation in the preceding step, with the same solution set.
+
+| | |
+|---|---|
+| Step 1 | $\log_2(3x-1)-2\log_2(x-1)=1$ |
+| Step 2 | $\log_2(3x-1)-\log_2\bigl((x-1)^{2}\bigr)=1$ |
+| Step 3 | $\log_2\dfrac{3x-1}{(x-1)^{2}}=1$ |
+| Step 4 | $\dfrac{3x-1}{(x-1)^{2}}=2$ |
+| Step 5 | $2x^{2}-7x+3=0$ |
+| Step 6 | $(2x-1)(x-3)=0$ |
+| Step 7 | $x=\tfrac12$ or $x=3$ |
+
+Which of the following statements is true?
+
+&nbsp;&nbsp;**A**–**G** The attempt is incorrect and the first mistake appears in Step 1 … Step 7.
+&nbsp;&nbsp;**H** The solution is correct.
+
+---
+
+## The method to recall
+
+::: {.callout-tip}
+## The question you were actually asked
+
+Every step claims to produce an **equivalent** equation — same solution set. So the first mistake is the first
+step where the solution set **changes**, not the first step where the algebra looks unfamiliar. In a log
+question the solution set is controlled by the **domain**, so track the domain line by line.
+
+Start by writing the domain of the original equation down before anything else:
+
+$$3x-1>0 \ \text{ and }\ x-1>0 \quad\Longrightarrow\quad x>1 .$$
+:::
+
+::: {.callout-important}
+## Memorise this box
+
+$$a\log_b x=\log_b\bigl(x^{a}\bigr)\qquad\textbf{only when } x>0 .$$
+
+The two sides have **different domains** the moment $a$ is even:
+
+| expression | defined for |
+|---|---|
+| $2\log_2(x-1)$ | $x>1$ |
+| $\log_2\bigl((x-1)^{2}\bigr)$ | $x\ne1$ |
+
+So replacing the first by the second **widens** the domain, and the new equation can pick up solutions the
+old one never had. The repair is either
+
+- keep the restriction explicitly — write $\log_2\bigl((x-1)^2\bigr)$ **together with** $x>1$ — or
+- use $\log_b\bigl(x^{2}\bigr)=2\log_b\lvert x\rvert$, which is the version that is true for all $x\ne0$.
+
+**Rule of thumb.** State the domain first, solve freely, then test every candidate against that domain. Any
+root you have to throw away is a signal that some earlier step was one-way, not an equivalence.
+:::
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The two expressions agree for x>1 but the squared version also exists for x<1 — that extra branch is where the false root x=1/2 comes from."
+xs_r = np.linspace(1.001, 4, 800)
+xs_l = np.linspace(-1.2, 0.999, 800)
+fig, ax = plt.subplots(figsize=(6.6, 3.4))
+ax.plot(xs_r, 2*np.log2(xs_r - 1), color=BLUE, lw=3, label=r"$2\log_2(x-1)$   (only $x>1$)")
+ax.plot(xs_r, np.log2((xs_r - 1)**2), color=RED, lw=1.4, ls="--")
+ax.plot(xs_l, np.log2((xs_l - 1)**2), color=RED, lw=1.4, ls="--",
+        label=r"$\log_2((x-1)^2)$   (all $x\neq1$)")
+ax.axvline(1, color=GREY, lw=0.8, ls=":")
+ax.axvline(0.5, color=GREEN, lw=1.2)
+ax.annotate(r"$x=\frac{1}{2}$ lives only on the extra branch",
+            xy=(0.5, -2), xytext=(-1.1, -4.6), color=GREEN, fontsize=8.5,
+            arrowprops=dict(arrowstyle="->", color=GREEN, lw=1.0))
+ax.set_xlim(-1.2, 4); ax.set_ylim(-7, 4)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(fontsize=8, loc="lower right")
+ax.grid(alpha=0.18)
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Step 1 is fine** — subtracting $2\log_2(x-1)$ from both sides changes nothing, and the domain is still
+$x>1$.
+
+**Step 2 is the first mistake.** It replaces $2\log_2(x-1)$, which requires $x>1$, by
+$\log_2\bigl((x-1)^{2}\bigr)$, which only requires $x\ne1$. *The equation in Step 2 therefore has a larger
+solution set than the equation in Step 1, so the two are not equivalent — which is exactly what the question
+said each step was supposed to be.*
+
+To see that this really matters, check $x=\tfrac12$ in each:
+
+- **Step 2:** $3x-1=\tfrac12>0$ and $(x-1)^{2}=\tfrac14>0$, so both logs exist, and
+  $\log_2\tfrac12-\log_2\tfrac14=-1-(-2)=1$. ✓ It **is** a solution of Step 2.
+- **Step 1:** needs $\log_2(x-1)=\log_2\bigl(-\tfrac12\bigr)$, which does not exist. ✗
+
+So the false root is already present at Step 2, and every later step faithfully carries it along.
+
+**Everything after Step 2 is correct algebra.** From Step 4,
+$3x-1=2(x-1)^{2}=2x^{2}-4x+2$, giving $2x^{2}-7x+3=0$ and $(2x-1)(x-3)=0$, so $x=\tfrac12$ or $x=3$. Testing
+against the real domain $x>1$ leaves only
+
+$$x=3 .$$
+
+**B**
+
+**Where the mark went.** Choosing **D** (Step 4) is the natural instinct — that is where the logs disappear,
+and it feels like the risky move. *But Step 4 is a genuine equivalence: $\log_2 A=1$ and $A=2$ have exactly
+the same solutions whenever $A$ is defined.* The damage was done two steps earlier.
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 6 practice
+
+::: {.question}
+1. Solve $\log_5(2x+3)=1+2\log_5 x$, stating the domain first and justifying any root you reject.
+2. Solve each of these and explain why the answers differ:
+   &nbsp;&nbsp;**(a)** $\log_2\bigl((x-3)^{2}\bigr)=4$ &nbsp;&nbsp;**(b)** $2\log_2(x-3)=4$
+3. For which real $x$ is $\log_{10}\bigl(x^{2}\bigr)=2\log_{10}x$ true? Write down the version of the identity
+   that is true for **all** $x\ne0$.
+4. A student writes: *"$\log_3(x-2)+\log_3(x-4)=1$, so $\log_3\bigl((x-2)(x-4)\bigr)=1$, so
+   $(x-2)(x-4)=3$, so $x^{2}-6x+5=0$, so $x=1$ or $x=5$."* Which step first changed the solution set, and
+   what is the correct answer?
+5. Harder. For which values of $a$ does $\log_2(x+a)=1+\log_2(x-1)$ have exactly one real solution?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. Domain: $2x+3>0$ and $x>0$, so $x>0$. Then $2x+3=5x^{2}$, i.e. $5x^{2}-2x-3=0$, $(5x+3)(x-1)=0$, giving
+   $x=-\tfrac35$ or $x=1$. *The negative root is outside the domain — it exists only because $\log_5 x^2$ is
+   defined for negative $x$ while $2\log_5 x$ is not* — so $\boxed{x=1}$.
+2. **(a)** $(x-3)^{2}=16$, so $x-3=\pm4$ and $x=7$ or $x=-1$; both are legitimate, since $(x-3)^2>0$ at each.
+   **(b)** needs $x>3$, so $x-3=4$ and $x=7$ **only**. *The two equations are genuinely different equations,
+   not two spellings of one — exactly the trap in Step 2 of the exam question.*
+3. True only for $x>0$. For all $x\ne0$ the correct identity is
+   $\log_{10}\bigl(x^{2}\bigr)=2\log_{10}\lvert x\rvert$.
+4. The combining step. $\log_3(x-2)+\log_3(x-4)$ needs **both** $x>2$ and $x>4$, i.e. $x>4$, whereas
+   $\log_3\bigl((x-2)(x-4)\bigr)$ only needs the product positive, which also happens when $x<2$. *That is
+   how $x=1$ got in.* Correct answer: $x=5$.
+5. Domain $x>1$. The equation gives $x+a=2(x-1)$, so $x=a+2$. *This is linear, so there is at most one
+   candidate, and it is a genuine solution exactly when it lies in the domain:* $a+2>1$, i.e.
+   $\boxed{a>-1}$. For $a\le-1$ there is no solution at all.
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+# Question 10 - The ambiguous SSA case
+
+## Original question
+
+A triangle $ABC$ is to be drawn with the following measurements:
+
+$$AB=5a,\qquad BC=\sqrt{17}\,a,\qquad \angle BAC=\theta^{\circ},\ \text{where } \tan\theta=\tfrac43 .$$
+
+Given that there are **two non-congruent** possible triangles satisfying these conditions, what is the ratio
+of the area of the larger triangle to the area of the smaller triangle?
+
+&nbsp;&nbsp;**A** $\sqrt{17}:2$ &nbsp;&nbsp; **B** $5:2$ &nbsp;&nbsp; **C** $2:1$ &nbsp;&nbsp;
+**D** $\sqrt{17}:5$ &nbsp;&nbsp; **E** $4:1$
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The given data. The side AC is not given: C may be anywhere on the ray from A, and the circle of radius BC about B decides where."
+fig, ax = plt.subplots(figsize=(6.0, 4.8))
+A = np.array([0.0, 0.0])
+th = np.arctan2(4, 3)
+B = A + 5*np.array([np.cos(th), np.sin(th)])
+ray = np.array([[0, 0], [6.4, 0]])
+ax.plot(ray[:, 0], ray[:, 1], color=GREY, lw=1.2)
+ax.annotate("", xy=(6.5, 0), xytext=(6.1, 0),
+            arrowprops=dict(arrowstyle="->", color=GREY))
+ax.plot([A[0], B[0]], [A[1], B[1]], color=BLUE, lw=2)
+circ = plt.Circle(B, np.sqrt(17), fill=False, color=RED, lw=1.3, ls="--")
+ax.add_patch(circ)
+arc_t = np.linspace(0, th, 60)
+ax.plot(1.2*np.cos(arc_t), 1.2*np.sin(arc_t), color=GREEN, lw=1.4)
+ax.text(1.45, 0.42, r"$\theta$", color=GREEN, fontsize=12)
+ax.plot(*A, "o", color="black", ms=5); ax.text(-0.33, -0.05, "A", fontsize=11)
+ax.plot(*B, "o", color="black", ms=5); ax.text(B[0]-0.1, B[1]+0.3, "B", fontsize=11)
+ax.text(1.1, 2.0, r"$AB=5a$", color=BLUE, fontsize=10, rotation=53)
+# a radius drawn away from the ray, so the figure shows the given length
+# without pointing at either possible position of C
+tip = B + np.sqrt(17)*np.array([np.cos(np.deg2rad(150)), np.sin(np.deg2rad(150))])
+ax.plot([B[0], tip[0]], [B[1], tip[1]], color=RED, lw=1.2)
+ax.text(1.0, 5.45, r"$\sqrt{17}\,a$", color=RED, fontsize=10, rotation=-30)
+ax.text(5.1, -0.55, "C lies somewhere on this ray", color=GREY, fontsize=8.5)
+ax.set_xlim(-1.6, 7.7); ax.set_ylim(-1.3, 8.7)
+ax.set_aspect("equal"); ax.axis("off")
+plt.tight_layout(); plt.show()
+```
+
+---
+
+## The method to recall
+
+::: {.callout-tip}
+## Why "two non-congruent triangles" is a clue, not decoration
+
+You are given two sides and an angle that is **not** between them — the SSA case. Drawing it is a
+construction: fix $A$, draw the ray at angle $\theta$, mark $B$ with $AB$ known, then swing a circle of
+radius $BC$ about $B$ and see where it cuts the ray. The circle can miss the ray, touch it once, or cut it
+**twice** — which is why SSA does not determine a triangle.
+
+So "there are two non-congruent triangles" is telling you that the quadratic you are about to write down has
+**two positive roots**, and that both of them count.
+:::
+
+::: {.callout-important}
+## Memorise this box
+
+**The SSA count.** With $AB=c$ known, $\angle A=\theta$ known and the opposite side $BC=a$ known, let
+$h=c\sin\theta$ be the distance from $B$ to the ray. Then
+
+| | number of triangles |
+|---|---|
+| $a<h$ | 0 |
+| $a=h$ | 1 (right-angled) |
+| $h<a<c$ | **2** |
+| $a\ge c$ | 1 |
+
+**The algebra.** Put the unknown side $AC=x$ and use the cosine rule *on the given angle*:
+
+$$a^{2}=c^{2}+x^{2}-2cx\cos\theta .$$
+
+This is a **quadratic in $x$**, and its two positive roots are the two triangles.
+
+**The areas.** Both triangles share the same $AB$ and the same $\theta$, so taking $AC$ as the base they
+have the **same height**. Therefore
+
+$$\frac{\text{area}_1}{\text{area}_2}=\frac{x_1}{x_2}$$
+
+— the area ratio is just the ratio of the two roots. No areas need to be computed.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Set $a=1$: *changing $a$ scales both triangles by the same factor and a ratio of areas is unaffected.*
+
+From $\tan\theta=\tfrac43$ with $\theta$ acute, the $3$–$4$–$5$ triangle gives
+
+$$\sin\theta=\tfrac45,\qquad \cos\theta=\tfrac35 .$$
+
+**Check the ambiguous case first.** $h=AB\sin\theta=5\cdot\tfrac45=4$, and $AB=5$. Since
+
+$$4<\sqrt{17}\approx4.123<5,$$
+
+we are in the row $h<a<c$ — two triangles, as the question said.
+
+**Cosine rule on $\angle A$,** with $AC=x$:
+
+$$17=5^{2}+x^{2}-2(5)(x)\tfrac35
+\quad\Longrightarrow\quad
+x^{2}-6x+8=0
+\quad\Longrightarrow\quad
+(x-2)(x-4)=0,$$
+
+so $x=2$ or $x=4$, and both are positive — the two triangles.
+
+**The ratio.** Taking $AC$ as base, both triangles have the same perpendicular height from $B$, *because the
+height depends only on $AB$ and $\theta$, which are the same in both.* So the areas are in the ratio of the
+bases:
+
+$$4:2=\boxed{2:1}\qquad\textbf{C}$$
+
+*(Checking directly: area $=\tfrac12\cdot AB\cdot AC\cdot\sin\theta=\tfrac12\cdot5\cdot x\cdot\tfrac45=2x$,
+giving $8$ and $4$.)*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The two triangles. They share AB and the angle at A, so B sits at the same height above the base line — only the base AC differs, 4 against 2."
+fig, ax = plt.subplots(figsize=(6.6, 3.4))
+th = np.arctan2(4, 3)
+A = np.array([0.0, 0.0])
+B = 5*np.array([np.cos(th), np.sin(th)])
+for xc, col, lab in [(4, GREEN, "C₂ (AC = 4)"), (2, RED, "C₁ (AC = 2)")]:
+    C = np.array([xc, 0.0])
+    ax.fill([A[0], B[0], C[0]], [A[1], B[1], C[1]], color=col, alpha=0.16)
+    ax.plot([B[0], C[0]], [B[1], C[1]], color=col, lw=2)
+    ax.plot(*C, "o", color=col, ms=6)
+    ax.text(C[0]-0.1, -0.42, lab, color=col, fontsize=9)
+ax.plot([A[0], 4.8], [0, 0], color=GREY, lw=1.0)
+ax.plot([A[0], B[0]], [A[1], B[1]], color=BLUE, lw=2.2)
+ax.plot([B[0], B[0]], [0, B[1]], color=GREY, lw=1.0, ls=":")
+ax.text(B[0]+0.1, B[1]/2, "same height", color=GREY, fontsize=8.5, rotation=90, va="center")
+ax.plot(*A, "o", color="black", ms=5); ax.text(-0.3, -0.1, "A", fontsize=11)
+ax.plot(*B, "o", color="black", ms=5); ax.text(B[0]-0.05, B[1]+0.25, "B", fontsize=11)
+ax.set_xlim(-0.8, 5.2); ax.set_ylim(-0.9, 5.0)
+ax.set_aspect("equal"); ax.axis("off")
+plt.tight_layout(); plt.show()
+```
+
+**Where the mark went.** Option **A**, $\sqrt{17}:2$, is what you get by treating one of the *given* lengths
+as if it were the answer. *The two triangles differ only in $AC$, so the ratio has to be built from the two
+values of $AC$ — and $\sqrt{17}$ is the same in both triangles.*
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 10 practice
+
+::: {.question}
+1. $AB=5$, $BC=\sqrt{10}$ and $\angle BAC=\theta$ with $\cos\theta=\tfrac45$.
+   &nbsp;&nbsp;**(a)** Show that two non-congruent triangles are possible.
+   &nbsp;&nbsp;**(b)** Find both values of $AC$ and the ratio of the areas.
+2. $AB=13$, $BC=3\sqrt{17}$ and $\angle BAC=\theta$ with $\cos\theta=\tfrac5{13}$. Find both values of $AC$
+   and the ratio of the areas.
+3. $AB=10$, $\angle BAC=30^{\circ}$. For which values of $BC$ are there **two** non-congruent triangles?
+   Give your answer as an inequality.
+4. In question 1, which of the two triangles has the obtuse angle at $C$? Justify it without computing any
+   angle.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **(a)** $\sin\theta=\tfrac35$, so $h=5\cdot\tfrac35=3$ and $AB=5$. Since $3<\sqrt{10}\approx3.162<5$, we are
+   in the $h<a<c$ row: two triangles.
+   **(b)** $10=25+x^{2}-2(5)x\tfrac45$, so $x^{2}-8x+15=0$, $(x-3)(x-5)=0$, giving $AC=3$ or $5$. Same
+   height, so the area ratio is $\boxed{5:3}$.
+2. $\sin\theta=\tfrac{12}{13}$, so $h=12$ and $3\sqrt{17}\approx12.37$, with $12<12.37<13$ — two triangles.
+   The cosine rule gives $153=169+x^{2}-10x$, i.e. $x^{2}-10x+16=0$, $(x-2)(x-8)=0$, so $AC=2$ or $8$ and
+   the ratio is $\boxed{4:1}$.
+3. $h=10\sin30^{\circ}=5$ and $c=10$, so two triangles exactly when $\boxed{5<BC<10}$. *At $BC=5$ the circle
+   is tangent to the ray (one right-angled triangle); from $BC=10$ upwards the second intersection falls on
+   the wrong side of $A$ and is lost.*
+4. The one with $AC=3$. *In both triangles $BC=\sqrt{10}$ is fixed and $\angle A$ is fixed, so by the sine
+   rule the angle at $C$ satisfies $\sin C=\frac{AB\sin\theta}{BC}$ — the same value in both. The two
+   triangles take the acute and the obtuse solution of that equation, and the obtuse one is the triangle with
+   the shorter $AC$, since the larger angle at $C$ pulls $C$ in towards $A$.*
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+# Question 16 - Necessary for exactly three of the others
+
+## Original question
+
+Let $x$ be a real number. Consider the following statements.
+
+&nbsp;&nbsp;$A$: $x<2$. &nbsp;&nbsp;&nbsp;&nbsp; $B$: $0<x<1$. &nbsp;&nbsp;&nbsp;&nbsp; $C$: $x^{2}<1$.
+&nbsp;&nbsp;&nbsp;&nbsp; $D$: $\lvert x-1\rvert<2$. &nbsp;&nbsp;&nbsp;&nbsp; $E$: $x^{2}<4$.
+
+Which statement is a **necessary** condition for exactly three of the other four statements?
+
+&nbsp;&nbsp;**A** $A$ &nbsp;&nbsp; **B** $B$ &nbsp;&nbsp; **C** $C$ &nbsp;&nbsp; **D** $D$ &nbsp;&nbsp;
+**E** $E$
+
+---
+
+## The method to recall
+
+::: {.callout-important}
+## Memorise this box
+
+**Necessary means bigger.** "$X$ is necessary for $Y$" means $Y\Rightarrow X$. As sets of $x$, that is
+
+$$Y\subseteq X .$$
+
+So the necessary condition is the **larger** set — the weaker statement. The sufficient one is the smaller
+set.
+
+| phrase | implication | sets |
+|---|---|---|
+| $X$ is **necessary** for $Y$ | $Y\Rightarrow X$ | $Y\subseteq X$ |
+| $X$ is **sufficient** for $Y$ | $X\Rightarrow Y$ | $X\subseteq Y$ |
+
+**The method.**
+
+1. Rewrite **every** statement as an interval. Modulus and squares must be unwrapped first.
+2. Draw all the intervals on one number line, stacked.
+3. For each statement, count how many of the others are **contained inside** it.
+4. Pick the one whose count is the number the question asks for.
+
+Counting containments is reading the picture, not algebra — which is why the number line is worth the thirty
+seconds it costs.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Step 1 — unwrap everything into intervals.**
+
+| | statement | interval |
+|---|---|---|
+| $A$ | $x<2$ | $(-\infty,2)$ |
+| $B$ | $0<x<1$ | $(0,1)$ |
+| $C$ | $x^{2}<1$ | $(-1,1)$ |
+| $D$ | $\lvert x-1\rvert<2$ | $(-1,3)$ |
+| $E$ | $x^{2}<4$ | $(-2,2)$ |
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The five statements on one line. A is the only one that swallows three of the others (B, C and E) — D sticks out to the right of A, so it escapes."
+fig, ax = plt.subplots(figsize=(7.2, 3.0))
+rows = [("A:  x < 2", -4.6, 2, BLUE),
+        ("B:  0 < x < 1", 0, 1, GREEN),
+        ("C:  x² < 1", -1, 1, AMBER),
+        ("D:  |x−1| < 2", -1, 3, RED),
+        ("E:  x² < 4", -2, 2, "#6b46c1")]
+for i, (lab, lo, hi, col) in enumerate(rows):
+    y = len(rows) - i
+    ax.hlines(y, lo, hi, color=col, lw=5, alpha=0.75)
+    # an open circle marks a genuine excluded endpoint; the unbounded end of A
+    # gets an arrow instead, so it is not misread as one
+    ends = [hi] if lo < -4.5 else [lo, hi]
+    ax.plot(ends, [y]*len(ends), "o", color=col, ms=5, mfc="white")
+    if lo < -4.5:
+        ax.annotate("", xy=(-5.1, y), xytext=(-4.6, y), arrowprops=dict(arrowstyle="->", color=col))
+    ax.text(-5.4, y, lab, fontsize=9, ha="right", va="center", color=col)
+ax.axvline(0, color=GREY, lw=0.7)
+ax.set_xlim(-8.6, 4.0); ax.set_ylim(0.3, 5.7)
+ax.set_yticks([])
+ax.set_xticks([-2, -1, 0, 1, 2, 3])
+ax.set_xlabel("x")
+ax.grid(axis="x", alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+
+**Step 2 — count what each one contains.**
+
+| statement | contains | count |
+|---|---|---|
+| $A=(-\infty,2)$ | $B$, $C$, $E$ | **3** |
+| $B=(0,1)$ | — | 0 |
+| $C=(-1,1)$ | $B$ | 1 |
+| $D=(-1,3)$ | $B$, $C$ | 2 |
+| $E=(-2,2)$ | $B$, $C$ | 2 |
+
+*$A$ fails to contain only $D$, because $D$ reaches up to $3$ and so includes values such as $x=2.5$ that
+break $x<2$. $D$ and $E$ each miss two: $D$ does not contain $E$ (take $x=-1.5$) and $E$ does not contain $D$
+(take $x=2.5$), so neither can get past two.*
+
+$A$ is necessary for exactly three of the others — $B$, $C$ and $E$.
+
+**A**
+
+**Where the mark went.** Choosing **D** means reading "necessary" as "sufficient", or picking the interval
+that merely *looks* widest in the middle. *$D$ is bounded on both sides; $A$ is unbounded to the left, which
+is what lets it swallow $E$ as well.*
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 16 practice
+
+::: {.question}
+1. Let $x$ be real, and let
+   $$A:\ 0<x<1,\qquad B:\ x<4,\qquad C:\ x^{2}<1,\qquad D:\ \lvert x\rvert<2,\qquad E:\ \lvert x-1\rvert<1 .$$
+   Which statement is a necessary condition for exactly **three** of the other four? Which is necessary for
+   all four?
+2. For the original five statements $A$–$E$, which statement is a **sufficient** condition for exactly three
+   of the other four?
+3. True or false, with a reason each time:
+   &nbsp;&nbsp;**(a)** $x^{2}<1$ is sufficient for $x<2$.
+   &nbsp;&nbsp;**(b)** $\lvert x-1\rvert<2$ is necessary for $x^{2}<4$.
+   &nbsp;&nbsp;**(c)** $x^{2}<4$ is necessary for $0<x<1$.
+4. Write a statement $F$ about $x$ that is necessary for all five of $A$–$E$ but is not "$x\in\mathbb R$".
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. As intervals: $A=(0,1)$, $B=(-\infty,4)$, $C=(-1,1)$, $D=(-2,2)$, $E=(0,2)$.
+   **$D$ is necessary for exactly three** — it contains $A$, $C$ and $E$, but not $B$.
+   **$B$ is necessary for all four**, since every other interval lies to the left of $4$. *$B$ is the trap
+   here: it beats the target rather than meeting it.*
+2. **$C$.** *Sufficient means smaller, so count what each statement is contained **in**: $C=(-1,1)$ sits
+   inside $A$, $D$ and $E$ but not inside $B$.* (The official solution notes this as an aside.)
+3. **(a) True** — $(-1,1)\subset(-\infty,2)$. **(b) False** — $E=(-2,2)$ is not inside $D=(-1,3)$; take
+   $x=-1.5$. **(c) True** — $(0,1)\subset(-2,2)$.
+4. For example $F:\ x<4$, or $F:\ \lvert x\rvert<100$. *Any interval containing the union
+   $(-\infty,2)\cup(-1,3)=(-\infty,3)$ will do — and note the union is what has to be covered, not just the
+   largest single one.*
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+# Question 18 - Negating nested quantifiers
+
+::: {.callout-tip}
+## Concepts first — read this before the question
+
+A statement with several quantifiers is a **chain**, read strictly left to right. In
+
+$$\forall x\ \exists y\ \forall n:\ \ \Phi(x,y,n)$$
+
+the $y$ is allowed to depend on $x$ (it comes later), but **not** the other way round. Swapping two
+quantifiers usually changes the meaning completely, so the order is part of the statement.
+
+**Quantifier symbols.**
+
+| symbol | reads as | negation turns it into |
+|---|---|---|
+| $\forall$ | "for every", "for all", "for each" | $\exists$ |
+| $\exists$ | "there exists", "for some", "there is at least one" | $\forall$ |
+
+**Why the flip is right.** "Not every $x$ works" says precisely "some $x$ fails", and "no $x$ works" says
+precisely "every $x$ fails". Those two sentences are the whole rule.
+:::
+
+::: {.callout-important}
+## Memorise this box
+
+**To negate a statement: reverse every quantifier, in order, and negate the final condition.**
+
+$$\neg\bigl(\forall x\ \exists y\ \forall n:\ \Phi\bigr)
+\quad\Longleftrightarrow\quad
+\exists x\ \forall y\ \exists n:\ \neg\Phi .$$
+
+Three things that are easy to get wrong:
+
+- **Every** quantifier flips, not just the first.
+- The **order stays the same**. $\exists x\,\forall y$ is not $\forall y\,\exists x$.
+- The **final condition** is negated too: $=$ becomes $\ne$, $<$ becomes $\ge$, and
+  $\neg(P\Rightarrow Q)$ becomes $P\wedge\neg Q$ — an implication does **not** negate to an implication.
+
+**Method.** Translate the English into symbols *first*, flip mechanically, then translate back. Trying to
+negate the English sentence directly is where the errors come from.
+:::
+
+## Original question
+
+Consider the statement:
+
+&nbsp;&nbsp;For every real number $x$, there exists a real number $y$ such that for every integer $n$,
+
+$$\sin(x+y+2n\pi)=1 .$$
+
+Which of the following is the negation of this statement?
+
+&nbsp;&nbsp;**A** For every real $x$, there exists a real $y$ such that $\sin(x+y+2n\pi)\ne1$ for all
+integers $n$.
+
+&nbsp;&nbsp;**B** For every real $x$ and every real $y$ there exists an integer $n$ such that
+$\sin(x+y+2n\pi)\ne1$.
+
+&nbsp;&nbsp;**C** For every real $x$, there exists a real $y$ such that $\sin(x+y+2n\pi)\ne1$ for some
+integer $n$.
+
+&nbsp;&nbsp;**D** There exists a real $x$, such that for every real $y$ there exists an integer $n$ such that
+$\sin(x+y+2n\pi)\ne1$.
+
+&nbsp;&nbsp;**E** There exists a real $x$ and a real $y$ such that $\sin(x+y+2n\pi)\ne1$ for some integer $n$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Translate first.** The statement is
+
+$$\forall x\in\mathbb R,\ \exists y\in\mathbb R,\ \forall n\in\mathbb Z:\quad \sin(x+y+2n\pi)=1 .$$
+
+**Flip every quantifier in order, and negate the condition.**
+
+$$\exists x\in\mathbb R,\ \forall y\in\mathbb R,\ \exists n\in\mathbb Z:\quad \sin(x+y+2n\pi)\ne1 .$$
+
+**Translate back.** *There exists a real $x$ such that for every real $y$ there exists an integer $n$ with
+$\sin(x+y+2n\pi)\ne1$.* That is **D**.
+
+Checking the others against the pattern $\exists\,\forall\,\exists$:
+
+| | its pattern | what went wrong |
+|---|---|---|
+| **A** | $\forall\,\exists\,\forall$ | nothing flipped |
+| **B** | $\forall\,\forall\,\exists$ | the first quantifier did not flip |
+| **C** | $\forall\,\exists\,\exists$ | only the last one flipped |
+| **D** | $\exists\,\forall\,\exists$ | ✓ |
+| **E** | $\exists\,\exists\,\exists$ | the middle one flipped the wrong way |
+
+**D**
+
+**Where the mark went.** Option **B** flips the second and third quantifiers but leaves the leading $\forall$
+alone. *That is the commonest slip of all: the outermost quantifier is the one you read first and the one you
+forget to touch.*
+
+**A free observation.** $\sin$ has period $2\pi$, so $\sin(x+y+2n\pi)=\sin(x+y)$ for every integer $n$ — the
+inner "for every integer $n$" does nothing at all. Given any $x$, choosing $y=\tfrac\pi2-x$ makes
+$\sin(x+y)=1$, so **the original statement is true** and its negation is false. *None of this affects which
+option is the negation — negation is a purely formal operation — but it is a useful check that you have read
+the statement correctly.*
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 18 practice
+
+::: {.question}
+Negate each statement. Give the symbolic form and the English, and say whether the **original** is true or
+false.
+
+1. $\forall x\in\mathbb R,\ \exists n\in\mathbb N:\ n>x$.
+2. $\exists M\in\mathbb R,\ \forall n\in\mathbb N:\ a_n\le M$.
+3. $\forall \varepsilon>0,\ \exists\delta>0,\ \forall x:\
+   \bigl(\lvert x-a\rvert<\delta\Rightarrow\lvert f(x)-f(a)\rvert<\varepsilon\bigr)$.
+   &nbsp;*(Be careful with the implication.)*
+4. $\forall n\in\mathbb N,\ \exists m\in\mathbb N,\ \forall k\in\mathbb N:\
+   \bigl(k>m\Rightarrow a_k<\tfrac1n\bigr)$.
+5. For every integer $n>1$ there exists a prime $p$ such that $p$ divides $n$.
+6. Harder. Explain in one sentence why
+   $\forall x\in\mathbb R,\ \exists y\in\mathbb R:\ x+y=0$ is true, while
+   $\exists y\in\mathbb R,\ \forall x\in\mathbb R:\ x+y=0$ is false, and state the negation of each.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. Negation: $\exists x\in\mathbb R,\ \forall n\in\mathbb N:\ n\le x$ — *there is a real number that every
+   natural number fails to exceed, i.e. $\mathbb N$ is bounded above.* The original is **true**
+   (the Archimedean property), so the negation is false.
+2. Negation: $\forall M\in\mathbb R,\ \exists n\in\mathbb N:\ a_n>M$ — *the sequence is unbounded above.*
+   Whether the original is true depends on the sequence; it says exactly "$(a_n)$ is bounded above".
+3. Negation: $\exists\varepsilon>0,\ \forall\delta>0,\ \exists x:\
+   \lvert x-a\rvert<\delta\ \wedge\ \lvert f(x)-f(a)\rvert\ge\varepsilon$.
+   *The implication negates to "hypothesis true **and** conclusion false" — writing another implication here
+   is the standard error.* The original is the definition of $f$ being continuous at $a$.
+4. Negation: $\exists n\in\mathbb N,\ \forall m\in\mathbb N,\ \exists k\in\mathbb N:\
+   k>m\ \wedge\ a_k\ge\tfrac1n$. The original says $a_n\to0$ (for a sequence of non-negative terms).
+5. Symbolically $\forall n>1,\ \exists p\ \text{prime}:\ p\ \text{divides}\ n$. Negation:
+   $\exists n>1,\ \forall p\ \text{prime}:\ p\ \text{does not divide}\ n$ — *there is an integer above 1 with
+   no prime factor at all.* The original is **true** (every integer above 1 has a prime factor), so the
+   negation is false.
+6. In the first, $y$ comes after $x$, so $y$ may depend on $x$ — take $y=-x$ and it always works. In the
+   second, $y$ is chosen **before** $x$ and must then work for every $x$, which no single $y$ can do: take
+   $x=1-y$. *The order of the quantifiers is the entire difference between the two sentences.*
+   Negations: $\exists x\in\mathbb R,\ \forall y\in\mathbb R:\ x+y\ne0$ (false) and
+   $\forall y\in\mathbb R,\ \exists x\in\mathbb R:\ x+y\ne0$ (true).
+
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Final checklist
+
+- [ ] Trapezium rule: I decide over/under from the sign of $f''$, and I know an underestimate does **not**
+      force concavity (Q3).
+- [ ] "Necessarily true": I build the complete map once, then test every option against it, and I know
+      $\Delta=0$ means **one** root, not none (Q5).
+- [ ] Logs: I write the domain down first, I know $a\log_b x=\log_b x^{a}$ needs $x>0$, and I treat a rejected
+      root as evidence that an earlier step was not an equivalence (Q6).
+- [ ] SSA: I check $h<a<c$ for two triangles, use the cosine rule on the given angle, and get the area ratio
+      straight from the two roots (Q10).
+- [ ] Necessary means the **larger** set; I draw the intervals on one number line before counting (Q16).
+- [ ] To negate: translate to symbols, flip **every** quantifier in order, keep the order, and negate the
+      final condition — with $\neg(P\Rightarrow Q)\equiv P\wedge\neg Q$ (Q18).
+:::
