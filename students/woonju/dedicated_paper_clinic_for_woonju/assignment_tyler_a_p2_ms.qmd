@@ -1,0 +1,417 @@
+---
+title: "Tyler Set A · Paper 2 — Assignment Mark Scheme"
+subtitle: "Follow-up on Q3, Q5, Q6, Q10, Q16 and Q18"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+BLUE = "#2b6cb0"
+RED = "#c53030"
+GREEN = "#2f855a"
+AMBER = "#b7791f"
+GREY = "0.35"
+```
+
+Marks in brackets. **Total 48.**
+
+---
+
+# Section A — The trapezium rule
+
+## Question 1 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+**(a)** With $h=1$ and ordinates at $x=1,2,3,4$:
+
+$$T=\tfrac12\bigl(\ln1+2\ln2+2\ln3+\ln4\bigr)=\tfrac12\bigl(4\ln2+2\ln3\bigr)=2\ln2+\ln3=\ln12 . \tag*{[1]}$$
+
+*The $\ln 4$ at the right-hand end is $2\ln 2$, which is what makes the whole estimate collapse to a single
+logarithm.* Numerically $\ln 12\approx2.4849$.
+
+$$\int_1^4\ln x\,\mathrm dx=\Bigl[x\ln x-x\Bigr]_1^4=(4\ln4-4)-(0-1)=8\ln2-3\approx2.5452 . \tag*{[1]}$$
+
+**(b)** $f'(x)=\dfrac1x$ and $f''(x)=-\dfrac1{x^{2}}<0$ for every $x$ in $[1,4]$. **[1]**
+
+*So $\ln x$ is concave down on the whole interval, every chord lies below the curve, and the trapezium rule
+therefore gives an **underestimate** — no comparison of the two numbers is needed.* **[1]**
+
+(Consistently, $\ln 12<8\ln2-3$.)
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q1. y = ln x is concave down on [1,4], so each of the three chords lies below the curve and the estimate falls short."
+xs = np.linspace(1, 4, 400)
+fig, ax = plt.subplots(figsize=(6.2, 3.3))
+ax.plot(xs, np.log(xs), color=BLUE, lw=2, label=r"$y=\ln x$")
+nd = np.array([1, 2, 3, 4])
+ax.plot(nd, np.log(nd), color=RED, lw=1.6, marker="o", ms=5, label="trapezium chords")
+for n in nd:
+    ax.plot([n, n], [0, np.log(n)], color=RED, lw=0.8, alpha=0.5)
+ax.fill_between(nd, np.log(nd), 0, color=RED, alpha=0.12)
+ax.fill_between(xs, np.log(xs), np.interp(xs, nd, np.log(nd)), color=BLUE, alpha=0.18)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(fontsize=8, loc="upper left")
+ax.grid(alpha=0.18)
+plt.tight_layout(); plt.show()
+```
+
+## Question 2 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+**$Q\Rightarrow P$.** If $f''>0$ throughout $[a,b]$ the curve is concave up, so every chord lies **above** the
+graph and every strip is overestimated. *A sum of overestimates is an overestimate,* so $Q$ implies $P$ and
+**$P$ is necessary for $Q$**. **[2]**
+
+**$P\not\Rightarrow Q$.** Take $f(x)=x^{4}-x^{2}$ on $[-1,1]$ with $n=1$. The chord joins $(-1,0)$ to
+$(1,0)$, so $T=0$, while
+
+$$\int_{-1}^{1}\bigl(x^{4}-x^{2}\bigr)\,\mathrm dx=2\left(\tfrac15-\tfrac13\right)=-\tfrac4{15}<0 ,$$
+
+so the rule **overestimates** and $P$ holds. But $f''(x)=12x^{2}-2$ gives $f''(0)=-2<0$, so $Q$ fails. **[2]**
+
+**$P$ is necessary but not sufficient for $Q$.** *This is the mirror image of the exam question — the same
+asymmetry, with the inequality the other way up.*
+
+## Question 3 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+Take $f(x)=(x-1)^{3}$. **[1]**
+
+$$T=\tfrac12\bigl(f(0)+2f(1)+f(2)\bigr)=\tfrac12(-1+0+1)=0,
+\qquad
+\int_0^2 (x-1)^{3}\,\mathrm dx=\left[\tfrac{(x-1)^{4}}{4}\right]_0^2=0 . \tag*{[1]}$$
+
+*The curve has rotational symmetry about $(1,0)$, the midpoint of the interval: it is concave down on $[0,1]$
+and concave up on $[1,2]$, so the shortfall on the left strip is exactly the excess on the right and the two
+errors cancel.* **[1]**
+
+This is the "inflection inside" row of the memorise box — the rule is exact by cancellation, not because the
+function is linear.
+
+---
+
+# Section B — "Necessarily true" with a discriminant
+
+## Question 4 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+**(a)** $\Delta=(2k)^{2}-4(3k-2)=4k^{2}-12k+8=4\bigl(k^{2}-3k+2\bigr)=4(k-1)(k-2)$. **[1]**
+
+| | condition on $k$ | $n(k)$ |
+|---|---|---|
+| $\Delta>0$ | $k<1$ or $k>2$ | **2** |
+| $\Delta=0$ | $k=1$ or $k=2$ | **1** |
+| $\Delta<0$ | $1<k<2$ | **0** |
+
+**[1]**
+
+**(b)**
+
+| | claim | verdict |
+|---|---|---|
+| **I** | $n(k)=0$ for $k=1$ | **false** — $\Delta=0$ there, so $n=1$ |
+| **II** | $n(k)=2$ for $k<0$ | **true** — $(-\infty,0)$ lies inside $k<1$ |
+| **III** | $n(k)=0$ for $\tfrac54<k<\tfrac74$ | **true** — that interval lies inside $(1,2)$ |
+| **IV** | $n(k)=2$ for $k>2$ | **true** |
+
+**[2]**
+
+*II, III and IV are each true because the stated range is **contained in** a region of the map, not because it
+fills one. I is the usual slip: $\Delta=0$ gives a repeated root, which is still one real solution.*
+
+## Question 5 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+**The value needing separate treatment is $k=0$**, because then the $x^{2}$ term vanishes and the equation is
+not a quadratic at all. **[1]**
+
+- **$k=0$:** the equation is $-4x=0$, which is linear with the single solution $x=0$, so $n(0)=1$. **[1]**
+- **$k\ne0$:** $\Delta=16-4k^{2}=4\bigl(4-k^{2}\bigr)$, so **[1]**
+
+| | condition on $k$ | $n(k)$ |
+|---|---|---|
+| $\Delta>0$ | $-2<k<2$, $k\ne0$ | **2** |
+| $\Delta=0$ | $k=-2$ or $k=2$ | **1** |
+| $\Delta<0$ | $k<-2$ or $k>2$ | **0** |
+
+**[1]**
+
+*Collecting, $n(k)=1$ at the three values $k=-2,\,0,\,2$ — and the middle one is there for a completely
+different reason from the other two.* Writing $\Delta=16-4k^{2}$ and stopping would wrongly give $n(0)=2$.
+
+---
+
+# Section C — Logarithms
+
+## Question 6 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+**(a)** Both logarithms must exist: $7x-3>0$ and $x-1>0$, so the domain is $\boxed{x>1}$. **[1]**
+
+**(b)** The first change is at **Step 2**. *It replaces $2\log_2(x-1)$, which requires $x>1$, by
+$\log_2\bigl((x-1)^{2}\bigr)$, which requires only $x\ne1$ — a strictly larger domain, so the two equations
+cannot have the same solution set.* **[2]**
+
+Proof by exhibiting $x=\tfrac12$:
+
+- **Step 2:** $7x-3=\tfrac12>0$ and $(x-1)^{2}=\tfrac14>0$, and
+  $\log_2\tfrac12-\log_2\tfrac14=-1-(-2)=1$ ✓
+- **Step 1:** requires $\log_2(x-1)=\log_2\bigl(-\tfrac12\bigr)$, which does not exist ✗
+
+**[1]**
+
+**(c)** From Step 3, $7x-3=2(x-1)^{2}=2x^{2}-4x+2$, so $2x^{2}-11x+5=0$ and $(2x-1)(x-5)=0$, giving
+$x=\tfrac12$ or $x=5$. Only $x=5$ lies in the domain, so $\boxed{x=5}$. **[1]**
+
+## Question 7 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+**(a)** $\log_b\bigl(x^{3}\bigr)$ needs $x^{3}>0$, which for real $x$ means $x>0$; $3\log_b x$ needs $x>0$.
+The two domains **agree**, so the identity is true for $\boxed{x>0}$ — and both sides are undefined
+elsewhere. **[1]**
+
+**(b)** $\log_b\bigl(x^{4}\bigr)$ needs only $x\ne0$, while $4\log_b x$ still needs $x>0$. So the identity
+holds for $\boxed{x>0}$, but the left-hand side is defined on a **larger** set. **[1]**
+
+**(c)** *An odd power preserves the sign, so $x^{3}>0$ says the same thing as $x>0$; an even power destroys
+the sign, so $x^{4}>0$ is satisfied by negative $x$ too, and that is the extra territory where the right-hand
+side has nothing to say.* The version valid for every $x\ne0$ is
+
+$$\log_b\bigl(x^{4}\bigr)=4\log_b\lvert x\rvert . \tag*{[1]}$$
+
+## Question 8 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+**First equation.** Domain: $x+3>0$ **and** $x-3>0$, so $x>3$. **[1]**
+
+$$\log_4\bigl((x+3)(x-3)\bigr)=1\ \Rightarrow\ x^{2}-9=4\ \Rightarrow\ x^{2}=13\ \Rightarrow\ x=\pm\sqrt{13}.$$
+
+*The root $x=-\sqrt{13}$ makes both original logarithms undefined — it appears only because the product
+$(x+3)(x-3)$ is positive there as well.* So $\boxed{x=\sqrt{13}}$. **[1]**
+
+**Second equation.** Domain: $x>2$ (and then $x+a=5(x-2)>0$ automatically). **[1]**
+
+$$x+a=5(x-2)\ \Rightarrow\ 4x=a+10\ \Rightarrow\ x=\frac{a+10}{4}.$$
+
+*The equation is linear once the logarithms are removed, so there is at most one candidate; it is a genuine
+solution exactly when it lies in the domain:*
+
+$$\frac{a+10}{4}>2\ \Longleftrightarrow\ a>-2 .$$
+
+So there is exactly one solution precisely when $\boxed{a>-2}$, and none when $a\le-2$. **[1]**
+
+---
+
+# Section D — The ambiguous SSA case
+
+## Question 9 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+**(a)** From $\cos\theta=\tfrac45$ with $\theta$ acute, $\sin\theta=\tfrac35$. The distance from $B$ to the
+ray $AC$ is
+
+$$h=AB\sin\theta=10\cdot\tfrac35=6 .$$
+
+Since $BC=2\sqrt{10}\approx6.325$ and $AB=10$,
+
+$$6<2\sqrt{10}<10,$$
+
+so $h<BC<AB$ and there are exactly two non-congruent triangles. **[2]**
+
+**(b)** Cosine rule on $\angle A$, with $AC=x$:
+
+$$40=10^{2}+x^{2}-2(10)(x)\tfrac45
+\ \Rightarrow\ x^{2}-16x+60=0
+\ \Rightarrow\ (x-6)(x-10)=0,$$
+
+so $AC=6$ or $AC=10$. **[2]**
+
+**(c)** *Both triangles share $AB$ and the angle at $A$, so the perpendicular height from $B$ to the line
+$AC$ is the same in each; taking $AC$ as the base, the areas are therefore in the ratio of the bases.*
+
+$$10:6=\boxed{5:3} \tag*{[1]}$$
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q9. The two triangles share AB and the angle at A, so B sits at the same height above the base line; only AC differs, 10 against 6."
+th = np.arccos(4/5)
+A = np.array([0.0, 0.0]); B = 10*np.array([np.cos(th), np.sin(th)])
+fig, ax = plt.subplots(figsize=(6.4, 3.2))
+for xc, col, lab in [(10, GREEN, "C₂ (AC = 10)"), (6, RED, "C₁ (AC = 6)")]:
+    C = np.array([xc, 0.0])
+    ax.fill([A[0], B[0], C[0]], [A[1], B[1], C[1]], color=col, alpha=0.16)
+    ax.plot([B[0], C[0]], [B[1], C[1]], color=col, lw=2)
+    ax.plot(*C, "o", color=col, ms=6)
+    ax.text(C[0]-0.3, -0.9, lab, color=col, fontsize=9)
+ax.plot([A[0], 11.5], [0, 0], color=GREY, lw=1.0)
+ax.plot([A[0], B[0]], [A[1], B[1]], color=BLUE, lw=2.2)
+ax.plot([B[0], B[0]], [0, B[1]], color=GREY, lw=1.0, ls=":")
+ax.text(B[0]+0.25, B[1]/2, "h = 6", color=GREY, fontsize=8.5, rotation=90, va="center")
+ax.plot(*A, "o", color="black", ms=5); ax.text(-0.6, -0.2, "A", fontsize=11)
+ax.plot(*B, "o", color="black", ms=5); ax.text(B[0]-0.1, B[1]+0.4, "B", fontsize=11)
+ax.set_xlim(-1.5, 12); ax.set_ylim(-1.8, 8)
+ax.set_aspect("equal"); ax.axis("off")
+plt.tight_layout(); plt.show()
+```
+
+## Question 10 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+$$h=AB\sin\theta=8\sin60^{\circ}=8\cdot\tfrac{\sqrt3}2=4\sqrt3 . \tag*{[1]}$$
+
+Two non-congruent triangles exist exactly when $h<BC<AB$:
+
+$$\boxed{4\sqrt3<BC<8} \tag*{[1]}$$
+
+**At the endpoints.** *At $BC=4\sqrt3$ the circle of radius $BC$ about $B$ is tangent to the ray, so the two
+solutions merge into one right-angled triangle. At $BC=8$ the circle passes through $A$ itself, so one of the
+two intersections is the degenerate point $C=A$ and only one genuine triangle survives.* **[1]**
+
+## Question 11 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+$$h=AB\sin\theta=5\cdot\tfrac45=4 . \tag*{[1]}$$
+
+Here $BC=4=h$ exactly, which is the boundary row of the table, so there is **exactly one** triangle. **[1]**
+
+*The circle of radius $4$ about $B$ touches the ray rather than cutting it, and the point of contact is the
+foot of the perpendicular from $B$ — so the triangle is right-angled at $C$.* **[1]**
+
+---
+
+# Section E — Necessary and sufficient among a family
+
+## Question 12 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+**(a)**
+
+| | statement | interval |
+|---|---|---|
+| $A$ | $\lvert x\rvert<3$ | $(-3,3)$ |
+| $B$ | $0<x<2$ | $(0,2)$ |
+| $C$ | $x^{2}<4$ | $(-2,2)$ |
+| $D$ | $x<5$ | $(-\infty,5)$ |
+| $E$ | $\lvert x+1\rvert<1$ | $(-2,0)$ |
+
+**[2]**
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q12. D swallows everything; A swallows B, C and E but not D, because D runs past 3."
+fig, ax = plt.subplots(figsize=(7.2, 3.0))
+rows = [("A:  |x| < 3", -3, 3, BLUE),
+        ("B:  0 < x < 2", 0, 2, GREEN),
+        ("C:  x² < 4", -2, 2, AMBER),
+        ("D:  x < 5", -6.6, 5, RED),
+        ("E:  |x+1| < 1", -2, 0, "#6b46c1")]
+for i, (lab, lo, hi, col) in enumerate(rows):
+    y = len(rows) - i
+    ax.hlines(y, lo, hi, color=col, lw=5, alpha=0.75)
+    ends = [hi] if lo < -6.5 else [lo, hi]
+    ax.plot(ends, [y]*len(ends), "o", color=col, ms=5, mfc="white")
+    if lo < -6.5:
+        ax.annotate("", xy=(-7.1, y), xytext=(-6.6, y), arrowprops=dict(arrowstyle="->", color=col))
+    ax.text(-7.6, y, lab, fontsize=9, ha="right", va="center", color=col)
+ax.axvline(0, color=GREY, lw=0.7)
+ax.set_xlim(-11.5, 6.0); ax.set_ylim(0.3, 5.7)
+ax.set_yticks([]); ax.set_xticks([-3, -2, 0, 2, 3, 5]); ax.set_xlabel("x")
+ax.grid(axis="x", alpha=0.2)
+plt.tight_layout(); plt.show()
+```
+
+**(b)** Count what each one **contains**:
+
+| statement | contains | count |
+|---|---|---|
+| $A=(-3,3)$ | $B$, $C$, $E$ | **3** |
+| $B=(0,2)$ | — | 0 |
+| $C=(-2,2)$ | $B$, $E$ | 2 |
+| $D=(-\infty,5)$ | $A$, $B$, $C$, $E$ | 4 |
+| $E=(-2,0)$ | — | 0 |
+
+So $\boxed{A}$ is necessary for exactly three of the others. *It misses only $D$, which reaches up to $5$ and
+so contains values such as $x=4$ that break $\lvert x\rvert<3$.* **[2]**
+
+**(c)** $\boxed{D}$ is necessary for all four, since every other interval lies entirely to the left of $5$.
+**[1]**
+
+## Question 13 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+Sufficient means **smaller**, so now count what each statement is contained **in**:
+
+| statement | is contained in | count |
+|---|---|---|
+| $A$ | $D$ | 1 |
+| $B=(0,2)$ | $A$, $C$, $D$ | **3** |
+| $C$ | $A$, $D$ | 2 |
+| $D$ | — | 0 |
+| $E=(-2,0)$ | $A$, $C$, $D$ | **3** |
+
+So $\boxed{B\ \text{and}\ E}$. **[2]**
+
+*The two counts run opposite ways because "$X$ is necessary for $Y$" and "$X$ is sufficient for $Y$" are the
+same implication read from the two ends: $Y\subseteq X$ against $X\subseteq Y$. The widest statement, $D$, is
+necessary for everything and sufficient for nothing; the narrowest ones are sufficient for many and necessary
+for none.* **[1]**
+
+---
+
+# Section F — Negating quantifiers
+
+## Question 14 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[6 marks]</span>
+
+**(a)** Negation: $\exists n\in\mathbb N,\ \forall p\ \text{prime}:\ p\le n$ — *there is a natural number
+that no prime exceeds, i.e. there is a largest prime.* The original is **true** (there are infinitely many
+primes), so the negation is false. **[2]**
+
+**(b)** Negation: $\forall x\in\mathbb R,\ \exists\varepsilon>0:\ \lvert x\rvert\ge\varepsilon$ — *every real
+number is at least as big as some positive number.* The original is **true**: take $x=0$, since
+$\lvert0\rvert=0<\varepsilon$ for every $\varepsilon>0$. **[2]**
+
+**(c)** Negation: $\exists x\in\mathbb R,\ \forall y\in\mathbb R,\ \exists z\in\mathbb R:\ x+y+z\le z$.
+*Since $x+y+z>z$ is just $x+y>0$, the statement does not involve $z$ at all and the inner quantifier is
+vacuous.* The original is **true**: given $x$, take $y=1-x$, so $x+y=1>0$. **[2]**
+
+## Question 15 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+Flip all three quantifiers and negate the final condition, remembering
+$\neg(P\Rightarrow Q)\equiv P\wedge\neg Q$: **[1]**
+
+$$\exists n\in\mathbb N,\ \forall m\in\mathbb N,\ \exists k\in\mathbb N:\quad
+k>m\ \ \textbf{and}\ \ a_k\ge\tfrac1n . \tag*{[2]}$$
+
+**What they say.** The original says that for every $n$ the sequence is eventually below $\tfrac1n$ — in
+other words the terms are driven below every positive bound, which for a sequence of non-negative terms is
+exactly $a_k\to0$. *The negation says there is one fixed $n$ for which $a_k\ge\tfrac1n$ happens infinitely
+often, so the sequence keeps coming back up.* **[1]**
+
+*Writing the negation as another implication is the standard error: "$k>m\Rightarrow a_k\ge\tfrac1n$" would be
+a different and much weaker statement.*
+
+## Question 16 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+$S_1$ says **every real number is a value of $f$** — $f$ is onto $\mathbb R$. For example $f(x)=x$, or
+$f(x)=x^{3}$. **[1]**
+
+$S_2$ says there is a **single** input $y$ whose output $f(y)$ equals **every** real number $x$. **[1]**
+
+*But $f(y)$ is one particular real number, and no number equals both $0$ and $1$. So $S_2$ is false for every
+function $f$, whatever $f$ is.* **[1]**
+
+The two statements differ only in the order of the quantifiers, and that order is the whole difference
+between "onto" and "impossible".
+
+---
+
+::: {.callout-tip}
+## The six things this sheet was testing
+
+1. The trapezium rule's direction is the sign of $f''$; "underestimate" and "concave down" are **not** the
+   same condition, and neither are "overestimate" and "concave up" (Q1–Q3).
+2. Build the discriminant map once and test every option against it — and check whether the coefficient of
+   $x^{2}$ can vanish (Q4, Q5).
+3. The domain is the first line of a log question, and $a\log_b x=\log_b x^{a}$ needs $x>0$ — which bites for
+   **even** $a$ only (Q6–Q8).
+4. SSA: $h<a<c$ decides the count, the cosine rule on the given angle gives the quadratic, and the area ratio
+   is the ratio of its roots (Q9–Q11).
+5. Necessary means the larger set, sufficient the smaller — the two counts run opposite ways (Q12, Q13).
+6. Flip every quantifier in order, keep the order, and negate the final condition, with
+   $\neg(P\Rightarrow Q)\equiv P\wedge\neg Q$ (Q14–Q16).
+:::

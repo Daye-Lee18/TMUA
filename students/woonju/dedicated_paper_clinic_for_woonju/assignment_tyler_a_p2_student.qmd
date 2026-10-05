@@ -1,0 +1,326 @@
+---
+title: "Tyler Set A · Paper 2 — Assignment"
+subtitle: "Follow-up on Q3, Q5, Q6, Q10, Q16 and Q18"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Read this before you start
+
+Six sections, one for each question that was marked wrong. Each section tests the **method** from the clinic,
+not the same numbers. Before each section, re-read its **Memorise this box** in the
+**[clinic](tyler_exam_set_a_p2_only_for_woonju.qmd)**.
+
+The six habits being tested:
+
+| | the habit |
+|---|---|
+| **A** | over/under for the trapezium rule comes from the sign of $f''$, and "underestimate" is the weaker condition |
+| **B** | factorise the discriminant, build the whole map once, then test every option against it |
+| **C** | write the domain down first; $a\log_b x=\log_b x^{a}$ needs $x>0$ |
+| **D** | SSA: check $h<a<c$, cosine rule on the given angle, area ratio = ratio of the roots |
+| **E** | necessary means the **larger** set — draw the intervals before counting |
+| **F** | translate to symbols, flip **every** quantifier in order, negate the final condition |
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** Necessary/sufficient questions → name which, and say why the other direction fails.
+Ranges → an inequality or interval, with each endpoint stated as included or excluded. Negations → the
+symbolic form **and** the English. Numerical answers → exact values, not decimals.
+
+**Total: 48 marks.**
+:::
+
+---
+
+# Section A — The trapezium rule, and which way the implication runs
+
+## Question 1 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Let $f(x)=\ln x$ on the interval $[1,4]$, with $n=3$ equal intervals.
+
+&nbsp;&nbsp;**(a)** Write down the trapezium estimate in exact form, and the exact value of
+$\displaystyle\int_1^4\ln x\,\mathrm dx$.
+
+&nbsp;&nbsp;**(b)** State which way the error goes, and justify it **without** comparing the two numbers.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 2 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Consider these statements about a function $f$ on $[a,b]$:
+
+&nbsp;&nbsp;$P$: the trapezium rule with $n$ equal intervals produces an **overestimate** of
+$\displaystyle\int_a^b f(x)\,\mathrm dx$.
+
+&nbsp;&nbsp;$Q$: $f''(x)>0$ for $a\le x\le b$.
+
+Is $P$ necessary for $Q$, sufficient for $Q$, both, or neither? Justify **both** directions, giving an
+explicit counterexample where one fails.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 3 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Find a function $f$ on $[0,2]$ which is **not** a straight line but for which the trapezium rule with $n=2$
+gives the **exact** value of $\displaystyle\int_0^2 f(x)\,\mathrm dx$. Explain in one sentence why it works.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section B — "Necessarily true" with a discriminant
+
+## Question 4 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Let $n(k)$ be the number of distinct real solutions of
+
+$$x^{2}+2kx+3k-2=0 .$$
+
+&nbsp;&nbsp;**(a)** Build the complete map of $n(k)$.
+
+&nbsp;&nbsp;**(b)** Which of these are **necessarily true**?
+
+&nbsp;&nbsp;&nbsp;&nbsp;**I** $n(k)=0$ for $k=1$ &nbsp;&nbsp; **II** $n(k)=2$ for $k<0$ &nbsp;&nbsp;
+**III** $n(k)=0$ for $\tfrac54<k<\tfrac74$ &nbsp;&nbsp; **IV** $n(k)=2$ for $k>2$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 5 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Let $n(k)$ be the number of distinct real solutions of
+
+$$kx^{2}-4x+k=0 .$$
+
+Build the complete map of $n(k)$. **One value of $k$ needs separate treatment — say which, and why.**
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+# Section C — Logarithms: domain and equivalence
+
+## Question 6 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+A student solves $\log_2(7x-3)=1+2\log_2(x-1)$ as follows.
+
+| | |
+|---|---|
+| Step 1 | $\log_2(7x-3)-2\log_2(x-1)=1$ |
+| Step 2 | $\log_2(7x-3)-\log_2\bigl((x-1)^{2}\bigr)=1$ |
+| Step 3 | $\dfrac{7x-3}{(x-1)^{2}}=2$ |
+| Step 4 | $2x^{2}-11x+5=0$ |
+| Step 5 | $(2x-1)(x-5)=0$ |
+| Step 6 | $x=\tfrac12$ or $x=5$ |
+
+&nbsp;&nbsp;**(a)** State the domain of the original equation.
+
+&nbsp;&nbsp;**(b)** Identify the **first** step at which the solution set changes, and prove it by showing a
+value that satisfies that step but not the one before it.
+
+&nbsp;&nbsp;**(c)** Give the correct solution.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 7 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+&nbsp;&nbsp;**(a)** For which real $x$ is $\log_b\bigl(x^{3}\bigr)=3\log_b x$ true?
+
+&nbsp;&nbsp;**(b)** For which real $x$ is $\log_b\bigl(x^{4}\bigr)=4\log_b x$ true?
+
+&nbsp;&nbsp;**(c)** Explain in one sentence why the two answers differ, and state the version of the identity
+for $x^{4}$ that is valid for every $x\ne0$.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 8 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Solve $\log_4(x+3)+\log_4(x-3)=1$, stating the domain first and justifying any root you reject.
+
+Then find the complete set of values of $a$ for which
+
+$$\log_5(x+a)=1+\log_5(x-2)$$
+
+has exactly one real solution.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+# Section D — The ambiguous SSA case
+
+## Question 9 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+A triangle $ABC$ has $AB=10$, $BC=2\sqrt{10}$ and $\angle BAC=\theta$, where $\cos\theta=\tfrac45$.
+
+&nbsp;&nbsp;**(a)** Show that two non-congruent triangles are possible.
+
+&nbsp;&nbsp;**(b)** Find both possible values of $AC$.
+
+&nbsp;&nbsp;**(c)** Find the ratio of the area of the larger triangle to the area of the smaller, **without**
+computing either area.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 10 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+A triangle $ABC$ has $AB=8$ and $\angle BAC=60^{\circ}$. Find the complete set of values of $BC$ for which
+there are exactly **two** non-congruent such triangles. Give the endpoints exactly, and say what happens at
+each endpoint.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 11 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+A triangle $ABC$ has $AB=5$, $BC=4$ and $\angle BAC=\theta$ with $\sin\theta=\tfrac45$. How many
+non-congruent triangles are there? Name the special feature of the one (or ones) that exist.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section E — Necessary and sufficient among a family
+
+## Question 12 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+Let $x$ be a real number, and consider
+
+$$A:\ \lvert x\rvert<3,\qquad B:\ 0<x<2,\qquad C:\ x^{2}<4,\qquad D:\ x<5,\qquad E:\ \lvert x+1\rvert<1 .$$
+
+&nbsp;&nbsp;**(a)** Write each as an interval and draw all five on one number line.
+
+&nbsp;&nbsp;**(b)** Which statement is a **necessary** condition for exactly three of the other four?
+
+&nbsp;&nbsp;**(c)** Which statement is necessary for **all** four?
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 13 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+For the same five statements, **two** of them are each a **sufficient** condition for exactly three of the
+other four. Which two? Explain why counting for "sufficient" runs the opposite way to counting for
+"necessary".
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section F — Negating quantifiers
+
+## Question 14 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[6 marks]</span>
+
+::: {.question}
+Negate each statement. Give the symbolic form **and** the English, and say whether the **original** is true
+or false.
+
+&nbsp;&nbsp;**(a)** $\forall n\in\mathbb N,\ \exists p\ \text{prime}:\ p>n$.
+
+&nbsp;&nbsp;**(b)** $\exists x\in\mathbb R,\ \forall \varepsilon>0:\ \lvert x\rvert<\varepsilon$.
+
+&nbsp;&nbsp;**(c)** $\forall x\in\mathbb R,\ \exists y\in\mathbb R,\ \forall z\in\mathbb R:\ x+y+z>z$.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 15 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Negate, taking care with the implication:
+
+$$\forall n\in\mathbb N,\ \exists m\in\mathbb N,\ \forall k\in\mathbb N:\ \bigl(k>m\ \Rightarrow\ a_k<\tfrac1n\bigr).$$
+
+State in one sentence what the original statement says about the sequence $(a_n)$, and what the negation says.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 16 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Consider these two statements about a function $f$:
+
+&nbsp;&nbsp;$S_1$: $\forall x\in\mathbb R,\ \exists y\in\mathbb R:\ f(y)=x$.
+
+&nbsp;&nbsp;$S_2$: $\exists y\in\mathbb R,\ \forall x\in\mathbb R:\ f(y)=x$.
+
+Explain in one sentence what each says, give a function for which $S_1$ is true, and explain why $S_2$ is
+false for **every** function $f$.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand it in
+
+- [ ] Every necessary/sufficient answer argues **both** directions, with a counterexample for the one that
+      fails.
+- [ ] Every range answer says explicitly whether each endpoint is in or out.
+- [ ] Every log question starts with the domain, written down before any algebra.
+- [ ] Every SSA question checks $h<a<c$ before solving anything.
+- [ ] Every negation flips **all** the quantifiers, keeps their order, and negates the final condition.
+- [ ] No decimals where an exact value was available.
+:::
