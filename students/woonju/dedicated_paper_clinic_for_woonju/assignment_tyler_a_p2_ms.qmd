@@ -28,6 +28,15 @@ Marks in brackets. **Total 48.**
 
 ## Question 1 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
 
+::: {.question}
+Let $f(x)=\ln x$ on the interval $[1,4]$, with $n=3$ equal intervals.
+
+&nbsp;&nbsp;**(a)** Write down the trapezium estimate in exact form, and the exact value of
+$\displaystyle\int_1^4\ln x\,\mathrm dx$.
+
+&nbsp;&nbsp;**(b)** State which way the error goes, and justify it **without** comparing the two numbers.
+:::
+
 **(a)** With $h=1$ and ordinates at $x=1,2,3,4$:
 
 $$T=\tfrac12\bigl(\ln1+2\ln2+2\ln3+\ln4\bigr)=\tfrac12\bigl(4\ln2+2\ln3\bigr)=2\ln2+\ln3=\ln12 . \tag*{[1]}$$
@@ -64,6 +73,18 @@ plt.tight_layout(); plt.show()
 
 ## Question 2 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
 
+::: {.question}
+Consider these statements about a function $f$ on $[a,b]$:
+
+&nbsp;&nbsp;$P$: the trapezium rule with $n$ equal intervals produces an **overestimate** of
+$\displaystyle\int_a^b f(x)\,\mathrm dx$.
+
+&nbsp;&nbsp;$Q$: $f''(x)>0$ for $a\le x\le b$.
+
+Is $P$ necessary for $Q$, sufficient for $Q$, both, or neither? Justify **both** directions, giving an
+explicit counterexample where one fails.
+:::
+
 **$Q\Rightarrow P$.** If $f''>0$ throughout $[a,b]$ the curve is concave up, so every chord lies **above** the
 graph and every strip is overestimated. *A sum of overestimates is an overestimate,* so $Q$ implies $P$ and
 **$P$ is necessary for $Q$**. **[2]**
@@ -79,6 +100,11 @@ so the rule **overestimates** and $P$ holds. But $f''(x)=12x^{2}-2$ gives $f''(0
 asymmetry, with the inequality the other way up.*
 
 ## Question 3 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Find a function $f$ on $[0,2]$ which is **not** a straight line but for which the trapezium rule with $n=2$
+gives the **exact** value of $\displaystyle\int_0^2 f(x)\,\mathrm dx$. Explain in one sentence why it works.
+:::
 
 Take $f(x)=(x-1)^{3}$. **[1]**
 
@@ -98,6 +124,19 @@ function is linear.
 # Section B — "Necessarily true" with a discriminant
 
 ## Question 4 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Let $n(k)$ be the number of distinct real solutions of
+
+$$x^{2}+2kx+3k-2=0 .$$
+
+&nbsp;&nbsp;**(a)** Build the complete map of $n(k)$.
+
+&nbsp;&nbsp;**(b)** Which of these are **necessarily true**?
+
+&nbsp;&nbsp;&nbsp;&nbsp;**I** $n(k)=0$ for $k=1$ &nbsp;&nbsp; **II** $n(k)=2$ for $k<0$ &nbsp;&nbsp;
+**III** $n(k)=0$ for $\tfrac54<k<\tfrac74$ &nbsp;&nbsp; **IV** $n(k)=2$ for $k>2$
+:::
 
 **(a)** $\Delta=(2k)^{2}-4(3k-2)=4k^{2}-12k+8=4\bigl(k^{2}-3k+2\bigr)=4(k-1)(k-2)$. **[1]**
 
@@ -125,6 +164,14 @@ fills one. I is the usual slip: $\Delta=0$ gives a repeated root, which is still
 
 ## Question 5 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
 
+::: {.question}
+Let $n(k)$ be the number of distinct real solutions of
+
+$$kx^{2}-4x+k=0 .$$
+
+Build the complete map of $n(k)$. **One value of $k$ needs separate treatment — say which, and why.**
+:::
+
 **The value needing separate treatment is $k=0$**, because then the $x^{2}$ term vanishes and the equation is
 not a quadratic at all. **[1]**
 
@@ -148,6 +195,26 @@ different reason from the other two.* Writing $\Delta=16-4k^{2}$ and stopping wo
 
 ## Question 6 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
 
+::: {.question}
+A student solves $\log_2(7x-3)=1+2\log_2(x-1)$ as follows.
+
+| | |
+|---|---|
+| Step 1 | $\log_2(7x-3)-2\log_2(x-1)=1$ |
+| Step 2 | $\log_2(7x-3)-\log_2\bigl((x-1)^{2}\bigr)=1$ |
+| Step 3 | $\dfrac{7x-3}{(x-1)^{2}}=2$ |
+| Step 4 | $2x^{2}-11x+5=0$ |
+| Step 5 | $(2x-1)(x-5)=0$ |
+| Step 6 | $x=\tfrac12$ or $x=5$ |
+
+&nbsp;&nbsp;**(a)** State the domain of the original equation.
+
+&nbsp;&nbsp;**(b)** Identify the **first** step at which the solution set changes, and prove it by showing a
+value that satisfies that step but not the one before it.
+
+&nbsp;&nbsp;**(c)** Give the correct solution.
+:::
+
 **(a)** Both logarithms must exist: $7x-3>0$ and $x-1>0$, so the domain is $\boxed{x>1}$. **[1]**
 
 **(b)** The first change is at **Step 2**. *It replaces $2\log_2(x-1)$, which requires $x>1$, by
@@ -167,6 +234,15 @@ $x=\tfrac12$ or $x=5$. Only $x=5$ lies in the domain, so $\boxed{x=5}$. **[1]**
 
 ## Question 7 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
 
+::: {.question}
+&nbsp;&nbsp;**(a)** For which real $x$ is $\log_b\bigl(x^{3}\bigr)=3\log_b x$ true?
+
+&nbsp;&nbsp;**(b)** For which real $x$ is $\log_b\bigl(x^{4}\bigr)=4\log_b x$ true?
+
+&nbsp;&nbsp;**(c)** Explain in one sentence why the two answers differ, and state the version of the identity
+for $x^{4}$ that is valid for every $x\ne0$.
+:::
+
 **(a)** $\log_b\bigl(x^{3}\bigr)$ needs $x^{3}>0$, which for real $x$ means $x>0$; $3\log_b x$ needs $x>0$.
 The two domains **agree**, so the identity is true for $\boxed{x>0}$ — and both sides are undefined
 elsewhere. **[1]**
@@ -181,6 +257,16 @@ side has nothing to say.* The version valid for every $x\ne0$ is
 $$\log_b\bigl(x^{4}\bigr)=4\log_b\lvert x\rvert . \tag*{[1]}$$
 
 ## Question 8 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Solve $\log_4(x+3)+\log_4(x-3)=1$, stating the domain first and justifying any root you reject.
+
+Then find the complete set of values of $a$ for which
+
+$$\log_5(x+a)=1+\log_5(x-2)$$
+
+has exactly one real solution.
+:::
 
 **First equation.** Domain: $x+3>0$ **and** $x-3>0$, so $x>3$. **[1]**
 
@@ -205,6 +291,17 @@ So there is exactly one solution precisely when $\boxed{a>-2}$, and none when $a
 # Section D — The ambiguous SSA case
 
 ## Question 9 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+A triangle $ABC$ has $AB=10$, $BC=2\sqrt{10}$ and $\angle BAC=\theta$, where $\cos\theta=\tfrac45$.
+
+&nbsp;&nbsp;**(a)** Show that two non-congruent triangles are possible.
+
+&nbsp;&nbsp;**(b)** Find both possible values of $AC$.
+
+&nbsp;&nbsp;**(c)** Find the ratio of the area of the larger triangle to the area of the smaller, **without**
+computing either area.
+:::
 
 **(a)** From $\cos\theta=\tfrac45$ with $\theta$ acute, $\sin\theta=\tfrac35$. The distance from $B$ to the
 ray $AC$ is
@@ -255,6 +352,12 @@ plt.tight_layout(); plt.show()
 
 ## Question 10 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
 
+::: {.question}
+A triangle $ABC$ has $AB=8$ and $\angle BAC=60^{\circ}$. Find the complete set of values of $BC$ for which
+there are exactly **two** non-congruent such triangles. Give the endpoints exactly, and say what happens at
+each endpoint.
+:::
+
 $$h=AB\sin\theta=8\sin60^{\circ}=8\cdot\tfrac{\sqrt3}2=4\sqrt3 . \tag*{[1]}$$
 
 Two non-congruent triangles exist exactly when $h<BC<AB$:
@@ -266,6 +369,11 @@ solutions merge into one right-angled triangle. At $BC=8$ the circle passes thro
 two intersections is the degenerate point $C=A$ and only one genuine triangle survives.* **[1]**
 
 ## Question 11 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+A triangle $ABC$ has $AB=5$, $BC=4$ and $\angle BAC=\theta$ with $\sin\theta=\tfrac45$. How many
+non-congruent triangles are there? Name the special feature of the one (or ones) that exist.
+:::
 
 $$h=AB\sin\theta=5\cdot\tfrac45=4 . \tag*{[1]}$$
 
@@ -279,6 +387,18 @@ foot of the perpendicular from $B$ — so the triangle is right-angled at $C$.* 
 # Section E — Necessary and sufficient among a family
 
 ## Question 12 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+Let $x$ be a real number, and consider
+
+$$A:\ \lvert x\rvert<3,\qquad B:\ 0<x<2,\qquad C:\ x^{2}<4,\qquad D:\ x<5,\qquad E:\ \lvert x+1\rvert<1 .$$
+
+&nbsp;&nbsp;**(a)** Write each as an interval and draw all five on one number line.
+
+&nbsp;&nbsp;**(b)** Which statement is a **necessary** condition for exactly three of the other four?
+
+&nbsp;&nbsp;**(c)** Which statement is necessary for **all** four?
+:::
 
 **(a)**
 
@@ -334,6 +454,12 @@ so contains values such as $x=4$ that break $\lvert x\rvert<3$.* **[2]**
 
 ## Question 13 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
 
+::: {.question}
+For the same five statements, **two** of them are each a **sufficient** condition for exactly three of the
+other four. Which two? Explain why counting for "sufficient" runs the opposite way to counting for
+"necessary".
+:::
+
 Sufficient means **smaller**, so now count what each statement is contained **in**:
 
 | statement | is contained in | count |
@@ -357,6 +483,17 @@ for none.* **[1]**
 
 ## Question 14 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[6 marks]</span>
 
+::: {.question}
+Negate each statement. Give the symbolic form **and** the English, and say whether the **original** is true
+or false.
+
+&nbsp;&nbsp;**(a)** $\forall n\in\mathbb N,\ \exists p\ \text{prime}:\ p>n$.
+
+&nbsp;&nbsp;**(b)** $\exists x\in\mathbb R,\ \forall \varepsilon>0:\ \lvert x\rvert<\varepsilon$.
+
+&nbsp;&nbsp;**(c)** $\forall x\in\mathbb R,\ \exists y\in\mathbb R,\ \forall z\in\mathbb R:\ x+y+z>z$.
+:::
+
 **(a)** Negation: $\exists n\in\mathbb N,\ \forall p\ \text{prime}:\ p\le n$ — *there is a natural number
 that no prime exceeds, i.e. there is a largest prime.* The original is **true** (there are infinitely many
 primes), so the negation is false. **[2]**
@@ -370,6 +507,14 @@ $\lvert0\rvert=0<\varepsilon$ for every $\varepsilon>0$. **[2]**
 vacuous.* The original is **true**: given $x$, take $y=1-x$, so $x+y=1>0$. **[2]**
 
 ## Question 15 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Negate, taking care with the implication:
+
+$$\forall n\in\mathbb N,\ \exists m\in\mathbb N,\ \forall k\in\mathbb N:\ \bigl(k>m\ \Rightarrow\ a_k<\tfrac1n\bigr).$$
+
+State in one sentence what the original statement says about the sequence $(a_n)$, and what the negation says.
+:::
 
 Flip all three quantifiers and negate the final condition, remembering
 $\neg(P\Rightarrow Q)\equiv P\wedge\neg Q$: **[1]**
@@ -386,6 +531,17 @@ often, so the sequence keeps coming back up.* **[1]**
 a different and much weaker statement.*
 
 ## Question 16 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Consider these two statements about a function $f$:
+
+&nbsp;&nbsp;$S_1$: $\forall x\in\mathbb R,\ \exists y\in\mathbb R:\ f(y)=x$.
+
+&nbsp;&nbsp;$S_2$: $\exists y\in\mathbb R,\ \forall x\in\mathbb R:\ f(y)=x$.
+
+Explain in one sentence what each says, give a function for which $S_1$ is true, and explain why $S_2$ is
+false for **every** function $f$.
+:::
 
 $S_1$ says **every real number is a value of $f$** — $f$ is onto $\mathbb R$. For example $f(x)=x$, or
 $f(x)=x^{3}$. **[1]**

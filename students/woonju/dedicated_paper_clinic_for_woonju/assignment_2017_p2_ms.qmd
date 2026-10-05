@@ -1,0 +1,419 @@
+---
+title: "TMUA 2017 · Paper 2 — Assignment Mark Scheme"
+subtitle: "Mostly Q20 (deduction), plus Q12 and the four speed drills"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+BLUE = "#2b6cb0"
+RED = "#c53030"
+GREEN = "#2f855a"
+AMBER = "#b7791f"
+GREY = "0.35"
+```
+
+Each item gives the **question first, then the answer**. Marks in brackets. **Total 48.**
+
+Throughout Section A the password is a rearrangement of $a,b,c,d,e$, every guess is also a rearrangement of
+those letters, and the reply is the number of letters in the correct position.
+
+---
+
+# Section A — Deduction
+
+## Question 1 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+I enter **abcde** and am told that none of the letters are in the correct position. I enter **bcdea** and am
+told the same.
+**(a)** Build the grid of letters still allowed in each position. **(b)** How many candidates remain?
+**(c)** How many **further** attempts are needed to guarantee the password, and why will fewer not do?
+:::
+
+**(a)** Each reply of $0$ forbids one letter in each position:
+
+| position | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| abcde forbids | $a$ | $b$ | $c$ | $d$ | $e$ |
+| bcdea forbids | $b$ | $c$ | $d$ | $e$ | $a$ |
+| **allowed** | $c,d,e$ | $a,d,e$ | $a,b,e$ | $a,b,c$ | $b,c,d$ |
+
+**[2]** *Two guesses remove only two letters from each position, so three survive — against two in the exam
+question, where there were three guesses.*
+
+**(b)** Counting the permutations that pick one allowed letter per position with no letter repeated gives
+
+$$\boxed{13\ \text{candidates.}} \tag*{[1]}$$
+
+**(c)** **Two further attempts.** **[1]**
+
+*One cannot be enough: a single attempt sorts the candidates by the reply it would produce, and there are only
+five possible replies ($0,1,2,3,5$). With $13$ candidates, some reply must be shared by at least
+$\lceil 13/5\rceil=3$ of them, so that reply would leave three still standing.* Two attempts do suffice. **[1]**
+
+## Question 2 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Explain why the reply can never be exactly $4$. Then state, with a reason, which reply is impossible if the
+password and guesses were rearrangements of **six** letters instead.
+:::
+
+Suppose four of the five positions hold the correct letter. Four letters have then been used up correctly, so
+only one letter remains unused — and only one position remains. **[1]**
+
+*That remaining letter must therefore go in that remaining position, and since the password uses each letter
+exactly once, it is the correct one.* So four matches forces a fifth: the reply $4$ is impossible, and the
+possible replies are $0,1,2,3,5$. **[1]**
+
+With six letters the same argument shows the impossible reply is $\boxed{5}$, the possible replies being
+$0,1,2,3,4,6$. *In general, for $n$ letters the reply $n-1$ can never occur.* **[1]**
+
+## Question 3 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+I enter **abcde**, **badec** and **baecd**, and each time none of the letters are in the correct position.
+Show that I must have misread one of the replies, by proving that no password can produce those three answers.
+:::
+
+Write out what each guess forbids, position by position:
+
+| position | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| abcde forbids | $a$ | $b$ | $c$ | $d$ | $e$ |
+| badec forbids | $b$ | $a$ | $d$ | $e$ | $c$ |
+| baecd forbids | $b$ | $a$ | $e$ | $c$ | $d$ |
+| **allowed** | $c,d,e$ | $c,d,e$ | $a,b$ | $a,b$ | $a,b$ |
+
+**[2]**
+
+*The second and third guesses agree in positions 1 and 2, so those positions lose only two letters each —
+and the slack has to go somewhere.* Look at positions $3$, $4$ and $5$: each of them can only hold $a$ or $b$.
+**[1]**
+
+That is **three** positions to be filled from a pool of **two** letters, with no letter used twice. By the
+pigeonhole principle this is impossible, so no password gives $0$ to all three guesses — one reply must have
+been misread. **[1]**
+
+## Question 4 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+I enter **abcde**, **badec** and **cdeab**, and each time none of the letters are in the correct position.
+**(a)** Find all the candidates. **(b)** How many further attempts are needed? **(c)** Give an attempt that
+works, and say what each possible reply would tell you.
+:::
+
+**(a)**
+
+| position | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| abcde forbids | $a$ | $b$ | $c$ | $d$ | $e$ |
+| badec forbids | $b$ | $a$ | $d$ | $e$ | $c$ |
+| cdeab forbids | $c$ | $d$ | $e$ | $a$ | $b$ |
+| **allowed** | $d,e$ | $c,e$ | $a,b$ | $b,c$ | $a,d$ |
+
+Keeping only the genuine permutations leaves
+
+$$\boxed{\textbf{debca}\quad\text{and}\quad\textbf{ecabd}.} \tag*{[2]}$$
+
+**(b)** **One.** *Two candidates and five possible replies, so a single attempt can separate them provided one
+exists — and it does.* **[1]**
+
+**(c)** Guess **debca**. **[1]**
+
+| reply | conclusion |
+|---|---|
+| $5$ | the password is **debca** — the guess was right |
+| $0$ | the password is **ecabd** |
+
+*The two candidates share no letter in any position, so guessing one of them returns $5$ if it is right and
+$0$ if it is not — the cleanest possible separation.*
+
+## Question 5 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+I enter **abcde** and am told that **exactly one** letter is in the correct position. I enter **bacde** and am
+told the same. How many candidates remain, and can one further attempt guarantee the password?
+:::
+
+A reply of $1$ is a much weaker constraint than $0$: instead of forbidding a letter everywhere, it says that
+**exactly one** of the five possible matches happens, without saying which. **[1]**
+
+Working through the five cases for which position matches in **abcde**, and intersecting with the same
+analysis for **bacde**, leaves
+
+$$\boxed{12\ \text{candidates.}} \tag*{[2]}$$
+
+**One further attempt is not enough.** *There are only five possible replies, so by the pigeonhole principle
+some reply is shared by at least $\lceil12/5\rceil=3$ candidates, and that reply would leave three still
+standing.* Two attempts suffice. **[1]**
+
+*Compare Question 1: two replies of $0$ left $13$ candidates and two replies of $1$ leave $12$ — a reply of
+$1$ is barely more informative than it looks, because it does not say where the match is.*
+
+## Question 6 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+Three guesses all return $0$, and the three guesses differ from one another in every position.
+**(a)** Explain why every position then has exactly two allowed letters, and every letter is allowed in
+exactly two positions. **(b)** Hence explain why the number of candidates can never be exactly one.
+:::
+
+**(a)** Fix a position. The three guesses each put a letter there, and because the guesses differ in every
+position those three letters are **distinct**. Each reply of $0$ forbids its own letter there, so three of the
+five letters are struck out and exactly **two** remain. **[1]**
+
+Now fix a letter. Each guess is a rearrangement, so it places that letter in exactly one position; the three
+guesses place it in three distinct positions, which are therefore the three positions it is forbidden in. That
+leaves exactly **two** positions where it is allowed. **[1]**
+
+**(b)** Draw five dots for the positions and five for the letters, joining each position to the two letters it
+allows. Every dot then has exactly **two** edges, so the picture is a disjoint union of **cycles**, and
+because the two sides alternate every cycle has even length. **[1]**
+
+A candidate is a choice of one allowed letter per position with no letter repeated — that is, a perfect
+matching. *Going round a single cycle there are exactly two ways to match it: take every other edge, starting
+one way or the other.* So with $c$ cycles the number of candidates is
+
+$$2^{c}\ \ge\ 2 . \tag*{[1]}$$
+
+Since this is always at least $2$, the candidate set is never a single password, and "**None: I can deduce it
+immediately**" can never be the answer to a question of this shape. **[1]**
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q6. The exam's own three guesses: every position allows two letters and every letter is allowed in two positions, so the picture splits into cycles — here one of length 4 and one of length 6, giving 2² = 4 candidates."
+allowed = {0: "bd", 1: "ce", 2: "ae", 3: "ac", 4: "bd"}
+letters = "abcde"
+fig, ax = plt.subplots(figsize=(6.6, 3.2))
+px = np.arange(5) * 1.6
+lx = np.arange(5) * 1.6
+for i in range(5):
+    ax.plot(px[i], 1, "o", color=BLUE, ms=13, zorder=3)
+    ax.text(px[i], 1, str(i+1), ha="center", va="center", color="white", fontsize=9, zorder=4)
+    ax.plot(lx[i], 0, "o", color=AMBER, ms=13, zorder=3)
+    ax.text(lx[i], 0, letters[i], ha="center", va="center", color="white", fontsize=9, zorder=4)
+cyc = {frozenset({0, 4}): GREEN}
+for pos, chars in allowed.items():
+    for ch in chars:
+        j = letters.index(ch)
+        col = GREEN if pos in (0, 4) else RED
+        ax.plot([px[pos], lx[j]], [1, 0], color=col, lw=1.4, alpha=0.75, zorder=1)
+ax.text(-1.25, 1, "position", fontsize=9, ha="right", va="center", color=BLUE)
+ax.text(-1.25, 0, "letter", fontsize=9, ha="right", va="center", color=AMBER)
+ax.text(3.2, -0.42, "green: a 4-cycle      red: a 6-cycle", fontsize=8.5, ha="center", color=GREY)
+ax.set_xlim(-3.4, 7.6); ax.set_ylim(-0.7, 1.4)
+ax.axis("off")
+plt.tight_layout(); plt.show()
+```
+
+---
+
+# Section B — Ordering trigonometric expressions
+
+## Question 7 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+For $0<x<\tfrac\pi2$, exactly three of the six orderings of $\sin x$, $\cos x$, $\tan x$ can occur.
+**(a)** Say which, giving a value of $x$ for each. **(b)** Prove the other three can never occur.
+:::
+
+**(b) first, because it clears away half the work.** For $0<x<\tfrac\pi2$ both $\sin x>0$ and $0<\cos x<1$, so
+
+$$\tan x-\sin x=\frac{\sin x}{\cos x}-\sin x=\sin x\cdot\frac{1-\cos x}{\cos x}>0 . \tag*{[2]}$$
+
+*Every factor is strictly positive on this interval, so $\tan x>\sin x$ always.* That single inequality kills
+all three orderings in which $\tan x$ comes before $\sin x$:
+
+$$\tan x<\sin x<\cos x,\qquad \tan x<\cos x<\sin x,\qquad \cos x<\tan x<\sin x. \tag*{[1]}$$
+
+**(a)** The remaining three all occur:
+
+| ordering | a value of $x$ | check |
+|---|---|---|
+| $\sin x<\tan x<\cos x$ | $x=\tfrac13$ | $0.327<0.346<0.945$ |
+| $\sin x<\cos x<\tan x$ | $x=0.73$ | $0.667<0.745<0.895$ |
+| $\cos x<\sin x<\tan x$ | $x=\tfrac{3\pi}8$ | $0.383<0.924<2.414$ |
+
+**[2]**
+
+*Near $0$ the cosine is almost $1$ and dominates; past $\tfrac\pi4$ the sine overtakes the cosine; and the
+tangent runs away to infinity at the right-hand end.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Q7. tan x (green) is above sin x (blue) across the whole interval, which is why the three orderings that put tan first are impossible."
+xs = np.linspace(1e-3, np.pi/2 - 0.08, 1200)
+fig, ax = plt.subplots(figsize=(6.6, 3.4))
+ax.plot(xs, np.sin(xs), color=BLUE, lw=2, label=r"$y=\sin x$")
+ax.plot(xs, np.cos(xs), color=RED, lw=2, label=r"$y=\cos x$")
+ax.plot(xs, np.tan(xs), color=GREEN, lw=2, label=r"$y=\tan x$")
+ax.axvline(np.pi/4, color=GREY, lw=0.8, ls=":")
+ax.text(np.pi/4 + 0.03, 2.4, r"$x=\frac{\pi}{4}$", color=GREY, fontsize=9)
+ax.set_xticks([0, np.pi/8, np.pi/4, 3*np.pi/8, np.pi/2])
+ax.set_xticklabels(["0", r"$\frac{\pi}{8}$", r"$\frac{\pi}{4}$", r"$\frac{3\pi}{8}$", r"$\frac{\pi}{2}$"])
+ax.set_ylim(0, 2.8)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(fontsize=8, loc="upper left")
+ax.grid(alpha=0.18)
+plt.tight_layout(); plt.show()
+```
+
+## Question 8 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Find the exact set of $x$ with $0<x<2\pi$ for which $\sin x>\cos x$, by writing $\sin x-\cos x$ in the form
+$R\sin(x-\alpha)$.
+:::
+
+$$R=\sqrt{1^{2}+1^{2}}=\sqrt2,\qquad \tan\alpha=\frac{1}{1}\ \Rightarrow\ \alpha=\frac\pi4,$$
+
+$$\sin x-\cos x=\sqrt2\,\sin\!\left(x-\frac\pi4\right). \tag*{[1]}$$
+
+This is positive exactly when $\sin\!\left(x-\tfrac\pi4\right)>0$, i.e. when **[1]**
+
+$$0<x-\frac\pi4<\pi\quad\Longrightarrow\quad \boxed{\frac\pi4<x<\frac{5\pi}4} \tag*{[1]}$$
+
+*Over $0<x<2\pi$ the argument $x-\tfrac\pi4$ runs through just over one full turn, so only this one stretch of
+positivity falls inside the range.*
+
+## Question 9 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Find the complete set of $x$ with $0<x<\tfrac\pi2$ for which $\tan x>2\sin x$, stating why you may divide by
+$\sin x$ and multiply by $\cos x$ without reversing the inequality.
+:::
+
+$$\tan x>2\sin x\quad\Longleftrightarrow\quad \frac{\sin x}{\cos x}>2\sin x .$$
+
+*On $0<x<\tfrac\pi2$ we have $\sin x>0$ and $\cos x>0$, so dividing by $\sin x$ and multiplying by $\cos x$
+are both multiplications by a **positive** number and the inequality keeps its direction.* **[1]**
+
+$$1>2\cos x\quad\Longleftrightarrow\quad \cos x<\tfrac12 . \tag*{[1]}$$
+
+Since $\cos$ is decreasing on this interval and $\cos\tfrac\pi3=\tfrac12$,
+
+$$\boxed{\frac\pi3<x<\frac\pi2} \tag*{[1]}$$
+
+---
+
+# Section C — The four speed drills
+
+## Question 10 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+$y=a^{x}$ is solid with $a>1$; $y=f(x)$ is dashed, through the same $y$-intercept but rising **less** steeply.
+Which could be true? **1** $f(x)=b^{x}$, $b>a$; **2** $f(x)=b^{x}$, $b<a$; **3** $f(x)=a^{kx}$, $k>1$;
+**4** $f(x)=a^{kx}$, $k<1$.
+:::
+
+The one-line rewrite is
+
+$$a^{kx}=\bigl(a^{k}\bigr)^{x}, \tag*{[1]}$$
+
+which turns statements 3 and 4 into statements about the **base** $a^{k}$, exactly like 1 and 2. **[1]**
+
+A less steep curve through the same $y$-intercept means a **smaller base**, so we need $b<a$ — statement
+**2** — and $a^{k}<a$, which for $a>1$ means $k<1$ — statement **4**.
+
+$$\boxed{\textbf{2 and 4 only}} \tag*{[1]}$$
+
+*This is the mirror of the exam question, where the dashed curve was steeper and the answer was 1 and 3.
+Rewriting $a^{kx}$ as $(a^{k})^{x}$ is what collapses four statements into one idea.*
+
+## Question 11 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+Which one of **A** $f(5)=0$, **B** $f(3)=f(7)=0$, **C** $f(-x)=-f(x)$, **D** $f(x+5)=-f(5-x)$,
+**E** $f(x-5)=-f(5-x)$ is a **sufficient** condition for $\displaystyle\int_3^7 f(x)\,\mathrm dx=0$?
+Give a counterexample for each of the four that fail.
+:::
+
+The interval $[3,7]$ has midpoint $5$, so the symmetry that can force the integral to vanish must be about
+$x=5$. **[1]**
+
+**D is the answer.** Putting $u=x+5$ turns $f(x+5)=-f(5-x)$ into $f(u)=-f(10-u)$: the graph has rotational
+symmetry about the point $(5,0)$. Substituting $t=10-x$, **[2]**
+
+$$\int_3^7 f(x)\,\mathrm dx=\int_3^7 f(10-t)\,\mathrm dt=-\int_3^7 f(t)\,\mathrm dt,$$
+
+*so the integral equals its own negative and must therefore be zero.*
+
+| | why it fails | counterexample | value |
+|---|---|---|---|
+| **A** | one point cannot control an area | $f(x)=(x-5)^{2}$ | $\tfrac{16}3$ |
+| **B** | two points cannot either | $f(x)=(x-3)(x-7)$ | $-\tfrac{32}3$ |
+| **C** | says $f$ is odd about $0$, not about $5$ | $f(x)=x$ | $20$ |
+| **E** | $y=x-5$ turns it into $f(y)=-f(-y)$ — the same as C | $f(x)=x$ | $20$ |
+
+**[1]**
+
+*C and E are the same condition written two ways, so neither can be the answer — spotting that removes two
+options at once.*
+
+## Question 12 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+$f$ is increasing with $f(0)=0$, and $0<a<b$; the area under $y=f(x)$ from $x=a$ to $x=b$ is $R$. With
+$g(x)=f(x)-f(a)$, find the corresponding area for $g$, and explain why the region is still above the axis.
+:::
+
+$f(a)$ is a **constant**, so $g$ is $f$ shifted **down** by that fixed amount and the area lost is a
+rectangle: **[1]**
+
+$$\int_a^b g(x)\,\mathrm dx=\int_a^b f(x)\,\mathrm dx-\int_a^b f(a)\,\mathrm dx
+=\boxed{R-(b-a)f(a)} \tag*{[1]}$$
+
+*The region still lies above the axis because $f$ is increasing, so $f(x)\ge f(a)$ for every $x$ in $[a,b]$
+and hence $g(x)\ge0$ throughout — no part of the area has to be counted as negative.* **[1]**
+
+## Question 13 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[2 marks]</span>
+
+::: {.question}
+$a\times10^{-3}$, $b\times10^{-2}$ and $c\times10^{-2}$ are each in standard form and
+$\bigl(a\times10^{-3}\bigr)+\bigl(b\times10^{-2}\bigr)=\bigl(c\times10^{-2}\bigr)$. Which of
+**I** $a>9$, **II** $b>9$, **III** $c>b$, **IV** $a<b$ must be true?
+:::
+
+Standard form means $1\le a,b,c<10$. Multiplying the equation by $10^{3}$:
+
+$$a+10b=10c\quad\Longrightarrow\quad a=10(c-b). \tag*{[1]}$$
+
+Since $a\ge1$ we get $c-b\ge\tfrac1{10}>0$, so $c>b$ and **III must be true**.
+
+| | claim | counterexample |
+|---|---|---|
+| **I** | $a>9$ | $a=1,\ b=1,\ c=1.1$: $\ 1+10=11=10(1.1)$ ✓, and $a=1$ |
+| **II** | $b>9$ | the same example, $b=1$ |
+| **IV** | $a<b$ | the same example, $a=b=1$ |
+
+$$\boxed{\textbf{III only}} \tag*{[1]}$$
+
+*Note how different this is from the exam's version, where the right-hand power was $10^{-1}$ and the relation
+came out as $a+10b=100c$, forcing $b>9$. The method is the same — clear the powers, then use
+$1\le a,b,c<10$ — but the conclusion depends entirely on the exponents.*
+
+---
+
+::: {.callout-tip}
+## What this sheet was testing
+
+1. **Count the replies before counting the attempts.** Five possible replies means one attempt can separate at
+   most five candidates — that is the pigeonhole bound behind Q1, Q4 and Q5.
+2. **A reply of $0$ is one elimination per position; a reply of $1$ is far weaker**, because it does not say
+   where the match is (Q5).
+3. **The grid can be contradictory** — three replies of $0$ can be impossible (Q3), and when the guesses are
+   pairwise everywhere-different the candidate count is a power of two, so it is never $1$ (Q6).
+4. **One inequality can kill several orderings at once**: $\tan x>\sin x$ on $\left(0,\tfrac\pi2\right)$
+   removes three of the six (Q7).
+5. **Speed cues:** $a^{kx}=(a^{k})^{x}$; a symmetry for $\int_p^q$ must be about the midpoint; a constant
+   shift changes the area by constant $\times$ width; "standard form" means $1\le\text{digit part}<10$ and is
+   a hypothesis to use.
+:::

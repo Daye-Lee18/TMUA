@@ -1,0 +1,248 @@
+---
+title: "TMUA 2017 · Paper 2 — Assignment"
+subtitle: "Mostly Q20 (deduction), plus Q12 and the four speed drills"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-important}
+## Read this before you start
+
+Section A is the big one, because Q20 is the question to master. Re-read the clinic's two concept boxes
+before you start it — **the feedback is a number, not a yes or no**, and **"guarantee" means worst case**.
+
+Throughout Section A, the password is a rearrangement of the five letters $a,b,c,d,e$, every guess is also a
+rearrangement of those five letters, and the computer replies with **how many letters are in the correct
+position**.
+:::
+
+::: {.callout-note appearance="simple"}
+**Answer form.** "How many attempts" → a whole number, with a reason why fewer will not do. Candidate lists →
+every candidate written out. Ranges → an inequality with each endpoint stated as included or excluded.
+Orderings → a value of $x$ that works, or a proof that none does.
+
+**Total: 48 marks.**
+:::
+
+---
+
+# Section A — Deduction
+
+## Question 1 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+I enter **abcde** and am told that none of the letters are in the correct position. I enter **bcdea** and am
+told the same.
+
+&nbsp;&nbsp;**(a)** Build the grid of letters still allowed in each position.
+
+&nbsp;&nbsp;**(b)** How many candidates remain?
+
+&nbsp;&nbsp;**(c)** Using the best strategy, how many **further** attempts are needed to guarantee the
+password? Justify why fewer will not do.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 2 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Explain why the reply can never be exactly $4$. Then state, with a reason, which reply is impossible if the
+password and the guesses were rearrangements of **six** letters instead.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 3 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+I enter **abcde**, **badec** and **baecd**, and each time I am told that none of the letters are in the
+correct position.
+
+Show that I must have misread one of the replies, by proving that **no** password can produce those three
+answers.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 4 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+I enter **abcde**, **badec** and **cdeab**, and each time none of the letters are in the correct position.
+
+&nbsp;&nbsp;**(a)** Find all the candidates.
+
+&nbsp;&nbsp;**(b)** How many further attempts are needed to guarantee the password?
+
+&nbsp;&nbsp;**(c)** Give an attempt that works, and say what each possible reply would tell you.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 5 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+I enter **abcde** and am told that **exactly one** letter is in the correct position. I enter **bacde** and am
+told the same.
+
+How many candidates remain, and can one further attempt guarantee the password? *You do not have to list all
+the candidates — a clear count and a reason about the number of possible replies is enough.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 6 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+Suppose three guesses all return $0$, and suppose further that the three guesses **differ from one another in
+every position**.
+
+&nbsp;&nbsp;**(a)** Explain why every position then has exactly two allowed letters, and why every letter is
+allowed in exactly two positions.
+
+&nbsp;&nbsp;**(b)** Hence explain why the number of candidates can never be exactly **one** — so that
+"**None: I can deduce it immediately**" is never the right answer to a question of this shape.
+
+*Hint for (b): draw the five positions and the five letters as two rows of dots, joining each position to the
+two letters it allows. What shape must that picture be?*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section B — Ordering trigonometric expressions
+
+## Question 7 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[5 marks]</span>
+
+::: {.question}
+For $0<x<\tfrac\pi2$, consider the six possible orderings of $\sin x$, $\cos x$ and $\tan x$.
+
+&nbsp;&nbsp;**(a)** Exactly three of the six can occur. Say which, giving a value of $x$ for each.
+
+&nbsp;&nbsp;**(b)** Prove that the other three can never occur. *One short inequality kills all three at
+once.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 8 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Find the exact set of $x$ with $0<x<2\pi$ for which $\sin x>\cos x$, by writing $\sin x-\cos x$ in the form
+$R\sin(x-\alpha)$.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 9 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+Find the complete set of $x$ with $0<x<\tfrac\pi2$ for which $\tan x>2\sin x$. Give the answer exactly, and
+state clearly why you are allowed to divide by $\sin x$ and multiply by $\cos x$ without reversing the
+inequality.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section C — The four speed drills
+
+## Question 10 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+$y=a^{x}$ is drawn with a solid line, where $a>1$. A second curve $y=f(x)$ is drawn dashed; it passes through
+the same point on the $y$-axis but rises **less** steeply. Which of these could be true?
+
+&nbsp;&nbsp;**1** $f(x)=b^{x}$ for some $b>a$ &nbsp;&nbsp; **2** $f(x)=b^{x}$ for some $b<a$
+
+&nbsp;&nbsp;**3** $f(x)=a^{kx}$ for some $k>1$ &nbsp;&nbsp; **4** $f(x)=a^{kx}$ for some $k<1$
+
+State which, and give the one-line rewrite that makes it obvious.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 11 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[4 marks]</span>
+
+::: {.question}
+$f(x)$ is defined for all real $x$. Which one of the following is a **sufficient** condition for
+$\displaystyle\int_3^7 f(x)\,\mathrm dx=0$?
+
+&nbsp;&nbsp;**A** $f(5)=0$ &nbsp;&nbsp; **B** $f(3)=f(7)=0$ &nbsp;&nbsp; **C** $f(-x)=-f(x)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x+5)=-f(5-x)$ for all $x$ &nbsp;&nbsp; **E** $f(x-5)=-f(5-x)$ for all $x$
+
+Give a counterexample for each of the four that fail.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+## Question 12 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[3 marks]</span>
+
+::: {.question}
+$f(x)$ is increasing with $f(0)=0$, and $0<a<b$. The area enclosed by $y=f(x)$, the $x$-axis and the lines
+$x=a$ and $x=b$ is $R$. Let $g(x)=f(x)-f(a)$.
+
+Find, in terms of $R$, $a$, $b$ and $f$, the area enclosed by $y=g(x)$, the $x$-axis and the lines $x=a$ and
+$x=b$. Explain why the region still lies above the axis.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+## Question 13 &nbsp;<span style="font-size:0.78em;color:#8a8a8a;font-weight:400">[2 marks]</span>
+
+::: {.question}
+The positive real numbers $a\times10^{-3}$, $b\times10^{-2}$ and $c\times10^{-2}$ are each in standard form,
+and
+
+$$\bigl(a\times10^{-3}\bigr)+\bigl(b\times10^{-2}\bigr)=\bigl(c\times10^{-2}\bigr).$$
+
+Which of the following must be true?
+
+&nbsp;&nbsp;**I** $a>9$ &nbsp;&nbsp; **II** $b>9$ &nbsp;&nbsp; **III** $c>b$ &nbsp;&nbsp; **IV** $a<b$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+::: {.callout-tip}
+## Before you hand it in
+
+- [ ] In Section A I counted the possible **replies** before deciding how many attempts were needed.
+- [ ] I justified why a smaller number of attempts will **not** do, not only that my number works.
+- [ ] Where I claimed an ordering is impossible, I proved it; where I claimed one is possible, I gave an $x$.
+- [ ] Every range answer states whether each endpoint is included.
+- [ ] For the "must be true" question I gave a counterexample for each statement I rejected.
+:::
