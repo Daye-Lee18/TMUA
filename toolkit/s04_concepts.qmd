@@ -65,6 +65,20 @@ The negation is **not** another implication: it says the hypothesis holds **but*
 [not("if $x<0$ then $x^3<0$") $=$ "$x<0$ **and** $x^3\ge0$"]{.eg}
 :::
 
+::: {.fs-card}
+### Why *and*, and the three wrong forms
+
+$P\Rightarrow Q$ is false in **one** row only — $P$ true, $Q$ false — so that row *is* the negation.
+
+| wrong form | what it really is |
+|---|---|
+| $P\Rightarrow\neg Q$ | a different implication |
+| $\neg P\Rightarrow\neg Q$ | the **inverse** |
+| $\neg Q\Rightarrow\neg P$ | the **contrapositive** — *equivalent to the original* |
+
+[a negation is never an implication: it asserts that something happens]{.eg}
+:::
+
 ::::
 
 ## Traps, and the order of quantifiers
@@ -260,6 +274,34 @@ Flip *for all* → *there exists*; negate the implication to "$x<0$ **and** $x^3
 
 *The negation keeps the hypothesis and denies the conclusion — never "if $x<0$ then $x^3\ge0$".*
 :::
+
+**Why it is *and*.** An implication is a promise, and there is exactly one way to break it:
+
+| $P$ | $Q$ | $P\Rightarrow Q$ |
+|---|---|---|
+| T | T | T |
+| T | F | **F** &nbsp;← the only false row |
+| F | T | T |
+| F | F | T |
+
+Reading off that single row gives $\neg(P\Rightarrow Q)\equiv P\wedge\neg Q$ directly.
+
+**The quantified version is a counterexample.** Put the rule under a $\forall$:
+
+::: {.keyline}
+not(for all $x$, if $P(x)$ then $Q(x)$) $=$ there exists $x$ with $P(x)$ **and** not $Q(x)$.
+:::
+
+*That is exactly what a counterexample is — one object satisfying the hypothesis and failing the conclusion —
+so "negate this statement" and "find a counterexample" are the same instruction in different words.* It is
+also why the search for a counterexample never looks at objects failing $P$.
+
+**Where it bites.** Definitions built from implications negate this way too. Continuity at $a$ reads
+$\forall\varepsilon>0,\ \exists\delta>0,\ \forall x:\ (\lvert x-a\rvert<\delta\Rightarrow\lvert
+f(x)-f(a)\rvert<\varepsilon)$, and its negation keeps $\lvert x-a\rvert<\delta$ and denies the rest:
+
+$$\exists\varepsilon>0,\ \forall\delta>0,\ \exists x:\quad
+\lvert x-a\rvert<\delta\ \ \textbf{and}\ \ \lvert f(x)-f(a)\rvert\ge\varepsilon .$$
 
 ::: {.workbox}
 
