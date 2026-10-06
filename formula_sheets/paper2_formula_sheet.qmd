@@ -1,6 +1,6 @@
 ---
 title: "Paper 2 — Formula Sheet & Concept Summary"
-subtitle: "Everything Paper 2 assumes you know, on one page: the seven reasoning sessions plus the two topics that appear every year"
+subtitle: "The formulas, counterexamples and solving routines that recur across Paper 2"
 format:
   html:
     toc: false
@@ -17,9 +17,11 @@ The TMUA gives you **no formula booklet and no calculator**, so everything here 
 - **Part 1** is the reasoning core — sessions **S1–S7** compressed to what you must have automatic.
   There is **no symbol notation on the test**; it is all in English sentences. The arrows here are a
   thinking tool, not exam wording.
-- **Parts 2 and 3** are the two **topics** that carry most of that reasoning: **divisors and primes**
-  (fifteen-plus questions, 2016–2023) and **plane shapes asked as logical conditions** (every sitting).
-- **Part 4** is the exam-day card.
+- **Parts 2 and 3** are the two most stable topic families: **divisors and primes** and **plane shapes
+  asked as logical conditions**.
+- **Part 4** collects the recurring mathematical engines used to carry the logic: roots and graphs,
+  calculus, inequalities, transformations, trigonometry, sequences, integrals and coordinate geometry.
+- **Part 5** is the exam-day card.
 
 Cards marked ★ appear on almost every paper. For the Paper 1 mathematics (MM1–MM8), use the
 **[main formula sheet](paper1_formula_sheet.qmd)**.
@@ -156,6 +158,30 @@ Read downwards; stop at the **first** line that fails.
 *Sometimes the honest answer is "no error".*
 
 [exactly 1–3 per paper, every year since 2016]{.eg}
+:::
+::: {.fs-card}
+### S7 ★ · When squaring *is* the error
+
+Every line is **two-way** (same solution set) or **one-way** (every solution survives, but new ones may
+appear). Blame the **first line whose claim is false**.
+
+| one-way | two-way |
+|---|---|
+| squaring, sign unknown | $+,-$; $\times\div$ by a non-zero **constant** |
+| $\times$ or $\div$ by an expression that could be $0$ | $\times\div$ by something **proved** positive |
+| $\sqrt{u^{2}}=u$ (true version: $\lvert u\rvert$) | applying a **strictly monotone** function |
+| $\sin A=\sin B\Rightarrow A=B$ | squaring when **both sides are known $\ge0$** |
+
+**The wording decides it** — same algebra, two different right answers:
+
+| the line says | error is at |
+|---|---|
+| "is **equivalent** to" | the **squaring** (it is not two-way) |
+| "any solution **must satisfy**" | the later "**the solutions are**" with no check |
+
+*If a sign condition was established earlier, squaring is **not** an error.*
+
+[full page: **[S7 extended](../toolkit/s07_extended_equivalence.qmd)** — six shapes with real mock questions]{.eg}
 :::
 
 ::::
@@ -372,7 +398,172 @@ only $n=3$ forces regularity. For $n=4$, angles $60,120,60,120$ work.
 
 ---
 
-# Part 4 · The exam-day card
+# Part 4 · The recurring mathematical engines
+
+*Paper 2 recombines a short reasoning list with ordinary Paper 1 mathematics. The cards below are not a
+second Paper 1 formula sheet: they are the moves that repeatedly decide the reasoning questions.*
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Applications and reasoning</div>
+<div class="fs-title">Eight engines that carry the logic</div>
+<div class="fs-sub">For each one: remember the fact, recognise the question shape, then use the routine.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Roots and graphs ★
+
+**Formula / facts**
+
+$$f(x)=0\iff\text{$x$-intercept},\qquad f'(x)=0\iff\text{stationary point}.$$
+
+A degree-$n$ polynomial has at most $n$ real roots. Between two distinct roots of differentiable $f$ lies
+a root of $f'$ (Rolle), so $n$ distinct roots of $f$ force at least $n-1$ roots of $f'$.
+
+**Never reverse it:** a stationary point need not give two roots. $f(x)=x^2+1$ has $f'(0)=0$ but no real
+root.
+
+**Frequent type — “how many roots are possible?”** Sketch the simplest allowed shape; count intersections,
+not algebraic solutions. Use end behaviour + turning points + tangencies. A repeated root touches; a simple
+root crosses.
+
+[example: $x|x|=px+q$ means intersect the two-branch graph $y=x|x|$ with a line]{.eg}
+:::
+
+::: {.fs-card}
+### Calculus conditions ★
+
+**Formula / facts**
+
+$$f'(a)=0\text{ is necessary, not sufficient, for an interior differentiable maximum/minimum.}$$
+$$f''(a)>0\Rightarrow\text{local minimum},\qquad f''(a)<0\Rightarrow\text{local maximum}.$$
+
+$f''(a)=0$ alone proves nothing: $x^4$ has a minimum at $0$; $x^3$ has an inflection there.
+An inflection needs **concavity to change sign**. Increasing means $f'\ge0$ (strictly increasing does not
+require $f'>0$ at every point: $x^3$ is the standard counterexample).
+
+**Frequent type — necessary or sufficient?** Translate the geometric word into its exact derivative
+condition, then test both arrows with $x^2$, $x^3$, $x^4$ or a constant function.
+
+[memory: stationary = flat; turning = changes direction; inflection = changes bend]{.eg}
+:::
+
+::: {.fs-card}
+### Inequalities and domains ★
+
+**Safe moves:** add the same expression; multiply by a known positive number; square only after controlling
+signs. Multiplying or dividing by a negative reverses the sign.
+
+$$a^2\ge0,\qquad (a-b)^2\ge0\Rightarrow a^2+b^2\ge2ab,$$
+$$\sqrt{X}=|Y|\text{ when }X=Y^2,\qquad \cos x=\pm\sqrt{1-\sin^2x}.$$
+
+**Domains:** denominators $\ne0$; square-root inputs $\ge0$; logarithm inputs $>0$. For $0<a<1$,
+$\log_a x$ is decreasing, so an inequality reverses when applying it.
+
+**Frequent type — first error.** Annotate every risky line with its missing condition: “divisor non-zero?”,
+“both sides non-negative?”, “log base above 1?”, “domain retained?”. Stop at the first missing condition.
+
+[counterexample to multiplying inequalities: $-3<-2$ and $-1<0$, but $3\not<0$]{.eg}
+:::
+
+::: {.fs-card}
+### Transformations and solution counts
+
+Horizontal shifts, reflections and non-zero stretches preserve the **number** of roots:
+
+$$f(x-a)=0,\quad f(-x)=0,\quad f(kx)=0\ (k\ne0)$$
+
+are re-labellings of the roots of $f$. A vertical shift $f(x)+c=0$ can change the count.
+
+Inverse graphs reflect in $y=x$, so $f(x)=x$ and $f^{-1}(x)=x$ have the same fixed points (when the inverse
+exists). But squaring or modulus can add a branch:
+
+$$|f(x)|=k\iff f(x)=\pm k\qquad(k\ge0).$$
+
+**Frequent type — “same number of solutions”.** Substitute to expose a bijection between solution sets.
+If the manipulation introduces $\pm$, squares, or discards a domain, count the new branches separately.
+
+[example: $\cos^2x=c^2$ means $\cos x=c$ or $\cos x=-c$]{.eg}
+:::
+
+::: {.fs-card}
+### Trigonometric counting ★
+
+$$\sin u=\sin\alpha\Rightarrow u=\alpha+360^\circ k\text{ or }180^\circ-\alpha+360^\circ k,$$
+$$\cos u=\cos\alpha\Rightarrow u=\pm\alpha+360^\circ k.$$
+
+For $u=mx+c$, **transform the interval first**, solve in $u$, then convert back. Endpoints matter.
+
+**Frequent type — number of solutions / sufficient condition.** Draw one-period graphs and count horizontal
+line intersections. Split squares or modulus into $+$ and $-$ levels before counting.
+
+**Two traps:** $\sin A=\sin B$ does not force $A=B$; and $\sqrt{\cos^2x}=|\cos x|$, not $\cos x$.
+
+[memory: equation in $2x$ over $0^\circ\le x\le360^\circ$ spans two full turns]{.eg}
+:::
+
+::: {.fs-card}
+### Sequences, invariants and pigeonholes
+
+For a recurrence, calculate only enough terms to guess what cannot change: parity, remainder, sign, gcd, or
+a bounded range. Then prove that property survives one recurrence step.
+
+$$\gcd(a,b)=\gcd(b,a+kb),\qquad \text{consecutive recurrence terms often carry the same gcd.}$$
+
+**Pigeonhole principle:** putting $N$ objects into $k$ boxes forces some box to contain at least
+$\lceil N/k\rceil$ objects. For “must occur”, choose boxes so one overfull box is exactly the desired pair.
+
+**Frequent type — which must be true?** Search for an invariant before testing long lists. For a claimed
+possibility, build one short example; for a necessity, try extremes and equality cases first.
+
+[example: residues mod $m$ are the $m$ boxes; $m+1$ integers force two equal residues]{.eg}
+:::
+
+::: {.fs-card}
+### Integrals without full calculation
+
+$$\int_a^b(f(x)+c)\,dx=\int_a^b f(x)\,dx+c(b-a),$$
+$$\int_{-a}^{a}\!f(x)\,dx=0\text{ if $f$ is odd},\qquad
+\int_{-a}^{a}\!f(x)\,dx=2\int_0^a\!f(x)\,dx\text{ if $f$ is even}.$$
+
+If $f\le g$ throughout $[a,b]$, then $\int_a^b f\le\int_a^b g$. An integral is **signed area**: below
+the axis contributes negatively.
+
+**Frequent type — compare / infer without integrating.** Simplify the integrand first; look for symmetry,
+a constant vertical shift, or a pointwise inequality. For $f(|x|)$, mirror the right half; split at $0$.
+
+[example: replacing $f$ by $f+C$ adds the rectangle $C(b-a)$]{.eg}
+:::
+
+::: {.fs-card}
+### Lines and circles as conditions
+
+For $ax+by=c$ ($a,b\ne0$):
+
+$$m=-\frac ab,\qquad x\text{-intercept}=\frac ca,\qquad y\text{-intercept}=\frac cb.$$
+
+Perpendicular lines satisfy $m_1m_2=-1$. A circle tangent to an axis has
+**distance from centre to the axis = radius**.
+
+**Frequent type — necessary/sufficient data.** Convert each geometric statement to one algebraic equation,
+then ask whether it determines the target uniquely. If free variables remain, it is not sufficient.
+
+**Cyclic invariant:** for gradients $-a/b,-b/c,-c/a$, the product is $-1$ — simplify the whole cycle
+before testing cases.
+
+[sign trap: positive gradient tells the signs of $a,b$ are opposite, but not the sign of $c$]{.eg}
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 5 · The exam-day card
 
 ::: {.callout-important}
 ## Before you read a single question
@@ -384,6 +575,7 @@ Write these at the top of your rough paper:
 3. $\;$ $\lnot(P\Rightarrow Q)=P$ **and** $\lnot Q$
 4. $\;$ **rhombus · rectangle · isosceles trapezium** — the three counterexamples
 5. $\;$ $p\mid ab\Rightarrow p\mid a$ or $p\mid b$ — **only for prime $p$**
+6. $\;$ $\sqrt{u^2}=|u|$ · $f'(a)=0$ is not automatically a turn · check every domain
 :::
 
 ::: {.callout-tip}
@@ -399,6 +591,9 @@ mathematics done on the wrong question.
 | "possible", "can" | $\exists$ | **produce one witness** |
 | "which is equivalent" | contrapositive | negate both halves and reverse |
 | "first error", "best describes" | Err1/Err2 | read down, stop at the first failure |
+| "number of solutions" | intersections | sketch, transform the interval, count branches |
+| "same number of roots" | bijection | substitute; watch for $\pm$, squaring and domains |
+| recurrence / long list | invariant | test parity, remainder, sign, gcd, bounds |
 | no logical wording at all | Paper 1 technique | just calculate — about a quarter of the paper |
 :::
 
@@ -412,6 +607,6 @@ as a logical condition appears in **every** sitting.
 ::: {.callout-note appearance="simple"}
 Full sessions: **[S1](../toolkit/s01_concepts.qmd)** · **[S2](../toolkit/s02_concepts.qmd)** · **[S3](../toolkit/s03_concepts.qmd)** ·
 **[S4](../toolkit/s04_concepts.qmd)** · **[S5](../toolkit/s05_concepts.qmd)** · **[S6](../toolkit/s06_concepts.qmd)** ·
-**[S7](../toolkit/s07_concepts.qmd)** · **[T1](../toolkit/t01_divisors_primes.qmd)** · **[T2](../toolkit/t02_shapes_as_logic.qmd)** ·
+**[S7](../toolkit/s07_concepts.qmd)** · **[S7 ext](../toolkit/s07_extended_equivalence.qmd)** · **[T1](../toolkit/t01_divisors_primes.qmd)** · **[T2](../toolkit/t02_shapes_as_logic.qmd)** ·
 overview: **[Paper 2 Toolkit](../toolkit/index.qmd)**.
 :::
