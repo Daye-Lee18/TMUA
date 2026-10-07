@@ -22,10 +22,11 @@ the kind of fault rather than by topic. Some of them are **valid**: the honest a
 allows?"* Watch the four hotspots: a **cancel/division** (could it be $0$?), a **square or root** (lost
 sign / gained root?), a **converse** used as proved, the **conclusion** slipping into a premise.
 
-**Where the blame goes.** The error is at the line where a step stops being reversible — **not** at the
-later line where the wrong answer finally appears. If squaring on line 2 lets in a false root that line 5
-then reports, the error is **line 2**: line 5 is only telling you the truth about a corrupted equation.
-And *first* means first — a chain can contain two bad steps, and the answer is the earlier one. See
+**Where the blame goes.** A non-reversible step is not automatically wrong: it can be a valid
+**necessary-condition** step. The error is the first **false claim**. If line 2 says “equivalent” when
+squaring is only one-way, line 2 is wrong; if it says “any solution must satisfy”, line 2 is valid and the
+error may be the later line that calls unchecked candidates “solutions”. And *first* means first — a chain
+can contain two bad steps, and the answer is the earlier one. See
 **[S7 Extended](s07_extended_equivalence.qmd)** for the full rule, which is the single most common source
 of a wrong answer on this question type.
 :::
@@ -187,8 +188,9 @@ Two lines look wrong here, and **which one the exam calls the error is the whole
 | **(3)** | rearranges and factorises line (2) | ✓ exact algebra |
 | **(4)** | states the roots of line (3) | ✓ correct — $3$ and $-1$ **are** the roots of that quadratic |
 
-So line (4) is where the damage becomes **visible**; line (2) is where it was **done**. [The question asks
-for the *first* error, and a later line that faithfully reports a corrupted equation is not an error]{.hl}.
+So line (4) is where the damage becomes **visible**; in this version line (2) is where it was **done**,
+because line (2) explicitly makes the false two-way claim **“equivalent”**. Without that word, the answer
+would depend on whether the squared equation was introduced as a necessary condition or a replacement.
 
 **The check anyway:** $x=3$ gives $\sqrt9=3$ ✓; $x=-1$ gives $\sqrt1=1\neq-1$ ✗. $\;\blacksquare$
 
@@ -552,8 +554,8 @@ Which one of the following is correct?
 subtracting it is legitimate.
 
 Step (3) squares $\sqrt{x^{3}+x^{2}-x}=x$. A square root is never negative, so this equation silently
-requires $\boxed{x\ge0}$; squaring **drops** that condition, and any negative solution of the squared
-equation is spurious.
+requires $\boxed{x\ge0}$; treating the squared equation as an **equivalent replacement** drops that
+condition, and any negative solution of the squared equation is spurious.
 
 *Check the three candidates in the line before squaring, $\sqrt{x^{3}+x^{2}-x}=x$:*
 
@@ -561,10 +563,18 @@ equation is spurious.
 - $x=0$: $0=0$. ✓
 - $x=1$: $\sqrt{1+1-1}=1=1$. ✓
 
-So the solutions are $x=0$ and $x=1$; the answers **are** wrong and the first error is Step (3).
+So the solutions are $x=0$ and $x=1$. The mock's official convention treats “square both sides” as a
+replacement-equation step, so its intended answer is **C, Step (3)**.
 
-**Do it right.** Immediately after squaring, write down the condition the squaring destroyed ($x\ge0$ here)
-and use it to sift the roots at the end. $\;\blacksquare$
+**Wording warning.** Formally, the implication
+$\sqrt{x^{3}+x^{2}-x}=x\Rightarrow x^{3}+x^{2}-x=x^2$ is true. If Step (3) had said **“any solution must
+satisfy”**, the first error would instead be Step (6), where the candidates are promoted to solutions
+without checking. To make C unambiguous, write **“this is equivalent to”** at Step (3); to make the later
+answer unambiguous, write **“possible values/candidates”** and then add a separate unchecked “the
+solutions are” line.
+
+**Do it right.** Either retain $x\ge0$ so the next equation remains equivalent, or explicitly use the
+squared equation only as a necessary condition and check every candidate in the original. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:4cm"}
@@ -695,7 +705,7 @@ A student proves: *for every positive integer $n$, if $n^{2}+2$ is prime then $n
 [*(Hard — "a multiple of 3" is not "composite")*]{style="color:#7a5195"}
 **H.** Lines I–VI are all correct. *Check III explicitly, since it carries the argument:* if $n=3m+1$ then
 $n^{2}=9m^{2}+6m+1$, remainder $1$; if $n=3m+2$ then $n^{2}=9m^{2}+12m+4=3(3m^{2}+4m+1)+1$, remainder $1$
-again. Adding $2$ gives remainder $0$, so $3\mid n^{2}+2$ and $n^{2}+2=3k$.
+again. Adding $2$ gives remainder $0$, so $3$ divides $n^{2}+2$ and $n^{2}+2=3k$.
 
 Line **VII** is the break: $3k$ is composite *only when $k>1$*. If $k=1$ then $3k=3$, which is **prime**.
 And that case really occurs — at $n=1$, $n^{2}+2=3$ is prime while $n=1$ is not a multiple of $3$.

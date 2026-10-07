@@ -12,15 +12,15 @@ execute:
 
 ::: {.solutions}
 
-::: {.callout-important}
+::: {.callout-important collapse="true"}
 ## Answer key
 
 **1 D · 2 C · 3 B · 4 A · 5 D · 6 A · 7 B · 8 E · 9 B · 10 D ·
 11 C · 12 D · 13 A · 14 C · 15 D · 16 A · 17 C · 18 F · 19 E · 20 B**
 :::
 
-An independently written worked mark scheme for **JZ Mock Set B, Paper 2**. Mark first, then read the
-method for anything missed **or solved slowly** — several of these collapse to two lines once the right
+An independently written worked mark scheme for **JZ Mock Set B, Paper 2**. Each question is given in full, with the answer and method in a collapsed toggle beneath it and a
+space to work. Attempt first, then read the method for anything missed **or solved slowly** — several of these collapse to two lines once the right
 substitution or the right logical form is seen.
 
 ::: {.callout-note appearance="simple"}
@@ -35,7 +35,32 @@ Two of these have been worked in class: **Q12** is [S1 Q10](../../toolkit/s01_st
 
 ---
 
-## Question 1 — **D** — statements 1 and 3 only
+## Question 1
+
+::: {.question}
+It is a fact that
+$$1729=1^{3}+12^{3}=9^{3}+10^{3}=7\times13\times19 .$$
+
+Consider the following four statements.
+
+(1) Every positive integer that can be written as a sum of two positive cubes in two different ways is prime.
+
+(2) If a prime $p>5$ can be written as $p=a^{3}+b^{3}$ for some positive integers $a,b$, then $p$ has remainder of 1 when divided by 6.
+
+(3) No product of three distinct odd primes is one more than a perfect cube.
+
+(4) Every positive integer of the form $a^{3}+b^{3}$, where $a$ and $b$ are positive integers, has prime factors all of which are at least 3.
+
+The fact above can be used to provide a counterexample to which of these statements?
+
+| **A** none of them &nbsp;&nbsp; **B** 1 only &nbsp;&nbsp; **C** 3 only &nbsp;&nbsp; **D** 1 and 3 only |
+| **E** 2 and 3 only &nbsp;&nbsp; **F** 1, 2 and 3 only &nbsp;&nbsp; **G** 1, 3 and 4 only &nbsp;&nbsp; **H** 1, 2, 3 and 4 |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **D** — statements 1 and 3 only**
 
 A counterexample needs the fact to **satisfy the hypothesis** and **break the conclusion**. Run all four:
 
@@ -50,10 +75,46 @@ So **1 and 3 only**.
 
 *The two rejected statements fail in the two standard ways, and both appear in every counterexample
 question: **2** is not about $1729$ at all, and **4** is confirmed rather than refuted by it.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 2 — **C** — first error in Step (3)
+## Question 2
+
+::: {.question}
+A student is asked to solve the equation
+$$\frac{\sqrt{x^{3}+x^{2}-x}+2}{x+2}=1 .$$
+
+The student writes:
+
+**Step (1):** Multiply both sides by $x+2$ to obtain $\;\sqrt{x^{3}+x^{2}-x}+2=x+2$.
+
+**Step (2):** Subtract both sides by 2 to get $\;\sqrt{x^{3}+x^{2}-x}=x$.
+
+**Step (3):** Square both sides to obtain $\;x^{3}+x^{2}-x=x^{2}$.
+
+**Step (4):** Rearrange to obtain $\;x^{3}-x=0$.
+
+**Step (5):** Factorise to obtain $\;x(x-1)(x+1)=0$.
+
+**Step (6):** Deduce $\;x=-1,0,1$.
+
+Which one of the following statements is correct?
+
+| **A** The final answers for $x$ are wrong, and the first error appears in Step (1). |
+| **B** … in Step (2). &nbsp;&nbsp; **C** … in Step (3). &nbsp;&nbsp; **D** … in Step (4). |
+| **E** … in Step (5). &nbsp;&nbsp; **F** … in Step (6). |
+| **G** The final answers for $x$ are correct, and there is no error in the student's working. |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **C** — first error in Step (3)**
 
 Steps (1) and (2) are fine: the denominator only forbids $x=-2$, and subtracting $2$ is reversible. After
 Step (2) the equation reads
@@ -79,10 +140,34 @@ So the final list is wrong ($x=-1$ is extraneous) and the first error is at **St
 *Note what "the error" means here. The algebra of Step (3) is right; the **step** is wrong because it is
 not an equivalence and no check follows. Compare [Set A Q3](../jz_mock_a/paper2_ms.qmd), where squaring
 was legitimate — there the previous line had already established that both sides were non-negative.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 3 — **B** $\;2$
+## Question 3
+
+::: {.question}
+In a TMUA question, students are asked to determine which, if any, of the four statements 1, 2, 3 and 4 are true. The options given in the question are:
+
+| A: no statements are true &nbsp;&nbsp; B: only statement 1 is true &nbsp;&nbsp; C: only statement 2 is true |
+| D: only statements 1 and 2 are true &nbsp;&nbsp; E: only statement 3 is true &nbsp;&nbsp; F: only statements 1 and 3 are true |
+| G: only statement 4 is true &nbsp;&nbsp; H: only statements 2 and 3 are true &nbsp;&nbsp; I: only statements 2 and 4 are true |
+
+Assume that a **competent student** can always correctly determine the truth value of any statement they choose to check.
+
+If the student is lucky, what is the **smallest number of checks** that might let them determine the correct option? Equivalently, what is the fewest checks after which it is **possible** for the student to know the correct option?
+
+| **A** 1 &nbsp;&nbsp; **B** 2 &nbsp;&nbsp; **C** 3 &nbsp;&nbsp; **D** 4 |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **B** $\;2$**
 
 The nine options are not all independent: the statements that appear are $1,2,3,4$, but they appear in a
 restricted set of combinations.
@@ -98,10 +183,31 @@ so the answer is **2**.
 
 *Read the quantifier in the question. "If the student is lucky" makes this an $\exists$ question: you must
 exhibit **one** favourable run of two checks, not prove that two always suffice.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 4 — **A** $\;1$
+## Question 4
+
+::: {.question}
+Find the exact value of
+$$\tan 1^{\circ}\,\tan 2^{\circ}\,\tan 3^{\circ}\,\cdots\,\tan 89^{\circ} .$$
+
+You may find the identity $\sin(x)=\cos(90^{\circ}-x)$ useful.
+
+*Remark:* This is a well-known question in mathematical circles, but it is still valuable for students to encounter.
+
+| **A** $1$ &nbsp;&nbsp; **B** $0$ &nbsp;&nbsp; **C** $\sqrt3$ &nbsp;&nbsp; **D** $89$ &nbsp;&nbsp; **E** $\dfrac12$ |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **A** $\;1$**
 
 The identity the question offers gives, for any $k$,
 
@@ -114,10 +220,30 @@ pairs, each equal to $1$ — with $\tan45^\circ=1$ left in the middle. The produ
 
 *An odd number of factors with a self-paired middle one: $89=2\times44+1$. Checking that the middle term
 is $\tan45^\circ=1$ rather than something awkward is the one thing to verify.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 5 — **D** $\;k\ge\dfrac12$
+## Question 5
+
+::: {.question}
+Let $k$ be a real constant. Consider the polynomial functions
+$$p(x)=2kx^{4}-x^{2}+5k \quad\text{and}\quad q(x)=kx^{4}+x^{2}+k .$$
+
+Which of the following is the **necessary and sufficient** condition on $k$ for $p(x)\ge q(x)$ for all real $x$?
+
+| **A** $k\ge0$ &nbsp;&nbsp; **B** $k>0$ &nbsp;&nbsp; **C** $k\ge\frac14$ &nbsp;&nbsp; **D** $k\ge\frac12$ |
+| **E** $k>\frac12$ &nbsp;&nbsp; **F** $k\le-\frac12$ &nbsp;&nbsp; **G** $k\ge\frac12$ or $k\le-\frac12$ &nbsp;&nbsp; **H** $-\frac12\le k\le\frac12$ |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **D** $\;k\ge\dfrac12$**
 
 $$p(x)\ge q(x)\iff 2kx^{4}-x^{2}+5k\ge kx^{4}+x^{2}+k \iff kx^{4}-2x^{2}+4k\ge0 .$$
 
@@ -137,10 +263,29 @@ With $k>0$ that is $k\ge\tfrac12$. ✓
 turned out the same as "for all real $u$" — the negative half was never the binding constraint. Option E
 is the same answer with the endpoint wrongly made strict: at $k=\tfrac12$ the discriminant is $0$, so the
 quadratic touches zero and $\ge$ still holds.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 6 — **A** $\;0,2,3,4$
+## Question 6
+
+::: {.question}
+Given $k$ is a real valued non-zero constant, and $x$ is a non-zero real number, then
+$$x^{2}=\frac{k}{\lvert x-2\rvert}$$
+has $n$ distinct solutions. Which of the following is the **complete** list of possible values of $n$?
+
+| **A** 0, 2, 3, 4 &nbsp;&nbsp; **B** 0, 1, 3, 4 &nbsp;&nbsp; **C** 1, 2, 3, 4 &nbsp;&nbsp; **D** 0, 1, 2, 3 &nbsp;&nbsp; **E** 0, 2, 3 |
+| **F** 1, 2, 3 &nbsp;&nbsp; **G** 0, 1 &nbsp;&nbsp; **H** 1, 2 &nbsp;&nbsp; **I** 0, 3, 4 |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **A** $\;0,2,3,4$**
 
 Since $x\ne2$, multiply up:
 
@@ -183,10 +328,31 @@ $n=1$ — which is why $1$ is absent from the list.)*
 
 *The branch on $x<0$ is the one people miss: $x^{2}\lvert x-2\rvert\to+\infty$ as $x\to-\infty$, so **every**
 positive $k$ has a solution there. Miss it and the answer looks like $\{0,1,2,3\}$, option D.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 7 — **B** $\;\sqrt{20}$
+## Question 7
+
+::: {.question}
+The circle $C$ has equation
+$$x^{2}+y^{2}-6x+4y-12=0 .$$
+
+The point $P=(11,2)$ lies outside $C$. The two tangents from $P$ to $C$ touch the circle at $A$ and $B$.
+
+Let $\Gamma$ be the circle passing through $P$, $A$ and $B$. What is the radius of $\Gamma$?
+
+| **A** $\sqrt{17}$ &nbsp;&nbsp; **B** $\sqrt{20}$ &nbsp;&nbsp; **C** $\sqrt{21}$ &nbsp;&nbsp; **D** $\sqrt{28}$ &nbsp;&nbsp; **E** $\sqrt{34}$ |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **B** $\;\sqrt{20}$**
 
 Complete the square: $(x-3)^{2}+(y+2)^{2}=25$, so $O=(3,-2)$ and the radius is $5$.
 
@@ -199,10 +365,44 @@ r_\Gamma=\frac{OP}{2}=\frac{\sqrt{80}}{2}=\sqrt{20}.$$
 
 *Nothing about the radius $5$ is ever used. The question is the semicircle theorem in reverse: a right
 angle subtended by $OP$ puts the vertex on the circle with diameter $OP$.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 8 — **E** — first error in line (IV)
+## Question 8
+
+::: {.question}
+The following is an attempted proof of the conjecture:
+
+**if** $\sin\theta>\cos\theta$, **then** $\sin\theta>\frac{1}{\sqrt2}$.
+
+Suppose $\sin\theta>\cos\theta$.
+
+Then $\sin\theta-\cos\theta>0$. **(I)**
+
+Squaring the positive quantity $\sin\theta-\cos\theta$ gives $(\sin\theta-\cos\theta)^{2}>0$, which expands using $\sin^{2}\theta+\cos^{2}\theta=1$ to $1-2\sin\theta\cos\theta>0$, so $\sin\theta\cos\theta<\frac12$. **(II)**
+
+From (II), $(\sin\theta+\cos\theta)^{2}=1+2\sin\theta\cos\theta<2$, hence $\lvert\sin\theta+\cos\theta\rvert<\sqrt2$, so in particular $\sin\theta+\cos\theta>-\sqrt2$. **(III)**
+
+Adding the inequalities (I) $\sin\theta-\cos\theta>0$ and (III) $\sin\theta+\cos\theta>-\sqrt2$ gives $2\sin\theta>-\sqrt2$, so $\sin\theta>-\frac{1}{\sqrt2}$; squaring this inequality yields $\sin^{2}\theta>\frac12$. **(IV)**
+
+Since $\sin^{2}\theta>\frac12$ means $\lvert\sin\theta\rvert>\frac{1}{\sqrt2}$, and $\sin\theta>-\frac{1}{\sqrt2}$ rules out $\sin\theta<-\frac{1}{\sqrt2}$, we conclude $\sin\theta>\frac{1}{\sqrt2}$. **(V)**
+
+Which one of the following is the case?
+
+| **A** The proof is correct. |
+| **B** … first error occurs in line (I). &nbsp;&nbsp; **C** … in line (II). &nbsp;&nbsp; **D** … in line (III). |
+| **E** … in line (IV). &nbsp;&nbsp; **F** … in line (V). |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **E** — first error in line (IV)**
 
 **The conjecture is false**, which is the quickest way in. Take $\theta=\tfrac{5\pi}{6}$:
 
@@ -225,10 +425,33 @@ $\theta=\tfrac{5\pi}{6}$, $\sin^{2}\theta=\tfrac14<\tfrac12$ exactly as predicte
 
 *Line (II) squares and is correct; line (IV) squares and is not. The difference is entirely the sign of
 what is being squared, which is the single most examinable point on this paper.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 9 — **B** $\;1<k<2$
+## Question 9
+
+::: {.question}
+Let $k$ be a real constant. Consider the simultaneous equations
+$$k\cdot2^{x}+\log_{2}y+\log_{2}z=3,$$
+$$2^{x}+k\log_{2}y+\log_{2}z=2,$$
+$$2^{x}+\log_{2}y+\log_{2}z=k,$$
+in real unknowns $x$, $y$ and $z$, subject to $y>1$ and $z>0$.
+
+Which of the following is the **necessary and sufficient** condition on $k$ for the system to have a real-valued solution set $\{x,y,z\}$?
+
+| **A** $k>1$ &nbsp;&nbsp; **B** $1<k<2$ &nbsp;&nbsp; **C** $1<k<3$ &nbsp;&nbsp; **D** $2<k<3$ |
+| **E** $k<2$ and $k\ne1$ &nbsp;&nbsp; **F** $k>2$ &nbsp;&nbsp; **G** $k<1$ or $k>2$ &nbsp;&nbsp; **H** All real $k$ except $k=1$ |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **B** $\;1<k<2$**
 
 Substitute $X=2^{x}$, $Y=\log_2y$, $Z=\log_2z$. The **constraints become the whole question**:
 
@@ -252,10 +475,39 @@ Both must hold, so $\boxed{1<k<2}$.
 
 *The exam's real question is which of $x,y,z$ actually restricts anything. $x$ is unrestricted but $2^{x}>0$
 always; $y>1$ makes $\log_2y>0$; $z>0$ makes $\log_2z$ merely real. Two constraints, two inequalities.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 10 — **D** — I and III only
+## Question 10
+
+::: {.question}
+The equation
+$$\sin x\left(1-\cos^{2}x\right)=k\sin x$$
+has exactly $n$ distinct solutions in $[0,2\pi]$, where $k$ is a real constant.
+
+Which of the following statements are true?
+
+**I** &nbsp; $0<k<1$ **if** $n=7$.
+
+**II** &nbsp; $n=3$ **only if** $k<0$ or $k>1$.
+
+**III** &nbsp; $n=5$ and $k\ne1$ cannot both be true.
+
+| **A** Statement I is the only true statement. &nbsp;&nbsp; **B** Statement II is the only true statement. |
+| **C** Statement III is the only true statement. &nbsp;&nbsp; **D** Statements I and III are the only true statements. |
+| **E** Statements I and II are the only true statements. &nbsp;&nbsp; **F** Statements II and III are the only true statements. |
+| **G** All three statements are true. &nbsp;&nbsp; **H** None of them are true. |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **D** — I and III only**
 
 Factorise — *do not divide by $\sin x$*:
 
@@ -282,24 +534,42 @@ So $\;n=7\iff 0<k<1$, $\;n=5\iff k=1$, $\;n=3\iff k\le0$ or $k>1$.
 
 *Statement III is the useful one: "$P$ and not $Q$ cannot both be true" is just another way of writing
 $P\Rightarrow Q$. Recognising that form saves the whole case analysis.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 11 — **C** — $n$ is even
+## Question 11
+
+::: {.question}
+Let $n$ be an integer. Which of the following is a **necessary but not sufficient** condition for which $n^{3}+5n$ is divisible by 12?
+
+| **A** $n$ is 1 more than a multiple of 4. &nbsp;&nbsp; **B** $n$ is odd. &nbsp;&nbsp; **C** $n$ is even. |
+| **D** $n$ is a multiple of 3. &nbsp;&nbsp; **E** $n$ is a multiple of 4. &nbsp;&nbsp; **F** $n$ is a multiple of 6. |
+| **G** $n$ is 2 more than a multiple of 4. |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **C** — $n$ is even**
 
 **Test small $n$ first.** $n^{3}+5n$ for $n=1,2,3,4$ is $6,\ 18,\ 42,\ 84$ — only $n=4$ is a multiple of
 $12$. That single line kills **A**, **B**, **D**, **F** and **G**, since each of them is satisfied by one
 of $n=1,2,3$.
 
-That leaves **C** ($n$ even) and **E** ($4\mid n$), and the two are settled by what the question asks for.
+That leaves **C** ($n$ even) and **E** ($4$ divides $n$), and the two are settled by what the question asks for.
 
 **The full fact.** Write $n^{3}+5n=n\left(n^{2}+5\right)$.
 
 - *Divisibility by $3$ is automatic:* $n^{3}\equiv n\pmod3$, so $n^{3}+5n\equiv n+2n=3n\equiv0$.
 - *Divisibility by $4$ is the whole condition:* if $n$ is odd then $n^{2}+5\equiv2\pmod4$ and the product is
-  $2\bmod4$; if $n=2m$ then $n^{2}+5$ is odd, so $4\mid2m\left(n^{2}+5\right)$ needs $m$ even.
+  $2\bmod4$; if $n=2m$ then $n^{2}+5$ is odd, so $4$ divides $2m\left(n^{2}+5\right)$ needs $m$ even.
 
-$$\boxed{12\mid n^{3}+5n\iff4\mid n}$$
+$$\boxed{12\text{ divides } n^{3}+5n\iff4\text{ divides } n}$$
 
 So **E is necessary *and* sufficient** — which disqualifies it, because the question asks for necessary
 **but not** sufficient. **C** is necessary (every multiple of $4$ is even) and not sufficient ($n=2$ gives
@@ -308,10 +578,29 @@ $18$). ✓
 *There is a shortcut worth knowing. If **E** were the answer then **C**, being implied by it, would also be
 a necessary condition — and the answer would not be unique. A "necessary but not sufficient" question can
 never have as its answer a condition that implies another option.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 12 — **D** — if $P$ is true, then $\lvert x\rvert<2$
+## Question 12
+
+::: {.question}
+Let $P$ be a property of a real number $x$. Each of the following is a statement about all real values of $x$. **Exactly one** of the following statements is true. Which one is it?
+
+| **A** If $\lvert x\rvert<1$, then $P$ is true. &nbsp;&nbsp; **B** If $\lvert x\rvert<2$, then $P$ is true. |
+| **C** If $P$ is true, then $\lvert x\rvert<1$. &nbsp;&nbsp; **D** If $P$ is true, then $\lvert x\rvert<2$. |
+| **E** If $P$ is not true, then $x^{2}\ge1$. &nbsp;&nbsp; **F** If $P$ is not true, then $x^{2}\ge4$. |
+| **G** $P$ is true only if $x^{2}<1$. |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **D** — if $P$ is true, then $\lvert x\rvert<2$**
 
 *Also set as [S1 Q10](../../toolkit/s01_statement_forms.qmd).*
 
@@ -336,10 +625,29 @@ answer is **D**.
 *The consistency check: $Q_1\Rightarrow Q_2$, so $\textbf{B}\Rightarrow\textbf{A}$ and
 $\textbf{C}\Rightarrow\textbf{D}$. D is the only option that neither duplicates nor implies another, which
 is exactly what "exactly one is true" requires.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 13 — **A** $\;27$
+## Question 13
+
+::: {.question}
+Positive real numbers $x$, $y$, $z$, none equal to 1, satisfy
+$$x^{\log_{y}z}=y^{\log_{z}x}=z^{\log_{x}y}=8 .$$
+
+What is the value of $(\log_{2}x)(\log_{2}y)(\log_{2}z)$?
+
+| **A** $27$ &nbsp;&nbsp; **B** $18$ &nbsp;&nbsp; **C** $8$ &nbsp;&nbsp; **D** $16$ &nbsp;&nbsp; **E** $32$ &nbsp;&nbsp; **F** not possible to determine |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **A** $\;27$**
 
 Set $a=\log_2x$, $b=\log_2y$, $c=\log_2z$, so $x=2^{a}$, $y=2^{b}$, $z=2^{c}$, and $a,b,c\ne0$ because none
 of $x,y,z$ is $1$.
@@ -355,10 +663,30 @@ $$\frac{ac}{b}\cdot\frac{ab}{c}\cdot\frac{bc}{a}=\frac{a^{2}b^{2}c^{2}}{abc}=abc
 *Multiplying is the whole trick — every letter appears once in a numerator and once in a denominator, so
 the cyclic symmetry collapses in one step. Solving for $a,b,c$ individually is unnecessary (and they are
 not determined: $a=b=c=3$ is one solution among many).*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 14 — **C** $\;\pi$
+## Question 14
+
+::: {.question}
+For each positive integer $k$, let $F(k)$ be the sum of all real solutions $x$ of
+$$\sin\left(2^{k}x\right)=\frac12$$
+in the interval $0\le x\le\dfrac{2\pi}{2^{k}}$. Find
+$$\sum_{k=1}^{\infty}F(k).$$
+
+| **A** $\dfrac{\pi}{2}$ &nbsp;&nbsp; **B** $\dfrac{3\pi}{2}$ &nbsp;&nbsp; **C** $\pi$ &nbsp;&nbsp; **D** $\dfrac{3\pi}{4}$ |
+| **E** $\dfrac{5\pi}{2}$ &nbsp;&nbsp; **F** $2\pi$ &nbsp;&nbsp; **G** The series diverges. |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **C** $\;\pi$**
 
 Fix $k$ and substitute $\theta=2^{k}x$. As $x$ runs over $\left[0,\tfrac{2\pi}{2^{k}}\right]$, $\theta$ runs
 over exactly $[0,2\pi]$ — *the interval was chosen so that every $k$ sees one full period.*
@@ -375,16 +703,41 @@ $$\sum_{k=1}^{\infty}F(k)=\frac{\pi/2}{1-\tfrac12}=\pi .$$
 
 *Two solutions, and their sum is $\pi/2^{k}$ because $\tfrac\pi6$ and $\tfrac{5\pi}{6}$ add to $\pi$ — the
 symmetry of $\sin$ about $\tfrac\pi2$. You never need the individual roots.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 15 — **D**
+## Question 15
+
+::: {.question}
+A set $X$ of positive integers, with $\lvert X\rvert\ge3$, is called **cross-linked** if and only if for every number $x$ in $X$ there exist two distinct numbers $y$ and $z$ in $X$, both different from $x$, and a prime $p$, such that $p$ divides each of $x$, $y$ and $z$.
+
+Let $Y$ be a set of positive integers with $\lvert Y\rvert\ge3$.
+
+Which of the following statements is equivalent to $Y$ being **not** cross-linked?
+
+| **A** For every number $x$ in $Y$, and for every two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, there is no prime which divides all of $x$, $y$ and $z$. |
+| **B** For every number $x$ in $Y$ there exist two distinct numbers $y$ and $z$ in $Y$, both different from $x$, such that no prime divides all of $x$, $y$ and $z$. |
+| **C** There exists a number $x$ in $Y$, and there exist two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, such that no prime divides all of $x$, $y$ and $z$. |
+| **D** There exists a number $x$ in $Y$ such that for every two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, there is no prime which divides all of $x$, $y$ and $z$. |
+| **E** There exists a number $x$ in $Y$ such that for every two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, there is a prime which divides $x$ but divides neither $y$ nor $z$. |
+| **F** For every number $x$ in $Y$ there exist two distinct numbers $y$ and $z$ in $Y$, both different from $x$, and a prime $p$, such that $p$ divides $x$ but $p$ does not divide $y$ and $p$ does not divide $z$. |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **D****
 
 A pure negation question. Write the definition as a chain and flip it one quantifier at a time.
 
-$$\text{cross-linked}\iff \forall x\in X\ \ \exists\,y,z\ \ \exists\,p\ \big[\,p\mid x,\ p\mid y,\ p\mid z\,\big]$$
+$$\text{cross-linked}\iff \forall x\in X\ \ \exists\,y,z\ \ \exists\,p\ \big[\,p\text{ divides } x,\ p\text{ divides } y,\ p\text{ divides } z\,\big]$$
 
-$$\lnot(\text{cross-linked})\iff \exists\,x\in Y\ \ \forall\,y,z\ \ \forall\,p\ \big[\,\lnot(p\mid x\ \text{and}\ p\mid y\ \text{and}\ p\mid z)\,\big]$$
+$$\lnot(\text{cross-linked})\iff \exists\,x\in Y\ \ \forall\,y,z\ \ \forall\,p\ \big[\,\lnot(p\text{ divides } x\ \text{and}\ p\text{ divides } y\ \text{and}\ p\text{ divides } z)\,\big]$$
 
 In English: **there exists an $x$ in $Y$ such that for every pair of distinct $y,z$ (both $\ne x$), no prime
 divides all three** — which is **D**.
@@ -398,10 +751,30 @@ divides all three** — which is **D**.
 *The same two errors as always: forgetting to flip a quantifier, and reading $\lnot\exists p$ as "some $p$
 fails" instead of "no $p$ works". Compare [S4 Q18](../../toolkit/s04_quantifiers_negation.qmd), the 2017
 "stapled" question, which is this question with the numbers changed.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 16 — **A** $\;Z<Y<X<W$
+## Question 16
+
+::: {.question}
+Let
+$$W=\int_{0}^{1}4^{\sqrt x}\,dx,\qquad X=\int_{1}^{2}2^{\sqrt{x-1}}\,dx,\qquad Y=\int_{0}^{1/2}2\cdot2^{2x}\,dx,\qquad Z=\int_{-1}^{1}\tfrac12\left(\sqrt2\right)^{(x+1)/2}dx .$$
+
+Which of the following gives $W$, $X$, $Y$, $Z$ in order from **smallest to largest**?
+
+| **A** $Z<Y<X<W$ &nbsp;&nbsp; **B** $W<X<Y<Z$ &nbsp;&nbsp; **C** $Z<X<Y<W$ |
+| **D** $Y<Z<X<W$ &nbsp;&nbsp; **E** $Z<Y<W<X$ &nbsp;&nbsp; **F** $X<Z<Y<W$ |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **A** $\;Z<Y<X<W$**
 
 Transform all four to the **same interval** $[0,1]$, then compare integrands.
 
@@ -422,10 +795,29 @@ with equality only at the endpoints. Hence $W>X>Y>Z$, i.e. $\boxed{Z<Y<X<W}$.
 
 *The middle inequality $\sqrt x\ge x$ holds precisely **because** $0<x<1$ — on $(1,\infty)$ it reverses. The
 question is engineered so that every comparison is decided on that one interval.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 17 — **C** $\;3$
+## Question 17
+
+::: {.question}
+Find the units digit of
+$$7^{7^{7^{7}}} .$$
+
+You may find it useful to consider the remainder of odd powers of 7 when divided by 4.
+
+| **A** 1 &nbsp;&nbsp; **B** 2 &nbsp;&nbsp; **C** 3 &nbsp;&nbsp; **D** 4 &nbsp;&nbsp; **E** 5 &nbsp;&nbsp; **F** 6 &nbsp;&nbsp; **G** 0 |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **C** $\;3$**
 
 The units digit of $7^{N}$ cycles with period $4$:
 
@@ -445,25 +837,77 @@ hence $\equiv3\pmod4$. The exponent sits at the **third** place of the cycle, so
 
 *The recursion is the point: the conclusion "odd power of $7$" feeds straight back into the hypothesis, so
 the height of the tower is irrelevant. Three sevens or ten sevens, the answer is the same.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 18 — **F** — I and II only
+## Question 18
+
+::: {.question}
+Let $f$ and $g$ be polynomials. Consider the following four statements.
+
+**I:** If $f'(x)\ge g'(x)$ for all $x\ge0$ and $f(0)\ge g(0)$, then $f(x)\ge g(x)$ for all $x\ge0$.
+
+**II:** If $f(x)\ge g(x)$ for all $x\ge0$, then $\int_{0}^{x}t\,f(t)\,dt\ge\int_{0}^{x}t\,g(t)\,dt$ for all $x\ge0$.
+
+**III:** If $\int_{0}^{x}f(t)\,dt\ge\int_{0}^{x}g(t)\,dt$ for all $x\ge0$, then $f(x)\ge g(x)$ for all $x\ge0$.
+
+**IV:** If $\int_{0}^{x}f(t)\,dt\ge\int_{0}^{x}g(t)\,dt$ for all $x\ge0$, then $\int_{0}^{x}t^{2}f(t)\,dt\ge\int_{0}^{x}t^{2}g(t)\,dt$ for all $x\ge0$.
+
+Which of the statements are true?
+
+| **A** None of them &nbsp;&nbsp; **B** I only &nbsp;&nbsp; **C** II only &nbsp;&nbsp; **D** III only &nbsp;&nbsp; **E** IV only &nbsp;&nbsp; **F** I and II only |
+| **G** II and III only &nbsp;&nbsp; **H** I and III only &nbsp;&nbsp; **I** all except I &nbsp;&nbsp; **J** all except II &nbsp;&nbsp; **K** all except III &nbsp;&nbsp; **L** all except IV |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **F** — I and II only**
 
 Put $h=\mathrm{f}-\mathrm{g}$; every statement is about the sign of $h$ or of an integral of $h$.
 
-**I is true.** $h'\ge0$ on $x\ge0$ makes $h$ increasing there, and $h(0)\ge0$, so $h(x)\ge h(0)\ge0$. ∎
+**I is true.** For any $x\ge0$, the Fundamental Theorem of Calculus gives
 
-**II is true.** $h(t)\ge0$ and $t\ge0$ on $[0,x]$, so $t\,h(t)\ge0$ and its integral is $\ge0$. *Multiplying
-by a weight that is non-negative on the range of integration is always safe.* ∎
+$$h(x)-h(0)=\int_0^x h'(t)\,dt\ge0,$$
+
+because $h'(t)=\mathrm f'(t)-\mathrm g'(t)\ge0$. Hence
+
+$$\mathrm f(x)-\mathrm g(x)=h(x)\ge h(0)=\mathrm f(0)-\mathrm g(0)\ge0,$$
+
+so $\mathrm f(x)\ge\mathrm g(x)$ for every $x\ge0$. ∎
+
+**II is true.** By I, $h(t)\ge0$ for every $t\ge0$. Thus, for $0\le t\le x$,
+
+$$t\bigl(\mathrm f(t)-\mathrm g(t)\bigr)=t h(t)\ge0.$$
+
+Integrating this pointwise inequality gives
+
+$$\int_0^x t\,\mathrm f(t)\,dt-\int_0^x t\,\mathrm g(t)\,dt
+=\int_0^x t h(t)\,dt\ge0.$$
+
+Therefore the claimed weighted-integral inequality holds. *Multiplying by a weight that is non-negative
+on the range of integration is safe once the function itself is known to be non-negative.* ∎
 
 **III is false.** *A non-negative running total does not force a non-negative integrand.* Take
 $\mathrm{g}=0$ and
 
 $$\mathrm{f}(x)=(x-1)(x-2)\qquad\Longrightarrow\qquad \int_{0}^{x}\mathrm{f}=\frac{x^{3}}{3}-\frac{3x^{2}}{2}+2x ,$$
 
-which is $\ge0$ for every $x\ge0$ (its minimum on $[0,\infty)$ is $0$, at $x=0$) — yet $\mathrm{f}$ is
-**negative** on $(1,2)$, e.g. $\mathrm{f}(1.5)=-0.25$.
+and, more explicitly,
+
+$$\int_0^x\mathrm f(t)\,dt
+=\frac{x(2x^2-9x+12)}6
+=\frac{x\left(2\left(x-\frac94\right)^2+\frac{15}{8}\right)}6\ge0
+\qquad(x\ge0).$$
+
+Thus the hypothesis of III really does hold for every $x\ge0$. Nevertheless,
+$\mathrm f(x)=(x-1)(x-2)<0$ on $1<x<2$ (for example, $\mathrm f(3/2)=-1/4$), whereas
+$\mathrm g(3/2)=0$. Hence the proposed pointwise conclusion fails. ∎
 
 **IV is false**, and this is the subtle one. It looks like III weighted by the positive quantity $t^{2}$,
 but *the weight is not constant*: $t^{2}<1$ on $(0,1)$ and $t^{2}>1$ beyond, so it **shrinks the positive
@@ -473,15 +917,36 @@ $$\int_{0}^{1}t^{2}\mathrm{f}(t)\,dt=\frac{7}{60}>0 ,\qquad
 \int_{1}^{2}t^{2}\mathrm{f}(t)\,dt=-\frac{23}{60} ,$$
 
 so $\displaystyle\int_{0}^{2}t^{2}\mathrm{f}=-\frac{16}{60}<0$ while $\displaystyle\int_{0}^{x}\mathrm{f}\ge0$
-throughout. ∎
+throughout. Since $\mathrm g=0$, this is exactly
+
+$$\int_0^2t^2\mathrm f(t)\,dt<\int_0^2t^2\mathrm g(t)\,dt,$$
+
+which contradicts the conclusion of IV at $x=2$. ∎
 
 *The contrast between II and IV is the lesson. In II the weight $t$ multiplies a function already known to
 be non-negative — safe. In IV the weight multiplies a function whose sign varies, and re-weighting can
 tip a positive total negative.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 19 — **E** $\;\dfrac{10}{3}$
+## Question 19
+
+::: {.question}
+A circle has centre $A=(6,7)$. Two tangents from the point $B=(1,2)$ touch the circle at $P$ and $Q$. Given that length $BP=2\sqrt{10}$, find the sum of the gradients of the tangent lines $BP$ and $BQ$.
+
+| **A** $\dfrac63$ &nbsp;&nbsp; **B** $\dfrac34$ &nbsp;&nbsp; **C** $\dfrac83$ &nbsp;&nbsp; **D** $\dfrac32$ |
+| **E** $\dfrac{10}{3}$ &nbsp;&nbsp; **F** $\dfrac74$ &nbsp;&nbsp; **G** $\dfrac54$ |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **E** $\;\dfrac{10}{3}$**
 
 **Translate by $(-1,-2)$.** Gradients are unchanged, and $B\to O(0,0)$, $A\to C(5,5)$.
 
@@ -489,6 +954,51 @@ $$OC^{2}=5^{2}+5^{2}=50 ,\qquad OP^{2}=\left(2\sqrt{10}\right)^{2}=40 ,$$
 
 and $\angle OPC=90^{\circ}$ (tangent $\perp$ radius), so $r^{2}=50-40=10$ and the circle is
 $(x-5)^{2}+(y-5)^{2}=10$.
+
+The diagram also explains which angles the two gradients represent. The centre line $OC$ is **already
+inclined** at
+
+$$\alpha=\arctan\frac55=45^\circ.$$
+
+If each tangent makes an angle $\theta$ with $OC$, the tangent directions measured from the positive
+$x$-axis are therefore $\alpha+\theta$ and $\alpha-\theta$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Arc
+
+fig, ax = plt.subplots(figsize=(6.2, 5.5))
+O = np.array([0., 0.]); C = np.array([5., 5.]); r = np.sqrt(10)
+T1 = np.array([2., 6.]); T2 = np.array([6., 2.])
+
+ax.add_patch(Circle(C, r, fill=False, color='#1f77b4', lw=2.2))
+ax.plot([O[0], C[0]], [O[1], C[1]], '--', color='0.45', lw=1.5)
+ax.plot([O[0], T1[0]], [O[1], T1[1]], color='#d62728', lw=2.2)
+ax.plot([O[0], T2[0]], [O[1], T2[1]], color='#7a5195', lw=2.2)
+ax.plot([C[0], T1[0]], [C[1], T1[1]], color='0.35', lw=1.3)
+ax.plot([C[0], T2[0]], [C[1], T2[1]], color='0.35', lw=1.3)
+ax.plot(*O, 'ko'); ax.plot(*C, 'ko'); ax.plot(*T1, 'o', color='#d62728'); ax.plot(*T2, 'o', color='#7a5195')
+ax.text(-.35, -.3, '$O$'); ax.text(5.15, 5.15, '$C$')
+ax.text(1.55, 6.15, '$T_1$'); ax.text(6.15, 1.65, '$T_2$')
+ax.add_patch(Arc(O, 2.0, 2.0, theta1=0, theta2=45, color='0.2', lw=1.2))
+ax.text(1.05, .42, '$\\alpha$')
+ax.add_patch(Arc(O, 3.0, 3.0, theta1=45, theta2=np.degrees(np.arctan(3)), color='#d62728', lw=1.2))
+ax.add_patch(Arc(O, 2.5, 2.5, theta1=np.degrees(np.arctan(1/3)), theta2=45, color='#7a5195', lw=1.2))
+ax.text(.72, 1.18, '$\\theta$'); ax.text(1.22, .73, '$\\theta$')
+ax.text(1.0, 3.7, 'gradient $=\\tan(\\alpha+\\theta)$', color='#d62728')
+ax.text(3.15, .15, 'gradient $=\\tan(\\alpha-\\theta)$', color='#7a5195')
+ax.set_aspect('equal'); ax.set_xlim(-.7, 8.7); ax.set_ylim(-.7, 8.7)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$', rotation=0)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+So the required sum is
+
+$$m_1+m_2=\tan(\alpha+\theta)+\tan(\alpha-\theta),$$
+
+**not** $\tan\theta+\tan(-\theta)=0$. The latter would be valid only if the angle-bisector $OC$ lay on
+the $x$-axis; here that bisector is tilted through $\alpha=45^\circ$.
 
 A tangent through the origin is $y=mx$. Substituting,
 
@@ -508,10 +1018,30 @@ $$m_1+m_2=\frac{10}{3}.$$
 *Two labour-savers, and both are the point of the question: translating to the origin makes the tangent
 $y=mx$ with no intercept, and Vieta gives the **sum** without solving. Answering $\tfrac13+3$ by hand is the
 slow route to the same number.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 
 ---
 
-## Question 20 — **B** $\;2$
+## Question 20
+
+::: {.question}
+*Disclaimer: this is a very hard version of a similar question from the past exam questions. Expect to give yourself an extra 10–15 minutes to solve it.*
+
+A safe is protected by a 6-character password that uses each of the letters $a$, $b$, $c$, $d$, $e$, $f$ exactly once. After each attempt the safe reports only the number of positions in which the attempted string agrees with the password (it does not say which positions). The following three attempts have already been made: $abcdef$ gave 0 correct positions, $feadbc$ gave 0 correct positions, and $fbdcae$ gave 3 correct positions.
+
+A player now plays optimally, choosing each subsequent attempt with full knowledge of all responses received so far. What is the smallest number $N$ such that the player is guaranteed to be able to identify the password after at most $N$ further attempts (regardless of what the password actually is)?
+
+| **A** 1 &nbsp;&nbsp; **B** 2 &nbsp;&nbsp; **C** 3 &nbsp;&nbsp; **D** 4 &nbsp;&nbsp; **E** more than 5 |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Answer — **B** $\;2$**
 
 **Step 1 — what the two zeros rule out.** A response of $0$ says *every* position is wrong, so `abcdef`
 and `feadbc` give, position by position,
@@ -565,5 +1095,14 @@ it has values. That argument needs no search at all.*
    Q16 (four integrals onto one interval) all become routine after one change of variable.
 4. **Counterexamples must satisfy the hypothesis.** Q1 and Q18 both hinge on it, and both include a decoy
    that obeys the claim rather than breaking it.
+
+:::
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
 
 :::

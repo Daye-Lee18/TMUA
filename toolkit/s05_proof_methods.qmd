@@ -738,7 +738,7 @@ Which of the following is a counterexample to this statement?
 [*(Medium — tabulate both columns)*]{style="color:#7a5195"}
 **G.** Check each candidate against **both** halves:
 
-| $N$ | $N^{2}$ | $9\mid N^{2}$ ? (hypothesis) | $6\mid N$ ? (conclusion) | counterexample? |
+| $N$ | $N^{2}$ | $9$ divides $N^{2}$ ? (hypothesis) | $6$ divides $N$ ? (conclusion) | counterexample? |
 |---|---|---|---|---|
 | $15$ | $225$ | yes | **no** | **✓** |
 | $18$ | $324$ | yes | yes | ✗ — the claim holds here |
@@ -746,7 +746,7 @@ Which of the following is a counterexample to this statement?
 
 So I and III only.
 
-*Why the claim is false in general:* $9\mid N^{2}$ forces $3\mid N$, but it says nothing about the factor
+*Why the claim is false in general:* $9$ divides $N^{2}$ forces $3$ divides $N$, but it says nothing about the factor
 $2$ that "divisible by $6$" also demands. Every odd multiple of $3$ — $3,9,15,21,27,\dots$ — is a
 counterexample, so the two offered are not special.
 
@@ -779,7 +779,7 @@ Which of the following are counterexamples to this statement?
 [*(Medium — the same table, one step harder)*]{style="color:#7a5195"}
 **D.**
 
-| $N$ | $N^{2}$ | $12\mid N^{2}$ ? | $12\mid N$ ? | counterexample? |
+| $N$ | $N^{2}$ | $12$ divides $N^{2}$ ? | $12$ divides $N$ ? | counterexample? |
 |---|---|---|---|---|
 | $6$ | $36$ | yes | **no** | **✓** |
 | $8$ | $64$ | **no** ($64=12\times5+4$) | no | ✗ — hypothesis fails |
@@ -789,8 +789,8 @@ Which of the following are counterexamples to this statement?
 *Each wrong option fails for a different reason,* which is why this question separates candidates so well:
 $N=8$ never enters the discussion, and $N=24$ is a case where the claim is true.
 
-**Where the claim goes wrong.** $12=2^{2}\times3$, so $12\mid N^{2}$ needs $N^{2}$ to carry $2^{2}$ and $3$ —
-which only forces $N$ to carry $2$ and $3$, i.e. $6\mid N$. The extra factor of $2$ is not implied.
+**Where the claim goes wrong.** $12=2^{2}\times3$, so $12$ divides $N^{2}$ needs $N^{2}$ to carry $2^{2}$ and $3$ —
+which only forces $N$ to carry $2$ and $3$, i.e. $6$ divides $N$. The extra factor of $2$ is not implied.
 *Compare with Q29:* same structure, $9=3^{2}$ in place of $12=2^{2}\cdot3$. $\;\blacksquare$
 :::
 

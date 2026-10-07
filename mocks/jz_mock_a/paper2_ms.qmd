@@ -30,11 +30,11 @@ Six of these have already been worked in class and live in the toolkit:
 |---|---|
 | **Q1** sufficient but not necessary | [S3 Q13](../../toolkit/s03_necessary_sufficient.qmd) |
 | **Q3** squaring an inequality — valid | [S7 Q16](../../toolkit/s07_spot_the_error.qmd) |
-| **Q4** counterexamples to $12\mid N^{2}\Rightarrow12\mid N$ | [S5 Q30](../../toolkit/s05_proof_methods.qmd) |
-| **Q5** $n^{2}+2$ prime $\Rightarrow3\mid n$ | [S7 Q17](../../toolkit/s07_spot_the_error.qmd) · [T1 fact 16](../../toolkit/t01_divisors_primes.qmd) |
+| **Q4** counterexamples to $12\text{ divides } N^{2}\Rightarrow12\text{ divides } N$ | [S5 Q30](../../toolkit/s05_proof_methods.qmd) |
+| **Q5** $n^{2}+2$ prime $\Rightarrow3\text{ divides } n$ | [S7 Q17](../../toolkit/s07_spot_the_error.qmd) · [T1 fact 16](../../toolkit/t01_divisors_primes.qmd) |
 | **Q11** integral condition, necessary and sufficient | [S3 Q18](../../toolkit/s03_necessary_sufficient.qmd) |
 | **Q16** the safe and its three levers | [S2 Q9](../../toolkit/s02_converse_contrapositive.qmd) |
-| **Q17** $n\nmid k!$ for $k<n$ $\Rightarrow$ $n$ prime | [S7 Q20](../../toolkit/s07_spot_the_error.qmd) |
+| **Q17** $n$ does not divide $k!$ for $k<n$ $\Rightarrow$ $n$ prime | [S7 Q20](../../toolkit/s07_spot_the_error.qmd) |
 
 ---
 
@@ -128,10 +128,10 @@ and note that step (I) was placed first precisely so that the signs would be ava
 
 ## Question 4 — **D** — I and III only
 
-A counterexample to *"if $P$ then $Q$"* needs $P$ **true** and $Q$ **false**. Here $P$ is "$12\mid N^{2}$"
-and $Q$ is "$12\mid N$".
+A counterexample to *"if $P$ then $Q$"* needs $P$ **true** and $Q$ **false**. Here $P$ is "$12$ divides $N^{2}$"
+and $Q$ is "$12$ divides $N$".
 
-| | $N^{2}$ | $12\mid N^{2}$? | $12\mid N$? | counterexample? |
+| | $N^{2}$ | $12$ divides $N^{2}$? | $12$ divides $N$? | counterexample? |
 |---|---|:-:|:-:|---|
 | **I** $N=6$ | $36=12\times3$ | ✓ | ✗ | **yes** |
 | **II** $N=8$ | $64=12\times5+4$ | ✗ | ✗ | **no** — fails the hypothesis |

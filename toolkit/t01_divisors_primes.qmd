@@ -72,42 +72,42 @@ This does **not** mean that every number $6n\pm1$ is prime.
 :::
 
 ::: {.fs-card}
-### 2 · [$p\mid ab\Rightarrow p\mid a$ or $p\mid b$ — **only when $p$ is prime**]{.hl}
+### 2 · [$p\text{ divides } ab\Rightarrow p\text{ divides } a$ or $p\text{ divides }b$ — **only when $p$ is prime**]{.hl}
 
-$$p\mid ab\ \Longrightarrow\ p\mid a\ \text{ or }\ p\mid b\qquad\textbf{only when }p\textbf{ is prime}$$
+$$p\text{ divides } ab\ \Longrightarrow\ p\text{ divides } a\ \text{ or }\ p\text{ divides } b\qquad\textbf{only when }p\textbf{ is prime}$$
 
 Read it aloud: “if the **prime** $p$ divides the product $ab$, then $p$ divides at least one factor.”
 
-**The trap — drop "prime" and it collapses.** $4\mid 2\times2$, yet $4\nmid2$. Smallest counterexample:
+**The trap — drop "prime" and it collapses.** $4$ divides $2\times2$, yet $4$ does not divide $2$. Smallest counterexample:
 $a=4,\ b=c=2$.
 
 
 | statement | | why |
 |---|:-:|---|
-| $p\mid ab\Rightarrow p\mid a$ or $p\mid b$, for **prime** $p$ | **True** | *Euclid's lemma* |
-| *Trap — drop "prime":* $a\mid bc\Rightarrow a\mid b$ or $a\mid c$ | **False** | *$4\mid2\times2$, $4\nmid2$* |
-| *Trap — composite $a$:* the same with $a=8,b=c=4$ | **False** | *$8\mid16$ but $8\nmid4$* |
+| $p\text{ divides } ab\Rightarrow p\text{ divides } a$ or $p\text{ divides }b$, for **prime** $p$ | **True** | *Euclid's lemma* |
+| *Trap — drop "prime":* $a\text{ divides } bc\Rightarrow a\text{ divides } b$ or $a\text{ divides }c$ | **False** | *$4\text{ divides }2\times2$, $4\text{ does not divide }2$* |
+| *Trap — composite $a$:* the same with $a=8,b=c=4$ | **False** | *$8$ divides $16$ but $8$ does not divide $4$* |
 
 [2016 Q13 and 2021 Q4 are the *same* false statement — this is the missing word]{.eg}
 :::
 
 ::: {.fs-card}
-### 3 · [Squaring doubles every exponent: $12\mid n^{2}\iff6\mid n$]{.hl}
+### 3 · [Squaring doubles every exponent: $12\text{ divides } n^{2}\iff6\text{ divides } n$]{.hl}
 
 If $n=p_1^{e_1}p_2^{e_2}\cdots$ then $n^2=p_1^{2e_1}p_2^{2e_2}\cdots$. So $n^2$ carries **only even powers**
 of each prime.
 
-Consequences: $p\mid n^{2}\Rightarrow p\mid n$ for **prime** $p$; in words, if a prime divides a square,
+Consequences: $p\text{ divides } n^{2}\Rightarrow p\text{ divides } n$ for **prime** $p$; in words, if a prime divides a square,
 it already divides its square root. For a composite divisor, prime-factorise it and halve each required
 exponent, rounding up. Since $12=2^2\cdot3^1$, this gives $2^1\cdot3^1=6$:
-$$12\mid n^{2}\iff 6\mid n,\qquad\text{not } 12\mid n .$$
+$$12\text{ divides } n^{2}\iff 6\text{ divides } n,\qquad\text{not } 12\text{ divides } n .$$
 
 
 | statement | | why |
 |---|:-:|---|
-| $p\mid n^{2}\Rightarrow p\mid n$ for **prime** $p$ | **True** | *exponents double* |
-| $12\mid n^{2}\Rightarrow12\mid n$ | **False** | *$n=6$: $36=12\times3$* |
-| $12\mid n^{2}\iff6\mid n$ | **True** | *halve prime exponents and round up* |
+| $p\text{ divides } n^{2}\Rightarrow p\text{ divides } n$ for **prime** $p$ | **True** | *exponents double* |
+| $12\text{ divides } n^{2}\Rightarrow12\text{ divides } n$ | **False** | *$n=6$: $36=12\times3$* |
+| $12\text{ divides } n^{2}\iff6\text{ divides } n$ | **True** | *halve prime exponents and round up* |
 
 [2019 Q5 · 2021 Q4 · 2023 Q3 in S4 · the whole of S5 Q29–Q30]{.eg}
 :::
@@ -150,13 +150,13 @@ anything.
 | $n^{2}\equiv3\pmod4$ is possible | **False** | *squares are $0$ or $1$* |
 | $a^{2}+b^{2}\equiv3\pmod4$ is possible | **False** | *$0{+}0,\,0{+}1,\,1{+}1$ only* |
 
-[the engine of "$n^2+2$ is divisible by 3 unless $3\mid n$"]{.eg}
+[the engine of "$n^2+2$ is divisible by 3 unless $3$ divides $n$"]{.eg}
 :::
 
 ::: {.fs-card}
-### 6 · [$\gcd(a,b)\mid a\pm b$, &nbsp;$\gcd(a,b+ka)=\gcd(a,b)$, &nbsp;$\gcd(n,n+1)=1$]{.hl}
+### 6 · [$\gcd(a,b)\text{ divides } a\pm b$, &nbsp;$\gcd(a,b+ka)=\gcd(a,b)$, &nbsp;$\gcd(n,n+1)=1$]{.hl}
 
-$$\gcd(a,b)\mid a\pm b,\qquad \gcd(a,\,b+ka)=\gcd(a,b),\qquad \gcd(n,\,n+1)=1$$
+$$\gcd(a,b)\text{ divides } a\pm b,\qquad \gcd(a,\,b+ka)=\gcd(a,b),\qquad \gcd(n,\,n+1)=1$$
 
 The first statement says: “the greatest common divisor of $a$ and $b$ also divides their sum and their
 difference.”
@@ -169,9 +169,9 @@ survives down a whole recurrence.
 |---|:-:|---|
 | $\gcd(a,b)$ divides $a+b$ and $a-b$ | **True** | *it divides every combination* |
 | $\gcd(n,n+1)=1$ | **True** | *a common divisor divides $1$* |
-| $\gcd(a,b)=d\Rightarrow d\mid(xa+yb)$ | **True** | *this is why $d$ survives a recurrence* |
+| $\gcd(a,b)=d\Rightarrow d\text{ divides }(xa+yb)$ | **True** | *this is why $d$ survives a recurrence* |
 
-[2023 Q16: $\gcd(a,b)=7$ forces $7\mid u_n$ for every $n$]{.eg}
+[2023 Q16: $\gcd(a,b)=7$ forces $7$ divides $u_n$ for every $n$]{.eg}
 :::
 
 ::: {.fs-card}
@@ -200,14 +200,14 @@ read the proof.
 - **$1$ is not prime** and not composite.
 - **$2$ is the only even prime** — every "let $p$ be an odd prime" argument silently excludes it.
 - **$3k$ is composite only when $k>1$**: $3\times1=3$ is prime.
-- $0$ is divisible by every non-zero integer: for example, $7\mid0$ because $0=7\times0$.
+- $0$ is divisible by every non-zero integer: for example, $7$ divides $0$ because $0=7\times0$.
 
 
 | statement | | why |
 |---|:-:|---|
 | $1$ is prime | **False** | *neither prime nor composite* |
 | $2$ is the only even prime | **True** | *any other even number has factor $2$* |
-| *Trap:* $3\mid N\Rightarrow N$ is composite | **False** | *fails at $N=3$* |
+| *Trap:* $3\text{ divides } N\Rightarrow N$ is composite | **False** | *fails at $N=3$* |
 
 [JZ Mock A Q5 dies at $n=1$; 2023 Q4 turns on $p=2$]{.eg}
 :::
@@ -270,11 +270,11 @@ famous statement that $x^n+y^n=z^n$ has no positive-integer solutions for $n>2$.
 
 If $p$ is prime, then for every integer $a$,
 $$a^p\equiv a\pmod p.$$
-If $p\nmid a$, divide by $a$ modulo $p$ to get
+If $p$ does not divide $a$, divide by $a$ modulo $p$ to get
 $$a^{p-1}\equiv1\pmod p.$$
 In particular, every odd prime $p$ satisfies
 $$2^{p-1}\equiv1\pmod p,$$
-or equivalently $p\mid 2^{p-1}-1$.
+or equivalently $p$ divides $2^{p-1}-1$.
 
 **The trap — the converse is false.** $341=11\times31$ is composite, but
 $2^{10}=1024\equiv1\pmod{341}$, so $2^{340}\equiv1\pmod{341}$.
@@ -283,10 +283,10 @@ $2^{10}=1024\equiv1\pmod{341}$, so $2^{340}\equiv1\pmod{341}$.
 | statement | | why |
 |---|:-:|---|
 | $p$ prime $\Rightarrow a^{p}\equiv a\pmod p$ for every $a$ | **True** | *Fermat's little theorem* |
-| $p$ prime and $p\nmid a\Rightarrow a^{p-1}\equiv1\pmod p$ | **True** | *divide by $a$* |
+| $p$ prime and $p\text{ does not divide } a\Rightarrow a^{p-1}\equiv1\pmod p$ | **True** | *divide by $a$* |
 | *Converse:* $2^{n-1}\equiv1\pmod n\Rightarrow n$ prime | **False** | *$341=11\times31$ passes* |
 
-[Use $a^p\equiv a$ if $p$ might divide $a$; use $a^{p-1}\equiv1$ only when $p\nmid a$.]{.eg}
+[Use $a^p\equiv a$ if $p$ might divide $a$; use $a^{p-1}\equiv1$ only when $p$ does not divide $a$.]{.eg}
 :::
 
 ::: {.fs-card}
@@ -308,9 +308,9 @@ $$2^{12}+1=(2^4)^3+1=(16+1)(16^2-16+1)=17\cdot241.$$
 
 | statement | | why |
 |---|:-:|---|
-| $m$ odd $\Rightarrow x+1\mid x^m+1$ | **True** | *odd-power sum identity* |
+| $m$ odd $\Rightarrow x+1\text{ divides } x^m+1$ | **True** | *odd-power sum identity* |
 | $n=2^km$ with odd $m>1\Rightarrow2^n+1$ composite | **True** | *take $x=2^{2^k}$* |
-| *Trap:* $m$ even $\Rightarrow x+1\mid x^m+1$ | **False** | *at $x=-1$, the value is $2$, not $0$* |
+| *Trap:* $m$ even $\Rightarrow x+1\text{ divides } x^m+1$ | **False** | *at $x=-1$, the value is $2$, not $0$* |
 :::
 
 ::: {.fs-card}
@@ -377,23 +377,23 @@ For example, $360=2^3\cdot3^2\cdot5$, so it has $(3+1)(2+1)(1+1)=24$ positive di
 :::
 
 ::: {.fs-card}
-### 16 · [$\gcd(a,b)=1$ and $a\mid bc\Rightarrow a\mid c$ — coprime cancellation]{.hl}
+### 16 · [$\gcd(a,b)=1$ and $a\text{ divides } bc\Rightarrow a\text{ divides } c$ — coprime cancellation]{.hl}
 
 If $\gcd(a,b)=1$, then
-$$a\mid bc\quad\Longrightarrow\quad a\mid c.$$
+$$a\text{ divides } bc\quad\Longrightarrow\quad a\text{ divides } c.$$
 This is Euclid's lemma with “$a$ is prime” replaced by the weaker condition that $a$ and $b$ share no prime
 factor.
 
-**The trap.** Without coprimality, cancellation fails: $6\mid9\cdot4$, but $6\nmid4$.
+**The trap.** Without coprimality, cancellation fails: $6$ divides $9\cdot4$, but $6$ does not divide $4$.
 
 
 | statement | | why |
 |---|:-:|---|
-| $\gcd(a,b)=1$ and $a\mid bc\Rightarrow a\mid c$ | **True** | *coprime cancellation* |
-| *Trap — drop coprimality:* $a\mid bc\Rightarrow a\mid c$ | **False** | *$6\mid9\times4$ but $6\nmid4$* |
-| $p$ prime and $p\nmid b\Rightarrow\gcd(p,b)=1$ | **True** | *so fact 2 is a special case* |
+| $\gcd(a,b)=1$ and $a\text{ divides } bc\Rightarrow a\text{ divides } c$ | **True** | *coprime cancellation* |
+| *Trap — drop coprimality:* $a\text{ divides } bc\Rightarrow a\text{ divides } c$ | **False** | *$6\text{ divides }9\times4$ but $6\text{ does not divide }4$* |
+| $p$ prime and $p\text{ does not divide } b\Rightarrow\gcd(p,b)=1$ | **True** | *so fact 2 is a special case* |
 
-[Prime $p\nmid b$ automatically gives $\gcd(p,b)=1$, so $p\mid bc\Rightarrow p\mid c$.]{.eg}
+[Prime $p\text{ does not divide }b$ automatically gives $\gcd(p,b)=1$, so $p\text{ divides } bc\Rightarrow p\text{ divides } c$.]{.eg}
 :::
 
 ::: {.fs-card}
@@ -445,7 +445,7 @@ To decide whether $f(n)$ is always divisible by $m$, split $n$ by its remainder 
 - $n\equiv1$: $n^{2}\equiv1$, so $n^{2}+2\equiv0$. **Divisible.**
 - $n\equiv2$: $n^{2}\equiv4\equiv1$, so $n^{2}+2\equiv0$. **Divisible.**
 
-So $3\mid n^{2}+2$ exactly when $3\nmid n$ — which is why "$n^{2}+2$ prime $\Rightarrow 3\mid n$" is *almost*
+So $3\text{ divides }n^{2}+2$ exactly when $3\text{ does not divide }n$ — which is why "$n^{2}+2$ prime $\Rightarrow 3\text{ divides } n$" is *almost*
 true, and why the one failure ($n=1$, giving the prime $3$) is where every version of this question is
 decided.
 :::
@@ -453,7 +453,7 @@ decided.
 ::: {.callout-tip}
 ## Pattern B · "Divisible, therefore composite" — the fallacy
 
-A proof shows $m\mid N$ and concludes $N$ is composite. **That step needs $N\neq m$.**
+A proof shows $m$ divides $N$ and concludes $N$ is composite. **That step needs $N\neq m$.**
 
 $$N=mk\ \text{is composite}\iff k>1 .$$
 
@@ -554,7 +554,7 @@ Fifteen items on the facts that are easy to half-remember. Answer all fifteen, t
 ::: {.question}
 **1.** True or false: every integer of the form $6n+1$ is prime.
 
-**2.** Fill in the missing word: "$p\mid ab\Rightarrow p\mid a$ or $p\mid b$" requires $p$ to be
+**2.** Fill in the missing word: "$p\text{ divides } ab\Rightarrow p\text{ divides } a$ or $p\text{ divides }b$" requires $p$ to be
 \_\_\_\_\_\_\_\_.
 
 **3.** $12$ divides $n^{2}$. What is the strongest conclusion you can draw about $n$?
@@ -564,7 +564,7 @@ product? Give a reason.
 
 **5.** Which of these can $n^{2}$ be congruent to, mod $4$: $0,1,2,3$?
 
-**6.** A proof shows $3\mid N$ and concludes "$N$ is not prime". When is that wrong?
+**6.** A proof shows $3$ divides $N$ and concludes "$N$ is not prime". When is that wrong?
 
 **7.** $3x^{2}+3x+1$ cannot be factorised over the integers. Does it follow that its values are always
 prime? Give the smallest counterexample.
@@ -584,7 +584,7 @@ prime.
 
 **13.** How many positive divisors does $360=2^3\cdot3^2\cdot5$ have?
 
-**14.** Given $\gcd(14,25)=1$ and $14\mid25m$, what must divide $m$?
+**14.** Given $\gcd(14,25)=1$ and $14$ divides $25m$, what must divide $m$?
 
 **15.** Decide whether each statement is true:
 
@@ -601,10 +601,10 @@ prime.
 **1. False.** $25=6(4)+1$ and $35=6(6)-1$. *The implication runs prime $\Rightarrow6n\pm1$, never
 backwards* — and "every prime $>3$" also excludes $2$ and $3$ themselves.
 
-**2. Prime.** Without it the statement fails: $4\mid2\times2$ but $4\nmid2$.
+**2. Prime.** Without it the statement fails: $4$ divides $2\times2$ but $4$ does not divide $2$.
 
-**3. $6\mid n$ — and no more.** Squaring doubles exponents, so $n^{2}$ carrying $2^{2}\cdot3$ forces $n$ to
-carry only $2^{1}\cdot3$. *$12\mid n$ does **not** follow:* $n=6$ gives $n^{2}=36=12\times3$.
+**3. $6$ divides $n$ — and no more.** Squaring doubles exponents, so $n^{2}$ carrying $2^{2}\cdot3$ forces $n$ to
+carry only $2^{1}\cdot3$. *$12$ divides $n$ does **not** follow:* $n=6$ gives $n^{2}=36=12\times3$.
 
 **4. No.** A remainder must satisfy $0\le rs<a$, and the product of two numbers each less than $a$ can
 easily exceed $a$. With $a=4,\ r=s=2$ we get $rs=4$, while the true remainder is $0$.
@@ -639,8 +639,8 @@ tested. In fact $221=13\times17$.
 **13. $24$.** Each divisor chooses the exponent of $2$ in $4$ ways, of $3$ in $3$ ways and of $5$ in $2$
 ways, giving $4\cdot3\cdot2=24$.
 
-**14. $14\mid m$.** Since $14$ and $25$ are coprime, the factor $14$ cannot be supplied by $25$; coprime
-cancellation gives $14\mid m$.
+**14. $14$ divides $m$.** Since $14$ and $25$ are coprime, the factor $14$ cannot be supplied by $25$; coprime
+cancellation gives $14$ divides $m$.
 
 **15. I false; II false; III true.** For I, $x^2-1$ factorises but has the prime value $3$ at $x=2$. For
 II, $x^2+1$ is irreducible but has the composite value $10$ at $x=3$. For III, the displayed equality is a
@@ -661,24 +661,24 @@ set. The table is the index: it names each question's reasoning type and the fac
 | Sitting | Question | Reasoning type | Worked at |
 |---|---|---|---|
 | **2016** | **Q5** $6n\pm1$ and primality | counterexample | facts 1, 8 above |
-| **2016** | **Q13** $a\mid bc\Rightarrow a\mid b$ or $a\mid c$ | spot the error | **[S7 Q18](s07_spot_the_error.qmd)** |
+| **2016** | **Q13** $a\text{ divides } bc\Rightarrow a\text{ divides } b$ or $a\text{ divides }c$ | spot the error | **[S7 Q18](s07_spot_the_error.qmd)** |
 | **2017** | **Q5** $91=7\times13$ | counterexample | fact 9 above |
 | **2017** | **Q9** Fermat for $n=3$ | spot the error | pattern E above |
 | **2018** | **Q17** prime factors of $N^{2}$ | which must be true | fact 3 above |
 | **2019** | **Q4** $1\,0\ldots0\,1$ primality | counterexample | facts 1, 10 |
-| **2019** | **Q5** $n\mid ab$ | necessary condition | fact 2 above |
+| **2019** | **Q5** $n$ divides $ab$ | necessary condition | fact 2 above |
 | **2020** | **Q4** sum of two non-primes | counterexample | **[S5 Q28](s05_proof_methods.qmd)** *(same type, Tyler version)* |
-| **2021** | **Q4** $a\mid bc$ — the counterexample twin of 2016 Q13 | counterexample | fact 2 above |
+| **2021** | **Q4** $a$ divides $bc$ — the counterexample twin of 2016 Q13 | counterexample | fact 2 above |
 | **2021** | **Q10** $n$ prime $\Rightarrow u_n$ multiple of $3$ or $5$ | counterexample | fact 10 above |
 | **2022** | **Q3** $n$ prime $\Rightarrow n^{2}+2$ not prime | counterexample | pattern A above |
 | **2022** | **Q7** consecutive cubes always prime | spot the error | **[S7 Q19](s07_spot_the_error.qmd)** |
 | **2023** | **Q4** consecutive odd primes | spot the error | facts 8, 1 |
 | **2023** | **Q11** $2^{k}+1$ prime $\Rightarrow k$ a power of $2$ | equivalence | **[S2](s02_converse_contrapositive.qmd)** |
 | **2023** | **Q16** $\gcd(a,b)=7$ down a recurrence | which must be true | **[S5 Q34](s05_proof_methods.qmd)** |
-| *mock* | **JZ A Q5** $n^{2}+2$ prime $\Rightarrow3\mid n$ | spot the error | **[S7 Q17](s07_spot_the_error.qmd)** |
-| *mock* | **JZ A Q17** $n\nmid k!$ $\Rightarrow n$ prime | spot the error | **[S7 Q20](s07_spot_the_error.qmd)** |
-| *mock* | **JZ B Q11** $12\mid n^{3}+5n$ | necessary not sufficient | **[S3 Q16](s03_necessary_sufficient.qmd)** |
-| *mock* | **JZ C Q1** $12\mid n^{2}$ | quantifiers | **[S4 Q11](s04_quantifiers_negation.qmd)** |
+| *mock* | **JZ A Q5** $n^{2}+2$ prime $\Rightarrow3\text{ divides } n$ | spot the error | **[S7 Q17](s07_spot_the_error.qmd)** |
+| *mock* | **JZ A Q17** $n$ does not divide $k!$ $\Rightarrow n$ prime | spot the error | **[S7 Q20](s07_spot_the_error.qmd)** |
+| *mock* | **JZ B Q11** $12$ divides $n^{3}+5n$ | necessary not sufficient | **[S3 Q16](s03_necessary_sufficient.qmd)** |
+| *mock* | **JZ C Q1** $12$ divides $n^{2}$ | quantifiers | **[S4 Q11](s04_quantifiers_negation.qmd)** |
 
 ---
 
@@ -743,9 +743,9 @@ integers). Which of the following provide a counterexample?
 **C** &nbsp;·&nbsp; [*facts 2, 16*]{style="color:#7a5195"}
 
 The claim is **Euclid's lemma with the word "prime" removed** (fact 2), so it must be false. A
-counterexample needs $a\mid bc$ **and** $a\nmid b$ **and** $a\nmid c$.
+counterexample needs $a$ divides $bc$ **and** $a$ does not divide $b$ **and** $a$ does not divide $c$.
 
-| | $bc$ | $a\mid bc$? | $a\mid b$? | $a\mid c$? | counterexample? |
+| | $bc$ | $a$ divides $bc$? | $a$ divides $b$? | $a$ divides $c$? | counterexample? |
 |---|---|---|---|---|---|
 | **I** $a=5,b=10,c=20$ | $200$ | yes | **yes** | yes | ✗ — the conclusion already holds |
 | **II** $a=8,b=4,c=4$ | $16$ | yes | no | no | **✓** |
@@ -788,9 +788,9 @@ A counterexample needs the hypothesis **true** ($n$ prime) and the conclusion **
 
 Only **II**.
 
-**Why $n=3$ is the one that works.** By pattern A, $n^{2}+2\equiv0\pmod 3$ whenever $3\nmid n$, so
+**Why $n=3$ is the one that works.** By pattern A, $n^{2}+2\equiv0\pmod 3$ whenever $3$ does not divide $n$, so
 $n^{2}+2$ is a multiple of $3$ for every prime except $3$ itself — and then it is composite as long as the
-value exceeds $3$. The single escape is $n=3$, where $3\mid n$ and the residue argument does not apply.
+value exceeds $3$. The single escape is $n=3$, where $3$ divides $n$ and the residue argument does not apply.
 
 *Note III is the free mark and the free trap:* candidates who check only the conclusion mark it as a
 counterexample without noticing $4$ is not prime.
@@ -1051,14 +1051,14 @@ The condition *"either $a$ or $b$ is divisible by $n$"* is:
 
 **B** (sufficient, not necessary) &nbsp;·&nbsp; [*facts 2, 16*]{style="color:#7a5195"}
 
-**Sufficient.** If $n\mid a$ then $a=nk$, so $ab=nkb$ and $n\mid ab$. Likewise if $n\mid b$. ✓
+**Sufficient.** If $n$ divides $a$ then $a=nk$, so $ab=nkb$ and $n$ divides $ab$. Likewise if $n$ divides $b$. ✓
 
 **Not necessary.** Take $n=4$, $a=b=2$: then $ab=4$ is divisible by $4$, yet $4$ divides neither $a$ nor
 $b$. ✗
 
 **This is Euclid's lemma with the word "prime" deleted** (fact 2). Restore it and the verdict flips: for a
-**prime** $p$, "$p\mid a$ or $p\mid b$" *is* necessary and sufficient for $p\mid ab$ — the answer would be
-**C**. Fact 16 gives the weakest repair: $\gcd(n,a)=1$ is enough to force $n\mid b$.
+**prime** $p$, "$p$ divides $a$ or $p$ divides $b$" *is* necessary and sufficient for $p$ divides $ab$ — the answer would be
+**C**. Fact 16 gives the weakest repair: $\gcd(n,a)=1$ is enough to force $n$ divides $b$.
 
 *Note the same false statement appears as a proof in 2016 Q13 and as a counterexample hunt in 2021 Q4 —
 this is its third costume.*
@@ -1077,7 +1077,7 @@ $a,b,c$ are positive integers. The following is an attempted proof of the **fals
 divides $bc$, then $a$ divides $b$ or $a$ divides $c$*. Which line contains the error?
 
 &nbsp;&nbsp;**1.** The statement is equivalent to "if $a$ does not divide $b$ and $a$ does not divide $c$, then $a$ does not divide $bc$".
-&nbsp;&nbsp;**2.** Suppose $a\nmid b$ and $a\nmid c$. Then the remainder of $b$ on division by $a$ is $r$ with $0<r<a$, and of $c$ is $s$ with $0<s<a$.
+&nbsp;&nbsp;**2.** Suppose $a$ does not divide $b$ and $a$ does not divide $c$. Then the remainder of $b$ on division by $a$ is $r$ with $0<r<a$, and of $c$ is $s$ with $0<s<a$.
 &nbsp;&nbsp;**3.** So $b=ax+r$ and $c=ay+s$ for integers $x,y$.
 &nbsp;&nbsp;**4.** Thus $bc=a(axy+xs+yr)+rs$.
 &nbsp;&nbsp;**5.** So the remainder when dividing $bc$ by $a$ is $rs$.
@@ -1264,18 +1264,48 @@ Which one of the following is **not** true?
 
 **C** &nbsp;·&nbsp; [*facts 3, 15*]{style="color:#7a5195"}
 
-**A is true** — two ways. Directly, $N^{2}=N^{2}+0^{2}$. Or via the theorem: squaring doubles every exponent
-(fact 3), so every awkward prime occurs to an even power.
+Use the stated theorem throughout:
 
-**B is true.** In $NM$ each awkward prime's exponent is the **sum** of its exponents in $N$ and in $M$, and
-even $+$ even $=$ even.
+$$n\text{ is a squaresum}
+\iff v_p(n)\text{ is even for every prime }p\equiv3\pmod4,$$
 
-**C is false — this is the answer.** Take $N=M=3$. Then $3$ is awkward ($3=4\cdot0+3$) and occurs to the
-power $1$ in $N$, so $N$ is **not** a squaresum. But $NM=9=3^{2}+0^{2}$ **is** one. *Two odd exponents add
-to an even one*, which is exactly why the implication fails backwards.
+where $v_p(n)$ denotes the exponent of $p$ in the prime factorisation of $n$.
 
-**D is true.** If $N$ is not a squaresum, some awkward primes appear to odd powers; multiply $N$ by exactly
-those primes once each, and every such exponent becomes even.
+**A is true.** Let $n=N^2$. For every awkward prime $p$,
+
+$$v_p(n)=v_p(N^2)=2v_p(N),$$
+
+which is even. The theorem therefore says that $N^2$ is a squaresum. (Indeed,
+$N^2=N^2+0^2$.)
+
+**B is true.** Suppose $N$ and $M$ are squaresums. For every awkward prime $p$, the theorem gives
+$v_p(N)=2a$ and $v_p(M)=2b$ for some integers $a,b\ge0$. Hence
+
+$$v_p(NM)=v_p(N)+v_p(M)=2a+2b=2(a+b),$$
+
+which is even. Applying the theorem again, $NM$ is a squaresum.
+
+**C is false — this is the answer.** The implication cannot be reversed because an even sum need not have
+even summands. Take $N=M=3$. Since $3\equiv3\pmod4$ and
+
+$$v_3(N)=v_3(M)=1,$$
+
+the theorem says that neither $N$ nor $M$ is a squaresum. But
+
+$$v_3(NM)=v_3(9)=2,$$
+
+so the theorem says that $NM=9$ **is** a squaresum (and indeed $9=3^2+0^2$). Thus the premise of C can be
+true while its conclusion is false.
+
+**D is true.** Write the awkward prime factors that occur to odd powers in $N$ as
+$p_1,\ldots,p_r$, and choose
+
+$$k=p_1p_2\cdots p_r.$$
+
+For each $i$, multiplication by $k$ changes $v_{p_i}(N)$ from odd to even by adding $1$; every other
+awkward prime already has an even exponent, and its exponent is unchanged. Therefore every awkward prime
+has an even exponent in $kN$, so the theorem says that $kN$ is a squaresum. Also, by construction, $k$ is
+a product of awkward primes.
 
 *The structure to notice:* B and C are converses of one another, and the exponent-parity argument makes B
 work and C fail. **Adding parities is one-way information.**
@@ -1306,7 +1336,7 @@ with $\gcd(a,b)=7$. Which of the following **must** be true?
 
 **B** (I only) &nbsp;·&nbsp; [*fact 6*]{style="color:#7a5195"}
 
-**I — true, and it needs an induction.** $\gcd(a,b)=7$ means $7\mid a$ and $7\mid b$. A sum of two multiples
+**I — true, and it needs an induction.** $\gcd(a,b)=7$ means $7$ divides $a$ and $7$ divides $b$. A sum of two multiples
 of $7$ is a multiple of $7$, so $u_{3}$ is one, then $u_{4}$, and so on. Every term is — including
 $u_{2023}$. *(The index $2023$ is decoration.)*
 
@@ -1354,7 +1384,7 @@ Which line contains the first error? &nbsp; **A** none &nbsp; **B** I &nbsp; **C
 
 Lines I–VI are correct. Check III, which carries the argument: if $n=3m+1$ then $n^{2}=9m^{2}+6m+1$,
 remainder $1$; if $n=3m+2$ then $n^{2}=9m^{2}+12m+4=3(3m^{2}+4m+1)+1$, remainder $1$ again — exactly fact 5.
-Adding $2$ gives remainder $0$, so $3\mid n^{2}+2$ and $n^{2}+2=3k$.
+Adding $2$ gives remainder $0$, so $3$ divides $n^{2}+2$ and $n^{2}+2=3k$.
 
 **Line VII is pattern B.** "$3k$, therefore composite" needs $k>1$ — and **$k=1$ gives the prime $3$**.
 
@@ -1377,7 +1407,7 @@ Working
 Here $n$ is an integer greater than $1$. **Statement:** *if $n$ does not divide $k!$ for any positive integer
 $k<n$, then $n$ is prime.* An attempted proof:
 
-&nbsp;&nbsp;**(1)** Assume $n\nmid k!$ for every positive $k<n$.
+&nbsp;&nbsp;**(1)** Assume $n$ does not divide $k!$ for every positive $k<n$.
 &nbsp;&nbsp;**(2)** Suppose for contradiction $n$ is composite, $n=ab$ with $1<a\le b<n$.
 &nbsp;&nbsp;**(3)** *Case 1:* $a<b$. Then $a,b$ are distinct members of $\{2,\dots,n-1\}$.
 &nbsp;&nbsp;**(4)** So both appear in $(n-1)!$, hence $ab=n$ divides $(n-1)!$.
@@ -1385,7 +1415,7 @@ $k<n$, then $n$ is prime.* An attempted proof:
 &nbsp;&nbsp;**(6)** Since $a\ge2$, both $a$ and $2a$ are positive integers.
 &nbsp;&nbsp;**(7)** Since $a\ge2$, $a<a^{2}=n$ and $2a<a^{2}=n$, so $a$ and $2a$ are distinct members of $\{2,\dots,n-1\}$.
 &nbsp;&nbsp;**(8)** So $2a^{2}=2n$ divides $(n-1)!$, and in particular $n$ does.
-&nbsp;&nbsp;**(9)** In both cases $n\mid(n-1)!$, contradicting (1). Hence $n$ is prime.
+&nbsp;&nbsp;**(9)** In both cases $n$ divides $(n-1)!$, contradicting (1). Hence $n$ is prime.
 
 &nbsp;&nbsp;**A**–**G**: first mistake in line $1,\dots,7$ (and the statement is false) &nbsp;
 **H** the proof is valid and the statement is true
@@ -1436,13 +1466,13 @@ of $6$ &nbsp; **G** $n$ is $2$ more than a multiple of $4$
 **Four small values settle it** (fact 10). For $n=1,2,3,4$ the values of $n^{3}+5n$ are
 $$6,\qquad 18,\qquad 42,\qquad 84 ,$$
 and only $n=4$ gives a multiple of $12$. A **necessary** condition must be satisfied by $n=4$ — which kills
-**A** ($4$ is not $1$ more than a multiple of $4$), **B** ($4$ is even), **D** ($3\nmid4$), **F** ($6\nmid4$)
+**A** ($4$ is not $1$ more than a multiple of $4$), **B** ($4$ is even), **D** ($3$ does not divide $4$), **F** ($6$ does not divide $4$)
 and **G** ($4$ is not $2$ more than a multiple of $4$).
 
 That leaves **C** and **E**, and $n=2$ separates them: $2$ is even but $2^{3}+10=18$ is not a multiple of
 $12$. So **C is necessary but not sufficient** — which is what was asked.
 
-*For completeness:* $n^{3}+5n=n\left(n^{2}+5\right)$ is divisible by $12$ **exactly** when $4\mid n$, so
+*For completeness:* $n^{3}+5n=n\left(n^{2}+5\right)$ is divisible by $12$ **exactly** when $4$ divides $n$, so
 **E** is the necessary-**and**-sufficient condition — the right answer to a different question.
 
 **Note E implies C.** Had E been the intended answer, C would be necessary too and the question would have
@@ -1477,11 +1507,11 @@ Which are true? &nbsp; **A** I only &nbsp; **B** II only &nbsp; **C** III only &
 $\lnot\forall n\,(H\Rightarrow C)=\exists n\,(H\text{ and }\lnot C)$. So **exactly one** of II and III is
 true — which alone eliminates **B**, **C**, **D** and **G**, each of which keeps or drops both.
 
-**I — true.** $12=2^{2}\cdot3$, so $12\mid n^{2}$ gives $3\mid n^{2}$ and $4\mid n^{2}$. As $3$ is prime,
-$3\mid n^{2}\Rightarrow3\mid n$; and $4\mid n^{2}$ forces $n$ even. Having both factors, $6\mid n$. ✓
+**I — true.** $12=2^{2}\cdot3$, so $12$ divides $n^{2}$ gives $3$ divides $n^{2}$ and $4$ divides $n^{2}$. As $3$ is prime,
+$3\text{ divides } n^{2}\Rightarrow3\text{ divides } n$; and $4\text{ divides }n^{2}$ forces $n$ even. Having both factors, $6\text{ divides }n$. ✓
 
-**II — false, III — true**, on the same example: $n=6$ gives $n^{2}=36=12\times3$, so $12\mid n^{2}$, yet
-$12\nmid6$.
+**II — false, III — true**, on the same example: $n=6$ gives $n^{2}=36=12\times3$, so $12$ divides $n^{2}$, yet
+$12$ does not divide $6$.
 
 *Why I works and II does not (fact 3):* squaring **doubles** every exponent, so $n^{2}$ carrying $2^{2}$
 only forces $n$ to carry $2^{1}$. You recover $6=2\times3$, never the second factor of $2$.

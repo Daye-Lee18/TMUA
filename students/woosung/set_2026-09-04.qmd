@@ -78,7 +78,7 @@ geometry or a polygon-area** question. That is the loudest single signal in the 
 | **14** | **$y=-\tfrac13x^3+a^2x+a$, local min in 2nd quadrant** | A | **⚠** | **[Diff clinic](../../lessons/differentiation_clinic/class_material.qmd)** §2 — stationary point + sign of $y''$ |
 | 15 | Regular tetrahedron shortest surface path | C $3\sqrt{13}$ | ✓ (slow) | 3-D unfolding |
 | 16 | Safe-levers logic (contrapositive) | D | ✓ | logic |
-| 17 | Proof "$n\nmid k!$ ⇒ prime", first error line 7 | G | ✓ | proof |
+| 17 | Proof "$n$ does not divide $k!$ ⇒ prime", first error line 7 | G | ✓ | proof |
 | **18** | **System $\log_a b=c,\ \log_b c=a,\ \log_c a=b$** | B? | **⚠** | **[Log clinic](../../lessons/log_clinic/class_material.qmd)** — chain the logs, $abc$ |
 | **19** | **$\int_0^{20}\lceil x\rceil\,2^{\lceil x\rceil}\,dx$** | F | **✗/⚠** | **[Floor & ceiling](../../lessons/floor_ceiling_clinic/class_material.qmd)** — step integral, not by-parts |
 | 20 | Trig equation, count 16 solutions in interval | F 901 | ✓ | trig counting |

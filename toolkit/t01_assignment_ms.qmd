@@ -37,8 +37,8 @@ $p$ to be \_\_\_, else \_\_\_; (c) remainder condition; (d) a composite $N$ has 
 **(a) $6n\pm1$; smallest counterexample $25$. (B1)** *($25=6(4)+1$ is of the right form and is not prime.
 Accept $35$ or $49$.)* The implication runs prime $\Rightarrow6n\pm1$, **never** backwards.
 
-**(b) Prime; $4\mid2\times2$ but $4\nmid2$. (B1)** *Accept any composite $a$ with $a\mid bc$, $a\nmid b$,
-$a\nmid c$ — but $a=4,b=c=2$ is the smallest.*
+**(b) Prime; $4$ divides $2\times2$ but $4$ does not divide $2$. (B1)** *Accept any composite $a$ with $a$ divides $bc$, $a$ does not divide $b$,
+$a$ does not divide $c$ — but $a=4,b=c=2$ is the smallest.*
 
 **(c) $0\le r<a$. (B1)** The size condition is half the definition; without it $r$ is merely "something
 left over".
@@ -53,14 +53,14 @@ left over".
 ## Question 2 **[4]**
 
 ::: {.question}
-True or false, with a counterexample for each false one: (a) $12\mid n^2\Rightarrow12\mid n$;
+True or false, with a counterexample for each false one: (a) $12\text{ divides } n^2\Rightarrow12\text{ divides } n$;
 (b) $n^2\equiv2\pmod3$ possible; (c) irreducible $\Rightarrow$ prime values; (d) $\gcd(n,n+1)=1$.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Answer
 
-**(a) False. (B1)** $n=6$: $n^{2}=36=12\times3$, yet $12\nmid6$. *Squaring doubles exponents, so $n^{2}$
+**(a) False. (B1)** $n=6$: $n^{2}=36=12\times3$, yet $12$ does not divide $6$. *Squaring doubles exponents, so $n^{2}$
 carrying $2^{2}\cdot3$ only forces $n$ to carry $2\cdot3$.*
 
 **(b) False. (B1)** Squares are $0$ or $1$ mod $3$ — never $2$. *(Residues: $0^2=0$, $1^2=1$,
@@ -81,7 +81,7 @@ $3x^{2}+3x+1$ at $x=5$, giving $91=7\times13$.*
 ## Question 3 **[4]**
 
 ::: {.question}
-(a) Show $12\mid n^{2}\iff6\mid n$. (b) Hence a value with $12\mid n^{2}$ but $12\nmid n$.
+(a) Show $12\text{ divides } n^{2}\iff6\text{ divides } n$. (b) Hence a value with $12\text{ divides }n^{2}$ but $12\text{ does not divide }n$.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
@@ -89,24 +89,24 @@ $3x^{2}+3x+1$ at $x=5$, giving $91=7\times13$.*
 
 ### (a) **[3]**
 
-**($\Leftarrow$) (M1)** If $6\mid n$, write $n=6m$. Then $n^{2}=36m^{2}=12\left(3m^{2}\right)$, so
-$12\mid n^{2}$. ✓
+**($\Leftarrow$) (M1)** If $6$ divides $n$, write $n=6m$. Then $n^{2}=36m^{2}=12\left(3m^{2}\right)$, so
+$12$ divides $n^{2}$. ✓
 
-**($\Rightarrow$) (M1 A1)** Suppose $12\mid n^{2}$, i.e. $2^{2}\cdot3\mid n^{2}$.
+**($\Rightarrow$) (M1 A1)** Suppose $12$ divides $n^{2}$, i.e. $2^{2}\cdot3$ divides $n^{2}$.
 
-- $3$ is **prime** and $3\mid n^{2}$, so $3\mid n$ *(Euclid's lemma — fact 2)*.
-- $4\mid n^{2}$ forces $n$ to be even: if $n$ were odd, $n^{2}$ would be odd. So $2\mid n$.
+- $3$ is **prime** and $3$ divides $n^{2}$, so $3$ divides $n$ *(Euclid's lemma — fact 2)*.
+- $4$ divides $n^{2}$ forces $n$ to be even: if $n$ were odd, $n^{2}$ would be odd. So $2$ divides $n$.
 
-Having both $2\mid n$ and $3\mid n$ with $\gcd(2,3)=1$ gives $6\mid n$. ∎
+Having both $2$ divides $n$ and $3$ divides $n$ with $\gcd(2,3)=1$ gives $6$ divides $n$. ∎
 
-*Accept the exponent argument instead:* $n^{2}$ carries only even powers, so $2^{2}\mid n^{2}$ needs just
-$2^{1}\mid n$, and $3^{1}\mid n^{2}$ needs $3^{1}\mid n$ (since the power in $n^2$ is even and at least 1,
+*Accept the exponent argument instead:* $n^{2}$ carries only even powers, so $2^{2}$ divides $n^{2}$ needs just
+$2^{1}$ divides $n$, and $3^{1}$ divides $n^{2}$ needs $3^{1}$ divides $n$ (since the power in $n^2$ is even and at least 1,
 hence at least 2).
 
 ### (b) **[1]**
 
 **$n=6$. (B1)** $n^{2}=36$ is divisible by $12$, but $6$ is not. *(Accept $18$, $30$, any $6k$ with
-$12\nmid6k$.)*
+$12$ does not divide $6k$.)*
 :::
 
 ---
@@ -213,7 +213,7 @@ sufficient one — so it can only ever *disprove* primality.
 ## Question 7 **[4]**
 
 ::: {.question}
-(a) Prove $6\mid n^{3}-n$. (b) "It factorises, so it is never prime" — is the conclusion true? Is the
+(a) Prove $6$ divides $n^{3}-n$. (b) "It factorises, so it is never prime" — is the conclusion true? Is the
 argument sound?
 :::
 
@@ -251,7 +251,7 @@ validate the reasoning.
 ## Question 8 **[4]**
 
 ::: {.question}
-$p$ prime, $p>3$. (a) Why is $p$ odd and not a multiple of $3$? (b) Prove $24\mid p^{2}-1$.
+$p$ prime, $p>3$. (a) Why is $p$ odd and not a multiple of $3$? (b) Prove $24$ divides $p^{2}-1$.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
@@ -259,8 +259,8 @@ $p$ prime, $p>3$. (a) Why is $p$ odd and not a multiple of $3$? (b) Prove $24\mi
 
 ### (a) **[1]**
 
-**(B1)** $p>3$ and prime, so its only divisors are $1$ and $p$. If $2\mid p$ then $p=2$, contradiction;
-if $3\mid p$ then $p=3$, contradiction. So $p$ is odd and $3\nmid p$.
+**(B1)** $p>3$ and prime, so its only divisors are $1$ and $p$. If $2$ divides $p$ then $p=2$, contradiction;
+if $3$ divides $p$ then $p=3$, contradiction. So $p$ is odd and $3$ does not divide $p$.
 
 ### (b) **[3]**
 
@@ -270,9 +270,9 @@ if $3\mid p$ then $p=3$, contradiction. So $p$ is odd and $3\nmid p$.
 consecutive evens is divisible by $4$, so their product carries $2\times4=8$.
 
 **The factor $3$. (A1)** One of the three consecutive integers is divisible by $3$; by (a) it is not $p$,
-so it is $p-1$ or $p+1$ — either way $3\mid(p-1)(p+1)$.
+so it is $p-1$ or $p+1$ — either way $3$ divides $(p-1)(p+1)$.
 
-Since $\gcd(8,3)=1$, we get $24\mid p^{2}-1$. ∎
+Since $\gcd(8,3)=1$, we get $24$ divides $p^{2}-1$. ∎
 
 *Check:* $p=5\Rightarrow24$; $p=7\Rightarrow48$; $p=11\Rightarrow120$; $p=13\Rightarrow168$ — all
 multiples of $24$. ✓

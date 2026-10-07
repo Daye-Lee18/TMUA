@@ -794,11 +794,11 @@ Which of the statements are true?
 true — which immediately rules out options **B**, **C**, **D** and **G** *(they either keep both or drop
 both)*.
 
-- **I — true.** $12=2^{2}\times3$, so $12\mid n^{2}$ gives $3\mid n^{2}$ and $4\mid n^{2}$. Since $3$ is
-  **prime**, $3\mid n^{2}$ forces $3\mid n$; and $4\mid n^{2}$ forces $n$ to be even, so $2\mid n$. Having
-  both factors, $6\mid n$. ✓
+- **I — true.** $12=2^{2}\times3$, so $12$ divides $n^{2}$ gives $3$ divides $n^{2}$ and $4$ divides $n^{2}$. Since $3$ is
+  **prime**, $3$ divides $n^{2}$ forces $3$ divides $n$; and $4$ divides $n^{2}$ forces $n$ to be even, so $2$ divides $n$. Having
+  both factors, $6$ divides $n$. ✓
 - **II — false**, and **III — true**, on the same single example: $n=6$ gives $n^{2}=36=12\times3$, so
-  $12\mid n^{2}$, yet $12\nmid6$.
+  $12$ divides $n^{2}$, yet $12$ does not divide $6$.
 
 *Why I works but II does not:* squaring **doubles** every exponent, so $n^{2}$ carrying $2^{2}$ only forces
 $n$ to carry $2^{1}$. You recover $6=2\times3$, never the second factor of $2$ needed for $12$.

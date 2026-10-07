@@ -572,7 +572,7 @@ $$m=\frac{6n}{8-n}.$$
 | 6 | $18$ | **yes** |
 | 7 | $42$ | **yes** |
 
-*The case $n=3$ fails only because $5\nmid18$; nothing geometric rules it out, which is why every case has to
+*The case $n=3$ fails only because $5$ does not divide $18$; nothing geometric rules it out, which is why every case has to
 be tested rather than guessed.*
 
 The four pairs are

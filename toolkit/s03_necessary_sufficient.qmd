@@ -1100,8 +1100,8 @@ successful case immediately eliminates
 
 - **A:** $4$ is not $1$ more than a multiple of $4$;
 - **B:** $4$ is not odd;
-- **D:** $3\nmid4$;
-- **F:** $6\nmid4$;
+- **D:** $3$ does not divide $4$;
+- **F:** $6$ does not divide $4$;
 - **G:** $4$ is not $2$ more than a multiple of $4$.
 
 Only **C** and **E** remain. Now use $n=2$: it is even, but
@@ -1118,9 +1118,9 @@ $\gcd(3,4)=1$, we test divisibility by $3$ and by $4$ separately.
 **1. Divisibility by $3$ is automatic.** Because $5\equiv-1\pmod3$,
 $$n^3+5n\equiv n^3-n=n(n-1)(n+1)\pmod3.$$
 The product contains three consecutive integers, so one of them is divisible by $3$. Hence
-$$3\mid n^3+5n\qquad\text{for every integer }n.$$
+$$3\text{ divides } n^3+5n\qquad\text{for every integer }n.$$
 
-**2. Divisibility by $4$ occurs exactly when $4\mid n$.** Every integer leaves one of the four remainders
+**2. Divisibility by $4$ occurs exactly when $4$ divides $n$.** Every integer leaves one of the four remainders
 $0,1,2,3$ when divided by $4$. In other words, every integer has exactly one of the forms
 $$n=4k,\qquad4k+1,\qquad4k+2,\qquad4k+3.$$
 It is therefore enough to test these four possible remainders. Since $5\equiv1\pmod4$,
@@ -1136,14 +1136,14 @@ Now substitute each possible remainder:
 
 The expression is divisible by $4$ only in the first row, when $n$ itself leaves remainder $0$ on division
 by $4$. Therefore
-$$4\mid n^3+5n\quad\Longleftrightarrow\quad n\equiv0\pmod4
-\quad\Longleftrightarrow\quad4\mid n.$$
+$$4\text{ divides }n^3+5n\quad\Longleftrightarrow\quad n\equiv0\pmod4
+\quad\Longleftrightarrow\quad4\text{ divides }n.$$
 
 For example, $7\equiv3\pmod4$, so it belongs to the final row; without calculating the full value, we know
 $7^3+5(7)\equiv2\pmod4$ and is therefore not divisible by $4$.
 
 Combining the two parts,
-$$\boxed{12\mid n^3+5n\quad\Longleftrightarrow\quad4\mid n.}$$
+$$\boxed{12\text{ divides } n^3+5n\quad\Longleftrightarrow\quad4\text{ divides } n.}$$
 
 So **E** is necessary and sufficient. Every multiple of $4$ is even, so **C** is necessary; but $n=2$
 shows that C is not sufficient. Hence the required necessary-but-not-sufficient condition is
