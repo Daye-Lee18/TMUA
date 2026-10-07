@@ -118,7 +118,7 @@ For a quadrilateral, these conditions work in **both directions**:
 | diagonals bisect each other **and are equal** | rectangle *(possibly a square)* |
 | diagonals bisect each other **and are perpendicular** | rhombus *(possibly a square)* |
 | diagonals bisect each other, are equal **and** perpendicular | square |
-| **one** diagonal perpendicularly bisects the other | kite *(possibly a rhombus or square)* |
+| [**one** diagonal perpendicularly bisects the other]{.hl} | kite *(possibly a rhombus or square)* |
 
 For example,
 $$\text{diagonals bisect each other}\iff\text{the quadrilateral is a parallelogram}.$$
@@ -173,6 +173,9 @@ That information can describe an isosceles trapezium, so it does not force a par
 ::: {.fs-card}
 ### 5 · [SSS · SAS · ASA · AAS · RHS are criteria — **SSA is not**]{.hl}
 
+**These are triangle-congruence criteria:** each gives enough information to prove that two triangles have
+the same shape and size.
+
 **Criteria:** SSS · SAS · ASA · AAS · RHS.
 
 **RHS** means **Right angle–Hypotenuse–Side**: two right-angled triangles are congruent if their
@@ -180,6 +183,21 @@ hypotenuses and one pair of corresponding sides are equal.
 
 **SSA is not a criterion.** Two sides and a *non-included* angle can give **two** different triangles — the
 ambiguous case.
+
+For the standard **acute-angle SSA** setup, let $A$ be the known angle, $b$ the known side adjacent to it,
+$a$ the known side opposite it, and $h=b\sin A$ the perpendicular height. Then:
+
+| comparison | number of triangles |
+|---|:---:|
+| $a<h$ | **0** |
+| $a=h$ | **1** *(right triangle)* |
+| $h<a<b$ | **2** *(ambiguous case)* |
+| $a\ge b$ | **1** |
+
+![SSA number line: zero triangles for a less than h, one at a equals h, two between h and b, and one for a at least b.](assets/t02-ssa-number-line.svg){.shape-diagram fig-alt="Number line dividing the acute SSA case into zero, one, two and one-triangle regions"}
+
+Here $b$ is the fixed known side, **not necessarily a hypotenuse**. It is a hypotenuse only in the boundary
+case $a=h$, where the unique triangle is right-angled.
 
 ![SSA ambiguous case: the same base, side length and starting angle can place the third vertex in two different positions.](assets/t02-ssa.svg){.shape-diagram fig-alt="Two possible triangles satisfying the same SSA information"}
 
@@ -401,26 +419,15 @@ Working
 
 # Part 3 — Where the real questions live
 
-Every appearance of this slot, 2016–2023 — **all 8 are written out below the table** with full solutions
-in toggles. The table is the index.
-
-| Sitting | Question | Reasoning type | Answer | Key fact |
-|---|---|---|---|---|
-| **2016** | **Q9** two triangles, equal areas | which conditions give congruence | **D** | cards 5, 6 |
-| **2018** | **Q5** quadrilateral, perpendicular diagonals | which is necessarily true | **A** | card 9 |
-| **2019** | **Q10** conditions for a parallelogram | necessary / sufficient | **A** | cards 2, 4 |
-| **2020** | **Q7** parallelogram $\to$ square | sufficient | **H** | cards 2, 3 |
-| **2021** | **Q18** triangle with $AB=1$, $\sin A=x$, $\sin B=y$ | how many are possible | **C** | cards 5, 6 |
-| **2022** | **Q11** kite, right angle at $SPQ$ | necessary **and** sufficient | **C** | card 3 |
-| **2022** | **Q19** $n$-gon in a circle, equal areas | sufficient | **B** | card 8 |
-| **2023** | **Q9** pentagon, one angle $108^\circ$ | statement · contrapositive · converse | **D** | card 7 → **[S2 Q11](s02_converse_contrapositive.qmd)** |
+This slot has appeared in every sitting from 2016 to 2023. All eight are written out below with full
+solutions in toggles, followed by four harder questions from other exams that test the same reasoning.
 
 ---
 
 ## Work these in class
 
-All 8 questions from the table above, in full. Attempt each before opening its solution; the facts or
-cards it needs are named at the top of the answer.
+Attempt each before opening its solution; the facts or cards it needs are named at the top of the answer.
+
 ### Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q10</span>
 
 ::: {.question}
@@ -805,6 +812,245 @@ other. Only the contrapositive carries all of it.
 Working
 :::
 
+---
+
+## Part 3b — The same reasoning in other exams
+
+The TMUA is not the only paper that hides shape facts inside a logic question. These four are harder than
+the eight above and are worth the time: each one is settled by a card from the top of this page plus a
+single counterexample.
+
+### Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q20</span>
+
+::: {.question}
+A quadrilateral is **convex** if each of its interior angles is less than $180^\circ$. Let $ABCD$ be a convex
+quadrilateral with its vertices labelled in order. A quadrilateral is a **rhombus** if all four of its sides
+are equal in length.
+
+Which of the following statements, **taken individually**, are sufficient to guarantee that $ABCD$ is a
+rhombus?
+
+&nbsp;&nbsp;**1.** $AB=AD$, and the diagonals $AC$ and $BD$ intersect at right angles.
+
+&nbsp;&nbsp;**2.** $AB=CD$, and the diagonals $AC$ and $BD$ divide $ABCD$ into four **similar** triangles.
+
+&nbsp;&nbsp;**3.** The diagonals $AC$ and $BD$ divide $ABCD$ into four similar triangles.
+
+&nbsp;&nbsp;**4.** The diagonal $AC$ divides $ABCD$ into two triangles, and the diagonal $BD$ divides
+$ABCD$ into two triangles, with all four of these triangles having the same area.
+
+&nbsp;&nbsp;**5.** $AB=BC=CD$, and the triangles $ABC$ and $BCD$ are congruent.
+
+&nbsp;&nbsp;**A** Only 1. &nbsp;&nbsp;**B** Only 2. &nbsp;&nbsp;**C** Only 4. &nbsp;&nbsp;**D** Only 5.
+&nbsp;&nbsp;**E** Only 1 and 3. &nbsp;&nbsp;**F** Only 2 and 3. &nbsp;&nbsp;**G** Only 2 and 4.
+&nbsp;&nbsp;**H** Only 3 and 4. &nbsp;&nbsp;**I** Only 5 and 1.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+*Cards 2, 3 and 9.* Four of the five fall to one counterexample each; only one survives.
+
+| | counterexample | why it kills the statement |
+|---|---|---|
+| **1** | $A(1,0)$, $B(0,1)$, $C(-2,0)$, $D(0,-1)$ | diagonals are the two axes, so they are perpendicular, and $AB=AD=\sqrt2$ — but $BC=CD=\sqrt5$, so it is a **kite**, not a rhombus |
+| **3** | two congruent $3$–$4$–$5$ triangles joined along the hypotenuse, legs matched to legs | a kite whose diagonals cut it into four similar triangles |
+| **4** | any non-square **rectangle**, e.g. $4\times1$ | each diagonal halves it, so all four triangles have the same area |
+| **5** | $A(-2,\sqrt3)$, $B(-1,0)$, $C(1,0)$, $D(2,\sqrt3)$ | $AB=BC=CD=2$ and $ABC\cong BCD$ by SSS (common $BC$, and $AC=BD=2\sqrt3$) — yet $AD=4$ |
+
+*Statement 1 is card 9 exactly: perpendicular diagonals alone force almost nothing. Statement 4 is the
+rectangle from card 2. Statement 5 is the sharpest of the four — three equal sides plus a congruence still
+leaves the fourth side free.*
+
+**Statement 2 is sufficient**, and it is the only one. Let the diagonals meet at $O$, with
+$OA=a$, $OB=b$, $OC=c$, $OD=d$.
+
+Triangles $AOB$ and $BOC$ are similar, and $\angle AOB$, $\angle BOC$ are **supplementary**. *Two similar
+non-degenerate triangles whose angles at $O$ add to $180^\circ$ must have both of those angles equal to
+$90^\circ$* — so the diagonals are perpendicular and all four small triangles are similar right-angled
+triangles.
+
+Now $AOB$ and $COD$ are similar right-angled triangles with equal hypotenuses, since $AB=CD$. So they are
+**congruent**, giving either $a=c$ and $b=d$, or $a=d$ and $b=c$.
+
+- If $a=c$ and $b=d$, then all four sides equal $\sqrt{a^{2}+b^{2}}$.
+- If $a=d$ and $b=c$, triangle $BOC$ has equal legs, so all four small triangles are isosceles right-angled
+  — and again all four sides are equal.
+
+Either way $ABCD$ is a rhombus. **B**
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+### Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q14</span>
+
+::: {.question}
+The two diagonals of the convex quadrilateral $Q$ have **equal length**. Consider the following statements.
+
+&nbsp;&nbsp;**(I)** The four midpoints of the sides of $Q$ are the vertices of a rhombus.
+
+&nbsp;&nbsp;**(II)** At least one pair of opposite sides of $Q$ is parallel.
+
+&nbsp;&nbsp;**(III)** $Q$ has at least one line of symmetry.
+
+&nbsp;&nbsp;**(IV)** With $A,B,C,D$ the vertices in order, $AB^{2}+CD^{2}=BC^{2}+DA^{2}$.
+
+Which of these are **necessarily true** for $Q$?
+
+&nbsp;&nbsp;**A** (I) only &nbsp;&nbsp;**B** (I) and (II) only &nbsp;&nbsp;**C** (I) and (III) only
+&nbsp;&nbsp;**D** (II) and (IV) only &nbsp;&nbsp;**E** (II) and (III) only &nbsp;&nbsp;**F** (I) and (IV) only
+&nbsp;&nbsp;**G** (I), (III) and (IV) only &nbsp;&nbsp;**H** (II), (III) and (IV) only
+&nbsp;&nbsp;**I** all of them &nbsp;&nbsp;**J** none of them
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(I) is true, and the reason is worth knowing.** Let $E,F,G,H$ be the midpoints of $AB$, $BC$, $CD$, $DA$.
+By the midpoint theorem,
+
+$$\overrightarrow{EF}=\tfrac12\overrightarrow{AC},\qquad
+\overrightarrow{FG}=\tfrac12\overrightarrow{BD},\qquad
+\overrightarrow{GH}=-\tfrac12\overrightarrow{AC},\qquad
+\overrightarrow{HE}=-\tfrac12\overrightarrow{BD}.$$
+
+*Opposite sides of $EFGH$ are equal and parallel, so $EFGH$ is a parallelogram — this much is true for **any**
+quadrilateral.* Here $EF=\tfrac12AC$ and $FG=\tfrac12BD$, and the diagonals are equal, so $EF=FG$: adjacent
+sides are equal and the parallelogram is a **rhombus**.
+
+**(II) and (III) are not forced.** *Draw the two diagonals first, as two equal segments crossing anywhere at
+any angle, then join the four endpoints — nothing in that construction makes a pair of sides parallel or
+creates an axis of symmetry.*
+
+**(IV) is not forced.** Take $A(0,0)$, $B(1,-1)$, $C(5,0)$, $D(4,3)$, which is convex with
+$AC=BD=5$. Then
+
+$$AB^{2}+CD^{2}=2+10=12,\qquad BC^{2}+DA^{2}=17+25=42 .$$
+
+**A**
+
+*The trap is (III): equal diagonals feel symmetric, and the isosceles trapezium — the standard example — does
+have an axis. But "has an example with the property" is not "every example has it", which is card 2's habit
+applied to a new shape.*
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+### Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q11</span>
+
+::: {.question}
+In triangle $ABC$, $\angle A=30^\circ$, $AB=2x^{2}$ and $BC=3x$, where $x>0$. Suppose that there are exactly
+**two non-congruent** triangles satisfying these conditions. Which of the following can be **deduced**?
+
+&nbsp;&nbsp;**A** $2<x<\tfrac72$ &nbsp;&nbsp;**B** $\tfrac53<x<5$ &nbsp;&nbsp;**C** $1<x<4$
+&nbsp;&nbsp;**D** $\tfrac12<x<\tfrac52$ &nbsp;&nbsp;**E** $0<x<2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+*Card 5 — SSA is not a congruence criterion, and "exactly two triangles" is the ambiguous case.*
+
+With $\angle A$ given and the side $BC$ **opposite** it, the distance from $B$ to the ray $AC$ is
+
+$$h=AB\sin A=2x^{2}\cdot\tfrac12=x^{2}.$$
+
+Two non-congruent triangles exist exactly when $h<BC<AB$:
+
+$$x^{2}<3x<2x^{2}.$$
+
+Since $x>0$, the left inequality gives $x<3$ and the right gives $x>\tfrac32$, so the **exact** condition is
+
+$$\tfrac32<x<3 .$$
+
+**That is not one of the options, and it is not meant to be.** The question asks what can be *deduced* — a
+**necessary** condition — so the answer is the option whose interval **contains** $\left(\tfrac32,3\right)$:
+
+| | interval | contains $\left(\tfrac32,3\right)$? |
+|---|---|---|
+| **A** | $\left(2,\tfrac72\right)$ | no — misses $x=1.6$ |
+| **B** | $\left(\tfrac53,5\right)$ | no — misses $x=1.55$ |
+| **C** | $(1,4)$ | **yes** |
+| **D** | $\left(\tfrac12,\tfrac52\right)$ | no — misses $x=2.6$ |
+| **E** | $(0,2)$ | no — misses $x=2.5$ |
+
+**C**
+
+*This is the S3 reading in disguise: a necessary condition is the **larger** set, so the right answer is the
+weakest true statement, not the sharpest one. Working out $\tfrac32<x<3$ and then looking for it among the
+options is how this question is usually lost.*
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+### Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2021 · Q1J</span>
+
+::: {.question}
+Four **distinct** real numbers $a$, $b$, $c$, $d$ define four points
+
+$$A=(a,b),\qquad B=(b,c),\qquad C=(c,d),\qquad D=(d,a).$$
+
+The quadrilateral $ABCD$ has all four sides the same length
+
+&nbsp;&nbsp;**(a)** if and only if $(a-b)^{2}=(c-d)^{2}$
+
+&nbsp;&nbsp;**(b)** if and only if $(a-c)^{2}=(b-d)^{2}$
+
+&nbsp;&nbsp;**(c)** if and only if $(a-d)^{2}=(b-c)^{2}$
+
+&nbsp;&nbsp;**(d)** if and only if $a-b+c-d=0$
+
+&nbsp;&nbsp;**(e)** for no values of $a$, $b$, $c$, $d$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Write $p=a-b$, $q=b-c$, $r=c-d$, $s=d-a$, so that
+
+$$p+q+r+s=0 .$$
+
+The four squared sides are
+
+$$AB^{2}=p^{2}+q^{2},\quad BC^{2}=q^{2}+r^{2},\quad CD^{2}=r^{2}+s^{2},\quad DA^{2}=s^{2}+p^{2},$$
+
+so all four are equal exactly when
+
+$$p^{2}=r^{2}\quad\text{and}\quad q^{2}=s^{2}.$$
+
+**Now use the word "distinct".** Suppose $p=r$. Then $a-b=c-d$, and
+
+$$a-c=p+q,\qquad q=s=-p \ \Rightarrow\ a-c=p-p=0,$$
+
+so $a=c$ — which the question forbids. *The branch $p=r$ is therefore unavailable, and the only way to have
+$p^{2}=r^{2}$ is $p=-r$.*
+
+And $p=-r$ is enough on its own: it forces $q+s=0$, hence $q^{2}=s^{2}$ as well. So
+
+$$\text{all four sides equal}\iff p+r=0\iff a-b+c-d=0 .$$
+
+**(d)**
+
+*Options (a) and (c) are each only **half** of the requirement, so each is necessary but not sufficient; (b)
+is neither; and (e) is refuted by $a,b,c,d=0,-1,-3,-2$, which gives four sides of length $\sqrt5$.*
+
+**Checked exhaustively:** over all $7920$ quadruples of distinct integers in $[-5,5]$, exactly $560$ give a
+rhombus, and condition (d) picks out precisely those $560$ — every other option mismatches somewhere.
+
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
 ---
 
 ::: {.callout-tip}
