@@ -12,19 +12,15 @@ execute:
 ::: {.callout-important}
 ## How to use this page
 
-The TMUA gives you **no formula booklet and no calculator**, so everything here has to be *recalled*.
-
-- **Part 1** is the reasoning core — sessions **S1–S7** compressed to what you must have automatic.
-  There is **no symbol notation on the test**; it is all in English sentences. The arrows here are a
-  thinking tool, not exam wording.
-- **Parts 2 and 3** are the two most stable topic families: **divisors and primes** and **plane shapes
-  asked as logical conditions**.
-- **Part 4** collects the recurring mathematical engines used to carry the logic: roots and graphs,
-  calculus, inequalities, transformations, trigonometry, sequences, integrals and coordinate geometry.
-- **Part 5** is the exam-day card.
-
-Cards marked ★ appear on almost every paper. For the Paper 1 mathematics (MM1–MM8), use the
-**[main formula sheet](paper1_formula_sheet.qmd)**.
+| Section | Use it for |
+|---|---|
+| **Before you start** | Recall everything: the TMUA provides **no formula booklet or calculator**. |
+| **Part 1 · S1–S7** | Make the reasoning core automatic. The exam uses English sentences; arrows here are thinking tools. |
+| **Parts 2–3** | Review two question types that frequently appear in Paper 2. |
+| **Part 4** | Refresh the recurring mathematical techniques used inside logic questions. |
+| **Part 5** | Use as your exam-day checklist. |
+| **★ cards** | Prioritise these; they appear on almost every paper. |
+| **Paper 1** | See the **[main formula sheet](paper1_formula_sheet.qmd)** for MM1–MM8. |
 :::
 
 ---
@@ -36,7 +32,7 @@ Cards marked ★ appear on almost every paper. For the Paper 1 mathematics (MM1�
 :::: {.fs-head}
 <div class="fs-kicker">TMUA · Paper 2 · Section 2 — Arg, Prf, Err</div>
 <div class="fs-title">Logic and proof — the whole of it</div>
-<div class="fs-sub">Seven cards. If you can reproduce these from memory you have the entire non-A-level content of Paper 2; everything else on the paper is Paper 1 mathematics wearing a logical wrapper.</div>
+<div class="fs-sub">Seven sessions. If you can reproduce these from memory you have the entire non-A-level content of Paper 2; everything else on the paper is Paper 1 mathematics wearing a logical wrapper.</div>
 ::::
 
 :::: {.fs-grid}
@@ -163,45 +159,35 @@ chain, so comparing them directly is slower and riskier.
 :::
 
 ::: {.fs-card}
-### S7 · Spot the error ★
+### S7 · The 20-second error scan ★
 
-Read downwards; stop at the **first** line that fails.
+1. **Name the target:** write the claim as $P\Rightarrow Q$.
+2. **Check the ends:** does the proof start from $P$ and reach $Q$ — or has it proved the converse?
+3. **Read one arrow at a time:** ask, *"Does this follow for every value still allowed?"*
+4. **Stop at the first false claim**, not the final absurdity it causes.
+5. **Stress-test the boundary:** try $0$, $1$, equality, the smallest case, and any excluded endpoint.
 
-1. **Small cases** — does it survive $n=1$, $x=0$, the empty case?
-2. **Dividing** — could the divisor be $0$? $ab=ac\Rightarrow b=c$ needs $a\neq0$.
-3. **Squaring** — invents roots; $\sqrt X<Y$ silently needs $Y>0$.
-4. **Reversing** — did it use the **converse** of what was proved?
-5. **For all vs there exists** — an example never proves a "for all".
-6. **$\sin A=\sin B\Rightarrow A=B$** is invalid.
-7. **Log with base $<1$ reverses the inequality.**
+Every line may be true but the **link** between two lines can still fail. A one-way step is not an error if
+it is stated only as a necessary condition; the error comes when it is treated as reversible.
 
-*Sometimes the honest answer is "no error".*
-
-[exactly 1–3 per paper, every year since 2016]{.eg}
+[do not force an error — sometimes the whole argument is valid]{.eg}
 :::
 ::: {.fs-card}
-### S7 ★ · When squaring *is* the error
+### S7 · High-risk moves ★
 
-Every line is **two-way** (same solution set) or **one-way** (every solution survives, but new ones may
-appear). Blame the **first line whose claim is false**.
-
-| one-way | two-way |
+| If you see… | Check immediately… |
 |---|---|
-| squaring, sign unknown | $+,-$; $\times\div$ by a non-zero **constant** |
-| $\times$ or $\div$ by an expression that could be $0$ | $\times\div$ by something **proved** positive |
-| $\sqrt{u^{2}}=u$ (true version: $\lvert u\rvert$) | applying a **strictly monotone** function |
-| $\sin A=\sin B\Rightarrow A=B$ | squaring when **both sides are known $\ge0$** |
+| **cancel / divide** | Can the divisor be $0$? Factor and split cases instead. |
+| **square / root** | Squaring may add roots; $\sqrt{u^2}=\lvert u\rvert$; check candidates in the original. |
+| **inequality** | Is the sign known? Negative multipliers and decreasing functions reverse the sign; $0<a<1$ makes $\log_a$ decreasing. |
+| **inverse or trig step** | Is the function one-to-one on the stated domain? $\sin A=\sin B\not\Rightarrow A=B$. |
+| **theorem or implication** | Are all hypotheses met, and is the arrow being used in the stated direction? |
+| **"for all" claim** | One valid counterexample destroys it; test exceptional and boundary cases. |
 
-**The wording decides it** — same algebra, two different right answers:
+**Wording controls equivalence.** "Is equivalent to" demands both directions. "Any solution must satisfy"
+claims only one direction; those values are **candidates**, not solutions, until checked.
 
-| the line says | error is at |
-|---|---|
-| "is **equivalent** to" | the **squaring** (it is not two-way) |
-| "any solution **must satisfy**" | the later "**the solutions are**" with no check |
-
-*If a sign condition was established earlier, squaring is **not** an error.*
-
-[full page: **[S7 extended](../toolkit/s07_extended_equivalence.qmd)** — six shapes with real mock questions]{.eg}
+[full notes: **[S7 concepts](../toolkit/s07_concepts.qmd)** · **[S7 extended](../toolkit/s07_extended_equivalence.qmd)**]{.eg}
 :::
 
 ::::
@@ -298,9 +284,10 @@ Every prime $>3$ is of the form $6n\pm1$, because $6n$, $6n\pm2$ and $6n+3$ all 
 ::: {.fs-card}
 ### Euclid's lemma — the missing word ★
 
-$$p\mid ab\;\Longrightarrow\;p\mid a\ \text{ or }\ p\mid b\qquad\textbf{only if }p\textbf{ is prime}$$
+**If $p$ divides $ab$, then $p$ divides $a$ or $p$ divides $b$** — *only if $p$ is prime.*
 
-**Drop "prime" and it collapses:** $4\mid2\times2$ but $4\nmid2$. Smallest counterexample $a=4,\ b=c=2$.
+**Drop "prime" and it collapses:** $4$ divides $2\times2$ but $4$ does not divide $2$. Smallest
+counterexample $a=4,\ b=c=2$.
 
 [2016 P2 Q13 and 2021 P2 Q4 are the *same* false statement — this is the word they removed]{.eg}
 :::
@@ -311,11 +298,10 @@ $$p\mid ab\;\Longrightarrow\;p\mid a\ \text{ or }\ p\mid b\qquad\textbf{only if 
 $n=p_1^{e_1}p_2^{e_2}\cdots\Rightarrow n^{2}=p_1^{2e_1}p_2^{2e_2}\cdots$, so $n^{2}$ carries only **even**
 powers.
 
-For a **prime** $p$: $p\mid n^{2}\Rightarrow p\mid n$. For a composite divisor you only recover its square
-root:
-$$12\mid n^{2}\iff 6\mid n\qquad(\textbf{not }12\mid n) .$$
+For a **prime** $p$: if $p$ divides $n^{2}$ then $p$ divides $n$. For a composite divisor you only recover
+its square root — **$12$ divides $n^{2}$ exactly when $6$ divides $n$**, *not* when $12$ divides $n$.
 
-**Counterexample:** $n=6$ gives $n^{2}=36=12\times3$, yet $12\nmid6$.
+**Counterexample:** $n=6$ gives $n^{2}=36=12\times3$, yet $12$ does not divide $6$.
 :::
 
 ::: {.fs-card}
@@ -335,12 +321,14 @@ A square is **never** $2\bmod3$ and **never** $3\bmod4$.
 ::: {.fs-card}
 ### The gcd toolkit
 
-$$\gcd(a,b)\mid a\pm b\qquad \gcd(a,\,b+ka)=\gcd(a,b)\qquad \gcd(n,\,n+1)=1$$
+**$\gcd(a,b)$ divides $a\pm b$**, and
+
+$$\gcd(a,\,b+ka)=\gcd(a,b)\qquad \gcd(n,\,n+1)=1$$
 
 If $\gcd(a,b)=d$ then $d$ divides **every** combination $xa+yb$ — which is why a common factor survives all
 the way down a recurrence.
 
-[$\gcd(a,b)=7$ with $u_{n+2}=u_n+u_{n+1}$ forces $7\mid u_n$ for every $n$]{.eg}
+[$\gcd(a,b)=7$ with $u_{n+2}=u_n+u_{n+1}$ forces $7$ to divide $u_n$ for every $n$]{.eg}
 :::
 
 ::: {.fs-card}
@@ -651,7 +639,7 @@ Write these at the top of your rough paper:
 2. $\;$ **contrapositive = equivalent; converse = trap**
 3. $\;$ $\lnot(P\Rightarrow Q)=P$ **and** $\lnot Q$
 4. $\;$ **rhombus · rectangle · isosceles trapezium** — the three counterexamples
-5. $\;$ $p\mid ab\Rightarrow p\mid a$ or $p\mid b$ — **only for prime $p$**
+5. $\;$ $p$ divides $ab$ $\Rightarrow$ $p$ divides $a$ or $p$ divides $b$ — **only for prime $p$**
 6. $\;$ $\sqrt{u^2}=|u|$ · $f'(a)=0$ is not automatically a turn · check every domain
 :::
 
