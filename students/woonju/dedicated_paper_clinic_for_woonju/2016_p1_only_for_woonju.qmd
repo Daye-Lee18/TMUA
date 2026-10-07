@@ -880,7 +880,17 @@ A path runs from $P$ to $M$ **across the two faces**.
 2. Use the formula for $a=20$ and $\lambda=\tfrac12$. *(This is the original Q20.)*
 3. Find the route length when $a=12$ and $OM=\tfrac13OR$.
 4. Find the route length when $a=18$ and $OM=\tfrac23OR$.
-5. Explain why measuring a straight line on the original 3D drawing does not solve a surface-distance problem.
+5. Go back to the **actual pyramid** of the exam question: square base $PQRS$, vertex $O$, every edge
+   $20$ m, and $M$ the midpoint of $OR$. Take the centre of the base as the origin, with the base in the
+   plane $z=0$.
+
+   &nbsp;&nbsp;**(a)** Show that the height of the apex is $10\sqrt2$, and write down coordinates for
+   $P$, $O$ and $M$.
+
+   &nbsp;&nbsp;**(b)** Find the **straight-line** distance from $P$ to $M$ through the interior of the solid.
+
+   &nbsp;&nbsp;**(c)** Compare it with the surface answer $10\sqrt7$, and say in one sentence which of the
+   two the question asked for and why the other is not an allowed route.
 :::
 
 
@@ -1007,12 +1017,40 @@ ax.set_aspect("equal"); ax.axis("off")
 plt.tight_layout(); plt.show()
 ```
 
-5. A straight line drawn on the 3D picture usually passes **through the inside** of the pyramid, and a path
-   is only allowed to run along the outer surface. *Unfolding is legal because it bends the solid only along
-   an edge: distances measured inside each face are unchanged, so a genuine surface route becomes a genuine
-   planar path — and the shortest planar path between two points is the straight segment.* The answer is only
-   valid once you also check that the segment crosses the shared edge $OQ$ **between** $O$ and $Q$, which it
-   does here for every $\lambda$ in $0<\lambda\le1$.
+5. **(a)** The base is a square of side $20$, so the distance from its centre to a vertex is
+   $\sqrt{10^{2}+10^{2}}=10\sqrt2$. *The apex sits directly above the centre, so that distance, the height
+   and the edge $OP=20$ form a right-angled triangle:*
+
+   $$h^{2}+\bigl(10\sqrt2\bigr)^{2}=20^{2}\quad\Longrightarrow\quad h^{2}=400-200=200,\qquad h=10\sqrt2 .$$
+
+   Hence, with $P$ and $R$ at opposite corners,
+
+   $$P=(-10,-10,0),\qquad O=\bigl(0,0,10\sqrt2\bigr),\qquad
+   M=\tfrac12(O+R)=\bigl(5,\,5,\,5\sqrt2\bigr).$$
+
+   **(b)**
+
+   $$
+   \begin{aligned}
+   PM^{2}&=(5-(-10))^{2}+(5-(-10))^{2}+\bigl(5\sqrt2-0\bigr)^{2}\\
+   &=15^{2}+15^{2}+50\\
+   &=500,
+   \end{aligned}
+   $$
+
+   so the straight-line distance is $\boxed{10\sqrt5}\approx22.36$ m.
+
+   **(c)** The straight line is **shorter**:
+
+   $$10\sqrt5\approx22.36\ <\ 10\sqrt7\approx26.46,$$
+
+   a saving of about $4.1$ m. *But that segment runs through the inside of the pyramid, and the question
+   asked for the shortest distance **along the outer surface** — a route an ant could walk. Being shorter is
+   exactly why it is the wrong answer: it is not a route at all.* The unfolding is legal by contrast because
+   it bends the solid only along the edge $OQ$, leaving every distance inside each face unchanged, so a
+   genuine surface route becomes a genuine planar path — and in the plane the shortest path is the straight
+   segment. That answer stands only once you also check the segment crosses $OQ$ **between** $O$ and $Q$,
+   which it does for every $\lambda$ with $0<\lambda\le1$.
 
 :::
 
