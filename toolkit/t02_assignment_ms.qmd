@@ -1,6 +1,6 @@
 ---
-title: "Toolkit T2 — Assignment · Mark Scheme"
-subtitle: "Tutor copy — questions with full solutions"
+title: "Toolkit T2 — Assignment Mark Scheme"
+subtitle: "Shapes as logical conditions — cross-exam questions"
 format: html
 execute:
   echo: false
@@ -9,317 +9,262 @@ execute:
 
 ::: {.solutions}
 
-Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
-
-::: {.callout-important}
-## What to watch while marking
-
-1. **Is every "not sufficient" attached to a named shape?** "It might not be a square" is not a
-   counterexample; "a rhombus that is not a square" is.
-2. **Did "necessary and sufficient" get two arguments?** One direction is half the question.
-3. **Question 4(b) and (c) are the pair that discriminates.** Equal diagonals alone is only necessary;
-   adding perpendicular makes it sufficient. Students who answer both the same way have not used the
-   diagonal table.
-:::
+Each item gives the **question first, then the answer**. Marks in brackets. **Total 34.**
 
 ---
 
-# Section A — Recall
+# Section A — As set
 
-## Question 1 **[4]**
+## Question 1 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2023 · Q1H</span>
 
 ::: {.question}
-(a) Complete the two implication chains. (b) Name the three standard counterexamples, with what each has
-and lacks.
+Which of these triangles has the largest area? **(a)** $10,10,1$ &nbsp; **(b)** $10,10,5$ &nbsp;
+**(c)** $10,10,10$ &nbsp; **(d)** $10,10,15$ &nbsp; **(e)** $10,10,19$. Give the letter, and say what the
+largest possible area of a triangle with two sides of length $10$ is, and which triangle achieves it.
 :::
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+Do **not** compute five areas. *The two sides of length $10$ are fixed, so use the enclosed-angle form of the
+area, where everything except the angle is constant:*
 
-### (a) **[2]**
+$$\text{area}=\tfrac12\cdot10\cdot10\cdot\sin\theta=50\sin\theta . \tag*{[1]}$$
 
-$$\text{square}\Rightarrow\text{rhombus}\Rightarrow\text{parallelogram}\Rightarrow\text{trapezium}\quad\textbf{(B1)}$$
-$$\text{square}\Rightarrow\text{rectangle}\Rightarrow\text{parallelogram}\quad\textbf{(B1)}$$
+This is largest when $\sin\theta=1$, i.e. $\theta=90^\circ$, giving a maximum area of $\boxed{50}$, achieved
+by the **right-angled isosceles** triangle — whose third side is $\sqrt{10^{2}+10^{2}}=10\sqrt2\approx14.14$.
+**[1]**
 
-*All arrows point one way.* A square is the only shape that is both a rhombus and a rectangle.
+So the winner is the option whose third side is closest to $10\sqrt2$, which is $15$: **(d)**. **[1]**
 
-### (b) **[2]**
+| third side | $1$ | $5$ | $10$ | $15$ | $19$ |
+|---|---|---|---|---|---|
+| area | $4.99$ | $24.21$ | $43.30$ | $\mathbf{49.61}$ | $29.66$ |
 
-**(B1)** for any two, **(B1)** for all three with the property named:
-
-| shape | has | lacks |
-|---|---|---|
-| **rhombus** (not square) | four equal sides; perpendicular diagonals | right angles; **equal** diagonals |
-| **rectangle** (not square) | four right angles; equal diagonals | equal sides; **perpendicular** diagonals |
-| **isosceles trapezium** | one pair parallel; the other pair equal | being a **parallelogram** |
-
-*These three answer most of the topic.* Learn them as a set.
-:::
+*Note that $19$ is nearly degenerate — the triangle is long and flat — which is why the largest third side
+does not give the largest area. Area is not monotonic in the base.*
 
 ---
 
-## Question 2 **[4]**
+## Question 2 **[8]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q20</span>
 
 ::: {.question}
-Name the shape each diagonal condition guarantees, and whether the condition is necessary, sufficient, or
-both.
+**Statement $P$:** $ABC$ is a right-angled triangle. Which are true? **(1)** $P$ iff $ABC$ can be split by a
+segment into two triangles each similar to $ABC$. **(2)** $P$ is necessary for $ABC$ to be splittable into
+two triangles whose areas, with $ABC$'s, form a geometric sequence with ratio $\neq1$. **(3)** $P$ is
+necessary for all four triangles made when a convex kite is cut by its diagonals. **(4)** $P$ is sufficient
+for $ABC$ to be determined up to congruence by its hypotenuse and the median to it. **(5)** $P$ iff four
+congruent copies of $ABC$ tile a rhombus edge-to-edge.
 :::
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+$$\boxed{\textbf{F} \quad\text{— (1) and (3) only}} \tag*{[1]}$$
 
-**(a) Parallelogram — necessary and sufficient. (B1)**
+**(1) True.** **[2]**
 
-**(b) Rectangle — necessary and sufficient. (B1)** *(Read "rectangle" inclusively: a square qualifies.)*
+*Forwards:* if $ABC$ is right-angled, the altitude from the right angle to the hypotenuse splits it into two
+triangles each similar to $ABC$ — *each new triangle shares one acute angle with $ABC$ and has a right angle,
+so all three angles match.*
 
-**(c) Rhombus — necessary and sufficient. (B1)**
+*Backwards:* the segment must join a vertex to a point on the opposite side, making two **supplementary**
+angles there. Both of those angles occur among the angles of $ABC$. *They cannot be two different angles of
+$ABC$, because any two angles of a triangle sum to less than $180^\circ$.* So they are equal, hence each is
+$90^\circ$, and $ABC$ is right-angled.
 
-**(d) Kite — necessary, not sufficient. (B1)** Perpendicular diagonals alone force nothing: place the four
-vertices at four **different** distances from the crossing point and the result is neither a kite nor a
-rhombus, and has no line of symmetry.
+**(2) False.** **[2]** Let the area of $ABC$ be $S$ and let $r>1$ satisfy $r^{2}=r+1$, i.e.
+$r=\tfrac{1+\sqrt5}{2}$. *A segment from a vertex to the opposite side can split a triangle in **any**
+prescribed area ratio, because the two pieces share the same height and their areas are proportional to the
+two parts of the base.* Split $ABC$ into pieces of area $\dfrac{S}{r^{2}}$ and $\dfrac{S}{r}$; these really do
+add to $S$, since
 
-**Marking.** (a)–(c) are rows of the diagonal table and are **iff** statements; (d) is the one that is not,
-because it drops the bisection half. Accept "at least a rectangle / rhombus" phrasing.
-:::
+$$\frac{1}{r^{2}}+\frac{1}{r}=\frac{1+r}{r^{2}}=\frac{r^{2}}{r^{2}}=1 .$$
+
+Then $\dfrac{S}{r^{2}},\ \dfrac{S}{r},\ S$ is geometric with ratio $r\neq1$. *This works for **any** triangle,
+so being right-angled is not necessary.*
+
+**(3) True.** **[1]** The diagonals of a convex kite are **perpendicular**, so each of the four triangles has
+a right angle where the diagonals cross.
+
+**(4) False.** **[1]** *In any right-angled triangle the midpoint of the hypotenuse is equidistant from all
+three vertices, so the median to the hypotenuse is always exactly half of it.* Knowing the hypotenuse
+therefore already tells you the median — it adds nothing — and the hypotenuse alone certainly does not fix the
+triangle. (See Question 5.)
+
+**(5) False.** **[1]** A counterexample is built in Question 6: four congruent copies of a triangle with sides
+$1,2,\sqrt7$ tile a rhombus of side $2$, and that triangle is not right-angled.
+
+*The shape of this question is worth noting: two of the five are settled by a construction you can draw, two
+by a standard fact, and only (1) needs an argument in both directions.*
 
 ---
 
-# Section B — Standard
+# Section B — The midpoint quadrilateral
 
-## Question 3 **[4]**
+## Question 3 **[10]**
 
 ::: {.question}
-(a) Show "$PQ=SR$ and $PS\parallel QR$" is not sufficient for a parallelogram, with coordinates.
-(b) The one-word change that makes it sufficient.
+$ABCD$ convex, $E,F,G,H$ the midpoints of $AB,BC,CD,DA$. **(a)** Show $EFGH$ is always a parallelogram with
+sides parallel to the diagonals and half their length. **(b)** $EFGH$ is a rhombus iff the diagonals of
+$ABCD$ are equal. **(c)** $EFGH$ is a rectangle iff the diagonals are perpendicular. **(d)** The condition
+for a square, and an $ABCD$ which is not a square but whose $EFGH$ is.
 :::
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+**(a)** *By the midpoint theorem applied to triangle $ABC$, the segment joining the midpoints of two sides is
+parallel to the third side and half its length:*
 
-### (a) **[3]**
+$$\overrightarrow{EF}=\tfrac12\overrightarrow{AC},\qquad
+\overrightarrow{FG}=\tfrac12\overrightarrow{BD},\qquad
+\overrightarrow{GH}=-\tfrac12\overrightarrow{AC},\qquad
+\overrightarrow{HE}=-\tfrac12\overrightarrow{BD}. \tag*{[2]}$$
 
-**A counterexample. (M1)** Take
-$$P=(0,0),\qquad Q=(5,1),\qquad R=(5,2),\qquad S=(0,3).$$
+Since $\overrightarrow{EF}=-\overrightarrow{GH}$, opposite sides are equal and parallel, so $EFGH$ is a
+parallelogram — **for every $ABCD$, with no condition at all**. **[1]**
 
-**Check the hypothesis. (A1)**
+**(b)** A parallelogram is a rhombus exactly when two **adjacent** sides are equal. Here
+$EF=\tfrac12AC$ and $FG=\tfrac12BD$, so **[2]**
 
-- $PQ=\sqrt{5^{2}+1^{2}}=\sqrt{26}$ and $SR=\sqrt{5^{2}+(-1)^{2}}=\sqrt{26}$ — **equal** ✓
-- $\vec{SP}=(0,-3)$ and $\vec{QR}=(0,1)$ are both vertical — **parallel** ✓
+$$EF=FG\iff \tfrac12AC=\tfrac12BD\iff AC=BD .$$
 
-**Check it is not a parallelogram. (A1)** The parallel sides have lengths $SP=3$ and $QR=1$. In a
-parallelogram opposite sides are equal, so this is an **isosceles trapezium**, not a parallelogram. ∎
+*Both directions come for free from that single chain of equivalences — which is why writing the lengths in
+terms of the diagonals is the whole of the work.* **[1]**
 
-*Accept any correct figure.* The essential feature is that the two **parallel** sides have different
-lengths while the other pair are equal.
+**(c)** A parallelogram is a rectangle exactly when two adjacent sides are **perpendicular**. Since $EF$ is
+parallel to $AC$ and $FG$ is parallel to $BD$, **[2]**
 
-### (b) **[1]**
+$$EF\perp FG\iff AC\perp BD .$$
 
-**(B1)** Change $PS\parallel QR$ to $\boxed{PQ\parallel SR}$ — the **same pair** that is equal must also be
-the parallel pair. "One pair both equal **and** parallel" does force a parallelogram.
+**(d)** A square is a rhombus **and** a rectangle, so the condition is that the diagonals of $ABCD$ are
+**equal in length and perpendicular**. **[1]**
 
-*That is the whole trap:* splitting "equal" and "parallel" across **different** pairs is what admits the
-trapezium.
-:::
+An example that is **not** a square is the kite
+
+$$A=(0,0),\qquad B=(1,2),\qquad C=(4,0),\qquad D=(1,-2).$$
+
+*Its diagonals are $AC$ along the $x$-axis and $BD$ along the line $x=1$: both have length $4$ and they are
+perpendicular, but they do not bisect each other, so the kite is not a square* — indeed
+$AB=DA=\sqrt5$ while $BC=CD=\sqrt{13}$.
+
+Its midpoint quadrilateral has all four sides $2$ and both diagonals $2\sqrt2$, so $EFGH$ **is** a square.
+**[1]**
+
+*The point: the conditions in (b), (c) and (d) are conditions on the **diagonals** of $ABCD$, and the
+diagonals say nothing about whether $ABCD$ itself is a nice shape.*
 
 ---
+
+# Section C — Deductions and constructions
 
 ## Question 4 **[4]**
 
 ::: {.question}
-Necessary, sufficient, both or neither, for a **parallelogram** to be a square: (a) four equal sides;
-(b) equal diagonals; (c) equal and perpendicular diagonals; (d) one angle $90^\circ$.
+$\angle A=30^\circ$, $AB=x^{2}$, $BC=2x$, $x>0$, with exactly two non-congruent triangles. **(a)** Find the
+exact set of $x$. **(b)** Which of **A** $1<x<5$, **B** $2<x<3$, **C** $3<x<5$, **D** $0<x<3$, **E** $x>3$
+can be deduced, and why not the others?
 :::
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+**(a)** *This is SSA: the given angle is not between the two given sides, so the number of triangles is
+decided by comparing $BC$ with the distance from $B$ to the ray $AC$.* That distance is
 
-**(a) Necessary, not sufficient. (B1)** A square does have four equal sides; but a **rhombus that is not a
-square** has them too and is not a square.
+$$h=AB\sin A=x^{2}\cdot\tfrac12=\tfrac{x^{2}}{2}. \tag*{[1]}$$
 
-**(b) Necessary, not sufficient. (B1)** A square has equal diagonals; but a **rectangle that is not a
-square** has them too.
+Two non-congruent triangles exist exactly when $h<BC<AB$: **[1]**
 
-**(c) Both. (B1)** Equal diagonals make the parallelogram a rectangle; perpendicular diagonals make it a
-rhombus; a shape that is both is a square. Conversely a square has equal, perpendicular diagonals. ✓
+$$\frac{x^{2}}{2}<2x<x^{2}.$$
 
-**(d) Necessary, not sufficient. (B1)** A square has right angles; but a non-square **rectangle** is a
-parallelogram with a right angle. *(In a parallelogram one right angle forces all four — which gives a
-rectangle, not a square.)*
+Since $x>0$ we may divide by $x$ throughout: the left gives $x<4$, the right gives $x>2$, so **[1]**
 
-**Marking — the discriminator.** (b) and (c) must be answered **differently**. A script giving the same
-verdict to both has not used the diagonal table: the second condition adds exactly the missing half.
-*Note also that (a) and (b) fail for **opposite** reasons, so they need **different** counterexamples —
-rhombus for (a), rectangle for (b).*
-:::
+$$\boxed{2<x<4}.$$
+
+**(b)** **A.** *"Can be deduced" asks for a **necessary** condition — a statement implied by $2<x<4$ — which
+means the option whose interval **contains** $(2,4)$.* Only $1<x<5$ does. **[1]**
+
+| | interval | contains $(2,4)$? |
+|---|---|---|
+| **A** | $(1,5)$ | **yes** |
+| **B** | $(2,3)$ | no — fails at $x=3.5$ |
+| **C** | $(3,5)$ | no — fails at $x=2.5$ |
+| **D** | $(0,3)$ | no — fails at $x=3.5$ |
+| **E** | $(3,\infty)$ | no — fails at $x=2.5$ |
+
+*B, C, D and E all overlap $(2,4)$, which is exactly the trap: overlapping is not containing. A value of $x$
+in $(2,4)$ but outside the option would make the "deduction" false.*
 
 ---
 
 ## Question 5 **[4]**
 
 ::: {.question}
-(a) The congruence criteria. (b) Why SSA is not one — find both $B$ for $A=30^\circ$, $a=5$, $b=7$.
-(c) Two triangles with sides $6$ and $8$ and equal areas — congruent?
+Prove that in any right-angled triangle the median to the hypotenuse is half the hypotenuse. Hence explain
+why the hypotenuse and that median together do not determine the triangle up to congruence, and give two
+non-congruent right-angled triangles with hypotenuse $10$.
 :::
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+**The proof.** Let the right angle be at $C$ and let $M$ be the midpoint of $AB$. *Thales' theorem says the
+circle with diameter $AB$ passes through every point from which $AB$ subtends a right angle — so $C$ lies on
+the circle with diameter $AB$, whose centre is $M$.* Hence **[2]**
 
-### (a) **[1]**
+$$MA=MB=MC=\tfrac12 AB .$$
 
-**SSS · SAS · ASA · AAS · RHS. (B1)** *(RHS = right angle, hypotenuse, side.)*
+*(Equivalently: draw through $M$ the lines parallel to the two legs; they cut the triangle into four congruent
+pieces and show $MC=MA=MB$ directly.)*
 
-### (b) **[2]**
+**Why the data is not enough.** The median is **always** $\tfrac12AB$, so once the hypotenuse is given, the
+median is forced and carries **no extra information**. *The two measurements are really one measurement, and
+one length cannot determine a triangle.* **[1]**
 
-**Set up the sine rule. (M1)**
-$$\frac{\sin B}{b}=\frac{\sin A}{a}\ \Longrightarrow\ \sin B=\frac{7\sin30^\circ}{5}=\frac{3.5}{5}=0.7 .$$
+Two non-congruent examples with hypotenuse $10$, and median $5$ in both: **[1]**
 
-**Both branches. (A1)** $\sin B=0.7$ gives
-$$B=44.43^\circ\qquad\text{or}\qquad B=180^\circ-44.43^\circ=135.57^\circ,$$
-and **both** are valid here, since $A+B<180^\circ$ in each case. The two triangles have
-$C=105.57^\circ$ and $C=14.43^\circ$, with third sides $c\approx9.63$ and $c\approx2.49$ — genuinely
-different triangles from the same SSA data. ∎
+$$\text{legs }6,\,8 \qquad\text{and}\qquad \text{legs }5\sqrt2,\,5\sqrt2 .$$
 
-### (c) **[1]**
-
-**No. (B1)** Equal areas give only $\tfrac12\cdot6\cdot8\sin C_1=\tfrac12\cdot6\cdot8\sin C_2$, i.e.
-$\sin C_1=\sin C_2$ — which allows $C_2=180^\circ-C_1$.
-
-*Concretely:* $C=30^\circ$ and $C=150^\circ$ both give area $12$, but the third side is
-$\sqrt{36+64-96\cos30^\circ}\approx4.11$ against $\sqrt{36+64-96\cos150^\circ}\approx13.53$.
-
-**Marking.** (b) and (c) are the same fact twice; accept either the numeric pair or the clean statement
-$\sin A=\sin B\iff B=A$ or $B=180^\circ-A$.
-:::
+*Both are right-angled with hypotenuse $10$, since $6^{2}+8^{2}=100$ and
+$\left(5\sqrt2\right)^{2}+\left(5\sqrt2\right)^{2}=100$. Their areas are $24$ and $25$, so they are not
+congruent.*
 
 ---
 
-## Question 6 **[4]**
+## Question 6 **[5]**
 
 ::: {.question}
-(a) Interior-angle sum and the regular interior angle. (b) Pentagon angles in AP — one must be $108^\circ$.
-(c) The $108^\circ$ statement and its converse.
+A rhombus has side $2$ and acute angle $60^\circ$. **(a)** Join the midpoints of one pair of opposite sides,
+then cut each piece along its longer diagonal; show this gives four congruent triangles filling the rhombus,
+and find their side lengths. **(b)** Show the triangle is not right-angled, and say which statement of
+Question 2 this disproves.
 :::
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+**(a)** Joining the midpoints of one pair of opposite sides cuts the rhombus into **two congruent
+parallelograms**, each with adjacent sides $1$ and $2$ — *the cut is parallel to the other pair of sides and
+halves them, so each piece has the rhombus's $60^\circ$ and $120^\circ$ angles.* **[1]**
 
-### (a) **[1]**
+Cutting a parallelogram along a diagonal always gives two congruent triangles, so all four are congruent and
+together they fill the rhombus exactly. **[1]**
 
-**(B1)** Sum $=(n-2)\times180^\circ$; regular interior angle $=180^\circ-\dfrac{360^\circ}{n}$.
+Taking the **longer** diagonal — the one opposite the $120^\circ$ angle — the triangle has sides $1$ and $2$
+enclosing $120^\circ$, and third side $d$ with **[1]**
 
-### (b) **[2]**
+$$d^{2}=1^{2}+2^{2}-2(1)(2)\cos120^\circ=1+4+2=7,$$
 
-**Write the AP symmetrically. (M1)** Let the five angles be
-$$a-2d,\quad a-d,\quad a,\quad a+d,\quad a+2d .$$
+so the side lengths are $\boxed{1,\ 2,\ \sqrt7}$.
 
-**Sum and solve. (A1)** The $\pm d$ and $\pm2d$ terms cancel, so the sum is $5a$. A pentagon's angles sum
-to $(5-2)\times180^\circ=540^\circ$, hence
-$$5a=540^\circ\ \Longrightarrow\ a=108^\circ .$$
-The **middle** angle is $108^\circ$ regardless of $d$. ∎
+**(b)** $1^{2}+2^{2}=5\neq7=\left(\sqrt7\right)^{2}$, so the converse of Pythagoras fails and the triangle is
+**not right-angled**. **[1]**
 
-### (c) **[1]**
+Four congruent copies of a non-right-angled triangle therefore tile a rhombus, which disproves the
+"**only if**" half of **statement (5)** in Question 2. **[1]**
 
-**(B1)** The statement is **false**, its converse is **true**.
-
-- *Statement false:* $100^\circ,102^\circ,108^\circ,110^\circ,120^\circ$ sums to $540^\circ$ and contains
-  $108^\circ$, but the differences $2,6,2,10$ are not constant.
-- *Converse true:* that is exactly part (b).
-
-*And since a statement and its contrapositive are equivalent, the contrapositive is false too.*
-:::
-
----
-
-# Section C — Stretch
-
-## Question 7 **[4]**
-
-::: {.question}
-(a) A rhombus with diagonals $6$ and $8$: area and side. (b) Prove a parallelogram with perpendicular
-diagonals is a rhombus.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-### (a) **[2]**
-
-**Area. (B1)** The diagonals of a rhombus are perpendicular and bisect each other, so it splits into four
-congruent right triangles with legs $3$ and $4$:
-$$\text{area}=4\times\tfrac12\cdot3\cdot4=24 \qquad\left(=\tfrac12 pq=\tfrac12\cdot6\cdot8\right).$$
-
-**Side. (B1)** Each side is the hypotenuse of a $3$–$4$ right triangle, so the side is $\sqrt{3^{2}+4^{2}}=5$.
-
-### (b) **[2]**
-
-**Set up. (M1)** In a parallelogram the diagonals **bisect each other**; call the crossing point $O$, so
-$AO=OC=p$ and $BO=OD=q$. Suppose also $AC\perp BD$.
-
-**Four congruent triangles. (A1)** Each side of the parallelogram is the hypotenuse of a right triangle
-with legs $p$ and $q$:
-$$AB=BC=CD=DA=\sqrt{p^{2}+q^{2}} .$$
-All four sides are equal, so the parallelogram is a **rhombus**. ∎
-
-*This is row 3 of the diagonal table, proved.* The same picture gives part (a) with $p=3$, $q=4$.
-:::
-
----
-
-## Question 8 **[4]**
-
-::: {.question}
-Polygon inscribed in a circle, centre inside, cut by radii into $n$ equal-area triangles.
-(a) Show each central angle is $\alpha$ or $180^\circ-\alpha$. (b) Hence regular for $n=3$ but not
-necessarily for $n=4$.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-### (a) **[2]**
-
-**Area of each triangle. (M1)** Two sides of each triangle are radii of length $r$, with included angle
-$\theta_i$, so
-$$\text{area}_i=\tfrac12r^{2}\sin\theta_i .$$
-
-**Equal areas. (A1)** Equal areas therefore mean $\sin\theta_1=\sin\theta_2=\cdots=\sin\theta_n$. Since
-each $\theta_i\in(0^\circ,180^\circ)$, and $\sin\theta=\sin(180^\circ-\theta)$, every $\theta_i$ equals a
-fixed $\alpha$ **or** $180^\circ-\alpha$. ∎
-
-### (b) **[2]**
-
-**$n=3$ forces regular. (B1)** Say $k$ of the three angles are $180^\circ-\alpha$ and $3-k$ are $\alpha$.
-Then
-$$k(180^\circ-\alpha)+(3-k)\alpha=360^\circ\ \Longrightarrow\ 180^\circ k+(3-2k)\alpha=360^\circ .$$
-- $k=0$: $3\alpha=360^\circ$, so $\alpha=120^\circ$ — all three equal. ✓
-- $k=1$: $\alpha=180^\circ$, impossible.
-- $k=2$: $180^\circ\cdot2=360^\circ$ forces the $\alpha$ terms to vanish, but $3-2k=-1\ne0$, giving
-  $\alpha=0^\circ$ — impossible.
-- $k=3$: $540^\circ-3\alpha=360^\circ$, so $\alpha=60^\circ$ and every angle is $120^\circ$ — the same
-  triangle again. ✓
-
-Every possibility gives three equal central angles, so the triangle is **equilateral**. ✓
-
-**$n=4$ does not. (B1)** Take $\theta=60^\circ,120^\circ,60^\circ,120^\circ$. These sum to $360^\circ$ and
-$\sin60^\circ=\sin120^\circ$, so all four triangles have equal area — yet the quadrilateral is **not** a
-square. ∎
-
-*Why $n=4$ escapes:* with $k=2$ the equation reads $360^\circ+0\cdot\alpha=360^\circ$, which holds for
-**every** $\alpha$ — the constraint disappears entirely. That degenerate case is the whole answer to
-**2022 P2 Q19**, where the answer is "$n=3$ only".
-:::
+*Note which half: the construction says nothing about whether right-angled triangles can tile a rhombus —
+it only shows that tiling one does not force a right angle.*
 
 ---
 
 ::: {.callout-tip}
-## The thread running through this paper
+## What this sheet was testing
 
-Questions 3, 4 and 8 are the same warning three times: **a condition that constrains one thing does not
-constrain the rest**. Equal sides say nothing about the angles; equal diagonals say nothing about
-perpendicularity; equal areas say nothing about which of two supplementary angles you have.
-
-That is why the counterexamples in Question 1(b) are worth memorising as a set — between them they answer
-most of this topic without any calculation at all.
+1. **Area is $\tfrac12ab\sin\theta$** — with two sides fixed it is the **angle** that is free, and it peaks
+   at $90^\circ$, not at the largest third side (Q1).
+2. **Named figures settle false statements.** A kite, a non-square rectangle, a $1,2,\sqrt7$ triangle — each
+   kills a statement in one line (Q2, Q6).
+3. **The midpoint quadrilateral turns diagonal facts into side facts**: equal diagonals give a rhombus,
+   perpendicular diagonals a rectangle, both a square (Q3).
+4. **"Can be deduced" means necessary, so the answer is the larger set** — overlapping is not containing
+   (Q4).
+5. **Watch for data that is secretly one number**: the median to the hypotenuse is determined by the
+   hypotenuse, so it adds nothing (Q5, and statement (4) of Q2).
 :::
 
 :::

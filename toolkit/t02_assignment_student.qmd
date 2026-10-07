@@ -1,6 +1,6 @@
 ---
 title: "Toolkit T2 — Assignment"
-subtitle: "Shapes as logical conditions"
+subtitle: "Shapes as logical conditions — cross-exam questions"
 format: html
 execute:
   echo: false
@@ -9,98 +9,139 @@ execute:
 
 ::: {.solutions}
 
-**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+**Show all your reasoning.** Total: **34 marks** · Suggested time: **60 minutes**.
 
-This tests the cards on the [T2 concepts page](t02_shapes_as_logic.qmd) — the quadrilateral lattice, the
-diagonal table, the congruence criteria and the three standard counterexamples. Close that page first.
+Every question here is harder than the eight TMUA questions on the
+[T2 concepts page](t02_shapes_as_logic.qmd), and most are taken from other admissions papers. Close that
+page before you start; the cards are what you are being tested on.
 
 ::: {.callout-important}
 ## What earns the marks
 
-**Do not try to prove these.** Reach for a **named shape**.
+**Do not try to prove the false ones.** Reach for a **named shape**.
 
-Every "not sufficient" verdict wants a specific figure — *a rhombus that is not a square*, *a rectangle that
-is not a square*, *an isosceles trapezium* — and saying which of its properties fails. A verdict with no
-named shape scores the method mark at most.
+Every "not sufficient" or "not necessary" verdict wants a specific figure — *a kite that is not a rhombus*,
+*a non-square rectangle*, *an isosceles trapezium* — together with the property that fails. A verdict with no
+named figure scores the method mark at most.
 
-Every "necessary and sufficient" claim needs **both directions** argued separately.
+Every **"if and only if"** claim needs **both directions** argued separately. Saying "they are the same thing"
+earns nothing.
 :::
 
 | Section | What it covers | Marks |
 |---|---|---|
-| **A — Recall** | the lattice, the diagonal table, the counterexamples | 8 |
-| **B — Standard** | conditions on quadrilaterals and triangles | 16 |
-| **C — Stretch** | two results you derive yourself | 8 |
+| **A — As set** | two real cross-exam questions, answered as multiple choice **with reasons** | 11 |
+| **B — The midpoint quadrilateral** | one family of three results you prove yourself | 10 |
+| **C — Deductions and constructions** | necessary vs sufficient, and two things to build | 13 |
 
 ---
 
-# Section A — Recall
+# Section A — As set
 
-## Question 1 **[4]**
+## Question 1 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2023 · Q1H</span>
 
 ::: {.question}
-&nbsp;&nbsp;(a) Complete the two chains of implications, using $\Rightarrow$: **[2]**
+Which of these triangles has the **largest area**?
 
-$$\text{square}\;\_\_\_\;\text{rhombus}\;\_\_\_\;\text{parallelogram}\;\_\_\_\;\text{trapezium}$$
-$$\text{square}\;\_\_\_\;\text{rectangle}\;\_\_\_\;\text{parallelogram}$$
+&nbsp;&nbsp;**(a)** an isosceles triangle with side lengths $10,10,1$
 
-&nbsp;&nbsp;(b) Name the **three** standard counterexamples every question in this topic is built on, and
-say in each case which property it has and which it lacks. **[2]**
+&nbsp;&nbsp;**(b)** an isosceles triangle with side lengths $10,10,5$
+
+&nbsp;&nbsp;**(c)** an isosceles triangle with side lengths $10,10,10$
+
+&nbsp;&nbsp;**(d)** an isosceles triangle with side lengths $10,10,15$
+
+&nbsp;&nbsp;**(e)** an isosceles triangle with side lengths $10,10,19$
+
+Give the letter, **and** say what the largest possible area of a triangle with two sides of length $10$ is,
+and which triangle achieves it. **[3]**
 :::
 
-::: {.workspace style="min-height:8cm"}
+::: {.workspace style="min-height:9cm"}
 Working
 :::
 
 ---
 
-## Question 2 **[4]**
+## Question 2 **[8]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q20</span>
 
 ::: {.question}
-$ABCD$ is a quadrilateral. For each diagonal condition, name the shape it guarantees — and say whether the
-condition is **necessary**, **sufficient**, or **both**, for that shape.
+**Statement $P$:** $ABC$ is a right-angled triangle.
 
-&nbsp;&nbsp;(a) The diagonals bisect each other. **[1]**
-&nbsp;&nbsp;(b) The diagonals bisect each other and are equal in length. **[1]**
-&nbsp;&nbsp;(c) The diagonals bisect each other and are perpendicular. **[1]**
-&nbsp;&nbsp;(d) The diagonals are perpendicular. **[1]**
+Which of the following statements are true?
+
+&nbsp;&nbsp;**(1)** $P$ is true **if and only if** triangle $ABC$ can be divided by a line segment into two
+smaller triangles, each of which is similar to triangle $ABC$.
+
+&nbsp;&nbsp;**(2)** $P$ is **necessary** for triangle $ABC$ to be divisible by a line segment into two
+smaller triangles whose areas, together with the area of $ABC$, can be arranged to form a geometric sequence
+with common ratio not equal to $1$.
+
+&nbsp;&nbsp;**(3)** $P$ is a **necessary** condition that must be satisfied by all the triangles made when a
+convex kite is divided into four triangles by its diagonals.
+
+&nbsp;&nbsp;**(4)** $P$ is **sufficient** for triangle $ABC$ to be determined uniquely up to congruence by
+the length of its hypotenuse and the length of the median to its hypotenuse.
+*(The median to the hypotenuse joins the opposite vertex to the midpoint of the hypotenuse.)*
+
+&nbsp;&nbsp;**(5)** $P$ is true **if and only if** four congruent copies of triangle $ABC$ can be assembled
+edge-to-edge, without gaps or overlaps, so that their union is exactly a rhombus.
+
+&nbsp;&nbsp;**A** (1), (3), (5) only &nbsp;&nbsp;**B** (3), (5) only &nbsp;&nbsp;**C** (1), (2), (3), (5) only
+&nbsp;&nbsp;**D** (1), (5) only &nbsp;&nbsp;**E** (1), (3), (4), (5) only &nbsp;&nbsp;**F** (1), (3) only
+
+Give the letter, and **one line of justification for every one of the five statements** — a proof sketch for
+each true one, a specific figure for each false one. **[8]**
 :::
 
-::: {.workspace style="min-height:8cm"}
+::: {.workspace style="min-height:16cm"}
 Working
 :::
 
 ---
 
-# Section B — Standard
+# Section B — The midpoint quadrilateral
 
-## Question 3 **[4]**
+## Question 3 **[10]**
 
 ::: {.question}
-$PQRS$ is a quadrilateral with vertices labelled in order.
+Let $ABCD$ be any convex quadrilateral, and let $E$, $F$, $G$, $H$ be the midpoints of $AB$, $BC$, $CD$, $DA$
+respectively.
 
-&nbsp;&nbsp;(a) Show that the condition "$PQ=SR$ **and** $PS\parallel QR$" is **not sufficient** for $PQRS$
-to be a parallelogram, by giving explicit coordinates. **[3]**
+&nbsp;&nbsp;**(a)** Using vectors, show that $EFGH$ is **always** a parallelogram, whatever $ABCD$ is, and
+that its sides are parallel to the diagonals of $ABCD$ and half their length. **[3]**
 
-&nbsp;&nbsp;(b) State the one-word change to that condition which **does** make it sufficient. **[1]**
+&nbsp;&nbsp;**(b)** Hence prove that $EFGH$ is a **rhombus** if and only if the diagonals of $ABCD$ are
+equal in length. **[3]**
+
+&nbsp;&nbsp;**(c)** Prove that $EFGH$ is a **rectangle** if and only if the diagonals of $ABCD$ are
+perpendicular. **[2]**
+
+&nbsp;&nbsp;**(d)** State, with a one-line reason, the condition on the diagonals of $ABCD$ that makes
+$EFGH$ a **square**. Then give a specific $ABCD$ which is **not** a square but whose $EFGH$ is. **[2]**
 :::
 
-::: {.workspace style="min-height:10cm"}
+::: {.workspace style="min-height:16cm"}
 Working
 :::
 
 ---
+
+# Section C — Deductions and constructions
 
 ## Question 4 **[4]**
 
 ::: {.question}
-For each condition, decide whether it is **necessary**, **sufficient**, **both**, or **neither**, for a
-parallelogram to be a **square**. Justify each with an argument or a named counterexample.
+In triangle $ABC$, $\angle A=30^\circ$, $AB=x^{2}$ and $BC=2x$, where $x>0$. There are exactly **two
+non-congruent** triangles satisfying these conditions.
 
-&nbsp;&nbsp;(a) All four sides are equal. **[1]**
-&nbsp;&nbsp;(b) The diagonals are equal in length. **[1]**
-&nbsp;&nbsp;(c) The diagonals are equal **and** perpendicular. **[1]**
-&nbsp;&nbsp;(d) One interior angle is $90^\circ$. **[1]**
+&nbsp;&nbsp;**(a)** Find the exact set of values of $x$. **[3]**
+
+&nbsp;&nbsp;**(b)** Which **one** of the following can therefore be *deduced*? Explain in one sentence why
+the others cannot, even though some of them overlap your answer to (a). **[1]**
+
+&nbsp;&nbsp;&nbsp;&nbsp;**A** $1<x<5$ &nbsp;&nbsp;**B** $2<x<3$ &nbsp;&nbsp;**C** $3<x<5$
+&nbsp;&nbsp;**D** $0<x<3$ &nbsp;&nbsp;**E** $x>3$
 :::
 
 ::: {.workspace style="min-height:10cm"}
@@ -112,31 +153,12 @@ Working
 ## Question 5 **[4]**
 
 ::: {.question}
-&nbsp;&nbsp;(a) List the standard congruence criteria for triangles. **[1]**
+Prove that in **any** right-angled triangle, the median to the hypotenuse has length exactly half the
+hypotenuse. **[2]**
 
-&nbsp;&nbsp;(b) Explain why **SSA** is not among them, and illustrate with a triangle where $A=30^\circ$,
-$a=5$ and $b=7$: find **both** possible values of $B$, to $2$ decimal places. **[2]**
-
-&nbsp;&nbsp;(c) Two triangles have sides $6$ and $8$ with equal areas. Must they be congruent? **[1]**
-:::
-
-::: {.workspace style="min-height:11cm"}
-Working
-:::
-
----
-
-## Question 6 **[4]**
-
-::: {.question}
-&nbsp;&nbsp;(a) Write down the sum of the interior angles of an $n$-sided polygon, and the interior angle
-of a **regular** $n$-gon. **[1]**
-
-&nbsp;&nbsp;(b) The five interior angles of a pentagon form an arithmetic sequence. Prove that one of them
-must be exactly $108^\circ$, whatever the common difference. **[2]**
-
-&nbsp;&nbsp;(c) Hence decide whether this statement is true, and whether its **converse** is true: *"if at
-least one interior angle of a pentagon is $108^\circ$, then all five form an arithmetic sequence."* **[1]**
+Hence explain why knowing *both* the hypotenuse and that median does **not** determine a right-angled
+triangle up to congruence, and give two non-congruent right-angled triangles with hypotenuse $10$ to show
+it. **[2]**
 :::
 
 ::: {.workspace style="min-height:10cm"}
@@ -145,35 +167,17 @@ Working
 
 ---
 
-# Section C — Stretch
-
-## Question 7 **[4]**
+## Question 6 **[5]**
 
 ::: {.question}
-A rhombus has diagonals of lengths $6$ and $8$.
+A rhombus has side length $2$ and acute angle $60^\circ$.
 
-&nbsp;&nbsp;(a) Find its area and its side length. **[2]**
+&nbsp;&nbsp;**(a)** Join the midpoints of one pair of opposite sides, then cut each of the two resulting
+pieces along its longer diagonal. Show that this produces **four congruent triangles** that fill the rhombus
+exactly, and find the three side lengths of one of them. **[3]**
 
-&nbsp;&nbsp;(b) Prove, in general, that a parallelogram whose diagonals are perpendicular must be a
-rhombus. **[2]**
-:::
-
-::: {.workspace style="min-height:10cm"}
-Working
-:::
-
----
-
-## Question 8 **[4]**
-
-::: {.question}
-A polygon with $n\ge3$ vertices is inscribed in a circle whose centre lies **inside** it. The $n$ radii to
-the vertices cut the polygon into $n$ triangles, and **all $n$ triangles have equal area**.
-
-&nbsp;&nbsp;(a) Writing $\theta_1,\dots,\theta_n$ for the central angles, show that the equal-area condition
-forces each $\theta_i$ to be **$\alpha$ or $180^\circ-\alpha$** for some fixed $\alpha$. **[2]**
-
-&nbsp;&nbsp;(b) Hence show that the polygon must be regular when $n=3$, but need not be when $n=4$. **[2]**
+&nbsp;&nbsp;**(b)** Show that this triangle is **not** right-angled, and say which statement of Question 2
+your construction has just disproved. **[2]**
 :::
 
 ::: {.workspace style="min-height:11cm"}
@@ -185,10 +189,10 @@ Working
 ::: {.callout-tip}
 ## Before you hand this in
 
-1. Every **"not sufficient"** should have a **named shape** beside it, and the property it fails.
-2. Every **"necessary and sufficient"** should have **two** arguments, one per direction.
-3. Wherever you recovered an angle from a sine, check you considered **both** $\theta$ and
-   $180^\circ-\theta$.
+1. Every **false** statement in Question 2 has a named figure beside it, not just the word "false".
+2. Every **"if and only if"** in Question 3 has **two** arguments, one per direction.
+3. In Question 4 you wrote down the exact range **first**, and only then went looking among the options.
+4. Wherever you recovered an angle from a sine, you considered **both** $\theta$ and $180^\circ-\theta$.
 :::
 
 :::
