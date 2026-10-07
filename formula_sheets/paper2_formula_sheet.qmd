@@ -100,6 +100,16 @@ $$P\subset Q\Rightarrow\textbf{sufficient, not necessary}\qquad
 Q\subset P\Rightarrow\textbf{necessary, not sufficient}$$
 $$P=Q\Rightarrow\textbf{both}\qquad\text{overlapping}\Rightarrow\textbf{neither}$$
 
+**The tip: turn every "necessary" into a "sufficient".** The two words describe the same arrow from opposite
+ends, so
+
+"$X$ is **necessary** for $Y$" &nbsp;=&nbsp; "$Y$ is **sufficient** for $X$".
+
+Rewrite the question that way and you only ever have to think in **one** direction.
+
+**Then: the sufficient one is always the more restricted condition — the smaller set.** Of the two, whichever
+is **harder to satisfy** is sufficient for the other; the easier one is necessary.
+
 [25 % of recent papers — the largest single block of marks]{.eg}
 :::
 
