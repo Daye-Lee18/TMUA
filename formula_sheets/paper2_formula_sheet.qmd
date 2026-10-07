@@ -72,6 +72,16 @@ The inverse and the converse are contrapositives *of each other*, so they stand 
 When a question asks **"which must be true"**, the answer is almost always the contrapositive and the
 **converse is the trap option**.
 
+**The standard question: "which is logically equivalent?"** You are being asked to find one of
+
+$$\text{if }P\text{ then }Q
+\ \ \equiv\ \ P\ \textbf{only if}\ Q
+\ \ \equiv\ \ \lnot Q\Rightarrow\lnot P .$$
+
+**Method: symbolise the whole sentence first, then swap and negate.** Write $P$ and $Q$ down as labels,
+read the sentence into $P\Rightarrow Q$, then exchange the two sides **and** negate both. Never try to
+rearrange the English directly.
+
 [negate a compound with De Morgan — see S4]{.eg}
 :::
 
@@ -187,6 +197,63 @@ appear). Blame the **first line whose claim is false**.
 ::::
 
 :::::
+---
+
+## Worked check — equivalence, and negating a quantified implication {#s2-check}
+
+The two things that get mixed up: **finding an equivalent statement** (swap and negate — the quantifier is
+untouched) and **negating** one (the quantifier flips, the implication becomes **and**).
+
+::: {.callout-important}
+## The two moves, side by side
+
+For a statement of the shape **"for every $n>1$, if $P(n)$ then $Q(n)$"**:
+
+| asked for | what changes | result |
+|---|---|---|
+| an **equivalent** statement | nothing is negated as a whole; swap and negate **inside** | for every $n>1$, if $\lnot Q(n)$ then $\lnot P(n)$ |
+| the **negation** | $\forall\to\exists$, and $P\Rightarrow Q$ becomes $P\wedge\lnot Q$ | there exists $n>1$ with $P(n)$ **and** $\lnot Q(n)$ |
+
+[**$n>1$ is never negated.**]{.hl} It says which objects are being discussed, not what is being claimed
+about them — so it survives both moves unchanged. Turning it into $n\le1$ is the commonest error of all.
+:::
+
+**Try these before reading on.** For each, write the negation, then say whether the **original** is true.
+
+1. For every integer $n>1$: if $n$ is prime then $n$ is odd.
+2. For every real $x>0$: if $x<1$ then $x^{2}<x$.
+3. For every integer $n>1$: if $n^{2}$ is even then $n$ is even.
+4. There exists an integer $n>1$ such that: if $n$ is prime then $n>100$.
+5. Which of these is logically equivalent to *"if a number is divisible by 6 then it is divisible by 3"*?
+   &nbsp;&nbsp;**A** a number is divisible by 6 only if it is divisible by 3
+   &nbsp;&nbsp;**B** if a number is not divisible by 3 then it is not divisible by 6
+   &nbsp;&nbsp;**C** if a number is divisible by 3 then it is divisible by 6
+   &nbsp;&nbsp;**D** a number is divisible by 6 if it is divisible by 3
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+1. **Negation:** there exists an integer $n>1$ such that $n$ is prime **and** $n$ is **even**.
+   The original is **false**, so the negation is true — witnessed by $n=2$.
+   *Note the restriction stays $n>1$ and the conclusion "odd" becomes "even"; the hypothesis "prime" is kept,
+   not denied.*
+2. **Negation:** there exists a real $x>0$ with $x<1$ **and** $x^{2}\ge x$.
+   The original is **true**: for $0<x<1$ we have $x^{2}-x=x(x-1)<0$. So the negation is false.
+3. **Negation:** there exists an integer $n>1$ with $n^{2}$ even **and** $n$ odd.
+   The original is **true** — *if $n$ were odd then $n^{2}$ would be odd* — so the negation is false.
+4. Here the quantifier was already $\exists$, so it flips the other way.
+   **Negation:** for every integer $n>1$, $n$ is prime **and** $n\le100$.
+   The original is **true**, and the cheapest witness is $n=4$: *it is not prime, so the implication holds
+   vacuously.* The negation is false — $n=4$ breaks it immediately.
+5. **A and B.** *A is the "only if" spelling of the same implication, and B is the contrapositive.*
+   C is the converse and D is the converse written with "if" at the back — both false, since $3$ is divisible
+   by $3$ but not by $6$.
+
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
 
 ---
 
