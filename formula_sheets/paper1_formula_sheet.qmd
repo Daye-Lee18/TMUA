@@ -113,6 +113,36 @@ With centres $C_1,C_2$, radii $r_1,r_2$ and $d=\lvert C_1C_2\rvert$:
 | one inside the other | $d<\lvert r_1-r_2\rvert$ | $0$ |
 
 **Compare $d$ with $r_1+r_2$ and with $\lvert r_1-r_2\rvert$ — never solve the two equations simultaneously.**
+The whole classification is one number line:
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The two circles are decided entirely by where d falls relative to |r₁−r₂| and r₁+r₂."
+import numpy as np, matplotlib.pyplot as plt
+BL, RD, GR, AM, PU = '#2b6cb0', '#c53030', '#2f855a', '#b7791f', '#6b46c1'
+fig, ax = plt.subplots(figsize=(7.0, 2.15))
+L, Rr = 1.6, 5.4                      # the two break points
+ax.annotate("", xy=(7.6, 0), xytext=(-0.5, 0),
+            arrowprops=dict(arrowstyle="->", color='0.3', lw=1.4))
+for xv, lab, col in [(L, r"$|r_1-r_2|$", AM), (Rr, r"$r_1+r_2$", AM)]:
+    ax.plot([xv, xv], [-0.17, 0.17], color=col, lw=2.2)
+    ax.text(xv, -0.52, lab, ha="center", fontsize=10.5, color=col)
+bands = [(-0.5, L, "one inside\nthe other", "0 points", PU),
+         (L, Rr, "they cross", "2 points", GR),
+         (Rr, 7.6, "separate", "0 points", BL)]
+for x0, x1, name, pts, col in bands:
+    ax.add_patch(plt.Rectangle((x0, -0.12), x1-x0, 0.24, color=col, alpha=0.16))
+    # both labels sit ABOVE the axis so the arrow does not strike through them
+    ax.text((x0+x1)/2, 0.66, name, ha="center", fontsize=9.5, color=col)
+    ax.text((x0+x1)/2, 0.28, pts, ha="center", fontsize=9, color=col, fontweight="bold")
+for xv, lab in [(L, "touch inside\n1 point"), (Rr, "touch outside\n1 point")]:
+    ax.plot(xv, 0, 'o', color=RD, ms=7, zorder=4)
+    ax.text(xv, -1.02, lab, ha="center", fontsize=8.5, color=RD)
+ax.text(7.7, 0, r"$d$", fontsize=12, va="center")
+ax.set_xlim(-1.0, 8.3); ax.set_ylim(-1.35, 1.05)
+ax.axis("off")
+plt.tight_layout(); plt.show()
+```
 
 [$d=0$ is the concentric case: no meeting points unless $r_1=r_2$]{.eg}
 :::
@@ -266,6 +296,33 @@ $$1 + 2 + \cdots + n = \frac{n(n+1)}{2}.$$
 
 **Geometric** (first term $a$, common ratio $r$): ★
 $$u_n = a r^{n-1}, \qquad S_n = \frac{a(1 - r^n)}{1 - r} \;(r \ne 1), \qquad S_\infty = \frac{a}{1-r} \;\text{for } |r| < 1.$$
+
+**Recovering a term from a partial sum** ★ — if $S_n=b_1+b_2+\cdots+b_n$ is given, then
+
+$$\boxed{\ b_n=S_n-S_{n-1}\ \ (n\ge2),\qquad b_1=S_1\ }$$
+
+**Always check $n=1$ separately.** The subtraction is only valid from $n=2$, and the formula it produces need
+not agree with $b_1$: for $S_n=n^{2}$ it gives $b_n=2n-1$ and $b_1=1$, which agree — but for $S_n=n^{2}+3$ it
+still gives $b_n=2n-1$ while $b_1=S_1=4$.
+
+*This is also the check that a claimed formula is right: a GP has $S_n=\dfrac{a(1-r^{n})}{1-r}$, and
+$S_n-S_{n-1}=ar^{\,n-1}$ as it must.*
+
+**Telescoping — the sum you were never given** (*부분급수*). If the term can be written as a difference,
+
+$$b_k=f(k)-f(k+1)\quad\Longrightarrow\quad \sum_{k=1}^{n}b_k=f(1)-f(n+1),$$
+
+because everything in between cancels in pairs. The standard way in is **partial fractions**:
+
+$$\frac{1}{k(k+1)}=\frac1k-\frac1{k+1}\ \Longrightarrow\ \sum_{k=1}^{n}\frac{1}{k(k+1)}=1-\frac{1}{n+1}=\frac{n}{n+1}.$$
+
+With a gap of $2$ the cancellation leaves **two** terms at each end:
+
+$$\frac{1}{k(k+2)}=\frac12\left(\frac1k-\frac1{k+2}\right)
+\ \Longrightarrow\ \sum_{k=1}^{n}\frac{1}{k(k+2)}=\frac12\left(1+\frac12-\frac{1}{n+1}-\frac{1}{n+2}\right).$$
+
+*None of this is on the specification, which is exactly why it appears — see
+**[Sequences & series clinic](../lessons/sequences_series_clinic/class_material.qmd)**, sections 4–8.*
 
 **Binomial expansion** ($n$ a positive integer): ★
 $$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k, \qquad \binom{n}{k} = \frac{n!}{k!\,(n-k)!}, \qquad \binom{n}{1} = n.$$
@@ -429,15 +486,61 @@ $$\sin(180^\circ - \theta) = \sin\theta, \qquad \cos(360^\circ - \theta) = \cos\
 $$\sin(180^\circ + \theta) = -\sin\theta, \qquad \cos(180^\circ - \theta) = -\cos\theta.$$
 Periods: $\sin,\cos$ repeat every $360^\circ$; $\tan$ every $180^\circ$.
 
-**Triangles** ★ — for sides $a,b,c$ opposite angles $A,B,C$:
+**Triangles** ★ — for sides $a,b,c$ opposite angles $A,B,C$, with $A+B+C=180^\circ$:
 
-$$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C},\qquad
-c^2=a^2+b^2-2ab\cos C,$$
-$$\text{area}=\frac12 ab\sin C,\qquad A+B+C=180^\circ.$$
+**The extended sine rule** — the $2R$ on the end is the part that gets forgotten, and $R$ is the
+**circumradius**:
+$$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R .$$
+
+**The cosine rule**, and the sign test it gives for free:
+$$c^{2}=a^{2}+b^{2}-2ab\cos C
+\qquad\Longrightarrow\qquad
+\cos C=\frac{a^{2}+b^{2}-c^{2}}{2ab}.$$
+
+With $c$ the **longest** side, the sign of $a^{2}+b^{2}-c^{2}$ decides the triangle:
+
+| $a^{2}+b^{2}>c^{2}$ | $a^{2}+b^{2}=c^{2}$ | $a^{2}+b^{2}<c^{2}$ |
+|---|---|---|
+| acute | right-angled | obtuse |
+
+**Area — three formulas, one for each kind of data** ★
+
+| what you are given | use |
+|---|---|
+| two sides and the **included** angle | $K=\tfrac12ab\sin C$ |
+| all three sides (SSS) | **Heron:** $K=\sqrt{s(s-a)(s-b)(s-c)}$, &nbsp;$s=\tfrac12(a+b+c)$ |
+| three coordinates | **shoelace:** $K=\tfrac12\bigl\lvert x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\bigr\rvert$ |
+
+*Heron needs no angle at all, which is why it beats finding $\cos C$ first.* The three points are
+**collinear exactly when the shoelace expression is $0$** — that is the fastest collinearity test there is.
+
+**The two radii** ★
+$$\boxed{\,R=\frac{abc}{4K}\,}\qquad\qquad \boxed{\,r=\frac{K}{s}\,}$$
+*$R$ comes from combining $\sin A=\dfrac{a}{2R}$ with $K=\tfrac12bc\sin A$; the denominator is
+$4\times\text{area}$, not $\tfrac{abc}{4}\times K$.* Here $r$ is the **inradius**.
+
+[Worked check on the $13,14,15$ triangle: $s=21$, Heron gives $K=\sqrt{21\cdot8\cdot7\cdot6}=84$, the same
+as $\tfrac12ab\sin C$ and as the shoelace value; then $R=\tfrac{13\cdot14\cdot15}{4\cdot84}=\tfrac{65}{8}$ and
+$r=\tfrac{84}{21}=4$.]{.eg}
+
+**Greatest area for fixed information**
+
+| fixed | greatest-area shape |
+|---|---|
+| base **and** perimeter | isosceles |
+| perimeter only | equilateral |
+| perimeter and $n$, for an $n$-gon | regular $n$-gon |
+| two sides, angle free | the angle is $90^\circ$, since $K=\tfrac12ab\sin\theta$ |
+
+*A base alone is not enough — the height, and so the area, grows without bound.*
 
 Use the **cosine rule** for SSS or SAS; the **sine rule** for a known opposite side–angle pair.
 With SSA, $\sin B=\sin(180^\circ-B)$ can give **two triangles**; check the angle sum and any “acute/obtuse”
-condition.
+condition. Writing $h=c\sin A$ for the distance from the far vertex to the opposite ray, there are
+**two** triangles exactly when $h<a<c$, one when $a=h$ or $a\ge c$, and none when $a<h$.
+
+*When two triangles share an angle and one adjacent side, their areas are in the same ratio as the other
+adjacent sides* — because $K=\tfrac12bc\sin A$ holds everything but that side fixed.
 
 ::: {.callout-note appearance="simple"}
 **Range trap.** If an equation is in $\sin 2x$ (or $\cos 2x$) and $x$ runs over $[0^\circ, 360^\circ]$,
@@ -507,6 +610,34 @@ Differentiate sums term by term. Often you must **simplify first** (e.g. split a
 - **Stationary points**: solve $\dfrac{\mathrm dy}{\mathrm dx} = 0$. Then $\dfrac{\mathrm d^2 y}{\mathrm dx^2} > 0 \Rightarrow$ minimum, $< 0 \Rightarrow$ maximum.
 - **Shortest distance** from a curve to a line: the closest point is where the tangent is **parallel to the line**.
 
+**The definitions, kept apart** ★ — these four words are not interchangeable, and the exam tests exactly that.
+
+| term | definition | what it says |
+|---|---|---|
+| **stationary point** at $a$ | $f'(a)=0$ | the tangent is horizontal — nothing more |
+| **local maximum** at $a$ | $f(x)\le f(a)$ for all $x$ near $a$ | the curve is highest **locally** |
+| **local minimum** at $a$ | $f(x)\ge f(a)$ for all $x$ near $a$ | lowest locally |
+| **turning point** at $a$ | $f'$ **changes sign** at $a$ | a local max or a local min |
+| **point of inflection** at $a$ | $f''$ **changes sign** at $a$ | the concavity flips |
+| **stationary inflection** at $a$ | both $f'(a)=0$ **and** $f''$ changes sign | flat, but not a turn — e.g. $y=x^{3}$ at $0$ |
+
+**Necessary or sufficient — the whole table** ★
+
+| claim | verdict | the counterexample that settles it |
+|---|---|---|
+| $f'(a)=0$ is **necessary** for a local max/min *(when $f$ is differentiable)* | **true** | — |
+| $f'(a)=0$ is **sufficient** for a local max/min | **false** | $y=x^{3}$ at $a=0$: stationary, but neither |
+| $f''(a)>0$ is **sufficient** for a local minimum *(given $f'(a)=0$)* | **true** | — |
+| $f''(a)>0$ is **necessary** for a local minimum | **false** | $y=x^{4}$ at $a=0$: a minimum with $f''(0)=0$ |
+| $f''(a)=0$ is **necessary** for a point of inflection | **true** | — |
+| $f''(a)=0$ is **sufficient** for a point of inflection | **false** | $y=x^{4}$ at $a=0$: $f''(0)=0$ but concavity never flips |
+| a local max/min must be a **stationary** point | **false** in general | $y=\lvert x\rvert$ at $0$: a minimum, but $f'(0)$ does not exist |
+
+*Read the pattern: $f'=0$ and $f''=0$ are **necessary** conditions, and the sufficient ones always need a
+**sign change** — of $f'$ for a turning point, of $f''$ for an inflection.* The second-derivative test is a
+shortcut that works only when $f''(a)\neq0$; when $f''(a)=0$ it tells you nothing and you must go back to the
+sign of $f'$ (or of $f''$) on either side.
+
 **Stationary does not automatically mean turning.** $f'(a)=0$ only gives a horizontal tangent. Classify by
 the sign of $f'$ on either side, or use $f''(a)>0$ for a local minimum and $f''(a)<0$ for a local maximum.
 
@@ -552,12 +683,42 @@ cubic, or anything else — symmetric about the $y$-axis, because $\lvert -x\rve
 is the $x\ge0$ half mirrored to the left, so you can **integrate over $x\ge0$ and double** (as in $x^2-2\lvert
 x\rvert-8$).
 
-**Floor, ceiling & step functions** ★ — $\lfloor x\rfloor$ rounds **down** ($\lfloor-2.3\rfloor=-3$),
-$\lceil x\rceil$ rounds **up**, $\{x\}=x-\lfloor x\rfloor\in[0,1)$. Each is **constant on every unit
-interval**, so its integral is a **sum of strips**:
-$$\int_0^n \lfloor x\rfloor\,\mathrm dx = \frac{n(n-1)}{2}, \qquad \int_0^n \lceil x\rceil\,\mathrm dx = \frac{n(n+1)}{2}, \qquad \int_0^n \{x\}\,\mathrm dx = \frac{n}{2}.$$
-When the strip heights scale by a fixed factor, the total is a **geometric series** — e.g.
-$\displaystyle\int_0^{99} 2^{\lceil x\rceil}\,\mathrm dx = \sum_{n=1}^{99} 2^n = 2^{100}-2.$
+**Floor, ceiling & step functions** ★ — the definitions, stated as the conditions that pin down the integer
+$n$:
+
+| symbol | name | definition | example at $2.3$ | at $-2.3$ | at $3$ |
+|---|---|---|---|---|---|
+| $\lfloor x\rfloor$ | floor | $\lfloor x\rfloor=n$ where $n\le x<n+1$ | $2$ | $\mathbf{-3}$ | $3$ |
+| $\lceil x\rceil$ | ceiling | $\lceil x\rceil=n$ where $n-1<x\le n$ | $3$ | $\mathbf{-2}$ | $3$ |
+| $\{x\}$ | fractional part | $\{x\}=x-\lfloor x\rfloor$, always in $[0,1)$ | $0.3$ | $\mathbf{0.7}$ | $0$ |
+
+**Floor rounds *down*, not towards zero** — $\lfloor-2.3\rfloor=-3$, and that negative case is the one the
+exam checks. Useful consequences:
+
+$$\lceil x\rceil=-\lfloor -x\rfloor,\qquad
+\lceil x\rceil=\begin{cases}\lfloor x\rfloor & x\in\mathbb Z\\[2pt] \lfloor x\rfloor+1 & \text{otherwise.}\end{cases}$$
+
+**How it meets integration.** Each of these is **constant on every unit interval**, so the graph is a
+staircase and the integral is nothing but **a sum of rectangles of width $1$**:
+
+$$\int_0^n f\bigl(\lfloor x\rfloor\bigr)\,\mathrm dx=\sum_{k=0}^{n-1}f(k).$$
+
+*That is the whole trick: split the range at every integer, note that the integrand does not move inside each
+strip, and the integral collapses into a series you already know how to sum.* So
+
+$$\int_0^n \lfloor x\rfloor\,\mathrm dx = 0+1+\cdots+(n-1)=\frac{n(n-1)}{2}, \qquad
+\int_0^n \lceil x\rceil\,\mathrm dx = 1+2+\cdots+n=\frac{n(n+1)}{2},$$
+$$\int_0^n \{x\}\,\mathrm dx = n\times\tfrac12 = \frac{n}{2}\quad\text{($n$ triangles of area $\tfrac12$).}$$
+
+**If the upper limit is not an integer, the last strip is partial.** For example
+
+$$\int_0^{3.5}\lfloor x\rfloor\,\mathrm dx = \underbrace{0+1+2}_{\text{whole strips}}+\underbrace{3\times0.5}_{\text{part strip}} = 4.5 .$$
+
+When the strip heights scale by a fixed factor the sum is **geometric**:
+
+$$\int_0^{n} 2^{\lfloor x\rfloor}\,\mathrm dx=\sum_{k=0}^{n-1}2^{k}=2^{n}-1,
+\qquad
+\int_0^{99} 2^{\lceil x\rceil}\,\mathrm dx = \sum_{k=1}^{99} 2^{k} = 2^{100}-2 .$$
 
 **Modulus integral.** Split at every point where an inside changes sign, and integrate each piece with the
 sign it takes there — $\int\lvert f\rvert$ is a true (non-negative) area.
