@@ -1,6 +1,6 @@
 ---
-title: "TMUA Formula Sheet"
-subtitle: "Reference copy — the completed version. Fill in your own first."
+title: "TMUA Paper 1 Formula Sheet"
+subtitle: "Formulas, examples, recurring question types and the fastest reliable methods"
 format: html
 jupyter: python3
 execute:
@@ -19,7 +19,194 @@ A memorisation order that works: **know cold** the ones marked ★ (they appear 
 be **fluent** with the rest; and for the two or three you always forget, write them at the very top of
 your rough paper the moment the test starts, before you read a single question.
 
+Each section ends with an **exam reflex**: the first move to make when that question type appears. Paper 1
+rewards recognition and short routes; if two methods work, use the one with fewer opportunities for error.
+
 ---
+
+# Part 0 · The high-yield engines
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · the cards to have automatic</div>
+<div class="fs-title">Quadratics, circles and shortest distances</div>
+<div class="fs-sub">These three ideas carry more Paper 1 marks than anything else, and they keep reappearing disguised as each other: a tangency question is a discriminant question, and a two-circle question is a distance question. The full section-by-section reference follows below.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Q1 · The discriminant engine ★
+
+For $ax^{2}+bx+c=0$ with $a\ne0$, everything is the sign of $\Delta=b^{2}-4ac$:
+
+| $\Delta>0$ | $\Delta=0$ | $\Delta<0$ |
+|---|---|---|
+| two distinct real roots | one repeated root | no real roots |
+
+$$\alpha+\beta=-\frac{b}{a},\qquad \alpha\beta=\frac{c}{a}$$
+
+**If $a$ can be zero, treat $a=0$ separately** — the equation is then linear with one root.
+
+[$kx^{2}+4x+k=0$ has one root at $k=\pm2$ **and** at $k=0$, for a different reason]{.eg}
+:::
+
+::: {.fs-card}
+### Q2 · "For all $x$" and the sign of $a$ ★
+
+$$ax^{2}+bx+c>0 \text{ for every real } x \iff a>0 \ \textbf{and}\ \Delta<0 .$$
+
+Flip both for "$<0$ for every $x$". **Dropping the condition on $a$ is the standard lost mark.**
+
+Completing the square gives the range directly:
+
+$$a\left(x+\frac{b}{2a}\right)^{2}+c-\frac{b^{2}}{4a}$$
+
+— minimum $c-\dfrac{b^{2}}{4a}$ at $x=-\dfrac{b}{2a}$ when $a>0$.
+
+[$x^{2}-6x+k>0$ for all $x$ $\iff$ $36-4k<0$ $\iff$ $k>9$]{.eg}
+:::
+
+::: {.fs-card}
+### Q3 · Hidden quadratics ★
+
+Substitute and **carry the restriction with you**:
+
+| equation | let | restriction |
+|---|---|---|
+| $ax^{4}+bx^{2}+c=0$ | $u=x^{2}$ | $u\ge0$ |
+| $a\cdot4^{x}+b\cdot2^{x}+c=0$ | $u=2^{x}$ | $u>0$ |
+| $a(\log x)^{2}+b\log x+c=0$ | $u=\log x$ | none, but $x>0$ |
+| $a\sin^{2}\theta+b\sin\theta+c=0$ | $u=\sin\theta$ | $-1\le u\le1$ |
+
+*Each value of $u$ that survives gives its own count of $x$ values — two, one or none.*
+
+[$u=x^{2}$: one positive $u$ gives **two** values of $x$; a negative $u$ gives none]{.eg}
+:::
+
+::: {.fs-card}
+### C1 · Circle — centre and radius ★
+
+$$(x-a)^{2}+(y-b)^{2}=r^{2}$$
+
+From the general form $x^{2}+y^{2}+2gx+2fy+c=0$:
+
+$$\text{centre }(-g,-f),\qquad r=\sqrt{g^{2}+f^{2}-c}.$$
+
+**It is only a circle when $g^{2}+f^{2}-c>0$** — if it is zero the locus is a single point, and if negative it is empty.
+
+[complete the square in $x$ and in $y$ separately; the leftover constant is $r^{2}$]{.eg}
+:::
+
+::: {.fs-card}
+### C2 · Two circles — the whole classification ★
+
+With centres $C_1,C_2$, radii $r_1,r_2$ and $d=\lvert C_1C_2\rvert$:
+
+| | condition | meeting points |
+|---|---|---|
+| separate | $d>r_1+r_2$ | $0$ |
+| touch outside | $d=r_1+r_2$ | $1$ |
+| cross | $\lvert r_1-r_2\rvert<d<r_1+r_2$ | $2$ |
+| touch inside | $d=\lvert r_1-r_2\rvert$ | $1$ |
+| one inside the other | $d<\lvert r_1-r_2\rvert$ | $0$ |
+
+**Compare $d$ with $r_1+r_2$ and with $\lvert r_1-r_2\rvert$ — never solve the two equations simultaneously.**
+
+[$d=0$ is the concentric case: no meeting points unless $r_1=r_2$]{.eg}
+:::
+
+::: {.fs-card}
+### C3 · Shortest distance between two circles ★
+
+Once the classification is known the distance is a subtraction:
+
+$$\text{separate: } d-r_1-r_2 ,\qquad
+\text{one inside the other: } \lvert r_1-r_2\rvert-d .$$
+
+If they cross or touch, the shortest distance is $0$.
+
+*The nearest points lie on the line of centres, which is why only $d$ matters.* The **furthest** distance between the two circles is always $d+r_1+r_2$.
+
+[centres $10$ apart, radii $3$ and $2$: gap $=10-5=5$]{.eg}
+:::
+
+::: {.fs-card}
+### D1 · Point to line — perpendicular distance ★
+
+For the line $Ax+By+C=0$ and the point $(x_0,y_0)$:
+
+$$\boxed{\ \dfrac{\lvert Ax_0+By_0+C\rvert}{\sqrt{A^{2}+B^{2}}}\ }$$
+
+**Put the line in $Ax+By+C=0$ form first** — applying it to $y=mx+k$ as written is the usual error. From $y=mx+k$, use $mx-y+k=0$.
+
+The foot of the perpendicular is
+
+$$(x_0,y_0)+\lambda(A,B),\qquad \lambda=-\frac{Ax_0+By_0+C}{A^{2}+B^{2}} .$$
+
+[distance from the origin to $3x+4y-10=0$ is $\frac{10}{5}=2$]{.eg}
+:::
+
+::: {.fs-card}
+### D2 · Point to circle, and line to circle ★
+
+**Point $P$ to a circle** of centre $C$, radius $r$, with $p=\lvert PC\rvert$:
+
+$$\text{nearest } \lvert p-r\rvert,\qquad \text{furthest } p+r .$$
+
+**Line and circle** — compare the perpendicular distance $h$ from the centre to the line with $r$:
+
+| $h>r$ | $h=r$ | $h<r$ |
+|---|---|---|
+| misses | **tangent** | cuts twice |
+
+and then the chord has length $2\sqrt{r^{2}-h^{2}}$.
+
+[tangency by distance, or by substituting and setting $\Delta=0$ — the same condition twice]{.eg}
+:::
+
+::: {.fs-card}
+### D3 · Tangency is a discriminant ★
+
+Substituting $y=mx+k$ into $x^{2}+y^{2}=r^{2}$ gives
+
+$$(1+m^{2})x^{2}+2mkx+k^{2}-r^{2}=0,$$
+
+and $\Delta=0$ reduces to
+
+$$k^{2}=r^{2}\left(1+m^{2}\right),$$
+
+which is exactly $\dfrac{\lvert k\rvert}{\sqrt{1+m^{2}}}=r$ — the distance from the centre to the line.
+
+**So "touches" always has two routes.** Use the distance formula when the circle's centre is given, and the discriminant when the question already has you substituting.
+
+[two tangents of gradient $m$ to a circle: the $\pm$ comes from $\lvert k\rvert$]{.eg}
+:::
+
+::: {.fs-card}
+### D4 · Distances you are expected to just know
+
+$$\text{between points: } \sqrt{(x_2-x_1)^{2}+(y_2-y_1)^{2}}$$
+
+- **Perpendicular bisector** of $AB$ = the locus of points equidistant from $A$ and $B$; it passes through the midpoint with gradient $-1/m_{AB}$.
+- The **shortest distance from a point to a curve** is along the normal — for a circle that is the line of centres, which is why C3 and D2 are subtractions.
+- Minimising a distance: minimise $d^{2}$, never $d$. *The square root is increasing, so the same point minimises both, and the algebra is far cleaner.*
+
+[a "closest point on the curve" question with no calculus is almost always a circle in disguise]{.eg}
+:::
+
+::::
+
+:::::
+
+::: {.callout-important}
+## The three reflexes these cards buy you
+
+1. **"How many solutions / for what values of $k$"** $\to$ form a quadratic and go to $\Delta$. Check whether the coefficient of $x^{2}$ can vanish.
+2. **"Touches", "tangent", "exactly one point"** $\to$ either $\Delta=0$ or perpendicular distance $=r$. Pick whichever avoids more algebra.
+3. **Any two circles** $\to$ compute $d$, $r_1+r_2$ and $\lvert r_1-r_2\rvert$ **before anything else**. Every question about crossing, touching, containing or gap size is read straight off those three numbers.
+:::
 
 ## 1 · Algebra and functions (MM1)
 
@@ -54,6 +241,19 @@ $$\text{Triangle inequality: } \lvert a+b\rvert \le \lvert a\rvert + \lvert b\rv
 - Two V/Λ moduli enclose a **kite** — area $=\tfrac12 d_1 d_2$ (product of the diagonals, halved).
 - $\displaystyle\min_x \sum_i \lvert x-a_i\rvert$ is reached with $x$ **between the two middle points**.
 
+::: {.callout-tip}
+**Exam reflex — algebra.**
+
+- A parameter and “two / one / no real roots” $\to$ form a quadratic and use $\Delta>0,=0,<0$.
+- “For all real $x$” quadratic inequality $\to$ check the leading sign and the discriminant.
+- Symmetric information about roots $\to$ use $\alpha+\beta$ and $\alpha\beta$ before solving the quadratic.
+- Several moduli $\to$ mark every breakpoint first, then solve one linear expression on each interval.
+- Surd fractions with conjugate denominators $\to$ combine or rationalise before expanding.
+
+**Mini-example.** $x^2-6x+k>0$ for every real $x$ requires the parabola to open upwards and never touch the
+axis: $\Delta=36-4k<0$, hence $k>9$.
+:::
+
 ---
 
 ## 2 · Sequences and series (MM2)
@@ -70,6 +270,20 @@ $$u_n = a r^{n-1}, \qquad S_n = \frac{a(1 - r^n)}{1 - r} \;(r \ne 1), \qquad S_\
 **Binomial expansion** ($n$ a positive integer): ★
 $$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k, \qquad \binom{n}{k} = \frac{n!}{k!\,(n-k)!}, \qquad \binom{n}{1} = n.$$
 $$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^{k}.$$
+
+::: {.callout-tip}
+**Exam reflex — sequences and series.**
+
+- Terms are given at two positions $\to$ write two AP/GP equations and **divide GP equations** to eliminate
+  the first term.
+- A recurrence looks messy $\to$ generate 4–6 terms and look for a cycle, parity pattern or fixed value.
+- A decimal repeats $\to$ write it as a geometric series; do not use a calculator approximation.
+- One coefficient is requested $\to$ write only the term(s) whose powers can combine to make it.
+- $S_\infty$ appears $\to$ check $|r|<1$ before using it.
+
+**Mini-example.** If $u_3=12$ and $u_6=96$ in a GP, then
+$r^3=u_6/u_3=8$, so $r=2$; there is no need to find $a$ first.
+:::
 
 ---
 
@@ -181,6 +395,20 @@ $$d = \frac{\left|ax_0 + by_0 + c\right|}{\sqrt{a^2+b^2}} . \qquad \blacksquare$
 **Two circles touch** (exactly one common point) when the distance between centres is $r_1 + r_2$
 (externally) or $|r_1 - r_2|$ (internally).
 
+::: {.callout-tip}
+**Exam reflex — coordinate geometry.**
+
+- Normal to a curve $\to$ differentiate, evaluate the tangent gradient, then take the **negative reciprocal**.
+- Perpendicular bisector $\to$ midpoint first, then negative-reciprocal gradient.
+- Line meets circle 0, 1 or 2 times $\to$ compare centre-to-line distance $d$ with $r$; use a discriminant
+  only if coordinates are explicitly needed.
+- Two circles $\to$ compare centre distance $d$ with $r_1+r_2$ and $|r_1-r_2|$.
+- Unknown circle parameter $\to$ complete both squares and require $r^2>0$.
+
+**Mini-example.** A line is tangent to a circle exactly when $d=r$; after substitution this is the same as
+the resulting quadratic having $\Delta=0$.
+:::
+
 ---
 
 ## 4 · Trigonometry (MM4)
@@ -201,9 +429,33 @@ $$\sin(180^\circ - \theta) = \sin\theta, \qquad \cos(360^\circ - \theta) = \cos\
 $$\sin(180^\circ + \theta) = -\sin\theta, \qquad \cos(180^\circ - \theta) = -\cos\theta.$$
 Periods: $\sin,\cos$ repeat every $360^\circ$; $\tan$ every $180^\circ$.
 
+**Triangles** ★ — for sides $a,b,c$ opposite angles $A,B,C$:
+
+$$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C},\qquad
+c^2=a^2+b^2-2ab\cos C,$$
+$$\text{area}=\frac12 ab\sin C,\qquad A+B+C=180^\circ.$$
+
+Use the **cosine rule** for SSS or SAS; the **sine rule** for a known opposite side–angle pair.
+With SSA, $\sin B=\sin(180^\circ-B)$ can give **two triangles**; check the angle sum and any “acute/obtuse”
+condition.
+
 ::: {.callout-note appearance="simple"}
 **Range trap.** If an equation is in $\sin 2x$ (or $\cos 2x$) and $x$ runs over $[0^\circ, 360^\circ]$,
 then $2x$ runs over $[0^\circ, 720^\circ]$ — **two full turns**, so expect twice as many solutions.
+:::
+
+::: {.callout-tip}
+**Exam reflex — trigonometry.**
+
+- Equation in $\sin(mx+c)$ or $\cos(mx+c)$ $\to$ transform the interval first, solve in the new variable,
+  then convert back.
+- Squared trig function $\to$ split the sign: $\cos^2x=k^2\Rightarrow\cos x=\pm k$.
+- Triangle with two sides and included angle $\to$ cosine rule / $\tfrac12ab\sin C$.
+- SSA $\to$ test both $B$ and $180^\circ-B$.
+- “How many solutions?” $\to$ sketch one period and count intersections, including endpoints.
+
+**Memory picture.** The exact-value table is $\sqrt{0},\sqrt1,\sqrt2,\sqrt3,\sqrt4$ over $2$ for sine;
+cosine is the same row backwards.
 :::
 
 ---
@@ -225,6 +477,22 @@ $$\log_a x = \frac{\log_b x}{\log_b a}.$$
 $\log_3 2 < 1$ (because $2<3$), while $\log_2 3 > 1$.
 :::
 
+**Domains and shapes.** A logarithm requires its **argument $>0$**. For $a>1$, $a^x$ and $\log_a x$ are
+increasing; for $0<a<1$, both are decreasing. Their graphs are reflections in $y=x$.
+
+::: {.callout-tip}
+**Exam reflex — exponentials and logarithms.**
+
+- Several logs of the same base $\to$ combine to **one log**, then equate arguments; check the domain.
+- Different bases $\to$ rewrite as powers of one common base or use change of base.
+- $a^{f(x)}=a^{g(x)}$ with valid $a\ne1$ $\to$ equate exponents.
+- Nested log/exponential $\to$ work from the inside and write every positivity condition.
+- Ordering without a calculator $\to$ compare with landmark powers such as $a^0=1$, $a^1=a$, $a^2$.
+
+**Mini-example.** $\log_2(x-1)+\log_2(x+1)=3$ gives
+$\log_2(x^2-1)=3$, hence $x^2=9$; the domain $x>1$ keeps only $x=3$.
+:::
+
 ---
 
 ## 6 · Differentiation (MM6)
@@ -238,6 +506,24 @@ Differentiate sums term by term. Often you must **simplify first** (e.g. split a
 - **Tangent** has gradient $\dfrac{\mathrm dy}{\mathrm dx}$; **normal** has gradient $-1\big/\dfrac{\mathrm dy}{\mathrm dx}$.
 - **Stationary points**: solve $\dfrac{\mathrm dy}{\mathrm dx} = 0$. Then $\dfrac{\mathrm d^2 y}{\mathrm dx^2} > 0 \Rightarrow$ minimum, $< 0 \Rightarrow$ maximum.
 - **Shortest distance** from a curve to a line: the closest point is where the tangent is **parallel to the line**.
+
+**Stationary does not automatically mean turning.** $f'(a)=0$ only gives a horizontal tangent. Classify by
+the sign of $f'$ on either side, or use $f''(a)>0$ for a local minimum and $f''(a)<0$ for a local maximum.
+
+::: {.callout-tip}
+**Exam reflex — differentiation.**
+
+- Tangent / normal at $x=a$ $\to$ find the point and the gradient separately, then use point–gradient form.
+- Max/min of a formula $\to$ differentiate, solve $f'=0$, reject points outside the stated domain, then
+  compare stationary points **and endpoints**.
+- Optimisation in geometry $\to$ express the target using one variable before differentiating.
+- Shortest distance to a line $\to$ tangent parallel to the line; shortest distance to a point $\to$
+  minimise the **squared** distance.
+- A fraction of powers $\to$ rewrite using indices before differentiating.
+
+**Mini-example.** To minimise distance from $(x,f(x))$ to $(p,q)$, minimise
+$D^2=(x-p)^2+(f(x)-q)^2$; the square root is unnecessary.
+:::
 
 ---
 
@@ -276,6 +562,21 @@ $\displaystyle\int_0^{99} 2^{\lceil x\rceil}\,\mathrm dx = \sum_{n=1}^{99} 2^n =
 **Modulus integral.** Split at every point where an inside changes sign, and integrate each piece with the
 sign it takes there — $\int\lvert f\rvert$ is a true (non-negative) area.
 
+::: {.callout-tip}
+**Exam reflex — integration.**
+
+- Simplify first: expand a small product, split a fraction into powers, or use
+  $(a+b)^2-(a-b)^2=4ab$.
+- Actual area $\to$ find every crossing and split; integral $\to$ keep signs.
+- Area between curves $\to$ solve their intersections, then integrate **top minus bottom**.
+- $f(-x)$, $f(|x|)$ or symmetric limits $\to$ test odd/even symmetry before calculating.
+- Floor/ceiling $\to$ replace the curve by unit-width rectangles and sum the heights.
+- A horizontal shift inside $f$ $\to$ change the limits with the same substitution.
+
+**Mini-example.** If $f$ is odd, $\int_{-a}^{a}f(x)\,dx=0$ immediately—even when the two unsigned areas are
+large.
+:::
+
 ---
 
 ## 8 · Graphs and transformations (MM8)
@@ -297,50 +598,68 @@ For $y = f(x)$:
 **"For which $k$…" questions** ★ — rearrange to $g(x) = k$, sketch $y = g(x)$, and count how many times
 the horizontal line $y = k$ crosses it. The turning-point values of $g$ are the boundaries.
 
+**Sketch checklist** ★ — intercepts; repeated roots; turning points; asymptotes; end behaviour.
+
+- A single root crosses; a double root touches; an odd repeated root crosses with flattening.
+- For $\dfrac{ax+b}{cx+d}$, the vertical asymptote is $cx+d=0$ and the horizontal asymptote is
+  $y=\dfrac ac$.
+- To move a feature through $f(mx+c)$, solve $mx+c=$ its **old $x$-coordinate**. Do not apply the inside
+  transformation forwards.
+
+::: {.callout-tip}
+**Exam reflex — graphs, transformations and composite expressions.**
+
+- Inside the bracket acts on $x$ and works oppositely; outside acts on $y$ as written.
+- $f(x)=g(x)$ $\to$ sketch both and count intersections.
+- Tangency $\to$ one intersection $\to$ discriminant $0$ when the intersection equation is quadratic.
+- Expression built from an unknown $f(x)$ $\to$ let $w=f(x)$, read the range of $w$, then optimise or solve
+  in $w$.
+- Max/min on a closed interval $\to$ check turning points **and both endpoints**.
+
+**Mini-example.** If $f$ has a maximum at $(4,7)$, then $f(2x-6)$ has its maximum where
+$2x-6=4$, so at $(5,7)$.
+:::
+
 ---
 
-## 9 · Logic and proof — Paper 2 only (Section 2)
+## 9 · Paper 1 question recognition
 
-Not formulae, but the facts you must have automatic. There is no symbol notation on the test — it is all
-in words.
+Paper 1 tests the MM1–MM8 mathematics above under time pressure. For the logic and proof language used on
+Paper 2, use the **[Paper 2 formula sheet](paper2_formula_sheet.qmd)**.
 
-*This is the short version. The full Paper 2 sheet — including divisors/primes and the shape
-conditions — is **[here](paper2_formula_sheet.qmd)**.*
+| If the question says… | Recognise… | First move |
+|---|---|---|
+| “for all real $x$” | global inequality | discriminant / completed square |
+| “exactly one solution” | tangency or repeated root | set $\Delta=0$ or match a turning value |
+| “number of solutions” | graph intersections | sketch and count |
+| “greatest / least value” | range or optimisation | complete square, let $w=f(x)$, or differentiate |
+| “normal to the curve” | two gradients | derivative, then negative reciprocal |
+| “area” | unsigned pieces | find crossings and split |
+| “integral” | signed area | simplify and use symmetry |
+| floor / ceiling | staircase | split into integer intervals |
+| two sides and an angle | triangle data | identify SAS or SSA before choosing a rule |
+| repeating process | sequence / iteration | calculate a few terms and hunt a cycle |
 
-**Statement forms.** ★
-$$A \Rightarrow B \;=\; \text{"if } A \text{ then } B\text{"} \;=\; \text{"} A \text{ only if } B\text{"} \;=\; \text{"} B \text{ if } A\text{".}$$
-The bare **"if"** introduces the *forcing* statement: "$A$ **if** $B$" means $B \Rightarrow A$.
-
-**Converse and contrapositive.** ★
-$$\text{statement } A\Rightarrow B; \quad \text{converse } B \Rightarrow A \text{ (not equivalent)}; \quad \text{contrapositive } (\text{not }B)\Rightarrow(\text{not }A) \text{ (always equivalent)}.$$
-
-**Necessary and sufficient.** ★ "$P$ is **sufficient** for $Q$" means $P \Rightarrow Q$; "$P$ is
-**necessary** for $Q$" means $Q \Rightarrow P$.
-
-**Negating quantifiers.** ★
-$$\text{not}(\text{for all } x,\ P) \;=\; \text{there exists } x \text{ with not } P;$$
-$$\text{not}(\text{there exists } x,\ P) \;=\; \text{for all } x,\ \text{not } P.$$
-The negation of "**all** X are Y" is "**some** X is **not** Y" — *not* "no X is Y".
-
-**Proof methods.** Direct; by cases; by contradiction (assume the negation, derive an absurdity);
-disproof by a single counterexample.
-
-**Classic invalid steps to watch for** (Err2): "$ab = ac \Rightarrow b = c$" (false if $a=0$);
-"$\sin A = \sin B \Rightarrow A = B$"; squaring both sides (not reversible); dividing by a quantity that
-might be zero; dropping half of a two-sided inequality.
+**Long-question reset.** Write what is fixed, what varies, and the requested output. Then translate the
+diagram or wording into one equation. Do not start by expanding everything.
 
 ---
 
 ::: {.callout-important}
-## The five to write down first, before reading any question
+## The exam-day memory dump
 
-Whatever you *always* forget goes here — a suggested starter set:
+Write only what you personally forget. A strong default set is:
 
 1. Quadratic formula and $\Delta = b^2 - 4ac$.
 2. $S_\infty = \dfrac{a}{1-r}$ for $|r|<1$, and $S_n = \dfrac{a(1-r^n)}{1-r}$.
 3. The exact-value trig table (the $30/45/60$ row).
 4. $\sin^2\theta + \cos^2\theta = 1$.
 5. Perpendicular distance $\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$.
+6. Sine rule, cosine rule and area $\tfrac12ab\sin C$.
+7. “Inside opposite; outside as written” for graph transformations.
+8. $\sqrt{u^2}=|u|$ and every log argument must be $>0$.
+
+**Final check on every answer:** domain · rejected roots · interval endpoints · degrees/radians · exact form.
 :::
 
 :::
