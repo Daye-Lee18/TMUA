@@ -145,6 +145,12 @@ Paper 1 is A-Level content, so the difficulty is rarely the topic — it is **sp
 techniques that sit just outside the course. The clinics below are organised by specification heading;
 each is a bank of past-paper and mock questions with a **Solution** toggle and a working box on every one.
 
+**One-page revision:** the **[Paper 1 Formula Sheet](formula_sheets/paper1_formula_sheet.qmd)** carries every
+formula the test can assume you know by heart — the TMUA gives no formula booklet and no calculator. It opens
+with the **high-yield engines**: quadratics and the discriminant, circles and the two-circle test, and the
+shortest-distance formulas (point to line, point to circle, circle to circle). A **[blank
+version](formula_sheets/paper1_formula_sheet_blank.qmd)** is there to fill in from memory first.
+
 ### Beyond the specification — the sums you have to build
 
 ::: {.callout-important}
