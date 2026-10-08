@@ -240,28 +240,64 @@ $$\text{between points: } \sqrt{(x_2-x_1)^{2}+(y_2-y_1)^{2}}$$
 
 ## 1 · Algebra and functions (MM1)
 
-**Indices** ★
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM1</div>
+<div class="fs-title">Algebra and functions</div>
+<div class="fs-sub">Indices, surds, quadratics and the modulus — the algebra every other section leans on.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Indices ★
+
 $$a^m a^n = a^{m+n}, \qquad \frac{a^m}{a^n} = a^{m-n}, \qquad (a^m)^n = a^{mn},$$
 $$a^0 = 1, \qquad a^{-n} = \frac{1}{a^n}, \qquad a^{1/n} = \sqrt[n]{a}, \qquad a^{m/n} = \left(\sqrt[n]{a}\right)^m .$$
+:::
 
-**Surds** ★ — rationalise by multiplying by the conjugate:
+::: {.fs-card}
+### Surds ★
+
+Rationalise by multiplying by the conjugate:
 $$\frac{1}{a + b\sqrt{c}} \times \frac{a - b\sqrt{c}}{a - b\sqrt{c}} = \frac{a - b\sqrt{c}}{a^2 - b^2 c} .$$
+:::
 
-**Quadratics.** For $ax^2 + bx + c = 0$: ★
+::: {.fs-card}
+### Quadratics ★
+
+For $ax^2 + bx + c = 0$: 
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \qquad \text{discriminant } \Delta = b^2 - 4ac .$$
 
 $$\Delta > 0 \Rightarrow \text{two real roots}, \qquad \Delta = 0 \Rightarrow \text{one (repeated)}, \qquad \Delta < 0 \Rightarrow \text{none}.$$
+:::
 
-**Completing the square** ★ — the vertex form gives the turning point for free:
+::: {.fs-card}
+### Completing the square ★
+
+The vertex form gives the turning point for free:
 $$a x^2 + bx + c = a\left(x + \tfrac{b}{2a}\right)^2 + \left(c - \tfrac{b^2}{4a}\right), \qquad \text{turning point at } x = -\tfrac{b}{2a}.$$
+:::
 
-**Sum and product of roots** (for $ax^2+bx+c=0$, roots $\alpha,\beta$):
+::: {.fs-card}
+### Sum and product of roots
+
+(for $ax^2+bx+c=0$, roots $\alpha,\beta$):
 $$\alpha + \beta = -\frac{b}{a}, \qquad \alpha\beta = \frac{c}{a}.$$
+:::
 
-**Factor / Remainder Theorem.** $\;(x-a)$ is a factor of $f(x) \iff f(a)=0$; the remainder on
+::: {.fs-card}
+### Factor / Remainder Theorem
+
+$\;(x-a)$ is a factor of $f(x) \iff f(a)=0$; the remainder on
 dividing $f(x)$ by $(x-a)$ is $f(a)$.
+:::
 
-**Modulus (absolute value)** ★ — $\lvert x\rvert = x$ if $x\ge0$, else $-x$; $\;\lvert x\rvert=\sqrt{x^2}$
+::: {.fs-card}
+### Modulus (absolute value) ★
+
+$\lvert x\rvert = x$ if $x\ge0$, else $-x$; $\;\lvert x\rvert=\sqrt{x^2}$
 (never negative); $\;\lvert x-a\rvert =$ distance from $x$ to $a$.
 $$\lvert A\rvert = k \iff A = \pm k, \qquad \lvert A\rvert < k \iff -k < A < k, \qquad \lvert A\rvert < \lvert B\rvert \iff A^2 < B^2 .$$
 $$\text{Triangle inequality: } \lvert a+b\rvert \le \lvert a\rvert + \lvert b\rvert \quad(\text{equality when } a,b \text{ have the same sign}).$$
@@ -270,6 +306,11 @@ $$\text{Triangle inequality: } \lvert a+b\rvert \le \lvert a\rvert + \lvert b\rv
   (even function).
 - Two V/Λ moduli enclose a **kite** — area $=\tfrac12 d_1 d_2$ (product of the diagonals, halved).
 - $\displaystyle\min_x \sum_i \lvert x-a_i\rvert$ is reached with $x$ **between the two middle points**.
+:::
+
+:::::
+
+::::::
 
 ::: {.callout-tip}
 **Exam reflex — algebra.**
@@ -288,16 +329,40 @@ axis: $\Delta=36-4k<0$, hence $k>9$.
 
 ## 2 · Sequences and series (MM2)
 
-**Arithmetic** (first term $a$, common difference $d$):
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM2</div>
+<div class="fs-title">Sequences and series</div>
+<div class="fs-sub">The four things the specification gives you, plus the two ways to build a sum it does not.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Arithmetic
+
+(first term $a$, common difference $d$):
 $$u_n = a + (n-1)d, \qquad S_n = \frac{n}{2}\big(2a + (n-1)d\big) = \frac{n}{2}(a + \ell).$$
+:::
 
-**Sum of the first $n$ integers** ★
+::: {.fs-card}
+### Sum of the first $n$ integers ★
+
 $$1 + 2 + \cdots + n = \frac{n(n+1)}{2}.$$
+:::
 
-**Geometric** (first term $a$, common ratio $r$): ★
+::: {.fs-card}
+### Geometric ★
+
+(first term $a$, common ratio $r$): 
 $$u_n = a r^{n-1}, \qquad S_n = \frac{a(1 - r^n)}{1 - r} \;(r \ne 1), \qquad S_\infty = \frac{a}{1-r} \;\text{for } |r| < 1.$$
+:::
 
-**Recovering a term from a partial sum** ★ — if $S_n=b_1+b_2+\cdots+b_n$ is given, then
+::: {.fs-card}
+### Recovering a term from a partial sum ★
+
+If $S_n=b_1+b_2+\cdots+b_n$ is given, then
 
 $$\boxed{\ b_n=S_n-S_{n-1}\ \ (n\ge2),\qquad b_1=S_1\ }$$
 
@@ -307,8 +372,12 @@ still gives $b_n=2n-1$ while $b_1=S_1=4$.
 
 *This is also the check that a claimed formula is right: a GP has $S_n=\dfrac{a(1-r^{n})}{1-r}$, and
 $S_n-S_{n-1}=ar^{\,n-1}$ as it must.*
+:::
 
-**Telescoping — the sum you were never given** (*부분급수*). If the term can be written as a difference,
+::: {.fs-card}
+### Telescoping — the sum you were never given
+
+(*부분급수*). If the term can be written as a difference,
 
 $$b_k=f(k)-f(k+1)\quad\Longrightarrow\quad \sum_{k=1}^{n}b_k=f(1)-f(n+1),$$
 
@@ -323,10 +392,19 @@ $$\frac{1}{k(k+2)}=\frac12\left(\frac1k-\frac1{k+2}\right)
 
 *None of this is on the specification, which is exactly why it appears — see
 **[Sequences & series clinic](../lessons/sequences_series_clinic/class_material.qmd)**, sections 4–8.*
+:::
 
-**Binomial expansion** ($n$ a positive integer): ★
+::: {.fs-card}
+### Binomial expansion ★
+
+($n$ a positive integer): 
 $$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k, \qquad \binom{n}{k} = \frac{n!}{k!\,(n-k)!}, \qquad \binom{n}{1} = n.$$
 $$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^{k}.$$
+:::
+
+:::::
+
+::::::
 
 ::: {.callout-tip}
 **Exam reflex — sequences and series.**
@@ -346,20 +424,47 @@ $r^3=u_6/u_3=8$, so $r=2$; there is no need to find $a$ first.
 
 ## 3 · Coordinate geometry (MM3)
 
-**Straight line** ★
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM3</div>
+<div class="fs-title">Coordinate geometry</div>
+<div class="fs-sub">Lines, circles and distances. Most Paper 1 geometry is one of these three wearing a disguise.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Straight line ★
+
 $$\text{gradient } m = \frac{y_2 - y_1}{x_2 - x_1}, \qquad y - y_1 = m(x - x_1).$$
 Parallel: $m_1 = m_2$. &nbsp; Perpendicular: $m_1 m_2 = -1$. ★
+:::
 
-**Distance and midpoint**
+::: {.fs-card}
+### Distance and midpoint
+
 $$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}, \qquad M = \left(\tfrac{x_1+x_2}{2}, \tfrac{y_1+y_2}{2}\right).$$
+:::
 
-**Circle** ★ — centre $(a,b)$, radius $r$:
+::: {.fs-card}
+### Circle ★
+
+Centre $(a,b)$, radius $r$:
 $$(x-a)^2 + (y-b)^2 = r^2.$$
 General form $x^2 + y^2 + 2gx + 2fy + c = 0$ has centre $(-g,-f)$ and radius $\sqrt{g^2+f^2-c}$.
+:::
 
-**Circle facts.** The tangent is perpendicular to the radius at the point of contact; the angle in a
+::: {.fs-card}
+### Circle facts
+
+The tangent is perpendicular to the radius at the point of contact; the angle in a
 semicircle is a right angle; the perpendicular from the centre bisects a chord.
+:::
 
+:::::
+
+::::::
 ```{python}
 import numpy as np, matplotlib.pyplot as plt
 ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
@@ -470,29 +575,56 @@ the resulting quadratic having $\Delta=0$.
 
 ## 4 · Trigonometry (MM4)
 
-**Exact values** ★ — know this row cold:
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM4</div>
+<div class="fs-title">Trigonometry</div>
+<div class="fs-sub">Exact values, the two identities, and everything the triangle can be asked for.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Exact values ★
+
+know this row cold:
 
 | $\theta$ | $0$ | $30^\circ$ | $45^\circ$ | $60^\circ$ | $90^\circ$ |
 |---|---|---|---|---|---|
 | $\sin$ | $0$ | $\tfrac12$ | $\tfrac{\sqrt2}{2}$ | $\tfrac{\sqrt3}{2}$ | $1$ |
 | $\cos$ | $1$ | $\tfrac{\sqrt3}{2}$ | $\tfrac{\sqrt2}{2}$ | $\tfrac12$ | $0$ |
 | $\tan$ | $0$ | $\tfrac{\sqrt3}{3}$ | $1$ | $\sqrt3$ | — |
+:::
 
-**Identities** ★ — these two are the *only* ones the spec assumes:
+::: {.fs-card}
+### Identities ★
+
+These two are the *only* ones the spec assumes:
 $$\sin^2\theta + \cos^2\theta = 1, \qquad \tan\theta = \frac{\sin\theta}{\cos\theta}.$$
+:::
 
-**Symmetries** (for solving equations over an interval):
+::: {.fs-card}
+### Symmetries
+
+(for solving equations over an interval):
 $$\sin(180^\circ - \theta) = \sin\theta, \qquad \cos(360^\circ - \theta) = \cos\theta,$$
 $$\sin(180^\circ + \theta) = -\sin\theta, \qquad \cos(180^\circ - \theta) = -\cos\theta.$$
 Periods: $\sin,\cos$ repeat every $360^\circ$; $\tan$ every $180^\circ$.
+:::
 
-**Triangles** ★ — for sides $a,b,c$ opposite angles $A,B,C$, with $A+B+C=180^\circ$:
+::: {.fs-card}
+### Triangles — the extended sine rule ★
 
-**The extended sine rule** — the $2R$ on the end is the part that gets forgotten, and $R$ is the
+For sides $a,b,c$ opposite angles $A,B,C$, with $A+B+C=180^\circ$. The $2R$ on the end is the part that gets forgotten, and $R$ is the
 **circumradius**:
 $$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R .$$
+:::
 
-**The cosine rule**, and the sign test it gives for free:
+::: {.fs-card}
+### The cosine rule
+
+, and the sign test it gives for free:
 $$c^{2}=a^{2}+b^{2}-2ab\cos C
 \qquad\Longrightarrow\qquad
 \cos C=\frac{a^{2}+b^{2}-c^{2}}{2ab}.$$
@@ -502,8 +634,10 @@ With $c$ the **longest** side, the sign of $a^{2}+b^{2}-c^{2}$ decides the trian
 | $a^{2}+b^{2}>c^{2}$ | $a^{2}+b^{2}=c^{2}$ | $a^{2}+b^{2}<c^{2}$ |
 |---|---|---|
 | acute | right-angled | obtuse |
+:::
 
-**Area — three formulas, one for each kind of data** ★
+::: {.fs-card}
+### Area — three formulas, one for each kind of data ★
 
 | what you are given | use |
 |---|---|
@@ -513,8 +647,11 @@ With $c$ the **longest** side, the sign of $a^{2}+b^{2}-c^{2}$ decides the trian
 
 *Heron needs no angle at all, which is why it beats finding $\cos C$ first.* The three points are
 **collinear exactly when the shoelace expression is $0$** — that is the fastest collinearity test there is.
+:::
 
-**The two radii** ★
+::: {.fs-card}
+### The two radii ★
+
 $$\boxed{\,R=\frac{abc}{4K}\,}\qquad\qquad \boxed{\,r=\frac{K}{s}\,}$$
 *$R$ comes from combining $\sin A=\dfrac{a}{2R}$ with $K=\tfrac12bc\sin A$; the denominator is
 $4\times\text{area}$, not $\tfrac{abc}{4}\times K$.* Here $r$ is the **inradius**.
@@ -522,8 +659,10 @@ $4\times\text{area}$, not $\tfrac{abc}{4}\times K$.* Here $r$ is the **inradius*
 [Worked check on the $13,14,15$ triangle: $s=21$, Heron gives $K=\sqrt{21\cdot8\cdot7\cdot6}=84$, the same
 as $\tfrac12ab\sin C$ and as the shoelace value; then $R=\tfrac{13\cdot14\cdot15}{4\cdot84}=\tfrac{65}{8}$ and
 $r=\tfrac{84}{21}=4$.]{.eg}
+:::
 
-**Greatest area for fixed information**
+::: {.fs-card}
+### Greatest area for fixed information
 
 | fixed | greatest-area shape |
 |---|---|
@@ -541,6 +680,11 @@ condition. Writing $h=c\sin A$ for the distance from the far vertex to the oppos
 
 *When two triangles share an angle and one adjacent side, their areas are in the same ratio as the other
 adjacent sides* — because $K=\tfrac12bc\sin A$ holds everything but that side fixed.
+:::
+
+:::::
+
+::::::
 
 ::: {.callout-note appearance="simple"}
 **Range trap.** If an equation is in $\sin 2x$ (or $\cos 2x$) and $x$ runs over $[0^\circ, 360^\circ]$,
@@ -565,15 +709,38 @@ cosine is the same row backwards.
 
 ## 5 · Exponentials and logarithms (MM5)
 
-**Definition** ★
-$$y = a^x \iff x = \log_a y \quad (a>0,\ a\ne 1).$$
+:::::: {.formulasheet}
 
-**Laws of logarithms** ★
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM5</div>
+<div class="fs-title">Exponentials and logarithms</div>
+<div class="fs-sub">The laws, the domain conditions, and the shapes of the two graphs.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Definition ★
+
+$$y = a^x \iff x = \log_a y \quad (a>0,\ a\ne 1).$$
+:::
+
+::: {.fs-card}
+### Laws of logarithms ★
+
 $$\log_a(xy) = \log_a x + \log_a y, \qquad \log_a\!\left(\tfrac{x}{y}\right) = \log_a x - \log_a y,$$
 $$\log_a(x^k) = k\log_a x, \qquad \log_a a = 1, \qquad \log_a 1 = 0.$$
+:::
 
-**Change of base**
+::: {.fs-card}
+### Change of base
+
 $$\log_a x = \frac{\log_b x}{\log_b a}.$$
+:::
+
+:::::
+
+::::::
 
 ::: {.callout-note appearance="simple"}
 **Which way up?** $a^x = b \Rightarrow x = \log_a b$, **not** $\log_b a$. Sanity check with size:
@@ -600,17 +767,36 @@ $\log_2(x^2-1)=3$, hence $x^2=9$; the domain $x>1$ keeps only $x=3$.
 
 ## 6 · Differentiation (MM6)
 
-**Power rule** ★
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM6</div>
+<div class="fs-title">Differentiation</div>
+<div class="fs-sub">The rule, what the derivative is for, and the definitions that get confused.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Power rule ★
+
 $$\frac{\mathrm d}{\mathrm dx}\left(x^n\right) = n x^{n-1}, \qquad \frac{\mathrm d}{\mathrm dx}(k) = 0.$$
 Differentiate sums term by term. Often you must **simplify first** (e.g. split a fraction into powers of $x$).
+:::
 
-**Uses.**
-- Gradient of the curve at a point $=$ value of $\dfrac{\mathrm dy}{\mathrm dx}$ there.
+::: {.fs-card}
+### Uses
+
+Gradient of the curve at a point $=$ value of $\dfrac{\mathrm dy}{\mathrm dx}$ there.
 - **Tangent** has gradient $\dfrac{\mathrm dy}{\mathrm dx}$; **normal** has gradient $-1\big/\dfrac{\mathrm dy}{\mathrm dx}$.
 - **Stationary points**: solve $\dfrac{\mathrm dy}{\mathrm dx} = 0$. Then $\dfrac{\mathrm d^2 y}{\mathrm dx^2} > 0 \Rightarrow$ minimum, $< 0 \Rightarrow$ maximum.
 - **Shortest distance** from a curve to a line: the closest point is where the tangent is **parallel to the line**.
+:::
 
-**The definitions, kept apart** ★ — these four words are not interchangeable, and the exam tests exactly that.
+::: {.fs-card}
+### The definitions, kept apart ★
+
+These four words are not interchangeable, and the exam tests exactly that.
 
 | term | definition | what it says |
 |---|---|---|
@@ -620,8 +806,10 @@ Differentiate sums term by term. Often you must **simplify first** (e.g. split a
 | **turning point** at $a$ | $f'$ **changes sign** at $a$ | a local max or a local min |
 | **point of inflection** at $a$ | $f''$ **changes sign** at $a$ | the concavity flips |
 | **stationary inflection** at $a$ | both $f'(a)=0$ **and** $f''$ changes sign | flat, but not a turn — e.g. $y=x^{3}$ at $0$ |
+:::
 
-**Necessary or sufficient — the whole table** ★
+::: {.fs-card}
+### Necessary or sufficient — the whole table ★
 
 | claim | verdict | the counterexample that settles it |
 |---|---|---|
@@ -637,9 +825,18 @@ Differentiate sums term by term. Often you must **simplify first** (e.g. split a
 **sign change** — of $f'$ for a turning point, of $f''$ for an inflection.* The second-derivative test is a
 shortcut that works only when $f''(a)\neq0$; when $f''(a)=0$ it tells you nothing and you must go back to the
 sign of $f'$ (or of $f''$) on either side.
+:::
 
-**Stationary does not automatically mean turning.** $f'(a)=0$ only gives a horizontal tangent. Classify by
+::: {.fs-card}
+### Stationary does not automatically mean turning
+
+$f'(a)=0$ only gives a horizontal tangent. Classify by
 the sign of $f'$ on either side, or use $f''(a)>0$ for a local minimum and $f''(a)<0$ for a local maximum.
+:::
+
+:::::
+
+::::::
 
 ::: {.callout-tip}
 **Exam reflex — differentiation.**
@@ -660,30 +857,65 @@ $D^2=(x-p)^2+(f(x)-q)^2$; the square root is unnecessary.
 
 ## 7 · Integration (MM7)
 
-**Power rule** ★
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM7</div>
+<div class="fs-title">Integration</div>
+<div class="fs-sub">Signed area, symmetry, and the step functions that turn an integral into a series.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Power rule ★
+
 $$\int x^n \,\mathrm dx = \frac{x^{n+1}}{n+1} + C \quad (n \ne -1).$$
+:::
 
-**Definite integral** ★
+::: {.fs-card}
+### Definite integral ★
+
 $$\int_a^b f(x)\,\mathrm dx = \big[F(x)\big]_a^b = F(b) - F(a).$$
+:::
 
-**Area vs integral.** ★ A definite integral is a **signed** area — regions below the axis count as
+::: {.fs-card}
+### Area vs integral ★
+
+A definite integral is a **signed** area — regions below the axis count as
 **negative**. To find an actual **area**, split at every axis-crossing and make each piece positive.
+:::
 
-**Area between two curves** (upper $-$ lower, over their intersection):
+::: {.fs-card}
+### Area between two curves
+
+(upper $-$ lower, over their intersection):
 $$A = \int_{x_1}^{x_2} \big(y_{\text{top}} - y_{\text{bottom}}\big)\,\mathrm dx.$$
+:::
 
-**Translation.** Shifting a graph sideways does not change the area under it:
+::: {.fs-card}
+### Translation
+
+Shifting a graph sideways does not change the area under it:
 $\int_{0}^{1} f(x+1)\,\mathrm dx = \int_{1}^{2} f(u)\,\mathrm du.$
+:::
 
-**Even & odd symmetry** ★ — an **even** function ($f(-x)=f(x)$) is symmetric about the **$y$-axis**; an
+::: {.fs-card}
+### Even & odd symmetry ★
+
+An **even** function ($f(-x)=f(x)$) is symmetric about the **$y$-axis**; an
 **odd** function ($f(-x)=-f(x)$) is symmetric about the **origin**. So
 $$\int_{-a}^{a} f_{\text{even}}(x)\,\mathrm dx = 2\int_{0}^{a} f_{\text{even}}(x)\,\mathrm dx, \qquad \int_{-a}^{a} f_{\text{odd}}(x)\,\mathrm dx = 0.$$
 **$f(\lvert x\rvert)$ is *always* even.** Replacing $x$ by $\lvert x\rvert$ makes **any** curve — quadratic,
 cubic, or anything else — symmetric about the $y$-axis, because $\lvert -x\rvert = \lvert x\rvert$. Its graph
 is the $x\ge0$ half mirrored to the left, so you can **integrate over $x\ge0$ and double** (as in $x^2-2\lvert
 x\rvert-8$).
+:::
 
-**Floor, ceiling & step functions** ★ — the definitions, stated as the conditions that pin down the integer
+::: {.fs-card}
+### Floor, ceiling & step functions ★
+
+The definitions, stated as the conditions that pin down the integer
 $n$:
 
 | symbol | name | definition | example at $2.3$ | at $-2.3$ | at $3$ |
@@ -697,8 +929,12 @@ exam checks. Useful consequences:
 
 $$\lceil x\rceil=-\lfloor -x\rfloor,\qquad
 \lceil x\rceil=\begin{cases}\lfloor x\rfloor & x\in\mathbb Z\\[2pt] \lfloor x\rfloor+1 & \text{otherwise.}\end{cases}$$
+:::
 
-**How it meets integration.** Each of these is **constant on every unit interval**, so the graph is a
+::: {.fs-card}
+### How it meets integration
+
+Each of these is **constant on every unit interval**, so the graph is a
 staircase and the integral is nothing but **a sum of rectangles of width $1$**:
 
 $$\int_0^n f\bigl(\lfloor x\rfloor\bigr)\,\mathrm dx=\sum_{k=0}^{n-1}f(k).$$
@@ -719,9 +955,18 @@ When the strip heights scale by a fixed factor the sum is **geometric**:
 $$\int_0^{n} 2^{\lfloor x\rfloor}\,\mathrm dx=\sum_{k=0}^{n-1}2^{k}=2^{n}-1,
 \qquad
 \int_0^{99} 2^{\lceil x\rceil}\,\mathrm dx = \sum_{k=1}^{99} 2^{k} = 2^{100}-2 .$$
+:::
 
-**Modulus integral.** Split at every point where an inside changes sign, and integrate each piece with the
+::: {.fs-card}
+### Modulus integral
+
+Split at every point where an inside changes sign, and integrate each piece with the
 sign it takes there — $\int\lvert f\rvert$ is a true (non-negative) area.
+:::
+
+:::::
+
+::::::
 
 ::: {.callout-tip}
 **Exam reflex — integration.**
@@ -742,6 +987,17 @@ large.
 
 ## 8 · Graphs and transformations (MM8)
 
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM8</div>
+<div class="fs-title">Graphs and transformations</div>
+<div class="fs-sub">The order transformations apply in, and the shapes to recognise on sight.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
 For $y = f(x)$:
 
 | Transformation | Effect |
@@ -752,20 +1008,37 @@ For $y = f(x)$:
 | $f(ax)$ | stretch $\times \tfrac1a$ horizontally |
 | $-f(x)$ | reflect in the $x$-axis |
 | $f(-x)$ | reflect in the $y$-axis |
+:::
 
-**Shapes to know on sight:** $y = x^2$ (parabola), $y = x^3$ (cubic), $y = \tfrac1x$ and $y = \tfrac{1}{x^2}$
+::: {.fs-card}
+### Shapes to know on sight
+
+$y = x^2$ (parabola), $y = x^3$ (cubic), $y = \tfrac1x$ and $y = \tfrac{1}{x^2}$
 (reciprocals, with asymptotes), $y = a^x$ (exponential), $y = \sqrt{x}$.
+:::
 
-**"For which $k$…" questions** ★ — rearrange to $g(x) = k$, sketch $y = g(x)$, and count how many times
+::: {.fs-card}
+### "For which $k$…" questions ★
+
+Rearrange to $g(x) = k$, sketch $y = g(x)$, and count how many times
 the horizontal line $y = k$ crosses it. The turning-point values of $g$ are the boundaries.
+:::
 
-**Sketch checklist** ★ — intercepts; repeated roots; turning points; asymptotes; end behaviour.
+::: {.fs-card}
+### Sketch checklist ★
+
+Intercepts; repeated roots; turning points; asymptotes; end behaviour.
 
 - A single root crosses; a double root touches; an odd repeated root crosses with flattening.
 - For $\dfrac{ax+b}{cx+d}$, the vertical asymptote is $cx+d=0$ and the horizontal asymptote is
   $y=\dfrac ac$.
 - To move a feature through $f(mx+c)$, solve $mx+c=$ its **old $x$-coordinate**. Do not apply the inside
   transformation forwards.
+:::
+
+:::::
+
+::::::
 
 ::: {.callout-tip}
 **Exam reflex — graphs, transformations and composite expressions.**
