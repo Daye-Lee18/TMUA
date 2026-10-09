@@ -9,357 +9,353 @@ execute:
 
 ::: {.solutions}
 
-**Answer key**
-
 | | | | | | | | | | |
 |---|---|---|---|---|---|---|---|---|---|
-| **1** C | **2** F | **3** D | **4** A | **5** B | **6** D | **7** A | **8** E | **9** B | **10** A |
-| **11** B | **12** B | **13** B | **14** C | **15** A | **16** B | **17** C | **18** B | **19** B | **20** C |
+| **1** B | **2** E | **3** B | **4** C | **5** B | **6** A | **7** D | **8** C | **9** B | **10** B |
+| **11** D | **12** E | **13** C | **14** B | **15** C | **16** C | **17** B | **18** B | **19** D | **20** B |
 
 | session | questions |
 |---|---|
-| **S1** statement forms | 1, 20 |
-| **S2** converse & contrapositive | 2, 20 |
-| **S3** necessary & sufficient | 3, 4, 12, 15, 17, 19 |
-| **S4** quantifiers & negation | 5, 6 |
-| **S5** proof methods | 7, 8, 18 |
+| **S1** statement forms | 17, 20 |
+| **S2** converse & contrapositive | 10, 20 |
+| **S3** necessary & sufficient | 1, 2, 14 |
+| **S4** quantifiers & negation | 3, 4 |
+| **S5** proof methods | 13, 18, 19 |
 | **S6** scrambled proofs | 9 |
-| **S7** spot the error | 10, 11 |
-| **T1** divisors & primes | 13, 14, 15 |
-| **T2** shapes as logic | 16, 17 |
+| **S7** spot the error | 7, 8 |
+| **T1** divisors & primes | 5, 6, 11, 12, 16 |
+| **T2** shapes as logic | 15 |
 
 ---
 
-## Question 1 — **C**
+## Question 1 — **B**
 
 ::: {.question}
-$P$: $4$ divides $n$; &nbsp;$Q$: $8$ divides $n^{2}$. Which is true?
+$P$: $n$ odd; $Q$: $n^{2}\equiv1\pmod{16}$.
 :::
 
-**$P\Rightarrow Q$:** if $n=4k$ then $n^{2}=16k^{2}$, which is divisible by $8$.
+**$Q\Rightarrow P$.** If $n$ were even, $n^{2}$ would be even, so it could not be $\equiv1$.
 
-**$Q\Rightarrow P$:** *odd $n$ gives odd $n^{2}$, so $n$ must be even.* Write $n=2m$; then $n^{2}=4m^{2}$,
-and $8$ divides $4m^{2}$ exactly when $m$ is even — that is, exactly when $4$ divides $n$.
+**$P\not\Rightarrow Q$.** Write $n=2k+1$: $n^{2}=4k(k+1)+1$, and $k(k+1)$ is even, so $n^{2}\equiv1\pmod 8$ —
+**modulo 8, not 16**. Indeed $3^{2}=9\equiv9\pmod{16}$.
 
-Both directions hold, so $P$ is **necessary and sufficient** for $Q$.
+So $Q$ is strictly stronger: $P$ is **necessary but not sufficient**.
 
-*The trap is to test only small cases: $n=2$ and $n=6$ both fail $Q$, which makes the two look unrelated.*
+*The trap is the familiar fact "odd squares are $1$ mod $8$" being misremembered as mod $16$. Odd squares are
+$1$ or $9$ modulo $16$.*
 
-## Question 2 — **F**
+## Question 2 — **E**
 
 ::: {.question}
-$(*)$: if $n^{2}$ is odd then $n$ is odd. Which of **1** $(*)$, **2** its converse, **3** its inverse are true?
+Both roots of $x^{2}+bx+c=0$ real and in $(0,1)$. Which is **not** a necessary consequence?
 :::
 
-**$(*)$ is true** — *contrapositive: if $n$ is even then $n=2m$ and $n^{2}=4m^{2}$ is even.*
+Let the roots be $\alpha,\beta\in(0,1)$. Then $c=\alpha\beta>0$ ✓ (**A**), and $b=-(\alpha+\beta)\in(-2,0)$ ✓
+(**B**). Real roots give $b^{2}\ge4c$ ✓ (**D**). And $f(1)=1+b+c=(1-\alpha)(1-\beta)>0$ ✓ (**C**).
 
-**The converse is true** — if $n$ is odd, $n=2m+1$ and $n^{2}=4m^{2}+4m+1$ is odd.
+**E fails.** $c=\alpha\beta$ can be as large as it likes below $1$: take $\alpha=\beta=0.9$, so
+$c=0.81>\tfrac14$, $b=-1.8$, and $b^{2}-4c=3.24-3.24=0$ — a genuine repeated root at $0.9\in(0,1)$.
 
-**The inverse is true** — *the inverse is the contrapositive of the converse, so it stands or falls with it.*
+*$c<\tfrac14$ would follow from AM–GM only if the roots were forced to sum to $1$; nothing says that.*
 
-All three, so **F**. *This is the case the S2 card warns about: a statement and its converse can both be
-true, and then all four forms are true together.*
-
-## Question 3 — **D**
+## Question 3 — **B**
 
 ::: {.question}
-$A$: $x>2$; $B$: $x^{2}>4$; $C$: $x^{3}>8$; $D$: $\tfrac1x<\tfrac12$. Which is necessary for all three others?
+Negate $\forall\varepsilon>0\ \exists N\ \forall n>N:\ \lvert a_n-L\rvert<\varepsilon$.
 :::
 
-As sets, with $x\neq0$:
+Flip every quantifier in order and negate the final condition:
 
-$$A=(2,\infty),\quad B=(-\infty,-2)\cup(2,\infty),\quad C=(2,\infty),\quad D=(-\infty,0)\cup(2,\infty).$$
+$$\exists\varepsilon>0\ \ \forall N\ \ \exists n>N:\quad \lvert a_n-L\rvert\ge\varepsilon . \qquad\textbf{B}$$
 
-*Necessary means **larger**, so we want the one containing all the others.* $D$ contains $A$, $B$ and $C$.
+*In words: some fixed tolerance is exceeded infinitely often — "for all $N$ there is a later $n$" is exactly
+"infinitely often".*
 
-**The subtlety is $D$.** Dividing $\tfrac1x<\tfrac12$ by cross-multiplying assumes $x>0$; for **negative**
-$x$ the left side is negative and the inequality holds automatically. Missing that branch makes $D$ look
-identical to $A$.
+| | why it is wrong |
+|---|---|
+| **A** | flips nothing, only negates the inside |
+| **C** | $\exists N$ instead of $\forall N$ — says the terms stay far away **eventually**, a much stronger claim |
+| **D** | leaves the first quantifier as $\forall$ |
+| **E** | makes the last one $\forall n>N$, again too strong |
 
-## Question 4 — **A**
+## Question 4 — **C**
 
 ::: {.question}
-$A$: $\lvert x\rvert<4$; $B$: $1<x<3$; $C$: $x^{2}<9$; $D$: $x<6$; $E$: $\lvert x-2\rvert<1$. Which is
-necessary for exactly three of the others?
+Which of **1** $\forall x\exists y\forall z:x+y>z$, **2** $\exists y\forall x:x+y>x$,
+**3** $\forall x\forall y\exists z:z>x+y$, **4** $\exists x\forall y:xy=0$ are true?
 :::
 
-$$A=(-4,4),\quad B=(1,3),\quad C=(-3,3),\quad D=(-\infty,6),\quad E=(1,3).$$
+**1 is false.** Once $x$ and $y$ are chosen, $x+y$ is a fixed number, and $z$ may be any real — take
+$z=x+y+1$. *The $\forall z$ comes last, so $z$ may depend on both earlier choices.*
 
-$A$ contains $B$, $C$ and $E$ — three — but not $D$. $D$ contains **all four**, so it overshoots the target;
-$C$ contains two; $B$ and $E$ are equal to each other and contain one each.
+**2 is true.** Take $y=1$: $x+1>x$ for every $x$.
 
-**A**. *$D$ is the trap: "necessary for all four" is not "necessary for exactly three".*
+**3 is true.** $z$ is chosen after $x$ and $y$, so $z=x+y+1$ works.
+
+**4 is true.** Take $x=0$.
+
+**C**. *1 and 3 differ only in which side the free variable sits, and that is the whole question.*
 
 ## Question 5 — **B**
 
 ::: {.question}
-Negate: for every integer $n>1$ there exists a prime $p$ with $n<p<2n$.
+For which $m$ does "$m$ divides $n^{k}$ implies $m$ divides $n$" hold for every $k\ge2$ and every $n$?
 :::
 
-Symbolically $\forall n>1\ \exists p\ \text{prime}:\ n<p<2n$. Flip both quantifiers and negate the condition:
+Write $m=\prod p_i^{e_i}$. Raising $n$ to the power $k$ multiplies every exponent in $n$ by $k$, so $m\mid
+n^{k}$ only constrains $n$ to carry $\lceil e_i/k\rceil$ copies of each $p_i$.
 
-$$\exists n>1\ \forall p\ \text{prime}:\ p\le n\ \text{ or }\ p\ge2n .$$
+- If some $e_i\ge2$, take $n=m/p_i$: then $n^{k}$ has at least $k(e_i-1)\ge e_i$ copies of $p_i$ for $k\ge2$,
+  so $m\mid n^{k}$ while $m\nmid n$. **It fails.**
+- If every $e_i=1$ — that is, $m$ is **squarefree** — then $p_i\mid n^{k}$ forces $p_i\mid n$ by Euclid's
+  lemma, for each $i$, so $m\mid n$.
 
-**B**. *Option C negates the restriction $n>1$ as well, which is the commonest error — the restriction says
-which $n$ are being discussed, not what is claimed about them. Option D leaves the first quantifier alone.*
+Squarefree is exactly "a product of **distinct** primes". **B**
 
-(The original statement is Bertrand's postulate, and it is **true**.)
+*A is too narrow: $m=6$ works and is not prime. C is a different condition — $12$ is not a perfect power but
+fails at $n=6$.*
 
-## Question 6 — **D**
+## Question 6 — **A**
 
 ::: {.question}
-$S_1$: $\forall x\ \exists y:\ xy=1$. &nbsp;$S_2$: $\exists y\ \forall x:\ xy=1$. Which are true?
+Smallest $n\ge0$ for which $n^{2}+n+41$ is not prime, and why.
 :::
 
-**$S_1$ is false.** It fails at the single value $x=0$: *no real $y$ satisfies $0\cdot y=1$.*
+$n^{2}+n+41=n(n+1)+41$. For $0\le n\le39$ the value is prime (this is the classic Euler polynomial). At
 
-**$S_2$ is false.** One $y$ would have to work for every $x$ at once — impossible, since $xy=1$ forces
-$y=1/x$, which changes with $x$.
+$$n=40:\quad 40^{2}+40+41=1681=41^{2}. \qquad\textbf{A}$$
 
-**D**. *The usual instinct is "the $\forall\exists$ one must be true because $y=1/x$ works" — it does, for
-every $x$ **except** $0$, and one exception is enough.*
+*The quick way to see **a** failure is $n=41$, where every term is a multiple of $41$ — but that is not the
+**smallest**, and option B is exactly that trap.* Option C misreads $1681$: $40\times41=1640$.
 
-## Question 7 — **A**
+## Question 7 — **D**
 
 ::: {.question}
-The most appropriate first line of a proof by contradiction that $\sqrt2+\sqrt3$ is irrational.
+A student deduces from $\lvert x-3\rvert<1$ that the solution set of $\tfrac1{x-2}<1$ is $x>3$.
 :::
 
-A proof by contradiction **assumes the negation of what is to be proved**. The negation of "$\sqrt2+\sqrt3$
-is irrational" is "$\sqrt2+\sqrt3$ is rational", i.e. equal to $p/q$ with $p,q$ integers, $q\ne0$.
+Steps (1), (2) and (3) are each **valid** — given $\lvert x-3\rvert<1$ we do have $2<x<4$, hence $x-2>0$, and
+multiplying by a positive number is legitimate.
 
-**A**. *C assumes the conclusion itself, which proves nothing; B and E assume facts that are not the negation;
-D asserts something about the square rather than negating the statement.*
+The error is **(4)**. *The argument assumed $\lvert x-3\rvert<1$ throughout, which is extra information not
+contained in $\tfrac1{x-2}<1$; so what has been proved is only that **within that window** the solutions are
+$x>3$.* The true solution set is
 
-(The proof continues: squaring gives $5+2\sqrt6=p^{2}/q^{2}$, so $\sqrt6$ would be rational.)
+$$x<2\quad\text{or}\quad x>3,$$
 
-## Question 8 — **E**
+because for $x<2$ the left-hand side is negative and the inequality holds automatically.
+
+**D**. *Option C is the tempting answer — but under the stated assumption $x-2$ really is positive. The flaw is
+importing the assumption, not the multiplication.*
+
+## Question 8 — **C**
 
 ::: {.question}
-Which is true for every positive integer $n$? **A** $n^{2}+n+1$ even, **B** prime, **C** divisible by 3,
-**D** remainder 1 on division by 4, **E** never a perfect square.
+Solving $x^{3}=x$ by dividing through by $x$.
 :::
 
-**E.** *$n(n+1)$ is a product of consecutive integers, so for $n\ge1$*
+**Step 3** divides by $x$ without excluding $x=0$. *Division is only reversible by a non-zero quantity, so the
+step throws away the root $x=0$* — the solution set shrinks, which is just as fatal as growing.
 
-$$n^{2}<n^{2}+n+1<n^{2}+2n+1=(n+1)^{2},$$
+$x^{3}-x=x(x-1)(x+1)=0$ gives $x=0,\,1,\,-1$. **C**
 
-and a number strictly between two consecutive squares cannot be a square.
-
-| | fails at |
-|---|---|
-| **A** even | $n=1$ gives $3$ — in fact $n(n+1)$ is always even, so $n^{2}+n+1$ is always **odd** |
-| **B** prime | $n=4$ gives $21=3\times7$ |
-| **C** divisible by $3$ | $n=2$ gives $7$ |
-| **D** remainder $1\pmod 4$ | $n=1$ gives $3$ |
+*Compare Question 7: there a step **added** solutions, here one **removes** them. Both break equivalence.*
 
 ## Question 9 — **B**
 
 ::: {.question}
-$\log_c d=(\log_a b)^{3}$; order the lines to prove $\log_b d=(\log_a b)^{2}(\log_a c)$.
+Order the lines to prove $\log_b d=(\log_a b)^{2}(\log_a c)$ from $\log_c d=(\log_a b)^{3}$.
 :::
 
-With $x=\log_a b$ and $y=\log_a c$, the hypothesis says $\log_c d=x^{3}$, i.e. $d=c^{(x^{3})}$ — **line (2)**
+With $x=\log_a b$, $y=\log_a c$ the hypothesis is $\log_c d=x^{3}$, i.e. $d=c^{(x^{3})}$ — **line (2)**, which
 is where the proof must start. Then one base change at a time:
 
-$$d=c^{(x^{3})}\xrightarrow{\;c=a^{y}\;}\left(a^{y}\right)^{(x^{3})}
-\xrightarrow{\;\text{multiply indices}\;}a^{(x^{3}y)}
-\xrightarrow{\;\text{split}\;}\left(a^{x}\right)^{(x^{2}y)}
-\xrightarrow{\;a^{x}=b\;}b^{(x^{2}y)} ,$$
+$$c^{(x^{3})}\xrightarrow{\,c=a^{y}\,}\left(a^{y}\right)^{(x^{3})}
+\xrightarrow{\,\text{multiply indices}\,}a^{(x^{3}y)}
+\xrightarrow{\,\text{split}\,}\left(a^{x}\right)^{(x^{2}y)}
+\xrightarrow{\,a^{x}=b\,}b^{(x^{2}y)} .$$
 
-that is (2), (4), (5), (6), (3). Taking $\log_b$ gives $x^{2}y$, which is $(*)$. **B**
+That is (2), (4), (5), (6), (3). **B**
 
-*Options A and C begin at line (3), which is the conclusion in index form — a proof may not start at what it
-is trying to prove.*
+*A and E begin at line (3), which is the conclusion in index form — a proof may not start at what it is trying
+to prove. C swaps (5) and (4), which would need $a^{(x^{3}y)}$ before $c$ had been rewritten in base $a$.*
 
-## Question 10 — **A**
-
-::: {.question}
-Solving $\sqrt{3x+4}=x$: Step 1 "Squaring, this is **equivalent to** $3x+4=x^{2}$" … Step 4 "The solutions
-are $x=4$ and $x=-1$." Where is the first error?
-:::
-
-Step 1 claims an **equivalence**, and that claim is false: $x=-1$ satisfies $x^{2}=3x+4$ but not the original
-equation, since $\sqrt{3(-1)+4}=1\neq-1$. *Squaring is one-way unless both sides are known to be
-non-negative, and here nothing has established $x\ge0$.*
-
-So the solution set grows at Step 1, and **A** is the answer. The true solution is $x=4$ alone.
-
-*If Step 1 had instead read "any solution must satisfy $3x+4=x^{2}$", the squaring would be correct and the
-first false claim would be Step 4. The wording decides the answer — see the S7 extended session.*
-
-## Question 11 — **B**
+## Question 10 — **B**
 
 ::: {.question}
-Solving $\log_3(4x)=1+2\log_3(x-1)$ in six steps. Where is the first mistake?
+The contrapositive of "if $n$ is prime **and** $n>2$ then $n$ is odd".
 :::
 
-The domain of the original equation is $4x>0$ **and** $x-1>0$, so $x>1$.
+The hypothesis is a **conjunction**, so its negation is a **disjunction** (De Morgan):
 
-**Step 2** replaces $2\log_3(x-1)$, which needs $x>1$, by $\log_3\!\left((x-1)^{2}\right)$, which needs only
-$x\neq1$. *The solution set therefore grows at that step, so the two equations are not equivalent.*
+$$\lnot(\text{odd})\Rightarrow\lnot(\text{prime}\wedge n>2)
+\quad\Longleftrightarrow\quad
+n\ \text{even}\Rightarrow\bigl(n\ \text{not prime}\ \textbf{or}\ n\le2\bigr). \qquad\textbf{B}$$
 
-Check $x=\tfrac13$: in Step 2 both $4x=\tfrac43$ and $(x-1)^{2}=\tfrac49$ are positive and the equation holds,
-but Step 1 needs $\log_3\!\left(-\tfrac23\right)$, which does not exist. **B**
+*A keeps "and", which is the standard De Morgan slip; C is the converse; D reverses the implication as well.*
+Check it on $n=2$: even, and indeed $n\le2$ holds, so the contrapositive is satisfied.
 
-Everything after Step 2 is correct algebra; the false root $x=\tfrac13$ is simply carried along, and the true
-answer is $x=3$.
-
-## Question 12 — **B**
+## Question 11 — **D**
 
 ::: {.question}
-$P$: the trapezium rule underestimates. $Q$: $f''<0$ on $[a,b]$.
+Which is impossible for an integer $n$?
 :::
 
-**$Q\Rightarrow P$:** concave down means every chord lies below the curve, so every strip is underestimated.
-Hence $P$ is **necessary** for $Q$.
+Squares modulo $8$: writing $n=4q+r$ with $r\in\{0,1,2,3\}$ and squaring gives
 
-**$P\not\Rightarrow Q$:** take $f(x)=x^{2}-x^{4}$ on $[-1,1]$ with $n=1$. The chord joins $(-1,0)$ to $(1,0)$
-so the estimate is $0$, while $\int_{-1}^{1}\left(x^{2}-x^{4}\right)\mathrm dx=\tfrac4{15}>0$ — an
-underestimate. But $f''(x)=2-12x^{2}$ gives $f''(0)=2>0$, so $Q$ fails.
+$$n^{2}\equiv 0,\ 1\ \text{or}\ 4 \pmod 8 \quad\text{only.}$$
 
-**B**. *$Q$ is a statement about every point; $P$ is a statement about one total.*
+So $n^{2}\equiv5$ is **impossible**. **D**
 
-## Question 13 — **B**
+*E is a trap: **cubes** modulo $8$ run over $0,1,3,5,7$, so $n^{3}\equiv5$ is perfectly possible — $n=5$ gives
+$125=15\times8+5$.* A, B, C are achieved by $n=4,2,1$.
+
+## Question 12 — **E**
 
 ::: {.question}
-For which $m$ is it true that $m$ divides $n^{3}$ implies $m$ divides $n$, for every positive integer $n$?
+$\gcd(a,b)=6$, $\operatorname{lcm}(a,b)=180$. How many **ordered** pairs?
 :::
 
-| $m$ | verdict | reason |
+Write $a=6\alpha$, $b=6\beta$ with $\gcd(\alpha,\beta)=1$. Then
+$\operatorname{lcm}(a,b)=6\alpha\beta=180$, so $\alpha\beta=30=2\times3\times5$.
+
+*Each of the three primes must go entirely to $\alpha$ or entirely to $\beta$, since $\alpha$ and $\beta$ are
+coprime* — giving $2^{3}=8$ ordered pairs:
+
+$$(6,180),(12,90),(18,60),(30,36),(36,30),(60,18),(90,12),(180,6). \qquad\textbf{E}$$
+
+*Answering $4$ counts unordered pairs; the question says ordered.*
+
+## Question 13 — **C**
+
+::: {.question}
+Replace two numbers $a,b$ by $a+b-1$ until one remains.
+:::
+
+Look for an **invariant**. Each move removes $a$ and $b$ and inserts $a+b-1$, so the total **drops by exactly
+$1$**, whatever the choice. Starting from
+
+$$1+2+\cdots+10=55$$
+
+and making $9$ moves to go from ten numbers to one, the final number is
+
+$$55-9=46 . \qquad\textbf{C}$$
+
+*It is the same for every order of moves, which is what kills A. The count of moves is forced: each move
+reduces how many numbers are on the board by one.*
+
+## Question 14 — **B**
+
+::: {.question}
+Necessary and sufficient for $\lvert x-1\rvert<2$.
+:::
+
+$\lvert x-1\rvert<2\iff-1<x<3$. Now test each:
+
+| | set | verdict |
 |---|---|---|
-| $2$ | **true** | $2$ is prime, so $2$ divides $n^{3}$ forces $2$ to divide $n$ |
-| $6$ | **true** | $6=2\times3$ with **distinct primes to the first power**; each divides $n$, so $6$ does |
-| $8$ | false | $n=2$: $8$ divides $8$, but $8$ does not divide $2$ |
-| $9$ | false | $n=3$: $9$ divides $27$, but $9$ does not divide $3$ |
+| **A** | $(0,4)$ | neither — misses $x=-\tfrac12$, admits $x=3.5$ |
+| **B** | $x^{2}-2x-3=(x-3)(x+1)<0\iff(-1,3)$ | **equal** ✓ |
+| **C** | $x^{3}<27\iff x<3$ | necessary, not sufficient |
+| **D** | $(-3,3)$ | necessary, not sufficient |
+| **E** | $x<3$ | necessary, not sufficient |
 
-**B**. *The rule is about **repeated** prime factors, not about being composite — $6$ is composite and still
-works, because cubing triples every exponent and $m$ needs each prime only once.*
+**B**. *C, D and E are all strictly larger, so each is necessary only. The work is factorising B.*
 
-## Question 14 — **C**
-
-::: {.question}
-Which cannot be written as $a^{2}+b^{2}$?
-:::
-
-Every square is $0$ or $1$ modulo $4$, so a sum of two squares is $0$, $1$ or $2$ modulo $4$ — **never $3$**.
-
-$$255=4\times63+3,$$
-
-so $255$ is impossible. **C**
-
-The others all work: $221=14^{2}+5^{2}$, $250=15^{2}+5^{2}$, $256=16^{2}+0^{2}$, $260=16^{2}+2^{2}$.
-
-*Checking the four possible ones by trial is slow; the modulo-$4$ test identifies the answer directly.*
-
-## Question 15 — **A**
+## Question 15 — **C**
 
 ::: {.question}
-A necessary and sufficient condition for $9$ to divide $N$, in terms of the digit sum $s(N)$.
-:::
-
-Since $10\equiv1\pmod 9$, every power of $10$ is $\equiv1$, so $N\equiv s(N)\pmod 9$. Two numbers congruent
-modulo $9$ are divisible by $9$ together, so **$9$ divides $N$ if and only if $9$ divides $s(N)$**. **A**
-
-*B is necessary but not sufficient ($N=12$: $s=3$ divisible by $3$, but $9\nmid12$). E is neither — $N=19$
-ends in $9$ and is not divisible by $9$, while $N=18$ is divisible by $9$ and ends in $8$.*
-
-## Question 16 — **B**
-
-::: {.question}
-$\angle A=30^{\circ}$, $AB=2x^{2}$, $BC=5x$, $x>0$. For which $x$ are there exactly two non-congruent
-triangles?
-:::
-
-This is SSA. The distance from $B$ to the ray $AC$ is
-
-$$h=AB\sin A=2x^{2}\cdot\tfrac12=x^{2},$$
-
-and two triangles exist exactly when $h<BC<AB$:
-
-$$x^{2}<5x<2x^{2}.$$
-
-Dividing by $x>0$: the left gives $x<5$, the right gives $x>\tfrac52$. **B**
-
-## Question 17 — **C**
-
-::: {.question}
-$E,F,G,H$ are the midpoints of the sides of a convex quadrilateral $ABCD$. When is $EFGH$ a rectangle?
+Diagonals of $ABCD$ equal **and** perpendicular; what must be true of $EFGH$?
 :::
 
 By the midpoint theorem $\overrightarrow{EF}=\tfrac12\overrightarrow{AC}$ and
-$\overrightarrow{FG}=\tfrac12\overrightarrow{BD}$, so $EFGH$ is **always a parallelogram**, with its sides
-parallel to the diagonals of $ABCD$.
+$\overrightarrow{FG}=\tfrac12\overrightarrow{BD}$, so $EFGH$ is always a parallelogram with sides parallel to
+the diagonals. Hence
 
-A parallelogram is a rectangle exactly when two adjacent sides are perpendicular, so
+$$AC=BD\Rightarrow EF=FG\ (\text{rhombus}),\qquad AC\perp BD\Rightarrow EF\perp FG\ (\text{rectangle}),$$
 
-$$EF\perp FG\iff AC\perp BD .$$
+and both together make $EFGH$ a **square**. **C**
 
-**C**. *B gives a **rhombus** (equal adjacent sides), not a rectangle; A is sufficient but far from necessary.*
+*A and B are wrong because the conditions are on the **diagonals**, which say nothing about $ABCD$ being a
+nice shape: the kite $A(0,0),B(1,2),C(4,0),D(1,-2)$ has equal perpendicular diagonals and is neither a square
+nor a rhombus — yet its $EFGH$ is a square.*
+
+## Question 16 — **C**
+
+::: {.question}
+$3$-element subsets of $\{1,\dots,9\}$ with every pair coprime.
+:::
+
+Group by the obstruction. The even numbers $\{2,4,6,8\}$ are pairwise non-coprime, so **at most one** even
+number may appear; likewise $\{3,6,9\}$ contributes at most one multiple of $3$.
+
+Counting systematically (by how many of $2,4,6,8$ and of $3,6,9$ are used) gives
+
+$$\boxed{37}. \qquad\textbf{C}$$
+
+*The quickest route in the exam is to count the complement badly and get $45-\text{(bad)}$; the reliable route
+is "at most one even, at most one multiple of 3", which also explains why the answer is not a round number.*
+
+## Question 17 — **B**
+
+::: {.question}
+"$P$ or $Q$" is true for every $x$ and "$P$ and $Q$" is false for every $x$.
+:::
+
+For each $x$, exactly one of $P,Q$ holds: *the first condition rules out both being false, the second rules out
+both being true.* That is precisely the statement that $Q$ is the **negation** of $P$. **B**
+
+*A and D claim one of them is always true or always false, which neither condition gives. C fails: if $P$ holds
+then $Q$ does not, so $P\Rightarrow Q$ is false wherever $P$ is true.*
 
 ## Question 18 — **B**
 
 ::: {.question}
-Six distinct integers from $\{1,\dots,10\}$. Which must be true?
+Which step uses a fact that itself requires proof?
 :::
 
-Pair the ten numbers so that each pair sums to $11$:
+Step **(3)** uses "$p^{2}$ even $\Rightarrow$ $p$ even", which is the **converse direction** of the easy fact
+and needs its own argument — usually the contrapositive: *if $p$ is odd then $p=2m+1$ and
+$p^{2}=4m^{2}+4m+1$ is odd.* **B**
 
-$$\{1,10\},\ \{2,9\},\ \{3,8\},\ \{4,7\},\ \{5,6\}.$$
+*Step (2) uses only the easy direction. The point is that "even squares come from even numbers" is exactly the
+kind of converse that S2 warns is not free.*
 
-That is **five** pairs covering all ten numbers. *Choosing six numbers means choosing six objects from five
-pigeonholes, so two must come from the same pair* — and those two sum to $11$. **B**
-
-The others all fail:
-
-| | counterexample |
-|---|---|
-| **A** sum $10$ | $\{1,2,3,4,5,10\}$ — the pairs are $\{1,9\},\{2,8\},\{3,7\},\{4,6\}$ with $5,10$ spare, so six can avoid it |
-| **C** sum $12$ | $\{1,2,3,4,5,6\}$ |
-| **D** three consecutive | $\{1,2,4,5,7,8\}$ |
-| **E** four of one parity | $\{1,2,3,4,5,6\}$ has three of each |
-
-*The whole question is whether the pairing uses up **all** ten numbers. Only the sum $11$ does.*
-
-## Question 19 — **B**
+## Question 19 — **D**
 
 ::: {.question}
-$T$ is the set of $x$ for which $\sum_{k\ge0}(2x-1)^{k}$ converges. Which condition is necessary but not
-sufficient for $x\in T$?
+How many $n$ with $1\le n\le100$ have $7\mid n^{2}+n+1$?
 :::
 
-A geometric series converges exactly when the common ratio has modulus less than $1$:
+Work modulo $7$. Testing $n\equiv0,\dots,6$:
 
-$$\lvert2x-1\rvert<1\iff-1<2x-1<1\iff 0<x<1,\qquad\text{so }T=(0,1).$$
+| $n\bmod 7$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|---|
+| $n^{2}+n+1\bmod 7$ | 1 | 3 | 0 | 6 | 0 | 3 | 1 |
 
-*Necessary but not sufficient means a condition implied by $x\in T$ but not implying it — a **strictly
-larger** set.* Only $(-1,2)$ qualifies. **B**
+So the condition holds exactly when $n\equiv2$ or $n\equiv4\pmod 7$ — **two residues out of seven**.
 
-| | | |
-|---|---|---|
-| **A**, **D**, **E** | equal to $T$ | necessary **and** sufficient |
-| **C** | $(0,\tfrac12)\subset T$ | sufficient, not necessary |
+In $1\le n\le100$: the $n\equiv2$ values are $2,9,\dots,93$, which is $14$ of them; the $n\equiv4$ values are
+$4,11,\dots,95$, also $14$ — plus $n=100\equiv2\pmod 7$, giving one more.
 
-## Question 20 — **C**
+$$14+14+1=29 . \qquad\textbf{D}$$
+
+*Answering $28$ assumes the residues split $100$ evenly; they do not, and checking the last partial block is
+where the mark is.*
+
+## Question 20 — **B**
 
 ::: {.question}
-$P\Rightarrow Q$ is true and $Q\Rightarrow P$ is false. Which of **1** $\lnot Q\Rightarrow\lnot P$,
-**2** $\lnot P\Rightarrow\lnot Q$, **3** $P$ sufficient but not necessary for $Q$, **4** some $n$ has $Q$ true
-and $P$ false, must also be true?
+$A\to B$, $B\to C$, $C\to A$, $A\to D$. What must follow?
 :::
 
-**1 — true.** It is the contrapositive of $P\Rightarrow Q$, which is always equivalent to it.
+The first three form a **cycle**, so $A$, $B$ and $C$ are all equivalent: from $B$ we reach $C$ then $A$, and
+from $A$ we reach $B$ directly.
 
-**2 — not forced.** $\lnot P\Rightarrow\lnot Q$ is the **inverse**, equivalent to the converse
-$Q\Rightarrow P$ — and we are told that one is **false**.
+Since $A\to D$ and $B\to A$, we get $B\to D$; likewise $C\to A\to D$. So **$B$ and $C$ are equivalent and both
+imply $D$**. **B**
 
-**3 — true.** $P\Rightarrow Q$ is exactly "$P$ is sufficient for $Q$"; $Q\Rightarrow P$ false is exactly
-"$P$ is not necessary for $Q$".
-
-**4 — true.** *An implication is false precisely when its hypothesis holds and its conclusion fails, so
-$Q\Rightarrow P$ being false means some $n$ makes $Q$ true and $P$ false.*
-
-**C**. *Statement 2 is the single trap: inverse and contrapositive are easy to confuse, and only the
-contrapositive carries the original's truth.*
+*Nothing gives an arrow **into** $A$ from $D$, so A and C are not forced — $D$ could be much weaker. D is wrong
+because $C\to D$ does follow.*
 
 :::

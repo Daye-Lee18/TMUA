@@ -11,158 +11,130 @@ execute:
 
 ## Question 1
 
-For a positive integer $n$, let
-
-&nbsp;&nbsp;$P$: $4$ divides $n$ &nbsp;&nbsp;&nbsp;&nbsp; $Q$: $8$ divides $n^{2}$.
+For a positive integer $n$, let &nbsp;$P$: $n$ is odd &nbsp;&nbsp;and&nbsp;&nbsp; $Q$: $n^{2}\equiv1\pmod{16}$.
 
 Which one of the following is true?
 
-&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp; **B** $P$ is necessary but not sufficient for $Q$
+&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp;**B** $P$ is necessary but not sufficient for $Q$
 
-&nbsp;&nbsp;**C** $P$ is necessary and sufficient for $Q$ &nbsp;&nbsp; **D** $P$ is neither necessary nor sufficient for $Q$
+&nbsp;&nbsp;**C** $P$ is necessary and sufficient for $Q$ &nbsp;&nbsp;**D** $P$ is neither necessary nor sufficient for $Q$
 
 ---
 
 ## Question 2
 
-Consider the statement about positive integers $n$:
+Both roots of $x^{2}+bx+c=0$ are real and lie strictly between $0$ and $1$. Which one of the following is
+**not** a necessary consequence?
 
-&nbsp;&nbsp;$(*)$ &nbsp; If $n^{2}$ is odd then $n$ is odd.
-
-Which of the following is/are true?
-
-&nbsp;&nbsp;**1** $(*)$ is true &nbsp;&nbsp; **2** the converse of $(*)$ is true &nbsp;&nbsp;
-**3** the inverse of $(*)$ is true
-
-&nbsp;&nbsp;**A** none &nbsp;&nbsp;**B** 1 only &nbsp;&nbsp;**C** 2 only &nbsp;&nbsp;**D** 1 and 2 only
-&nbsp;&nbsp;**E** 1 and 3 only &nbsp;&nbsp;**F** 1, 2 and 3
+&nbsp;&nbsp;**A** $c>0$ &nbsp;&nbsp;**B** $-2<b<0$ &nbsp;&nbsp;**C** $1+b+c>0$ &nbsp;&nbsp;
+**D** $b^{2}\ge4c$ &nbsp;&nbsp;**E** $c<\tfrac14$
 
 ---
 
 ## Question 3
 
-For a non-zero real number $x$, consider
+A sequence $(a_n)$ is said to converge to $L$ if
 
-&nbsp;&nbsp;$A$: $x>2$ &nbsp;&nbsp;&nbsp; $B$: $x^{2}>4$ &nbsp;&nbsp;&nbsp; $C$: $x^{3}>8$
-&nbsp;&nbsp;&nbsp; $D$: $\dfrac1x<\dfrac12$
+$$\forall\varepsilon>0\ \ \exists N\ \ \forall n>N:\quad \lvert a_n-L\rvert<\varepsilon .$$
 
-Which statement is a **necessary** condition for all three of the others?
+Which one of the following says that $(a_n)$ does **not** converge to $L$?
 
-&nbsp;&nbsp;**A** $A$ &nbsp;&nbsp;**B** $B$ &nbsp;&nbsp;**C** $C$ &nbsp;&nbsp;**D** $D$
-&nbsp;&nbsp;**E** none of them
+&nbsp;&nbsp;**A** $\forall\varepsilon>0\ \exists N\ \forall n>N:\ \lvert a_n-L\rvert\ge\varepsilon$
+
+&nbsp;&nbsp;**B** $\exists\varepsilon>0\ \forall N\ \exists n>N:\ \lvert a_n-L\rvert\ge\varepsilon$
+
+&nbsp;&nbsp;**C** $\exists\varepsilon>0\ \exists N\ \forall n>N:\ \lvert a_n-L\rvert\ge\varepsilon$
+
+&nbsp;&nbsp;**D** $\forall\varepsilon>0\ \forall N\ \exists n>N:\ \lvert a_n-L\rvert\ge\varepsilon$
+
+&nbsp;&nbsp;**E** $\exists\varepsilon>0\ \forall N\ \forall n>N:\ \lvert a_n-L\rvert\ge\varepsilon$
 
 ---
 
 ## Question 4
 
-Let $x$ be a real number and consider
+All variables below are real. Which of the following statements are **true**?
 
-&nbsp;&nbsp;$A$: $\lvert x\rvert<4$ &nbsp;&nbsp; $B$: $1<x<3$ &nbsp;&nbsp; $C$: $x^{2}<9$
-&nbsp;&nbsp; $D$: $x<6$ &nbsp;&nbsp; $E$: $\lvert x-2\rvert<1$
+&nbsp;&nbsp;**1** $\forall x\ \exists y\ \forall z:\ x+y>z$ &nbsp;&nbsp;&nbsp;
+**2** $\exists y\ \forall x:\ x+y>x$
 
-Which statement is a necessary condition for **exactly three** of the other four?
+&nbsp;&nbsp;**3** $\forall x\ \forall y\ \exists z:\ z>x+y$ &nbsp;&nbsp;&nbsp;
+**4** $\exists x\ \forall y:\ xy=0$
 
-&nbsp;&nbsp;**A** $A$ &nbsp;&nbsp;**B** $B$ &nbsp;&nbsp;**C** $C$ &nbsp;&nbsp;**D** $D$ &nbsp;&nbsp;**E** $E$
+&nbsp;&nbsp;**A** 2 only &nbsp;&nbsp;**B** 2 and 3 only &nbsp;&nbsp;**C** 2, 3 and 4 only
+&nbsp;&nbsp;**D** 1, 2 and 3 only &nbsp;&nbsp;**E** all four
 
 ---
 
 ## Question 5
 
-Consider the statement:
+Let $m\ge2$ be an integer and let $k\ge2$ be an integer. Consider
 
-&nbsp;&nbsp;For every integer $n>1$ there exists a prime $p$ such that $n<p<2n$.
+&nbsp;&nbsp;$(*)$ &nbsp; for every positive integer $n$: if $m$ divides $n^{k}$ then $m$ divides $n$.
 
-Which of the following is its negation?
+Which one of the following describes exactly the $m$ for which $(*)$ holds for **every** $k\ge2$?
 
-&nbsp;&nbsp;**A** For every integer $n>1$ there exists a prime $p$ such that $p\le n$ or $p\ge2n$.
+&nbsp;&nbsp;**A** $m$ is prime &nbsp;&nbsp;**B** $m$ is a product of distinct primes
+&nbsp;&nbsp;**C** $m$ is not a perfect power
 
-&nbsp;&nbsp;**B** There exists an integer $n>1$ such that for every prime $p$, $p\le n$ or $p\ge2n$.
-
-&nbsp;&nbsp;**C** There exists an integer $n\le1$ such that for every prime $p$, $p\le n$ or $p\ge2n$.
-
-&nbsp;&nbsp;**D** For every integer $n>1$ and every prime $p$, $p\le n$ or $p\ge2n$.
-
-&nbsp;&nbsp;**E** There exists an integer $n>1$ and a prime $p$ with $p\le n$ or $p\ge2n$.
+&nbsp;&nbsp;**D** $m$ is odd &nbsp;&nbsp;**E** every $m\ge2$
 
 ---
 
 ## Question 6
 
-Consider these two statements about real numbers:
+Consider the statement:
 
-&nbsp;&nbsp;$S_1$: $\forall x\ \exists y:\ xy=1$ &nbsp;&nbsp;&nbsp;&nbsp;
-$S_2$: $\exists y\ \forall x:\ xy=1$
+&nbsp;&nbsp;$(*)$ &nbsp; $n^{2}+n+41$ is prime for every integer $n\ge0$.
 
-Which one of the following is correct?
+The statement is false. What is the **smallest** $n\ge0$ for which it fails, and why?
 
-&nbsp;&nbsp;**A** both are true &nbsp;&nbsp;**B** $S_1$ is true and $S_2$ is false
-&nbsp;&nbsp;**C** $S_1$ is false and $S_2$ is true &nbsp;&nbsp;**D** both are false
+&nbsp;&nbsp;**A** $n=40$, because the value is then $41^{2}$
+
+&nbsp;&nbsp;**B** $n=41$, because every term is then a multiple of $41$
+
+&nbsp;&nbsp;**C** $n=40$, because the value is then $40\times41$
+
+&nbsp;&nbsp;**D** $n=43$, because the value is then divisible by $43$
+
+&nbsp;&nbsp;**E** $n=1$, because $43$ is not prime
 
 ---
 
 ## Question 7
 
-A student wishes to prove that $\sqrt2+\sqrt3$ is irrational. Which one of the following is the most
-appropriate **first** line of a proof by contradiction?
+A student argues:
 
-&nbsp;&nbsp;**A** Suppose $\sqrt2+\sqrt3=\dfrac pq$ for some integers $p,q$ with $q\ne0$.
+> Since $\lvert x-3\rvert<1$, we have $2<x<4$. &nbsp;**(1)**
+> Hence $x-2>0$, so multiplying $\dfrac{1}{x-2}<1$ by $x-2$ gives $1<x-2$. &nbsp;**(2)**
+> Therefore $x>3$. &nbsp;**(3)**
+> So the solution set of $\dfrac{1}{x-2}<1$ is $x>3$. &nbsp;**(4)**
 
-&nbsp;&nbsp;**B** Suppose $\sqrt2$ and $\sqrt3$ are both irrational.
+Which one of the following is correct?
 
-&nbsp;&nbsp;**C** Suppose $\sqrt2+\sqrt3$ is irrational.
+&nbsp;&nbsp;**A** The argument is valid and the conclusion is correct.
 
-&nbsp;&nbsp;**D** Suppose $(\sqrt2+\sqrt3)^{2}=5+2\sqrt6$ is irrational.
+&nbsp;&nbsp;**B** Step (1) is wrong.
 
-&nbsp;&nbsp;**E** Suppose $\sqrt6$ is rational.
+&nbsp;&nbsp;**C** Step (2) is wrong, because $x-2$ could be negative.
+
+&nbsp;&nbsp;**D** Steps (1)–(3) are valid, but (4) is wrong: they used an extra assumption not in the
+original inequality.
+
+&nbsp;&nbsp;**E** Step (3) is wrong.
 
 ---
 
 ## Question 8
 
-Which one of the following is true for every positive integer $n$?
-
-&nbsp;&nbsp;**A** $n^{2}+n+1$ is even &nbsp;&nbsp;**B** $n^{2}+n+1$ is prime
-&nbsp;&nbsp;**C** $n^{2}+n+1$ is divisible by $3$
-
-&nbsp;&nbsp;**D** $n^{2}+n+1$ leaves remainder $1$ on division by $4$ &nbsp;&nbsp;
-**E** $n^{2}+n+1$ is never a perfect square
-
----
-
-## Question 9
-
-The real numbers $a,b,c,d$ are all greater than $1$ and satisfy $\log_c d=\left(\log_a b\right)^{3}$. Use some
-of the lines below to construct a proof that
-
-$$(*)\qquad \log_b d=\left(\log_a b\right)^{2}\left(\log_a c\right).$$
-
-&nbsp;&nbsp;**(1)** Let $x=\log_a b$ and $y=\log_a c$ &nbsp;&nbsp;**(2)** $d=c^{\left(x^{3}\right)}$
-&nbsp;&nbsp;**(3)** $d=b^{\left(x^{2}y\right)}$ &nbsp;&nbsp;**(4)** $d=\left(a^{y}\right)^{\left(x^{3}\right)}$
-
-&nbsp;&nbsp;**(5)** $d=a^{\left(x^{3}y\right)}$ &nbsp;&nbsp;**(6)** $d=\left(a^{x}\right)^{\left(x^{2}y\right)}$
-
-&nbsp;&nbsp;**A** (1), then (3), so (6), so (5), so (4), hence $(*)$
-
-&nbsp;&nbsp;**B** (1), then (2), so (4), so (5), so (6), and therefore (3), hence $(*)$
-
-&nbsp;&nbsp;**C** (1), then (3), so (5), so (4), so (2), hence $(*)$
-
-&nbsp;&nbsp;**D** (1), then (2), so (5), so (4), so (6), and therefore (3), hence $(*)$
-
-&nbsp;&nbsp;**E** (1), then (4), so (2), so (5), so (6), and therefore (3), hence $(*)$
-
----
-
-## Question 10
-
-A student solves $\sqrt{3x+4}=x$ as follows.
+A student is asked to solve $x^{3}=x$ and writes:
 
 | | |
 |---|---|
-| Step 1 | Squaring, this is equivalent to $3x+4=x^{2}$ |
-| Step 2 | $x^{2}-3x-4=0$ |
-| Step 3 | $(x-4)(x+1)=0$ |
-| Step 4 | The solutions are $x=4$ and $x=-1$ |
+| Step 1 | $x^{3}-x=0$ |
+| Step 2 | $x\left(x^{2}-1\right)=0$ |
+| Step 3 | Dividing by $x$: $x^{2}-1=0$ |
+| Step 4 | $x=1$ or $x=-1$ |
 
 Which one of the following is true?
 
@@ -173,136 +145,171 @@ Which one of the following is true?
 
 ---
 
+## Question 9
+
+The real numbers $a,b,c,d$ are all greater than $1$ and satisfy $\log_c d=\left(\log_a b\right)^{3}$. Use some
+of the lines below to construct a proof that $\log_b d=\left(\log_a b\right)^{2}\left(\log_a c\right)$.
+
+&nbsp;&nbsp;**(1)** Let $x=\log_a b$, $y=\log_a c$ &nbsp;&nbsp;**(2)** $d=c^{\left(x^{3}\right)}$
+&nbsp;&nbsp;**(3)** $d=b^{\left(x^{2}y\right)}$ &nbsp;&nbsp;**(4)** $d=\left(a^{y}\right)^{\left(x^{3}\right)}$
+
+&nbsp;&nbsp;**(5)** $d=a^{\left(x^{3}y\right)}$ &nbsp;&nbsp;**(6)** $d=\left(a^{x}\right)^{\left(x^{2}y\right)}$
+
+&nbsp;&nbsp;**A** (1), (3), (6), (5), (4), (2) &nbsp;&nbsp;**B** (1), (2), (4), (5), (6), (3)
+&nbsp;&nbsp;**C** (1), (2), (5), (4), (6), (3)
+
+&nbsp;&nbsp;**D** (1), (4), (2), (5), (6), (3) &nbsp;&nbsp;**E** (1), (3), (5), (4), (2), (6)
+
+---
+
+## Question 10
+
+Consider the statement about integers $n$:
+
+&nbsp;&nbsp;$(*)$ &nbsp; if $n$ is prime and $n>2$, then $n$ is odd.
+
+Which one of the following is the **contrapositive** of $(*)$?
+
+&nbsp;&nbsp;**A** If $n$ is even then $n$ is not prime and $n\le2$.
+
+&nbsp;&nbsp;**B** If $n$ is even then $n$ is not prime or $n\le2$.
+
+&nbsp;&nbsp;**C** If $n$ is odd then $n$ is prime and $n>2$.
+
+&nbsp;&nbsp;**D** If $n$ is not prime or $n\le2$ then $n$ is even.
+
+&nbsp;&nbsp;**E** If $n$ is even then $n$ is prime and $n>2$.
+
+---
+
 ## Question 11
 
-A student solves $\log_3(4x)=1+2\log_3(x-1)$ as follows.
+Which one of the following is **impossible** for an integer $n$?
 
-| | |
-|---|---|
-| Step 1 | $\log_3(4x)-2\log_3(x-1)=1$ |
-| Step 2 | $\log_3(4x)-\log_3\!\left((x-1)^{2}\right)=1$ |
-| Step 3 | $\dfrac{4x}{(x-1)^{2}}=3$ |
-| Step 4 | $3x^{2}-10x+3=0$ |
-| Step 5 | $(3x-1)(x-3)=0$ |
-| Step 6 | $x=\tfrac13$ or $x=3$ |
+&nbsp;&nbsp;**A** $n^{2}\equiv0\pmod 8$ &nbsp;&nbsp;**B** $n^{2}\equiv4\pmod 8$
+&nbsp;&nbsp;**C** $n^{2}\equiv1\pmod 8$
 
-At each step the equation is intended to be equivalent to the one before. In which step does the **first**
-mistake appear?
-
-&nbsp;&nbsp;**A** Step 1 &nbsp;&nbsp;**B** Step 2 &nbsp;&nbsp;**C** Step 3 &nbsp;&nbsp;**D** Step 4
-&nbsp;&nbsp;**E** Step 5 &nbsp;&nbsp;**F** Step 6 &nbsp;&nbsp;**G** there is no mistake
+&nbsp;&nbsp;**D** $n^{2}\equiv5\pmod 8$ &nbsp;&nbsp;**E** $n^{3}\equiv5\pmod 8$
 
 ---
 
 ## Question 12
 
-Consider these statements about a function $f$ on an interval $[a,b]$:
+The positive integers $a$ and $b$ satisfy $\gcd(a,b)=6$ and $\operatorname{lcm}(a,b)=180$. How many
+**ordered pairs** $(a,b)$ are there?
 
-&nbsp;&nbsp;$P$: the trapezium rule with $n$ equal strips **underestimates** $\displaystyle\int_a^b f(x)\,\mathrm dx$
-
-&nbsp;&nbsp;$Q$: $f''(x)<0$ for every $x$ in $[a,b]$
-
-Which one of the following is correct?
-
-&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp;**B** $P$ is necessary but not sufficient for $Q$
-
-&nbsp;&nbsp;**C** $P$ is necessary and sufficient for $Q$ &nbsp;&nbsp;**D** $P$ is neither
+&nbsp;&nbsp;**A** $1$ &nbsp;&nbsp;**B** $2$ &nbsp;&nbsp;**C** $4$ &nbsp;&nbsp;**D** $6$ &nbsp;&nbsp;**E** $8$
 
 ---
 
 ## Question 13
 
-Let $m$ be a positive integer. Consider the statement
+The numbers $1,2,\dots,10$ are written on a board. A **move** consists of rubbing out two numbers $a$ and $b$
+and writing $a+b-1$ in their place. Moves are repeated until one number remains.
 
-&nbsp;&nbsp;$(*)$ &nbsp; for every positive integer $n$, if $m$ divides $n^{3}$ then $m$ divides $n$.
+Which one of the following is true?
 
-For which of the following values of $m$ is $(*)$ **true**?
+&nbsp;&nbsp;**A** The final number depends on the order of the moves.
 
-&nbsp;&nbsp;**1** $m=2$ &nbsp;&nbsp;**2** $m=6$ &nbsp;&nbsp;**3** $m=8$ &nbsp;&nbsp;**4** $m=9$
+&nbsp;&nbsp;**B** The final number is always $55$. &nbsp;&nbsp;**C** The final number is always $46$.
 
-&nbsp;&nbsp;**A** 1 only &nbsp;&nbsp;**B** 1 and 2 only &nbsp;&nbsp;**C** 1, 2 and 4 only
-&nbsp;&nbsp;**D** 1 and 3 only &nbsp;&nbsp;**E** all of them
+&nbsp;&nbsp;**D** The final number is always $45$. &nbsp;&nbsp;**E** The process never terminates.
 
 ---
 
 ## Question 14
 
-Which one of the following integers **cannot** be written as $a^{2}+b^{2}$ for integers $a$ and $b$?
+Let $x$ be real and let $T$ be the set with $\lvert x-1\rvert<2$. Which one of the following is a condition
+that is **necessary and sufficient** for $x\in T$?
 
-&nbsp;&nbsp;**A** $221$ &nbsp;&nbsp;**B** $250$ &nbsp;&nbsp;**C** $255$ &nbsp;&nbsp;**D** $256$
-&nbsp;&nbsp;**E** $260$
+&nbsp;&nbsp;**A** $0<x<4$ &nbsp;&nbsp;**B** $x^{2}-2x-3<0$ &nbsp;&nbsp;**C** $x^{3}<27$
+&nbsp;&nbsp;**D** $\lvert x\rvert<3$ &nbsp;&nbsp;**E** $x<3$
 
 ---
 
 ## Question 15
 
-Let $N$ be a positive integer and let $s(N)$ be the sum of its decimal digits. Which one of the following is
-a **necessary and sufficient** condition for $9$ to divide $N$?
+$ABCD$ is a convex quadrilateral whose diagonals are **equal in length and perpendicular**. Let $E,F,G,H$ be
+the midpoints of $AB,BC,CD,DA$. Which one of the following must be true?
 
-&nbsp;&nbsp;**A** $9$ divides $s(N)$ &nbsp;&nbsp;**B** $3$ divides $s(N)$ &nbsp;&nbsp;**C** $s(N)$ is odd
+&nbsp;&nbsp;**A** $ABCD$ is a square &nbsp;&nbsp;**B** $ABCD$ is a rhombus &nbsp;&nbsp;
+**C** $EFGH$ is a square
 
-&nbsp;&nbsp;**D** $9$ divides $s(s(N))$ only when $N<1000$ &nbsp;&nbsp;**E** $N$ ends in $0$ or $9$
+&nbsp;&nbsp;**D** $EFGH$ is a rhombus but not a square &nbsp;&nbsp;**E** $EFGH$ is a rectangle but not a square
 
 ---
 
 ## Question 16
 
-In triangle $ABC$, $\angle A=30^{\circ}$, $AB=2x^{2}$ and $BC=5x$, where $x>0$. For which values of $x$ are
-there exactly **two non-congruent** such triangles?
+How many $3$-element subsets of $\{1,2,\dots,9\}$ have the property that **every pair** of their elements is
+coprime?
 
-&nbsp;&nbsp;**A** $0<x<5$ &nbsp;&nbsp;**B** $\tfrac52<x<5$ &nbsp;&nbsp;**C** $x>\tfrac52$
-&nbsp;&nbsp;**D** $0<x<\tfrac52$ &nbsp;&nbsp;**E** all $x>0$
+&nbsp;&nbsp;**A** $29$ &nbsp;&nbsp;**B** $33$ &nbsp;&nbsp;**C** $37$ &nbsp;&nbsp;**D** $41$
+&nbsp;&nbsp;**E** $45$
 
 ---
 
 ## Question 17
 
-$ABCD$ is a convex quadrilateral and $E,F,G,H$ are the midpoints of $AB,BC,CD,DA$. Which one of the following
-is a **necessary and sufficient** condition for $EFGH$ to be a rectangle?
+Let $P$ and $Q$ be statements about a real number $x$. It is known that
 
-&nbsp;&nbsp;**A** $ABCD$ is a rectangle &nbsp;&nbsp;**B** the diagonals of $ABCD$ are equal
+&nbsp;&nbsp;• "$P$ or $Q$" is true for every $x$, and &nbsp;• "$P$ and $Q$" is false for every $x$.
 
-&nbsp;&nbsp;**C** the diagonals of $ABCD$ are perpendicular &nbsp;&nbsp;**D** $ABCD$ is a kite
+Which one of the following must be true?
 
-&nbsp;&nbsp;**E** opposite sides of $ABCD$ are parallel
+&nbsp;&nbsp;**A** $P$ is true for every $x$ &nbsp;&nbsp;**B** $Q$ is the negation of $P$
+&nbsp;&nbsp;**C** $P\Rightarrow Q$ for every $x$
+
+&nbsp;&nbsp;**D** $P$ is false for every $x$ &nbsp;&nbsp;**E** nothing can be deduced
 
 ---
 
 ## Question 18
 
-Six distinct integers are chosen from $\{1,2,\dots,10\}$. Which one of the following **must** be true?
+Consider this attempted proof that $\sqrt2$ is irrational.
 
-&nbsp;&nbsp;**A** two of them sum to $10$ &nbsp;&nbsp;**B** two of them sum to $11$
-&nbsp;&nbsp;**C** two of them sum to $12$
+> Suppose $\sqrt2=\dfrac pq$ in lowest terms. &nbsp;**(1)**
+> Then $p^{2}=2q^{2}$, so $p^{2}$ is even. &nbsp;**(2)**
+> Hence $p$ is even, say $p=2r$. &nbsp;**(3)**
+> Then $4r^{2}=2q^{2}$, so $q^{2}=2r^{2}$ and $q$ is even. &nbsp;**(4)**
+> So $p$ and $q$ are both even, contradicting lowest terms. &nbsp;**(5)**
 
-&nbsp;&nbsp;**D** three of them are consecutive &nbsp;&nbsp;**E** at least four are of the same parity
+Which step uses a fact that itself requires proof, and which fact is it?
+
+&nbsp;&nbsp;**A** (2) — that a square of an even number is even
+
+&nbsp;&nbsp;**B** (3) — that $p^{2}$ even implies $p$ even
+
+&nbsp;&nbsp;**C** (4) — that $4r^{2}=2q^{2}$ implies $q^{2}=2r^{2}$
+
+&nbsp;&nbsp;**D** (5) — that a fraction can be written in lowest terms
+
+&nbsp;&nbsp;**E** none — every step is immediate
 
 ---
 
 ## Question 19
 
-For which real $x$ does $\displaystyle\sum_{k=0}^{\infty}(2x-1)^{k}$ converge?
+For how many integers $n$ with $1\le n\le100$ is $n^{2}+n+1$ divisible by $7$?
 
-Let $T$ be the set of such $x$. Which one of the following is a condition that is **necessary but not
-sufficient** for $x\in T$?
-
-&nbsp;&nbsp;**A** $0<x<1$ &nbsp;&nbsp;**B** $-1<x<2$ &nbsp;&nbsp;**C** $0<x<\tfrac12$
-&nbsp;&nbsp;**D** $x>0$ and $x<1$ &nbsp;&nbsp;**E** $\lvert 2x-1\rvert<1$
+&nbsp;&nbsp;**A** $0$ &nbsp;&nbsp;**B** $14$ &nbsp;&nbsp;**C** $28$ &nbsp;&nbsp;**D** $29$
+&nbsp;&nbsp;**E** $33$
 
 ---
 
 ## Question 20
 
-Let $P$ and $Q$ be statements about an integer $n$. Suppose it is known that
+Let $S$ be a set of statements about an integer $n$, and suppose that for statements $X,Y$ in $S$ we write
+$X\to Y$ to mean "$X\Rightarrow Y$ is true". Suppose
 
-&nbsp;&nbsp;• $P\Rightarrow Q$ is **true**, and &nbsp;• $Q\Rightarrow P$ is **false**.
+$$A\to B,\qquad B\to C,\qquad C\to A,\qquad A\to D .$$
 
-Which of the following must also be true?
+Which one of the following must be true?
 
-&nbsp;&nbsp;**1** $\lnot Q\Rightarrow\lnot P$ &nbsp;&nbsp;**2** $\lnot P\Rightarrow\lnot Q$
-&nbsp;&nbsp;**3** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp;**4** there is an $n$ with $Q$ true and $P$ false
+&nbsp;&nbsp;**A** $D\to A$ &nbsp;&nbsp;**B** $B$ and $C$ are equivalent, and both imply $D$
 
-&nbsp;&nbsp;**A** 1 only &nbsp;&nbsp;**B** 1 and 3 only &nbsp;&nbsp;**C** 1, 3 and 4 only
-&nbsp;&nbsp;**D** 1, 2 and 4 only &nbsp;&nbsp;**E** all four
+&nbsp;&nbsp;**C** $D$ and $A$ are equivalent &nbsp;&nbsp;**D** $B\to D$ but $C\not\to D$
+
+&nbsp;&nbsp;**E** nothing further can be deduced
 
 :::

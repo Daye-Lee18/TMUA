@@ -1,0 +1,867 @@
+---
+title: "Mock A · Paper 2 — Problem-Type Lesson"
+subtitle: "20 questions organised by reasoning method"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    smooth-scroll: true
+execute:
+  echo: false
+  warning: false
+---
+
+## Revision map
+
+| Type | Core reasoning method | Questions |
+|---|---|---|
+| A | Statement forms and implication chains | Q1, Q20 |
+| B | Converse, inverse and contrapositive | Q2 |
+| C | Necessary and sufficient conditions | Q3, Q4, Q12, Q15, Q17, Q19 |
+| D | Quantifiers and negation | Q5, Q6 |
+| E | Proof methods and universal claims | Q7, Q8, Q18 |
+| F | Ordering a scrambled proof | Q9 |
+| G | Spotting the first error | Q10, Q11 |
+| H | Divisibility and modular reasoning | Q13, Q14 |
+| I | Geometry conditions | Q16 |
+
+::: {.callout-tip}
+## Paper 2 checklist
+
+- Rewrite verbal logic as implications before deciding what is necessary or sufficient.
+- Test both directions separately whenever an option claims equivalence.
+- Preserve domains and equivalence at every algebraic step.
+- Negate quantifiers in order and negate the final condition.
+- One counterexample disproves a universal claim; examples alone do not prove it.
+- When a condition question becomes messy, represent each statement as a set.
+:::
+
+# Notes and grouped questions
+
+# Type A — Statement forms and implication chains
+
+## Key concept
+
+From **S1** of the [Paper 2 Formula Sheet](../../formula_sheets/paper2_formula_sheet.qmd):
+
+$$
+A\Rightarrow B
+=\text{“if }A\text{ then }B\text{”}
+=\text{“}A\text{ only if }B\text{”}
+=\text{“}B\text{ if }A\text{”.}
+$$
+
+“$A$ if $B$” reverses the reading order: it means $B\Rightarrow A$.  An “if and only if” statement
+contains both arrows.
+
+## Step-by-step method
+
+1. Label the two component statements $A$ and $B$.
+2. Translate the exact wording into an arrow before doing any mathematics.
+3. Test the forward implication by assuming its tail and checking whether its head must follow.
+4. If equivalence is claimed, reverse the arrow and test that direction separately.
+5. To show an implication is false, find one case where the tail is true and the head is false.
+6. Translate the verified arrow back into the language of the answer choices.
+
+## Question 1
+
+For a positive integer $n$, let
+
+&nbsp;&nbsp;$P$: $4$ divides $n$ &nbsp;&nbsp;&nbsp;&nbsp; $Q$: $8$ divides $n^{2}$.
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp; **B** $P$ is necessary but not sufficient for $Q$
+
+&nbsp;&nbsp;**C** $P$ is necessary and sufficient for $Q$ &nbsp;&nbsp; **D** $P$ is neither necessary nor sufficient for $Q$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**$P\Rightarrow Q$:** if $n=4k$ then $n^{2}=16k^{2}$, which is divisible by $8$.
+
+**$Q\Rightarrow P$:** *odd $n$ gives odd $n^{2}$, so $n$ must be even.* Write $n=2m$; then $n^{2}=4m^{2}$,
+and $8$ divides $4m^{2}$ exactly when $m$ is even — that is, exactly when $4$ divides $n$.
+
+Both directions hold, so $P$ is **necessary and sufficient** for $Q$.
+
+*The trap is to test only small cases: $n=2$ and $n=6$ both fail $Q$, which makes the two look unrelated.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 20
+
+Let $P$ and $Q$ be statements about an integer $n$. Suppose it is known that
+
+&nbsp;&nbsp;• $P\Rightarrow Q$ is **true**, and &nbsp;• $Q\Rightarrow P$ is **false**.
+
+Which of the following must also be true?
+
+&nbsp;&nbsp;**1** $\lnot Q\Rightarrow\lnot P$ &nbsp;&nbsp;**2** $\lnot P\Rightarrow\lnot Q$
+&nbsp;&nbsp;**3** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp;**4** there is an $n$ with $Q$ true and $P$ false
+
+&nbsp;&nbsp;**A** 1 only &nbsp;&nbsp;**B** 1 and 3 only &nbsp;&nbsp;**C** 1, 3 and 4 only
+&nbsp;&nbsp;**D** 1, 2 and 4 only &nbsp;&nbsp;**E** all four
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**1 — true.** It is the contrapositive of $P\Rightarrow Q$, which is always equivalent to it.
+
+**2 — not forced.** $\lnot P\Rightarrow\lnot Q$ is the **inverse**, equivalent to the converse
+$Q\Rightarrow P$ — and we are told that one is **false**.
+
+**3 — true.** $P\Rightarrow Q$ is exactly "$P$ is sufficient for $Q$"; $Q\Rightarrow P$ false is exactly
+"$P$ is not necessary for $Q$".
+
+**4 — true.** *An implication is false precisely when its hypothesis holds and its conclusion fails, so
+$Q\Rightarrow P$ being false means some $n$ makes $Q$ true and $P$ false.*
+
+**C**. *Statement 2 is the single trap: inverse and contrapositive are easy to confuse, and only the
+contrapositive carries the original's truth.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type B — Converse, inverse and contrapositive
+
+## Key concept
+
+For an original statement $P\Rightarrow Q$:
+
+| Form | Statement | Relation to the original |
+|---|---|---|
+| converse | $Q\Rightarrow P$ | not automatically equivalent |
+| inverse | $\lnot P\Rightarrow\lnot Q$ | equivalent to the converse |
+| contrapositive | $\lnot Q\Rightarrow\lnot P$ | **always equivalent** |
+
+## Step-by-step method
+
+1. Write the original statement symbolically as $P\Rightarrow Q$.
+2. Form the converse by swapping the two statements only.
+3. Form the inverse by negating both statements only.
+4. Form the contrapositive by **swapping and negating**.
+5. Mark the original and contrapositive as a guaranteed pair; mark the converse and inverse as the other pair.
+6. Prove or disprove one member of each pair.  A single valid counterexample is enough to make that pair false.
+
+## Question 2
+
+Consider the statement about positive integers $n$:
+
+&nbsp;&nbsp;$(*)$ &nbsp; If $n^{2}$ is odd then $n$ is odd.
+
+Which of the following is/are true?
+
+&nbsp;&nbsp;**1** $(*)$ is true &nbsp;&nbsp; **2** the converse of $(*)$ is true &nbsp;&nbsp;
+**3** the inverse of $(*)$ is true
+
+&nbsp;&nbsp;**A** none &nbsp;&nbsp;**B** 1 only &nbsp;&nbsp;**C** 2 only &nbsp;&nbsp;**D** 1 and 2 only
+&nbsp;&nbsp;**E** 1 and 3 only &nbsp;&nbsp;**F** 1, 2 and 3
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**$(*)$ is true** — *contrapositive: if $n$ is even then $n=2m$ and $n^{2}=4m^{2}$ is even.*
+
+**The converse is true** — if $n$ is odd, $n=2m+1$ and $n^{2}=4m^{2}+4m+1$ is odd.
+
+**The inverse is true** — *the inverse is the contrapositive of the converse, so it stands or falls with it.*
+
+All three, so **F**. *This is the case the S2 card warns about: a statement and its converse can both be
+true, and then all four forms are true together.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type C — Necessary and sufficient conditions
+
+## Key concept
+
+$$
+\text{“}P\text{ sufficient for }Q\text{”}=P\Rightarrow Q,
+\qquad
+\text{“}P\text{ necessary for }Q\text{”}=Q\Rightarrow P.
+$$
+
+**Sufficient points forwards; necessary points backwards.**  As sets,
+
+$$
+P\subset Q\Rightarrow P\text{ is sufficient for }Q,
+\qquad
+Q\subset P\Rightarrow P\text{ is necessary for }Q.
+$$
+
+## Step-by-step method
+
+1. Identify the target condition and the proposed condition.
+2. Rewrite “necessary” or “sufficient” as an implication arrow.
+3. Find the exact set of values or cases for which each condition is true.
+4. Compare the sets: the smaller set is sufficient for the larger; the larger is necessary for the smaller.
+5. If the sets are equal, the condition is necessary and sufficient.
+6. If neither set contains the other, it is neither.
+7. When the question says “exactly three”, count containments carefully; a condition true for all four does not qualify.
+
+## Question 3
+
+For a non-zero real number $x$, consider
+
+&nbsp;&nbsp;$A$: $x>2$ &nbsp;&nbsp;&nbsp; $B$: $x^{2}>4$ &nbsp;&nbsp;&nbsp; $C$: $x^{3}>8$
+&nbsp;&nbsp;&nbsp; $D$: $\dfrac1x<\dfrac12$
+
+Which statement is a **necessary** condition for all three of the others?
+
+&nbsp;&nbsp;**A** $A$ &nbsp;&nbsp;**B** $B$ &nbsp;&nbsp;**C** $C$ &nbsp;&nbsp;**D** $D$
+&nbsp;&nbsp;**E** none of them
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+As sets, with $x\neq0$:
+
+$$A=(2,\infty),\quad B=(-\infty,-2)\cup(2,\infty),\quad C=(2,\infty),\quad D=(-\infty,0)\cup(2,\infty).$$
+
+*Necessary means **larger**, so we want the one containing all the others.* $D$ contains $A$, $B$ and $C$.
+
+**The subtlety is $D$.** Dividing $\tfrac1x<\tfrac12$ by cross-multiplying assumes $x>0$; for **negative**
+$x$ the left side is negative and the inequality holds automatically. Missing that branch makes $D$ look
+identical to $A$.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 4
+
+Let $x$ be a real number and consider
+
+&nbsp;&nbsp;$A$: $\lvert x\rvert<4$ &nbsp;&nbsp; $B$: $1<x<3$ &nbsp;&nbsp; $C$: $x^{2}<9$
+&nbsp;&nbsp; $D$: $x<6$ &nbsp;&nbsp; $E$: $\lvert x-2\rvert<1$
+
+Which statement is a necessary condition for **exactly three** of the other four?
+
+&nbsp;&nbsp;**A** $A$ &nbsp;&nbsp;**B** $B$ &nbsp;&nbsp;**C** $C$ &nbsp;&nbsp;**D** $D$ &nbsp;&nbsp;**E** $E$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+$$A=(-4,4),\quad B=(1,3),\quad C=(-3,3),\quad D=(-\infty,6),\quad E=(1,3).$$
+
+$A$ contains $B$, $C$ and $E$ — three — but not $D$. $D$ contains **all four**, so it overshoots the target;
+$C$ contains two; $B$ and $E$ are equal to each other and contain one each.
+
+**A**. *$D$ is the trap: "necessary for all four" is not "necessary for exactly three".*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 12
+
+Consider these statements about a function $f$ on an interval $[a,b]$:
+
+&nbsp;&nbsp;$P$: the trapezium rule with $n$ equal strips **underestimates** $\displaystyle\int_a^b f(x)\,\mathrm dx$
+
+&nbsp;&nbsp;$Q$: $f''(x)<0$ for every $x$ in $[a,b]$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp;**B** $P$ is necessary but not sufficient for $Q$
+
+&nbsp;&nbsp;**C** $P$ is necessary and sufficient for $Q$ &nbsp;&nbsp;**D** $P$ is neither
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**$Q\Rightarrow P$:** concave down means every chord lies below the curve, so every strip is underestimated.
+Hence $P$ is **necessary** for $Q$.
+
+**$P\not\Rightarrow Q$:** take $f(x)=x^{2}-x^{4}$ on $[-1,1]$ with $n=1$. The chord joins $(-1,0)$ to $(1,0)$
+so the estimate is $0$, while $\int_{-1}^{1}\left(x^{2}-x^{4}\right)\mathrm dx=\tfrac4{15}>0$ — an
+underestimate. But $f''(x)=2-12x^{2}$ gives $f''(0)=2>0$, so $Q$ fails.
+
+**B**. *$Q$ is a statement about every point; $P$ is a statement about one total.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 15
+
+Let $N$ be a positive integer and let $s(N)$ be the sum of its decimal digits. Which one of the following is
+a **necessary and sufficient** condition for $9$ to divide $N$?
+
+&nbsp;&nbsp;**A** $9$ divides $s(N)$ &nbsp;&nbsp;**B** $3$ divides $s(N)$ &nbsp;&nbsp;**C** $s(N)$ is odd
+
+&nbsp;&nbsp;**D** $9$ divides $s(s(N))$ only when $N<1000$ &nbsp;&nbsp;**E** $N$ ends in $0$ or $9$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Since $10\equiv1\pmod 9$, every power of $10$ is $\equiv1$, so $N\equiv s(N)\pmod 9$. Two numbers congruent
+modulo $9$ are divisible by $9$ together, so **$9$ divides $N$ if and only if $9$ divides $s(N)$**. **A**
+
+*B is necessary but not sufficient ($N=12$: $s=3$ divisible by $3$, but $9\nmid12$). E is neither — $N=19$
+ends in $9$ and is not divisible by $9$, while $N=18$ is divisible by $9$ and ends in $8$.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 17
+
+$ABCD$ is a convex quadrilateral and $E,F,G,H$ are the midpoints of $AB,BC,CD,DA$. Which one of the following
+is a **necessary and sufficient** condition for $EFGH$ to be a rectangle?
+
+&nbsp;&nbsp;**A** $ABCD$ is a rectangle &nbsp;&nbsp;**B** the diagonals of $ABCD$ are equal
+
+&nbsp;&nbsp;**C** the diagonals of $ABCD$ are perpendicular &nbsp;&nbsp;**D** $ABCD$ is a kite
+
+&nbsp;&nbsp;**E** opposite sides of $ABCD$ are parallel
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+By the midpoint theorem $\overrightarrow{EF}=\tfrac12\overrightarrow{AC}$ and
+$\overrightarrow{FG}=\tfrac12\overrightarrow{BD}$, so $EFGH$ is **always a parallelogram**, with its sides
+parallel to the diagonals of $ABCD$.
+
+A parallelogram is a rectangle exactly when two adjacent sides are perpendicular, so
+
+$$EF\perp FG\iff AC\perp BD .$$
+
+**C**. *B gives a **rhombus** (equal adjacent sides), not a rectangle; A is sufficient but far from necessary.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 19
+
+For which real $x$ does $\displaystyle\sum_{k=0}^{\infty}(2x-1)^{k}$ converge?
+
+Let $T$ be the set of such $x$. Which one of the following is a condition that is **necessary but not
+sufficient** for $x\in T$?
+
+&nbsp;&nbsp;**A** $0<x<1$ &nbsp;&nbsp;**B** $-1<x<2$ &nbsp;&nbsp;**C** $0<x<\tfrac12$
+&nbsp;&nbsp;**D** $x>0$ and $x<1$ &nbsp;&nbsp;**E** $\lvert 2x-1\rvert<1$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+A geometric series converges exactly when the common ratio has modulus less than $1$:
+
+$$\lvert2x-1\rvert<1\iff-1<2x-1<1\iff 0<x<1,\qquad\text{so }T=(0,1).$$
+
+*Necessary but not sufficient means a condition implied by $x\in T$ but not implying it — a **strictly
+larger** set.* Only $(-1,2)$ qualifies. **B**
+
+| | | |
+|---|---|---|
+| **A**, **D**, **E** | equal to $T$ | necessary **and** sufficient |
+| **C** | $(0,\tfrac12)\subset T$ | sufficient, not necessary |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type D — Quantifiers and negation
+
+## Key concept
+
+$$
+\lnot(\forall x,\,P)=\exists x,\,\lnot P,
+\qquad
+\lnot(\exists x,\,P)=\forall x,\,\lnot P.
+$$
+
+Also, $\lnot(P\Rightarrow Q)=P\wedge\lnot Q$.  A negation keeps the original domain; it does not replace
+“$n>1$” with “$n\le1$”.
+
+## Step-by-step method
+
+1. Underline the quantifiers in their original order.
+2. Keep every domain restriction unchanged.
+3. Flip each $\forall$ to $\exists$ and each $\exists$ to $\forall$.
+4. Negate the final mathematical condition, using De Morgan's laws where needed.
+5. Read the result from left to right without reordering the variables.
+6. For truth questions, check who may depend on whom: in $\forall x\,\exists y$, $y$ may depend on $x$; in $\exists y\,\forall x$, one fixed $y$ must work for every $x$.
+
+## Question 5
+
+Consider the statement:
+
+&nbsp;&nbsp;For every integer $n>1$ there exists a prime $p$ such that $n<p<2n$.
+
+Which of the following is its negation?
+
+&nbsp;&nbsp;**A** For every integer $n>1$ there exists a prime $p$ such that $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**B** There exists an integer $n>1$ such that for every prime $p$, $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**C** There exists an integer $n\le1$ such that for every prime $p$, $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**D** For every integer $n>1$ and every prime $p$, $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**E** There exists an integer $n>1$ and a prime $p$ with $p\le n$ or $p\ge2n$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Symbolically $\forall n>1\ \exists p\ \text{prime}:\ n<p<2n$. Flip both quantifiers and negate the condition:
+
+$$\exists n>1\ \forall p\ \text{prime}:\ p\le n\ \text{ or }\ p\ge2n .$$
+
+**B**. *Option C negates the restriction $n>1$ as well, which is the commonest error — the restriction says
+which $n$ are being discussed, not what is claimed about them. Option D leaves the first quantifier alone.*
+
+(The original statement is Bertrand's postulate, and it is **true**.)
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 6
+
+Consider these two statements about real numbers:
+
+&nbsp;&nbsp;$S_1$: $\forall x\ \exists y:\ xy=1$ &nbsp;&nbsp;&nbsp;&nbsp;
+$S_2$: $\exists y\ \forall x:\ xy=1$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** both are true &nbsp;&nbsp;**B** $S_1$ is true and $S_2$ is false
+&nbsp;&nbsp;**C** $S_1$ is false and $S_2$ is true &nbsp;&nbsp;**D** both are false
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**$S_1$ is false.** It fails at the single value $x=0$: *no real $y$ satisfies $0\cdot y=1$.*
+
+**$S_2$ is false.** One $y$ would have to work for every $x$ at once — impossible, since $xy=1$ forces
+$y=1/x$, which changes with $x$.
+
+**D**. *The usual instinct is "the $\forall\exists$ one must be true because $y=1/x$ works" — it does, for
+every $x$ **except** $0$, and one exception is enough.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type E — Proof methods and universal claims
+
+## Key concept
+
+Choose the proof method from the wording:
+
+| Wording or goal | First move |
+|---|---|
+| prove $P\Rightarrow Q$ directly | assume $P$ and deduce $Q$ |
+| prove by contradiction | assume $\lnot Q$ and derive an impossibility |
+| disprove “for every” | find one case satisfying the hypothesis but failing the conclusion |
+| prove something “must” happen | cover every case, often by cases or pigeonhole |
+| prove something is “possible” | produce one valid witness |
+
+## Step-by-step method
+
+1. Decide whether the claim is universal ($\forall$) or existential ($\exists$).
+2. Write the hypothesis and conclusion separately.
+3. Select direct proof, cases, contradiction, counterexample or pigeonhole from the table above.
+4. If using contradiction, assume the **exact negation** of the desired conclusion.
+5. If using a counterexample, verify that it satisfies every hypothesis before showing the conclusion fails.
+6. If using pigeonhole, define the boxes so that every available object belongs to one of them.
+7. Finish by stating explicitly why the deduction proves or disproves the original claim.
+
+## Question 7
+
+A student wishes to prove that $\sqrt2+\sqrt3$ is irrational. Which one of the following is the most
+appropriate **first** line of a proof by contradiction?
+
+&nbsp;&nbsp;**A** Suppose $\sqrt2+\sqrt3=\dfrac pq$ for some integers $p,q$ with $q\ne0$.
+
+&nbsp;&nbsp;**B** Suppose $\sqrt2$ and $\sqrt3$ are both irrational.
+
+&nbsp;&nbsp;**C** Suppose $\sqrt2+\sqrt3$ is irrational.
+
+&nbsp;&nbsp;**D** Suppose $(\sqrt2+\sqrt3)^{2}=5+2\sqrt6$ is irrational.
+
+&nbsp;&nbsp;**E** Suppose $\sqrt6$ is rational.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+A proof by contradiction **assumes the negation of what is to be proved**. The negation of "$\sqrt2+\sqrt3$
+is irrational" is "$\sqrt2+\sqrt3$ is rational", i.e. equal to $p/q$ with $p,q$ integers, $q\ne0$.
+
+**A**. *C assumes the conclusion itself, which proves nothing; B and E assume facts that are not the negation;
+D asserts something about the square rather than negating the statement.*
+
+(The proof continues: squaring gives $5+2\sqrt6=p^{2}/q^{2}$, so $\sqrt6$ would be rational.)
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 8
+
+Which one of the following is true for every positive integer $n$?
+
+&nbsp;&nbsp;**A** $n^{2}+n+1$ is even &nbsp;&nbsp;**B** $n^{2}+n+1$ is prime
+&nbsp;&nbsp;**C** $n^{2}+n+1$ is divisible by $3$
+
+&nbsp;&nbsp;**D** $n^{2}+n+1$ leaves remainder $1$ on division by $4$ &nbsp;&nbsp;
+**E** $n^{2}+n+1$ is never a perfect square
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.** *$n(n+1)$ is a product of consecutive integers, so for $n\ge1$*
+
+$$n^{2}<n^{2}+n+1<n^{2}+2n+1=(n+1)^{2},$$
+
+and a number strictly between two consecutive squares cannot be a square.
+
+| | fails at |
+|---|---|
+| **A** even | $n=1$ gives $3$ — in fact $n(n+1)$ is always even, so $n^{2}+n+1$ is always **odd** |
+| **B** prime | $n=4$ gives $21=3\times7$ |
+| **C** divisible by $3$ | $n=2$ gives $7$ |
+| **D** remainder $1\pmod 4$ | $n=1$ gives $3$ |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 18
+
+Six distinct integers are chosen from $\{1,2,\dots,10\}$. Which one of the following **must** be true?
+
+&nbsp;&nbsp;**A** two of them sum to $10$ &nbsp;&nbsp;**B** two of them sum to $11$
+&nbsp;&nbsp;**C** two of them sum to $12$
+
+&nbsp;&nbsp;**D** three of them are consecutive &nbsp;&nbsp;**E** at least four are of the same parity
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Pair the ten numbers so that each pair sums to $11$:
+
+$$\{1,10\},\ \{2,9\},\ \{3,8\},\ \{4,7\},\ \{5,6\}.$$
+
+That is **five** pairs covering all ten numbers. *Choosing six numbers means choosing six objects from five
+pigeonholes, so two must come from the same pair* — and those two sum to $11$. **B**
+
+The others all fail:
+
+| | counterexample |
+|---|---|
+| **A** sum $10$ | $\{1,2,3,4,5,10\}$ — the pairs are $\{1,9\},\{2,8\},\{3,7\},\{4,6\}$ with $5,10$ spare, so six can avoid it |
+| **C** sum $12$ | $\{1,2,3,4,5,6\}$ |
+| **D** three consecutive | $\{1,2,4,5,7,8\}$ |
+| **E** four of one parity | $\{1,2,3,4,5,6\}$ has three of each |
+
+*The whole question is whether the pairing uses up **all** ten numbers. Only the sum $11$ does.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type F — Ordering a scrambled proof
+
+## Key concept
+
+The formula sheet's S6 rule is: **anchor the ends, then follow the dependencies**.  A proof cannot begin
+with a disguised version of the conclusion it is trying to establish.
+
+## Step-by-step method
+
+1. Find the first line: it normally introduces notation or restates the hypothesis.
+2. Find the final line: it states the required conclusion or the contradiction.
+3. For every remaining line, list which earlier fact or definition it uses.
+4. Place a line only after all of its dependencies are available.
+5. Follow connecting words such as “therefore”, “hence” and “so”.
+6. Build the full chain yourself before comparing it with the answer choices.
+7. Check that no line assumes the conclusion or reverses a one-way implication.
+
+## Question 9
+
+The real numbers $a,b,c,d$ are all greater than $1$ and satisfy $\log_c d=\left(\log_a b\right)^{3}$. Use some
+of the lines below to construct a proof that
+
+$$(*)\qquad \log_b d=\left(\log_a b\right)^{2}\left(\log_a c\right).$$
+
+&nbsp;&nbsp;**(1)** Let $x=\log_a b$ and $y=\log_a c$ &nbsp;&nbsp;**(2)** $d=c^{\left(x^{3}\right)}$
+&nbsp;&nbsp;**(3)** $d=b^{\left(x^{2}y\right)}$ &nbsp;&nbsp;**(4)** $d=\left(a^{y}\right)^{\left(x^{3}\right)}$
+
+&nbsp;&nbsp;**(5)** $d=a^{\left(x^{3}y\right)}$ &nbsp;&nbsp;**(6)** $d=\left(a^{x}\right)^{\left(x^{2}y\right)}$
+
+&nbsp;&nbsp;**A** (1), then (3), so (6), so (5), so (4), hence $(*)$
+
+&nbsp;&nbsp;**B** (1), then (2), so (4), so (5), so (6), and therefore (3), hence $(*)$
+
+&nbsp;&nbsp;**C** (1), then (3), so (5), so (4), so (2), hence $(*)$
+
+&nbsp;&nbsp;**D** (1), then (2), so (5), so (4), so (6), and therefore (3), hence $(*)$
+
+&nbsp;&nbsp;**E** (1), then (4), so (2), so (5), so (6), and therefore (3), hence $(*)$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+With $x=\log_a b$ and $y=\log_a c$, the hypothesis says $\log_c d=x^{3}$, i.e. $d=c^{(x^{3})}$ — **line (2)**
+is where the proof must start. Then one base change at a time:
+
+$$d=c^{(x^{3})}\xrightarrow{\;c=a^{y}\;}\left(a^{y}\right)^{(x^{3})}
+\xrightarrow{\;\text{multiply indices}\;}a^{(x^{3}y)}
+\xrightarrow{\;\text{split}\;}\left(a^{x}\right)^{(x^{2}y)}
+\xrightarrow{\;a^{x}=b\;}b^{(x^{2}y)} ,$$
+
+that is (2), (4), (5), (6), (3). Taking $\log_b$ gives $x^{2}y$, which is $(*)$. **B**
+
+*Options A and C begin at line (3), which is the conclusion in index form — a proof may not start at what it
+is trying to prove.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type G — Spotting the first error
+
+## Key concept
+
+**Equivalent** means that two statements have exactly the same solutions.  A valid one-way step produces
+candidates or a necessary condition; it is not automatically reversible.
+
+High-risk moves include:
+
+- squaring or taking a square root;
+- cancelling or dividing by an expression that may be zero;
+- multiplying an inequality by an expression of unknown sign;
+- applying logarithm laws while changing the domain;
+- using an implication in the reverse direction.
+
+## Step-by-step method
+
+1. Write the domain of the original equation before reading the proposed solution.
+2. Compare Step 1 with the original in **both** directions.
+3. Continue one arrow at a time and ask whether every value currently allowed remains valid.
+4. At a high-risk move, write the missing condition beside it: non-negative, non-zero, positive, or in-domain.
+5. Test $0$, $1$, equality cases, excluded endpoints and any newly created candidate.
+6. Stop at the **first** step where the solution set grows or shrinks incorrectly.
+7. Do not choose a later line merely because that is where the extraneous answer becomes visible.
+
+## Question 10
+
+A student solves $\sqrt{3x+4}=x$ as follows.
+
+| | |
+|---|---|
+| Step 1 | Squaring, this is equivalent to $3x+4=x^{2}$ |
+| Step 2 | $x^{2}-3x-4=0$ |
+| Step 3 | $(x-4)(x+1)=0$ |
+| Step 4 | The solutions are $x=4$ and $x=-1$ |
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** The first error is in Step 1 &nbsp;&nbsp;**B** The first error is in Step 2
+&nbsp;&nbsp;**C** The first error is in Step 3
+
+&nbsp;&nbsp;**D** The first error is in Step 4 &nbsp;&nbsp;**E** There is no error
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Step 1 claims an **equivalence**, and that claim is false: $x=-1$ satisfies $x^{2}=3x+4$ but not the original
+equation, since $\sqrt{3(-1)+4}=1\neq-1$. *Squaring is one-way unless both sides are known to be
+non-negative, and here nothing has established $x\ge0$.*
+
+So the solution set grows at Step 1, and **A** is the answer. The true solution is $x=4$ alone.
+
+*If Step 1 had instead read "any solution must satisfy $3x+4=x^{2}$", the squaring would be correct and the
+first false claim would be Step 4. The wording decides the answer — see the S7 extended session.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 11
+
+A student solves $\log_3(4x)=1+2\log_3(x-1)$ as follows.
+
+| | |
+|---|---|
+| Step 1 | $\log_3(4x)-2\log_3(x-1)=1$ |
+| Step 2 | $\log_3(4x)-\log_3\!\left((x-1)^{2}\right)=1$ |
+| Step 3 | $\dfrac{4x}{(x-1)^{2}}=3$ |
+| Step 4 | $3x^{2}-10x+3=0$ |
+| Step 5 | $(3x-1)(x-3)=0$ |
+| Step 6 | $x=\tfrac13$ or $x=3$ |
+
+At each step the equation is intended to be equivalent to the one before. In which step does the **first**
+mistake appear?
+
+&nbsp;&nbsp;**A** Step 1 &nbsp;&nbsp;**B** Step 2 &nbsp;&nbsp;**C** Step 3 &nbsp;&nbsp;**D** Step 4
+&nbsp;&nbsp;**E** Step 5 &nbsp;&nbsp;**F** Step 6 &nbsp;&nbsp;**G** there is no mistake
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+The domain of the original equation is $4x>0$ **and** $x-1>0$, so $x>1$.
+
+**Step 2** replaces $2\log_3(x-1)$, which needs $x>1$, by $\log_3\!\left((x-1)^{2}\right)$, which needs only
+$x\neq1$. *The solution set therefore grows at that step, so the two equations are not equivalent.*
+
+Check $x=\tfrac13$: in Step 2 both $4x=\tfrac43$ and $(x-1)^{2}=\tfrac49$ are positive and the equation holds,
+but Step 1 needs $\log_3\!\left(-\tfrac23\right)$, which does not exist. **B**
+
+Everything after Step 2 is correct algebra; the false root $x=\tfrac13$ is simply carried along, and the true
+answer is $x=3$.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type H — Divisibility and modular reasoning
+
+## Key concept
+
+From T1 of the formula sheet:
+
+- if a **prime** $p$ divides $n^k$, then $p$ divides $n$;
+- raising a number to the $k$th power multiplies every prime exponent by $k$;
+- every square is $0$ or $1\pmod4$, so a sum of two squares can only be $0$, $1$ or $2\pmod4$.
+
+## Step-by-step method
+
+1. Decide whether prime factorisation or modular arithmetic matches the question more directly.
+2. For divisibility by $m$, write $m$ as a product of prime powers.
+3. Compare the required prime exponents with the exponents available in $n^k$.
+4. If the implication looks false, choose the smallest $n$ whose power has enough factors even though $n$ itself does not.
+5. For representation questions, list every possible residue of each component.
+6. Combine those residues and compare them with the target integer's residue.
+7. One impossible residue proves non-representability; explicit examples verify the remaining options when needed.
+
+## Question 13
+
+Let $m$ be a positive integer. Consider the statement
+
+&nbsp;&nbsp;$(*)$ &nbsp; for every positive integer $n$, if $m$ divides $n^{3}$ then $m$ divides $n$.
+
+For which of the following values of $m$ is $(*)$ **true**?
+
+&nbsp;&nbsp;**1** $m=2$ &nbsp;&nbsp;**2** $m=6$ &nbsp;&nbsp;**3** $m=8$ &nbsp;&nbsp;**4** $m=9$
+
+&nbsp;&nbsp;**A** 1 only &nbsp;&nbsp;**B** 1 and 2 only &nbsp;&nbsp;**C** 1, 2 and 4 only
+&nbsp;&nbsp;**D** 1 and 3 only &nbsp;&nbsp;**E** all of them
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+| $m$ | verdict | reason |
+|---|---|---|
+| $2$ | **true** | $2$ is prime, so $2$ divides $n^{3}$ forces $2$ to divide $n$ |
+| $6$ | **true** | $6=2\times3$ with **distinct primes to the first power**; each divides $n$, so $6$ does |
+| $8$ | false | $n=2$: $8$ divides $8$, but $8$ does not divide $2$ |
+| $9$ | false | $n=3$: $9$ divides $27$, but $9$ does not divide $3$ |
+
+**B**. *The rule is about **repeated** prime factors, not about being composite — $6$ is composite and still
+works, because cubing triples every exponent and $m$ needs each prime only once.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+## Question 14
+
+Which one of the following integers **cannot** be written as $a^{2}+b^{2}$ for integers $a$ and $b$?
+
+&nbsp;&nbsp;**A** $221$ &nbsp;&nbsp;**B** $250$ &nbsp;&nbsp;**C** $255$ &nbsp;&nbsp;**D** $256$
+&nbsp;&nbsp;**E** $260$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Every square is $0$ or $1$ modulo $4$, so a sum of two squares is $0$, $1$ or $2$ modulo $4$ — **never $3$**.
+
+$$255=4\times63+3,$$
+
+so $255$ is impossible. **C**
+
+The others all work: $221=14^{2}+5^{2}$, $250=15^{2}+5^{2}$, $256=16^{2}+0^{2}$, $260=16^{2}+2^{2}$.
+
+*Checking the four possible ones by trial is slow; the modulo-$4$ test identifies the answer directly.*
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+# Type I — Geometry conditions
+
+## Key concept
+
+**SSA is not a congruence criterion.**  With an acute given angle $A$, adjacent side $b$ and opposite side
+$a$, two non-congruent triangles exist precisely when
+
+$$b\sin A<a<b.$$
+
+The lower boundary is the perpendicular height; the upper boundary separates the ambiguous case from the
+single-triangle case.
+
+## Step-by-step method
+
+1. Identify the given angle, its opposite side and the adjacent known side.
+2. Draw or imagine the altitude $h=b\sin A$.
+3. Translate “two triangles” into the double inequality $h<a<b$.
+4. Substitute the expressions given in the question.
+5. Use stated sign information, such as $x>0$, before dividing an inequality.
+6. Solve both inequalities and intersect their solution sets.
+7. Exclude equality at either boundary: one gives a right triangle and the other gives a unique triangle.
+
+## Question 16
+
+In triangle $ABC$, $\angle A=30^{\circ}$, $AB=2x^{2}$ and $BC=5x$, where $x>0$. For which values of $x$ are
+there exactly **two non-congruent** such triangles?
+
+&nbsp;&nbsp;**A** $0<x<5$ &nbsp;&nbsp;**B** $\tfrac52<x<5$ &nbsp;&nbsp;**C** $x>\tfrac52$
+&nbsp;&nbsp;**D** $0<x<\tfrac52$ &nbsp;&nbsp;**E** all $x>0$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+This is SSA. The distance from $B$ to the ray $AC$ is
+
+$$h=AB\sin A=2x^{2}\cdot\tfrac12=x^{2},$$
+
+and two triangles exist exactly when $h<BC<AB$:
+
+$$x^{2}<5x<2x^{2}.$$
+
+Dividing by $x>0$: the left gives $x<5$, the right gives $x>\tfrac52$. **B**
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
