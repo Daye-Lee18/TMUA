@@ -1,0 +1,327 @@
+---
+title: "Mock A · Paper 2 — Mathematical Reasoning"
+subtitle: "20 questions · 75 minutes · no calculator"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Instructions.** Twenty multiple-choice questions in **75 minutes** — about **3 min 45 s each**.
+**No calculator.** There is **no penalty for a wrong answer**, so never leave a blank. Record one letter per
+question, then mark against the [worked solutions](mockA_paper2_ms.qmd).
+
+Every session is examined: **S1** statement forms · **S2** converse and contrapositive · **S3** necessary and
+sufficient · **S4** quantifiers and negation · **S5** proof methods · **S6** scrambled proofs · **S7** spot the
+error, together with **T1** divisors and primes and **T2** shapes as logical conditions.
+
+---
+
+## Question 1
+
+For a positive integer $n$, let
+
+&nbsp;&nbsp;$P$: $4$ divides $n$ &nbsp;&nbsp;&nbsp;&nbsp; $Q$: $8$ divides $n^{2}$.
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp; **B** $P$ is necessary but not sufficient for $Q$
+
+&nbsp;&nbsp;**C** $P$ is necessary and sufficient for $Q$ &nbsp;&nbsp; **D** $P$ is neither necessary nor sufficient for $Q$
+
+---
+
+## Question 2
+
+Consider the statement about positive integers $n$:
+
+&nbsp;&nbsp;$(*)$ &nbsp; If $n^{2}$ is odd then $n$ is odd.
+
+Which of the following is/are true?
+
+&nbsp;&nbsp;**1** $(*)$ is true &nbsp;&nbsp; **2** the converse of $(*)$ is true &nbsp;&nbsp;
+**3** the inverse of $(*)$ is true
+
+&nbsp;&nbsp;**A** none &nbsp;&nbsp;**B** 1 only &nbsp;&nbsp;**C** 2 only &nbsp;&nbsp;**D** 1 and 2 only
+&nbsp;&nbsp;**E** 1 and 3 only &nbsp;&nbsp;**F** 1, 2 and 3
+
+---
+
+## Question 3
+
+For a non-zero real number $x$, consider
+
+&nbsp;&nbsp;$A$: $x>2$ &nbsp;&nbsp;&nbsp; $B$: $x^{2}>4$ &nbsp;&nbsp;&nbsp; $C$: $x^{3}>8$
+&nbsp;&nbsp;&nbsp; $D$: $\dfrac1x<\dfrac12$
+
+Which statement is a **necessary** condition for all three of the others?
+
+&nbsp;&nbsp;**A** $A$ &nbsp;&nbsp;**B** $B$ &nbsp;&nbsp;**C** $C$ &nbsp;&nbsp;**D** $D$
+&nbsp;&nbsp;**E** none of them
+
+---
+
+## Question 4
+
+Let $x$ be a real number and consider
+
+&nbsp;&nbsp;$A$: $\lvert x\rvert<4$ &nbsp;&nbsp; $B$: $1<x<3$ &nbsp;&nbsp; $C$: $x^{2}<9$
+&nbsp;&nbsp; $D$: $x<6$ &nbsp;&nbsp; $E$: $\lvert x-2\rvert<1$
+
+Which statement is a necessary condition for **exactly three** of the other four?
+
+&nbsp;&nbsp;**A** $A$ &nbsp;&nbsp;**B** $B$ &nbsp;&nbsp;**C** $C$ &nbsp;&nbsp;**D** $D$ &nbsp;&nbsp;**E** $E$
+
+---
+
+## Question 5
+
+Consider the statement:
+
+&nbsp;&nbsp;For every integer $n>1$ there exists a prime $p$ such that $n<p<2n$.
+
+Which of the following is its negation?
+
+&nbsp;&nbsp;**A** For every integer $n>1$ there exists a prime $p$ such that $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**B** There exists an integer $n>1$ such that for every prime $p$, $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**C** There exists an integer $n\le1$ such that for every prime $p$, $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**D** For every integer $n>1$ and every prime $p$, $p\le n$ or $p\ge2n$.
+
+&nbsp;&nbsp;**E** There exists an integer $n>1$ and a prime $p$ with $p\le n$ or $p\ge2n$.
+
+---
+
+## Question 6
+
+Consider these two statements about real numbers:
+
+&nbsp;&nbsp;$S_1$: $\forall x\ \exists y:\ xy=1$ &nbsp;&nbsp;&nbsp;&nbsp;
+$S_2$: $\exists y\ \forall x:\ xy=1$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** both are true &nbsp;&nbsp;**B** $S_1$ is true and $S_2$ is false
+&nbsp;&nbsp;**C** $S_1$ is false and $S_2$ is true &nbsp;&nbsp;**D** both are false
+
+---
+
+## Question 7
+
+A student wishes to prove that $\sqrt2+\sqrt3$ is irrational. Which one of the following is the most
+appropriate **first** line of a proof by contradiction?
+
+&nbsp;&nbsp;**A** Suppose $\sqrt2+\sqrt3=\dfrac pq$ for some integers $p,q$ with $q\ne0$.
+
+&nbsp;&nbsp;**B** Suppose $\sqrt2$ and $\sqrt3$ are both irrational.
+
+&nbsp;&nbsp;**C** Suppose $\sqrt2+\sqrt3$ is irrational.
+
+&nbsp;&nbsp;**D** Suppose $(\sqrt2+\sqrt3)^{2}=5+2\sqrt6$ is irrational.
+
+&nbsp;&nbsp;**E** Suppose $\sqrt6$ is rational.
+
+---
+
+## Question 8
+
+Which one of the following is true for every positive integer $n$?
+
+&nbsp;&nbsp;**A** $n^{2}+n+1$ is even &nbsp;&nbsp;**B** $n^{2}+n+1$ is prime
+&nbsp;&nbsp;**C** $n^{2}+n+1$ is divisible by $3$
+
+&nbsp;&nbsp;**D** $n^{2}+n+1$ leaves remainder $1$ on division by $4$ &nbsp;&nbsp;
+**E** $n^{2}+n+1$ is never a perfect square
+
+---
+
+## Question 9
+
+The real numbers $a,b,c,d$ are all greater than $1$ and satisfy $\log_c d=\left(\log_a b\right)^{3}$. Use some
+of the lines below to construct a proof that
+
+$$(*)\qquad \log_b d=\left(\log_a b\right)^{2}\left(\log_a c\right).$$
+
+&nbsp;&nbsp;**(1)** Let $x=\log_a b$ and $y=\log_a c$ &nbsp;&nbsp;**(2)** $d=c^{\left(x^{3}\right)}$
+&nbsp;&nbsp;**(3)** $d=b^{\left(x^{2}y\right)}$ &nbsp;&nbsp;**(4)** $d=\left(a^{y}\right)^{\left(x^{3}\right)}$
+
+&nbsp;&nbsp;**(5)** $d=a^{\left(x^{3}y\right)}$ &nbsp;&nbsp;**(6)** $d=\left(a^{x}\right)^{\left(x^{2}y\right)}$
+
+&nbsp;&nbsp;**A** (1), then (3), so (6), so (5), so (4), hence $(*)$
+
+&nbsp;&nbsp;**B** (1), then (2), so (4), so (5), so (6), and therefore (3), hence $(*)$
+
+&nbsp;&nbsp;**C** (1), then (3), so (5), so (4), so (2), hence $(*)$
+
+&nbsp;&nbsp;**D** (1), then (2), so (5), so (4), so (6), and therefore (3), hence $(*)$
+
+&nbsp;&nbsp;**E** (1), then (4), so (2), so (5), so (6), and therefore (3), hence $(*)$
+
+---
+
+## Question 10
+
+A student solves $\sqrt{3x+4}=x$ as follows.
+
+| | |
+|---|---|
+| Step 1 | Squaring, this is equivalent to $3x+4=x^{2}$ |
+| Step 2 | $x^{2}-3x-4=0$ |
+| Step 3 | $(x-4)(x+1)=0$ |
+| Step 4 | The solutions are $x=4$ and $x=-1$ |
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** The first error is in Step 1 &nbsp;&nbsp;**B** The first error is in Step 2
+&nbsp;&nbsp;**C** The first error is in Step 3
+
+&nbsp;&nbsp;**D** The first error is in Step 4 &nbsp;&nbsp;**E** There is no error
+
+---
+
+## Question 11
+
+A student solves $\log_3(4x)=1+2\log_3(x-1)$ as follows.
+
+| | |
+|---|---|
+| Step 1 | $\log_3(4x)-2\log_3(x-1)=1$ |
+| Step 2 | $\log_3(4x)-\log_3\!\left((x-1)^{2}\right)=1$ |
+| Step 3 | $\dfrac{4x}{(x-1)^{2}}=3$ |
+| Step 4 | $3x^{2}-10x+3=0$ |
+| Step 5 | $(3x-1)(x-3)=0$ |
+| Step 6 | $x=\tfrac13$ or $x=3$ |
+
+At each step the equation is intended to be equivalent to the one before. In which step does the **first**
+mistake appear?
+
+&nbsp;&nbsp;**A** Step 1 &nbsp;&nbsp;**B** Step 2 &nbsp;&nbsp;**C** Step 3 &nbsp;&nbsp;**D** Step 4
+&nbsp;&nbsp;**E** Step 5 &nbsp;&nbsp;**F** Step 6 &nbsp;&nbsp;**G** there is no mistake
+
+---
+
+## Question 12
+
+Consider these statements about a function $f$ on an interval $[a,b]$:
+
+&nbsp;&nbsp;$P$: the trapezium rule with $n$ equal strips **underestimates** $\displaystyle\int_a^b f(x)\,\mathrm dx$
+
+&nbsp;&nbsp;$Q$: $f''(x)<0$ for every $x$ in $[a,b]$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp;**B** $P$ is necessary but not sufficient for $Q$
+
+&nbsp;&nbsp;**C** $P$ is necessary and sufficient for $Q$ &nbsp;&nbsp;**D** $P$ is neither
+
+---
+
+## Question 13
+
+Let $m$ be a positive integer. Consider the statement
+
+&nbsp;&nbsp;$(*)$ &nbsp; for every positive integer $n$, if $m$ divides $n^{3}$ then $m$ divides $n$.
+
+For which of the following values of $m$ is $(*)$ **true**?
+
+&nbsp;&nbsp;**1** $m=2$ &nbsp;&nbsp;**2** $m=6$ &nbsp;&nbsp;**3** $m=8$ &nbsp;&nbsp;**4** $m=9$
+
+&nbsp;&nbsp;**A** 1 only &nbsp;&nbsp;**B** 1 and 2 only &nbsp;&nbsp;**C** 1, 2 and 4 only
+&nbsp;&nbsp;**D** 1 and 3 only &nbsp;&nbsp;**E** all of them
+
+---
+
+## Question 14
+
+Which one of the following integers **cannot** be written as $a^{2}+b^{2}$ for integers $a$ and $b$?
+
+&nbsp;&nbsp;**A** $221$ &nbsp;&nbsp;**B** $250$ &nbsp;&nbsp;**C** $255$ &nbsp;&nbsp;**D** $256$
+&nbsp;&nbsp;**E** $260$
+
+---
+
+## Question 15
+
+Let $N$ be a positive integer and let $s(N)$ be the sum of its decimal digits. Which one of the following is
+a **necessary and sufficient** condition for $9$ to divide $N$?
+
+&nbsp;&nbsp;**A** $9$ divides $s(N)$ &nbsp;&nbsp;**B** $3$ divides $s(N)$ &nbsp;&nbsp;**C** $s(N)$ is odd
+
+&nbsp;&nbsp;**D** $9$ divides $s(s(N))$ only when $N<1000$ &nbsp;&nbsp;**E** $N$ ends in $0$ or $9$
+
+---
+
+## Question 16
+
+In triangle $ABC$, $\angle A=30^{\circ}$, $AB=2x^{2}$ and $BC=5x$, where $x>0$. For which values of $x$ are
+there exactly **two non-congruent** such triangles?
+
+&nbsp;&nbsp;**A** $0<x<5$ &nbsp;&nbsp;**B** $\tfrac52<x<5$ &nbsp;&nbsp;**C** $x>\tfrac52$
+&nbsp;&nbsp;**D** $0<x<\tfrac52$ &nbsp;&nbsp;**E** all $x>0$
+
+---
+
+## Question 17
+
+$ABCD$ is a convex quadrilateral and $E,F,G,H$ are the midpoints of $AB,BC,CD,DA$. Which one of the following
+is a **necessary and sufficient** condition for $EFGH$ to be a rectangle?
+
+&nbsp;&nbsp;**A** $ABCD$ is a rectangle &nbsp;&nbsp;**B** the diagonals of $ABCD$ are equal
+
+&nbsp;&nbsp;**C** the diagonals of $ABCD$ are perpendicular &nbsp;&nbsp;**D** $ABCD$ is a kite
+
+&nbsp;&nbsp;**E** opposite sides of $ABCD$ are parallel
+
+---
+
+## Question 18
+
+Six distinct integers are chosen from $\{1,2,\dots,10\}$. Which one of the following **must** be true?
+
+&nbsp;&nbsp;**A** two of them sum to $10$ &nbsp;&nbsp;**B** two of them sum to $11$
+&nbsp;&nbsp;**C** two of them sum to $12$
+
+&nbsp;&nbsp;**D** three of them are consecutive &nbsp;&nbsp;**E** at least four are of the same parity
+
+---
+
+## Question 19
+
+For which real $x$ does $\displaystyle\sum_{k=0}^{\infty}(2x-1)^{k}$ converge?
+
+Let $T$ be the set of such $x$. Which one of the following is a condition that is **necessary but not
+sufficient** for $x\in T$?
+
+&nbsp;&nbsp;**A** $0<x<1$ &nbsp;&nbsp;**B** $-1<x<2$ &nbsp;&nbsp;**C** $0<x<\tfrac12$
+&nbsp;&nbsp;**D** $x>0$ and $x<1$ &nbsp;&nbsp;**E** $\lvert 2x-1\rvert<1$
+
+---
+
+## Question 20
+
+Let $P$ and $Q$ be statements about an integer $n$. Suppose it is known that
+
+&nbsp;&nbsp;• $P\Rightarrow Q$ is **true**, and &nbsp;• $Q\Rightarrow P$ is **false**.
+
+Which of the following must also be true?
+
+&nbsp;&nbsp;**1** $\lnot Q\Rightarrow\lnot P$ &nbsp;&nbsp;**2** $\lnot P\Rightarrow\lnot Q$
+&nbsp;&nbsp;**3** $P$ is sufficient but not necessary for $Q$ &nbsp;&nbsp;**4** there is an $n$ with $Q$ true and $P$ false
+
+&nbsp;&nbsp;**A** 1 only &nbsp;&nbsp;**B** 1 and 3 only &nbsp;&nbsp;**C** 1, 3 and 4 only
+&nbsp;&nbsp;**D** 1, 2 and 4 only &nbsp;&nbsp;**E** all four
+
+---
+
+::: {.callout-tip}
+## When you mark it
+
+Write the **session code** next to every question you lost — S1 to S7, T1, T2. Three or more in one session
+is a topic to re-read, not a run of bad luck.
+:::
+
+:::

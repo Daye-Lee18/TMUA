@@ -1,0 +1,365 @@
+---
+title: "Mock A · Paper 2 — Worked Solutions"
+subtitle: "Question, then answer"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+**Answer key**
+
+| | | | | | | | | | |
+|---|---|---|---|---|---|---|---|---|---|
+| **1** C | **2** F | **3** D | **4** A | **5** B | **6** D | **7** A | **8** E | **9** B | **10** A |
+| **11** B | **12** B | **13** B | **14** C | **15** A | **16** B | **17** C | **18** B | **19** B | **20** C |
+
+| session | questions |
+|---|---|
+| **S1** statement forms | 1, 20 |
+| **S2** converse & contrapositive | 2, 20 |
+| **S3** necessary & sufficient | 3, 4, 12, 15, 17, 19 |
+| **S4** quantifiers & negation | 5, 6 |
+| **S5** proof methods | 7, 8, 18 |
+| **S6** scrambled proofs | 9 |
+| **S7** spot the error | 10, 11 |
+| **T1** divisors & primes | 13, 14, 15 |
+| **T2** shapes as logic | 16, 17 |
+
+---
+
+## Question 1 — **C**
+
+::: {.question}
+$P$: $4$ divides $n$; &nbsp;$Q$: $8$ divides $n^{2}$. Which is true?
+:::
+
+**$P\Rightarrow Q$:** if $n=4k$ then $n^{2}=16k^{2}$, which is divisible by $8$.
+
+**$Q\Rightarrow P$:** *odd $n$ gives odd $n^{2}$, so $n$ must be even.* Write $n=2m$; then $n^{2}=4m^{2}$,
+and $8$ divides $4m^{2}$ exactly when $m$ is even — that is, exactly when $4$ divides $n$.
+
+Both directions hold, so $P$ is **necessary and sufficient** for $Q$.
+
+*The trap is to test only small cases: $n=2$ and $n=6$ both fail $Q$, which makes the two look unrelated.*
+
+## Question 2 — **F**
+
+::: {.question}
+$(*)$: if $n^{2}$ is odd then $n$ is odd. Which of **1** $(*)$, **2** its converse, **3** its inverse are true?
+:::
+
+**$(*)$ is true** — *contrapositive: if $n$ is even then $n=2m$ and $n^{2}=4m^{2}$ is even.*
+
+**The converse is true** — if $n$ is odd, $n=2m+1$ and $n^{2}=4m^{2}+4m+1$ is odd.
+
+**The inverse is true** — *the inverse is the contrapositive of the converse, so it stands or falls with it.*
+
+All three, so **F**. *This is the case the S2 card warns about: a statement and its converse can both be
+true, and then all four forms are true together.*
+
+## Question 3 — **D**
+
+::: {.question}
+$A$: $x>2$; $B$: $x^{2}>4$; $C$: $x^{3}>8$; $D$: $\tfrac1x<\tfrac12$. Which is necessary for all three others?
+:::
+
+As sets, with $x\neq0$:
+
+$$A=(2,\infty),\quad B=(-\infty,-2)\cup(2,\infty),\quad C=(2,\infty),\quad D=(-\infty,0)\cup(2,\infty).$$
+
+*Necessary means **larger**, so we want the one containing all the others.* $D$ contains $A$, $B$ and $C$.
+
+**The subtlety is $D$.** Dividing $\tfrac1x<\tfrac12$ by cross-multiplying assumes $x>0$; for **negative**
+$x$ the left side is negative and the inequality holds automatically. Missing that branch makes $D$ look
+identical to $A$.
+
+## Question 4 — **A**
+
+::: {.question}
+$A$: $\lvert x\rvert<4$; $B$: $1<x<3$; $C$: $x^{2}<9$; $D$: $x<6$; $E$: $\lvert x-2\rvert<1$. Which is
+necessary for exactly three of the others?
+:::
+
+$$A=(-4,4),\quad B=(1,3),\quad C=(-3,3),\quad D=(-\infty,6),\quad E=(1,3).$$
+
+$A$ contains $B$, $C$ and $E$ — three — but not $D$. $D$ contains **all four**, so it overshoots the target;
+$C$ contains two; $B$ and $E$ are equal to each other and contain one each.
+
+**A**. *$D$ is the trap: "necessary for all four" is not "necessary for exactly three".*
+
+## Question 5 — **B**
+
+::: {.question}
+Negate: for every integer $n>1$ there exists a prime $p$ with $n<p<2n$.
+:::
+
+Symbolically $\forall n>1\ \exists p\ \text{prime}:\ n<p<2n$. Flip both quantifiers and negate the condition:
+
+$$\exists n>1\ \forall p\ \text{prime}:\ p\le n\ \text{ or }\ p\ge2n .$$
+
+**B**. *Option C negates the restriction $n>1$ as well, which is the commonest error — the restriction says
+which $n$ are being discussed, not what is claimed about them. Option D leaves the first quantifier alone.*
+
+(The original statement is Bertrand's postulate, and it is **true**.)
+
+## Question 6 — **D**
+
+::: {.question}
+$S_1$: $\forall x\ \exists y:\ xy=1$. &nbsp;$S_2$: $\exists y\ \forall x:\ xy=1$. Which are true?
+:::
+
+**$S_1$ is false.** It fails at the single value $x=0$: *no real $y$ satisfies $0\cdot y=1$.*
+
+**$S_2$ is false.** One $y$ would have to work for every $x$ at once — impossible, since $xy=1$ forces
+$y=1/x$, which changes with $x$.
+
+**D**. *The usual instinct is "the $\forall\exists$ one must be true because $y=1/x$ works" — it does, for
+every $x$ **except** $0$, and one exception is enough.*
+
+## Question 7 — **A**
+
+::: {.question}
+The most appropriate first line of a proof by contradiction that $\sqrt2+\sqrt3$ is irrational.
+:::
+
+A proof by contradiction **assumes the negation of what is to be proved**. The negation of "$\sqrt2+\sqrt3$
+is irrational" is "$\sqrt2+\sqrt3$ is rational", i.e. equal to $p/q$ with $p,q$ integers, $q\ne0$.
+
+**A**. *C assumes the conclusion itself, which proves nothing; B and E assume facts that are not the negation;
+D asserts something about the square rather than negating the statement.*
+
+(The proof continues: squaring gives $5+2\sqrt6=p^{2}/q^{2}$, so $\sqrt6$ would be rational.)
+
+## Question 8 — **E**
+
+::: {.question}
+Which is true for every positive integer $n$? **A** $n^{2}+n+1$ even, **B** prime, **C** divisible by 3,
+**D** remainder 1 on division by 4, **E** never a perfect square.
+:::
+
+**E.** *$n(n+1)$ is a product of consecutive integers, so for $n\ge1$*
+
+$$n^{2}<n^{2}+n+1<n^{2}+2n+1=(n+1)^{2},$$
+
+and a number strictly between two consecutive squares cannot be a square.
+
+| | fails at |
+|---|---|
+| **A** even | $n=1$ gives $3$ — in fact $n(n+1)$ is always even, so $n^{2}+n+1$ is always **odd** |
+| **B** prime | $n=4$ gives $21=3\times7$ |
+| **C** divisible by $3$ | $n=2$ gives $7$ |
+| **D** remainder $1\pmod 4$ | $n=1$ gives $3$ |
+
+## Question 9 — **B**
+
+::: {.question}
+$\log_c d=(\log_a b)^{3}$; order the lines to prove $\log_b d=(\log_a b)^{2}(\log_a c)$.
+:::
+
+With $x=\log_a b$ and $y=\log_a c$, the hypothesis says $\log_c d=x^{3}$, i.e. $d=c^{(x^{3})}$ — **line (2)**
+is where the proof must start. Then one base change at a time:
+
+$$d=c^{(x^{3})}\xrightarrow{\;c=a^{y}\;}\left(a^{y}\right)^{(x^{3})}
+\xrightarrow{\;\text{multiply indices}\;}a^{(x^{3}y)}
+\xrightarrow{\;\text{split}\;}\left(a^{x}\right)^{(x^{2}y)}
+\xrightarrow{\;a^{x}=b\;}b^{(x^{2}y)} ,$$
+
+that is (2), (4), (5), (6), (3). Taking $\log_b$ gives $x^{2}y$, which is $(*)$. **B**
+
+*Options A and C begin at line (3), which is the conclusion in index form — a proof may not start at what it
+is trying to prove.*
+
+## Question 10 — **A**
+
+::: {.question}
+Solving $\sqrt{3x+4}=x$: Step 1 "Squaring, this is **equivalent to** $3x+4=x^{2}$" … Step 4 "The solutions
+are $x=4$ and $x=-1$." Where is the first error?
+:::
+
+Step 1 claims an **equivalence**, and that claim is false: $x=-1$ satisfies $x^{2}=3x+4$ but not the original
+equation, since $\sqrt{3(-1)+4}=1\neq-1$. *Squaring is one-way unless both sides are known to be
+non-negative, and here nothing has established $x\ge0$.*
+
+So the solution set grows at Step 1, and **A** is the answer. The true solution is $x=4$ alone.
+
+*If Step 1 had instead read "any solution must satisfy $3x+4=x^{2}$", the squaring would be correct and the
+first false claim would be Step 4. The wording decides the answer — see the S7 extended session.*
+
+## Question 11 — **B**
+
+::: {.question}
+Solving $\log_3(4x)=1+2\log_3(x-1)$ in six steps. Where is the first mistake?
+:::
+
+The domain of the original equation is $4x>0$ **and** $x-1>0$, so $x>1$.
+
+**Step 2** replaces $2\log_3(x-1)$, which needs $x>1$, by $\log_3\!\left((x-1)^{2}\right)$, which needs only
+$x\neq1$. *The solution set therefore grows at that step, so the two equations are not equivalent.*
+
+Check $x=\tfrac13$: in Step 2 both $4x=\tfrac43$ and $(x-1)^{2}=\tfrac49$ are positive and the equation holds,
+but Step 1 needs $\log_3\!\left(-\tfrac23\right)$, which does not exist. **B**
+
+Everything after Step 2 is correct algebra; the false root $x=\tfrac13$ is simply carried along, and the true
+answer is $x=3$.
+
+## Question 12 — **B**
+
+::: {.question}
+$P$: the trapezium rule underestimates. $Q$: $f''<0$ on $[a,b]$.
+:::
+
+**$Q\Rightarrow P$:** concave down means every chord lies below the curve, so every strip is underestimated.
+Hence $P$ is **necessary** for $Q$.
+
+**$P\not\Rightarrow Q$:** take $f(x)=x^{2}-x^{4}$ on $[-1,1]$ with $n=1$. The chord joins $(-1,0)$ to $(1,0)$
+so the estimate is $0$, while $\int_{-1}^{1}\left(x^{2}-x^{4}\right)\mathrm dx=\tfrac4{15}>0$ — an
+underestimate. But $f''(x)=2-12x^{2}$ gives $f''(0)=2>0$, so $Q$ fails.
+
+**B**. *$Q$ is a statement about every point; $P$ is a statement about one total.*
+
+## Question 13 — **B**
+
+::: {.question}
+For which $m$ is it true that $m$ divides $n^{3}$ implies $m$ divides $n$, for every positive integer $n$?
+:::
+
+| $m$ | verdict | reason |
+|---|---|---|
+| $2$ | **true** | $2$ is prime, so $2$ divides $n^{3}$ forces $2$ to divide $n$ |
+| $6$ | **true** | $6=2\times3$ with **distinct primes to the first power**; each divides $n$, so $6$ does |
+| $8$ | false | $n=2$: $8$ divides $8$, but $8$ does not divide $2$ |
+| $9$ | false | $n=3$: $9$ divides $27$, but $9$ does not divide $3$ |
+
+**B**. *The rule is about **repeated** prime factors, not about being composite — $6$ is composite and still
+works, because cubing triples every exponent and $m$ needs each prime only once.*
+
+## Question 14 — **C**
+
+::: {.question}
+Which cannot be written as $a^{2}+b^{2}$?
+:::
+
+Every square is $0$ or $1$ modulo $4$, so a sum of two squares is $0$, $1$ or $2$ modulo $4$ — **never $3$**.
+
+$$255=4\times63+3,$$
+
+so $255$ is impossible. **C**
+
+The others all work: $221=14^{2}+5^{2}$, $250=15^{2}+5^{2}$, $256=16^{2}+0^{2}$, $260=16^{2}+2^{2}$.
+
+*Checking the four possible ones by trial is slow; the modulo-$4$ test identifies the answer directly.*
+
+## Question 15 — **A**
+
+::: {.question}
+A necessary and sufficient condition for $9$ to divide $N$, in terms of the digit sum $s(N)$.
+:::
+
+Since $10\equiv1\pmod 9$, every power of $10$ is $\equiv1$, so $N\equiv s(N)\pmod 9$. Two numbers congruent
+modulo $9$ are divisible by $9$ together, so **$9$ divides $N$ if and only if $9$ divides $s(N)$**. **A**
+
+*B is necessary but not sufficient ($N=12$: $s=3$ divisible by $3$, but $9\nmid12$). E is neither — $N=19$
+ends in $9$ and is not divisible by $9$, while $N=18$ is divisible by $9$ and ends in $8$.*
+
+## Question 16 — **B**
+
+::: {.question}
+$\angle A=30^{\circ}$, $AB=2x^{2}$, $BC=5x$, $x>0$. For which $x$ are there exactly two non-congruent
+triangles?
+:::
+
+This is SSA. The distance from $B$ to the ray $AC$ is
+
+$$h=AB\sin A=2x^{2}\cdot\tfrac12=x^{2},$$
+
+and two triangles exist exactly when $h<BC<AB$:
+
+$$x^{2}<5x<2x^{2}.$$
+
+Dividing by $x>0$: the left gives $x<5$, the right gives $x>\tfrac52$. **B**
+
+## Question 17 — **C**
+
+::: {.question}
+$E,F,G,H$ are the midpoints of the sides of a convex quadrilateral $ABCD$. When is $EFGH$ a rectangle?
+:::
+
+By the midpoint theorem $\overrightarrow{EF}=\tfrac12\overrightarrow{AC}$ and
+$\overrightarrow{FG}=\tfrac12\overrightarrow{BD}$, so $EFGH$ is **always a parallelogram**, with its sides
+parallel to the diagonals of $ABCD$.
+
+A parallelogram is a rectangle exactly when two adjacent sides are perpendicular, so
+
+$$EF\perp FG\iff AC\perp BD .$$
+
+**C**. *B gives a **rhombus** (equal adjacent sides), not a rectangle; A is sufficient but far from necessary.*
+
+## Question 18 — **B**
+
+::: {.question}
+Six distinct integers from $\{1,\dots,10\}$. Which must be true?
+:::
+
+Pair the ten numbers so that each pair sums to $11$:
+
+$$\{1,10\},\ \{2,9\},\ \{3,8\},\ \{4,7\},\ \{5,6\}.$$
+
+That is **five** pairs covering all ten numbers. *Choosing six numbers means choosing six objects from five
+pigeonholes, so two must come from the same pair* — and those two sum to $11$. **B**
+
+The others all fail:
+
+| | counterexample |
+|---|---|
+| **A** sum $10$ | $\{1,2,3,4,5,10\}$ — the pairs are $\{1,9\},\{2,8\},\{3,7\},\{4,6\}$ with $5,10$ spare, so six can avoid it |
+| **C** sum $12$ | $\{1,2,3,4,5,6\}$ |
+| **D** three consecutive | $\{1,2,4,5,7,8\}$ |
+| **E** four of one parity | $\{1,2,3,4,5,6\}$ has three of each |
+
+*The whole question is whether the pairing uses up **all** ten numbers. Only the sum $11$ does.*
+
+## Question 19 — **B**
+
+::: {.question}
+$T$ is the set of $x$ for which $\sum_{k\ge0}(2x-1)^{k}$ converges. Which condition is necessary but not
+sufficient for $x\in T$?
+:::
+
+A geometric series converges exactly when the common ratio has modulus less than $1$:
+
+$$\lvert2x-1\rvert<1\iff-1<2x-1<1\iff 0<x<1,\qquad\text{so }T=(0,1).$$
+
+*Necessary but not sufficient means a condition implied by $x\in T$ but not implying it — a **strictly
+larger** set.* Only $(-1,2)$ qualifies. **B**
+
+| | | |
+|---|---|---|
+| **A**, **D**, **E** | equal to $T$ | necessary **and** sufficient |
+| **C** | $(0,\tfrac12)\subset T$ | sufficient, not necessary |
+
+## Question 20 — **C**
+
+::: {.question}
+$P\Rightarrow Q$ is true and $Q\Rightarrow P$ is false. Which of **1** $\lnot Q\Rightarrow\lnot P$,
+**2** $\lnot P\Rightarrow\lnot Q$, **3** $P$ sufficient but not necessary for $Q$, **4** some $n$ has $Q$ true
+and $P$ false, must also be true?
+:::
+
+**1 — true.** It is the contrapositive of $P\Rightarrow Q$, which is always equivalent to it.
+
+**2 — not forced.** $\lnot P\Rightarrow\lnot Q$ is the **inverse**, equivalent to the converse
+$Q\Rightarrow P$ — and we are told that one is **false**.
+
+**3 — true.** $P\Rightarrow Q$ is exactly "$P$ is sufficient for $Q$"; $Q\Rightarrow P$ false is exactly
+"$P$ is not necessary for $Q$".
+
+**4 — true.** *An implication is false precisely when its hypothesis holds and its conclusion fails, so
+$Q\Rightarrow P$ being false means some $n$ makes $Q$ true and $P$ false.*
+
+**C**. *Statement 2 is the single trap: inverse and contrapositive are easy to confuse, and only the
+contrapositive carries the original's truth.*
+
+:::

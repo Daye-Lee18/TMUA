@@ -9,18 +9,23 @@ execute:
   warning: false
 ---
 
+::: {.callout-note appearance="simple"}
+**Where the marks are, from eight years of papers.** Necessary/sufficient **25 %** · straight calculation
+**28 %** · quantifiers **15 %** · spot the error **10 %** · converse/contrapositive **8 %** ·
+counterexample **7 %**. Divisors and primes carry about **13 %** of the questions, and a plane shape asked
+as a logical condition appears in **every** sitting.
+:::
+
 ::: {.callout-important}
 ## How to use this page
 
 | Section | Use it for |
 |---|---|
-| **Before you start** | Recall everything: the TMUA provides **no formula booklet or calculator**. |
 | **Part 1 · S1–S7** | Make the reasoning core automatic. The exam uses English sentences; arrows here are thinking tools. |
 | **Parts 2–3** | Review two question types that frequently appear in Paper 2. |
 | **Part 4** | Refresh the recurring mathematical techniques used inside logic questions. |
 | **Part 5** | Use as your exam-day checklist. |
 | **★ cards** | Prioritise these; they appear on almost every paper. |
-| **Paper 1** | See the **[main formula sheet](paper1_formula_sheet.qmd)** for MM1–MM8. |
 :::
 
 ---
@@ -195,61 +200,248 @@ claims only one direction; those values are **candidates**, not solutions, until
 :::::
 ---
 
-## Worked check — equivalence, and negating a quantified implication {#s2-check}
+## Equivalence, necessary and sufficient conditions {#s2-check}
 
-The two things that get mixed up: **finding an equivalent statement** (swap and negate — the quantifier is
-untouched) and **negating** one (the quantifier flips, the implication becomes **and**).
+::::: {.formulasheet}
 
-::: {.callout-important}
-## The two moves, side by side
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · One arrow or two?</div>
+<div class="fs-title">Equivalent means exactly the same cases</div>
+<div class="fs-sub">Track both the logical direction and the domain. A valid one-way step produces a necessary condition; it does not automatically produce an equivalent statement.</div>
+::::
 
-For a statement of the shape **"for every $n>1$, if $P(n)$ then $Q(n)$"**:
+:::: {.fs-grid}
 
-| asked for | what changes | result |
-|---|---|---|
-| an **equivalent** statement | nothing is negated as a whole; swap and negate **inside** | for every $n>1$, if $\lnot Q(n)$ then $\lnot P(n)$ |
-| the **negation** | $\forall\to\exists$, and $P\Rightarrow Q$ becomes $P\wedge\lnot Q$ | there exists $n>1$ with $P(n)$ **and** $\lnot Q(n)$ |
+::: {.fs-card}
+### Equivalent = both directions
 
-[**$n>1$ is never negated.**]{.hl} It says which objects are being discussed, not what is being claimed
-about them — so it survives both moves unchanged. Turning it into $n\le1$ is the commonest error of all.
+$$A\Leftrightarrow B
+\quad\Longleftrightarrow\quad
+(A\Rightarrow B)\text{ and }(B\Rightarrow A).$$
+
+Across the stated domain, $A$ and $B$ must be true in **exactly the same cases**. For equations or
+inequalities, this means the **same solution set**: no gained solutions and no lost solutions.
+
+| known | correct description |
+|---|---|
+| $A\Leftrightarrow B$ | each is necessary **and** sufficient for the other |
+| $A\Rightarrow B$ only | $A$ is sufficient for $B$; $B$ is necessary for $A$ |
+| $B\Rightarrow A$ only | $B$ is sufficient for $A$; $A$ is necessary for $B$ |
+
+[tail = sufficient; head = necessary]{.eg}
 :::
 
-**Try these before reading on.** For each, write the negation, then say whether the **original** is true.
+::: {.fs-card}
+### A valid one-way step
 
-1. For every integer $n>1$: if $n$ is prime then $n$ is odd.
-2. For every real $x>0$: if $x<1$ then $x^{2}<x$.
-3. For every integer $n>1$: if $n^{2}$ is even then $n$ is even.
-4. There exists an integer $n>1$ such that: if $n$ is prime then $n>100$.
-5. Which of these is logically equivalent to *"if a number is divisible by 6 then it is divisible by 3"*?
-   &nbsp;&nbsp;**A** a number is divisible by 6 only if it is divisible by 3
-   &nbsp;&nbsp;**B** if a number is not divisible by 3 then it is not divisible by 6
-   &nbsp;&nbsp;**C** if a number is divisible by 3 then it is divisible by 6
-   &nbsp;&nbsp;**D** a number is divisible by 6 if it is divisible by 3
+Let $A:\sqrt{2x+3}=x$ and $B:2x+3=x^2$. Squaring proves
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
+$$A\Rightarrow B,$$
 
-1. **Negation:** there exists an integer $n>1$ such that $n$ is prime **and** $n$ is **even**.
-   The original is **false**, so the negation is true — witnessed by $n=2$.
-   *Note the restriction stays $n>1$ and the conclusion "odd" becomes "even"; the hypothesis "prime" is kept,
-   not denied.*
-2. **Negation:** there exists a real $x>0$ with $x<1$ **and** $x^{2}\ge x$.
-   The original is **true**: for $0<x<1$ we have $x^{2}-x=x(x-1)<0$. So the negation is false.
-3. **Negation:** there exists an integer $n>1$ with $n^{2}$ even **and** $n$ odd.
-   The original is **true** — *if $n$ were odd then $n^{2}$ would be odd* — so the negation is false.
-4. Here the quantifier was already $\exists$, so it flips the other way.
-   **Negation:** for every integer $n>1$, $n$ is prime **and** $n\le100$.
-   The original is **true**, and the cheapest witness is $n=4$: *it is not prime, so the implication holds
-   vacuously.* The negation is false — $n=4$ breaks it immediately.
-5. **A and B.** *A is the "only if" spelling of the same implication, and B is the contrapositive.*
-   C is the converse and D is the converse written with "if" at the back — both false, since $3$ is divisible
-   by $3$ but not by $6$.
+so $B$ is **necessary for** $A$. But $x=-1$ satisfies $B$ and not $A$, so $B\not\Rightarrow A$.
 
+The safe wording is:
+
+> Any solution of $A$ **must satisfy** $B$; solve $B$, then check those candidates in $A$.
+
+A one-way step can be valid. The error is calling it **equivalent**, or promoting unchecked candidates to
+solutions.
+
+[$A\Rightarrow B$ means $\operatorname{Sol}(A)\subseteq\operatorname{Sol}(B)$]{.eg}
 :::
 
-::: {.workspace style="min-height:6cm"}
-Working
+::: {.fs-card}
+### Equivalent statement $\neq$ negation
+
+For $S:\ \forall n>1,\ P(n)\Rightarrow Q(n)$:
+
+| asked for | result |
+|---|---|
+| **equivalent to $S$** | $\forall n>1,\ \lnot Q(n)\Rightarrow\lnot P(n)$ |
+| **negation of $S$** | $\exists n>1,\ P(n)\wedge\lnot Q(n)$ |
+
+The first is the **contrapositive**, so it has the same truth conditions as $S$. The second gives exactly
+the counterexample that makes $S$ false.
+
+The domain restriction $n>1$ stays fixed; it is not replaced by $n\le1$.
+
+[equivalent: same truth · negation: opposite truth]{.eg}
 :::
+
+::::
+
+:::::
+
+## Part 1 examples — high-frequency traps
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · S1–S7</div>
+<div class="fs-title">Ten questions to check before the exam</div>
+<div class="fs-sub">One question for each of S1–S7, plus three harder S4 checks from the dedicated clinic. Decide first; then read the check.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### S1 · Read the wording
+
+Let $P$ mean “$n$ is divisible by $6$” and $Q$ mean “$n$ is divisible by $3$”. Which are equivalent to
+$P\Rightarrow Q$?
+
+1. $P$ **only if** $Q$.
+2. $Q$ **if** $P$.
+3. $P$ **if** $Q$.
+4. $Q$ **only if** $P$.
+
+**Check:** **1 and 2**. Statements 3 and 4 are the converse, $Q\Rightarrow P$; $n=3$ disproves it.
+:::
+
+::: {.fs-card}
+### S2 · Equivalent or negated?
+
+For every integer $n>1$,
+
+$$n^2\text{ even}\Rightarrow n\text{ even}.$$
+
+Write (a) an equivalent statement and (b) its negation.
+
+**Check:** (a) the contrapositive: *if $n$ is odd, then $n^2$ is odd*. (b) there exists an integer $n>1$
+such that $n^2$ is even **and** $n$ is odd.
+
+[swap-and-negate gives an equivalent; keep-and-deny gives the negation]{.eg}
+:::
+
+::: {.fs-card}
+### S3 · Necessary means the larger set
+
+For real $x$, let
+
+$$A:x<2,\quad B:0<x<1,\quad C:x^2<1,$$
+$$D:\lvert x-1\rvert<2,\quad E:x^2<4.$$
+
+Which statement is necessary for **exactly three** of the other four?
+
+**Check:** **$A$**. Its set $(-\infty,2)$ contains $B=(0,1)$, $C=(-1,1)$ and $E=(-2,2)$, but not
+$D=(-1,3)$.
+
+[Woonju dedicated clinic: draw the five intervals before counting]{.eg}
+:::
+
+::: {.fs-card}
+### S4 · Quantifier order
+
+Which statements are true?
+
+1. $\forall x\in\mathbb R\ \forall n\in\mathbb Z^+:\ x<n$.
+2. $\forall x\in\mathbb R\ \exists n\in\mathbb Z^+:\ x<n$.
+3. $\exists x\in\mathbb R\ \forall n\in\mathbb Z^+:\ x<n$.
+
+**Check:** **2 and 3**. In 2, choose an $n$ depending on $x$. In 3, one value such as $x=0$ works for
+every positive integer $n$. Statement 1 fails at $x=100,n=1$.
+
+[2022 Paper 2 trap: later variables may depend on earlier ones]{.eg}
+:::
+
+::: {.fs-card}
+### S4+ · Negate through an implication
+
+Negate
+
+$$\forall\varepsilon>0\ \exists\delta>0\ \forall x:\quad
+\lvert x-a\rvert<\delta\Rightarrow\lvert f(x)-f(a)\rvert<\varepsilon.$$
+
+**Check:**
+
+$$\exists\varepsilon>0\ \forall\delta>0\ \exists x:\quad
+\lvert x-a\rvert<\delta\ \wedge\ \lvert f(x)-f(a)\rvert\ge\varepsilon.$$
+
+Every quantifier flips in place, and $\lnot(P\Rightarrow Q)=P\wedge\lnot Q$ — the implication becomes
+**and**, not another implication.
+:::
+
+::: {.fs-card}
+### S4+ · Negate $\forall\exists$
+
+Negate:
+
+> For every integer $n>1$, there exists a prime $p$ such that $p$ divides $n$.
+
+**Check:** there exists an integer $n>1$ such that **every** prime $p$ fails to divide $n$:
+
+$$\exists n>1\ \forall p\text{ prime}:\quad p\nmid n.$$
+
+The original is true, so its negation is false. The condition $n>1$ is the **domain**, so it stays fixed:
+the negation asks for a counterexample **inside the same domain**, not an unrelated value with $n\le1$.
+
+[for a universal claim, its negation is the statement that a valid counterexample exists]{.eg}
+:::
+
+::: {.fs-card}
+### S4+ · Who may depend on whom?
+
+Explain why
+
+$$\forall x\in\mathbb R\ \exists y\in\mathbb R:\ x+y=0$$
+
+is true, while $\exists y\in\mathbb R\ \forall x\in\mathbb R:\ x+y=0$ is false. Then negate both.
+
+**Check:** in the first, choose $y=-x$; in the second, one fixed $y$ cannot work for every $x$.
+
+$$\neg(\forall x\exists y:\ x+y=0)=\exists x\forall y:\ x+y\ne0,$$
+$$\neg(\exists y\forall x:\ x+y=0)=\forall y\exists x:\ x+y\ne0.$$
+
+[the later variable may depend on earlier choices; the earlier one cannot depend on later choices]{.eg}
+:::
+
+::: {.fs-card}
+### S5 · One counterexample is enough
+
+A proof claims that the difference between consecutive positive cubes is always prime because
+
+$$(x+1)^3-x^3=3x^2+3x+1$$
+
+and this polynomial is irreducible over the integers. What breaks the proof?
+
+**Check:** irreducible **polynomial** does not mean every integer **value** is prime. At $x=5$ the value is
+$91=7\times13$. One counterexample disproves the universal claim.
+
+[algebraic irreducibility $\neq$ numerical primality]{.eg}
+:::
+
+::: {.fs-card}
+### S6 · Start at the hypothesis
+
+The task is to prove $H\Rightarrow C$. A student starts from $C$ and, through correct reversible algebra,
+arrives at $H$. What has the written argument proved?
+
+**Check:** as written, it proves the **converse** $C\Rightarrow H$. If every displayed step is explicitly an
+equivalence, the chain may be reversed to prove the target — but the argument must say so or run from $H$ to
+$C$.
+
+[dedicated clinic: label the first line and last line before checking the middle]{.eg}
+:::
+
+::: {.fs-card}
+### S7 · Where equivalence first fails
+
+A student solving
+
+$$\log_2(3x-1)=1+2\log_2(x-1)$$
+
+replaces $2\log_2(x-1)$ by $\log_2((x-1)^2)$ and later obtains $x=\tfrac12$ or $3$. Where is the first
+error if every line claims equivalence?
+
+**Check:** at the replacement. The original requires $x>1$, whereas $\log_2((x-1)^2)$ exists for $x\ne1$.
+The widened domain admits the false root $x=\tfrac12$; only $x=3$ solves the original.
+
+[same formula on the old domain; different equation on the larger domain]{.eg}
+:::
+
+::::
+
+:::::
 
 ---
 
@@ -319,31 +511,104 @@ A square is **never** $2\bmod3$ and **never** $3\bmod4$.
 :::
 
 ::: {.fs-card}
+### Squares modulo 4 — what a sum of two squares can be ★
+
+Every square is $0$ or $1$ modulo $4$, so
+
+$$a^{2}+b^{2}\equiv 0,\ 1\ 	ext{or}\ 2 \pmod 4 \quad	ext{— never } 3 .$$
+
+**So no integer of the form $4k+3$ is a sum of two squares.** One residue check replaces a search.
+
+Companion facts: a square is never $2mod3$ and never $3mod4$; and modulo $8$ a square is $0$, $1$ or $4$.
+
+[$255=4(63)+3$, so it is not $a^{2}+b^{2}$ — no trial needed]{.eg}
+:::
+
+::: {.fs-card}
+### Digit sums — why the tests work ★
+
+Since $10\equiv1\pmod 9$, every power of $10$ is $\equiv1$, so for the digit sum $s(N)$
+
+$$N\equiv s(N)\pmod 9,\qquad	ext{hence } 9\mid N\iff 9\mid s(N),$$
+
+and the same argument modulo $3$ gives the test for $3$. Modulo $11$, $10\equiv-1$, so the **alternating**
+digit sum is what matters.
+
+[$3\mid s(N)$ is necessary but **not** sufficient for $9\mid N$ — take $N=12$]{.eg}
+:::
+
+::: {.fs-card}
+### When does $m\mid n^{k}$ force $m\mid n$? ★
+
+Cubing **triples every exponent** in the prime factorisation, so the condition is about **repeated** primes,
+not about being composite:
+
+| $m$ | $m\mid n^{3}\Rightarrow m\mid n$? | |
+|---|---|---|
+| $2$, $3$, $p$ prime | **yes** | Euclid's lemma |
+| $6=2	imes3$ | **yes** | distinct primes, each to the power $1$ |
+| $8=2^{3}$ | no | $n=2$ |
+| $9=3^{2}$ | no | $n=3$ |
+
+**$m$ works exactly when $m$ is squarefree** — no prime appears twice.
+
+[composite is not the test: $6$ works and $8$ does not]{.eg}
+:::
+
+::: {.fs-card}
 ### The gcd toolkit
 
-**$\gcd(a,b)$ divides $a\pm b$**, and
+Let $d=\gcd(a,b)$. This means $d$ is the greatest positive integer dividing **both** $a$ and $b$.
+Therefore $a=dr$ and $b=ds$ for some integers $r,s$, so $d$ also divides every integer combination
+$xa+yb$ — in particular, $a+b$ and $a-b$.
 
 $$\gcd(a,\,b+ka)=\gcd(a,b)\qquad \gcd(n,\,n+1)=1$$
 
-If $\gcd(a,b)=d$ then $d$ divides **every** combination $xa+yb$ — which is why a common factor survives all
-the way down a recurrence.
+**Why this matters for a recurrence.** Suppose
 
-[$\gcd(a,b)=7$ with $u_{n+2}=u_n+u_{n+1}$ forces $7$ to divide $u_n$ for every $n$]{.eg}
+$$u_1=a,\qquad u_2=b,\qquad u_{n+2}=u_n+u_{n+1}.$$
+
+If $d$ divides both starting terms, then it divides $u_3=a+b$. It then divides
+$u_4=b+u_3$, and the same argument repeats, so $d$ divides **every** term.
+
+Also, the gcd of consecutive terms stays unchanged:
+
+$$\gcd(u_{n+1},u_{n+2})
+=\gcd(u_{n+1},u_n+u_{n+1})
+=\gcd(u_n,u_{n+1}).$$
+
+[example: $u_1=14,u_2=21$ gives $14,21,35,56,91,\ldots$; every term is divisible by $7$, and each consecutive gcd is $7$]{.eg}
 :::
 
 ::: {.fs-card}
 ### Irreducible $\neq$ prime-valued ★
 
-A polynomial that does not factorise over the integers still takes **composite values**.
+A polynomial **factorises over the integers** if it can be written as
+
+$$P(x)=A(x)B(x),$$
+
+where $A$ and $B$ are non-constant polynomials whose **every coefficient — including each constant term —
+is an integer**. If no such factorisation exists, $P$ is *irreducible over the integers*.
+
+This does **not** mean “it cannot factor over the reals”: for example,
+$x^2-2=(x-\sqrt2)(x+\sqrt2)$ over the reals, but not over the integers.
+
+Irreducibility describes the polynomial as an algebraic expression; it does not guarantee that the integer
+$P(n)$ is prime.
 
 $3x^{2}+3x+1$ is irreducible ($D=9-12=-3<0$), yet $x=5$ gives $91=7\times13$ — which is exactly
 $6^{3}-5^{3}$.
 
-**No non-constant polynomial takes only prime values**, so any claim of that shape is false before you read
-its proof.
+In fact, no non-constant polynomial in $\mathbb Z[x]$ gives a prime for **every** integer input. For TMUA,
+you do not need the general proof: one composite output is enough to disprove an “always prime” claim.
 
-**Two meanings of "factor":** a divisor of an **integer**, and a factor of a **polynomial**. The examiners
-slide between them deliberately.
+**Two different meanings of “factor”:** 
+
+- **integer factor:** $91=7\times13$, so $7$ and $13$ divide the number $91$;
+- **polynomial factor:** $x^2-1=(x-1)(x+1)$ as an identity in $x$.
+
+An irreducible polynomial can therefore produce a composite integer. Treating these two meanings as the
+same is the error.
 :::
 
 ::::
@@ -439,6 +704,24 @@ equal **and** parallel · diagonals bisect each other.
 $$\sin A=\sin B\iff B=A\ \text{ or }\ B=180^\circ-A .$$
 
 *Whenever an angle is recovered from a sine, stop — there are two possibilities.*
+:::
+
+::: {.fs-card}
+### The midpoint quadrilateral ★
+
+Join the midpoints of the sides of **any** quadrilateral: the result is **always a parallelogram**, with its
+sides parallel to the diagonals and half their length.
+
+| condition on the diagonals of $ABCD$ | midpoint quadrilateral |
+|---|---|
+| none | parallelogram |
+| equal | **rhombus** |
+| perpendicular | **rectangle** |
+| equal **and** perpendicular | **square** |
+
+*Each row is an **iff**, so this converts a fact about the diagonals into one about the sides and back.*
+
+[equal gives the rhombus, perpendicular gives the rectangle — not the other way round]{.eg}
 :::
 
 ::: {.fs-card}
@@ -660,18 +943,4 @@ mathematics done on the wrong question.
 | "same number of roots" | bijection | substitute; watch for $\pm$, squaring and domains |
 | recurrence / long list | invariant | test parity, remainder, sign, gcd, bounds |
 | no logical wording at all | Paper 1 technique | just calculate — about a quarter of the paper |
-:::
-
-::: {.callout-note appearance="simple"}
-**Where the marks are, from eight years of papers.** Necessary/sufficient **25 %** · straight calculation
-**28 %** · quantifiers **15 %** · spot the error **10 %** · converse/contrapositive **8 %** ·
-counterexample **7 %**. Divisors and primes carry about **13 %** of the questions, and a plane shape asked
-as a logical condition appears in **every** sitting.
-:::
-
-::: {.callout-note appearance="simple"}
-Full sessions: **[S1](../toolkit/s01_concepts.qmd)** · **[S2](../toolkit/s02_concepts.qmd)** · **[S3](../toolkit/s03_concepts.qmd)** ·
-**[S4](../toolkit/s04_concepts.qmd)** · **[S5](../toolkit/s05_concepts.qmd)** · **[S6](../toolkit/s06_concepts.qmd)** ·
-**[S7](../toolkit/s07_concepts.qmd)** · **[S7 ext](../toolkit/s07_extended_equivalence.qmd)** · **[T1](../toolkit/t01_divisors_primes.qmd)** · **[T2](../toolkit/t02_shapes_as_logic.qmd)** ·
-overview: **[Paper 2 Toolkit](../toolkit/index.qmd)**.
 :::
