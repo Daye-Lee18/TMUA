@@ -1,0 +1,2441 @@
+---
+title: "TMUA Paper 1 Formula Sheet and Card Challenges"
+subtitle: "The complete reference with a high-difficulty problem directly under every concept card"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+
+
+The reference is unchanged in content, but every concept card now ends with a challenge adapted from the
+local TMUA, MAT and PAT archive. Attempt the problem before opening its solution.
+
+# Part 0 · The high-yield engines
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · the cards to have automatic</div>
+<div class="fs-title">Quadratics, circles and shortest distances</div>
+<div class="fs-sub">These three ideas carry more Paper 1 marks than anything else, and they keep reappearing disguised as each other: a tangency question is a discriminant question, and a two-circle question is a distance question. The full section-by-section reference follows below.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Q1 · The discriminant engine ★
+
+For $ax^{2}+bx+c=0$ with $a\ne0$, everything is the sign of $\Delta=b^{2}-4ac$:
+
+| $\Delta>0$ | $\Delta=0$ | $\Delta<0$ |
+|---|---|---|
+| two distinct real roots | one repeated root | no real roots |
+
+$$\alpha+\beta=-\frac{b}{a},\qquad \alpha\beta=\frac{c}{a}$$
+
+**If $a$ can be zero, treat $a=0$ separately** — the equation is then linear with one root.
+
+[$kx^{2}+4x+k=0$ has one root at $k=\pm2$ **and** at $k=0$, for a different reason]{.eg}
+
+#### Challenge
+
+Find all real $k$ for which $(k-1)x^2+4x+k+3=0$ has exactly one real solution.
+
+[Adapted from TMUA quadratic-parameter pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$k=1$ gives a linear equation. Otherwise $\Delta=0$, giving $k=-1\pm2\sqrt2$. Hence $\boxed{k=1,-1\pm2\sqrt2}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Q2 · "For all $x$" and the sign of $a$ ★
+
+$$ax^{2}+bx+c>0 \text{ for every real } x \iff a>0 \ \textbf{and}\ \Delta<0 .$$
+
+Flip both for "$<0$ for every $x$". **Dropping the condition on $a$ is the standard lost mark.**
+
+Completing the square gives the range directly:
+
+$$a\left(x+\frac{b}{2a}\right)^{2}+c-\frac{b^{2}}{4a}$$
+
+— minimum $c-\dfrac{b^{2}}{4a}$ at $x=-\dfrac{b}{2a}$ when $a>0$.
+
+[$x^{2}-6x+k>0$ for all $x$ $\iff$ $36-4k<0$ $\iff$ $k>9$]{.eg}
+
+#### Challenge
+
+Find all $k$ such that $x^2+(k-4)x+k>0$ for every real $x$.
+
+[Adapted from TMUA 2019 P1 inequality pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+Require $\Delta=(k-4)^2-4k<0$. Thus $\boxed{6-2\sqrt5<k<6+2\sqrt5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Q3 · Hidden quadratics ★
+
+Substitute and **carry the restriction with you**:
+
+| equation | let | restriction |
+|---|---|---|
+| $ax^{4}+bx^{2}+c=0$ | $u=x^{2}$ | $u\ge0$ |
+| $a\cdot4^{x}+b\cdot2^{x}+c=0$ | $u=2^{x}$ | $u>0$ |
+| $a(\log x)^{2}+b\log x+c=0$ | $u=\log x$ | none, but $x>0$ |
+| $a\sin^{2}\theta+b\sin\theta+c=0$ | $u=\sin\theta$ | $-1\le u\le1$ |
+
+*Each value of $u$ that survives gives its own count of $x$ values — two, one or none.*
+
+[$u=x^{2}$: one positive $u$ gives **two** values of $x$; a negative $u$ gives none]{.eg}
+
+#### Challenge
+
+How many real solutions does $x^4-5x^2+4=0$ have?
+
+[Adapted from TMUA hidden-quadratic pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+Let $u=x^2\ge0$. Then $(u-1)(u-4)=0$, so $x=\pm1,\pm2$: $\boxed4$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### C1 · Circle — centre and radius ★
+
+$$(x-a)^{2}+(y-b)^{2}=r^{2}$$
+
+From the general form $x^{2}+y^{2}+2gx+2fy+c=0$:
+
+$$\text{centre }(-g,-f),\qquad r=\sqrt{g^{2}+f^{2}-c}.$$
+
+**It is only a circle when $g^{2}+f^{2}-c>0$** — if it is zero the locus is a single point, and if negative it is empty.
+
+[complete the square in $x$ and in $y$ separately; the leftover constant is $r^{2}$]{.eg}
+
+#### Challenge
+
+For what values of $\lambda$ does $x^2+y^2-6x+4y+\lambda=0$ describe a circle of radius greater than $2$?
+
+[Adapted from TMUA circle-parameter pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$(x-3)^2+(y+2)^2=13-\lambda$. Require $13-\lambda>4$, so $\boxed{\lambda<9}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### C2 · Two circles — the whole classification ★
+
+Let the circles have centres $C_1,C_2$ and radii $r_1,r_2$, and write
+
+$$\boxed{\,d=\lvert C_1C_2\rvert=\textbf{the distance between the two centres}\,}$$
+
+— **not** a distance between the circles themselves. Then:
+
+| | condition | meeting points |
+|---|---|---|
+| separate | $d>r_1+r_2$ | $0$ |
+| touch outside | $d=r_1+r_2$ | $1$ |
+| cross | $\lvert r_1-r_2\rvert<d<r_1+r_2$ | $2$ |
+| touch inside | $d=\lvert r_1-r_2\rvert$ | $1$ |
+| one inside the other | $d<\lvert r_1-r_2\rvert$ | $0$ |
+
+**Compare $d$ with $r_1+r_2$ and with $\lvert r_1-r_2\rvert$ — never solve the two equations simultaneously.**
+The whole classification is one number line:
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The two circles are decided entirely by where d falls relative to |r₁−r₂| and r₁+r₂."
+import numpy as np, matplotlib.pyplot as plt
+BL, RD, GR, AM, PU = '#2b6cb0', '#c53030', '#2f855a', '#b7791f', '#6b46c1'
+fig, ax = plt.subplots(figsize=(7.0, 2.15))
+L, Rr = 1.6, 5.4                      # the two break points
+ax.annotate("", xy=(7.6, 0), xytext=(-0.5, 0),
+            arrowprops=dict(arrowstyle="->", color='0.3', lw=1.4))
+for xv, lab, col in [(L, r"$|r_1-r_2|$", AM), (Rr, r"$r_1+r_2$", AM)]:
+    ax.plot([xv, xv], [-0.17, 0.17], color=col, lw=2.2)
+    ax.text(xv, -0.52, lab, ha="center", fontsize=10.5, color=col)
+bands = [(-0.5, L, "one inside\nthe other", "0 points", PU),
+         (L, Rr, "they cross", "2 points", GR),
+         (Rr, 7.6, "separate", "0 points", BL)]
+for x0, x1, name, pts, col in bands:
+    ax.add_patch(plt.Rectangle((x0, -0.12), x1-x0, 0.24, color=col, alpha=0.16))
+    # both labels sit ABOVE the axis so the arrow does not strike through them
+    ax.text((x0+x1)/2, 0.66, name, ha="center", fontsize=9.5, color=col)
+    ax.text((x0+x1)/2, 0.28, pts, ha="center", fontsize=9, color=col, fontweight="bold")
+for xv, lab in [(L, "touch inside\n1 point"), (Rr, "touch outside\n1 point")]:
+    ax.plot(xv, 0, 'o', color=RD, ms=7, zorder=4)
+    ax.text(xv, -1.02, lab, ha="center", fontsize=8.5, color=RD)
+ax.text(7.7, 0, r"$d$", fontsize=12, va="center")
+ax.set_xlim(-1.0, 8.3); ax.set_ylim(-1.35, 1.05)
+ax.axis("off")
+plt.tight_layout(); plt.show()
+```
+
+[$d=0$ is the concentric case: no meeting points unless $r_1=r_2$]{.eg}
+
+#### Challenge
+
+Circles have radii $5,2$ and centres $6$ apart. How many common points do they have?
+
+[Adapted from TMUA two-circle classification.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$|5-2|<6<5+2$, so they cross at $\boxed2$ points.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### C3 · Shortest distance between two circles ★
+
+Here $d=\lvert C_1C_2\rvert$ is again **the distance between the two centres**, as in C2. Once the
+classification is known, the gap between the circles is a subtraction:
+
+$$\text{separate: } d-r_1-r_2 ,\qquad
+\text{one inside the other: } \lvert r_1-r_2\rvert-d .$$
+
+If they cross or touch, the shortest distance is $0$.
+
+*The nearest points lie on the line of centres, which is why only $d$ matters.* The **furthest** distance between the two circles is always $d+r_1+r_2$.
+
+[centres $10$ apart, radii $3$ and $2$: gap $=10-5=5$]{.eg}
+
+#### Challenge
+
+Find the shortest gap between $(x-1)^2+(y+2)^2=9$ and $(x-9)^2+(y-4)^2=1$.
+
+[Adapted from TMUA 2018 P1 Q3 pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+The centre distance is $10$, so the gap is $10-3-1=\boxed6$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### D1 · Point to line — perpendicular distance ★
+
+For the line $Ax+By+C=0$ and the point $(x_0,y_0)$:
+
+$$\boxed{\ \dfrac{\lvert Ax_0+By_0+C\rvert}{\sqrt{A^{2}+B^{2}}}\ }$$
+
+**Put the line in $Ax+By+C=0$ form first** — applying it to $y=mx+k$ as written is the usual error. From $y=mx+k$, use $mx-y+k=0$.
+
+The foot of the perpendicular is
+
+$$(x_0,y_0)+\lambda(A,B),\qquad \lambda=-\frac{Ax_0+By_0+C}{A^{2}+B^{2}} .$$
+
+[distance from the origin to $3x+4y-10=0$ is $\frac{10}{5}=2$]{.eg}
+
+#### Challenge
+
+Find the distance from $(2,-1)$ to $3x-4y-18=0$.
+
+[Adapted from TMUA coordinate-geometry pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$d=|6+4-18|/5=\boxed{8/5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### D2 · Point to circle, and line to circle ★
+
+**Point $P$ to a circle** of centre $C$, radius $r$, with $p=\lvert PC\rvert$:
+
+$$\text{nearest } \lvert p-r\rvert,\qquad \text{furthest } p+r .$$
+
+**Line and circle** — compare the perpendicular distance $h$ from the centre to the line with $r$:
+
+| $h>r$ | $h=r$ | $h<r$ |
+|---|---|---|
+| misses | **tangent** | cuts twice |
+
+and then the chord has length $2\sqrt{r^{2}-h^{2}}$.
+
+[tangency by distance, or by substituting and setting $\Delta=0$ — the same condition twice]{.eg}
+
+#### Challenge
+
+A circle has centre $(1,2)$ and radius $5$. Find the chord length cut by $3x+4y-4=0$.
+
+[Adapted from TMUA chord-distance pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+The centre-line distance is $7/5$. Hence the chord is $2\sqrt{25-49/25}=\boxed{48/5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### D3 · Tangency is a discriminant ★
+
+Substituting $y=mx+k$ into $x^{2}+y^{2}=r^{2}$ gives
+
+$$(1+m^{2})x^{2}+2mkx+k^{2}-r^{2}=0,$$
+
+and $\Delta=0$ reduces to
+
+$$k^{2}=r^{2}\left(1+m^{2}\right),$$
+
+which is exactly $\dfrac{\lvert k\rvert}{\sqrt{1+m^{2}}}=r$ — the distance from the centre to the line.
+
+**So "touches" always has two routes.** Use the distance formula when the circle's centre is given, and the discriminant when the question already has you substituting.
+
+[two tangents of gradient $m$ to a circle: the $\pm$ comes from $\lvert k\rvert$]{.eg}
+
+#### Challenge
+
+Find the values of $c$ for which $y=2x+c$ is tangent to $x^2+y^2=20$.
+
+[Adapted from TMUA tangency pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+Distance from the origin to $2x-y+c=0$ equals $2\sqrt5$: $|c|/\sqrt5=2\sqrt5$, so $\boxed{c=\pm10}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### D4 · Distances you are expected to just know
+
+$$\text{between points: } \sqrt{(x_2-x_1)^{2}+(y_2-y_1)^{2}}$$
+
+- **Perpendicular bisector** of $AB$ = the locus of points equidistant from $A$ and $B$; it passes through the midpoint with gradient $-1/m_{AB}$.
+- The **shortest distance from a point to a curve** is along the normal — for a circle that is the line of centres, which is why C3 and D2 are subtractions.
+- Minimising a distance: minimise $d^{2}$, never $d$. *The square root is increasing, so the same point minimises both, and the algebra is far cleaner.*
+
+[a "closest point on the curve" question with no calculus is almost always a circle in disguise]{.eg}
+
+#### Challenge
+
+Find the perpendicular bisector of the segment joining $(-2,1)$ and $(4,5)$.
+
+[Adapted from TMUA locus pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+Midpoint $(1,3)$; perpendicular gradient $-3/2$. Thus $\boxed{y-3=-\frac32(x-1)}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### D5 · Point to a quadratic curve ★
+
+There is **no separate closed formula** to memorise. For a fixed point $P=(p,q)$ and a point
+$Q=(x,f(x))$ on the curve, minimise the squared distance
+
+$$\boxed{\ D^{2}(x)=(x-p)^{2}+\bigl(f(x)-q\bigr)^{2}\ }.$$
+
+For $f(x)=ax^{2}+bx+c$, use either method:
+
+1. **Differentiate:**
+   $$\frac12\frac{\mathrm d}{\mathrm dx}D^{2}
+   =(x-p)+\bigl(f(x)-q\bigr)f'(x)=0.$$
+2. **Hidden quadratic:** if only $x^{2}$ occurs, let $t=x^{2}\ge0$ and complete the square.
+
+The stationary equation says the shortest segment is **normal to the curve**. Check all stationary values
+and any endpoints or domain boundaries.
+
+[$P=(0,3)$, $y=x^{2}$: $D^{2}=x^{2}+(x^{2}-3)^{2}$; let $t=x^{2}$]{.eg}
+
+#### Challenge
+
+Find the shortest distance from $(0,3)$ to $y=x^2$, and all closest points.
+
+[Adapted from Coordinate clinic extension.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$D^2=x^2+(x^2-3)^2$. Put $t=x^2$: $D^2=(t-5/2)^2+11/4$. Thus $\boxed{D=\sqrt{11}/2}$ at $\boxed{(\pm\sqrt{10}/2,5/2)}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::::
+
+:::::
+
+::: {.callout-important}
+## The three reflexes these cards buy you
+
+1. **"How many solutions / for what values of $k$"** $\to$ form a quadratic and go to $\Delta$. Check whether the coefficient of $x^{2}$ can vanish.
+2. **"Touches", "tangent", "exactly one point"** $\to$ either $\Delta=0$ or perpendicular distance $=r$. Pick whichever avoids more algebra.
+3. **Any two circles** $\to$ compute $d$, $r_1+r_2$ and $\lvert r_1-r_2\rvert$ **before anything else**. Every question about crossing, touching, containing or gap size is read straight off those three numbers.
+4. **Point to a non-circular curve** $\to$ write $D^{2}$, not $D$; then differentiate or expose a hidden quadratic.
+:::
+
+# Part 1 · Algebra and functions (MM1)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM1</div>
+<div class="fs-title">Algebra and functions</div>
+<div class="fs-sub">Indices, surds, quadratics and the modulus — the algebra every other section leans on.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Indices ★
+
+$$a^m a^n = a^{m+n}, \qquad \frac{a^m}{a^n} = a^{m-n}, \qquad (a^m)^n = a^{mn},$$
+$$a^0 = 1, \qquad a^{-n} = \frac{1}{a^n}, \qquad a^{1/n} = \sqrt[n]{a}, \qquad a^{m/n} = \left(\sqrt[n]{a}\right)^m .$$
+
+#### Challenge
+
+Solve $8^{x-1}=4^{2-x}$.
+
+[Adapted from TMUA indices pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$2^{3x-3}=2^{4-2x}$, so $\boxed{x=7/5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Surds ★
+
+Rationalise by multiplying by the conjugate:
+$$\frac{1}{a + b\sqrt{c}} \times \frac{a - b\sqrt{c}}{a - b\sqrt{c}} = \frac{a - b\sqrt{c}}{a^2 - b^2 c} .$$
+
+#### Challenge
+
+Simplify $\dfrac5{2+\sqrt3}-\dfrac5{2-\sqrt3}$.
+
+[Adapted from TMUA surd pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+Rationalising gives $5(2-\sqrt3)-5(2+\sqrt3)=\boxed{-10\sqrt3}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Quadratics ★
+
+For $ax^2 + bx + c = 0$: 
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \qquad \text{discriminant } \Delta = b^2 - 4ac .$$
+
+$$\Delta > 0 \Rightarrow \text{two real roots}, \qquad \Delta = 0 \Rightarrow \text{one (repeated)}, \qquad \Delta < 0 \Rightarrow \text{none}.$$
+
+#### Challenge
+
+The roots of $2x^2-7x+m=0$ differ by $3/2$. Find $m$.
+
+[Adapted from TMUA root-relations pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$(\alpha-\beta)^2=(\alpha+\beta)^2-4\alpha\beta$: $9/4=49/4-2m$, so $\boxed{m=5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Completing the square ★
+
+The vertex form gives the turning point for free:
+$$a x^2 + bx + c = a\left(x + \tfrac{b}{2a}\right)^2 + \left(c - \tfrac{b^2}{4a}\right), \qquad \text{turning point at } x = -\tfrac{b}{2a}.$$
+
+#### Challenge
+
+Find the range of $3x^2-12x+7$.
+
+[Adapted from TMUA completing-square pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$3(x-2)^2-5$, so $\boxed{y\ge-5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Sum and product of roots
+
+(for $ax^2+bx+c=0$, roots $\alpha,\beta$):
+$$\alpha + \beta = -\frac{b}{a}, \qquad \alpha\beta = \frac{c}{a}.$$
+
+#### Challenge
+
+If $\alpha^2+\beta^2=17$ and $\alpha\beta=4$ for the roots of $x^2-px+q=0$, find $p$.
+
+[Adapted from TMUA roots pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$q=4$ and $17=p^2-8$, so $\boxed{p=\pm5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Factor / Remainder Theorem
+
+$\;(x-a)$ is a factor of $f(x) \iff f(a)=0$; the remainder on
+dividing $f(x)$ by $(x-a)$ is $f(a)$.
+
+#### Challenge
+
+Given $f(x)=x^3+ax^2-4x+4$ and $x-2$ is a factor, find $a$ and factorise $f$.
+
+[Adapted from TMUA factor-theorem pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$f(2)=4a+4=0$, so $a=-1$ and $\boxed{f=(x-1)(x-2)(x+2)}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Modulus (absolute value) ★
+
+$\lvert x\rvert = x$ if $x\ge0$, else $-x$; $\;\lvert x\rvert=\sqrt{x^2}$
+(never negative); $\;\lvert x-a\rvert =$ distance from $x$ to $a$.
+$$\lvert A\rvert = k \iff A = \pm k, \qquad \lvert A\rvert < k \iff -k < A < k, \qquad \lvert A\rvert < \lvert B\rvert \iff A^2 < B^2 .$$
+$$\text{Triangle inequality: } \lvert a+b\rvert \le \lvert a\rvert + \lvert b\rvert \quad(\text{equality when } a,b \text{ have the same sign}).$$
+
+- $y=\lvert f(x)\rvert$ reflects the below-axis part **up**; $y=f(\lvert x\rvert)$ mirrors the **right half**
+  (even function).
+- Two V/Λ moduli enclose a **kite** — area $=\tfrac12 d_1 d_2$ (product of the diagonals, halved).
+- $\displaystyle\min_x \sum_i \lvert x-a_i\rvert$ is reached with $x$ **between the two middle points**.
+
+#### Challenge
+
+Solve $|x-1|+|x-5|=6$.
+
+[Adapted from MAT/TMUA modulus pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+Splitting at $1,5$ gives $\boxed{x=0,6}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+:::::
+
+::::::
+
+::: {.callout-tip}
+**Exam reflex — algebra.**
+
+- A parameter and “two / one / no real roots” $\to$ form a quadratic and use $\Delta>0,=0,<0$.
+- “For all real $x$” quadratic inequality $\to$ check the leading sign and the discriminant.
+- Symmetric information about roots $\to$ use $\alpha+\beta$ and $\alpha\beta$ before solving the quadratic.
+- Several moduli $\to$ mark every breakpoint first, then solve one linear expression on each interval.
+- Surd fractions with conjugate denominators $\to$ combine or rationalise before expanding.
+
+**Mini-example.** $x^2-6x+k>0$ for every real $x$ requires the parabola to open upwards and never touch the
+axis: $\Delta=36-4k<0$, hence $k>9$.
+:::
+
+---
+
+# Part 2 · Sequences and series (MM2)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM2</div>
+<div class="fs-title">Sequences and series</div>
+<div class="fs-sub">The four things the specification gives you, plus the two ways to build a sum it does not.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Arithmetic
+
+(first term $a$, common difference $d$):
+$$u_n = a + (n-1)d, \qquad S_n = \frac{n}{2}\big(2a + (n-1)d\big) = \frac{n}{2}(a + \ell).$$
+
+#### Challenge
+
+In an AP, $u_5=17$ and $u_{14}=44$. Find $S_{20}$.
+
+[Adapted from TMUA AP pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$d=3,a=5$, so $S_{20}=10(10+57)=\boxed{670}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Sum of the first $n$ integers ★
+
+$$1 + 2 + \cdots + n = \frac{n(n+1)}{2}.$$
+
+#### Challenge
+
+Find the least $n$ such that $1+2+\cdots+n>1000$.
+
+[Adapted from TMUA integer-sum pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$44\cdot45/2=990$ but $45\cdot46/2=1035$, so $\boxed{n=45}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Geometric ★
+
+(first term $a$, common ratio $r$): 
+$$u_n = a r^{n-1}, \qquad S_n = \frac{a(1 - r^n)}{1 - r} \;(r \ne 1), \qquad S_\infty = \frac{a}{1-r} \;\text{for } |r| < 1.$$
+
+#### Challenge
+
+A GP has $u_3=12,u_6=96$ and positive ratio. Find $S_8$.
+
+[Adapted from TMUA GP pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$r^3=8$, so $r=2,a=3$ and $S_8=3(2^8-1)=\boxed{765}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Recovering a term from a partial sum ★
+
+If $S_n=b_1+b_2+\cdots+b_n$ is given, then
+
+$$\boxed{\ b_n=S_n-S_{n-1}\ \ (n\ge2),\qquad b_1=S_1\ }$$
+
+**Always check $n=1$ separately.** The subtraction is only valid from $n=2$, and the formula it produces need
+not agree with $b_1$: for $S_n=n^{2}$ it gives $b_n=2n-1$ and $b_1=1$, which agree — but for $S_n=n^{2}+3$ it
+still gives $b_n=2n-1$ while $b_1=S_1=4$.
+
+*This is also the check that a claimed formula is right: a GP has $S_n=\dfrac{a(1-r^{n})}{1-r}$, and
+$S_n-S_{n-1}=ar^{\,n-1}$ as it must.*
+
+#### Challenge
+
+If $S_n=3n^2-2n$, find $u_n$.
+
+[Adapted from TMUA partial-sum pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$u_n=S_n-S_{n-1}=\boxed{6n-5}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Telescoping — the sum you were never given
+
+(*부분급수*). If the term can be written as a difference,
+
+$$b_k=f(k)-f(k+1)\quad\Longrightarrow\quad \sum_{k=1}^{n}b_k=f(1)-f(n+1),$$
+
+because everything in between cancels in pairs. The standard way in is **partial fractions**:
+
+$$\frac{1}{k(k+1)}=\frac1k-\frac1{k+1}\ \Longrightarrow\ \sum_{k=1}^{n}\frac{1}{k(k+1)}=1-\frac{1}{n+1}=\frac{n}{n+1}.$$
+
+With a gap of $2$ the cancellation leaves **two** terms at each end:
+
+$$\frac{1}{k(k+2)}=\frac12\left(\frac1k-\frac1{k+2}\right)
+\ \Longrightarrow\ \sum_{k=1}^{n}\frac{1}{k(k+2)}=\frac12\left(1+\frac12-\frac{1}{n+1}-\frac{1}{n+2}\right).$$
+
+*None of this is on the specification, which is exactly why it appears — see
+**[Sequences & series clinic](../lessons/sequences_series_clinic/class_material.qmd)**, sections 4–8.*
+
+#### Challenge
+
+Evaluate $\sum_{r=1}^{20}\dfrac1{r(r+1)}$.
+
+[Adapted from MAT telescoping pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$1/[r(r+1)]=1/r-1/(r+1)$, so the sum is $\boxed{20/21}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Binomial expansion ★
+
+($n$ a positive integer): 
+$$(1+x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k, \qquad \binom{n}{k} = \frac{n!}{k!\,(n-k)!}, \qquad \binom{n}{1} = n.$$
+$$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^{k}.$$
+
+#### Challenge
+
+Find the coefficient of $x^4$ in $(1+2x)^6(1-x)^2$.
+
+[Adapted from TMUA binomial pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+The $(2,2),(3,1),(4,0)$ contributions give $60-320+240=\boxed{-20}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+:::::
+
+::::::
+
+::: {.callout-tip}
+**Exam reflex — sequences and series.**
+
+- Terms are given at two positions $\to$ write two AP/GP equations and **divide GP equations** to eliminate
+  the first term.
+- A recurrence looks messy $\to$ generate 4–6 terms and look for a cycle, parity pattern or fixed value.
+- A decimal repeats $\to$ write it as a geometric series; do not use a calculator approximation.
+- One coefficient is requested $\to$ write only the term(s) whose powers can combine to make it.
+- $S_\infty$ appears $\to$ check $|r|<1$ before using it.
+
+**Mini-example.** If $u_3=12$ and $u_6=96$ in a GP, then
+$r^3=u_6/u_3=8$, so $r=2$; there is no need to find $a$ first.
+:::
+
+---
+
+# Part 3 · Coordinate geometry (MM3)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM3</div>
+<div class="fs-title">Coordinate geometry</div>
+<div class="fs-sub">Lines, circles and distances. Most Paper 1 geometry is one of these three wearing a disguise.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Straight line ★
+
+$$\text{gradient } m = \frac{y_2 - y_1}{x_2 - x_1}, \qquad y - y_1 = m(x - x_1).$$
+Parallel: $m_1 = m_2$. &nbsp; Perpendicular: $m_1 m_2 = -1$. ★
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+From the point $P(7,1)$ two tangents are drawn to the circle $x^{2}+y^{2}=25$, touching it at $A$ and $B$.
+
+&nbsp;&nbsp;**(a)** Find the length $PA$.
+&nbsp;&nbsp;**(b)** Show that the line $AB$ (the *chord of contact*) has equation $7x+y=25$.
+&nbsp;&nbsp;**(c)** Hence find the distance from the centre to $AB$, and the length of $AB$.
+
+[Adapted from **2021 P1 Q1** (circle–line configuration); the chord-of-contact idea is the 2022 P1 Q19 technique.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $OP^{2}=7^{2}+1^{2}=50$, and $OA\perp PA$ with $OA=5$, so
+$PA=\sqrt{50-25}=\boxed{5}$.
+
+*The tangent is perpendicular to the radius, so $OAP$ is right-angled at $A$ — that is the only fact needed.*
+
+**(b)** If $A=(x_1,y_1)$ then the tangent at $A$ is $x_1x+y_1y=25$, and it passes through $P$, so
+$7x_1+y_1=25$. The same holds for $B$. *Both $A$ and $B$ satisfy $7x+y=25$, and two points determine a
+line,* so $AB:\;7x+y=25$.
+
+**(c)** Distance from $O$: $\dfrac{\lvert-25\rvert}{\sqrt{49+1}}=\dfrac{25}{5\sqrt2}=\dfrac{5}{\sqrt2}$, so
+
+$$AB=2\sqrt{25-\tfrac{25}{2}}=2\cdot\tfrac{5}{\sqrt2}=\boxed{5\sqrt2}.$$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Distance and midpoint
+
+$$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}, \qquad M = \left(\tfrac{x_1+x_2}{2}, \tfrac{y_1+y_2}{2}\right).$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+A circle passes through $A(5,4)$ and $B(-3,-2)$ and its centre lies on the line $y=x$.
+
+&nbsp;&nbsp;**(a)** Find the centre and radius.
+&nbsp;&nbsp;**(b)** Show that $AB$ is **not** a diameter.
+&nbsp;&nbsp;**(c)** Find the two points of the circle that are furthest from, and nearest to, the line $y=x$.
+
+[Adapted from **2021 P1 Q17** (locus + circle) and the 2023 P1 Q13 centre-on-a-line setup.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** The centre is equidistant from $A$ and $B$, so it lies on their perpendicular bisector. With centre
+$(t,t)$,
+
+$$(t-5)^{2}+(t-4)^{2}=(t+3)^{2}+(t+2)^{2}\;\Longrightarrow\;-18t+41=10t+13\;\Longrightarrow\;t=1 .$$
+
+Centre $\boxed{(1,1)}$, radius $\sqrt{4^{2}+3^{2}}=\boxed{5}$.
+
+**(b)** The midpoint of $AB$ is $(1,1)$ — which *is* the centre, so $AB$ **is** a diameter. *Check:
+$AB=\sqrt{8^{2}+6^{2}}=10=2r$.* **The claim in the question is false, and saying so is the answer.**
+
+**(c)** The centre lies **on** $y=x$, so the furthest and nearest points are the ends of the diameter
+perpendicular to it: direction $\tfrac1{\sqrt2}(1,-1)$, giving
+
+$$\left(1+\tfrac{5}{\sqrt2},\,1-\tfrac{5}{\sqrt2}\right)\quad\text{and}\quad
+\left(1-\tfrac{5}{\sqrt2},\,1+\tfrac{5}{\sqrt2}\right),$$
+
+both at distance $5$ from the line; **no point of the circle is nearer than $0$** — the circle crosses $y=x$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Circle ★
+
+Centre $(a,b)$, radius $r$:
+$$(x-a)^2 + (y-b)^2 = r^2.$$
+General form $x^2 + y^2 + 2gx + 2fy + c = 0$ has centre $(-g,-f)$ and radius $\sqrt{g^2+f^2-c}$.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+The circle $C$ has equation $x^{2}+y^{2}-6x+2y-15=0$.
+
+&nbsp;&nbsp;**(a)** Find its centre and radius.
+&nbsp;&nbsp;**(b)** Find the length of the chord cut on $C$ by the line $3x+4y+10=0$.
+&nbsp;&nbsp;**(c)** Find the two values of $c$ for which $3x+4y+c=0$ is a **tangent** to $C$.
+
+[Adapted from **2020 P1 Q16** and **2023 P1 Q10** (circle–line distance).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Completing the square: $(x-3)^{2}+(y+1)^{2}=9+1+15=25$, so centre $\boxed{(3,-1)}$, radius
+$\boxed{5}$.
+
+**(b)** Perpendicular distance from $(3,-1)$:
+
+$$h=\frac{\lvert3(3)+4(-1)+10\rvert}{\sqrt{3^{2}+4^{2}}}=\frac{15}{5}=3 .$$
+
+*Half the chord, the radius and $h$ form a right-angled triangle,* so
+
+$$\text{chord}=2\sqrt{r^{2}-h^{2}}=2\sqrt{25-9}=\boxed{8}.$$
+
+**(c)** Tangency means $h=r$: $\dfrac{\lvert5+c\rvert}{5}=5$, so $\lvert5+c\rvert=25$ and
+$\boxed{c=20\ \text{or}\ c=-30}$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Circle facts
+
+The tangent is perpendicular to the radius at the point of contact; the angle in a
+semicircle is a right angle; the perpendicular from the centre bisects a chord.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+$C_1$ is the circle $x^{2}+y^{2}=25$. A second circle $C_2$ has radius $1$ and centre $P$.
+
+&nbsp;&nbsp;**(a)** For which positions of $P$ do $C_1$ and $C_2$ meet?
+&nbsp;&nbsp;**(b)** Describe that set of positions geometrically, and find its area.
+&nbsp;&nbsp;**(c)** For which positions is $C_2$ entirely **inside** $C_1$ without touching it?
+
+[Adapted from **2022 P1 Q19**, where the centre of the second circle is constrained to a region.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Let $d=\lvert OP\rvert$ — **the distance between the two centres**.
+
+**(a)** They meet exactly when $\lvert r_1-r_2\rvert\le d\le r_1+r_2$, i.e.
+
+$$\boxed{4\le d\le 6}.$$
+
+**(b)** That is the **annulus** between the circles of radius $4$ and $6$ about the origin. Its area is
+
+$$\pi\left(6^{2}-4^{2}\right)=\boxed{20\pi}.$$
+
+**(c)** Strictly inside and not touching means $d<\lvert r_1-r_2\rvert=4$, i.e. $\boxed{d<4}$ — *the open disc
+of radius $4$, and note $d=0$ (concentric) is included.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+:::::
+
+::::::
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
+
+fig, ax = plt.subplots(3, 1, figsize=(4.2, 12.0))
+th = np.linspace(0, 2*np.pi, 400)
+
+def right_angle(a, p, b, size=0.22):
+    """draw a small square at the right angle located at p, between directions p->a and p->b"""
+    u = np.array(a) - np.array(p); u = u/np.hypot(*u)
+    v = np.array(b) - np.array(p); v = v/np.hypot(*v)
+    c = np.array(p)
+    pts = [c + size*u, c + size*u + size*v, c + size*v]
+    return plt.Polygon(pts, closed=False, fill=False, ec='k', lw=1.2)
+
+# 1 — tangent perpendicular to radius
+a = ax[0]
+a.plot(np.cos(th), np.sin(th), color=ROOT_CLR, lw=2)
+a.plot(0, 0, 'o', color=ROOT_CLR, ms=4)
+P = (np.cos(0.9), np.sin(0.9))
+a.plot([0, P[0]], [0, P[1]], color=ROOT_CLR, lw=1.8)           # radius
+tdir = np.array([-P[1], P[0]])                                  # tangent direction
+a.plot([P[0]-1.1*tdir[0], P[0]+1.1*tdir[0]],
+       [P[1]-1.1*tdir[1], P[1]+1.1*tdir[1]], color=ASYM_CLR, lw=2)
+a.plot(*P, 'o', color=ASYM_CLR, ms=5)
+a.add_patch(right_angle((0,0), P, (P[0]+tdir[0], P[1]+tdir[1])))
+a.text(0.30, 0.34, 'radius', color=ROOT_CLR, fontsize=8.5, rotation=42)
+a.set_title('tangent $\\perp$ radius', fontsize=10)
+
+# 2 — angle in a semicircle is a right angle
+a = ax[1]
+a.plot(np.cos(th), np.sin(th), color=ROOT_CLR, lw=2)
+A, B = (-1, 0), (1, 0)
+a.plot([A[0], B[0]], [A[1], B[1]], color=ROOT_CLR, lw=1.8)      # diameter
+C = (np.cos(1.9), np.sin(1.9))
+a.plot([A[0], C[0]], [A[1], C[1]], color=ASYM_CLR, lw=2)
+a.plot([B[0], C[0]], [B[1], C[1]], color=ASYM_CLR, lw=2)
+for pt in (A, B, C): a.plot(*pt, 'o', color=ASYM_CLR, ms=5)
+a.add_patch(right_angle(A, C, B))
+a.text(-0.15, -0.22, 'diameter', color=ROOT_CLR, fontsize=8.5)
+a.set_title('angle in a semicircle $=90^\\circ$', fontsize=10)
+
+# 3 — perpendicular from centre bisects a chord
+a = ax[2]
+a.plot(np.cos(th), np.sin(th), color=ROOT_CLR, lw=2)
+a.plot(0, 0, 'o', color=ROOT_CLR, ms=4)
+yc = 0.45
+A, B = (-np.sqrt(1-yc**2), yc), (np.sqrt(1-yc**2), yc)
+a.plot([A[0], B[0]], [A[1], B[1]], color=ASYM_CLR, lw=2)        # chord
+M = (0, yc)
+a.plot([0, M[0]], [0, M[1]], color=ROOT_CLR, lw=1.8)           # perpendicular from centre
+for pt in (A, B): a.plot(*pt, 'o', color=ASYM_CLR, ms=5)
+a.plot(*M, 'o', color=YINT_CLR, ms=6)
+a.add_patch(right_angle((0,0), M, B))
+# equal-length ticks on the two halves of the chord
+for x0 in (-0.5*np.sqrt(1-yc**2), 0.5*np.sqrt(1-yc**2)):
+    a.plot([x0-0.03, x0+0.03], [yc+0.09, yc+0.09], color=YINT_CLR, lw=1.5)
+a.text(0.30, 0.12, 'equal', color=YINT_CLR, fontsize=8.5)
+a.set_title('$\\perp$ from centre bisects chord', fontsize=10)
+
+for a in ax:
+    a.set_aspect('equal'); a.axis('off'); a.set_xlim(-1.25, 1.25); a.set_ylim(-1.25, 1.25)
+plt.tight_layout(); plt.show()
+```
+
+**Perpendicular distance** from $(x_0,y_0)$ to the line $ax+by+c=0$:
+$$d = \frac{|a x_0 + b y_0 + c|}{\sqrt{a^2 + b^2}}.$$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Why — the perpendicular-distance formula
+
+The vector $\mathbf n = (a,\,b)$ is **perpendicular to the line** $ax+by+c=0$ *(the coefficients of $x$
+and $y$ are always a normal direction)*. So the distance from $P=(x_0,y_0)$ to the line is the length of
+$P$'s displacement from the line, measured **along $\mathbf n$**.
+
+Take any point $Q=(x_1,y_1)$ **on the line**, so that $ax_1+by_1+c=0$. Project the vector $\vec{QP}$ onto
+the unit normal $\hat{\mathbf n} = \dfrac{(a,b)}{\sqrt{a^2+b^2}}$:
+
+$$d = \left|\vec{QP}\cdot\hat{\mathbf n}\right|
+= \frac{\left|a(x_0-x_1) + b(y_0-y_1)\right|}{\sqrt{a^2+b^2}}
+= \frac{\left|(ax_0+by_0) - (ax_1+by_1)\right|}{\sqrt{a^2+b^2}} .$$
+
+But $Q$ is on the line, so $ax_1+by_1 = -c$. Substituting,
+
+$$d = \frac{\left|ax_0 + by_0 + c\right|}{\sqrt{a^2+b^2}} . \qquad \blacksquare$$
+
+*The choice of $Q$ never appears in the answer — every point on the line gives the same $-c$.*
+:::
+
+**Two circles touch** (exactly one common point) when the distance between centres is $r_1 + r_2$
+(externally) or $|r_1 - r_2|$ (internally).
+
+::: {.callout-tip}
+**Exam reflex — coordinate geometry.**
+
+- Normal to a curve $\to$ differentiate, evaluate the tangent gradient, then take the **negative reciprocal**.
+- Perpendicular bisector $\to$ midpoint first, then negative-reciprocal gradient.
+- Line meets circle 0, 1 or 2 times $\to$ compare centre-to-line distance $d$ with $r$; use a discriminant
+  only if coordinates are explicitly needed.
+- Two circles $\to$ compare centre distance $d$ with $r_1+r_2$ and $|r_1-r_2|$.
+- Unknown circle parameter $\to$ complete both squares and require $r^2>0$.
+
+**Mini-example.** A line is tangent to a circle exactly when $d=r$; after substitution this is the same as
+the resulting quadratic having $\Delta=0$.
+:::
+
+---
+
+# Part 4 · Trigonometry (MM4)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM4</div>
+<div class="fs-title">Trigonometry</div>
+<div class="fs-sub">Exact values, the two identities, and everything the triangle can be asked for.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Exact values ★
+
+know this row cold:
+
+| $\theta$ | $0$ | $30^\circ$ | $45^\circ$ | $60^\circ$ | $90^\circ$ |
+|---|---|---|---|---|---|
+| $\sin$ | $0$ | $\tfrac12$ | $\tfrac{\sqrt2}{2}$ | $\tfrac{\sqrt3}{2}$ | $1$ |
+| $\cos$ | $1$ | $\tfrac{\sqrt3}{2}$ | $\tfrac{\sqrt2}{2}$ | $\tfrac12$ | $0$ |
+| $\tan$ | $0$ | $\tfrac{\sqrt3}{3}$ | $1$ | $\sqrt3$ | — |
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+Let $S=\displaystyle\sum_{k=0}^{n}\sin\left(10^{\circ}+90^{\circ}k\right)$.
+
+&nbsp;&nbsp;**(a)** Write out the first four terms and show that they sum to $0$.
+&nbsp;&nbsp;**(b)** Find $S$ when $n=2023$.
+&nbsp;&nbsp;**(c)** Find all $n\le2023$ for which $S=\sin10^{\circ}+\cos10^{\circ}$.
+
+[Adapted from **2019 P1 Q19**, which sums $\sin(10^\circ+90^\circ k)$ and uses the period-4 cancellation.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\sin10^{\circ}$, $\sin100^{\circ}=\cos10^{\circ}$, $\sin190^{\circ}=-\sin10^{\circ}$,
+$\sin280^{\circ}=-\cos10^{\circ}$. *Adding $180^{\circ}$ flips the sign,* so the four cancel in pairs and the
+block sums to $0$.
+
+**(b)** $n=2023$ means $2024$ terms $=506$ complete blocks, so $S=\boxed{0}$.
+
+**(c)** $S$ depends only on $n\bmod 4$: the running totals are
+$\sin10^{\circ}$, $\sin10^{\circ}+\cos10^{\circ}$, $\cos10^{\circ}$, $0$ for
+$n\equiv0,1,2,3\pmod4$. So we need $n\equiv1\pmod 4$:
+
+$$\boxed{n=1,5,9,\dots,2021}\qquad(506\text{ values}).$$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Identities ★
+
+These two are the *only* ones the spec assumes:
+$$\sin^2\theta + \cos^2\theta = 1, \qquad \tan\theta = \frac{\sin\theta}{\cos\theta}.$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+The quartic $12x^{4}-7x^{2}+1=0$ has roots $\pm\cos\alpha$ and $\pm\cos\beta$, where $\alpha,\beta$ are acute.
+
+&nbsp;&nbsp;**(a)** Find $\cos^{2}\alpha$ and $\cos^{2}\beta$.
+&nbsp;&nbsp;**(b)** Hence find $\sin^{2}\alpha$ and $\sin^{2}\beta$.
+&nbsp;&nbsp;**(c)** Find a quartic with integer coefficients whose roots are $\pm\sin\alpha$ and $\pm\sin\beta$.
+
+[Adapted from **2022 P1 Q16**; the original uses $7x^4-6x^2+1$, whose roots involve $\sqrt2$.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** It is a quadratic in $x^{2}$: $12t^{2}-7t+1=0$ with $t=x^{2}$ gives $(3t-1)(4t-1)=0$, so
+
+$$\cos^{2}\alpha,\ \cos^{2}\beta=\boxed{\tfrac13,\ \tfrac14}\quad\text{(in some order).}$$
+
+**(b)** $\sin^{2}=1-\cos^{2}$, so $\sin^{2}\alpha,\sin^{2}\beta=\boxed{\tfrac23,\ \tfrac34}$.
+
+**(c)** We need $\left(t-\tfrac23\right)\left(t-\tfrac34\right)=0$ with $t=x^{2}$; clearing denominators,
+
+$$12\left(x^{2}-\tfrac23\right)\left(x^{2}-\tfrac34\right)=\boxed{12x^{4}-17x^{2}+6=0}.$$
+
+*Note the sum of the roots-squared went from $\tfrac7{12}$ to $\tfrac{17}{12}$ — the two quartics are related
+by $t\mapsto1-t$, which is exactly $\cos^{2}\mapsto\sin^{2}$.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Symmetries
+
+(for solving equations over an interval):
+$$\sin(180^\circ - \theta) = \sin\theta, \qquad \cos(360^\circ - \theta) = \cos\theta,$$
+$$\sin(180^\circ + \theta) = -\sin\theta, \qquad \cos(180^\circ - \theta) = -\cos\theta.$$
+Periods: $\sin,\cos$ repeat every $360^\circ$; $\tan$ every $180^\circ$.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Solve $\sin 3x=\cos 2x$ for $0^{\circ}\le x\le180^{\circ}$.
+&nbsp;&nbsp;**(b)** How many solutions does $\sin 3x=\cos 2x$ have in $0^{\circ}\le x\le 720^{\circ}$?
+
+[Adapted from **2018 P1 Q6** and **2023 P1 Q5** (counting trigonometric solutions on an interval).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Write $\cos2x=\sin(90^{\circ}-2x)$. *Two sines are equal exactly when the angles are equal or
+supplementary:*
+
+$$3x=90^{\circ}-2x+360^{\circ}k\quad\text{or}\quad 3x=180^{\circ}-(90^{\circ}-2x)+360^{\circ}k .$$
+
+The first gives $5x=90^{\circ}+360^{\circ}k$, so $x=18^{\circ},90^{\circ},162^{\circ}$ in range.
+The second gives $x=90^{\circ}+360^{\circ}k$, so $x=90^{\circ}$ — already counted.
+
+$$\boxed{x=18^{\circ},\ 90^{\circ},\ 162^{\circ}}$$
+
+**(b)** From the first family $x=18^{\circ}+72^{\circ}k$: that is $18,90,162,\dots,666$ — **ten** values in
+$[0,720]$. From the second, $x=90^{\circ}$ and $x=450^{\circ}$, of which $90^{\circ}$ repeats. Total
+$\boxed{11}$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Triangles — the extended sine rule ★
+
+For sides $a,b,c$ opposite angles $A,B,C$, with $A+B+C=180^\circ$. The $2R$ on the end is the part that gets forgotten, and $R$ is the
+**circumradius**:
+$$\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R .$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+A triangle has sides $4$, $13$ and $15$.
+
+&nbsp;&nbsp;**(a)** Find its area.
+&nbsp;&nbsp;**(b)** Find its circumradius $R$.
+&nbsp;&nbsp;**(c)** Find its inradius $r$, and verify $\dfrac{R}{r}$ is rational.
+
+[Adapted from **2023 P1 Q8** (triangle with given sides, area and a derived length).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $s=\tfrac12(4+13+15)=16$, so by Heron
+
+$$K=\sqrt{16\cdot12\cdot3\cdot1}=\sqrt{576}=\boxed{24}.$$
+
+**(b)** $R=\dfrac{abc}{4K}=\dfrac{4\cdot13\cdot15}{96}=\boxed{\dfrac{65}{8}}$.
+
+**(c)** $r=\dfrac{K}{s}=\dfrac{24}{16}=\boxed{\dfrac32}$, and
+$\dfrac{R}{r}=\dfrac{65/8}{3/2}=\dfrac{65}{12}$ — rational. ✓
+
+*All three formulas come from the same place: $\sin A=\dfrac{a}{2R}$ substituted into
+$K=\tfrac12bc\sin A$.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### The cosine rule
+
+, and the sign test it gives for free:
+$$c^{2}=a^{2}+b^{2}-2ab\cos C
+\qquad\Longrightarrow\qquad
+\cos C=\frac{a^{2}+b^{2}-c^{2}}{2ab}.$$
+
+With $c$ the **longest** side, the sign of $a^{2}+b^{2}-c^{2}$ decides the triangle:
+
+| $a^{2}+b^{2}>c^{2}$ | $a^{2}+b^{2}=c^{2}$ | $a^{2}+b^{2}<c^{2}$ |
+|---|---|---|
+| acute | right-angled | obtuse |
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+In triangle $PQR$ the three sides are in arithmetic progression: $a$, $a+d$, $a+2d$ with $a,d>0$. Let
+$\theta$ be the angle **opposite the longest side**.
+
+&nbsp;&nbsp;**(a)** Show that $\cos\theta=\dfrac{a-3d}{2a}$.
+&nbsp;&nbsp;**(b)** Deduce the range of values $\cos\theta$ can take.
+&nbsp;&nbsp;**(c)** For which ratio $a:d$ is the triangle right-angled?
+
+[Adapted from **2017 P1 Q20**, which sets the sides in AP and asks for $\cos\theta$.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** The longest side is $a+2d$, opposite $\theta$, so
+
+$$(a+2d)^{2}=a^{2}+(a+d)^{2}-2a(a+d)\cos\theta .$$
+
+Expanding: $a^{2}+4ad+4d^{2}=2a^{2}+2ad+d^{2}-2a(a+d)\cos\theta$, so
+
+$$2a(a+d)\cos\theta=a^{2}-2ad-3d^{2}=(a-3d)(a+d),$$
+
+and dividing by $2a(a+d)>0$ gives $\cos\theta=\dfrac{a-3d}{2a}$. $\blacksquare$
+
+**(b)** The triangle inequality needs $a+(a+d)>a+2d$, i.e. $a>d>0$. Writing $u=d/a\in(0,1)$,
+
+$$\cos\theta=\tfrac12(1-3u)\in\left(-1,\tfrac12\right).$$
+
+So $\boxed{-1<\cos\theta<\tfrac12}$ — the angle is always **greater than $60^{\circ}$**.
+
+**(c)** Right-angled means $\cos\theta=0$, i.e. $a=3d$: the ratio $\boxed{a:d=3:1}$, giving sides
+$3d,4d,5d$. ✓
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Area — three formulas, one for each kind of data ★
+
+| what you are given | use |
+|---|---|
+| two sides and the **included** angle | $K=\tfrac12ab\sin C$ |
+| all three sides (SSS) | **Heron:** $K=\sqrt{s(s-a)(s-b)(s-c)}$, &nbsp;$s=\tfrac12(a+b+c)$ |
+| three coordinates | **shoelace:** $K=\tfrac12\bigl\lvert x_1(y_2-y_3)+x_2(y_3-y_1)+x_3(y_1-y_2)\bigr\rvert$ |
+
+*Heron needs no angle at all, which is why it beats finding $\cos C$ first.* The three points are
+**collinear exactly when the shoelace expression is $0$** — that is the fastest collinearity test there is.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** A triangle has vertices $(1,1)$, $(5,3)$, $(2,7)$. Find its area by the shoelace formula.
+&nbsp;&nbsp;**(b)** Find the area of a triangle with sides $13,14,15$ **without** finding any angle.
+&nbsp;&nbsp;**(c)** Two triangles share the angle $A$ and the side $AB$. Their areas are in the ratio $5:2$.
+Find the ratio of their sides $AC$.
+
+[Adapted from **2023 P1 Q8** and the area-ratio technique in **2016 P1 Q20**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $K=\tfrac12\lvert1(3-7)+5(7-1)+2(1-3)\rvert=\tfrac12\lvert-4+30-4\rvert=\boxed{11}$.
+
+**(b)** $s=21$, so $K=\sqrt{21\cdot8\cdot7\cdot6}=\sqrt{7056}=\boxed{84}$.
+
+**(c)** $K=\tfrac12\,(AB)(AC)\sin A$, and $AB$ and $\sin A$ are the **same** in both. *So the areas are
+proportional to $AC$ alone,* giving $\boxed{AC_1:AC_2=5:2}$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### The two radii ★
+
+$$\boxed{\,R=\frac{abc}{4K}\,}\qquad\qquad \boxed{\,r=\frac{K}{s}\,}$$
+*$R$ comes from combining $\sin A=\dfrac{a}{2R}$ with $K=\tfrac12bc\sin A$; the denominator is
+$4\times\text{area}$, not $\tfrac{abc}{4}\times K$.* Here $r$ is the **inradius**.
+
+[Worked check on the $13,14,15$ triangle: $s=21$, Heron gives $K=\sqrt{21\cdot8\cdot7\cdot6}=84$, the same
+as $\tfrac12ab\sin C$ and as the shoelace value; then $R=\tfrac{13\cdot14\cdot15}{4\cdot84}=\tfrac{65}{8}$ and
+$r=\tfrac{84}{21}=4$.]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+A triangle has an inscribed circle of radius $r$ and a circumscribed circle of radius $R$.
+
+&nbsp;&nbsp;**(a)** For an equilateral triangle of side $a$, find $r$ and $R$ in terms of $a$, and the ratio
+$R:r$.
+&nbsp;&nbsp;**(b)** For a right-angled triangle with legs $3,4$, find $R$ and $r$.
+&nbsp;&nbsp;**(c)** Show that for **any** right-angled triangle, $R=\tfrac12\times$ hypotenuse.
+
+[Adapted from **2021 P1 Q6** and the extended sine rule in **2019 P1 Q14**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $K=\tfrac{\sqrt3}{4}a^{2}$ and $s=\tfrac{3a}{2}$, so
+
+$$r=\frac{K}{s}=\frac{a}{2\sqrt3},\qquad R=\frac{abc}{4K}=\frac{a^{3}}{\sqrt3\,a^{2}}=\frac{a}{\sqrt3},
+\qquad \boxed{R:r=2:1}.$$
+
+**(b)** Hypotenuse $5$, $K=6$, $s=6$, so $r=\dfrac{6}{6}=\boxed{1}$ and
+$R=\dfrac{3\cdot4\cdot5}{24}=\boxed{\dfrac52}$.
+
+**(c)** *The angle in a semicircle is a right angle,* so the hypotenuse subtends $90^{\circ}$ and is therefore
+a **diameter** of the circumcircle. Hence $R=\tfrac12\times$ hypotenuse. $\blacksquare$
+(Equivalently $\dfrac{c}{\sin C}=2R$ with $C=90^{\circ}$.)
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Greatest area for fixed information
+
+| fixed | greatest-area shape |
+|---|---|
+| base **and** perimeter | isosceles |
+| perimeter only | equilateral |
+| perimeter and $n$, for an $n$-gon | regular $n$-gon |
+| two sides, angle free | the angle is $90^\circ$, since $K=\tfrac12ab\sin\theta$ |
+
+*A base alone is not enough — the height, and so the area, grows without bound.*
+
+Use the **cosine rule** for SSS or SAS; the **sine rule** for a known opposite side–angle pair.
+With SSA, $\sin B=\sin(180^\circ-B)$ can give **two triangles**; check the angle sum and any “acute/obtuse”
+condition. Writing $h=c\sin A$ for the distance from the far vertex to the opposite ray, there are
+**two** triangles exactly when $h<a<c$, one when $a=h$ or $a\ge c$, and none when $a<h$.
+
+*When two triangles share an angle and one adjacent side, their areas are in the same ratio as the other
+adjacent sides* — because $K=\tfrac12bc\sin A$ holds everything but that side fixed.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Two sides of a triangle sum to $14$ and the angle between them may vary. Find the
+greatest possible area.
+&nbsp;&nbsp;**(b)** A triangle has perimeter $P$ fixed. Which shape maximises the area, and why can a fixed
+**base** alone never bound the area?
+&nbsp;&nbsp;**(c)** A rectangle is inscribed in a circle of radius $5$. Find its greatest possible area.
+
+[Adapted from **2022 P1 Q9** (optimisation with a trigonometric area).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** With sides $u$ and $14-u$ and included angle $\theta$,
+$K=\tfrac12u(14-u)\sin\theta$. *Both factors are maximised independently:* $\sin\theta=1$ at
+$\theta=90^{\circ}$, and $u(14-u)$ peaks at $u=7$. So
+
+$$K_{\max}=\tfrac12\cdot7\cdot7=\boxed{\tfrac{49}{2}}.$$
+
+**(b)** For fixed perimeter the **equilateral** triangle maximises area. A fixed base is not enough: *the
+apex may be taken arbitrarily far from the base, so the height and hence the area grow without bound.*
+
+**(c)** The diagonal is a diameter, $10$. With sides $p,q$ and $p^{2}+q^{2}=100$,
+$pq\le\tfrac12(p^{2}+q^{2})=50$ with equality when $p=q$. Greatest area $\boxed{50}$ — a square of side
+$5\sqrt2$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+:::::
+
+::::::
+
+::: {.callout-note appearance="simple"}
+**Range trap.** If an equation is in $\sin 2x$ (or $\cos 2x$) and $x$ runs over $[0^\circ, 360^\circ]$,
+then $2x$ runs over $[0^\circ, 720^\circ]$ — **two full turns**, so expect twice as many solutions.
+:::
+
+::: {.callout-tip}
+**Exam reflex — trigonometry.**
+
+- Equation in $\sin(mx+c)$ or $\cos(mx+c)$ $\to$ transform the interval first, solve in the new variable,
+  then convert back.
+- Squared trig function $\to$ split the sign: $\cos^2x=k^2\Rightarrow\cos x=\pm k$.
+- Triangle with two sides and included angle $\to$ cosine rule / $\tfrac12ab\sin C$.
+- SSA $\to$ test both $B$ and $180^\circ-B$.
+- “How many solutions?” $\to$ sketch one period and count intersections, including endpoints.
+
+**Memory picture.** The exact-value table is $\sqrt{0},\sqrt1,\sqrt2,\sqrt3,\sqrt4$ over $2$ for sine;
+cosine is the same row backwards.
+:::
+
+---
+
+# Part 5 · Exponentials and logarithms (MM5)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM5</div>
+<div class="fs-title">Exponentials and logarithms</div>
+<div class="fs-sub">The laws, the domain conditions, and the shapes of the two graphs.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Definition ★
+
+$$y = a^x \iff x = \log_a y \quad (a>0,\ a\ne 1).$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+The graph of $y=\log_{10}x$ is translated $2$ units in the positive $y$-direction to give $C_1$, and
+separately stretched parallel to the $x$-axis by scale factor $k>0$ to give $C_2$.
+
+&nbsp;&nbsp;**(a)** Write down the equation of each of $C_1$ and $C_2$.
+&nbsp;&nbsp;**(b)** Find the value of $k$ for which $C_1$ and $C_2$ are the **same** curve.
+&nbsp;&nbsp;**(c)** Explain why no such $k$ exists if $\log_{10}$ is replaced by $\sqrt{\;}$.
+
+[Adapted from **2017 P1 Q18**, which asks exactly this for $\log_{10}$.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $C_1:\;y=\log_{10}x+2$. &nbsp;A stretch of factor $k$ parallel to $x$ replaces $x$ by $x/k$:
+$C_2:\;y=\log_{10}\!\left(\dfrac{x}{k}\right)$.
+
+**(b)** They agree for all $x>0$ exactly when
+
+$$\log_{10}x+2=\log_{10}x-\log_{10}k\;\Longrightarrow\;\log_{10}k=-2\;\Longrightarrow\;\boxed{k=\tfrac1{100}}.$$
+
+*A horizontal stretch of a log graph **is** a vertical translation — that is the whole point, and it is
+special to the logarithm.*
+
+**(c)** For $f(x)=\sqrt x$ the stretch gives $\sqrt{x/k}=\tfrac{1}{\sqrt k}\sqrt x$, a **vertical stretch**,
+not a translation. *A vertical stretch and a vertical translation agree for all $x$ only if both are trivial,
+and $\sqrt x+2=\tfrac1{\sqrt k}\sqrt x$ has no solution valid for every $x$.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Laws of logarithms ★
+
+$$\log_a(xy) = \log_a x + \log_a y, \qquad \log_a\!\left(\tfrac{x}{y}\right) = \log_a x - \log_a y,$$
+$$\log_a(x^k) = k\log_a x, \qquad \log_a a = 1, \qquad \log_a 1 = 0.$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+The real numbers $x,y$ satisfy
+
+$$\log_{10}\!\left((x-y)^{2}\right)=\log_{10}(2-2x)+\log_{10}(y+3).$$
+
+&nbsp;&nbsp;**(a)** State the restrictions on $x$ and $y$ needed for both sides to be defined.
+&nbsp;&nbsp;**(b)** Show that the pairs $(x,y)$ lie on a circle, and find its centre and radius.
+&nbsp;&nbsp;**(c)** Explain why the full circle is **not** the solution set, and describe the part that is.
+
+[Adapted from **2021 P1 Q20**, where the same manipulation produces a circle of radius $6$.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Need $2-2x>0$ and $y+3>0$, i.e. $\boxed{x<1\ \text{and}\ y>-3}$. *(Then $(x-y)^{2}>0$ follows
+automatically unless $x=y$, which must also be excluded.)*
+
+**(b)** Removing logs: $(x-y)^{2}=(2-2x)(y+3)$. Expanding,
+
+$$x^{2}-2xy+y^{2}=2y+6-2xy-6x\;\Longrightarrow\;x^{2}+y^{2}+6x-2y-6=0 .$$
+
+*The $-2xy$ cancels on both sides — that is what makes it a circle.* Completing the square,
+
+$$(x+3)^{2}+(y-1)^{2}=16,$$
+
+centre $\boxed{(-3,1)}$, radius $\boxed{4}$.
+
+**(c)** Only the arc satisfying the part (a) restrictions counts. *Squaring and removing logs can admit
+points where the original logarithms do not exist,* so the solution set is the part of the circle with
+$x<1$, $y>-3$ and $x\ne y$ — not the whole circle.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Change of base
+
+$$\log_a x = \frac{\log_b x}{\log_b a}.$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\sum_{n=1}^{50}\log_{10}\!\left(3^{\,1-n}\right)$, giving the
+answer as a multiple of $\log_{10}3$.
+&nbsp;&nbsp;**(b)** Given $\log_{2}3=a$, express $\log_{6}24$ in terms of $a$.
+&nbsp;&nbsp;**(c)** Solve $\log_{x}4+\log_{2}x=3$ for $x>0$, $x\ne1$.
+
+[Adapted from **2022 P1 Q11** (sum of logs as an AP) and **2018 P1 Q14** (change of base).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\log_{10}\!\left(3^{1-n}\right)=(1-n)\log_{10}3$, so the sum is $\log_{10}3$ times
+
+$$\sum_{n=1}^{50}(1-n)=0-1-2-\cdots-49=-\tfrac12(49)(50)=-1225 .$$
+
+Answer: $\boxed{-1225\log_{10}3}$.
+
+**(b)** Change everything to base $2$: $\log_{6}24=\dfrac{\log_{2}24}{\log_{2}6}=\dfrac{3+a}{1+a}$, since
+$\log_{2}24=\log_{2}8+\log_{2}3=3+a$ and $\log_{2}6=1+a$. &nbsp;$\boxed{\dfrac{3+a}{1+a}}$
+
+**(c)** Put $u=\log_{2}x$. Then $\log_{x}4=\dfrac{\log_{2}4}{\log_{2}x}=\dfrac2u$, so
+$\dfrac2u+u=3$, i.e. $u^{2}-3u+2=0$ and $u=1$ or $u=2$.
+
+$$\boxed{x=2\ \text{or}\ x=4}$$
+
+*Both are valid: each is positive and $\ne1$.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+:::::
+
+::::::
+
+::: {.callout-note appearance="simple"}
+**Which way up?** $a^x = b \Rightarrow x = \log_a b$, **not** $\log_b a$. Sanity check with size:
+$\log_3 2 < 1$ (because $2<3$), while $\log_2 3 > 1$.
+:::
+
+**Domains and shapes.** A logarithm requires its **argument $>0$**. For $a>1$, $a^x$ and $\log_a x$ are
+increasing; for $0<a<1$, both are decreasing. Their graphs are reflections in $y=x$.
+
+::: {.callout-tip}
+**Exam reflex — exponentials and logarithms.**
+
+- Several logs of the same base $\to$ combine to **one log**, then equate arguments; check the domain.
+- Different bases $\to$ rewrite as powers of one common base or use change of base.
+- $a^{f(x)}=a^{g(x)}$ with valid $a\ne1$ $\to$ equate exponents.
+- Nested log/exponential $\to$ work from the inside and write every positivity condition.
+- Ordering without a calculator $\to$ compare with landmark powers such as $a^0=1$, $a^1=a$, $a^2$.
+
+**Mini-example.** $\log_2(x-1)+\log_2(x+1)=3$ gives
+$\log_2(x^2-1)=3$, hence $x^2=9$; the domain $x>1$ keeps only $x=3$.
+:::
+
+---
+
+# Part 6 · Differentiation (MM6)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM6</div>
+<div class="fs-title">Differentiation</div>
+<div class="fs-sub">The rule, what the derivative is for, and the definitions that get confused.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Power rule ★
+
+$$\frac{\mathrm d}{\mathrm dx}\left(x^n\right) = n x^{n-1}, \qquad \frac{\mathrm d}{\mathrm dx}(k) = 0.$$
+Differentiate sums term by term. Often you must **simplify first** (e.g. split a fraction into powers of $x$).
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Show that for $y=(2x+a)(x-2a)^{2}$ the gradient at $x=1$ equals $4a^{2}-14a+6$.
+&nbsp;&nbsp;**(b)** Find the **least** possible gradient at $x=1$ as $a$ varies, and the value of $a$ giving it.
+&nbsp;&nbsp;**(c)** For which $a$ is the curve stationary at $x=1$?
+
+[Adapted from **2016 P1 Q15**, which minimises a gradient over a parameter.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Differentiating as a product and factorising:
+
+$$\frac{\mathrm dy}{\mathrm dx}=2(x-2a)^{2}+(2x+a)\cdot2(x-2a)=2(x-2a)(3x-a).$$
+
+*Taking the common factor $(x-2a)$ out first avoids expanding a cubic.* At $x=1$:
+
+$$2(1-2a)(3-a)=\boxed{4a^{2}-14a+6}.$$
+
+**(b)** This is a quadratic in $a$ opening upwards, so complete the square:
+
+$$4a^{2}-14a+6=4\left(a-\tfrac74\right)^{2}-\tfrac{25}{4}.$$
+
+Least gradient $\boxed{-\tfrac{25}{4}}$, at $\boxed{a=\tfrac74}$.
+
+**(c)** Stationary means the gradient is $0$: $2(1-2a)(3-a)=0$, so $\boxed{a=\tfrac12\ \text{or}\ a=3}$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Uses
+
+Gradient of the curve at a point $=$ value of $\dfrac{\mathrm dy}{\mathrm dx}$ there.
+- **Tangent** has gradient $\dfrac{\mathrm dy}{\mathrm dx}$; **normal** has gradient $-1\big/\dfrac{\mathrm dy}{\mathrm dx}$.
+- **Stationary points**: solve $\dfrac{\mathrm dy}{\mathrm dx} = 0$. Then $\dfrac{\mathrm d^2 y}{\mathrm dx^2} > 0 \Rightarrow$ minimum, $< 0 \Rightarrow$ maximum.
+- **Shortest distance** from a curve to a line: the closest point is where the tangent is **parallel to the line**.
+
+#### Challenge
+
+Find the normal to $y=x^3-3x$ at $x=2$.
+
+[Adapted from TMUA normal pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+Point $(2,2)$, tangent gradient $9$, so $\boxed{y-2=-\frac19(x-2)}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### The definitions, kept apart ★
+
+These four words are not interchangeable, and the exam tests exactly that.
+
+| term | definition | what it says |
+|---|---|---|
+| **stationary point** at $a$ | $f'(a)=0$ | the tangent is horizontal — nothing more |
+| **local maximum** at $a$ | $f(x)\le f(a)$ for all $x$ near $a$ | the curve is highest **locally** |
+| **local minimum** at $a$ | $f(x)\ge f(a)$ for all $x$ near $a$ | lowest locally |
+| **turning point** at $a$ | $f'$ **changes sign** at $a$ | a local max or a local min |
+| **point of inflection** at $a$ | $f''$ **changes sign** at $a$ | the concavity flips |
+| **stationary inflection** at $a$ | both $f'(a)=0$ **and** $f''$ changes sign | flat, but not a turn — e.g. $y=x^{3}$ at $0$ |
+
+#### Challenge
+
+Classify the stationary point of $y=x^4-4x^3$ at $x=0$.
+
+[Adapted from TMUA definition pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$y'=4x^2(x-3)$ is negative on both sides, so it is a $\boxed{\text{stationary inflection}}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Necessary or sufficient — the whole table ★
+
+| claim | verdict | the counterexample that settles it |
+|---|---|---|
+| $f'(a)=0$ is **necessary** for a local max/min *(when $f$ is differentiable)* | **true** | — |
+| $f'(a)=0$ is **sufficient** for a local max/min | **false** | $y=x^{3}$ at $a=0$: stationary, but neither |
+| $f''(a)>0$ is **sufficient** for a local minimum *(given $f'(a)=0$)* | **true** | — |
+| $f''(a)>0$ is **necessary** for a local minimum | **false** | $y=x^{4}$ at $a=0$: a minimum with $f''(0)=0$ |
+| $f''(a)=0$ is **necessary** for a point of inflection | **true** | — |
+| $f''(a)=0$ is **sufficient** for a point of inflection | **false** | $y=x^{4}$ at $a=0$: $f''(0)=0$ but concavity never flips |
+| a local max/min must be a **stationary** point | **false** in general | $y=\lvert x\rvert$ at $0$: a minimum, but $f'(0)$ does not exist |
+
+*Read the pattern: $f'=0$ and $f''=0$ are **necessary** conditions, and the sufficient ones always need a
+**sign change** — of $f'$ for a turning point, of $f''$ for an inflection.* The second-derivative test is a
+shortcut that works only when $f''(a)\neq0$; when $f''(a)=0$ it tells you nothing and you must go back to the
+sign of $f'$ (or of $f''$) on either side.
+
+#### Challenge
+
+Find and classify the stationary points of $x^3-3x^2-9x+5$.
+
+[Adapted from TMUA second-derivative pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$f'=3(x-3)(x+1)$. Thus $\boxed{(-1,10)\text{ max},(3,-22)\text{ min}}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Stationary does not automatically mean turning
+
+$f'(a)=0$ only gives a horizontal tangent. Classify by
+the sign of $f'$ on either side, or use $f''(a)>0$ for a local minimum and $f''(a)<0$ for a local maximum.
+
+#### Challenge
+
+Why does $f'(a)=0$ not guarantee a turning point? Give a polynomial example.
+
+[Adapted from TMUA reasoning pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$f(x)=x^3$ has $f'(0)=0$ but $f'$ stays non-negative; $(0,0)$ is a stationary inflection.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+:::::
+
+::::::
+
+::: {.callout-tip}
+**Exam reflex — differentiation.**
+
+- Tangent / normal at $x=a$ $\to$ find the point and the gradient separately, then use point–gradient form.
+- Max/min of a formula $\to$ differentiate, solve $f'=0$, reject points outside the stated domain, then
+  compare stationary points **and endpoints**.
+- Optimisation in geometry $\to$ express the target using one variable before differentiating.
+- Shortest distance to a line $\to$ tangent parallel to the line; shortest distance to a point $\to$
+  minimise the **squared** distance.
+- A fraction of powers $\to$ rewrite using indices before differentiating.
+
+**Mini-example.** To minimise distance from $(x,f(x))$ to $(p,q)$, minimise
+$D^2=(x-p)^2+(f(x)-q)^2$; the square root is unnecessary.
+:::
+
+---
+
+# Part 7 · Integration (MM7)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM7</div>
+<div class="fs-title">Integration</div>
+<div class="fs-sub">Signed area, symmetry, and the step functions that turn an integral into a series.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+### Power rule ★
+
+$$\int x^n \,\mathrm dx = \frac{x^{n+1}}{n+1} + C \quad (n \ne -1).$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Find $\displaystyle\int\frac{(2\sqrt x-1)^{2}}{x}\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Given $\displaystyle\int_1^{a}\frac{3}{x^{2}}\,\mathrm dx=2$, find $a$.
+&nbsp;&nbsp;**(c)** For which $n$ does $\displaystyle\int_1^{\infty}x^{n}\,\mathrm dx$ fail to exist?
+
+[Adapted from **2020 P1 Q11** and **2017 P1 Q12** (index manipulation before integrating).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *Expand before integrating — never integrate a product as a product.*
+
+$$\frac{4x-4\sqrt x+1}{x}=4-4x^{-1/2}+x^{-1}
+\;\Longrightarrow\;\boxed{4x-8\sqrt x+\ln\lvert x\rvert+C}.$$
+
+**(b)** $\displaystyle\int_1^{a}3x^{-2}\,\mathrm dx=\left[-\tfrac3x\right]_1^{a}=3-\tfrac3a=2$, so
+$\tfrac3a=1$ and $\boxed{a=3}$.
+
+**(c)** $\int_1^{R}x^{n}=\dfrac{R^{n+1}-1}{n+1}$ for $n\ne-1$, which stays finite as $R\to\infty$ only when
+$n+1<0$. With $n=-1$ it is $\ln R\to\infty$. So it fails for $\boxed{n\ge-1}$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Definite integral ★
+
+$$\int_a^b f(x)\,\mathrm dx = \big[F(x)\big]_a^b = F(b) - F(a).$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+$f$ is continuous and $\displaystyle\int_0^1 f(x)\,\mathrm dx=A$, $\displaystyle\int_1^2 f(x)\,\mathrm dx=B$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_0^1 f(x+1)\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_0^2 f(x)\,\mathrm dx-\int_1^0 f(x)\,\mathrm dx$.
+&nbsp;&nbsp;**(c)** Evaluate $\displaystyle\int_0^{1} f(2x)\,\mathrm dx$ in terms of $A$ and $B$.
+
+[Adapted from **2019 P1 Q16**, which compares $\int_0^1 f(x+1)$ with $\int_1^2 f$.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Substituting $u=x+1$ (so $\mathrm du=\mathrm dx$, and the limits $0,1$ become $1,2$):
+
+$$\int_0^1 f(x+1)\,\mathrm dx=\int_1^2 f(u)\,\mathrm du=\boxed{B}.$$
+
+*A translation slides the region sideways and does not change its area.*
+
+**(b)** $\displaystyle\int_0^2 f=A+B$, and $\displaystyle\int_1^0 f=-A$, so the answer is
+$(A+B)-(-A)=\boxed{2A+B}$.
+
+**(c)** Substituting $u=2x$, $\mathrm dx=\tfrac12\mathrm du$, limits $0,1\to0,2$:
+
+$$\int_0^1 f(2x)\,\mathrm dx=\tfrac12\int_0^2 f(u)\,\mathrm du=\boxed{\tfrac12(A+B)}.$$
+
+*A horizontal stretch by $\tfrac12$ halves every width, so it halves the area.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Area vs integral ★
+
+A definite integral is a **signed** area — regions below the axis count as
+**negative**. To find an actual **area**, split at every axis-crossing and make each piece positive.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+Let $f(x)=x^{3}-4x$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{-2}^{2}f(x)\,\mathrm dx$ and explain the answer in one
+sentence.
+&nbsp;&nbsp;**(b)** Find the **total area** enclosed between $y=f(x)$ and the $x$-axis on $[-2,2]$.
+&nbsp;&nbsp;**(c)** Find $\displaystyle\int_{0}^{3}\lvert f(x)\rvert\,\mathrm dx$.
+
+[Adapted from **2021 P1 Q15** and **2023 P1 Q10** (signed versus total area).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $f$ is **odd**, so $\displaystyle\int_{-2}^{2}f=\boxed{0}$ — *the area below the axis on $[0,2]$
+exactly cancels the area above it on $[-2,0]$.*
+
+**(b)** $f(x)=x(x-2)(x+2)$, positive on $(-2,0)$ and negative on $(0,2)$. By symmetry the total area is
+twice one piece:
+
+$$2\int_{-2}^{0}\left(x^{3}-4x\right)\mathrm dx=2\left[\tfrac{x^{4}}{4}-2x^{2}\right]_{-2}^{0}
+=2\bigl(0-(4-8)\bigr)=\boxed{8}.$$
+
+**(c)** On $[0,2]$, $f\le0$; on $[2,3]$, $f\ge0$.
+
+$$\int_0^3\lvert f\rvert=-\int_0^2 f+\int_2^3 f=4+\left[\tfrac{x^4}{4}-2x^2\right]_2^3
+=4+\left(\tfrac{81}{4}-18\right)-\left(4-8\right)=4+\tfrac94+4-4=\boxed{\tfrac{41}{4}}.$$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Area between two curves
+
+(upper $-$ lower, over their intersection):
+$$A = \int_{x_1}^{x_2} \big(y_{\text{top}} - y_{\text{bottom}}\big)\,\mathrm dx.$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Find the area enclosed between $y=x^{2}-2x$ and $y=3x-6$.
+&nbsp;&nbsp;**(b)** A line meets the parabola $y=x^{2}+bx+c$ at $x=p$ and $x=q$. Show that the area
+enclosed is $\dfrac{(q-p)^{3}}{6}$, whatever $b$, $c$ and the line are.
+
+[Adapted from **2020 P1 Q14** (line and cubic enclosing equal areas).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** They meet where $x^{2}-2x=3x-6$, i.e. $x^{2}-5x+6=0$, so $x=2$ and $x=3$. On $(2,3)$ the line is
+above, so
+
+$$A=\int_2^3\bigl[(3x-6)-(x^{2}-2x)\bigr]\mathrm dx=\int_2^3\left(-x^{2}+5x-6\right)\mathrm dx=\boxed{\tfrac16}.$$
+
+*For a quadratic meeting a line at $p,q$ the area is $\dfrac{(q-p)^{3}}{6}$ — here $\dfrac{1^{3}}{6}$,
+a useful check.*
+
+**(b)** Let the parabola be $y=x^{2}+bx+c$ and the line $y=mx+k$, meeting where
+$x^{2}+(b-m)x+(c-k)=0$, i.e. at $x=p$ and $x=q$. Then the difference of the two functions factorises as
+$(x-p)(x-q)$, so
+
+$$A=\left\lvert\int_p^q (x-p)(x-q)\,\mathrm dx\right\rvert=\boxed{\frac{(q-p)^{3}}{6}} .$$
+
+*Checking part (a): $q-p=1$, giving $\tfrac16$ as found.* The result needs only that the $x^{2}$ coefficient
+is $1$ — nothing about $b$, $c$, $m$ or $k$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Translation
+
+Shifting a graph sideways does not change the area under it:
+$\int_{0}^{1} f(x+1)\,\mathrm dx = \int_{1}^{2} f(u)\,\mathrm du.$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+$f$ satisfies $\displaystyle\int_{2}^{6} f(x)\,\mathrm dx=10$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{0}^{4} f(x+2)\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{1}^{3} f(2x)\,\mathrm dx$.
+&nbsp;&nbsp;**(c)** Evaluate $\displaystyle\int_{-6}^{-2} f(-x)\,\mathrm dx$.
+
+[Adapted from **2019 P1 Q16** (translation) and **2021 P1 Q15** (scaling inside $f$).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $u=x+2$ sends the limits $0,4$ to $2,6$: the integral is $\boxed{10}$.
+
+**(b)** $u=2x$, $\mathrm dx=\tfrac12\mathrm du$, limits $1,3\to2,6$:
+$\tfrac12\displaystyle\int_2^6 f(u)\,\mathrm du=\boxed{5}$.
+
+**(c)** $u=-x$, $\mathrm dx=-\mathrm du$, limits $-6,-2\to6,2$:
+
+$$\int_{-6}^{-2}f(-x)\,\mathrm dx=-\int_{6}^{2}f(u)\,\mathrm du=\int_{2}^{6}f(u)\,\mathrm du=\boxed{10}.$$
+
+*Reflecting in the $y$-axis preserves area; the two sign changes — from $\mathrm dx$ and from swapping the
+limits — cancel.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Even & odd symmetry ★
+
+An **even** function ($f(-x)=f(x)$) is symmetric about the **$y$-axis**; an
+**odd** function ($f(-x)=-f(x)$) is symmetric about the **origin**. So
+$$\int_{-a}^{a} f_{\text{even}}(x)\,\mathrm dx = 2\int_{0}^{a} f_{\text{even}}(x)\,\mathrm dx, \qquad \int_{-a}^{a} f_{\text{odd}}(x)\,\mathrm dx = 0.$$
+**$f(\lvert x\rvert)$ is *always* even.** Replacing $x$ by $\lvert x\rvert$ makes **any** curve — quadratic,
+cubic, or anything else — symmetric about the $y$-axis, because $\lvert -x\rvert = \lvert x\rvert$. Its graph
+is the $x\ge0$ half mirrored to the left, so you can **integrate over $x\ge0$ and double** (as in $x^2-2\lvert
+x\rvert-8$).
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+$f$ is **odd** and $\displaystyle\int_{0}^{3} f(x)\,\mathrm dx=5$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{-3}^{3}\bigl(f(x)+x^{2}\bigr)\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{-3}^{3} x\,f(x)\,\mathrm dx$ in terms of
+$\displaystyle\int_{0}^{3} x\,f(x)\,\mathrm dx=c$.
+&nbsp;&nbsp;**(c)** Is $f(\lvert x\rvert)$ odd, even, or neither? Justify it.
+
+[Adapted from **2021 P1 Q15** and the parity arguments in **2020 P1 Q18**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\displaystyle\int_{-3}^{3}f=0$ (odd), and $x^{2}$ is even so
+$\displaystyle\int_{-3}^{3}x^{2}=2\int_0^3x^{2}=18$. Total $\boxed{18}$.
+
+**(b)** *The product of an odd function and an odd function is **even**,* so
+
+$$\int_{-3}^{3}x\,f(x)\,\mathrm dx=2\int_{0}^{3}x\,f(x)\,\mathrm dx=\boxed{2c}.$$
+
+**(c)** $f(\lvert -x\rvert)=f(\lvert x\rvert)$, so it is **even** — *for every $f$ whatsoever,* because
+$\lvert x\rvert$ already destroys the sign before $f$ sees it. (It is odd only in the trivial case where
+$f(\lvert x\rvert)\equiv0$.)
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Floor, ceiling & step functions ★
+
+The definitions, stated as the conditions that pin down the integer
+$n$:
+
+| symbol | name | definition | example at $2.3$ | at $-2.3$ | at $3$ |
+|---|---|---|---|---|---|
+| $\lfloor x\rfloor$ | floor | $\lfloor x\rfloor=n$ where $n\le x<n+1$ | $2$ | $\mathbf{-3}$ | $3$ |
+| $\lceil x\rceil$ | ceiling | $\lceil x\rceil=n$ where $n-1<x\le n$ | $3$ | $\mathbf{-2}$ | $3$ |
+| $\{x\}$ | fractional part | $\{x\}=x-\lfloor x\rfloor$, always in $[0,1)$ | $0.3$ | $\mathbf{0.7}$ | $0$ |
+
+**Floor rounds *down*, not towards zero** — $\lfloor-2.3\rfloor=-3$, and that negative case is the one the
+exam checks. Useful consequences:
+
+$$\lceil x\rceil=-\lfloor -x\rfloor,\qquad
+\lceil x\rceil=\begin{cases}\lfloor x\rfloor & x\in\mathbb Z\\[2pt] \lfloor x\rfloor+1 & \text{otherwise.}\end{cases}$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{0}^{5}\lfloor x\rfloor\,\mathrm dx$ and
+$\displaystyle\int_{0}^{5}\lceil x\rceil\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{0}^{3.5}\lfloor x\rfloor\,\mathrm dx$.
+&nbsp;&nbsp;**(c)** Evaluate $\displaystyle\int_{0}^{4}2^{\lfloor x\rfloor}\,\mathrm dx$.
+
+[Adapted from **2017 P1 Q15** and **2022 P1 Q7** (step functions under an integral).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+*Each integrand is constant on every unit interval, so each integral is a sum of rectangles of width $1$.*
+
+**(a)** $\displaystyle\int_0^5\lfloor x\rfloor=0+1+2+3+4=\boxed{10}$ and
+$\displaystyle\int_0^5\lceil x\rceil=1+2+3+4+5=\boxed{15}$.
+
+**(b)** Three whole strips plus a half strip of height $3$:
+
+$$0+1+2+3(0.5)=\boxed{4.5}.$$
+
+**(c)** $\displaystyle\int_0^4 2^{\lfloor x\rfloor}=2^{0}+2^{1}+2^{2}+2^{3}=\boxed{15}$ —
+*a geometric sum, $2^{4}-1$.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### How it meets integration
+
+Each of these is **constant on every unit interval**, so the graph is a
+staircase and the integral is nothing but **a sum of rectangles of width $1$**:
+
+$$\int_0^n f\bigl(\lfloor x\rfloor\bigr)\,\mathrm dx=\sum_{k=0}^{n-1}f(k).$$
+
+*That is the whole trick: split the range at every integer, note that the integrand does not move inside each
+strip, and the integral collapses into a series you already know how to sum.* So
+
+$$\int_0^n \lfloor x\rfloor\,\mathrm dx = 0+1+\cdots+(n-1)=\frac{n(n-1)}{2}, \qquad
+\int_0^n \lceil x\rceil\,\mathrm dx = 1+2+\cdots+n=\frac{n(n+1)}{2},$$
+$$\int_0^n \{x\}\,\mathrm dx = n\times\tfrac12 = \frac{n}{2}\quad\text{($n$ triangles of area $\tfrac12$).}$$
+
+**If the upper limit is not an integer, the last strip is partial.** For example
+
+$$\int_0^{3.5}\lfloor x\rfloor\,\mathrm dx = \underbrace{0+1+2}_{\text{whole strips}}+\underbrace{3\times0.5}_{\text{part strip}} = 4.5 .$$
+
+When the strip heights scale by a fixed factor the sum is **geometric**:
+
+$$\int_0^{n} 2^{\lfloor x\rfloor}\,\mathrm dx=\sum_{k=0}^{n-1}2^{k}=2^{n}-1,
+\qquad
+\int_0^{99} 2^{\lceil x\rceil}\,\mathrm dx = \sum_{k=1}^{99} 2^{k} = 2^{100}-2 .$$
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+Let $f(x)=\lfloor x\rfloor$ and define $\displaystyle g(x)=\sum_{r=1}^{4}f\!\left(2^{\,r-1}x\right)$.
+
+&nbsp;&nbsp;**(a)** Show that $\displaystyle\int_0^1 f\!\left(2^{\,r-1}x\right)\mathrm dx
+=\frac{1}{2^{\,r-1}}\int_0^{2^{\,r-1}} f(u)\,\mathrm du$.
+&nbsp;&nbsp;**(b)** Hence evaluate $\displaystyle\int_0^1 g(x)\,\mathrm dx$.
+
+[Adapted from **2021 P1 Q15**, which sums $f(2^{r-1}x)$ over ten terms.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Substitute $u=2^{\,r-1}x$, so $\mathrm dx=\dfrac{\mathrm du}{2^{\,r-1}}$ and the limits $0,1$ become
+$0,2^{\,r-1}$. The factor $\dfrac1{2^{\,r-1}}$ comes straight out. $\blacksquare$
+
+**(b)** Using $\displaystyle\int_0^n\lfloor u\rfloor\,\mathrm du=\tfrac{n(n-1)}{2}$ with $n=2^{\,r-1}$:
+
+| $r$ | $n=2^{r-1}$ | $\int_0^n\lfloor u\rfloor$ | contribution $\tfrac1n\int$ |
+|---|---|---|---|
+| 1 | 1 | $0$ | $0$ |
+| 2 | 2 | $1$ | $\tfrac12$ |
+| 3 | 4 | $6$ | $\tfrac32$ |
+| 4 | 8 | $28$ | $\tfrac72$ |
+
+$$\int_0^1 g=0+\tfrac12+\tfrac32+\tfrac72=\boxed{\tfrac{11}{2}}.$$
+
+*Integration is linear, so the sum comes outside — the whole question is one substitution repeated.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Modulus integral
+
+Split at every point where an inside changes sign, and integrate each piece with the
+sign it takes there — $\int\lvert f\rvert$ is a true (non-negative) area.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{-3}^{3}\lvert x^{2}-4\rvert\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{0}^{4}\bigl\lvert\,\lvert x-1\rvert-2\,\bigr\rvert\,\mathrm dx$.
+
+[Adapted from **2018 P1 Q3** and **2022 P1 Q7** (nested moduli inside an integral).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $x^{2}-4$ is negative on $(-2,2)$ and positive outside. *Both the integrand and the interval are
+symmetric, so work on $[0,3]$ and double:*
+
+$$2\left[\int_0^2\left(4-x^{2}\right)\mathrm dx+\int_2^3\left(x^{2}-4\right)\mathrm dx\right]
+=2\left[\tfrac{16}{3}+\tfrac{7}{3}\right]=\boxed{\tfrac{46}{3}}.$$
+
+**(b)** The inner modulus has a corner at $x=1$; the outer one vanishes where $\lvert x-1\rvert=2$, i.e.
+$x=3$ (and $x=-1$, outside the range). So split at $1$ and $3$:
+
+| interval | integrand | integral |
+|---|---|---|
+| $[0,1]$ | $2-(1-x)=1+x$ | $\tfrac32$ |
+| $[1,3]$ | $2-(x-1)=3-x$ | $2$ |
+| $[3,4]$ | $(x-1)-2=x-3$ | $\tfrac12$ |
+
+Total $\boxed{4}$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+:::::
+
+::::::
+
+::: {.callout-tip}
+**Exam reflex — integration.**
+
+- Simplify first: expand a small product, split a fraction into powers, or use
+  $(a+b)^2-(a-b)^2=4ab$.
+- Actual area $\to$ find every crossing and split; integral $\to$ keep signs.
+- Area between curves $\to$ solve their intersections, then integrate **top minus bottom**.
+- $f(-x)$, $f(|x|)$ or symmetric limits $\to$ test odd/even symmetry before calculating.
+- Floor/ceiling $\to$ replace the curve by unit-width rectangles and sum the heights.
+- A horizontal shift inside $f$ $\to$ change the limits with the same substitution.
+
+**Mini-example.** If $f$ is odd, $\int_{-a}^{a}f(x)\,dx=0$ immediately—even when the two unsigned areas are
+large.
+:::
+
+---
+
+# Part 8 · Graphs and transformations (MM8)
+
+:::::: {.formulasheet}
+
+::::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 1 · MM8</div>
+<div class="fs-title">Graphs and transformations</div>
+<div class="fs-sub">The order transformations apply in, and the shapes to recognise on sight.</div>
+:::::
+
+::::: {.fs-grid}
+
+::: {.fs-card}
+For $y = f(x)$:
+
+| Transformation | Effect |
+|---|---|
+| $f(x) + a$ | up by $a$ |
+| $f(x + a)$ | left by $a$ |
+| $a\,f(x)$ | stretch $\times a$ vertically |
+| $f(ax)$ | stretch $\times \tfrac1a$ horizontally |
+| $-f(x)$ | reflect in the $x$-axis |
+| $f(-x)$ | reflect in the $y$-axis |
+
+#### Challenge
+
+The graph of $f$ has a maximum at $(4,7)$. Find the corresponding turning point of $y=-2f(3x-2)+5$.
+
+[Adapted from PAT/TMUA transformation pattern.]{.eg}
+
+<details class="callout-note">
+<summary><strong>Solution</strong></summary>
+
+$3x-2=4$ gives $x=2$; the height becomes $-2(7)+5=-9$. The negative stretch swaps max to min: $\boxed{(2,-9)\text{ minimum}}$.
+
+</details>
+
+<div class="workspace" style="min-height:2.5cm"><strong>Working</strong></div>
+:::
+
+::: {.fs-card}
+### Shapes to know on sight
+
+$y = x^2$ (parabola), $y = x^3$ (cubic), $y = \tfrac1x$ and $y = \tfrac{1}{x^2}$
+(reciprocals, with asymptotes), $y = a^x$ (exponential), $y = \sqrt{x}$.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** How many solutions does $(x+1)(3-x)=4\cos x$ have?
+&nbsp;&nbsp;**(b)** How many solutions does $x^{2}=2^{x}$ have?
+&nbsp;&nbsp;**(c)** State, with a reason, how many solutions $\lvert x-2\rvert=\tfrac1x$ has for $x>0$.
+
+[Adapted from **2021 P1 Q14**, which counts solutions of a quadratic against a trigonometric curve.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *Do not solve it — sketch both sides and count crossings.* The left side is a downward parabola with
+roots $-1$ and $3$ and maximum $4$ at $x=1$; the right side oscillates in $[-4,4]$.
+
+Outside $[-1,3]$ the parabola plunges below $-4$ almost immediately *(at $x=-2$ it is already $-5$)*, so it
+can never meet the cosine wave again. Inside $[-1,3]$ the parabola rises from $0$ to $4$ and back while
+$4\cos x$ falls from about $2.2$ to $-4$: they cross $\boxed{2}$ times, near $x\approx0.42$ and
+$x\approx3.71$.
+
+**(b)** $y=x^{2}$ and $y=2^{x}$ meet at $x=2$ and $x=4$ (both give $4$ and $16$), and once more for a
+negative $x$ *because $x^{2}\to+\infty$ while $2^{x}\to0$*. So $\boxed{3}$.
+
+**(c)** For $0<x<2$ we need $2-x=\tfrac1x$, i.e. $x^{2}-2x+1=0$, so $(x-1)^{2}=0$ and $x=1$ — but there
+$2-x=1$ and $\tfrac1x=1$, so this **is** a solution: the curves *touch*. For $x>2$ we need
+$x-2=\tfrac1x$, i.e. $x^{2}-2x-1=0$, giving $x=1+\sqrt2\approx2.414$.
+
+So there are $\boxed{2}$ solutions, $x=1$ and $x=1+\sqrt2$ — *and the first is a tangential touch, which a
+rough sketch easily misses.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### "For which $k$…" questions ★
+
+Rearrange to $g(x) = k$, sketch $y = g(x)$, and count how many times
+the horizontal line $y = k$ crosses it. The turning-point values of $g$ are the boundaries.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+&nbsp;&nbsp;**(a)** For which $k$ does $x^{3}-6x^{2}+9x=k$ have three distinct real solutions?
+&nbsp;&nbsp;**(b)** For which $k$ does it have exactly two?
+&nbsp;&nbsp;**(c)** For which $k$ does $x^{4}-4x^{2}=k$ have exactly four distinct real solutions?
+
+[Adapted from **2018 P1 Q9** and **2023 P1 Q14** (range of a constant for a given root count).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Let $g(x)=x^{3}-6x^{2}+9x$. Then $g'(x)=3x^{2}-12x+9=3(x-1)(x-3)$, so the stationary points are
+$x=1$ and $x=3$ with
+
+$$g(1)=4\ (\text{max}),\qquad g(3)=0\ (\text{min}).$$
+
+*A horizontal line cuts all three monotone stretches exactly when it lies strictly between the two turning
+values:*
+
+$$\boxed{0<k<4}.$$
+
+**(b)** Exactly two distinct roots happens when the line passes **through** a turning point, so
+$\boxed{k=0\ \text{or}\ k=4}$.
+
+**(c)** $h(x)=x^{4}-4x^{2}$ has $h'(x)=4x(x^{2}-2)$, so turning values $h(0)=0$ (local max) and
+$h(\pm\sqrt2)=-4$ (two equal minima). Four distinct roots needs the line strictly between them:
+
+$$\boxed{-4<k<0}.$$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Sketch checklist ★
+
+Intercepts; repeated roots; turning points; asymptotes; end behaviour.
+
+- A single root crosses; a double root touches; an odd repeated root crosses with flattening.
+- For $\dfrac{ax+b}{cx+d}$, the vertical asymptote is $cx+d=0$ and the horizontal asymptote is
+  $y=\dfrac ac$.
+- To move a feature through $f(mx+c)$, solve $mx+c=$ its **old $x$-coordinate**. Do not apply the inside
+  transformation forwards.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+
+Let $f(x)=\dfrac{x^{2}-4}{x^{2}-1}$.
+
+&nbsp;&nbsp;**(a)** State the intercepts, the vertical asymptotes and the behaviour as $x\to\pm\infty$.
+&nbsp;&nbsp;**(b)** Show that $f$ never takes a value strictly between $1$ and $4$.
+&nbsp;&nbsp;**(c)** Hence state the range of $f$.
+
+[Adapted from **2022 P1 Q15** and **2020 P1 Q18** (range of a rational function via the $y$-method).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Roots where $x^{2}=4$: $x=\pm2$. Intercept $f(0)=\dfrac{-4}{-1}=4$. Vertical asymptotes where the
+denominator vanishes, $x=\pm1$. As $x\to\pm\infty$ the leading terms dominate, so $f\to1$: a **horizontal
+asymptote $y=1$**.
+
+**(b)** Set $y=f(x)$ and solve for $x^{2}$:
+
+$$y\left(x^{2}-1\right)=x^{2}-4\;\Longrightarrow\;x^{2}(y-1)=y-4\;\Longrightarrow\;x^{2}=\frac{y-4}{y-1}.$$
+
+*A real $x$ exists exactly when that fraction is $\ge0$,* which fails precisely for $1<y<4$. So no value
+strictly between $1$ and $4$ is attained. $\blacksquare$
+
+**(c)** $\dfrac{y-4}{y-1}\ge0$ holds for $y\le1$... but $y=1$ itself forces $0=-3$, impossible. So
+
+$$\boxed{y<1\ \text{ or }\ y\ge4 } .$$
+
+*The $y$-parameter method — solve for $x$ and demand a real solution — is the reliable way to get a range.*
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+:::
+
+:::::
+
+::::::
+
+::: {.callout-tip}
+**Exam reflex — graphs, transformations and composite expressions.**
+
+- Inside the bracket acts on $x$ and works oppositely; outside acts on $y$ as written.
+- $f(x)=g(x)$ $\to$ sketch both and count intersections.
+- Tangency $\to$ one intersection $\to$ discriminant $0$ when the intersection equation is quadratic.
+- Expression built from an unknown $f(x)$ $\to$ let $w=f(x)$, read the range of $w$, then optimise or solve
+  in $w$.
+- Max/min on a closed interval $\to$ check turning points **and both endpoints**.
+
+**Mini-example.** If $f$ has a maximum at $(4,7)$, then $f(2x-6)$ has its maximum where
+$2x-6=4$, so at $(5,7)$.
+:::
+
+---
+
+# Part 9 · Paper 1 question recognition
+
+Paper 1 tests the MM1–MM8 mathematics above under time pressure. For the logic and proof language used on
+Paper 2, use the **[Paper 2 formula sheet](paper2_formula_sheet.qmd)**.
+
+| If the question says… | Recognise… | First move |
+|---|---|---|
+| “for all real $x$” | global inequality | discriminant / completed square |
+| “exactly one solution” | tangency or repeated root | set $\Delta=0$ or match a turning value |
+| “number of solutions” | graph intersections | sketch and count |
+| “greatest / least value” | range or optimisation | complete square, let $w=f(x)$, or differentiate |
+| “normal to the curve” | two gradients | derivative, then negative reciprocal |
+| “area” | unsigned pieces | find crossings and split |
+| “integral” | signed area | simplify and use symmetry |
+| floor / ceiling | staircase | split into integer intervals |
+| two sides and an angle | triangle data | identify SAS or SSA before choosing a rule |
+| repeating process | sequence / iteration | calculate a few terms and hunt a cycle |
+
+**Long-question reset.** Write what is fixed, what varies, and the requested output. Then translate the
+diagram or wording into one equation. Do not start by expanding everything.
+
+---
+
+::: {.callout-important}
+## The exam-day memory dump
+
+Write only what you personally forget. A strong default set is:
+
+1. Quadratic formula and $\Delta = b^2 - 4ac$.
+2. $S_\infty = \dfrac{a}{1-r}$ for $|r|<1$, and $S_n = \dfrac{a(1-r^n)}{1-r}$.
+3. The exact-value trig table (the $30/45/60$ row).
+4. $\sin^2\theta + \cos^2\theta = 1$.
+5. Perpendicular distance $\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$.
+6. Sine rule, cosine rule and area $\tfrac12ab\sin C$.
+7. “Inside opposite; outside as written” for graph transformations.
+8. $\sqrt{u^2}=|u|$ and every log argument must be $>0$.
+
+**Final check on every answer:** domain · rejected roots · interval endpoints · degrees/radians · exact form.
+:::
