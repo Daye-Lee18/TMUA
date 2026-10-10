@@ -1041,7 +1041,7 @@ Working
 ::: {.fs-card}
 ### Telescoping — the sum you were never given
 
-(*부분급수*). If the term can be written as a difference,
+(Also called the **method of differences**.) If the term can be written as a difference,
 
 $$b_k=f(k)-f(k+1)\quad\Longrightarrow\quad \sum_{k=1}^{n}b_k=f(1)-f(n+1),$$
 

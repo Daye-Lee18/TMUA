@@ -239,7 +239,7 @@ divides by something involving $a_n$, try $1/a_n$ before anything else.*
 
 **MM2.3** gives a sum to infinity only for a **convergent geometric** series, and $\sum\frac{1}{n(n+1)}$
 is not geometric — so a student who has only met the A-Level route has no formula to reach for. The
-technique used above is the **method of differences** (*부분급수* / telescoping), which is standard in the
+technique used above is the **method of differences** (telescoping), which is standard in the
 Korean curriculum and in Further Maths but absent from MM2.
 
 It is worth learning properly, because the same move answers every non-geometric series the mocks set:
