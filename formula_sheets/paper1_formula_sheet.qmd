@@ -8,21 +8,7 @@ execute:
   warning: false
 ---
 
-::: {.solutions}
 
-The TMUA provides **no formula booklet and no calculator**, so every formula here must be *recalled*,
-not looked up. Build this sheet up as the course goes (it is started in session 5 and finalised in
-session 16), and memorise it in passes in the final week. Nothing here is outside the specification —
-if a formula is not on this page, the test will not assume you know it.
-
-A memorisation order that works: **know cold** the ones marked ★ (they appear on almost every paper);
-be **fluent** with the rest; and for the two or three you always forget, write them at the very top of
-your rough paper the moment the test starts, before you read a single question.
-
-Each section ends with an **exam reflex**: the first move to make when that question type appears. Paper 1
-rewards recognition and short routes; if two methods work, use the one with fewer opportunities for error.
-
----
 
 # Part 0 · The high-yield engines
 
@@ -102,7 +88,11 @@ $$\text{centre }(-g,-f),\qquad r=\sqrt{g^{2}+f^{2}-c}.$$
 ::: {.fs-card}
 ### C2 · Two circles — the whole classification ★
 
-With centres $C_1,C_2$, radii $r_1,r_2$ and $d=\lvert C_1C_2\rvert$:
+Let the circles have centres $C_1,C_2$ and radii $r_1,r_2$, and write
+
+$$\boxed{\,d=\lvert C_1C_2\rvert=\textbf{the distance between the two centres}\,}$$
+
+— **not** a distance between the circles themselves. Then:
 
 | | condition | meeting points |
 |---|---|---|
@@ -150,7 +140,8 @@ plt.tight_layout(); plt.show()
 ::: {.fs-card}
 ### C3 · Shortest distance between two circles ★
 
-Once the classification is known the distance is a subtraction:
+Here $d=\lvert C_1C_2\rvert$ is again **the distance between the two centres**, as in C2. Once the
+classification is known, the gap between the circles is a subtraction:
 
 $$\text{separate: } d-r_1-r_2 ,\qquad
 \text{one inside the other: } \lvert r_1-r_2\rvert-d .$$
