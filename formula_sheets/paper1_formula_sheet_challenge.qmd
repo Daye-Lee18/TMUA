@@ -208,7 +208,7 @@ Working
 
 Let the circles have centres $C_1,C_2$ and radii $r_1,r_2$, and write
 
-$$\boxed{\,d=\lvert C_1C_2\rvert=\textbf{the distance between the two centres}\,}$$
+$$\boxed{\,d=\textbf{the distance between the two centres}\,}$$
 
 — **not** a distance between the circles themselves. Then:
 
@@ -291,7 +291,7 @@ Working
 ::: {.fs-card}
 ### C3 · Shortest distance between two circles ★
 
-Here $d=\lvert C_1C_2\rvert$ is again **the distance between the two centres**, as in C2. Once the
+Here $d$ is again **the distance between the two centres**, as in C2. Once the
 classification is known, the gap between the circles is a subtraction:
 
 $$\text{separate: } d-r_1-r_2 ,\qquad
@@ -307,8 +307,10 @@ If they cross or touch, the shortest distance is $0$.
 $C_1$ has centre $(0,0)$ and radius $2$; $C_2$ has centre $(12,5)$ and radius $3$.
 
 &nbsp;&nbsp;**(a)** Find the shortest and the longest distance between a point of $C_1$ and a point of $C_2$.
-&nbsp;&nbsp;**(b)** A point $P$ moves on $C_1$ and $Q$ on $C_2$. Find the shortest possible length of $PQ$ if
-$P$, $Q$ and the origin must be collinear.
+In parts **(b)** and **(c)**, the radius of $C_2$ is instead an unknown $r>0$; its centre stays at $(12,5)$.
+
+&nbsp;&nbsp;**(b)** Find **every** $r$ for which the shortest distance between the two circles is $4$.
+&nbsp;&nbsp;**(c)** Find every $r$ for which the two circles meet at exactly two points.
 
 [Adapted from **2021 P1 Q1** and the two-circle distance setup in **2022 P1 Q19**.]{.eg}
 
@@ -322,11 +324,32 @@ $$\text{shortest}=d-r_1-r_2=13-5=\boxed{8},\qquad \text{longest}=d+r_1+r_2=13+5=
 
 *Both extremes occur on the line of centres, which is why only $d$ matters.*
 
-**(b)** The line through the origin and the centre of $C_2$ **is** the line of centres, so the collinear
-configuration is exactly the one achieving the minimum in (a): the answer is again $\boxed{8}$.
+**(b)** *There are two ways for the circles to end up $4$ apart, and each needs a different one of the
+two formulas above.* The distance between the centres is still $d=13$, and $r_1=2$.
 
-*If the line through $O$ missed the centre of $C_2$ the answer would be larger — collinearity through $O$ is
-only equivalent to "on the line of centres" because $O$ is itself a centre.*
+*Case 1 — the circles are separate,* so the gap is $d-r_1-r$:
+
+$$13-2-r=4\;\Longrightarrow\;r=7. \qquad\text{Valid, since } d=13>2+7=9 .$$
+
+*Case 2 — $C_1$ lies inside $C_2$,* so the gap is $\lvert r-r_1\rvert-d$:
+
+$$r-2-13=4\;\Longrightarrow\;r=19. \qquad\text{Valid, since } d+r_1=15<19 .$$
+
+$$\boxed{r=7\ \text{ or }\ r=19}$$
+
+*$C_2$ inside $C_1$ is impossible here, because $r_1=2$ is smaller than $d$ alone.*
+
+**(c)** Two intersection points need the centre distance to sit **strictly between** the sum and the
+difference of the radii:
+
+$$\lvert r_1-r\rvert<d<r_1+r \;\Longleftrightarrow\; \lvert 2-r\rvert<13<2+r .$$
+
+From $13<2+r$, $r>11$; from $\lvert2-r\rvert<13$, $-11<r<15$. Together:
+
+$$\boxed{11<r<15}.$$
+
+*The two excluded endpoints are exactly the tangency cases — $r=11$ touches on the outside and $r=15$
+touches from the inside, each giving one point, not two.*
 :::
 
 ::: {.workspace style="min-height:6cm"}
