@@ -43,7 +43,7 @@ The second half is mock-heavy. The point of a mock is **not** the score — it i
 | Date | KST | UK (BST) | Session | Homework |
 |---|---|---|---|---|
 | **Wed 23 Sep** | 17:45–18:45 | 09:45–10:45 | **Coordinate geometry** clinic *(replaces parametric — see note)* | **[Coord assignment](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** (15 Q) |
-| **Thu 24 Sep** | 19:05–20:05 | 11:05–12:05 | **Logarithms** clinic (+ extension) | **[Log-extension assignment](../../lessons/log_extension_clinic/assignment_student.qmd)** (11 Q) |
+| **Thu 24 Sep** | 19:05–20:05 | 11:05–12:05 | **Logarithms** clinic (+ extension) | **[Log assignment](../../lessons/log_clinic/assignment_student.qmd)** (15 Q) |
 | **Fri 25 Sep** | 16:45–17:45 | 08:45–09:45 | **Range & the $y$-parameter** clinic | [Range clinic](../../lessons/range_clinic/class_material.qmd) problems · review a **2018** past paper *(keep 2023 for 14 Oct)* |
 
 ---

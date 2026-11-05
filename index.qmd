@@ -11,6 +11,7 @@ resources** live here; each student's clinics, mocks and audits live on their ow
 |---|---|---|---|
 | **여운주** (Chloe Yeo) | **15 Oct 2026** | **[Open hub](students/woonju/index.qmd)** | Clinics, mocks & self-study |
 | **이우성** (Lee Woosung) | **16 Oct 2026** | **[Open hub](students/woosung/index.qmd)** | Oxford Maths applicant · papers, audits & shared clinics |
+| **김예준** (Jason Kim) | **Oct 2027** | **[Open hub](students/yejun/index.qmd)** | Taipei American School · AP track → UK · trial |
 
 ::: {.callout-tip}
 ## The test in one box
@@ -27,6 +28,34 @@ direct route is too slow. You are being tested on finding the *shorter* route.
 everything in Paper 1 *plus* material no A-Level course teaches.
 
 Full detail: **[The Test](about/format.qmd)** — format, scoring, what changed in 2024, how to prepare.
+:::
+
+---
+
+## Formula sheets — use these before the detailed notes
+
+The TMUA supplies **no formula booklet**, so the sheets below are designed for active recall immediately
+before the exam. Paper 1 contains the mathematics assumed by both papers; Paper 2 contains the reasoning
+language and recurring reasoning topics.
+
+| | Sheet | What it carries |
+|---|---|---|
+| **Paper 1** | **[Blank — fill it in yourself](formula_sheets/paper1_formula_sheet_blank.qmd)** | The reference headings with the formulas removed |
+| **Paper 1** | **[Completed reference copy](formula_sheets/paper1_formula_sheet.qmd)** | MM1–MM8 formulas, mini-examples, recurring question types, fast methods and exam traps |
+| **Paper 1** | **[Formula sheet + card challenges](formula_sheets/paper1_formula_sheet_challenge.qmd)** | The full reference with one high-difficulty problem and inline solution toggle directly under every concept card |
+| **Paper 1** | **[Worksheet and mark scheme](formula_sheets/paper1_formula_sheet_ws.qmd)** | All 57 card challenges as a worksheet — working space and a fully visible solution under each one |
+| **Paper 2** | **[Formula sheet & concept summary](formula_sheets/paper2_formula_sheet.qmd)** | S1–S7 reasoning, recurring topic engines, standard counterexamples and an exam-day card |
+| **Paper 2** | **[Formula sheet + card challenges](formula_sheets/paper2_formula_sheet_challenge.qmd)** | The same reference with a high-difficulty problem and inline solution toggle under every concept card |
+
+::: {.callout-tip}
+## Use the blank sheet first
+
+Fill in the **[blank Paper 1 sheet](formula_sheets/paper1_formula_sheet_blank.qmd)** from memory, then check it
+against the **[completed reference](formula_sheets/paper1_formula_sheet.qmd)**. What you could not produce
+becomes the revision list. After that, use the **[challenge version](formula_sheets/paper1_formula_sheet_challenge.qmd)**
+to test whether each formula can be recognised and applied under pressure, or the
+**[worksheet](formula_sheets/paper1_formula_sheet_ws.qmd)** if you would rather work the 57 problems on their
+own with the solutions already open.
 :::
 
 ---
@@ -125,7 +154,7 @@ frustration.
 | **2019** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140823/TMUA-2019-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140824/TMUA-2019-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07140827/TMUA-2019-answer-keys.pdf) | — | — | — |
 | **2018** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125404/TMUA-2018-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125406/TMUA-2018-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125413/TMUA-2018-answer-keys.pdf) | — | — | — |
 | **2017** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125224/TMUA-2017-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125228/TMUA-2017-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125232/TMUA-2017-answer-keys.pdf) | — | — | — |
-| **2016** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125102/TMUA-2016-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125106/TMUA-2016-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-answer-keys.pdf) | — | — | — |
+| **2016** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125102/TMUA-2016-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125106/TMUA-2016-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07125113/TMUA-2016-answer-keys.pdf) | **[Worked solutions](lessons/2016_paper2/class_material.qmd)** | — | — |
 | **Specimen** | [Paper 2](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141413/TMUA-early-specimen-paper-2.pdf) | [Worked answers](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141415/TMUA-early-specimen-paper-2-worked-answers.pdf) | [Keys](https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/07141414/TMUA-early-specimen-paper-answer-keys.pdf) | — | — | — |
 
 ::: {.callout-note}
@@ -165,7 +194,7 @@ appear in the JZ mocks and the harder past papers — and **none of them is on t
 who has only met "sum to infinity = geometric" has no way in.
 
 The answer is not to memorise more formulas. [There are exactly three ways to build a sum you were never
-given]{.hl} — the **method of differences** (*부분급수* / telescoping), the shifted copy, and summing an
+given]{.hl} — the **method of differences** (telescoping), the shifted copy, and summing an
 identity. **Sections 4–8** of the
 **[Sequences, Series & Binomial clinic](lessons/sequences_series_clinic/class_material.qmd)** teach all
 three, and work **JZ Mock A Paper 2 Q8** in full.
@@ -216,6 +245,7 @@ being learnt by heart.
 | Topic session | Assignments |
 |---|---|
 | **[Paper 2 — Formula Sheet & Concept Summary](formula_sheets/paper2_formula_sheet.qmd)** — all of S1–S7, T1 and T2 on one printable page, plus an exam-day card | *revision page — no assignment* |
+| **[Paper 2 — Formula Sheet + Card Challenges](formula_sheets/paper2_formula_sheet_challenge.qmd)** — the same page with one hard, multi-part problem under each of the 45 cards | *solutions in toggles* |
 | **[T1 · Divisors & primes](toolkit/t01_divisors_primes.qmd)** — seventeen facts, each with a True/False trap table, six proof patterns, fourteen quick checks and **all 19 past-paper questions** worked in full | **[Questions](toolkit/t01_assignment_student.qmd)** · [MS](toolkit/t01_assignment_ms.qmd) |
 | **[T2 · Shapes as logical conditions](toolkit/t02_shapes_as_logic.qmd)** — the quadrilateral lattice, the diagonal table, the three counterexamples, congruence and polygon facts, plus **all 8 past-paper questions** worked in full | **[Questions](toolkit/t02_assignment_student.qmd)** · [MS](toolkit/t02_assignment_ms.qmd) |
 
@@ -242,9 +272,9 @@ Written for this course, not reprinted from anywhere — each one is built on th
 cross-exam questions, with the mathematics changed and every option checked so that exactly one is correct.
 Sit them timed, then mark from the solutions.
 
-| Mock | Covers | Questions | Solutions |
-|---|---|---|---|
-| **Mock A · Paper 2** | all of **S1–S7**, plus **T1** and **T2** — upper-intermediate | **[Sit the paper](mocks/mockA_paper2/mockA_paper2.qmd)** | **[Worked solutions](mocks/mockA_paper2/mockA_paper2_ms.qmd)** |
+| Mock | Covers | Questions | Solutions | Grouped lesson |
+|---|---|---|---|---|
+| **Mock A · Paper 2** | all of **S1–S7**, plus **T1** and **T2** — upper-intermediate | **[Sit the paper](mocks/mockA_paper2/mockA_paper2.qmd)** | **[Worked solutions](mocks/mockA_paper2/mockA_paper2_ms.qmd)** | **[Problem-type lesson](mocks/mockA_paper2/mockA_paper2_grouped_lesson.qmd)** |
 
 *(20 questions · 75 minutes · no calculator. The solutions open with an answer key and a table mapping every
 question to its session, so a lost mark points straight at the card to re-read.)*

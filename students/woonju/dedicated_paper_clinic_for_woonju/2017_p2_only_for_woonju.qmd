@@ -156,24 +156,63 @@ $$\textbf{bcead},\qquad \textbf{beacd},\qquad \textbf{dceab},\qquad \textbf{deac
 
 So **A is wrong** — four candidates is not a deduction.
 
-**Step 3 — can one more attempt always finish it?** There are four candidates and five possible feedback
-values, so it is not ruled out. And a guess that works is easy to find: **guess one of the four candidates**,
-say **bcead**. Counting matches against each candidate:
+**Step 3 — choose one guess that separates all four candidates.** We do not need to discover the incorrect
+positions one at a time. Instead, choose a permutation whose pattern of positions compares differently with
+each remaining candidate. For example, make the further attempt **deacb**. It is different from all three
+attempts already made and is one of the four remaining candidates.
 
-| if the password is | bcead | beacd | dceab | deacb |
-|---|---|---|---|---|
-| feedback from guessing **bcead** | $5$ | $2$ | $3$ | $0$ |
+::: {.callout-important}
+## The key idea
 
-*All four replies are different, so whatever number comes back identifies the password uniquely — and if the
-reply is $5$ the guess was simply right.*
+Find **one further guess for which every remaining candidate gives a different number of positional
+matches**. Then each possible feedback number points to exactly one candidate, so the password is identified
+after that single attempt.
 
-One further attempt is enough, and four candidates means none is not. **B**
+The guess does not have to be one of the remaining candidates, although **deacb** is. What matters is that its
+match counts against the four candidates are all different.
+:::
 
-**Where the mark went.** Choosing **C** (*Two*) is what you get by imagining the attempts as yes/no tests:
-with four candidates, testing them one at a time, you would expect to need two or three. *But the machine
-answers with a number, not a yes or no — a single guess sorts the four candidates into four different
-buckets.* Reading the feedback as one bit of information instead of roughly $\log_2 5$ bits is the whole
-error.
+Compare **deacb** with every remaining possibility, position by position:
+
+| possible password | pos 1: $d$ | pos 2: $e$ | pos 3: $a$ | pos 4: $c$ | pos 5: $b$ | total matches |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **bcead** | $b\ne d$ | $c\ne e$ | $e\ne a$ | $a\ne c$ | $d\ne b$ | **0** |
+| **beacd** | $b\ne d$ | $e=e$ ✓ | $a=a$ ✓ | $c=c$ ✓ | $d\ne b$ | **3** |
+| **dceab** | $d=d$ ✓ | $c\ne e$ | $e\ne a$ | $a\ne c$ | $b=b$ ✓ | **2** |
+| **deacb** | $d=d$ ✓ | $e=e$ ✓ | $a=a$ ✓ | $c=c$ ✓ | $b=b$ ✓ | **5** |
+
+::: {.callout-warning}
+## Do not subtract the feedback from 5
+
+The computer reports the number of **correct positions**, not the number of incorrect positions. Therefore,
+after trying **deacb**:
+
+- feedback $5$ means **deacb itself is the password** — all five positions match;
+- feedback $0$ means **bcead is the password** — none of its positions match deacb.
+
+The calculation $5-(\text{number of matches})$ gives the number of mismatching positions, but that is not the
+feedback returned by the computer. In particular, a feedback of $5$ must not be reassigned to the candidate
+with $0$ matches.
+:::
+
+These four feedback values are all different. Thus the number returned by the computer tells us exactly which
+candidate is correct:
+
+- $0\Rightarrow\textbf{bcead}$
+- $2\Rightarrow\textbf{dceab}$
+- $3\Rightarrow\textbf{beacd}$
+- $5\Rightarrow\textbf{deacb}$
+
+The key is not merely that **deacb** has not been tried before. Its positions are arranged so that the four
+surviving permutations have different numbers of matches with it. Therefore one numerical response separates
+all four possibilities at once. (A response of $4$ cannot occur for permutations: if four positions match,
+the fifth must match as well.)
+
+So exactly **one further attempt** is sufficient to guarantee that the password can be deduced. **B — One**
+
+**Where the mark went.** Choosing **C** (*Two*) treats each attempt as though it were only a yes/no test. The
+computer actually returns the number of correct positions. Here one carefully chosen permutation sorts the
+four candidates into four distinct feedback groups, so a single additional attempt is enough.
 
 :::
 
@@ -184,52 +223,199 @@ Working
 ## Question 20 practice
 
 ::: {.question}
-1. Suppose only the first two guesses had been made — **abcde** and **cdbea**, both returning $0$.
+### Practice 1
+
+Suppose only the first two guesses had been made — **abcde** and **cdbea**, both returning $0$.
    &nbsp;&nbsp;**(a)** How many candidates remain?
    &nbsp;&nbsp;**(b)** Can one further attempt guarantee the password? How many are needed?
-2. Explain carefully why a single further attempt can never distinguish more than **five** candidates.
-3. Prove that the feedback can never be exactly $4$.
-4. A **four**-character version: the password uses $a,b,c,d$ in some order, and both **abcd** and **cdab**
-   return $0$.
-   &nbsp;&nbsp;**(a)** List the candidates.
-   &nbsp;&nbsp;**(b)** There are four of them, as in the exam question. Is one further attempt enough this
-   time? Explain what is different.
-5. Back in the exam question, is guessing one of the four candidates the **only** kind of guess that works, or
-   do non-candidates work too? What is the advantage of guessing a candidate?
-6. Harder. Suppose the three guesses returning $0$ had been **abcde**, **badec** and **cedab** instead. How
-   many candidates remain, and how many further attempts are then needed?
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-1. **(a) 13.** *Two guesses forbid only two letters per position, leaving three per position, and far more of
-   those combinations survive as permutations.*
-   **(b) No — two are needed.** *With $13$ candidates and only five possible replies, the best any single
-   guess can do is split them $4\,/\,4\,/\,4\,/\,1$, so some reply still leaves four candidates standing.*
-   Two further attempts are enough.
-2. The feedback is one of $0,1,2,3,5$ — five values. *A guess sorts the candidates into groups by the reply
-   they would produce, and candidates in the same group are indistinguishable. With six or more candidates,
-   two must share a reply by the pigeonhole principle.*
-3. If four positions hold the correct letter, the remaining position holds the only letter not yet used — *and
-   that letter is forced to be the correct one, because the password uses each letter exactly once.* So four
-   matches always means five.
-4. **(a)** badc, bcda, dabc, dcba.
-   **(b) No.** *For four-letter permutations the possible feedbacks are $0,1,2,4$ — only four values — and no
-   single guess happens to spread these four candidates across four different replies.* Having few enough
-   candidates makes a one-guess finish **possible**, not automatic: you still have to produce the guess. This
-   is exactly why step 5 of the method is there.
-5. Non-candidates work too — there are $28$ guesses in all that separate the four. *The advantage of guessing
-   a candidate is that it might simply be right, so you can finish in that attempt rather than merely learn
-   the answer and have to type it afterwards.*
-6. **3 candidates**, and one further attempt is still enough. *Fewer candidates survive because those three
-   guesses overlap — some position is forbidden the same letter twice — so the eliminations are less
-   efficient than the exam's three.*
+**(a) 13 candidates remain.** A password must disagree with both previous attempts in every position. After
+also requiring each letter to appear exactly once, the survivors are
 
+$$\begin{aligned}
+&\text{baecd, bcead, beacd, bedac, daebc, daecb, dceab,}\\
+&\text{deabc, deacb, eadbc, eadcb, ecabd, ecdab.}
+\end{aligned}$$
+
+**(b) One attempt cannot be enough.** One attempt can return only $0,1,2,3,$ or $5$: five possible results.
+Since there are 13 candidates, at least two candidates would give the same result and could not yet be told
+apart. Therefore at least **two** further attempts are necessary.
+
+Here is a strategy showing that two attempts are also sufficient. First try **aedbc**. Its feedback divides
+the 13 candidates as follows:
+
+| feedback from **aedbc** | candidates still possible | what to try next | feedback from that next try |
+|---:|---|---|---|
+| $0$ | baecd, bcead, daecb, dceab | **baced** | $3,2,1,0$ respectively |
+| $1$ | beacd, deacb, eadcb, ecabd, ecdab | **beacd** | $5,3,1,2,0$ respectively |
+| $2$ | daebc | no further comparison needed | only one candidate remains |
+| $3$ | bedac, deabc, eadbc | **bcdae** | $3,0,1$ respectively |
+
+In every row, the final feedback values are different, so they identify one password uniquely. Hence the
+minimum number of further attempts is **two**.
 :::
 
-::: {.workspace style="min-height:8cm"}
+::: {.question}
+### Practice 2
+
+Explain carefully why a single further attempt can never distinguish more than **five** candidates.
+:::
+
+::: {.workspace style="min-height:5cm"}
 Working
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+For any guess, the computer can return
+
+$$0,\ 1,\ 2,\ 3,\ 5.$$
+
+It cannot return $4$: if four letters are already in their correct positions, the one remaining letter is
+forced into the final position, giving $5$ matches.
+
+So one guess has only **five distinguishable outcomes**. Think of it as placing every candidate into one of
+five boxes labelled $0,1,2,3,5$. If there are six or more candidates, at least two must enter the same box.
+Those two candidates produce the same feedback and cannot be distinguished by that guess. Therefore one
+attempt can distinguish at most **five candidates**.
+:::
+
+::: {.question}
+### Practice 3
+
+Prove that the feedback can never be exactly $4$.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Suppose positions 1–4 are correct. Four different letters have then already been used in those positions.
+There is only one letter left for position 5, and it must be the same remaining letter in both the guess and
+the password. Therefore position 5 is correct as well.
+
+The same reasoning works whichever four positions match:
+
+$$\text{four matching positions}\quad\Longrightarrow\quad\text{the last position also matches}.$$
+
+Thus a permutation cannot have exactly four positional matches. It jumps from $3$ to $5$, so feedback $4$ is
+impossible.
+:::
+
+::: {.question}
+### Practice 4
+
+A **four**-character version: the password uses $a,b,c,d$ in some order, and both **abcd** and **cdab**
+   return $0$.
+   &nbsp;&nbsp;**(a)** List the candidates.
+   &nbsp;&nbsp;**(b)** There are four of them, as in the exam question. Is one further attempt enough this
+   time? Explain what is different.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Applying both sets of position restrictions leaves
+
+$$\textbf{badc},\qquad\textbf{bcda},\qquad\textbf{dabc},\qquad\textbf{dcba}.$$
+
+**(b) One further attempt is not enough.** Although there are four candidates and four possible feedback
+values $0,1,2,4$, no four-letter guess gives four different scores against these candidates. For example:
+
+| possible password | badc | bcda | dabc | dcba |
+|---|:---:|:---:|:---:|:---:|
+| matches after trying **abdc** | $2$ | $1$ | $1$ | $0$ |
+
+Feedback $2$ identifies **badc**, and feedback $0$ identifies **dcba**. However, feedback $1$ leaves both
+**bcda** and **dabc**, so one more attempt is needed in that case.
+
+Therefore **two further attempts** guarantee an answer. This also shows the important distinction: having no
+more candidates than possible feedback values makes a one-attempt solution *possible*, but a guess that gives
+different feedback for every candidate must actually exist.
+:::
+
+::: {.question}
+### Practice 5
+
+Back in the exam question, is guessing one of the four candidates the **only** kind of guess that works, or
+   do non-candidates work too? What is the advantage of guessing a candidate?
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+No. A separating guess does **not** have to be one of the four candidates. For example, **acebd** is not a
+candidate, but it gives:
+
+| possible password | bcead | beacd | dceab | deacb |
+|---|:---:|:---:|:---:|:---:|
+| matches after trying **acebd** | $3$ | $1$ | $2$ | $0$ |
+
+The four scores are different, so the feedback still identifies the password. In fact, 28 guesses work: the
+four candidates and 24 non-candidates.
+
+The advantage of guessing a candidate such as **deacb** is that it can return $5$. If that happens, the
+password has not only been identified but has also been entered correctly. A non-candidate can reveal the
+password, but it cannot itself be correct, so the identified password would still need to be entered later.
+:::
+
+::: {.question}
+### Practice 6 — harder
+
+Suppose the three guesses returning $0$ had been **abcde**, **badec** and **cedab** instead. How
+   many candidates remain, and how many further attempts are then needed?
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Writing down all permutations that disagree with **abcde, badec** and **cedab** in every position leaves
+
+$$\textbf{dceba},\qquad\textbf{ecabd},\qquad\textbf{edbca}.$$
+
+Now try **acedb** and compare it with each survivor:
+
+| possible password | dceba | ecabd | edbca |
+|---|:---:|:---:|:---:|
+| matches after trying **acedb** | $2$ | $1$ | $0$ |
+
+Therefore:
+
+- feedback $2$ means **dceba**;
+- feedback $1$ means **ecabd**;
+- feedback $0$ means **edbca**.
+
+All three results are different, so **one further attempt** is enough.
+
+Be careful when counting the survivors: position 3 has the letter $d$ forbidden twice, so it has three
+locally possible letters rather than two. Nevertheless, after requiring every letter to occur exactly once,
+only the three full permutations above survive. The number of choices at each individual position cannot
+simply be multiplied because the positions are linked by the no-repeated-letter condition.
+
 :::
 
 # Question 12 - Ordering $\sin 2x$, $\cos 2x$ and $\tan x$

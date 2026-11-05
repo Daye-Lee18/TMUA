@@ -1,0 +1,97 @@
+---
+title: "김예준 — TMUA"
+subtitle: "Taipei American School G11 · AP Calculus BC · TMUA October 2027"
+format: html
+execute:
+  echo: false
+  warning: false
+---
+
+A workspace for **김예준 (Jason Kim)**, sharing the clinic library on this site. He is on a **US AP track
+preparing for UK universities**, so the usual A-Level bridge is missing. A Korean 선행학습 background
+(수(상)·수(하)·수Ⅰ, before 중2 ended) may cover part of the gap — but it is roughly three years old and was
+concepts rather than drilled fluency, so treat it as a hypothesis to confirm, not a given.
+
+::: {.callout-important}
+## Profile
+
+- **School:** Taipei American School, **G11** (Taiwan — one hour behind Korea)
+- **Sitting:** TMUA, **~15 Oct 2027** — **11 months**, and it falls in **G12**, on the same date as the
+  **UCAS Oxbridge deadline**
+- **Now:** AP Calculus BC (exam ~10 May 2027)
+- **Route so far:** Korean public school to 중2 (수(상)·수(하) 개념심화, 수Ⅰ 개념) → G8-2 Algebra 1 →
+  Geometry (summer) → G9 Algebra 2 → G10 Precalculus (H) → G11 **AP Calculus BC**
+- **Abroad since:** ~early **2024** (G8-2) — about **2 years 10 months** out of the Korean system
+- **Not studied:** IB or A-Level mathematics. No competition background.
+- **Status:** trial lesson, 2 hours. Pre-work: **2016 Paper 2 — 14/20**, wrong on Q4, Q6, Q7, Q9, Q12, Q20.
+:::
+
+---
+
+## Course packets — Paper 2 first, then Paper 1
+
+Order of teaching: **all of Paper 2, then all of Paper 1.** Tick a row in this file when the packet has
+been taught — change `☐` to `☑` in `students/yejun/index.qmd`.
+
+◆ marks the six packets his wrong answers on 2016 Paper 2 pointed at.
+
+**Pacing.** Only about **eight of the eleven months are usable**: Nov–Mar is the clean block, Apr–May goes
+to AP exams, Jun–Aug is the summer push, and Sep–Oct collides with G12 starting and UCAS. Aim to finish
+**all of Paper 2 by March 2027**, use the summer for Paper 1 and timed mocks, and keep the last six weeks
+for revision only.
+
+### Paper 2 — Logic and Proof
+
+| ✔ | | Packet | Class material | Assignment |
+|---|---|---|---|---|
+| ☐ | **S1** | Statement forms — if, only if, if and only if | **[Concepts & class problems](../../toolkit/s01_statement_forms.qmd)** | **[Questions](../../toolkit/s01_assignment_student.qmd)** · [MS](../../toolkit/s01_assignment_ms.qmd) |
+| ☐ | **S2** | Converse and contrapositive | **[Concepts & class problems](../../toolkit/s02_converse_contrapositive.qmd)** | **[Questions](../../toolkit/s02_assignment_student.qmd)** · [MS](../../toolkit/s02_assignment_ms.qmd) |
+| ☐ | **S3** | Necessary and sufficient | **[Concepts & class problems](../../toolkit/s03_necessary_sufficient.qmd)** | **[Questions](../../toolkit/s03_assignment_student.qmd)** · [MS](../../toolkit/s03_assignment_ms.qmd) |
+| ☐ | **S4** | Quantifiers and negation | **[Concepts & class problems](../../toolkit/s04_quantifiers_negation.qmd)** | **[Questions](../../toolkit/s04_assignment_student.qmd)** · [MS](../../toolkit/s04_assignment_ms.qmd) |
+| ☐ | **S5** | Proof methods — direct, cases, contradiction, counterexample | **[Concepts & class problems](../../toolkit/s05_proof_methods.qmd)** | **[Questions](../../toolkit/s05_assignment_student.qmd)** · [MS](../../toolkit/s05_assignment_ms.qmd) |
+| ☐ | **S6** ◆ | Scrambled proofs — order a jumbled proof fast <small>(set once in TMUA 2016–2023: 2016 P2 Q7)</small> | **[Concepts & class problems](../../toolkit/s06_scrambled_proofs.qmd)** | **[Questions](../../toolkit/s06_assignment_student.qmd)** · [MS](../../toolkit/s06_assignment_ms.qmd) · **[Extra](../../toolkit/s06_extra_practice.qmd)** |
+| ☐ | **S7** | Spot the error — find the flaw in a convincing proof | **[Concepts & class problems](../../toolkit/s07_spot_the_error.qmd)** · **[Extended](../../toolkit/s07_extended_equivalence.qmd)** | **[Questions](../../toolkit/s07_assignment_student.qmd)** · [MS](../../toolkit/s07_assignment_ms.qmd) |
+| ☐ | **T1** ◆ | Divisors and primes | **[Material](../../toolkit/t01_divisors_primes.qmd)** | **[Questions](../../toolkit/t01_assignment_student.qmd)** · [MS](../../toolkit/t01_assignment_ms.qmd) |
+| ☐ | **T2** ◆ | Shapes as logical conditions | **[Material](../../toolkit/t02_shapes_as_logic.qmd)** | **[Questions](../../toolkit/t02_assignment_student.qmd)** · [MS](../../toolkit/t02_assignment_ms.qmd) |
+| ☐ | **Quiz** | Concepts quiz — S1–S7 recall + True/False bank | **[Open the quiz](../../toolkit/paper2_quiz.qmd)** | — |
+| ☐ | **Mock A** | Full Paper 2 — all of S1–S7 plus T1 and T2 | **[Sit the paper](../../mocks/mockA_paper2/mockA_paper2.qmd)** · **[Grouped lesson](../../mocks/mockA_paper2/mockA_paper2_grouped_lesson.qmd)** | **[Solutions](../../mocks/mockA_paper2/mockA_paper2_ms.qmd)** |
+
+**Reference throughout:** **[Paper 2 formula sheet](../../formula_sheets/paper2_formula_sheet.qmd)** ·
+**[with card challenges](../../formula_sheets/paper2_formula_sheet_challenge.qmd)**
+
+### Paper 1 — the mathematics (MM1–MM8)
+
+| ✔ | Spec | Packet | Class material | Assignment |
+|---|---|---|---|---|
+| ☐ | **MM1** | Completing the square | **[Material](../../lessons/completing_square_clinic/class_material.qmd)** | — |
+| ☐ | **MM1** | Modulus — equations, inequalities, graphs | **[Material](../../lessons/modulus_clinic/class_material.qmd)** · **[Part 2](../../lessons/modulus_clinic2/class_material.qmd)** | **[Questions](../../lessons/modulus_clinic/assignment_student.qmd)** · [MS](../../lessons/modulus_clinic/assignment_ms.qmd) |
+| ☐ | **MM1** | Range of a function | **[Material](../../lessons/range_clinic/class_material.qmd)** | — |
+| ☐ | **MM1** | Floor and ceiling | **[Material](../../lessons/floor_ceiling_clinic/class_material.qmd)** | — |
+| ☐ | **MM2** ◆ | Sequences, series & binomial — AP, GP, recurrences, method of differences | **[Material](../../lessons/sequences_series_clinic/class_material.qmd)** | **[Questions](../../lessons/sequences_series_clinic/assignment_student.qmd)** · [MS](../../lessons/sequences_series_clinic/assignment_ms.qmd) |
+| ☐ | **MM3** | Coordinate geometry — lines, circles, circle properties | **[Material](../../lessons/coordinate_geometry_clinic/class_material.qmd)** | **[Questions](../../lessons/coordinate_geometry_clinic/assignment_student.qmd)** · [MS](../../lessons/coordinate_geometry_clinic/assignment_ms.qmd) |
+| ☐ | **MM3** | Parametric curves | **[Material](../../lessons/parametric_clinic/class_material.qmd)** | — |
+| ☐ | **MM4** | Trigonometry — sine/cosine rules, radians, identities, equations | **[Material](../../lessons/trig_clinic/class_material.qmd)** | **[Questions](../../lessons/trig_clinic/assignment_student.qmd)** · [MS](../../lessons/trig_clinic/assignment_ms.qmd) |
+| ☐ | **MM4** | Triangle geometry | **[Material](../../lessons/triangle_clinic/class_material.qmd)** | **[Questions](../../lessons/triangle_clinic/assignment_student.qmd)** · [MS](../../lessons/triangle_clinic/assignment_ms.qmd) |
+| ☐ | **MM3/4** | Solid geometry — unfolding, distances through a solid, point-to-plane | **[Material](../../lessons/solid_geometry_clinic/class_material.qmd)** | **[Questions](../../lessons/solid_geometry_clinic/assignment_student.qmd)** · [MS](../../lessons/solid_geometry_clinic/assignment_ms.qmd) |
+| ☐ | **MM5** | Logarithms — laws, equations, hidden quadratics, inequalities | **[Material](../../lessons/log_clinic/class_material.qmd)** | **[Questions](../../lessons/log_clinic/assignment_student.qmd)** · [MS](../../lessons/log_clinic/assignment_ms.qmd) |
+| ☐ | **MM6** | Differentiation — stationary points, tangents, max/min | **[Material](../../lessons/differentiation_clinic/class_material.qmd)** · **[Max/min](../../lessons/differentiation_clinic/supplementary_minmax.qmd)** | **[Questions](../../lessons/differentiation_clinic/assignment_student.qmd)** · [MS](../../lessons/differentiation_clinic/assignment_ms.qmd) |
+| ☐ | **MM7** | Integration — area | **[Material](../../lessons/integration_area_clinic/class_material.qmd)** | — |
+| ☐ | **MM7** | Integrals to reason about — compare rather than evaluate | **[Material](../../lessons/integral_reasoning_clinic/class_material.qmd)** | **[Questions](../../lessons/integral_reasoning_clinic/assignment_student.qmd)** · [MS](../../lessons/integral_reasoning_clinic/assignment_ms.qmd) |
+| ☐ | **MM8** | Graphs — the main bank | **[Concepts](../../lessons/graph_clinic/concepts.qmd)** · **[Material](../../lessons/graph_clinic/class_material.qmd)** | **[Questions](../../lessons/graph_clinic/assignment_student.qmd)** · [MS](../../lessons/graph_clinic/assignment_ms.qmd) |
+| ☐ | **MM8** | Graphs — transformations | **[Concepts](../../lessons/graphs_transformations/concepts.qmd)** · **[Material](../../lessons/graphs_transformations/class_material.qmd)** | **[Questions](../../lessons/graphs_transformations/assignment_student.qmd)** · [MS](../../lessons/graphs_transformations/assignment_ms.qmd) |
+| ☐ | **MM8** ◆ | Graphs — sketching, and counting real roots | **[Concepts](../../lessons/graphs_sketching/concepts.qmd)** · **[Material](../../lessons/graphs_sketching/class_material.qmd)** | — |
+| ☐ | **MM8** | Graphs — extra bank | **[Material](../../lessons/graphs_clinic/class_material.qmd)** | — |
+
+**Reference throughout:** **[Paper 1 formula sheet](../../formula_sheets/paper1_formula_sheet.qmd)** ·
+**[blank, to fill in](../../formula_sheets/paper1_formula_sheet_blank.qmd)** ·
+**[with card challenges](../../formula_sheets/paper1_formula_sheet_challenge.qmd)** ·
+**[worksheet & mark scheme](../../formula_sheets/paper1_formula_sheet_ws.qmd)**
+
+### Papers sat
+
+| ✔ | Date | Paper | Score | Notes |
+|---|---|---|---|---|
+| ☑ | 2026-11-01 | **[2016 Paper 2](../../lessons/2016_paper2/class_material.qmd)** | **14/20** | wrong: Q4, Q6, Q7, Q9, Q12, Q20 — see the diagnosis above |
+| ☐ | — | 2016 Paper 1 | — | set this next: does the hidden-reasoning leak repeat on Paper 1? |
+
+---
