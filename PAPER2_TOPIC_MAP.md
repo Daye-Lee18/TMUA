@@ -51,8 +51,8 @@ Identical mathematics. Completely different question. *This is the map in one ex
 student who has only "done 2016" has not banked what 2021 wanted.
 
 Both are now in the toolkit: the 2016 version is
-[S7 Q18](toolkit/s07_spot_the_error.qmd), and the counterexample habit is
-[S5 Part 3](toolkit/s05_proof_methods.qmd).
+[S7 Q14](toolkit/s07_spot_the_error.qmd), and the counterexample habit is
+[S5 Parts 4–5](toolkit/s05_proof_methods.qmd).
 
 ---
 
@@ -285,7 +285,7 @@ logical wrapper at all.
 | 16 | B | **recurrence + $\gcd$** | which must be true |
 | 17 | F | $\int 2^{\lceil x\rceil}$ | calc |
 | 18 | D | quartic, four distinct roots | **iff** |
-| 19 | H | $g=x\,f''$, root counts | ∃ ("possible") |
+| 19 | H | $g=x\,f'$, root counts | ∃ ("possible") |
 | 20 | D | $\int\big[f(x)^2-f(\lvert x\rvert)^2\big]$ | **only if** |
 
 ---

@@ -123,7 +123,7 @@ The negation of "**all** X are Y" is "**some** X is **not** Y" — *not* "no X i
 
 **De Morgan.** $\lnot(P\text{ and }Q)=\lnot P\text{ or }\lnot Q$; $\lnot(P\text{ or }Q)=\lnot P\text{ and }\lnot Q$.
 
-**Negating an implication.** $\lnot(P\Rightarrow Q)=P\text{ **and** }\lnot Q$ — never "if $P$ then not $Q$".
+**Negating an implication.** $\lnot(P\Rightarrow Q)=P\;\textbf{and}\;\lnot Q$ — never "if $P$ then not $Q$".
 
 **Order matters.** $\forall x\,\exists y$ lets $y$ depend on $x$; $\exists y\,\forall x$ needs one $y$ for
 all $x$ at once — far stronger.
@@ -192,7 +192,7 @@ it is stated only as a necessary condition; the error comes when it is treated a
 **Wording controls equivalence.** "Is equivalent to" demands both directions. "Any solution must satisfy"
 claims only one direction; those values are **candidates**, not solutions, until checked.
 
-[full notes: **[S7 concepts](../toolkit/s07_concepts.qmd)** · **[S7 extended](../toolkit/s07_extended_equivalence.qmd)**]{.eg}
+[full notes: **[S7 notes](../toolkit/s07_spot_the_error.qmd)** · **[S7 extended](../toolkit/s07_extended_equivalence.qmd)**]{.eg}
 :::
 
 ::::
@@ -515,11 +515,11 @@ A square is **never** $2\bmod3$ and **never** $3\bmod4$.
 
 Every square is $0$ or $1$ modulo $4$, so
 
-$$a^{2}+b^{2}\equiv 0,\ 1\ 	ext{or}\ 2 \pmod 4 \quad	ext{— never } 3 .$$
+$$a^{2}+b^{2}\equiv 0,\ 1\ \text{or}\ 2 \pmod 4 \quad\text{— never } 3 .$$
 
 **So no integer of the form $4k+3$ is a sum of two squares.** One residue check replaces a search.
 
-Companion facts: a square is never $2mod3$ and never $3mod4$; and modulo $8$ a square is $0$, $1$ or $4$.
+Companion facts: a square is never $\equiv2\pmod 3$ and never $\equiv3\pmod 4$; and modulo $8$ a square is $0$, $1$ or $4$.
 
 [$255=4(63)+3$, so it is not $a^{2}+b^{2}$ — no trial needed]{.eg}
 :::
@@ -529,7 +529,7 @@ Companion facts: a square is never $2mod3$ and never $3mod4$; and modulo $8$ a
 
 Since $10\equiv1\pmod 9$, every power of $10$ is $\equiv1$, so for the digit sum $s(N)$
 
-$$N\equiv s(N)\pmod 9,\qquad	ext{hence } 9\mid N\iff 9\mid s(N),$$
+$$N\equiv s(N)\pmod 9,\qquad\text{hence } 9\mid N\iff 9\mid s(N),$$
 
 and the same argument modulo $3$ gives the test for $3$. Modulo $11$, $10\equiv-1$, so the **alternating**
 digit sum is what matters.
@@ -546,7 +546,7 @@ not about being composite:
 | $m$ | $m\mid n^{3}\Rightarrow m\mid n$? | |
 |---|---|---|
 | $2$, $3$, $p$ prime | **yes** | Euclid's lemma |
-| $6=2	imes3$ | **yes** | distinct primes, each to the power $1$ |
+| $6=2\times3$ | **yes** | distinct primes, each to the power $1$ |
 | $8=2^{3}$ | no | $n=2$ |
 | $9=3^{2}$ | no | $n=3$ |
 

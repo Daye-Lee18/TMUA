@@ -2,6 +2,7 @@
 title: "Toolkit S3 — Assignment · Mark Scheme"
 subtitle: "Tutor copy — full solutions with reasoning"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -9,391 +10,1459 @@ execute:
 
 ::: {.solutions}
 
-Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **40**.
+24 questions. Answers were checked against the official worked answers or the publisher solutions, and by computation
+wherever a value or counterexample could be computed.
 
-::: {.callout-important}
-## What to watch while marking
+---
 
-1. **Did the student reverse the arrow for every "necessary"?** A script with no backwards arrows anywhere
-   has mistranslated the word, whatever the final answers say.
-2. **Is every "not sufficient" / "not necessary" backed by a named counterexample?** A bare verdict scores
-   the method mark at most. This is where the marks in Section B are.
-3. **In Section C, was the exact condition written down before the options were read?** Working straight
-   from the options is the habit these two questions exist to break.
+# Section A — Read the verdict
 
-Section B is six genuine TMUA Paper 2 questions, so the letters can be checked against the official keys:
-**2022 Q6 = C**, **2021 Q8 = C**, **2021 Q6 = D**, **2023 Q7 = E**, **2021 Q15 = B**, **2023 Q13 = C**.
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q5</span>
+
+::: {.question}
+Consider the following statement about the positive integers $a$, $b$ and $n$:
+
+> $(*)$: $ab$ is divisible by $n$
+
+The condition "either $a$ or $b$ is divisible by $n$" is:
+
+&nbsp;&nbsp;**A** necessary but not sufficient for $(*)$
+
+&nbsp;&nbsp;**B** sufficient but not necessary for $(*)$
+
+&nbsp;&nbsp;**C** necessary and sufficient for $(*)$
+
+&nbsp;&nbsp;**D** not necessary and not sufficient for $(*)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.** Call the condition $C$. Test the two arrows one at a time.
+
+**Is $C$ sufficient?** That asks whether $C\Rightarrow(*)$. Suppose $a$ is divisible by $n$, so $a=nk$ for some
+integer $k$. Then
+
+$$ab=nk\cdot b=n(kb),$$
+
+which is a multiple of $n$. The same works if $b$ is the multiple. So $C$ is **sufficient**.
+
+**Is $C$ necessary?** That asks whether $(*)\Rightarrow C$. Try a value of $n$ that is not prime. With $n=4$ and
+$a=b=2$:
+
+$$ab=4\text{ is divisible by }4,\qquad\text{but neither }a\text{ nor }b\text{ is.}$$
+
+So $(*)$ holds while $C$ fails, and $C$ is **not necessary**.
+
+**Why the other options fail.** A and C both claim necessity, which $a=b=2$, $n=4$ destroys. D denies sufficiency,
+which the short proof above establishes.
+
+*The tempting wrong answer is C: the reverse arrow does hold when $n$ is prime, but the question never says $n$ is
+prime.*
 :::
 
 ---
 
-# Section A — Fluency
-
-## Question 1 **[4]**
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q6</span>
 
 ::: {.question}
-Write as implications: (a) $P$ **only if** $Q$; (b) a **sufficient** condition for $Q$ is $P$; (c) $Q$ is
-**necessary** for $P$; (d) all three are the same statement — how can you tell, and which one's wording
-points the other way?
+A list consists of $n$ integers.
+
+Consider the following statements:
+
+&nbsp;&nbsp;**P:** $n$ is odd.
+
+&nbsp;&nbsp;**Q:** The median of the list is one of the numbers in the list.
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** P is necessary and sufficient for Q.
+
+&nbsp;&nbsp;**B** P is necessary but not sufficient for Q.
+
+&nbsp;&nbsp;**C** P is sufficient but not necessary for Q.
+
+&nbsp;&nbsp;**D** P is not necessary and not sufficient for Q.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a)** $P\Rightarrow Q$ **(B1)**
+**C.**
 
-**(b)** $P\Rightarrow Q$ **(B1)** — *the target follows the word "for", so the target is $Q$ and the
-condition is $P$; a sufficient condition points at its target.*
+**Is P sufficient for Q?** That asks whether P $\Rightarrow$ Q. If $n$ is odd, then after sorting there is a single
+middle entry. The median **is** that entry, so it is certainly in the list. **Yes.**
 
-**(c)** $P\Rightarrow Q$ **(B1)** — *"necessary" reverses, so "$Q$ necessary for $P$" is $P\Rightarrow Q$.*
+**Is P necessary for Q?** That asks whether Q $\Rightarrow$ P. We need a list with Q true and P false, so an
+even-length list whose median is in the list. When $n$ is even the median is the mean of the two middle entries,
+so make those two equal:
 
-**(d)** **(B1)** for both halves: all three translate to the same arrow $P\Rightarrow Q$; the one whose
-wording points the other way is **(c)**, because "necessary" always reverses the order in which the
-letters are written.
+$$1,\ 2,\ 2,\ 3\quad\text{has median }\frac{2+2}{2}=2,\text{ which is in the list.}$$
 
-**Common error.** Reading (b) as $Q\Rightarrow P$ because $Q$ is named first. *The sentence "a condition
-for $Q$ is $P$" names the target before the condition — word order is not arrow direction.*
+Here Q is true and $n=4$ is even, so **no**.
+
+**Why the other options fail.** A and B claim necessity, which the list above breaks. D denies sufficiency, which
+the single middle entry establishes.
 :::
 
 ---
 
-# Section B — Exam standard
-
-## Question 2 **[3]** — 2022 P2 Q6
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q3</span>
 
 ::: {.question}
-$n$ integers in a list. $P$: $n$ is odd. $Q$: the median is one of the numbers in the list.
+A student is chosen at random from a class. Each student is equally likely to be chosen.
+
+Which of the following conditions is/are **necessary** for the probability that the student wears glasses to equal
+$\dfrac{4}{15}$?
+
+&nbsp;&nbsp;**I** &nbsp; Exactly $11$ students in the class do not wear glasses.
+
+&nbsp;&nbsp;**II** &nbsp; The number of students in the class is divisible by $3$.
+
+&nbsp;&nbsp;**III** &nbsp; The class contains $30$ students, and $8$ of them wear glasses.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **C** (sufficient, not necessary)
+## Solution
 
-**Sufficient. (M1 A1)** If $n$ is odd there is a single middle entry after sorting, and the median *is*
-that entry — so it certainly belongs to the list. $P\Rightarrow Q$.
+**C.** A necessary condition must hold in **every** class that has the probability $\tfrac{4}{15}$. So first list
+those classes.
 
-**Not necessary. (B1)** A counterexample with $n$ even: $1,2,2,3$ has median
-$\tfrac{2+2}{2}=2$, which **is** in the list. So $Q$ holds while $P$ fails.
+**Step 1: which classes have probability $\tfrac4{15}$?** With $N$ students, the number wearing glasses is
+$\tfrac{4}{15}N$, and this must be a whole number. Since $\tfrac4{15}$ is in lowest terms, $N$ must be a multiple of
+$15$:
 
-*Any even-length list whose two middle entries are equal works;* accept $2,4,4,6$ and similar.
+| $N$ | wear glasses | do not |
+|---|---|---|
+| $15$ | $4$ | $11$ |
+| $30$ | $8$ | $22$ |
+| $45$ | $12$ | $33$ |
 
-**Marking.** No counterexample, no third mark — "the median could still be in the list" is an assertion,
-not a case.
+**Step 2: test each condition against every row.**
+
+- **I** fails in the row $N=30$, which has $22$ students without glasses. Not necessary.
+- **II** holds in every row, because a multiple of $15$ is a multiple of $3$. **Necessary.**
+- **III** fails in the row $N=15$. Not necessary.
+
+So only II is necessary.
+
+*Notice that II is nowhere near sufficient, since a class of $3$ cannot have probability $\tfrac4{15}$. That does not
+matter: the question asks only for necessary. III is the trap, because it is* sufficient *rather than necessary.*
 :::
 
 ---
 
-## Question 3 **[3]** — 2021 P2 Q8
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q5</span>
 
 ::: {.question}
-$(*)$: there is a $c$ with $a<c<b$ and $\mathrm p'(c)=0$. Is $\mathrm p(a)=\mathrm p(b)$ necessary,
-sufficient, both or neither for $(*)$?
+A child is chosen at random from a group. Each child is equally likely to be chosen.
+
+Which of the following conditions is/are **necessary** for the probability that the child has a pet to equal exactly
+$\dfrac{4}{9}$?
+
+&nbsp;&nbsp;**I** &nbsp; Exactly $5$ children in the group do not have a pet.
+
+&nbsp;&nbsp;**II** &nbsp; The number of children in the group is divisible by $4$.
+
+&nbsp;&nbsp;**III** &nbsp; The number of children in the group with a pet is divisible by $3$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **C** (sufficient, not necessary)
+## Solution
 
-**Sufficient. (M1 A1)** A polynomial is continuous and differentiable everywhere, so if
-$\mathrm p(a)=\mathrm p(b)$ then **Rolle's theorem** gives a $c$ strictly between $a$ and $b$ with
-$\mathrm p'(c)=0$.
+**A.** Same method as the previous question: list the groups with probability $\tfrac49$, then test each condition
+against all of them.
 
-**Not necessary. (B1)** Take $\mathrm p(x)=x^{2}$ on $[-1,2]$: $\mathrm p'(0)=0$ with $-1<0<2$, so $(*)$
-holds, yet $\mathrm p(-1)=1\neq4=\mathrm p(2)$.
+**Step 1: the groups.** With $N$ children, $\tfrac49N$ must be a whole number, so $N$ is a multiple of $9$:
 
-*The picture to accept:* any curve with a turning point inside the interval but different heights at the
-two ends.
+| $N$ | have a pet | do not |
+|---|---|---|
+| $9$ | $4$ | $5$ |
+| $18$ | $8$ | $10$ |
 
-**Marking.** Naming Rolle is not required — "equal ends force the curve to turn somewhere between" earns
-the method mark.
+**Step 2: test each condition.** The group of $N=9$ alone breaks II and III, and $N=18$ breaks I.
+
+- **I** fails at $N=18$, where $10$ children have no pet.
+- **II** fails at $N=9$, because $4$ does not divide $9$.
+- **III** fails at $N=9$, because $3$ does not divide $4$.
+
+None of them is necessary.
+
+*The $4$ in II and the $3$ in III are planted: the numbers look connected to $\tfrac49$ without following from it.
+The one consequence that does follow is "$N$ is divisible by $9$", and it is not on the list.*
 :::
 
 ---
 
-## Question 4 **[4]** — 2021 P2 Q6
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q13</span>
 
 ::: {.question}
-$P$: $\mathrm f=0$ at exactly three real $x$. $Q$: $\mathrm f'=0$ at exactly two real $x$.
+Let $x$ be a real number.
+
+Which one of the following statements is a **sufficient** condition for exactly three of the other four statements?
+
+&nbsp;&nbsp;**A** $x\ge0$
+
+&nbsp;&nbsp;**B** $x=1$
+
+&nbsp;&nbsp;**C** $x=0$ or $x=1$
+
+&nbsp;&nbsp;**D** $x\ge0$ or $x\le1$
+
+&nbsp;&nbsp;**E** $x\ge0$ and $x\le1$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **D** (neither)
+## Solution
 
-*This question is worth four marks because **two** counterexamples are needed, one in each direction.*
+**C.** "$X$ is sufficient for $Y$" means every $x$ in $X$ is also in $Y$. So turn each statement into a set.
 
-**$P$ is not sufficient. (M1 A1)** A quintic can have three distinct roots and **four** turning points.
-Concretely, take
-$$\mathrm f(x)=3x^{5}-25x^{3}+60x+36,\qquad \mathrm f'(x)=15(x-2)(x-1)(x+1)(x+2).$$
-The derivative has **four** real zeros ($x=\pm1,\pm2$), and the stationary values are
-$\mathrm f(-2)=20$, $\mathrm f(-1)=-2$, $\mathrm f(1)=74$, $\mathrm f(2)=52$ — only one dips below the
-axis, so the curve crosses exactly **three** times (near $x\approx-2.39,\,-1.22,\,-0.79$). So $P$ holds and
-$Q$ fails: $P\not\Rightarrow Q$.
+| | Statement | Set |
+|---|---|---|
+| **A** | $x\ge0$ | $[0,\infty)$ |
+| **B** | $x=1$ | $\{1\}$ |
+| **C** | $x=0$ or $x=1$ | $\{0,1\}$ |
+| **D** | $x\ge0$ **or** $x\le1$ | every real number |
+| **E** | $x\ge0$ **and** $x\le1$ | $[0,1]$ |
 
-*A student is not expected to manufacture this.* Accept the qualitative argument in full: **"a degree-5
-curve can wiggle four times while only one of those wiggles reaches across the axis, giving three roots and
-four stationary points."**
+**D** needs care: every real number satisfies at least one of $x\ge0$ and $x\le1$, so D is always true and is implied
+by everything.
 
-**$P$ is not necessary. (M1 A1)** A cubic with a **repeated** root has two turning points but only **two**
-distinct roots: $\mathrm f(x)=x^{2}(x-3)=x^{3}-3x^{2}$ gives $\mathrm f'(x)=3x^{2}-6x=3x(x-2)$, zero at
-exactly $x=0$ and $x=2$. So $Q$ holds while $P$ fails: $Q\not\Rightarrow P$. *This direction is the easy
-one and every student should get it.*
+**Now count, for each statement, how many of the others contain it.**
 
-Neither implication holds, so **D**.
+| | Contained in | Count |
+|---|---|---|
+| **A** | D only | $1$ |
+| **B** | A, C, D, E | $4$ |
+| **C** | A, D, E (not B, since $x=0$ fails) | $3$ |
+| **D** | none of them (take $x=-5$) | $0$ |
+| **E** | A, D | $2$ |
 
-**Marking.** One counterexample earns at most two marks. *The most common wrong answer is C
-("necessary and sufficient") from assuming three roots and two turning points always accompany each other —
-true for a "generic" cubic, false in both directions once repeated roots or higher degree are allowed.*
+Only C reaches exactly three.
+
+*B is the near miss: it is sufficient for all four, which is not "exactly three".*
 :::
 
 ---
 
-## Question 5 **[4]** — 2023 P2 Q7
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q13</span>
 
 ::: {.question}
-$ax+by=c$ with $a,b,c\neq0$. Which condition is **necessary but not sufficient** for a positive gradient
-and a positive $y$-intercept?
+Let $x$ and $y$ be non-zero real numbers with $x\neq y$.
+
+Which one of the following statements is both **necessary and sufficient** for $x<y$?
+
+&nbsp;&nbsp;**A** $y^{-1/3}<x^{-1/3}$
+
+&nbsp;&nbsp;**B** $y^{1/5}<x^{1/5}$
+
+&nbsp;&nbsp;**C** $x^{2/3}<y^{2/3}$
+
+&nbsp;&nbsp;**D** $y^{2/3}<x^{2/3}$
+
+&nbsp;&nbsp;**E** $|x|^{1/3}<|y|^{1/3}$
+
+&nbsp;&nbsp;**F** $x^{-1/3}<y^{-1/3}$
+
+&nbsp;&nbsp;**G** $x^{1/5}<y^{1/5}$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **E** ($a$ and $c$ have opposite signs)
+## Solution
 
-**Step 1 — rearrange. (M1)** $y=-\dfrac ab x+\dfrac cb$, so
-$$\text{gradient}=-\frac ab,\qquad y\text{-intercept}=\frac cb .$$
+**G.** "Necessary and sufficient" means the option must be **equivalent** to $x<y$.
 
-**Step 2 — the exact requirement. (A1)** Both positive means
-$$-\frac ab>0\ \Longleftrightarrow\ \frac ab<0,\qquad\text{and}\qquad \frac cb>0 .$$
+**Why G works.** The fifth root is defined for every real number, and $t\mapsto t^{1/5}$ is strictly increasing on all
+of $\mathbb R$. A strictly increasing function preserves order in both directions, so
 
-**Step 3 — extract the necessary relation. (A1)** Dividing the first by the second,
-$\dfrac{a}{b}\Big/\dfrac{c}{b}=\dfrac ac<0$ — so **$a$ and $c$ must have opposite signs**. Necessary. ✓
+$$x<y\iff x^{1/5}<y^{1/5}.$$
 
-**Step 4 — why not sufficient. (B1)** Opposite signs of $a$ and $c$ say nothing about $b$, and flipping the
-sign of $b$ flips **both** the gradient and the intercept. Take $a=1$, $c=-1$ (opposite signs) with $b=1$:
-the line is $x+y=-1$, i.e. $y=-x-1$ — gradient $-1$ and intercept $-1$, both negative.
+**Why the others fail.** Each option must at least follow from $x<y$. So for each one, find a pair with $x<y$ where
+the option is false.
 
-**Why the others fail.** **A**, **C** control only the gradient; **B**, **D** only the intercept — each is
-necessary for *one* of the two requirements, not for their conjunction. **F** is the negation of the
-correct answer, so it is not even necessary.
+| Option | Pair with $x<y$ | What goes wrong |
+|---|---|---|
+| **A** | $x=-1,\ y=1$ | $y^{-1/3}=1$ and $x^{-1/3}=-1$, and $1<-1$ is false |
+| **B** | $x=1,\ y=2$ | it claims $2^{1/5}<1$ |
+| **C** | $x=-8,\ y=-1$ | $x^{2/3}=4$ and $y^{2/3}=1$, and $4<1$ is false |
+| **D** | $x=1,\ y=8$ | $y^{2/3}=4$ and $x^{2/3}=1$, and $4<1$ is false |
+| **E** | $x=-8,\ y=-1$ | $|x|^{1/3}=2$ and $|y|^{1/3}=1$, and $2<1$ is false |
+| **F** | $x=1,\ y=8$ | $x^{-1/3}=1$ and $y^{-1/3}=\tfrac12$, and $1<\tfrac12$ is false |
 
-**Marking.** Accept reaching $\tfrac ac<0$ by any route. The fourth mark is specifically for a
-counterexample with numbers.
+*Even powers (C, D) and absolute values (E) forget the sign, while reciprocals (A, F) reverse order on each side of
+$0$ and jump across it. Only an odd root is increasing everywhere.*
 :::
 
 ---
 
-## Question 6 **[3]** — 2021 P2 Q15
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q12</span>
 
 ::: {.question}
-$x^{2}+ax+y^{2}+by+c=0$, $a,b,c\neq0$. Necessary and sufficient condition for tangency to the $y$-axis?
+A TMUA question asks candidates to identify which one of the conditions below is a **sufficient but not necessary**
+condition for some statement $P$, concerning a real number $x$, to hold.
+
+Friedrich Gauss, sitting the exam, noticed to his delight that the examiner has designed the question poorly, and the
+correct option can be deduced without knowing or examining $P$ in the slightest!
+
+Which is the correct option?
+
+&nbsp;&nbsp;**A** $|x-2|<2$
+
+&nbsp;&nbsp;**B** $x^{2}-5x+6<0$
+
+&nbsp;&nbsp;**C** $\log(x-2)$ is defined
+
+&nbsp;&nbsp;**D** $|x-2|<1$
+
+&nbsp;&nbsp;**E** $x$ can be any real number
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **B** ($b^{2}=4c$)
+## Solution
 
-**Complete the square. (M1)**
+**B.** The key fact: **a condition inside a correct option is also correct.**
+
+**Step 1: the general argument.** Suppose $Q$ is sufficient but not necessary for $P$, and $R$ is a condition with
+$R\Rightarrow Q$.
+
+- $R$ is sufficient for $P$, because $R\Rightarrow Q\Rightarrow P$.
+- $R$ is not necessary for $P$. Since $Q$ is not necessary, some $x$ has $P$ true and $Q$ false. As $R\Rightarrow Q$,
+  that same $x$ has $R$ false too.
+
+So if $Q$ is a correct option and $R$ implies $Q$, then $R$ is correct as well.
+
+**Step 2: write each option as a set.**
+
+| | Option | Set |
+|---|---|---|
+| **A** | $\lvert x-2\rvert<2$ | $(0,4)$ |
+| **B** | $(x-2)(x-3)<0$ | $(2,3)$ |
+| **C** | $x-2>0$ | $(2,\infty)$ |
+| **D** | $\lvert x-2\rvert<1$ | $(1,3)$ |
+| **E** | any real $x$ | $\mathbb R$ |
+
+**Step 3: finish.** The set $(2,3)$ lies inside each of the other four, so B implies all of them. If any other option
+were correct, B would be correct too, giving two correct answers. There is only one, so it must be B.
+
+*This is a real exam habit: on a "sufficient but not necessary" question, the strongest option is the only one that can
+be unique.*
+:::
+
+---
+
+# Section B — Find the exact condition
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q7</span>
+
+::: {.question}
+The graph of the line $ax+by=c$ is drawn, where $a$, $b$ and $c$ are real non-zero constants.
+
+Which one of the following is a **necessary** but **not sufficient** condition for the line to have a positive gradient
+**and** a positive $y$-intercept?
+
+&nbsp;&nbsp;**A** $\dfrac cb>0$ and $\dfrac ab<0$
+
+&nbsp;&nbsp;**B** $\dfrac cb<0$ and $\dfrac ab>0$
+
+&nbsp;&nbsp;**C** $a>b>c$
+
+&nbsp;&nbsp;**D** $a<b<c$
+
+&nbsp;&nbsp;**E** $a$ and $c$ have opposite signs
+
+&nbsp;&nbsp;**F** $a$ and $c$ have the same sign
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.** Find the exact condition first.
+
+**Step 1: rearrange.** From $by=-ax+c$,
+
+$$y=-\frac abx+\frac cb,$$
+
+so the gradient is $-\dfrac ab$ and the $y$-intercept is $\dfrac cb$.
+
+**Step 2: the exact condition.** Both are positive exactly when
+
+$$\frac ab<0\qquad\text{and}\qquad\frac cb>0 .$$
+
+That is option **A**, word for word, so A is necessary **and** sufficient. It is not what was asked.
+
+**Step 3: necessity of E.** From Step 2, $a$ has the opposite sign to $b$, and $c$ has the same sign as $b$. So $a$ and
+$c$ have opposite signs. E is **necessary**.
+
+**Step 4: E is not sufficient.** Opposite signs for $a$ and $c$ say nothing about $b$. Take $a=1$, $b=1$, $c=-1$. The line
+is $y=-x-1$, with gradient $-1$ and intercept $-1$, both negative.
+
+**The other options.**
+
+- **B** says the intercept is negative, so it contradicts the requirement. Not necessary.
+- **C** is not necessary: $a=1$, $b=-2$, $c=-1$ gives $y=\tfrac12x+\tfrac12$, which qualifies, but $a>b>c$ fails since
+  $-2<-1$.
+- **D** is not necessary: $a=-1$, $b=2$, $c=1$ gives $y=\tfrac12x+\tfrac12$, which qualifies, but $a<b<c$ fails since
+  $2>1$.
+- **F** contradicts Step 3. Not necessary.
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q15</span>
+
+::: {.question}
+A circle has equation
+
+$$x^{2}+ax+y^{2}+by+c=0$$
+
+where $a$, $b$ and $c$ are non-zero real constants.
+
+Which one of the following is a **necessary and sufficient** condition for the circle to be tangent to the $y$-axis?
+
+&nbsp;&nbsp;**A** $a^{2}=4c$
+
+&nbsp;&nbsp;**B** $b^{2}=4c$
+
+&nbsp;&nbsp;**C** $\dfrac a2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+
+&nbsp;&nbsp;**D** $\dfrac b2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+
+&nbsp;&nbsp;**E** $-\dfrac a2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+
+&nbsp;&nbsp;**F** $-\dfrac b2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.**
+
+**Step 1: complete the square.**
+
 $$\left(x+\tfrac a2\right)^{2}+\left(y+\tfrac b2\right)^{2}=\frac{a^{2}+b^{2}}{4}-c,$$
+
 so the centre is $\left(-\tfrac a2,-\tfrac b2\right)$ and $r^{2}=\dfrac{a^{2}+b^{2}}{4}-c$.
 
-**Tangency to $x=0$. (A1)** The distance from the centre to the $y$-axis is $\left\lvert-\tfrac a2\right\rvert$,
-and tangency means it equals the radius:
+**Step 2: what tangency means.** The circle touches the $y$-axis exactly when the radius equals the distance from the
+centre to the axis, and that distance is $\left|\tfrac a2\right|$. It is not simply $-\tfrac a2$ or $\tfrac a2$, because the
+centre can be on either side:
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+t=np.linspace(0,2*np.pi,300)
+fig,ax=plt.subplots(figsize=(5.4,3.8))
+for cx,col,lab in [(-1,'#1f77b4','$a=2$: centre on the left'),(1,'#d62728','$a=-2$: centre on the right')]:
+    ax.plot(cx+np.cos(t),-2+np.sin(t),color=col,lw=2,label=lab)
+    ax.plot([cx],[-2],'o',color=col,ms=4)
+ax.axvline(0,color='0.25',lw=1.2); ax.axhline(0,color='0.25',lw=1.2)
+ax.set_xlim(-3,3); ax.set_ylim(-3.4,2.0); ax.set_aspect('equal')
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False,fontsize=9,loc='upper center',ncol=1)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+**Step 3: square.** Both sides are non-negative, so squaring loses nothing:
+
 $$\frac{a^{2}}{4}=\frac{a^{2}+b^{2}}{4}-c .$$
 
-**Simplify. (A1)** $0=\dfrac{b^{2}}{4}-c$, so $\boxed{b^{2}=4c}$.
+The $\tfrac{a^{2}}{4}$ cancels, leaving $0=\tfrac{b^{2}}{4}-c$, so $\boxed{b^{2}=4c}$.
 
-*Why an "iff" is safe here:* every step is reversible, and squaring loses nothing because both sides are
-distances.
+*Quick check.* Put $x=0$ in the circle: $y^{2}+by+c=0$. Tangency means a repeated root, so the discriminant
+$b^{2}-4c$ must be $0$. Same condition.
 
-**The trap.** Options **C**–**F** are the un-squared version, $\pm\tfrac a2=r$ or $\pm\tfrac b2=r$. Those
-pick a **sign**, so each is sufficient at best — only the squared form covers both positions of the centre.
-Option **A** uses the wrong coordinate: $a^{2}=4c$ is the condition for tangency to the **$x$**-axis.
+**The other options.**
+
+- **A**, $a^{2}=4c$, is the condition for tangency to the $x$-axis.
+- **C** and **E** each pick one sign. C needs $a>0$ and E needs $a<0$. Each is sufficient but not necessary, since the
+  graph shows both cases: $a=2,\ b=4,\ c=4$ satisfies C but not E, and $a=-2,\ b=4,\ c=4$ satisfies E but not C.
+- **D** and **F** square to $a^{2}=4c$ again, so they describe the $x$-axis. They are not even sufficient:
+  $a=4,\ b=2,\ c=4$ satisfies D, and the circle has centre $(-2,-1)$ and radius $1$, which misses the $y$-axis.
 :::
 
 ---
 
-## Question 7 **[3]** — 2023 P2 Q13
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q15</span>
 
 ::: {.question}
-Which one of **A** $x\ge0$, **B** $x=1$, **C** $x=0$ or $x=1$, **D** $x\ge0$ or $x\le1$,
-**E** $x\ge0$ and $x\le1$ is sufficient for **exactly three** of the other four?
+Which one of the following is a **necessary and sufficient** condition for
+
+$$\sum_{k=1}^{n}\sin\left(\frac{k\pi}{3}\right)=\frac{\sqrt3}{2}$$
+
+to be true?
+
+&nbsp;&nbsp;**A** $n=1$
+
+&nbsp;&nbsp;**B** $n$ is a multiple of $3$
+
+&nbsp;&nbsp;**C** $n$ is a multiple of $6$
+
+&nbsp;&nbsp;**D** $n$ is $1$ more than a multiple of $3$
+
+&nbsp;&nbsp;**E** $n$ is $1$ more than a multiple of $6$
+
+&nbsp;&nbsp;**F** $n$ is $1$ more than a multiple of $6$ or $n$ is $2$ more than a multiple of $6$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **C**
+## Solution
 
-**Step 1 — spot the vacuous one. (M1)** **D** is "$x\ge0$ **or** $x\le1$", and *every* real number
-satisfies at least one of those — so **D is true for all $x$** and is therefore implied by everything.
+**D.** Work out the sum for small $n$ and look for the cycle.
 
-**Step 2 — test C. (A1)** $C$ says $x\in\{0,1\}$. Check each of the others on both values:
+**Step 1: the terms repeat every $6$**, because $\sin$ has period $2\pi$ and $\tfrac{6\pi}{3}=2\pi$.
 
-| | statement | does $C$ imply it? |
-|---|---|---|
-| **A** | $x\ge0$ | $0\ge0$ ✓ and $1\ge0$ ✓ — **yes** |
-| **B** | $x=1$ | fails at $x=0$ — **no** |
-| **D** | all reals | **yes** |
-| **E** | $0\le x\le1$ | both $0$ and $1$ lie in $[0,1]$ — **yes** |
+| $k$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |
+|---|---|---|---|---|---|---|
+| $\sin\tfrac{k\pi}{3}$ | $\tfrac{\sqrt3}2$ | $\tfrac{\sqrt3}2$ | $0$ | $-\tfrac{\sqrt3}2$ | $-\tfrac{\sqrt3}2$ | $0$ |
+| running sum | $\tfrac{\sqrt3}2$ | $\sqrt3$ | $\sqrt3$ | $\tfrac{\sqrt3}2$ | $0$ | $0$ |
 
-Exactly three: A, D, E. ✓
+**Step 2: the cycle.** After six terms the running sum is back at $0$, so the running sums repeat every $6$ as well.
 
-**Step 3 — rule out the rest. (A1)**
+**Step 3: read off the exact condition.** The sum equals $\tfrac{\sqrt3}{2}$ at $n=1$ and $n=4$ in each cycle, that is, at
+$n=1,4,7,10,13,\dots$ These are exactly the numbers that are $1$ more than a multiple of $3$.
 
-- **A** ($x\ge0$) implies only **D** — one.
-- **B** ($x=1$) implies **A**, **C**, **D**, **E** — all **four**, not three.
-- **D** (everything) implies only **D**… it implies **none** of the others, since $x=-5$ satisfies D alone.
-- **E** ($[0,1]$) implies **A** and **D** — two.
+**The other options.**
 
-So **C** is the unique answer.
+- **A** and **E** are sufficient but not necessary: each misses $n=4$.
+- **B** fails at $n=3$, where the sum is $\sqrt3$.
+- **C** fails at $n=6$, where the sum is $0$.
+- **F** fails at $n=2$, where the sum is $\sqrt3$.
 
-*The design of the question:* **B** is the near-miss placed for students who stop at "it implies lots of
-them" without counting, and **D** is the vacuous statement that makes the count work out to three rather
-than two.
+*E is the tempting answer if you stop checking after the first cycle and do not spot the second value at $n=4$.*
 :::
 
 ---
 
-# Section C — Stretch
-
-## Question 8 **[6]**
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q14</span>
 
 ::: {.question}
-$x^{3}-12x+k=0$. (a) Show exactly one real root $\iff\lvert k\rvert>16$. (b) Classify $k>20$, $k\neq0$,
-$k^{2}>256$.
+An arithmetic sequence $T$ has first term $a$ and common difference $d$, where $a$ and $d$ are non-zero integers.
+
+Property $P$ is:
+
+> For some positive integer $m$, the sum of the first $m$ terms of the sequence is equal to the sum of the first $2m$ terms
+> of the sequence.
+
+For example, when $a=11$ and $d=-2$, the sequence $T$ has property $P$, because
+
+$$11+9+7+5=11+9+7+5+3+1+(-1)+(-3)$$
+
+i.e. the sum of the first $4$ terms equals the sum of the first $8$ terms.
+
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; For $T$ to have property $P$, it is sufficient that $ad<0$.
+
+&nbsp;&nbsp;**II** &nbsp; For $T$ to have property $P$, it is necessary that $d$ is even.
+
+&nbsp;&nbsp;**A** neither of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** I and II
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-### (a) **[3]**
+**A.** First turn property $P$ into an equation.
 
-**Stationary points. (M1)** $f'(x)=3x^{2}-12=3(x-2)(x+2)$, so $x=\pm2$ and
-$$f(2)=8-24+k=k-16,\qquad f(-2)=-8+24+k=k+16 .$$
+**Step 1: the exact condition.** Using $S_m=\tfrac12m\bigl(2a+(m-1)d\bigr)$, the equation $S_m=S_{2m}$ is
 
-**The one-root condition. (A1)** *A cubic with positive leading coefficient meets the axis once exactly
-when its two stationary values have the **same sign*** — if they had opposite signs the curve would cross
-three times, and if either were zero there would be a repeated root plus one more.
+$$\tfrac12m\bigl(2a+(m-1)d\bigr)=\tfrac12(2m)\bigl(2a+(2m-1)d\bigr).$$
 
-$$f(2)\,f(-2)>0\ \Longleftrightarrow\ (k-16)(k+16)>0\ \Longleftrightarrow\ k^{2}>256 .$$
+Divide both sides by $\tfrac12m$, which is allowed because $m>0$:
 
-**Conclude. (A1)** $k^{2}>256\iff\lvert k\rvert>16$. ∎
+$$2a+(m-1)d=4a+(4m-2)d .$$
 
-*Spot check:* $k=0$ gives $x^{3}-12x=x(x^{2}-12)$ — three roots, and indeed $\lvert0\rvert\not>16$;
-$k=20$ gives one root, and $20>16$. ✓
+Collect terms:
 
-### (b) **[3]**
+$$2a+(3m-1)d=0 .$$
 
-Write $T=\{\,k:\lvert k\rvert>16\,\}=(-\infty,-16)\cup(16,\infty)$.
+So $T$ has property $P$ exactly when this equation has a **positive integer** solution $m$.
 
-| | condition | set | verdict |
+*Check with the example:* $a=11$, $d=-2$ gives $22-2(3m-1)=0$, so $m=4$. ✓
+
+**Step 2: test I.** I says $ad<0\Rightarrow P$. To break it, look for $ad<0$ where $m$ is not a positive integer. Take
+$a=1$, $d=-2$. Then
+
+$$2-2(3m-1)=0\ \Longrightarrow\ 3m-1=1\ \Longrightarrow\ m=\tfrac23,$$
+
+which is not an integer. So $ad=-2<0$ but $T$ has no property $P$: the sequence $1,-1,-3,\dots$ falls too quickly. I is
+false.
+
+**Step 3: test II.** II says $P\Rightarrow d$ even. To break it, find a sequence with property $P$ and $d$ odd. Take $a=1$,
+$d=-1$, so $T$ is $1,0,-1,\dots$ With $m=1$ the sum of the first term is $1$, and the sum of the first two terms is
+$1+0=1$. So $T$ has property $P$, yet $d=-1$ is odd. II is false.
+
+Neither holds, so **A**.
+
+*The example in the stem has $ad<0$ and an even $d$, and both statements generalise from it. One worked example is
+not evidence for either.*
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q6</span>
+
+::: {.question}
+Which of the following is a **sufficient** condition on the real constant $k$ for the equation
+
+$$(x+k)^{1/2}+(x-k)^{1/4}=k$$
+
+to have at least one real solution for $x$?
+
+&nbsp;&nbsp;**A** $k=0$ or $k>3$
+
+&nbsp;&nbsp;**B** $k=1$ or $k>3$
+
+&nbsp;&nbsp;**C** $k=0$ or $1<k<3$
+
+&nbsp;&nbsp;**D** $k\ge1$
+
+&nbsp;&nbsp;**E** $0\le k\le3$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A.** Find the exact set of $k$, then look for the option inside it.
+
+**Step 1: $k<0$ is impossible.** Both roots are non-negative, so the left side is at least $0$. It cannot equal a negative
+number.
+
+**Step 2: $k=0$ works.** The equation is $x^{1/2}+x^{1/4}=0$, and $x=0$ solves it.
+
+**Step 3: $k>0$.** Both roots must be defined, so $x\ge k$. On that domain each root increases with $x$, so the left side
+is **increasing**, and it grows without limit. Its smallest value is at $x=k$:
+
+$$(2k)^{1/2}+0^{1/4}=\sqrt{2k}.$$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,axes=plt.subplots(2,1,figsize=(5.8,5.6))
+for ax,k,title in [(axes[0],1,'$k=1$: the curve starts above $y=k$, so no solution'),(axes[1],3,'$k=3$: the curve starts below $y=k$, so it crosses')]:
+    x=np.linspace(k,k+6,500)
+    ax.plot(x,np.sqrt(x+k)+(x-k)**0.25,color='#1f77b4',lw=2,label='left side')
+    ax.axhline(k,color='#d62728',lw=1.6,ls='--',label='$y=k$')
+    ax.plot([k],[np.sqrt(2*k)],'o',color='#1f77b4',ms=5)
+    ax.annotate(r'$\sqrt{2k}$',(k,np.sqrt(2*k)),textcoords='offset points',xytext=(-26,6),fontsize=10)
+    ax.set_title(title,fontsize=10); ax.set_xlabel('$x$'); ax.legend(frameon=False,fontsize=9,loc='lower right')
+    ax.set_ylim(0,6); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+fig.subplots_adjust(hspace=0.5); plt.show()
+```
+
+So a solution exists exactly when the smallest value is not above $k$:
+
+$$\sqrt{2k}\le k\iff2k\le k^{2}\iff k\ge2\quad(\text{dividing by }k>0).$$
+
+**Step 4: the exact set is** $k=0$ or $k\ge2$.
+
+**Step 5: compare.** A sufficient condition must lie **inside** that set.
+
+- **A** does: $k=0$ is in it, and every $k>3$ is in it.
+- **B** contains $k=1$, which is outside.
+- **C** contains $k=1.5$, which is outside.
+- **D** and **E** both contain $k=1$, which is outside.
+
+A is not necessary, since $k=2$ also works, but the question asks only for sufficient.
+:::
+
+---
+
+# Section C — Polynomials, derivatives and integrals
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q6</span>
+
+::: {.question}
+Consider the following statements for real values of $x$.
+
+&nbsp;&nbsp;**A:** $\displaystyle\int_{0}^{2\pi}\sin kx\,dx=0$
+
+&nbsp;&nbsp;**B:** $k$ is an even integer
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** A is necessary but not sufficient for B
+
+&nbsp;&nbsp;**B** A is sufficient but not necessary for B
+
+&nbsp;&nbsp;**C** A is necessary and sufficient for B
+
+&nbsp;&nbsp;**D** A is not necessary and not sufficient for B
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A.** Both statements are really about $k$, although the stem says "real values of $x$". Do not confuse the statements
+A and B with the option letters.
+
+**Is A necessary for B?** That asks whether B $\Rightarrow$ A. If $k$ is an even integer (or any non-zero integer), then
+$\sin kx$ completes $k$ whole cycles on $[0,2\pi]$, and over each cycle the area above and below the axis cancel. So the
+integral is $0$. **Yes.**
+
+**Is A sufficient for B?** That asks whether A $\Rightarrow$ B. An odd $k$ cancels as well. For $k=1$, the integral of
+$\sin x$ over $[0,2\pi]$ is $0$, yet $k$ is not even. **No.**
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,axes=plt.subplots(2,1,figsize=(5.8,4.8))
+x=np.linspace(0,2*np.pi,800)
+for ax,k in [(axes[0],1),(axes[1],2)]:
+    y=np.sin(k*x)
+    ax.plot(x,y,color='#1f77b4',lw=2)
+    ax.fill_between(x,y,0,where=y>=0,color='#2ca02c',alpha=.25,interpolate=True)
+    ax.fill_between(x,y,0,where=y<=0,color='#d62728',alpha=.25,interpolate=True)
+    ax.axhline(0,color='0.4',lw=1)
+    ax.set_title(f'$k={k}$: the two colours cancel, so the integral is $0$',fontsize=10)
+    ax.set_xticks([0,np.pi,2*np.pi]); ax.set_xticklabels(['$0$',r'$\pi$',r'$2\pi$'])
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+fig.subplots_adjust(hspace=0.5); plt.show()
+```
+
+**Algebra check.** For $k\ne0$,
+
+$$\int_{0}^{2\pi}\sin kx\,dx=\left[-\frac{\cos kx}{k}\right]_{0}^{2\pi}=\frac{1-\cos2\pi k}{k},$$
+
+which is $0$ exactly when $k$ is an integer. So A is the larger set, the even integers sit inside it, and the
+weaker statement is the necessary one.
+:::
+
+---
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q8</span>
+
+::: {.question}
+Consider the following statement about the polynomial $\mathrm p(x)$, where $a$ and $b$ are real numbers with $a<b$:
+
+> $(*)$ There exists a number $c$ with $a<c<b$ such that $\mathrm p'(c)=0$.
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** The condition $\mathrm p(a)=\mathrm p(b)$ is necessary and sufficient for $(*)$
+
+&nbsp;&nbsp;**B** The condition $\mathrm p(a)=\mathrm p(b)$ is necessary but not sufficient for $(*)$
+
+&nbsp;&nbsp;**C** The condition $\mathrm p(a)=\mathrm p(b)$ is sufficient but not necessary for $(*)$
+
+&nbsp;&nbsp;**D** The condition $\mathrm p(a)=\mathrm p(b)$ is not necessary and not sufficient for $(*)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.**
+
+**Is the condition sufficient?** Suppose $\mathrm p(a)=\mathrm p(b)$. There are three cases for how the graph leaves
+$x=a$.
+
+- If it goes up, it must come back down to reach the same height at $x=b$, so it turns somewhere in between.
+- If it goes down, it must come back up, so again it turns.
+- If it does neither, the polynomial is constant, and then $\mathrm p'=0$ everywhere.
+
+In every case a $c$ exists, so **yes**.
+
+**Is the condition necessary?** We need a polynomial with a stationary point strictly between $a$ and $b$, but with
+different heights at the ends. Take $\mathrm p(x)=x^{2}$, $a=-1$, $b=2$:
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(4.8,3.4))
+x=np.linspace(-1.5,2.4,300)
+ax.plot(x,x**2,color='#1f77b4',lw=2)
+ax.plot([-1,2],[1,4],'o',color='#d62728',ms=6); ax.plot([0],[0],'o',color='#2ca02c',ms=6)
+ax.annotate('$p(-1)=1$',(-1,1),textcoords='offset points',xytext=(-26,-18),fontsize=9)
+ax.annotate('$p(2)=4$',(2,4),textcoords='offset points',xytext=(-52,0),fontsize=9)
+ax.annotate("$p'(0)=0$",(0,0),textcoords='offset points',xytext=(8,8),fontsize=9)
+ax.axhline(0,color='0.5',lw=1); ax.axvline(0,color='0.5',lw=1)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+Here $\mathrm p'(0)=0$ with $-1<0<2$, so $(*)$ holds, yet $\mathrm p(-1)=1\neq4=\mathrm p(2)$. So **no**.
+
+Sufficient but not necessary is **C**.
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q9</span>
+
+::: {.question}
+Consider the following statements about a polynomial $\mathrm f(x)$:
+
+&nbsp;&nbsp;**I** &nbsp; $\mathrm f(x)=px^{3}+qx^{2}+rx+s$, where $p\neq0$.
+
+&nbsp;&nbsp;**II** &nbsp; There is a real number $t$ for which $\mathrm f'(t)=0$.
+
+&nbsp;&nbsp;**III** &nbsp; There are real numbers $u$ and $v$ for which $\mathrm f(u)\,\mathrm f(v)<0$.
+
+Which of these statements is/are **sufficient** for the equation $\mathrm f(x)=0$ to have a real solution?
+
+| | Statement I is sufficient | Statement II is sufficient | Statement III is sufficient |
 |---|---|---|---|
-| **(i)** | $k>20$ | $(20,\infty)\subset T$, strictly | **sufficient, not necessary (B1)** |
-| **(ii)** | $k\neq0$ | $\supset T$, strictly | **necessary, not sufficient (B1)** |
-| **(iii)** | $k^{2}>256$ | $=T$ | **both (B1)** |
-
-Justifications the student should give:
-
-- **(i)** $k>20\Rightarrow\lvert k\rvert>16$ ✓; but $k=-20$ has one root while $k>20$ fails — *not necessary*.
-- **(ii)** $\lvert k\rvert>16\Rightarrow k\neq0$ ✓; but $k=1$ is non-zero and gives **three** roots —
-  *not sufficient*.
-- **(iii)** $k^{2}>256\iff\lvert k\rvert>16$ — the same set, so **necessary and sufficient**.
-
-**Marking.** Each verdict needs its counterexample or equivalence stated; verdict alone is 0 for that part.
-*(iii) is there to check the student notices an option that is just the answer rewritten* — a re-reading
-of part (a), not new work.
-:::
-
----
-
-## Question 9 **[5]**
-
-::: {.question}
-$x^{4}-6x^{2}+c=0$. (a) Complete set of $c$ giving four distinct real roots. (b) Which option is
-necessary but not sufficient?
+| **A** | Yes | Yes | Yes |
+| **B** | Yes | Yes | No |
+| **C** | Yes | No | Yes |
+| **D** | Yes | No | No |
+| **E** | No | Yes | Yes |
+| **F** | No | Yes | No |
+| **G** | No | No | Yes |
+| **H** | No | No | No |
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-### (a) $0<c<9$ **[3]**
+**C.** Test each statement alone: does it **guarantee** a real root?
 
-**Substitute. (M1)** Put $y=x^{2}$, giving $y^{2}-6y+c=0$ and $y=3\pm\sqrt{9-c}$.
+**I: yes.** A cubic with $p\ne0$ runs off to $+\infty$ at one end and $-\infty$ at the other. A polynomial's graph has no
+breaks, so it must cross the $x$-axis.
 
-**Translate the requirement. (A1)** *Each **strictly positive** $y$ gives **two** values of $x$, namely
-$\pm\sqrt y$* — so four distinct real roots in $x$ need **two distinct, strictly positive** roots in $y$:
+**II: no.** Take $\mathrm f(x)=x^{2}+1$. Then $\mathrm f'(0)=0$, so II holds, but $x^{2}+1=0$ has no real solution.
 
-- distinct and real: $36-4c>0\iff c<9$;
-- both positive: the smaller root $3-\sqrt{9-c}>0\iff\sqrt{9-c}<3\iff 9-c<9\iff c>0$.
+**III: yes.** $\mathrm f(u)\,\mathrm f(v)<0$ means one value is positive and the other negative. So the graph has points on
+both sides of the axis, and because a polynomial's graph is unbroken, it crosses between $u$ and $v$.
 
-**Conclude. (A1)** $\;0<c<9$. ∎
+So the row is Yes, No, Yes, which is **C**.
 
-*Spot check:* $c=5$ gives $y^{2}-6y+5=0$, so $y=1,5$ and $x=\pm1,\pm\sqrt5$ — four ✓; $c=0$ gives
-$y=0,6$, so $x=0,\pm\sqrt6$ — only three ✓; $c=10$ gives no real $y$ at all ✓.
-
-### (b) **A** ($-2<c<11$) **[2]**
-
-**(B1)** A **necessary** condition must contain all of $(0,9)$; **not sufficient** means it must contain
-something outside as well. Only **A** does: $(0,9)\subset(-2,11)$, and $c=10$ lies in the option but gives
-no real roots at all.
-
-**(B1)** The others:
-
-- **B** $0<c<9$ is the exact condition — necessary **and** sufficient, so not the answer.
-- **C** $1<c<8$ and **D** $0<c<4$ are proper **subsets** — sufficient, not necessary. *(Each misses part of
-  $(0,9)$: C misses $c=0.5$, D misses $c=5$.)*
-
-**Marking.** Award the second mark only if the student says *why* B is excluded — "it is the exact
-condition" — rather than just picking A.
+*III needs "polynomial". The function $\tfrac1x$ has $\mathrm f(-1)\,\mathrm f(1)<0$ and no root at all, because its graph
+is broken at $0$.*
 :::
 
 ---
 
-## Question 10 **[5]**
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q6</span>
 
 ::: {.question}
-$ABCD$ is a quadrilateral. (a) A diagonal condition necessary **and** sufficient for a square. (b) and
-(c) counterexamples for two "necessary but not sufficient" conditions.
+Consider the following two statements about the polynomial $\mathrm f(x)$:
+
+&nbsp;&nbsp;**P:** $\mathrm f(x)=0$ for exactly three real values of $x$
+
+&nbsp;&nbsp;**Q:** $\mathrm f'(x)=0$ for exactly two real values of $x$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** P is necessary but not sufficient for Q.
+
+&nbsp;&nbsp;**B** P is sufficient but not necessary for Q.
+
+&nbsp;&nbsp;**C** P is necessary and sufficient for Q.
+
+&nbsp;&nbsp;**D** P is not necessary and not sufficient for Q.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-### (a) **[3]**
+**D.** You need **two** counterexamples, one for each arrow.
 
-**The condition. (B1)** *The diagonals **bisect each other**, are **equal in length**, and are
-**perpendicular**.*
+**P is not necessary (Q does not give P).** A cubic with a repeated root has two stationary points but only two roots.
+Take
 
-**Necessary. (M1)** In a square the diagonals cross at the centre, each is $s\sqrt2$ for side $s$, and they
-meet at right angles — so a square has all three properties.
+$$\mathrm f(x)=x^{2}(x-3)=x^{3}-3x^{2},\qquad\mathrm f'(x)=3x^{2}-6x=3x(x-2).$$
 
-**Sufficient. (A1)** Take them one at a time: *bisecting each other* makes $ABCD$ a **parallelogram**;
-adding *equal diagonals* makes it a **rectangle**; adding *perpendicular diagonals* makes that rectangle a
-**rhombus**. A shape that is both a rectangle and a rhombus is a square. ∎
+The derivative is zero exactly at $x=0$ and $x=2$, so Q holds. The roots are $x=0$ and $x=3$ only, so P fails.
 
-*Accept any equivalent set, e.g. "all four sides equal and one angle is $90^\circ$", provided both
-directions are argued.*
+**P is not sufficient (P does not give Q).** Between consecutive roots there must be a stationary point, but nothing
+stops there being **more** elsewhere. A degree-$5$ curve can wiggle above the axis without crossing it. For example,
 
-### (b) **[1]**
+$$\mathrm f(x)=3x^{5}-25x^{3}+60x+36,\qquad\mathrm f'(x)=15(x-2)(x-1)(x+1)(x+2).$$
 
-**A rhombus that is not a square. (B1)** All four sides equal, but the angles are not right angles.
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,axes=plt.subplots(2,1,figsize=(5.8,6.4))
+x=np.linspace(-1,3.4,400)
+ax=axes[0]; ax.plot(x,x**3-3*x**2,color='#1f77b4',lw=2)
+ax.plot([0,2],[0,-4],'o',color='#d62728',ms=5,label='stationary points (two)')
+ax.plot([3],[0],'o',color='#2ca02c',ms=5,label='other root')
+ax.axhline(0,color='0.5',lw=1); ax.set_ylim(-6,4)
+ax.set_title('$y=x^3-3x^2$: Q true, P false (only two roots)',fontsize=10); ax.legend(frameon=False,fontsize=8.5,loc='upper left')
+x=np.linspace(-2.6,2.7,600); f=lambda t:3*t**5-25*t**3+60*t+36
+ax=axes[1]; ax.plot(x,f(x),color='#1f77b4',lw=2)
+ax.plot([-2,-1,1,2],[f(-2),f(-1),f(1),f(2)],'o',color='#d62728',ms=5,label='stationary points (four)')
+ax.axhline(0,color='0.5',lw=1); ax.set_ylim(-25,110)
+ax.set_title('$y=3x^5-25x^3+60x+36$: P true, Q false (three roots)',fontsize=10); ax.legend(frameon=False,fontsize=8.5,loc='upper left')
+for ax in axes:
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False); ax.set_xlabel('$x$')
+fig.subplots_adjust(hspace=0.45); plt.show()
+```
 
-### (c) **[1]**
+The stationary values are $\mathrm f(-2)=20$, $\mathrm f(-1)=-2$, $\mathrm f(1)=74$, $\mathrm f(2)=52$. Only the dip at
+$x=-1$ goes below the axis, so the curve crosses exactly three times, near $x\approx-2.39,\,-1.22,\,-0.79$. P holds and
+Q fails, since there are four stationary points.
 
-**A rectangle that is not a square. (B1)** Its diagonals are equal, but it is not a square.
+You are not expected to build this exact quintic. The idea is enough: a higher-degree curve can have extra wiggles that do
+not reach the axis.
 
-**Why the (b) counterexample does not work here:** a non-square **rhombus** has diagonals of *different*
-lengths, so it does not even satisfy "the diagonals are equal" — it fails the hypothesis and therefore says
-nothing about that condition's sufficiency. *A counterexample has to satisfy the condition being tested.*
+Neither arrow holds, so **D**.
 
-**Marking.** This last point is the one worth teaching from: the two conditions have **different**
-counterexamples, and the pair (rhombus, rectangle) is exactly the pair to memorise.
+*The tempting wrong answer is C, from picturing only the usual cubic with three roots and two turning points.*
 :::
 
 ---
 
-::: {.callout-tip}
-## Where this assignment came from
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q14</span>
 
-Section B is six real TMUA Paper 2 questions — **2021 Q6, Q8, Q15**, **2022 Q6**, **2023 Q7, Q13** — none
-of which appears in the class material, so this is new work rather than revision.
+::: {.question}
+Consider the following statements about the polynomial $\mathrm p(x)$, where $a<b$:
 
-Questions 8 and 9 are **variants** of the parameter questions worked in class: the method is the same
-(find the exact set, then compare by inclusion), but the equations, the exact conditions and the options
-are all different, so the student has to run the method rather than recall the answer.
+&nbsp;&nbsp;**I** &nbsp; $\mathrm p(a)\le\mathrm p(b)$
+
+&nbsp;&nbsp;**II** &nbsp; $\mathrm p'(a)\le\mathrm p'(b)$
+
+&nbsp;&nbsp;**III** &nbsp; $\mathrm p''(a)\le\mathrm p''(b)$
+
+Which of these statements is a **necessary** condition for $\mathrm p(x)$ to be increasing for $a\le x\le b$?
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.** Necessary means: whenever $\mathrm p$ is increasing on $[a,b]$, the statement must hold. So to reject a statement,
+find an increasing polynomial where it fails.
+
+**I is necessary.** If $\mathrm p$ is increasing from $a$ to $b$, then its value at $b$ cannot be below its value at $a$.
+
+**II is not necessary.** A curve can be increasing while its gradient **falls**. Take $\mathrm p(x)=9-x^{2}$ on
+$[-3,0]$. Here $\mathrm p'(x)=-2x\ge0$ on this interval, so $\mathrm p$ is increasing. But
+
+$$\mathrm p'(-3)=6,\qquad\mathrm p'(0)=0,$$
+
+so $\mathrm p'(a)>\mathrm p'(b)$ and II fails.
+
+**III is not necessary.** A quadratic cannot break III, because its $\mathrm p''$ is constant. So use a cubic. Take
+$\mathrm p(x)=x-\tfrac16x^{3}$ on $[0,1]$. Then
+
+$$\mathrm p'(x)=1-\tfrac12x^{2}>0\quad\text{on }[0,1],$$
+
+so $\mathrm p$ is increasing, while $\mathrm p''(x)=-x$ gives $\mathrm p''(0)=0$ and $\mathrm p''(1)=-1$. So
+$\mathrm p''(a)>\mathrm p''(b)$ and III fails.
+
+Only I, so **B**.
+
+*"Increasing" is about the values of $\mathrm p$. It says nothing about whether the gradient is itself rising, which is the
+same mix-up as reading $f''>0$ as "the function is going up".*
+:::
+
+---
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q4</span>
+
+::: {.question}
+Consider the following statements about the polynomial $f(x)$, where $a<b$:
+
+&nbsp;&nbsp;**(1)** $f(a)>f(b)$;
+
+&nbsp;&nbsp;**(2)** $f'(x)\le0$ for all $x\in[a,b]$;
+
+&nbsp;&nbsp;**(3)** $\displaystyle\int_{a}^{b}f(x)\,dx\le0$;
+
+&nbsp;&nbsp;**(4)** $f(a)+f(b)\le2f\left(\dfrac{a+b}{2}\right)$.
+
+Which of these statements is a **necessary** condition for $f(x)$ to be decreasing for $a\le x\le b$? Here, decreasing means
+that $x_1\le x_2$ implies $f(x_1)\ge f(x_2)$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** Only 1.
+
+&nbsp;&nbsp;**C** Only 2.
+
+&nbsp;&nbsp;**D** Only 3.
+
+&nbsp;&nbsp;**E** Only 4.
+
+&nbsp;&nbsp;**F** Only 1 and 2.
+
+&nbsp;&nbsp;**G** Only 1 and 3.
+
+&nbsp;&nbsp;**H** Only 1 and 4.
+
+&nbsp;&nbsp;**I** Only 2 and 3.
+
+&nbsp;&nbsp;**J** Only 2 and 4.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** Take a decreasing polynomial and ask which statements it is forced to satisfy.
+
+**(1) is not necessary.** Under the given definition a constant counts as decreasing. For $f(x)=1$ we have
+$f(a)=f(b)$, so the strict inequality fails.
+
+**(2) is necessary.** The gradient at $x$ is the limit of $\dfrac{f(x+h)-f(x)}{h}$ as $h\to0$. If $f$ is decreasing,
+every such fraction with $h>0$ inside the interval is $\le0$, because the top is $\le0$. A limit of numbers $\le0$ is $\le0$, so
+$f'(x)\le0$.
+
+**(3) is not necessary.** Decreasing says nothing about the height of the curve. For $f(x)=1-x$ on $[0,1]$,
+
+$$\int_{0}^{1}(1-x)\,dx=\frac12>0.$$
+
+**(4) is not necessary.** This statement is about curvature, not direction. For $f(x)=x^{2}$ on $[-1,0]$, which is decreasing,
+
+$$f(-1)+f(0)=1,\qquad2f\left(-\tfrac12\right)=\tfrac12,$$
+
+and $1\le\tfrac12$ is false.
+
+Only (2), so **C**.
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q6</span>
+
+::: {.question}
+The function $\mathrm f(x)$ is defined for all real values of $x$.
+
+Which of the following conditions on $\mathrm f(x)$ is/are **necessary** to ensure that
+
+$$\int_{-5}^{0}\mathrm f(x)\,\mathrm dx=\int_{0}^{5}\mathrm f(x)\,\mathrm dx\ ?$$
+
+&nbsp;&nbsp;**Condition I:** $\mathrm f(x)=\mathrm f(-x)$ for $-5\le x\le5$
+
+&nbsp;&nbsp;**Condition II:** $\mathrm f(x)=c$ for $-5\le x\le5$, where $c$ is a constant
+
+&nbsp;&nbsp;**Condition III:** $\mathrm f(x)=-\mathrm f(-x)$ for $-5\le x\le5$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A.** Necessary means: every function satisfying the integral equation must satisfy the condition. So for each condition,
+find a function that satisfies the integral equation but breaks that condition.
+
+**$\mathrm f(x)=x^{2}$ breaks II and III.** Both integrals equal $\tfrac{125}{3}$, so the equation holds. But $x^{2}$ is not
+constant, and $x^{2}\ne-(-x)^{2}$ in general.
+
+**$\mathrm f(x)=\sin2\pi x$ breaks I.** It has five full periods on each of $[-5,0]$ and $[0,5]$, so both integrals are $0$
+and the equation holds. But it is odd, not even, so $\mathrm f(x)\ne\mathrm f(-x)$ in general.
+
+So none of the three is necessary.
+
+**The trap.** I and II are **sufficient**: an even function and a constant both force the two areas to be equal. Answering
+E treats sufficient as if it were necessary, which is exactly what the wording is testing.
+:::
+
+---
+
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q10</span>
+
+::: {.question}
+$f(x)$ is a function defined for all real values of $x$.
+
+Which one of the following is a **sufficient** condition for $\displaystyle\int_{1}^{3}f(x)\,dx=0$?
+
+&nbsp;&nbsp;**A** $f(2)=0$
+
+&nbsp;&nbsp;**B** $f(1)=f(3)=0$
+
+&nbsp;&nbsp;**C** $f(-x)=-f(x)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x+2)=-f(2-x)$ for all $x$
+
+&nbsp;&nbsp;**E** $f(x-2)=-f(2-x)$ for all $x$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.** Sufficient means the condition must **force** the integral to be $0$. So a single function that satisfies the
+condition with a non-zero integral rules it out.
+
+**A fails.** $f(x)=(x-2)^{2}$ has $f(2)=0$, but $\displaystyle\int_{1}^{3}(x-2)^{2}\,dx=\tfrac23$.
+
+**B fails.** $f(x)=(x-1)(x-3)$ has $f(1)=f(3)=0$, but $\displaystyle\int_{1}^{3}(x-1)(x-3)\,dx=-\tfrac43$.
+
+**C fails.** $f(x)=x$ satisfies $f(-x)=-f(x)$, but $\displaystyle\int_{1}^{3}x\,dx=4$. The condition controls $f$ about $x=0$,
+which is not the middle of $[1,3]$.
+
+**E fails.** Write $y=x-2$. Then $2-x=-y$, and E becomes $f(y)=-f(-y)$, which is condition C again in disguise. So $f(x)=x$
+breaks it too.
+
+**D works.** Read $f(2+x)=-f(2-x)$ as: the height at distance $x$ to the right of $2$ is minus the height at distance $x$ to
+the left. That is rotational symmetry about the point $(2,0)$, the middle of $[1,3]$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(5.2,3.4))
+x=np.linspace(0.7,3.3,400); g=lambda t:(t-2)**3-(t-2)+0.6*np.sin(np.pi*(t-2))
+y=g(x); ax.plot(x,y,color='#1f77b4',lw=2)
+xs=np.linspace(1,3,300); ys=g(xs)
+ax.fill_between(xs,ys,0,where=ys>=0,color='#2ca02c',alpha=.25,interpolate=True)
+ax.fill_between(xs,ys,0,where=ys<=0,color='#d62728',alpha=.25,interpolate=True)
+ax.plot([2],[0],'o',color='k',ms=5); ax.annotate('$(2,0)$',(2,0),textcoords='offset points',xytext=(6,8),fontsize=9)
+ax.axhline(0,color='0.5',lw=1); ax.axvline(1,color='0.7',lw=1,ls=':'); ax.axvline(3,color='0.7',lw=1,ls=':')
+ax.set_xticks([1,2,3]); ax.set_xlabel('$x$'); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_title('Rotational symmetry about $(2,0)$: the two areas cancel',fontsize=10)
+plt.tight_layout(); plt.show()
+```
+
+So the area on $[2,3]$ exactly cancels the area on $[1,2]$:
+
+$$\int_{1}^{3}f(x)\,dx=\int_{-1}^{1}f(2+t)\,dt=0,$$
+
+because $f(2+t)$ is an odd function of $t$.
+
+*Note that the official answer comes by elimination too. To show a condition is sufficient, checking one function that
+satisfies the integral is not enough; that tests necessity instead.*
+:::
+
+---
+
+# Section D — Symmetry and transformations
+
+## Question 21 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q10</span>
+
+::: {.question}
+The function $\mathrm f(x)$ is defined for all real numbers.
+
+Consider the following three conditions, where $a$ is a real constant:
+
+&nbsp;&nbsp;**I** &nbsp; $\mathrm f(a-x)=\mathrm f(a+x)$ for all real $x$.
+
+&nbsp;&nbsp;**II** &nbsp; $\mathrm f(2a-x)=\mathrm f(x)$ for all real $x$.
+
+&nbsp;&nbsp;**III** &nbsp; $\mathrm f(a-x)=\mathrm f(x)$ for all real $x$.
+
+Which of these conditions is/are **necessary and sufficient** for the graph of $y=\mathrm f(x)$ to have reflection symmetry
+in the line $x=a$?
+
+| | Condition I is | Condition II is | Condition III is |
+|---|---|---|---|
+| | necessary and sufficient | necessary and sufficient | necessary and sufficient |
+| **A** | yes | yes | yes |
+| **B** | yes | yes | no |
+| **C** | yes | no | yes |
+| **D** | yes | no | no |
+| **E** | no | yes | yes |
+| **F** | no | yes | no |
+| **G** | no | no | yes |
+| **H** | no | no | no |
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.** Reflection in $x=a$ means: two points the **same distance** from $a$, on opposite sides, have the same height.
+
+**I: yes.** The inputs $a-x$ and $a+x$ are at distance $|x|$ on either side of $a$. Letting $x$ run over all reals covers every
+such pair, so I says precisely that the graph is symmetric.
+
+**II: yes.** The inputs $2a-x$ and $x$ have midpoint $\dfrac{(2a-x)+x}{2}=a$, so they are also mirror images in $x=a$. In fact,
+replacing $x$ with $a+x$ turns II into
+
+$$\mathrm f(a-x)=\mathrm f(a+x),$$
+
+which is I.
+
+**III: no.** The inputs $a-x$ and $x$ have midpoint $\tfrac a2$, so III describes symmetry in the line $x=\tfrac a2$, a
+different line unless $a=0$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(5.2,3.4))
+a=2; x=np.linspace(-1.2,5.2,400)
+ax.plot(x,(x-a)**2,color='#1f77b4',lw=2,label='$y=(x-2)^2$')
+ax.axvline(a,color='#2ca02c',ls='--',lw=1.4,label='mirror line $x=a=2$')
+ax.axvline(a/2,color='#d62728',ls=':',lw=1.4,label='the line III describes, $x=a/2=1$')
+ax.plot([0,4],[4,4],'o',color='#2ca02c',ms=5)
+ax.set_ylim(-0.5,9); ax.set_xlabel('$x$'); ax.legend(frameon=False,fontsize=8.5,loc='upper center',bbox_to_anchor=(0.5,-0.18),ncol=1)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+plt.tight_layout(); plt.show()
+```
+
+*A counterexample for III:* with $a=2$, the graph $\mathrm f(x)=(x-2)^{2}$ is symmetric in $x=2$, but $\mathrm f(2-x)=x^{2}$, which is not
+$\mathrm f(x)$. So III is not necessary.
+
+The row is yes, yes, no, which is **B**.
+:::
+
+---
+
+## Question 22 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q20</span>
+
+::: {.question}
+When the graph of the function $y=\mathrm f(x)$, defined on the real numbers, is reflected in the $y$-axis and then translated by
+$2$ units in the negative $x$-direction, the result is the graph of the function $y=\mathrm g(x)$.
+
+When the graph of the same function $y=\mathrm f(x)$ is translated by $2$ units in the negative $x$-direction and then reflected in
+the $y$-axis, the result is the graph of the function $y=\mathrm h(x)$.
+
+Which one of the following conditions on $y=\mathrm f(x)$ is **necessary and sufficient** for the functions $\mathrm g(x)$ and
+$\mathrm h(x)$ to be identical?
+
+&nbsp;&nbsp;**A** $\mathrm f(x)=\mathrm f(x+2)$ for all $x$
+
+&nbsp;&nbsp;**B** $\mathrm f(x)=\mathrm f(x+4)$ for all $x$
+
+&nbsp;&nbsp;**C** $\mathrm f(x)=\mathrm f(x+8)$ for all $x$
+
+&nbsp;&nbsp;**D** $\mathrm f(x)=\mathrm f(-x)$ for all $x$
+
+&nbsp;&nbsp;**E** $\mathrm f(x)=\mathrm f(2-x)$ for all $x$
+
+&nbsp;&nbsp;**F** $\mathrm f(x)=\mathrm f(4-x)$ for all $x$
+
+&nbsp;&nbsp;**G** $\mathrm f(x)=\mathrm f(8-x)$ for all $x$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.** Write down $\mathrm g$ and $\mathrm h$ exactly. Each transformation replaces $x$ in the current formula.
+
+**Step 1: find $\mathrm g$.** Reflecting in the $y$-axis replaces $x$ by $-x$, giving $\mathrm f(-x)$. Translating $2$ units in the
+negative $x$-direction replaces $x$ by $x+2$:
+
+$$\mathrm g(x)=\mathrm f(-(x+2))=\mathrm f(-x-2).$$
+
+**Step 2: find $\mathrm h$.** Translating first gives $\mathrm f(x+2)$. Reflecting replaces $x$ by $-x$:
+
+$$\mathrm h(x)=\mathrm f(-x+2).$$
+
+**Step 3: set them equal for all $x$.**
+
+$$\mathrm f(-x-2)=\mathrm f(-x+2)\quad\text{for all }x.$$
+
+Let $u=-x-2$. As $x$ runs over all reals, so does $u$, and $-x+2=u+4$. So the condition is exactly
+
+$$\mathrm f(u)=\mathrm f(u+4)\quad\text{for all }u.$$
+
+Every step reverses, so this is necessary **and** sufficient.
+
+**The other options.**
+
+- **A** (period $2$) is sufficient but not necessary: $\sin\tfrac{\pi x}{2}$ has period $4$ but not period $2$.
+- **C** (period $8$) is necessary but not sufficient: $\sin\tfrac{\pi x}{4}$ has period $8$ but not period $4$.
+- **D**, **E**, **F**, **G** are mirror symmetries, not periods. A parabola with the matching axis satisfies each of them, and
+  a parabola is not periodic, so $\mathrm g\ne\mathrm h$.
+:::
+
+---
+
+## Question 23 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q16</span>
+
+::: {.question}
+Three transformations of the plane are defined as follows. $R$ is the reflection in the $y$-axis. $T$ is the translation by $4$
+units in the positive $x$-direction. $S$ is the horizontal stretch with scale factor $2$ parallel to the $x$-axis, fixing the
+$y$-axis.
+
+Let $y=f(x)$ be a function defined on the real numbers.
+
+When the graph of $y=f(x)$ is transformed by applying $R$, then $T$, then $S$ in that order, the result is the graph of
+$y=g(x)$.
+
+When the graph of the same function $y=f(x)$ is transformed by applying $S$, then $T$, then $R$ in that order, the result is
+the graph of $y=h(x)$.
+
+Which one of the following conditions on $y=f(x)$ is **necessary and sufficient** for the functions $g(x)$ and $h(x)$ to be
+identical?
+
+&nbsp;&nbsp;**A** $f(x)=f(x+3)$ for all $x$
+
+&nbsp;&nbsp;**B** $f(x)=f(x+4)$ for all $x$
+
+&nbsp;&nbsp;**C** $f(x)=f(x+6)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x)=f(x+12)$ for all $x$
+
+&nbsp;&nbsp;**E** $f(x)=f(-x)$ for all $x$
+
+&nbsp;&nbsp;**F** $f(x)=f(6-x)$ for all $x$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** Apply each transformation to the formula in turn. Each one replaces $x$ in the **current** formula.
+
+| Step | Rule | Formula |
+|---|---|---|
+| $R$ | $x\to-x$ | $f(-x)$ |
+| $T$ | $x\to x-4$ | $f(-(x-4))=f(4-x)$ |
+| $S$ | $x\to\tfrac x2$ | $g(x)=f\left(4-\tfrac x2\right)$ |
+
+| Step | Rule | Formula |
+|---|---|---|
+| $S$ | $x\to\tfrac x2$ | $f\left(\tfrac x2\right)$ |
+| $T$ | $x\to x-4$ | $f\left(\tfrac{x-4}{2}\right)=f\left(\tfrac x2-2\right)$ |
+| $R$ | $x\to-x$ | $h(x)=f\left(-\tfrac x2-2\right)$ |
+
+**Set them equal.** We need $f\left(4-\tfrac x2\right)=f\left(-\tfrac x2-2\right)$ for all $x$.
+
+Let $u=-\tfrac x2-2$. As $x$ runs over all reals, so does $u$, and $4-\tfrac x2=u+6$. So the condition is exactly
+
+$$f(u+6)=f(u)\quad\text{for all }u.$$
+
+**The other options.**
+
+- **A** (period $3$) is sufficient but not necessary, since period $3$ gives period $6$, but period $6$ does not give period $3$.
+- **D** (period $12$) is necessary but not sufficient.
+- **B** (period $4$) neither gives nor follows from period $6$.
+- **E** and **F** are mirror symmetries. A parabola satisfies them without being periodic.
+:::
+
+---
+
+## Question 24 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q17</span>
+
+::: {.question}
+Let $f$ be a function defined on the real numbers.
+
+When the graph of $y=f(x)$ is reflected in the $y$-axis and then stretched in the $x$-direction by a factor of $\tfrac12$, the
+result is the graph of $y=g(x)$.
+
+When the graph of $y=f(x)$ is stretched in the $x$-direction by a factor of $\tfrac12$ and then translated by $1$ unit in the
+negative $x$-direction, the result is the graph of $y=h(x)$.
+
+Which of the following is a **sufficient but not necessary condition** for $g(x)$ and $h(x)$ to be identical, that is
+$g(x)=h(x)$ for all real values of $x$?
+
+&nbsp;&nbsp;**A** $f(0)=f(2)$
+
+&nbsp;&nbsp;**B** $f(x)=f(2-x)$ for all $x$
+
+&nbsp;&nbsp;**C** $f(x+1)=f(1-x)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x)=\displaystyle\sum_{k=1}^{10}\cos(\pi kx)$
+
+&nbsp;&nbsp;**E** $f(x)=f(1-x)$ for all $x$
+
+&nbsp;&nbsp;**F** $f(x)=\cos(\pi x)+\sin(\pi x)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.** Find the exact condition, then look for an option strictly inside it.
+
+**Step 1: find $g$ and $h$.** Stretching in the $x$-direction by a factor of $\tfrac12$ replaces $x$ by $2x$.
+
+- $g$: reflect to get $f(-x)$, then stretch: $g(x)=f(-2x)$.
+- $h$: stretch to get $f(2x)$, then translate by replacing $x$ with $x+1$: $h(x)=f(2(x+1))=f(2x+2)$.
+
+**Step 2: the exact condition.** We need $f(-2x)=f(2x+2)$ for all $x$. Let $u=-2x$, which runs over all reals. Then $2x+2=2-u$, so
+
+$$g=h\iff f(u)=f(2-u)\quad\text{for all }u.$$
+
+The graph must be symmetric in the line $x=1$.
+
+**Step 3: the options.**
+
+- **B** is exactly this condition. It is necessary **and** sufficient, so it is not "not necessary".
+- **C** is the same condition: put $u=x+1$, and $1-x$ becomes $2-u$.
+- **A** checks a single pair of points, so it is not sufficient. For $f(x)=x(x-1)(x-2)$, we have $f(0)=f(2)$, but
+  $f(2-x)=-f(x)$, which is not $f(x)$.
+- **E** is symmetry in $x=\tfrac12$, the wrong line. $f(x)=\left(x-\tfrac12\right)^{2}$ satisfies E but not the exact condition.
+- **F** is not sufficient. Since $\sin(\pi(2-x))=-\sin(\pi x)$, we get $f(2-x)=\cos\pi x-\sin\pi x\neq f(x)$.
+- **D** works. For each $k$,
+
+$$\cos(\pi k(2-x))=\cos(2\pi k-\pi kx)=\cos(\pi kx),$$
+
+so every term, and therefore the sum, is symmetric in $x=1$. So D is **sufficient**. It is one specific function, while
+$f(x)=(x-1)^{2}$ also satisfies the exact condition and is not this sum, so D is **not necessary**.
+
+*The unusual feature here is that a sufficient condition can be a single function. Any function with the symmetry is
+strictly inside the exact set.*
+:::
+
+---
+
+# What each question tests
+
+| Q | Source | Tests |
+|---|---|---|
+| 1 | 2019 · P2 Q5 | Testing two arrows; picking a non-prime $n$ to break the converse |
+| 2 | 2022 · P2 Q6 | A concrete arrow in each direction; building the counterexample from the definition of median |
+| 3 | 2021 · P2 Q3 | Necessary means true in every case; a weak condition can be the right one |
+| 4 | Tyler TMUA Set A · P2 Q5 | Same method with the answer "none of them"; numbers planted to look connected |
+| 5 | 2023 · P2 Q13 | Sufficient as set inclusion; an "or" that gives the whole line |
+| 6 | JZ Maths Mock C · P2 Q13 | "Necessary and sufficient" as equivalence; which powers preserve order |
+| 7 | JZ Maths Mock D · P2 Q12 | Option-only logic: why the smallest set must be the answer |
+| 8 | 2023 · P2 Q7 | Writing the exact condition, then finding a weaker consequence |
+| 9 | 2021 · P2 Q15 | An exact condition from geometry; why an absolute value hides inside the options |
+| 10 | 2020 · P2 Q15 | Finding the complete set of $n$ before reading the options |
+| 11 | 2020 · P2 Q14 | An exact condition from an AP sum; two separate counterexamples |
+| 12 | JZ Maths Mock D · P2 Q6 | Exact solvability condition by monotonicity; sufficient as "inside the set" |
+| 13 | Tyler TMUA Set D · P2 Q6 | Arrow direction in a question with no equation to solve |
+| 14 | 2021 · P2 Q8 | One short argument and one counterexample; the idea behind Rolle's theorem |
+| 15 | 2021 · P2 Q9 | Testing each condition alone; sufficiency needs a guarantee |
+| 16 | 2021 · P2 Q6 | Two counterexamples: a repeated root and a higher degree |
+| 17 | 2019 · P2 Q14 | Increasing versus accelerating; what a condition does not force |
+| 18 | JZ Maths Mock C · P2 Q4 | Checking a definition against statements about sign, area and curvature |
+| 19 | 2020 · P2 Q6 | Sufficient conditions that look necessary |
+| 20 | 2017 · P2 Q10 | Reading a functional condition as a symmetry; eliminating by example |
+| 21 | 2018 · P2 Q10 | Midpoints: reading a functional equation as a mirror line |
+| 22 | 2019 · P2 Q20 | Order of transformations; a period condition equal to the exact one |
+| 23 | JZ Maths Mock C · P2 Q16 | Order of transformations with a stretch; period conditions by strength |
+| 24 | JZ Maths Mock D · P2 Q17 | A sufficient condition that is one specific function |
 
 :::

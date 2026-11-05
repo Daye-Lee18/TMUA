@@ -33,8 +33,9 @@ There is one rule that settles all three cases, and it is on this page.
 **An implication ($\Rightarrow$)** — the set can **grow** (you gain false roots) or **shrink** (you lose
 real ones). Not safe on its own.
 
-[A step is an error when it is a one-way step and nothing earlier in the working justifies it]{.hl}. That
-is the whole test.
+[A one-way step is not automatically an error]{.hl}. It is valid when it is stated as a **necessary
+condition**: $A\Rightarrow B$. The error occurs when the work claims or relies on $A\Leftrightarrow B$
+without establishing the reverse implication. The wording and the later use of the result matter.
 :::
 
 ## Which operations are which
@@ -60,9 +61,9 @@ Three principles, and they are all the same principle.
 ::: {.callout-tip}
 ## At the step, not at the symptom
 
-If line (2) squares without justification and line (5) then reports a false root, **the error is line (2)**.
-Line (5) is correctly telling you the roots of the corrupted equation from line (2) — it is not lying about
-anything.
+If line (2) says squaring gives an **equivalent equation** without the required sign condition, the error
+is line (2). But if line (2) says only that **any solution must satisfy** the squared equation, it is a true
+necessary-condition step; the error comes later if an unchecked candidate is called a solution.
 
 *Test: ask what each line claims **about the line immediately above it**. Line (5) claims "these are the
 roots of line (4)" — true. Line (2) claims "this has the same solutions as line (1)" — false.*
@@ -99,12 +100,16 @@ When you meet a solve-an-equation chain, run these three in order.
 ::: {.callout-important}
 ## Three questions
 
-1. **Find every one-way step.** Scan for: multiply by an expression, divide by an expression, square,
-   take a root, apply something decreasing.
-2. **For each, ask whether an earlier line justifies it.** A stated sign condition, a stated $x\neq0$, a
-   domain restriction from a square root or a denominator. If yes, that step is fine — cross it off.
-3. **The answer is the earliest one still standing.** If none is standing, the argument is **valid** —
-   and on these papers *"valid"* is a real option that is right about a third of the time.
+1. **Find every potentially one-way step.** Scan for: multiply or divide by an expression, square, take a
+   root, or use a non-injective function.
+2. **Read the claim.** “Any solution must satisfy” asks only for $A\Rightarrow B$; “is equivalent to” asks
+   for $A\Leftrightarrow B$. Bare phrases such as “square to obtain” must be interpreted from the question's
+   convention and the way the next lines use the equation.
+3. **Test the required direction(s).** Look for sign conditions, non-zero conditions, and domain
+   restrictions. If only the forward direction is justified, retain the result as a candidate condition
+   and check later; do not use it backwards.
+4. **Choose the first false claim.** A one-way implication may be perfectly valid. The error is the first
+   unjustified equivalence, lost solution, or unchecked candidate promoted to “solution”.
 :::
 
 ---
@@ -188,16 +193,21 @@ are true as well, because "possible values" makes no claim that they work. The f
 
 Real TMUA questions are phrased to avoid the argument. When they are not, two things settle it.
 
-**1 · The verb.** *"Square both sides to obtain"* and *"squaring gives"* read as producing a replacement
-equation — the equivalence reading. *"Hence any solution satisfies"* is explicitly one-way.
+**1 · The verb.** *“Is equivalent to”* is unambiguously two-way; *“hence any solution satisfies”* is
+unambiguously one-way. Bare wording such as *“square both sides to obtain”* is mathematically compatible
+with a forward implication, so by itself it does **not** settle the issue.
 
 **2 · What the options concede.** In **JZ Mock B Paper 2 Q2** every option begins
 
 > *"The final answers for $x$ are **wrong**, and the first error appears in Step (n)."*
 
-[The paper has already granted that the final line is wrong]{.hl}. It is not asking whether the answer was
-checked — it is asking where the chain first broke. That forces the equivalence reading, and the answer is
-the squaring, **Step (3)**.
+[The paper has already granted that the final answers are wrong]{.hl}. Its official convention treats the
+displayed equation at Step (3) as a replacement equation and therefore expects **Step (3)**. Under strict
+formal logic, however, “square both sides to obtain” can state the true implication
+$\sqrt{u}=x\Rightarrow u=x^2$; on that reading Step (6) is the first false claim. This mock question is
+therefore wording-sensitive. In an official question, follow explicit words such as **equivalent**,
+**necessary**, **candidates**, and **solutions**; if none appear, use the convention signalled by the
+options and mark scheme.
 
 **If a question ever leaves it genuinely open**, prefer the step. Every official example in the archive
 marks the step, and no official example marks the final line.
@@ -383,7 +393,7 @@ Working
 ## Shape 5 — taking a root: $\sqrt{u^{2}}=\lvert u\rvert$ &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q5 and 2018 · P2 Q13</span>
 
 Squaring **gains**; rooting **loses**. Both real past-paper versions are already set as
-[S7 Q23](s07_spot_the_error.qmd) and [S7 Q24](s07_spot_the_error.qmd); the point to carry here is the
+[S7 Q19](s07_spot_the_error.qmd) and [S7 Q20](s07_spot_the_error.qmd); the point to carry here is the
 shape they share.
 
 ::: {.callout-tip}
@@ -430,7 +440,7 @@ In **2017 P2 Q18** the student takes $\log_{1/2}$ of both sides of
 $\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}$ and keeps the "$<$". Base $\tfrac12<1$, so
 $\log_{1/2}$ is decreasing and the sign must flip. Every later line is impeccable — the damage is done on
 the first one, and the student's answer $1\le n\le24$ turns out to be the exact **complement** of the truth
-$n\ge26$. *See [S7 Q22](s07_spot_the_error.qmd).*
+$n\ge26$. *See [S7 Q18](s07_spot_the_error.qmd).*
 
 ---
 
@@ -654,13 +664,12 @@ Working
 ::: {.callout-tip}
 ## The page in four lines
 
-1. **A step is an error when it is one-way and nothing earlier justifies it.** Squaring, dividing,
-   multiplying by an expression, dropping a modulus, applying a decreasing function.
-2. **Blame the step, not the symptom** — because a line that says "square both sides to obtain" is
-   claiming an **equivalent** equation, and that claim is the false one. A later line that faithfully
-   reports a corrupted equation is not the error. (If the working had said "any solution must satisfy"
-   instead, the squaring would be fine and the error would move to "the solutions are". Four English words
-   decide it — see Part 3½.)
+1. **One-way does not mean wrong.** $A\Rightarrow B$ is legitimate when $B$ is used only as a necessary
+   condition. It becomes wrong when the work asserts or relies on the unsupported reverse direction.
+2. **Blame the first false claim.** “Equivalent” can make the squaring line false; “any solution must
+   satisfy” keeps it true and moves the possible error to a later “the solutions are”. Bare “obtain” is
+   ambiguous, so inspect the options and stated convention rather than pretending the English fixes a
+   unique logical meaning.
 3. **First, not worst.** Two bad steps in one chain means the answer is the earlier one.
 4. **"Valid" is a real answer.** If the sign condition or the domain is stated *in the working* before the
    step that needs it, the chain is an equivalence throughout and there is nothing to find.

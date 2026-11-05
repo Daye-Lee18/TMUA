@@ -9,60 +9,34 @@ execute:
 
 ::: {.solutions}
 
-**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+**12 questions.** Suggested time: **60 minutes**, no calculator.
 
-For every question the routine is the same: **name the halves $P$ and $Q$, write the statement as one
-arrow, then classify** — reverse only is the *converse*, negate only is the *inverse*, and negate
-*and* reverse is the *contrapositive*.
+Every question comes from a TMUA past paper, a TMUA mock or the official Notes on Logic and Proof, and its source
+is shown beside the question number. None of them appears in the S1 or S2 class questions.
 
-| Section | What it covers | Marks |
+For every question the routine is the same: **name the halves $P$ and $Q$, write the statement as one arrow, then
+classify** — reverse only is the *converse*, negate only is the *inverse*, and negate *and* reverse is the
+*contrapositive*.
+
+| Section | What it covers | Questions |
 |---|---|---|
-| **A — Fluency** | forming the three rearrangements; judging their truth | 10 |
-| **B — Exam standard** | equivalence under exam wording; proof by contrapositive | 14 |
-| **C — Stretch** | auditing a proof; negating compound statements | 8 |
-
-::: {.callout-note appearance="simple"}
-**Also due this session:** Notes on Logic and Proof, **pp. 43–49**, plus **ten statements of your own**
-with their converses and contrapositives (see the class material).
-:::
+| **A — The relatives of a statement** | the three relatives, breaking a statement, and negating it | 1–4 |
+| **B — What follows, and what does not** | holding a hypothesis and testing each claimed conclusion | 5–10 |
+| **C — Proving the right direction** | noticing when a student has proved the converse | 11–12 |
 
 ---
 
-# Section A — Fluency
+# Section A — The relatives of a statement
 
-## Question 1 **[4]**
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise K, Q2–3</span>
 
-Consider: **If $n$ is divisible by $10$, then $n$ is divisible by $5$.**
+::: {.question}
+Let $S$ be the statement "if $A$ then $B$".
 
-&nbsp;&nbsp;(a) Write down the converse. **[1]**
+&nbsp;&nbsp;**(a)** What is the contrapositive of the converse of $S$? Is it logically equivalent to $S$?
 
-&nbsp;&nbsp;(b) Write down the contrapositive. **[1]**
-
-&nbsp;&nbsp;(c) Write down the inverse. **[1]**
-
-&nbsp;&nbsp;(d) State which of the four statements (original, converse, contrapositive, inverse) are
-**true**. **[1]**
-
-::: {.workspace style="min-height:7cm"}
-Working
+&nbsp;&nbsp;**(b)** What is the converse of the contrapositive of $S$? Is it logically equivalent to $S$?
 :::
-
----
-
-## Question 2 **[3]**
-
-Assume this statement is **true**:
-
-> *If a number is a multiple of $9$, then its digits sum to a multiple of $9$.*
-
-For each of the following, state whether it **must be true**, **must be false**, or **cannot be
-determined**.
-
-&nbsp;&nbsp;(a) If a number's digits do not sum to a multiple of $9$, it is not a multiple of $9$. **[1]**
-
-&nbsp;&nbsp;(b) If a number's digits sum to a multiple of $9$, it is a multiple of $9$. **[1]**
-
-&nbsp;&nbsp;(c) A number is a multiple of $9$ and its digits sum to $7$. **[1]**
 
 ::: {.workspace style="min-height:6cm"}
 Working
@@ -70,15 +44,95 @@ Working
 
 ---
 
-## Question 3 **[3]**
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q10</span>
 
-Let $x$ be a real number. Write the **negation** of each statement.
+::: {.question}
+The first seven terms of a sequence of positive integers are:
 
-&nbsp;&nbsp;(a) $x > 5$ **[1]**
+$$u_1=15,\quad u_2=21,\quad u_3=30,\quad u_4=37,\quad u_5=44,\quad u_6=51,\quad u_7=59$$
 
-&nbsp;&nbsp;(b) $2 \le x < 7$ **[1]**
+Consider the following statement about this sequence:
 
-&nbsp;&nbsp;(c) $x$ is positive **and** $x$ is an integer **[1]**
+> $(*)$ If $n$ is a prime number, then $u_n$ is a multiple of $3$ or $u_n$ is a multiple of $5$.
+
+What is the smallest value of $n$ that provides a counterexample to $(*)$?
+
+&nbsp;&nbsp;**A** $1$
+
+&nbsp;&nbsp;**B** $2$
+
+&nbsp;&nbsp;**C** $3$
+
+&nbsp;&nbsp;**D** $4$
+
+&nbsp;&nbsp;**E** $5$
+
+&nbsp;&nbsp;**F** $6$
+
+&nbsp;&nbsp;**G** $7$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q1</span>
+
+::: {.question}
+Let $n$ denote a positive integer. Consider the following three statements.
+
+&nbsp;&nbsp;**I** For every $n$, if $n^2$ is divisible by $12$, then $n$ is divisible by $6$.
+
+&nbsp;&nbsp;**II** For every $n$, if $n^2$ is divisible by $12$, then $n$ is divisible by $12$.
+
+&nbsp;&nbsp;**III** There exists an $n$ such that $n^2$ is divisible by $12$ but $n$ is not divisible by $12$.
+
+Which of the statements are true?
+
+&nbsp;&nbsp;**A** I only
+
+&nbsp;&nbsp;**B** II only
+
+&nbsp;&nbsp;**C** III only
+
+&nbsp;&nbsp;**D** I and II only
+
+&nbsp;&nbsp;**E** II and III only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** all of them
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q9</span>
+
+::: {.question}
+Consider the statement about Fred:
+
+> $(*)$ Every day next week, Fred will do at least one maths problem.
+
+If statement $(*)$ is **not** true, which of the following is certainly true?
+
+&nbsp;&nbsp;**A** Every day next week, Fred will do more than one maths problem.
+
+&nbsp;&nbsp;**B** Some day next week, Fred will do more than one maths problem.
+
+&nbsp;&nbsp;**C** On no day next week will Fred do more than one maths problem.
+
+&nbsp;&nbsp;**D** Every day next week, Fred will do no maths problems.
+
+&nbsp;&nbsp;**E** Some day next week, Fred will do no maths problems.
+
+&nbsp;&nbsp;**F** On no day next week will Fred do no maths problems.
+:::
 
 ::: {.workspace style="min-height:5cm"}
 Working
@@ -86,102 +140,37 @@ Working
 
 ---
 
-# Section B — Exam standard
+# Section B — What follows, and what does not
 
-## Question 4 **[4]**
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q3</span>
 
-Let $a$ be an integer. Consider: **If $a$ is a multiple of $4$, then $a$ is even.**
+::: {.question}
+$a,b$ and $c$ are real numbers.
 
-&nbsp;&nbsp;(a) Write the contrapositive. **[1]**
+Given that $ab=ac$, which of the following statements must be true?
 
-&nbsp;&nbsp;(b) Is the contrapositive true? Explain how you know **without** proving it directly. **[1]**
+&nbsp;&nbsp;**I** $a=0$
 
-&nbsp;&nbsp;(c) Write the converse, and determine whether it is true. **[2]**
+&nbsp;&nbsp;**II** $b=0$ or $c=0$
 
-::: {.workspace style="min-height:7cm"}
-Working
+&nbsp;&nbsp;**III** $b=c$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
-
----
-
-## Question 5 **[5]**
-
-Let $n$ be an integer. Prove that **if $n^2$ is divisible by $3$, then $n$ is divisible by $3$.**
-
-&nbsp;&nbsp;(a) Write down the contrapositive of the statement. **[1]**
-
-&nbsp;&nbsp;(b) Prove the contrapositive. *(Hint: an integer not divisible by $3$ can be written as
-$3k+1$ or $3k+2$ — two cases.)* **[3]**
-
-&nbsp;&nbsp;(c) Explain why this proves the original. **[1]**
-
-::: {.workspace style="min-height:10cm"}
-Working
-:::
-
----
-
-## Question 6 **[5]**
-
-$n$ is a positive integer. Consider the theorem
-
-$$\text{If } n \text{ is divisible by } 9, \text{ then } n \text{ is divisible by } 3. \tag{$*$}$$
-
-Which of the following, **taken individually**, is/are equivalent to $(*)$?
-
-&nbsp;&nbsp;**I** &nbsp; If $n$ is not divisible by $3$, then $n$ is not divisible by $9$.
-
-&nbsp;&nbsp;**II** &nbsp; If $n$ is divisible by $3$, then $n$ is divisible by $9$.
-
-&nbsp;&nbsp;**III** &nbsp; $n$ is divisible by $9$ only if $n$ is divisible by $3$.
-
-&nbsp;&nbsp;**A** I only &nbsp;&nbsp; **B** II only &nbsp;&nbsp; **C** III only &nbsp;&nbsp;
-**D** I and II &nbsp;&nbsp; **E** I and III &nbsp;&nbsp; **F** II and III &nbsp;&nbsp;
-**G** I, II and III &nbsp;&nbsp; **H** None
-
-**Name the halves and show your arrows.** State also, for each of I–III, whether it is *true* — and note
-whether truth and equivalence agree. **[5]**
-
-::: {.workspace style="min-height:10cm"}
-Working
-:::
-
----
-
-# Section C — Stretch
-
-## Question 7 **[5]**
-
-A student is asked to prove: **if $n^2$ is odd, then $n$ is odd.**
-
-The student writes:
-
-> *"Suppose $n$ is odd. Then $n = 2k+1$, so $n^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$, which is odd.
-> Therefore if $n^2$ is odd, then $n$ is odd."*
-
-&nbsp;&nbsp;(a) Is the algebra correct? **[1]**
-
-&nbsp;&nbsp;(b) Is the **proof** correct? State precisely what the student assumed, what they concluded,
-and what was required. **[3]**
-
-&nbsp;&nbsp;(c) If the proof is wrong, write a correct one. **[1]**
-
-::: {.workspace style="min-height:10cm"}
-Working
-:::
-
----
-
-## Question 8 **[3]**
-
-$P$ and $Q$ are statements. It is given that **$P$ only if $Q$** is true.
-
-&nbsp;&nbsp;(a) Write this as an implication. **[1]**
-
-&nbsp;&nbsp;(b) Write its contrapositive as an implication. **[1]**
-
-&nbsp;&nbsp;(c) A student claims: *"since $P$ only if $Q$, it follows that $Q$ only if $P$."* Is the
-student right? Justify your answer. **[1]**
 
 ::: {.workspace style="min-height:6cm"}
 Working
@@ -189,11 +178,268 @@ Working
 
 ---
 
-::: {.callout-tip}
-## Before you hand this in
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q2</span>
 
-For every question, check that you wrote **arrows** somewhere. If an answer has no arrow in the working,
-you had no way to tell a converse from a contrapositive — and that is precisely what is being marked.
+::: {.question}
+Let $x,y,z$ be real numbers with $x\ge y$. Which of the following statements must be true?
+
+&nbsp;&nbsp;**1** $x^3\ge y^3$
+
+&nbsp;&nbsp;**2** $x^2\ge y^2$
+
+&nbsp;&nbsp;**3** $xz\ge yz$
+
+&nbsp;&nbsp;**4** $xz^2\ge yz^2$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 4 only
+
+&nbsp;&nbsp;**D** 1 and 2 only
+
+&nbsp;&nbsp;**E** 1 and 3 only
+
+&nbsp;&nbsp;**F** 1 and 4 only
+
+&nbsp;&nbsp;**G** 2 and 4 only
+
+&nbsp;&nbsp;**H** 1, 2 and 4 only
+
+&nbsp;&nbsp;**I** 1, 3 and 4 only
+
+&nbsp;&nbsp;**J** 1, 2, 3 and 4
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q7</span>
+
+::: {.question}
+The real numbers $a,b,c$ and $d$ satisfy $0<a<b<c<d$.
+
+Which of the following inequalities must be true?
+
+&nbsp;&nbsp;**I** $a+c<b+d$
+
+&nbsp;&nbsp;**II** $d-c>b-a$
+
+&nbsp;&nbsp;**III** $\dfrac bc<\dfrac da$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q8</span>
+
+::: {.question}
+$a,b$ and $c$ are real numbers with $a<b<c<0$.
+
+Which of the following statements must be true?
+
+&nbsp;&nbsp;**I** $ac<ab<a^2$
+
+&nbsp;&nbsp;**II** $b(c+a)>0$
+
+&nbsp;&nbsp;**III** $\dfrac cb>\dfrac ab$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q10</span>
+
+::: {.question}
+The real numbers $a,b,c$ and $d$ satisfy both
+
+$$0<a+b<c+d\qquad\text{and}\qquad0<a+c<b+d$$
+
+Which of the following inequalities must be true?
+
+&nbsp;&nbsp;**I** $a<d$
+
+&nbsp;&nbsp;**II** $b<c$
+
+&nbsp;&nbsp;**III** $a+b+c+d>0$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q16</span>
+
+::: {.question}
+In this question, $x_1,x_2,x_3,\dots$ is an arithmetic progression, all of whose terms are integers.
+
+Let $n$ be a positive integer. **If** the median of the first $n$ terms of the sequence is an integer, which of the following three statements must be true?
+
+&nbsp;&nbsp;**I** The median of the first $n+2$ terms is an integer.
+
+&nbsp;&nbsp;**II** The median of the first $2n$ terms is an integer.
+
+&nbsp;&nbsp;**III** The median of $x_2,x_4,x_6,\dots,x_{2n}$ is an integer.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section C — Proving the right direction
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q11</span>
+
+::: {.question}
+A student attempts to solve the following problem, where $a$ and $b$ are non-zero real numbers:
+
+> Show that if $a^2-4b^3\ge0$ then there exist real numbers $x$ and $y$ such that $a=xy(x+y)$ and $b=xy$.
+
+Consider the following attempt:
+
+&nbsp;&nbsp;$(x-y)^2\ge0$ &nbsp; **(I)**
+
+&nbsp;&nbsp;so $x^2+y^2-2xy\ge0$ &nbsp; **(II)**
+
+&nbsp;&nbsp;so $(x+y)^2-4xy\ge0$ &nbsp; **(III)**
+
+&nbsp;&nbsp;so $x^2y^2(x+y)^2-4x^3y^3\ge0$ &nbsp; **(IV)**
+
+&nbsp;&nbsp;so $a^2-4b^3\ge0$ &nbsp; **(V)**
+
+Which of the following best describes this attempt?
+
+&nbsp;&nbsp;**A** It is completely correct.
+
+&nbsp;&nbsp;**B** It is incorrect, but it would be correct if written in the reverse order.
+
+&nbsp;&nbsp;**C** It is incorrect, but the student has correctly proved the converse.
+
+&nbsp;&nbsp;**D** It is incorrect because there is an error in line (II).
+
+&nbsp;&nbsp;**E** It is incorrect because there is an error in line (III).
+
+&nbsp;&nbsp;**F** It is incorrect because there is an error in line (IV).
+:::
+
+::: {.workspace style="min-height:9cm"}
+Working
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q17</span>
+
+::: {.question}
+A student answered the following question:
+
+> $a$ and $b$ are non-zero real numbers.
+>
+> Prove that the equation $x^3+ax^2+b=0$ has three distinct real roots if $27b\left(b+\dfrac{4a^3}{27}\right)<0$
+
+Here is the student's solution:
+
+&nbsp;&nbsp;**I** We differentiate $y=x^3+ax^2+b$ to get $\dfrac{dy}{dx}=3x^2+2ax=x(3x+2a)$. Solving $\dfrac{dy}{dx}=0$ shows that the stationary points are at $(0,b)$ and $\left(-\dfrac{2a}{3},\ b+\dfrac{4a^3}{27}\right)$.
+
+&nbsp;&nbsp;**II** If $27b\left(b+\dfrac{4a^3}{27}\right)<0$, then $b$ and $b+\dfrac{4a^3}{27}$ must have opposite signs, and so one of the stationary points is above the $x$-axis and one is below.
+
+&nbsp;&nbsp;**III** If the cubic has three distinct real roots, then one of the stationary points is above the $x$-axis and one is below.
+
+&nbsp;&nbsp;**IV** Hence if $27b\left(b+\dfrac{4a^3}{27}\right)<0$, then the equation has three distinct real roots.
+
+Which one of the following options best describes the student's solution?
+
+&nbsp;&nbsp;**A** It is a completely correct solution.
+
+&nbsp;&nbsp;**B** The student has instead proved the converse of the statement in the question.
+
+&nbsp;&nbsp;**C** The solution is wrong, because the student should have stated step II after step III.
+
+&nbsp;&nbsp;**D** The solution is wrong, because the student should have shown the converse of the result in step II.
+
+&nbsp;&nbsp;**E** The solution is wrong, because the student should have shown the converse of the result in step III.
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
 :::
 
 :::

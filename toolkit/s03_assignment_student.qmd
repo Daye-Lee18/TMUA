@@ -9,70 +9,42 @@ execute:
 
 ::: {.solutions}
 
-**Show all your reasoning.** Total: **40 marks** · Suggested time: **55 minutes**.
+**24 questions.** Suggested time: **100 minutes**, no calculator.
 
-Two lines settle every question below:
+Every question comes from a TMUA past paper or a TMUA-style mock, and its source is shown beside the question number. None of
+them appears in the S3 class questions.
 
-$$\textbf{“}A \textbf{ sufficient for } B \textbf{”} = A \Rightarrow B \qquad\qquad
-\textbf{“}A \textbf{ necessary for } B \textbf{”} = B \Rightarrow A$$
+For every question the routine is the same: **find the condition and the target, then write the arrow.** Sufficient is
+condition $\Rightarrow$ target, and necessary is target $\Rightarrow$ condition. Where you can, work out the exact condition
+first, then compare the options with it.
 
-When the wording is reversed (*"a necessary condition for $Q$ is $P$"*), find the **target** — it follows
-the word *for* — and the **condition**, then apply the rule.
-
-::: {.callout-important}
-## The routine, and what earns the marks
-
-For every question: **write down the exact set of cases that makes each statement true**, then compare by
-inclusion.
-
-$$P\subseteq Q\ \Rightarrow\ P\text{ sufficient}\qquad Q\subseteq P\ \Rightarrow\ P\text{ necessary}
-\qquad P=Q\ \Rightarrow\ \text{both}$$
-
-A verdict on its own scores almost nothing. **"Not sufficient" needs a counterexample** and **"sufficient"
-needs an argument** — and questions asking for both directions want *two* separate pieces of work.
-:::
-
-| Section | What it covers | Marks |
+| Section | What it covers | Questions |
 |---|---|---|
-| **A — Fluency** | three phrasings of one arrow, including reversed wording | 4 |
-| **B — Exam standard** | six real TMUA Paper 2 questions, justified in full | 20 |
-| **C — Stretch** | parameter problems and a multi-statement comparison | 16 |
+| **A — Read the verdict** | two statements or a list of conditions; test each arrow | 1–7 |
+| **B — Find the exact condition** | work out exactly when it holds, then compare the options | 8–12 |
+| **C — Polynomials, derivatives and integrals** | what a condition on $f$ forces, and what it does not | 13–20 |
+| **D — Symmetry and transformations** | turning a graph condition into one exact equation | 21–24 |
 
 ---
 
-# Section A — Fluency
+# Section A — Read the verdict
 
-## Question 1 **[4]**
-
-::: {.question}
-$P$ and $Q$ are statements. Write each of the following as an implication, using $\Rightarrow$.
-
-&nbsp;&nbsp;(a) $P$ **only if** $Q$. **[1]**
-&nbsp;&nbsp;(b) A **sufficient** condition for $Q$ is $P$. **[1]**
-&nbsp;&nbsp;(c) $Q$ is **necessary** for $P$. **[1]**
-&nbsp;&nbsp;(d) All three of (a)–(c) are the same statement. Say in one sentence how you can tell, and
-name the one phrase among them whose wording points the other way. **[1]**
-:::
-
-::: {.workspace style="min-height:7cm"}
-Working
-:::
-
----
-
-# Section B — Exam standard
-
-*All six are real TMUA Paper 2 questions. Give the letter **and** the justification — for a "not
-sufficient" or "not necessary" verdict that means a specific counterexample.*
-
-## Question 2 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q6</span>
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q5</span>
 
 ::: {.question}
-A list contains $n$ integers. &nbsp; $P$: $n$ is odd. &nbsp; $Q$: the median of the list is one of the
-numbers in the list.
+Consider the following statement about the positive integers $a$, $b$ and $n$:
 
-&nbsp;&nbsp;**A** $P$ is necessary and sufficient for $Q$ &nbsp; **B** necessary, not sufficient &nbsp;
-**C** sufficient, not necessary &nbsp; **D** neither
+> $(*)$: $ab$ is divisible by $n$
+
+The condition "either $a$ or $b$ is divisible by $n$" is:
+
+&nbsp;&nbsp;**A** necessary but not sufficient for $(*)$
+
+&nbsp;&nbsp;**B** sufficient but not necessary for $(*)$
+
+&nbsp;&nbsp;**C** necessary and sufficient for $(*)$
+
+&nbsp;&nbsp;**D** not necessary and not sufficient for $(*)$
 :::
 
 ::: {.workspace style="min-height:6cm"}
@@ -81,14 +53,26 @@ Working
 
 ---
 
-## Question 3 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q8</span>
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q6</span>
 
 ::: {.question}
-$\mathrm p$ is a polynomial and $a<b$. Let $(*)$ be the statement: *there is a $c$ with $a<c<b$ such that
-$\mathrm p'(c)=0$.*
+A list consists of $n$ integers.
 
-&nbsp;&nbsp;**A** $\mathrm p(a)=\mathrm p(b)$ is necessary and sufficient for $(*)$ &nbsp;
-**B** necessary, not sufficient &nbsp; **C** sufficient, not necessary &nbsp; **D** neither
+Consider the following statements:
+
+&nbsp;&nbsp;**P:** $n$ is odd.
+
+&nbsp;&nbsp;**Q:** The median of the list is one of the numbers in the list.
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** P is necessary and sufficient for Q.
+
+&nbsp;&nbsp;**B** P is necessary but not sufficient for Q.
+
+&nbsp;&nbsp;**C** P is sufficient but not necessary for Q.
+
+&nbsp;&nbsp;**D** P is not necessary and not sufficient for Q.
 :::
 
 ::: {.workspace style="min-height:6cm"}
@@ -97,161 +81,696 @@ Working
 
 ---
 
-## Question 4 **[4]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q6</span>
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q3</span>
 
 ::: {.question}
-$\mathrm f$ is a polynomial. &nbsp; $P$: $\mathrm f(x)=0$ for exactly three real values of $x$. &nbsp;
-$Q$: $\mathrm f'(x)=0$ for exactly two real values of $x$.
+A student is chosen at random from a class. Each student is equally likely to be chosen.
 
-&nbsp;&nbsp;**A** $P$ necessary, not sufficient &nbsp; **B** $P$ sufficient, not necessary &nbsp;
-**C** necessary and sufficient &nbsp; **D** neither
+Which of the following conditions is/are **necessary** for the probability that the student wears glasses to equal
+$\dfrac{4}{15}$?
 
-**Both directions fail here, so you must give a counterexample to each.** **[4]**
+&nbsp;&nbsp;**I** &nbsp; Exactly $11$ students in the class do not wear glasses.
+
+&nbsp;&nbsp;**II** &nbsp; The number of students in the class is divisible by $3$.
+
+&nbsp;&nbsp;**III** &nbsp; The class contains $30$ students, and $8$ of them wear glasses.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
 
-::: {.workspace style="min-height:8cm"}
+::: {.workspace style="min-height:6cm"}
 Working
 :::
 
 ---
 
-## Question 5 **[4]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q7</span>
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q5</span>
 
 ::: {.question}
-The line $ax+by=c$ has $a,b,c$ all non-zero. Which of the following is **necessary but not sufficient**
-for the line to have **both** a positive gradient **and** a positive $y$-intercept?
+A child is chosen at random from a group. Each child is equally likely to be chosen.
 
-&nbsp;&nbsp;**A** $a$ and $b$ have the same sign &nbsp; **B** $b$ and $c$ have the same sign &nbsp;
-**C** $a$ and $b$ have opposite signs &nbsp; **D** $b$ and $c$ have opposite signs &nbsp;
-**E** $a$ and $c$ have opposite signs &nbsp; **F** $a$ and $c$ have the same sign
+Which of the following conditions is/are **necessary** for the probability that the child has a pet to equal exactly
+$\dfrac{4}{9}$?
 
-*Rearranging first is most of the work.* **[4]**
+&nbsp;&nbsp;**I** &nbsp; Exactly $5$ children in the group do not have a pet.
+
+&nbsp;&nbsp;**II** &nbsp; The number of children in the group is divisible by $4$.
+
+&nbsp;&nbsp;**III** &nbsp; The number of children in the group with a pet is divisible by $3$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
 
-::: {.workspace style="min-height:8cm"}
+::: {.workspace style="min-height:6cm"}
 Working
 :::
 
 ---
 
-## Question 6 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q15</span>
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q13</span>
 
 ::: {.question}
-A circle has equation $x^{2}+ax+y^{2}+by+c=0$, where $a,b,c$ are non-zero. Which is a **necessary and
-sufficient** condition for the circle to be **tangent to the $y$-axis**?
+Let $x$ be a real number.
 
-&nbsp;&nbsp;**A** $a^{2}=4c$ &nbsp; **B** $b^{2}=4c$ &nbsp;
-**C** $\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$ &nbsp; **D** $\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$
-&nbsp; **E** $-\tfrac a2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$ &nbsp;
-**F** $-\tfrac b2=\sqrt{\tfrac{a^{2}+b^{2}}{4}-c}$
-:::
-
-::: {.workspace style="min-height:7cm"}
-Working
-:::
-
----
-
-## Question 7 **[3]** &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q13</span>
-
-::: {.question}
-Consider these five statements about a real number $x$. Which **one** of them is a **sufficient**
-condition for **exactly three** of the other four?
+Which one of the following statements is a **sufficient** condition for exactly three of the other four statements?
 
 &nbsp;&nbsp;**A** $x\ge0$
+
 &nbsp;&nbsp;**B** $x=1$
+
 &nbsp;&nbsp;**C** $x=0$ or $x=1$
+
 &nbsp;&nbsp;**D** $x\ge0$ or $x\le1$
+
 &nbsp;&nbsp;**E** $x\ge0$ and $x\le1$
-
-*One of the five is true for every real number. Find it first.* **[3]**
 :::
 
-::: {.workspace style="min-height:8cm"}
+::: {.workspace style="min-height:6cm"}
 Working
 :::
 
 ---
 
-# Section C — Stretch
-
-*Questions 8 and 9 use the method from the class material on new equations — find the **exact** condition
-first, then read off which option is a proper subset or a proper superset of it.*
-
-## Question 8 **[6]**
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q13</span>
 
 ::: {.question}
-Consider the equation
-$$x^{3}-12x+k=0,$$
-where $k$ is a real parameter.
+Let $x$ and $y$ be non-zero real numbers with $x\neq y$.
 
-&nbsp;&nbsp;(a) Show that the equation has **exactly one** real root if and only if $\lvert k\rvert>16$. **[3]**
+Which one of the following statements is both **necessary and sufficient** for $x<y$?
 
-&nbsp;&nbsp;(b) For each condition below, say whether it is **sufficient**, **necessary**, **both**, or
-**neither** for the equation to have exactly one real root. Justify each. **[3]**
+&nbsp;&nbsp;**A** $y^{-1/3}<x^{-1/3}$
 
-&nbsp;&nbsp;&nbsp;&nbsp;(i) $k>20$ &nbsp;&nbsp;&nbsp; (ii) $k\neq0$ &nbsp;&nbsp;&nbsp; (iii) $k^{2}>256$
+&nbsp;&nbsp;**B** $y^{1/5}<x^{1/5}$
+
+&nbsp;&nbsp;**C** $x^{2/3}<y^{2/3}$
+
+&nbsp;&nbsp;**D** $y^{2/3}<x^{2/3}$
+
+&nbsp;&nbsp;**E** $|x|^{1/3}<|y|^{1/3}$
+
+&nbsp;&nbsp;**F** $x^{-1/3}<y^{-1/3}$
+
+&nbsp;&nbsp;**G** $x^{1/5}<y^{1/5}$
 :::
 
-::: {.workspace style="min-height:11cm"}
+::: {.workspace style="min-height:6cm"}
 Working
 :::
 
 ---
 
-## Question 9 **[5]**
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q12</span>
 
 ::: {.question}
-Consider the equation
-$$x^{4}-6x^{2}+c=0,$$
-where $c$ is a real parameter.
+A TMUA question asks candidates to identify which one of the conditions below is a **sufficient but not necessary**
+condition for some statement $P$, concerning a real number $x$, to hold.
 
-&nbsp;&nbsp;(a) Find the complete set of values of $c$ for which the equation has **four distinct real
-roots**. **[3]**
+Friedrich Gauss, sitting the exam, noticed to his delight that the examiner has designed the question poorly, and the
+correct option can be deduced without knowing or examining $P$ in the slightest!
 
-&nbsp;&nbsp;(b) Hence decide which **one** of the following is **necessary but not sufficient** for that to
-happen, and say why each of the others is not. **[2]**
+Which is the correct option?
 
-&nbsp;&nbsp;&nbsp;&nbsp;**A** $-2<c<11$ &nbsp;&nbsp; **B** $0<c<9$ &nbsp;&nbsp; **C** $1<c<8$ &nbsp;&nbsp;
-**D** $c>0$ and $c<4$
+&nbsp;&nbsp;**A** $|x-2|<2$
+
+&nbsp;&nbsp;**B** $x^{2}-5x+6<0$
+
+&nbsp;&nbsp;**C** $\log(x-2)$ is defined
+
+&nbsp;&nbsp;**D** $|x-2|<1$
+
+&nbsp;&nbsp;**E** $x$ can be any real number
 :::
 
-::: {.workspace style="min-height:10cm"}
+::: {.workspace style="min-height:6cm"}
 Working
 :::
 
 ---
 
-## Question 10 **[5]**
+# Section B — Find the exact condition
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q7</span>
 
 ::: {.question}
-$ABCD$ is a quadrilateral.
+The graph of the line $ax+by=c$ is drawn, where $a$, $b$ and $c$ are real non-zero constants.
 
-&nbsp;&nbsp;(a) Give a condition on its **diagonals** that is **necessary and sufficient** for $ABCD$ to be
-a square, and justify both directions. **[3]**
+Which one of the following is a **necessary** but **not sufficient** condition for the line to have a positive gradient
+**and** a positive $y$-intercept?
 
-&nbsp;&nbsp;(b) "All four sides are equal" is necessary but not sufficient for $ABCD$ to be a square. Name
-the counterexample. **[1]**
+&nbsp;&nbsp;**A** $\dfrac cb>0$ and $\dfrac ab<0$
 
-&nbsp;&nbsp;(c) "The diagonals are equal" is also necessary but not sufficient. Name a **different**
-counterexample, and explain why the one from (b) does not work here. **[1]**
+&nbsp;&nbsp;**B** $\dfrac cb<0$ and $\dfrac ab>0$
+
+&nbsp;&nbsp;**C** $a>b>c$
+
+&nbsp;&nbsp;**D** $a<b<c$
+
+&nbsp;&nbsp;**E** $a$ and $c$ have opposite signs
+
+&nbsp;&nbsp;**F** $a$ and $c$ have the same sign
 :::
 
-::: {.workspace style="min-height:10cm"}
+::: {.workspace style="min-height:7cm"}
 Working
 :::
 
 ---
 
-::: {.callout-tip}
-## Before you hand this in
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q15</span>
 
-1. Every **"not sufficient"** and **"not necessary"** should have a concrete counterexample written next to
-   it — a number, an equation, or a named shape. A verdict with no counterexample is an unsupported claim.
-2. In Section C, check you wrote the **exact** condition down before looking at the options. Working
-   straight from the options is what makes these questions feel like guesswork.
-3. Re-read the **complete translation table** in the class material until you can place any phrase into its
-   column without hesitating.
+::: {.question}
+A circle has equation
+
+$$x^{2}+ax+y^{2}+by+c=0$$
+
+where $a$, $b$ and $c$ are non-zero real constants.
+
+Which one of the following is a **necessary and sufficient** condition for the circle to be tangent to the $y$-axis?
+
+&nbsp;&nbsp;**A** $a^{2}=4c$
+
+&nbsp;&nbsp;**B** $b^{2}=4c$
+
+&nbsp;&nbsp;**C** $\dfrac a2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+
+&nbsp;&nbsp;**D** $\dfrac b2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+
+&nbsp;&nbsp;**E** $-\dfrac a2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+
+&nbsp;&nbsp;**F** $-\dfrac b2=\sqrt{\dfrac{a^{2}+b^{2}}{4}-c}$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q15</span>
+
+::: {.question}
+Which one of the following is a **necessary and sufficient** condition for
+
+$$\sum_{k=1}^{n}\sin\left(\frac{k\pi}{3}\right)=\frac{\sqrt3}{2}$$
+
+to be true?
+
+&nbsp;&nbsp;**A** $n=1$
+
+&nbsp;&nbsp;**B** $n$ is a multiple of $3$
+
+&nbsp;&nbsp;**C** $n$ is a multiple of $6$
+
+&nbsp;&nbsp;**D** $n$ is $1$ more than a multiple of $3$
+
+&nbsp;&nbsp;**E** $n$ is $1$ more than a multiple of $6$
+
+&nbsp;&nbsp;**F** $n$ is $1$ more than a multiple of $6$ or $n$ is $2$ more than a multiple of $6$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q14</span>
+
+::: {.question}
+An arithmetic sequence $T$ has first term $a$ and common difference $d$, where $a$ and $d$ are non-zero integers.
+
+Property $P$ is:
+
+> For some positive integer $m$, the sum of the first $m$ terms of the sequence is equal to the sum of the first $2m$ terms
+> of the sequence.
+
+For example, when $a=11$ and $d=-2$, the sequence $T$ has property $P$, because
+
+$$11+9+7+5=11+9+7+5+3+1+(-1)+(-3)$$
+
+i.e. the sum of the first $4$ terms equals the sum of the first $8$ terms.
+
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; For $T$ to have property $P$, it is sufficient that $ad<0$.
+
+&nbsp;&nbsp;**II** &nbsp; For $T$ to have property $P$, it is necessary that $d$ is even.
+
+&nbsp;&nbsp;**A** neither of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** I and II
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q6</span>
+
+::: {.question}
+Which of the following is a **sufficient** condition on the real constant $k$ for the equation
+
+$$(x+k)^{1/2}+(x-k)^{1/4}=k$$
+
+to have at least one real solution for $x$?
+
+&nbsp;&nbsp;**A** $k=0$ or $k>3$
+
+&nbsp;&nbsp;**B** $k=1$ or $k>3$
+
+&nbsp;&nbsp;**C** $k=0$ or $1<k<3$
+
+&nbsp;&nbsp;**D** $k\ge1$
+
+&nbsp;&nbsp;**E** $0\le k\le3$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+# Section C — Polynomials, derivatives and integrals
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q6</span>
+
+::: {.question}
+Consider the following statements for real values of $x$.
+
+&nbsp;&nbsp;**A:** $\displaystyle\int_{0}^{2\pi}\sin kx\,dx=0$
+
+&nbsp;&nbsp;**B:** $k$ is an even integer
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** A is necessary but not sufficient for B
+
+&nbsp;&nbsp;**B** A is sufficient but not necessary for B
+
+&nbsp;&nbsp;**C** A is necessary and sufficient for B
+
+&nbsp;&nbsp;**D** A is not necessary and not sufficient for B
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q8</span>
+
+::: {.question}
+Consider the following statement about the polynomial $\mathrm p(x)$, where $a$ and $b$ are real numbers with $a<b$:
+
+> $(*)$ There exists a number $c$ with $a<c<b$ such that $\mathrm p'(c)=0$.
+
+Which one of the following is true?
+
+&nbsp;&nbsp;**A** The condition $\mathrm p(a)=\mathrm p(b)$ is necessary and sufficient for $(*)$
+
+&nbsp;&nbsp;**B** The condition $\mathrm p(a)=\mathrm p(b)$ is necessary but not sufficient for $(*)$
+
+&nbsp;&nbsp;**C** The condition $\mathrm p(a)=\mathrm p(b)$ is sufficient but not necessary for $(*)$
+
+&nbsp;&nbsp;**D** The condition $\mathrm p(a)=\mathrm p(b)$ is not necessary and not sufficient for $(*)$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q9</span>
+
+::: {.question}
+Consider the following statements about a polynomial $\mathrm f(x)$:
+
+&nbsp;&nbsp;**I** &nbsp; $\mathrm f(x)=px^{3}+qx^{2}+rx+s$, where $p\neq0$.
+
+&nbsp;&nbsp;**II** &nbsp; There is a real number $t$ for which $\mathrm f'(t)=0$.
+
+&nbsp;&nbsp;**III** &nbsp; There are real numbers $u$ and $v$ for which $\mathrm f(u)\,\mathrm f(v)<0$.
+
+Which of these statements is/are **sufficient** for the equation $\mathrm f(x)=0$ to have a real solution?
+
+| | Statement I is sufficient | Statement II is sufficient | Statement III is sufficient |
+|---|---|---|---|
+| **A** | Yes | Yes | Yes |
+| **B** | Yes | Yes | No |
+| **C** | Yes | No | Yes |
+| **D** | Yes | No | No |
+| **E** | No | Yes | Yes |
+| **F** | No | Yes | No |
+| **G** | No | No | Yes |
+| **H** | No | No | No |
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q6</span>
+
+::: {.question}
+Consider the following two statements about the polynomial $\mathrm f(x)$:
+
+&nbsp;&nbsp;**P:** $\mathrm f(x)=0$ for exactly three real values of $x$
+
+&nbsp;&nbsp;**Q:** $\mathrm f'(x)=0$ for exactly two real values of $x$
+
+Which one of the following is correct?
+
+&nbsp;&nbsp;**A** P is necessary but not sufficient for Q.
+
+&nbsp;&nbsp;**B** P is sufficient but not necessary for Q.
+
+&nbsp;&nbsp;**C** P is necessary and sufficient for Q.
+
+&nbsp;&nbsp;**D** P is not necessary and not sufficient for Q.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q14</span>
+
+::: {.question}
+Consider the following statements about the polynomial $\mathrm p(x)$, where $a<b$:
+
+&nbsp;&nbsp;**I** &nbsp; $\mathrm p(a)\le\mathrm p(b)$
+
+&nbsp;&nbsp;**II** &nbsp; $\mathrm p'(a)\le\mathrm p'(b)$
+
+&nbsp;&nbsp;**III** &nbsp; $\mathrm p''(a)\le\mathrm p''(b)$
+
+Which of these statements is a **necessary** condition for $\mathrm p(x)$ to be increasing for $a\le x\le b$?
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q4</span>
+
+::: {.question}
+Consider the following statements about the polynomial $f(x)$, where $a<b$:
+
+&nbsp;&nbsp;**(1)** $f(a)>f(b)$;
+
+&nbsp;&nbsp;**(2)** $f'(x)\le0$ for all $x\in[a,b]$;
+
+&nbsp;&nbsp;**(3)** $\displaystyle\int_{a}^{b}f(x)\,dx\le0$;
+
+&nbsp;&nbsp;**(4)** $f(a)+f(b)\le2f\left(\dfrac{a+b}{2}\right)$.
+
+Which of these statements is a **necessary** condition for $f(x)$ to be decreasing for $a\le x\le b$? Here, decreasing means
+that $x_1\le x_2$ implies $f(x_1)\ge f(x_2)$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** Only 1.
+
+&nbsp;&nbsp;**C** Only 2.
+
+&nbsp;&nbsp;**D** Only 3.
+
+&nbsp;&nbsp;**E** Only 4.
+
+&nbsp;&nbsp;**F** Only 1 and 2.
+
+&nbsp;&nbsp;**G** Only 1 and 3.
+
+&nbsp;&nbsp;**H** Only 1 and 4.
+
+&nbsp;&nbsp;**I** Only 2 and 3.
+
+&nbsp;&nbsp;**J** Only 2 and 4.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q6</span>
+
+::: {.question}
+The function $\mathrm f(x)$ is defined for all real values of $x$.
+
+Which of the following conditions on $\mathrm f(x)$ is/are **necessary** to ensure that
+
+$$\int_{-5}^{0}\mathrm f(x)\,\mathrm dx=\int_{0}^{5}\mathrm f(x)\,\mathrm dx\ ?$$
+
+&nbsp;&nbsp;**Condition I:** $\mathrm f(x)=\mathrm f(-x)$ for $-5\le x\le5$
+
+&nbsp;&nbsp;**Condition II:** $\mathrm f(x)=c$ for $-5\le x\le5$, where $c$ is a constant
+
+&nbsp;&nbsp;**Condition III:** $\mathrm f(x)=-\mathrm f(-x)$ for $-5\le x\le5$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q10</span>
+
+::: {.question}
+$f(x)$ is a function defined for all real values of $x$.
+
+Which one of the following is a **sufficient** condition for $\displaystyle\int_{1}^{3}f(x)\,dx=0$?
+
+&nbsp;&nbsp;**A** $f(2)=0$
+
+&nbsp;&nbsp;**B** $f(1)=f(3)=0$
+
+&nbsp;&nbsp;**C** $f(-x)=-f(x)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x+2)=-f(2-x)$ for all $x$
+
+&nbsp;&nbsp;**E** $f(x-2)=-f(2-x)$ for all $x$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+# Section D — Symmetry and transformations
+
+## Question 21 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q10</span>
+
+::: {.question}
+The function $\mathrm f(x)$ is defined for all real numbers.
+
+Consider the following three conditions, where $a$ is a real constant:
+
+&nbsp;&nbsp;**I** &nbsp; $\mathrm f(a-x)=\mathrm f(a+x)$ for all real $x$.
+
+&nbsp;&nbsp;**II** &nbsp; $\mathrm f(2a-x)=\mathrm f(x)$ for all real $x$.
+
+&nbsp;&nbsp;**III** &nbsp; $\mathrm f(a-x)=\mathrm f(x)$ for all real $x$.
+
+Which of these conditions is/are **necessary and sufficient** for the graph of $y=\mathrm f(x)$ to have reflection symmetry
+in the line $x=a$?
+
+| | Condition I is | Condition II is | Condition III is |
+|---|---|---|---|
+| | necessary and sufficient | necessary and sufficient | necessary and sufficient |
+| **A** | yes | yes | yes |
+| **B** | yes | yes | no |
+| **C** | yes | no | yes |
+| **D** | yes | no | no |
+| **E** | no | yes | yes |
+| **F** | no | yes | no |
+| **G** | no | no | yes |
+| **H** | no | no | no |
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 22 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q20</span>
+
+::: {.question}
+When the graph of the function $y=\mathrm f(x)$, defined on the real numbers, is reflected in the $y$-axis and then translated by
+$2$ units in the negative $x$-direction, the result is the graph of the function $y=\mathrm g(x)$.
+
+When the graph of the same function $y=\mathrm f(x)$ is translated by $2$ units in the negative $x$-direction and then reflected in
+the $y$-axis, the result is the graph of the function $y=\mathrm h(x)$.
+
+Which one of the following conditions on $y=\mathrm f(x)$ is **necessary and sufficient** for the functions $\mathrm g(x)$ and
+$\mathrm h(x)$ to be identical?
+
+&nbsp;&nbsp;**A** $\mathrm f(x)=\mathrm f(x+2)$ for all $x$
+
+&nbsp;&nbsp;**B** $\mathrm f(x)=\mathrm f(x+4)$ for all $x$
+
+&nbsp;&nbsp;**C** $\mathrm f(x)=\mathrm f(x+8)$ for all $x$
+
+&nbsp;&nbsp;**D** $\mathrm f(x)=\mathrm f(-x)$ for all $x$
+
+&nbsp;&nbsp;**E** $\mathrm f(x)=\mathrm f(2-x)$ for all $x$
+
+&nbsp;&nbsp;**F** $\mathrm f(x)=\mathrm f(4-x)$ for all $x$
+
+&nbsp;&nbsp;**G** $\mathrm f(x)=\mathrm f(8-x)$ for all $x$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 23 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q16</span>
+
+::: {.question}
+Three transformations of the plane are defined as follows. $R$ is the reflection in the $y$-axis. $T$ is the translation by $4$
+units in the positive $x$-direction. $S$ is the horizontal stretch with scale factor $2$ parallel to the $x$-axis, fixing the
+$y$-axis.
+
+Let $y=f(x)$ be a function defined on the real numbers.
+
+When the graph of $y=f(x)$ is transformed by applying $R$, then $T$, then $S$ in that order, the result is the graph of
+$y=g(x)$.
+
+When the graph of the same function $y=f(x)$ is transformed by applying $S$, then $T$, then $R$ in that order, the result is
+the graph of $y=h(x)$.
+
+Which one of the following conditions on $y=f(x)$ is **necessary and sufficient** for the functions $g(x)$ and $h(x)$ to be
+identical?
+
+&nbsp;&nbsp;**A** $f(x)=f(x+3)$ for all $x$
+
+&nbsp;&nbsp;**B** $f(x)=f(x+4)$ for all $x$
+
+&nbsp;&nbsp;**C** $f(x)=f(x+6)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x)=f(x+12)$ for all $x$
+
+&nbsp;&nbsp;**E** $f(x)=f(-x)$ for all $x$
+
+&nbsp;&nbsp;**F** $f(x)=f(6-x)$ for all $x$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 24 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q17</span>
+
+::: {.question}
+Let $f$ be a function defined on the real numbers.
+
+When the graph of $y=f(x)$ is reflected in the $y$-axis and then stretched in the $x$-direction by a factor of $\tfrac12$, the
+result is the graph of $y=g(x)$.
+
+When the graph of $y=f(x)$ is stretched in the $x$-direction by a factor of $\tfrac12$ and then translated by $1$ unit in the
+negative $x$-direction, the result is the graph of $y=h(x)$.
+
+Which of the following is a **sufficient but not necessary condition** for $g(x)$ and $h(x)$ to be identical, that is
+$g(x)=h(x)$ for all real values of $x$?
+
+&nbsp;&nbsp;**A** $f(0)=f(2)$
+
+&nbsp;&nbsp;**B** $f(x)=f(2-x)$ for all $x$
+
+&nbsp;&nbsp;**C** $f(x+1)=f(1-x)$ for all $x$
+
+&nbsp;&nbsp;**D** $f(x)=\displaystyle\sum_{k=1}^{10}\cos(\pi kx)$
+
+&nbsp;&nbsp;**E** $f(x)=f(1-x)$ for all $x$
+
+&nbsp;&nbsp;**F** $f(x)=\cos(\pi x)+\sin(\pi x)$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
 :::
 
 :::

@@ -53,7 +53,7 @@ Negating a compound needs care: $\lnot(P\text{ and }Q)=\lnot P\text{ or }\lnot Q
 $\lnot(P\text{ or }Q)=\lnot P\text{ and }\lnot Q$.
 
 *His **09/04 Q16*** — the three-lever safe — is now
-**[S2 Q9](../../toolkit/s02_converse_contrapositive.qmd)**. Attempt it there first.
+**[S2 Q7](../../toolkit/s02_converse_contrapositive.qmd)**. Attempt it there first.
 :::
 
 ::: {.callout-tip}
@@ -62,10 +62,10 @@ $\lnot(P\text{ or }Q)=\lnot P\text{ and }\lnot Q$.
 Read a purported proof with this list in hand, and stop at the **first** line that fails:
 
 1. **Small cases.** Does every line survive $n=1$, $x=0$, the empty case? *(This is what his **Q5** turns
-   on — now [S7 Q17](../../toolkit/s07_spot_the_error.qmd).)*
+   on — now [S7 Q13](../../toolkit/s07_spot_the_error.qmd).)*
 2. **Dividing.** Did a step divide by something that could be $0$? "$ab=ac\Rightarrow b=c$" needs $a\neq0$.
 3. **Squaring.** Squaring both sides can invent solutions; $\sqrt{X}<Y$ also silently needs $Y>0$.
-   *(His **Q3** — now [S7 Q16](../../toolkit/s07_spot_the_error.qmd), and its verdict is not the obvious one.)*
+   *(His **Q3** — now [S7 Q12](../../toolkit/s07_spot_the_error.qmd), and its verdict is not the obvious one.)*
 4. **Reversing.** Did the proof use the **converse** of what it established?
 5. **"For all" vs "there exists".** An example never proves a "for all"; one counterexample kills it.
 6. **Common false deductions.** $\sin A=\sin B\Rightarrow A=B$ is **not** valid.
@@ -81,9 +81,9 @@ lines are also wrong.
 | | Block | What to do |
 |---|---|---|
 | **1** | *Warm-up* — 10 min | The two sentences on card 1. Then re-do **09/04 Q1** cold, saying out loud which condition is the exact one. |
-| **2** | **S3 — Necessary & sufficient** — 30 min | [Concepts](../../toolkit/s03_concepts.qmd), then the [class problems](../../toolkit/s03_necessary_sufficient.qmd) (20 questions — Part 4 is the exam bank). Finish by re-doing **Q11** and **09/16 Q13**. |
-| **3** | **S2 — Contrapositive** — 15 min | [Concepts](../../toolkit/s02_concepts.qmd) + [class problems](../../toolkit/s02_converse_contrapositive.qmd). Anchor on **Q16**; make him state the converse each time and say why it is *not* implied. |
-| **4** | **S7 — Spot the error** — 35 min | [Concepts](../../toolkit/s07_concepts.qmd) (the common fallacies), then the [class problems](../../toolkit/s07_spot_the_error.qmd) (20 questions — Part 4 is the exam bank). Re-do **Q5** and **Q17** with the checklist visible. |
+| **2** | **S3 — Necessary & sufficient** — 30 min | [Concepts & class problems](../../toolkit/s03_necessary_sufficient.qmd) (21 questions — Part 4 is the exam bank). Finish by re-doing **Q11** and **09/16 Q13**. |
+| **3** | **S2 — Contrapositive** — 15 min | [Concepts & class problems](../../toolkit/s02_converse_contrapositive.qmd). Anchor on **Q16**; make him state the converse each time and say why it is *not* implied. |
+| **4** | **S7 — Spot the error** — 35 min | [Concepts & class problems](../../toolkit/s07_spot_the_error.qmd) (23 questions — Parts 4 and 5 are the exam bank). Re-do **Q5** and **Q17** with the checklist visible. |
 
 ::: {.callout-note appearance="simple"}
 **Run it as a confirm-don't-guess drill.** His audits show the same habit on every flagged question — he reaches
@@ -105,19 +105,19 @@ practice.*
   option $\lvert p\rvert<1$ sits **strictly inside** that, so it is *sufficient but not necessary*.
 - **09/04 Q11** → [S3 Q18]. $\int_{0}^{k}\left(\cos x+\cos^{3}2x\right)dx=0$ **exactly when** $k$ is a
   multiple of $\pi$ — necessary *and* sufficient, the verdict candidates pick least often.
-- **09/04 Q16** → [S2 Q9]. "If $A$ right **and** ($B$ left **or** $C$ right) then open." Closed forces
+- **09/04 Q16** → [S2 Q7]. "If $A$ right **and** ($B$ left **or** $C$ right) then open." Closed forces
   $\lnot P$, and negating the bracket swaps its "or" to "and".
-- **09/04 Q5** → [S7 Q17]. The proof dies at $n=1$: there $n^{2}+2=3$, which is prime, so "composite" fails.
-- **09/04 Q3** → [S7 Q16]. The attempt is **valid** — squaring is legal here because step (I) already forced
+- **09/04 Q5** → [S7 Q13]. The proof dies at $n=1$: there $n^{2}+2=3$, which is prime, so "composite" fails.
+- **09/04 Q3** → [S7 Q12]. The attempt is **valid** — squaring is legal here because step (I) already forced
   both sides non-negative.
-- **09/04 Q17** → [S7 Q20]. First bad line is 7: $2a<a^{2}$ needs $a>2$, not $a\ge2$; $n=4$ breaks it.
+- **09/04 Q17** → [S7 Q16]. First bad line is 7: $2a<a^{2}$ needs $a>2$, not $a\ge2$; $n=4$ breaks it.
 :::
 
 ## Homework
 
 | Set | Link |
 |---|---|
-| **S3 assignment** — necessary & sufficient | **[Questions](../../toolkit/s03_assignment_student.qmd)** (10 Q, 40 marks) · [MS](../../toolkit/s03_assignment_ms.qmd) |
+| **S3 assignment** — necessary & sufficient | **[Questions](../../toolkit/s03_assignment_student.qmd)** (24 Q) · [MS](../../toolkit/s03_assignment_ms.qmd) |
 | **S7 assignment** — spot the error | **[Questions](../../toolkit/s07_assignment_student.qmd)** · [MS](../../toolkit/s07_assignment_ms.qmd) |
 | **Paper 2 concepts quiz** (S1–S7, 14 questions) — a quick check of everything | **[Quiz](../../toolkit/paper2_quiz.qmd)** |
 

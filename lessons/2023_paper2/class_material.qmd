@@ -37,7 +37,7 @@ sentence at each transition.
 | 16 | **B** | Fibonacci-like sequence, hcf reasoning | *Application* — sequences / number theory |
 | 17 | **F** | Integral of a ceiling (step) function | *Application* — calculus / series |
 | 18 | **D** | Quartic with four distinct real roots | *Application* — algebra |
-| 19 | **H** | Roots of $f$ and of $x\,f''(x)$ | *Application* — calculus |
+| 19 | **H** | Roots of $f$ and of $x\,f'(x)$ | *Application* — calculus |
 | 20 | **D** | An integral built from $f(x)$ and $f(\lvert x\rvert)$ | *Application* — calculus reasoning |
 
 ---
@@ -639,20 +639,19 @@ Working
 
 ## Question 19
 
-$f$ is a non-constant polynomial and $g(x)=x\,f''(x)$; $f=0$ for exactly $M$ real $x$, $g=0$ for exactly
+$f$ is a non-constant polynomial and $g(x)=x\,f'(x)$; $f=0$ for exactly $M$ real $x$, $g=0$ for exactly
 $N$ real $x$. Which are possible? &nbsp;&nbsp; **I** $M<N$ &nbsp; **II** $M=N$ &nbsp; **III** $M>N$
 &nbsp;&nbsp; (options **A** none … **H** all)
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**H** (all three). $g=0$ means $x=0$ **or** $f''(x)=0$; give one example of each case.
+**H** (all three). $g=0$ means $x=0$ **or** $f'(x)=0$; give one example of each case.
 
-- **$M<N$:** $f(x)=x^{4}+1$ has $M=0$ real roots; $f''=12x^{2}$, so $g=12x^{3}$ has the single root $x=0$,
+- **$M<N$:** $f(x)=x^{2}+1$ has $M=0$ real roots; $f'=2x$, so $g=2x^{2}$ has the single root $x=0$,
   giving $N=1$. Here $0<1$.
-- **$M=N$:** $f(x)=x^{2}$ has $M=1$ ($x=0$); $f''=2\neq0$, so $g=2x$ has $N=1$.
-- **$M>N$:** $f(x)=x^{4}-5x^{2}+4$ has $M=4$ (roots $\pm1,\pm2$); $f''=12x^{2}-10$, so
-  $g=x(12x^{2}-10)$ has roots $0,\pm\sqrt{10/12}$, giving $N=3$. Here $4>3$.
+- **$M=N$:** $f(x)=x^{2}$ has $M=1$ ($x=0$); $f'=2x$, so $g=2x^{2}$ has $N=1$.
+- **$M>N$:** $f(x)=x^{2}-1$ has $M=2$ (roots $\pm1$); $f'=2x$, so $g=2x^{2}$ has $N=1$. Here $2>1$.
 
 All three orderings occur, so **H**.
 :::

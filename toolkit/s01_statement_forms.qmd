@@ -1,126 +1,134 @@
 ---
 title: "Paper 2 Toolkit · S1 — Statement Forms: if, only if, if and only if"
-subtitle: "Work each question — Easy → Medium → Hard → past papers"
+subtitle: "Revision sheet · Notes · two concept checks · exam-standard questions"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
 ---
 
-::: {.solutions}
-
-Here is an uncomfortable fact: you have done mathematics for ten years, and nobody has ever told you what
-**"only if"** means. You have used it, you have read it in questions, and you almost certainly think it
-means the same as "if". It does not — it means the **opposite direction**. The TMUA knows that, which is
-why *only if* appears on every recent Paper 2.
-
-The good news is that there is no algebra here. It is a small number of precise distinctions, and once you
-have them a whole category of Paper 2 questions becomes nearly free. Every question below is answered by
-the same move: **rewrite the sentence as "if … then …", then read off which way the arrow points.**
-
 Specification: **Arg1** — *true and false; and, or (inclusive), not; statements of the form* **if A then B**,
 **A if B**, **A only if B**, **A if and only if B**. Official source: **Notes on Logic and Proof**, pp. 24–34.
 
----
+::: {.callout-important}
+## Why learn this when TMUA is multiple choice?
 
-# Part 1 — Easy
-
-Single-idea warm-ups. Get the vocabulary automatic here, because every harder question is built out of it.
-
-## Question 1
-
-::: {.question}
-Let $n = 21$. For each of the following, state whether it is **true** or **false**.
-
-&nbsp;&nbsp;(a) $n$ is divisible by $3$ **and** $n$ is divisible by $6$. **[1]**
-
-&nbsp;&nbsp;(b) $n$ is divisible by $3$ **or** $n$ is divisible by $6$. **[1]**
-
-&nbsp;&nbsp;(c) $n$ is **not** divisible by $6$. **[1]**
-
-&nbsp;&nbsp;(d) $n$ is divisible by $3$ **or** $n$ is divisible by $7$. **[1]**
+You never write a proof on TMUA — every question is **multiple choice**. But almost every Paper 2 question
+hides an *"if / only if / if and only if"*, and the marks turn on reading it as the right **arrow**. Get
+"$A$ only if $B$" pointing the correct way in your head and half the reasoning questions fall open.
 :::
 
-Start by settling the two facts everything rests on: $21 = 3 \times 7$, so it **is** divisible by $3$ and
-by $7$, and it is **not** divisible by $6$. Then the only thing being tested is what each connective
-demands — and the one to watch is *or*, because [in mathematics "or" is **inclusive**]{.hl}: it is
-satisfied when one side holds, and also when both do.
+::::: {.formulasheet}
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Arg1</div>
+<div class="fs-title">Statement Forms — Key Concepts</div>
+<div class="fs-sub">Four ways to say a conditional — "if A then B", "A if B", "A only if B", "A if and only if B". Turn each into an arrow. The one that catches everyone: <strong>"A only if B" means A ⇒ B, not B ⇒ A.</strong></div>
+::::
 
-::: {.topic}
-Topic — statements; the connectives *and*, *or*, *not*
+## The four forms
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### "if $A$ then $B$"
+
+$$\text{"if } A \text{ then } B\text{"}\ \equiv\ A\Rightarrow B$$
+$A$ is the hypothesis, $B$ the conclusion — whenever $A$ holds, $B$ must.
+
+[if it is raining, the ground is wet]{.eg}
 :::
 
+::: {.fs-card}
+### "$A$ if $B$"
 
-$21 = 3 \times 7$. So "divisible by $3$" is **true**, "divisible by $7$" is **true**, and "divisible by
-$6$" is **false** (a multiple of $6$ must be even, and $21$ is odd).
+$$\text{"}A \text{ if } B\text{"}\ \equiv\ B\Rightarrow A$$
+The **"if" clause is the hypothesis** — rearrange to "if $B$ then $A$".
 
-**(a) False.** *And* needs **both** sides true; the second is false.
+[the alarm sounds if the door opens $=$ door opens $\Rightarrow$ alarm]{.eg}
+:::
 
-**(b) True.** *Or* needs **at least one** side true, and the first is true. The second being false does
-not matter.
+::: {.fs-card}
+### "$A$ only if $B$" — the tricky one
 
-**(c) True.** *Not* flips a false statement into a true one.
+$$\text{"}A \text{ only if } B\text{"}\ \equiv\ A\Rightarrow B$$
+"Only if" points the arrow **forward**: $A$ can hold **only when** $B$ does, so $B$ is **required**.
 
-**(d) True.** Both sides happen to be true — and [that is still fine for "or"]{.hl}. Inclusive *or* is
-satisfied by "one, the other, or both".
+[the bells ring only if it is Sunday $=$ bells $\Rightarrow$ Sunday (**not** Sunday $\Rightarrow$ bells)]{.eg}
+:::
 
-$\blacksquare$
+::: {.fs-card}
+### "$A$ if and only if $B$"
 
-**Common slips.**
+$$\text{"}A \text{ iff } B\text{"}\ \equiv\ A\Leftrightarrow B$$
+**Both** directions at once: $A\Rightarrow B$ **and** $B\Rightarrow A$.
 
-| ✗ | ✓ |
+[a triangle is equilateral if and only if all its angles are $60^\circ$]{.eg}
+:::
+
+::::
+
+## Reading them, and the trap
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Turn each into an arrow
+
+| Form | Arrow |
 |---|---|
-| (d) marked false because "both are true, so it can't be *or*" | This is the exclusive-*or* of everyday English ("tea or coffee"). **Mathematics never means that** — "or" always allows both. |
-| (a) marked true because $21$ is divisible by $3$ | *And* is only true when **both** halves are true. One good half is not enough. |
+| if $A$ then $B$ | $A\Rightarrow B$ |
+| $A$ if $B$ | $B\Rightarrow A$ |
+| $A$ **only if** $B$ | $A\Rightarrow B$ |
+| $A$ iff $B$ | $A\Leftrightarrow B$ |
 :::
 
-::: {.workspace style="min-height:6cm"}
-Working
+::: {.fs-card}
+### The trap — "only if"
+
+"$A$ **only if** $B$" is $A\Rightarrow B$, **not** $B\Rightarrow A$. It reverses most people's instinct:
+"only if" makes $B$ **necessary** for $A$ (without $B$, no $A$).
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — statements and the three connectives
+::: {.fs-card}
+### Link to necessary / sufficient (cross-exam)
 
-A **statement** is a sentence that is either **true or false** — definitely one or the other. Nothing
-else counts, and Paper 2 is built entirely out of them, so it is worth being able to spot one instantly.
-
-**These are statements** (each has a definite truth value, even if you don't know it yet):
-
-| Statement | True or false? |
-|---|---|
-| $21$ is divisible by $3$ | true |
-| $21$ is divisible by $6$ | false |
-| $7$ is prime | true |
-| Every even number greater than $2$ is the sum of two primes | *nobody knows* — but it is still **either** true or false, so it **is** a statement |
-
-**These are NOT statements:**
-
-| Not a statement | Why |
-|---|---|
-| $x$ is divisible by $3$ | No truth value until you say what $x$ is. It is true for $x=6$, false for $x=7$. |
-| $x + 1$ | Not even a sentence — it is an *expression*, a thing, not a claim about a thing. |
-| Is $21$ prime? | A **question**. Questions cannot be true or false. |
-| Solve the equation. | An **instruction**. Same reason. |
-| $21$ is a large number | **Vague** — "large" is not defined, so there is no definite answer. |
-
-::: {.callout-note appearance="simple"}
-**The test:** could you, in principle, put the word *"It is true that …"* in front of the sentence and
-have it make sense? If yes, it is a statement.
-
-**The one that surprises people** is the fourth row of the first table. A statement does **not** have to
-be a sentence *you* can settle — it only has to *have* an answer. That is why unsolved conjectures are
-perfectly good statements.
-
-**And note the third row of the second table:** *"$x$ is divisible by $3$"* becomes a statement the moment
-you either fix $x$ ("$x=6$") or put a quantifier in front of it ("**for all** $x$ …", "**there exists** an
-$x$ such that …"). That is Session 4 — but it is why the specification treats quantifiers as part of the
-same topic.
+"$A$ **if** $B$" $=$ $B$ is **sufficient** for $A$; "$A$ **only if** $B$" $=$ $B$ is **necessary** for
+$A$; "iff" $=$ both. This is Arg1, and the same wording runs through **MAT** and **STEP** reasoning.
 :::
 
-Everything on Paper 2 is built by gluing statements together, and there are exactly three glues:
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## Notes
+
+Here is an uncomfortable fact: you have done mathematics for ten years, and nobody has ever told you what
+**"only if"** means. You have used it, you have read it in questions, and you almost certainly think it
+means the same as "if". It does not. The TMUA knows that, which is why *only if* appears on every recent
+Paper 2.
+
+There is no algebra here. It is a small number of precise distinctions, and every question on this page is
+answered by the same move: **rewrite the sentence as "if … then …", then read off which way the arrow
+points.**
+
+### Statements and the three connectives
+
+A **statement** is a sentence that is either **true or false** — definitely one or the other. Paper 2 is
+built entirely out of them.
+
+| Sentence | Statement? | Why |
+|---|---|---|
+| $21$ is divisible by $6$ | **Yes** | It is false, and false is a truth value. |
+| Every even number greater than $2$ is the sum of two primes | **Yes** | Nobody knows which, but it has to be one of them. A statement need not be something *you* can settle. |
+| $x$ is divisible by $3$ | **No** | True for $x=6$, false for $x=7$. It becomes a statement once you fix $x$ or add a quantifier (S4). |
+| Is $21$ prime? · Solve the equation. | **No** | A question and an instruction cannot be true or false. |
+| $21$ is a large number | **No** | "Large" is not defined, so there is no definite answer. |
+
+Statements are glued together in exactly three ways:
 
 | Connective | True exactly when | Watch out |
 |---|---|---|
@@ -128,18 +136,161 @@ Everything on Paper 2 is built by gluing statements together, and there are exac
 | **$A$ and $B$** | **both** are true | one true half is not enough |
 | **$A$ or $B$** | **at least one** is true | **includes the case where both are true** |
 
-**The one that catches people is *or*.** In ordinary English "tea or coffee" means one *but not both* —
-that is *exclusive* or. Mathematics always uses **inclusive** or: "$x>0$ or $x$ is an integer" is true for
-$x=5$, where both hold.
+In ordinary English "tea or coffee" means one *but not both*. Mathematics always uses **inclusive** or:
+"$21$ is divisible by $3$ or by $7$" is true, even though both halves hold.
 
 The specification says you will **not** be asked to use symbols ($\land$, $\lor$, $\Rightarrow$) or to
-complete formal truth tables. It is all tested in English sentences — which is reassuring, but it also
-means you cannot hide behind notation.
+complete formal truth tables. It is all tested in English sentences, so you cannot hide behind notation.
+
+### Implication is a one-way promise
+
+An **implication** is a statement of the form
+
+$$A \Rightarrow B \qquad \text{read aloud as } \textbf{“} A \textbf{ implies } B \textbf{”} \text{ or } \textbf{“if } A \textbf{, then } B \textbf{”.}$$
+
+$A$ is the **hypothesis** (the front half) and $B$ is the **conclusion** (the back half). The claim is that
+*every* $A$-case is also a $B$-case, so picture $A$ as a circle sitting **inside** a bigger circle $B$:
+
+```{python}
+#| fig-cap: "\"A only if B\" as sets: A sits inside B (A ⊆ B). Being in A forces you into B — that is A ⇒ B."
+import numpy as np, matplotlib.pyplot as plt
+t=np.linspace(0,2*np.pi,200)
+fig,ax=plt.subplots(figsize=(4.4,3.0))
+ax.plot(2.4+2.4*np.cos(t),2.4*np.sin(t),color='#1f77b4',lw=2)   # B
+ax.plot(1.7+1.1*np.cos(t),1.1*np.sin(t),color='#d62728',lw=2)   # A inside B
+ax.text(1.5,0,'A',fontsize=13,color='#d62728',ha='center',va='center',fontweight='bold')
+ax.text(3.9,1.6,'B',fontsize=13,color='#1f77b4',ha='center',va='center',fontweight='bold')
+ax.text(2.4,-3.05,'"A only if B":  A ⊆ B,  so  A ⇒ B',ha='center',fontsize=10)
+ax.set_xlim(-0.4,5.2); ax.set_ylim(-3.4,2.8); ax.axis('off'); ax.set_aspect('equal')
+plt.tight_layout(); plt.show()
+```
+
+| What you know | What follows | Why |
+|---|---|---|
+| Inside $A$ | Inside $B$ | All of $A$ lies in $B$. |
+| Outside $A$ | **Nothing** | You could be anywhere outside $A$. |
+| Inside $B$ | **Nothing** | You could be in $A$ or in the outer ring. |
+| Outside $B$ | Outside $A$ | All of $A$ lies in $B$, so leaving $B$ means leaving $A$. |
+
+A concrete pair to keep in your head:
+
+$$x = 3 \;\Rightarrow\; x^2 = 9 \quad \text{(true)}, \qquad\qquad x^2 = 9 \;\not\Rightarrow\; x = 3 \quad (x = -3).$$
+
+### The four forms
+
+"**if $A$ then $B$**" is the plain conditional $A\Rightarrow B$.
+
+"**$A$ if $B$**" has the parts reordered. The word "if" always introduces the hypothesis, so this means "if
+$B$ then $A$", that is $B\Rightarrow A$. For example, "$x>0$ if $x>3$" means $x>3\Rightarrow x>0$.
+
+"**$A$ only if $B$**" means $A\Rightarrow B$. It says $A$ can be true **only when** $B$ is true, so $B$ is
+**required**. It does **not** mean $B\Rightarrow A$. Take "the bells ring only if it is Sunday", which is
+bells $\Rightarrow$ Sunday:
+
+- On a **Tuesday** the bells cannot be ringing, because it is not Sunday.
+- On a **Sunday** the statement says nothing. The bells may ring, but they need not. "Only if" gives a
+  restriction, not a guarantee.
+
+"**$A$ if and only if $B$**" combines both: the "if" gives $B\Rightarrow A$ and the "only if" gives
+$A\Rightarrow B$, so together $A\Leftrightarrow B$. It must be **earned twice**, and one failing direction
+already breaks it. "$n$ is prime if and only if $n$ is odd" fails both ways: $2$ is prime and even, and $9$
+is odd and not prime.
+
+::: {.callout-tip appearance="simple"}
+**Two ways to remember it.**
+(1) **The bare "if" introduces the thing that does the forcing; "only if" introduces the thing that gets
+forced.** So "$A$ **if** $B$" and "$A$ **only if** $B$" are opposite statements, differing by two letters.
+(2) **As a picture:** "$A$ only if $B$" means **$A$ sits inside $B$**, as in the diagram above.
 :::
 
----
+The English forms collapse to only **three** distinct meanings, which is why very different-looking
+sentences can turn out to be identical:
 
-## Question 2
+$$\underbrace{\text{if } P \text{ then } Q \;=\; P \text{ only if } Q \;=\; Q \text{ if } P}_{P \,\Rightarrow\, Q}$$
+
+$$\underbrace{\text{if } Q \text{ then } P \;=\; Q \text{ only if } P \;=\; P \text{ if } Q}_{Q \,\Rightarrow\, P}$$
+
+$$\underbrace{P \text{ if and only if } Q}_{P \,\Leftrightarrow\, Q}$$
+
+Seeing at a glance which of the three a sentence lands in is exactly what Paper 2 tests.
+
+**About "iff".** It is short for "if and only if" (the doubled *f* is deliberate), and $\Leftrightarrow$ means
+the same thing. Read it aloud in full. The TMUA paper writes the words out, but textbooks and these notes use
+the shorthand.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## For deeper understanding — the truth table (you never need this on the exam)
+
+TMUA never asks you to fill a truth table or use symbols. But if you want a full check: "if $A$ then $B$"
+is **false in exactly one case** — $A$ true and $B$ false — and **true otherwise**.
+
+| $A$ | $B$ | if $A$ then $B$ | (not $A$) or $B$ | if not $B$ then not $A$ |
+|:---:|:---:|:---:|:---:|:---:|
+| T | T | T | T | T |
+| T | F | **F** | **F** | **F** |
+| F | T | T | T | T |
+| F | F | T | T | T |
+
+The last three columns are **identical**, so
+$$\text{"if }A\text{ then }B\text{"}\ \equiv\ \text{"(not }A\text{) or }B\text{"}\ \equiv\ \text{"if not }B\text{ then not }A\text{"}.$$
+The third is the **contrapositive** (always equivalent — see S2); a handy way to rewrite "if $A$ then $B$"
+is *"not $A$, or $B$"*. The **converse** "if $B$ then $A$" would give a **different** column, which is
+exactly why it is not equivalent.
+:::
+
+### Converse, inverse and contrapositive
+
+From any statement $P \Rightarrow Q$ there are three related sentences, and only one is equivalent to it:
+
+| Name | Form | Equivalent to $P \Rightarrow Q$? |
+|---|---|---|
+| **Converse** | $Q \Rightarrow P$ &nbsp;*(reverse only)* | **No** |
+| **Inverse** | $\text{not } P \Rightarrow \text{not } Q$ &nbsp;*(negate only)* | **No** — it is the converse's contrapositive |
+| **Contrapositive** | $\text{not } Q \Rightarrow \text{not } P$ &nbsp;*(negate **and** reverse)* | **Yes, always** |
+
+Test it on *if it is Sunday, the bells ring*. The contrapositive, *if the bells do not ring, it is not
+Sunday*, says the same thing. The converse, *if the bells ring, it is Sunday*, is a different claim, and a
+false one (weddings).
+
+::: {.callout-warning appearance="simple"}
+**Do not confuse these two words.** It is the **contrapositive** that is always equivalent to the original,
+never the **converse**. A one-second check: the contrapositive has **negations in it**; the converse does
+**not**. Session 2 covers them in full.
+:::
+
+### "The same statement" is not "both true"
+
+Two statements are **equivalent** when they are true in *exactly the same circumstances* — every case, not
+just the one in front of you. Two statements can **both be true** while being completely different claims.
+
+$P \Rightarrow Q$ and $Q \Rightarrow P$ are **never** automatically equivalent. Sometimes both are true (as
+with *prime* and *exactly two factors*), and sometimes only one is (as with $x=3$ and $x^2=9$). So when a
+question asks *"is this the same statement?"*, the answer never comes from checking truth. It comes from
+**comparing the arrows**.
+
+When both directions are true you may join them into a single "if and only if", and that is what a
+mathematical **definition** usually is.
+
+### Link to necessary and sufficient
+
+The forms are necessary and sufficient in other words, and the same wording runs through **MAT** and
+**STEP** reasoning. Session 3 goes further.
+
+| Wording | Arrow | Meaning |
+|---|---|---|
+| $A$ **if** $B$ | $B\Rightarrow A$ | $B$ is **sufficient** for $A$ — enough on its own |
+| $A$ **only if** $B$ | $A\Rightarrow B$ | $B$ is **necessary** for $A$ — no $A$ without $B$ |
+| $A$ **if and only if** $B$ | $A\Leftrightarrow B$ | $B$ is both |
+
+::::
+
+::: {.solutions}
+
+# Part 1 — Concept checks
+
+Two questions, only to confirm the notes have landed. Everything after them is exam standard.
+
+## Question 1
 
 ::: {.question}
 Assume the following statement is **true**:
@@ -204,67 +355,9 @@ Collecting it into a table — this table *is* the topic:
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — implication is a one-way promise
-
-**First, the word itself.** An **implication** is any statement of the form
-
-$$A \Rightarrow B \qquad \text{read aloud as } \textbf{“} A \textbf{ implies } B \textbf{”} \text{ or } \textbf{“if } A \textbf{, then } B \textbf{”.}$$
-
-It is built from two smaller statements joined by an arrow, and it is itself a statement — it is true or
-false as a whole. The two halves have names worth knowing, because questions refer to them:
-
-| Part | Name | In $A \Rightarrow B$ |
-|---|---|---|
-| the front half | **hypothesis** (or *antecedent*) | $A$ |
-| the back half | **conclusion** (or *consequent*) | $B$ |
-
-So "write it as an implication" simply means **"write it with an arrow"** — decide which half is the
-hypothesis and which is the conclusion, and point the arrow from the first to the second.
-
-Here $A$ = *it is Sunday* and $B$ = *the bells ring*, so the statement is $A \Rightarrow B$.
-
-**The one thing to hold on to:** $A \Rightarrow B$ says *every* $A$-case is also a $B$-case. Picture $A$ as
-a circle sitting **inside** a bigger circle $B$. Then:
-
-- Inside $A$ ⟹ certainly inside $B$. ✓ (row 1)
-- Outside $A$ ⟹ could be anywhere. (row 2 — nothing)
-- Inside $B$ ⟹ could be in the $A$ part or the outer ring. (row 3 — nothing)
-- Outside $B$ ⟹ certainly outside $A$, since all of $A$ is inside $B$. ✓ (row 4)
-
-Rows 1 and 4 are the two things you may deduce; rows 2 and 3 are the two traps.
-
-**Rows 3 and 4 each have a name, and they are easy to mix up.**
-
-| Row | Name | Form | Same as the original? |
-|---|---|---|---|
-| **Row 4** | **contrapositive** | not $B \Rightarrow$ not $A$ &nbsp;*(negate **and** reverse)* | **Yes, always** |
-| **Row 3** | **converse** | $B \Rightarrow A$ &nbsp;*(reverse only)* | **No** — a different statement, usually false |
-
-::: {.callout-warning appearance="simple"}
-**Do not confuse these two words.** It is the **contrapositive** that is always equivalent to the
-original, never the **converse**. Getting the two labels the wrong way round is the single most expensive
-mistake in this whole topic, because every Paper 2 "which of these is equivalent?" question turns on it.
-
-A one-second check: the contrapositive has **negations in it**; the converse does **not**.
-:::
-
-Test it on the bells. Original: *if it is Sunday, the bells ring.*
-
-- **Contrapositive**: *if the bells do not ring, it is not Sunday.* — Clearly says the same thing. ✓
-- **Converse**: *if the bells ring, it is Sunday.* — A different claim, and a false one (weddings). ✗
-
-Those are Session 2 in full; for now just hold on to the fact that **one direction is free and the other
-has to be earned**.
-
-A concrete pair to keep in your head:
-
-$$x = 3 \;\Rightarrow\; x^2 = 9 \quad \text{(true)}, \qquad\qquad x^2 = 9 \;\not\Rightarrow\; x = 3 \quad (x = -3).$$
-:::
-
 ---
 
-## Question 3
+## Question 2
 
 ::: {.question}
 Let $n$ be a positive integer. Decide whether each statement is **true** or **false**, and give a
@@ -324,102 +417,8 @@ $\blacksquare$
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — the four forms (the table to memorise)
-
-| The English | Means | In words |
-|---|---|---|
-| **if $A$ then $B$** | $A \Rightarrow B$ | $A$ forces $B$ |
-| **$A$ if $B$** | $B \Rightarrow A$ | the arrow points **backwards** |
-| **$A$ only if $B$** | $A \Rightarrow B$ | **same as "if $A$ then $B$"** |
-| **$A$ if and only if $B$** | $A \Leftrightarrow B$ | both directions at once |
-
-Two facts generate the whole table:
-
-1. **The bare "if" introduces the thing that does the forcing.** Whatever follows the word *if* sits at the
-   *front* of the arrow. So "$A$ **if** $B$" is $B \Rightarrow A$.
-2. **"Only if" introduces the thing that gets forced.** So "$A$ **only if** $B$" is $A \Rightarrow B$.
-
-Which means **"$A$ if $B$" and "$A$ only if $B$" are opposite statements, differing by two letters.**
-
-**Why does "only if" work that way?** Read it as the Notes do: *"the bells ring **only if** it is Sunday"*
-says *Sunday is the only circumstance in which the bells ring* — so hearing bells forces it to be Sunday.
-Note also what it does **not** promise: the bells might be broken on some Sunday. "Only if" gives a
-**restriction**, not a guarantee.
-
-**"If and only if" is two statements in one coat:**
-
-$$A \text{ iff } B \;\equiv\; (A \text{ if } B) \textbf{ and } (A \text{ only if } B) \;\equiv\; (B \Rightarrow A) \textbf{ and } (A \Rightarrow B).$$
-
-So it must be **earned twice**. Proving one direction and declaring victory is the classic way to lose a
-Paper 2 mark.
-
-::: {.callout-important appearance="simple"}
-**The method, every time.** Don't think — **rewrite as "if … then …" first**, then read the arrow.
-:::
-:::
-
----
-
-# Part 2 — Medium
-
-Now the same rules under a bit of pressure: several statements at once, and wording that fights you.
-
-## Question 4
-
-::: {.question}
-$P$ and $Q$ are statements. Write each of the following as an implication, using $\Rightarrow$ between
-$P$ and $Q$ (or $\Leftrightarrow$ where appropriate).
-
-&nbsp;&nbsp;(a) $P$ only if $Q$ **[1]** &nbsp;&nbsp;&nbsp; (b) $P$ if $Q$ **[1]** &nbsp;&nbsp;&nbsp;
-(c) $Q$ only if $P$ **[1]** &nbsp;&nbsp;&nbsp; (d) $Q$ if and only if $P$ **[1]**
-
-&nbsp;&nbsp;(e) Hence state which **two** of (a)–(d) say the same thing as each other. **[1]**
-:::
-
-This is pure mechanics, and it is worth drilling until it takes no thought at all — in the exam you will be
-doing this while also holding the actual mathematics in your head. Work strictly by the two rules and
-[resist the urge to reason about meaning]{.hl}; meaning is what makes people flip arrows by accident.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-::: {.topic}
-Topic — translating "only if" and "if" into arrows, at speed
-:::
-
-
-**(a)** $P \Rightarrow Q$ &nbsp;— "only if" keeps the order.
-
-**(b)** $Q \Rightarrow P$ &nbsp;— bare "if" introduces the forcer, so the arrow starts at $Q$.
-
-**(c)** $Q \Rightarrow P$ &nbsp;— "only if" again keeps the order, but the halves have been swapped
-around, so the arrow now starts at $Q$.
-
-**(d)** $Q \Leftrightarrow P$, which is the same as $P \Leftrightarrow Q$ — [an "if and only if" reads the
-same in both directions]{.hl}, so the order does not matter here.
-
-**(e)** **(b) and (c)** are the same statement: both are $Q \Rightarrow P$.
-
-$\blacksquare$
-
-That last part is the point of the question. *"$P$ if $Q$"* and *"$Q$ only if $P$"* look completely
-different in English and mean exactly the same thing.
-
-**Common slips.**
-
-| ✗ | ✓ |
-|---|---|
-| (c) written as $P \Rightarrow Q$ | Apply the rule to the sentence *as written*: "**$Q$** only if $P$" forces $Q$ first, so $Q \Rightarrow P$. |
-| Thinking (a) and (b) are the same | They are exact opposites — the commonest error in this whole topic. |
-:::
-
-::: {.workspace style="min-height:7cm"}
-Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — a mechanical routine
+::: {.callout-tip}
+## Method — rewrite it as "if … then …" before you think
 
 When a sentence contains *if* or *only if*:
 
@@ -430,36 +429,18 @@ When a sentence contains *if* or *only if*:
    - *if and only if* → **both** arrows; order irrelevant.
 3. **Re-read your arrow as "if … then …"** and check it sounds like the original sentence.
 
-The four English forms collapse to only **three** distinct meanings, which is why pairs of very different
-looking sentences turn out to be identical:
-
-$$\underbrace{\text{if } P \text{ then } Q \;=\; P \text{ only if } Q \;=\; Q \text{ if } P}_{P \,\Rightarrow\, Q}, \qquad
-\underbrace{\text{if } Q \text{ then } P \;=\; Q \text{ only if } P \;=\; P \text{ if } Q}_{Q \,\Rightarrow\, P}, \qquad
-\underbrace{P \text{ iff } Q}_{P \,\Leftrightarrow\, Q}$$
-
-Being able to see at a glance which of the three boxes a sentence lands in is exactly what Paper 2 tests.
-
-::: {.callout-note appearance="simple"}
-**About the abbreviation "iff".** Yes — **iff** is simply short for **"if and only if"**. The doubled *f*
-is deliberate, not a typo: *if* means one direction, *iff* means both.
-
-$$P \text{ iff } Q \qquad \equiv \qquad P \text{ if and only if } Q \qquad \equiv \qquad P \Leftrightarrow Q$$
-
-Two practical notes:
-
-- **Read it aloud as "if and only if"**, never as the sound "iff". It is a written shorthand only.
-- It will **not** appear on the TMUA paper itself — the test writes the words out in full. But it appears
-  constantly in textbooks and in these notes, so you need to recognise it.
-
-The three ways of writing the same thing — *iff*, *if and only if*, and $\Leftrightarrow$ — are
-interchangeable. The symbol $\Leftrightarrow$ is a double-headed arrow precisely because the statement
-runs both ways.
+::: {.callout-important appearance="simple"}
+**Every time.** Don't reason in English — **rewrite as "if … then …" first**, then read the arrow off.
 :::
 :::
 
 ---
 
-## Question 5
+# Part 2 — Medium
+
+The same rules, now with wording that fights you.
+
+## Question 3
 
 ::: {.question}
 For a positive integer $n$, consider the statement
@@ -476,7 +457,7 @@ Is this the same statement as the original? Justify your answer. **[2]**
 :::
 
 Part (b) is the trap, and it is worth slowing down for: you are being handed the **back** half of the
-implication and asked what follows. Recall from Question 2 that this is precisely the case where the honest
+implication and asked what follows. Recall from Question 1 that this is precisely the case where the honest
 answer is *nothing*. Part (c) then asks you to compare the two directions — and here something unusual
 happens, because [both directions are actually true for this particular pair of statements]{.hl}, which is
 not the same as the two *sentences* meaning the same thing.
@@ -528,31 +509,13 @@ $\blacksquare$
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — "the same statement" vs "both true"
-
-This is a distinction Paper 2 leans on repeatedly.
-
-- Two statements are **equivalent** when they are true in *exactly the same circumstances* — every case,
-  not just the one in front of you.
-- Two statements can **both be true** while being completely different claims.
-
-$P \Rightarrow Q$ and $Q \Rightarrow P$ are **never** automatically equivalent. Sometimes both are true (as
-with *prime* and *exactly two factors* — which is why that pair makes a definition), and sometimes only one
-is (as with $x=3$ and $x^2=9$). So when a question asks *"is this the same statement?"*, the answer never
-comes from checking truth — it comes from **comparing the arrows**.
-
-**When both directions are true**, you may join them into a single "if and only if", and that is what a
-mathematical **definition** usually is: *"$n$ is prime **iff** $n$ has exactly two positive factors."*
-:::
-
 ---
 
 # Part 3 — Hard
 
 Real Paper 2 material. Both of these are the standard question types built directly on Arg1.
 
-## Question 6
+## Question 4
 
 ::: {.question}
 In this question, $k$ is a positive integer. Consider the theorem
@@ -618,34 +581,20 @@ $P \Rightarrow Q$ — which is $(*)$ word for word. → **Yes**
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — the naming trick, and the four related statements
+::: {.callout-tip}
+## Method — name the halves first
 
-**Always name the halves first.** Writing $P$ and $Q$ on your paper converts a wordy question into arrows
-you can compare at a glance, and it removes the temptation to reason about the mathematics (primes, powers
-of 2) which is entirely beside the point.
-
-From any statement $P \Rightarrow Q$ there are four related sentences, and only one is equivalent:
-
-| Name | Form | Equivalent to $P \Rightarrow Q$? |
-|---|---|---|
-| **Original** | $P \Rightarrow Q$ | — |
-| **Converse** | $Q \Rightarrow P$ | **No** |
-| **Inverse** | $\text{not } P \Rightarrow \text{not } Q$ | **No** (it is the converse's contrapositive) |
-| **Contrapositive** | $\text{not } Q \Rightarrow \text{not } P$ | **Yes, always** |
+Writing $P$ and $Q$ on your paper converts a wordy question into arrows you can compare at a glance, and it
+removes the temptation to reason about the mathematics (primes, powers of $2$), which is entirely beside the
+point.
 
 Statement II above is the **inverse**, dressed in "only if" so that it looks like a contrapositive. This is
 a standard TMUA move: *negation is not enough — the arrow must turn round too.*
-
-**"Sufficient" and "necessary"** (Session 3, but you need them here):
-
-- "$P$ is **sufficient** for $Q$" $\;=\; P \Rightarrow Q$ — $P$ is enough on its own.
-- "$P$ is **necessary** for $Q$" $\;=\; Q \Rightarrow P$ — you can't have $Q$ without $P$.
 :::
 
 ---
 
-## Question 7
+## Question 5
 
 ::: {.question}
 Here is an attempt to solve the inequality $x^4 - 5x^2 + 4 < 0$.
@@ -721,7 +670,7 @@ $$1 < |x| < 2, \qquad \text{that is} \qquad 1 < x < 2 \;\text{ or }\; -2 < x < -
 
 | ✗ | ✓ |
 |---|---|
-| Answering **A** | Every line *looked* fine going forwards; line III fails going **backwards**, which is what "iff" also claims. |
+| Answering **A** | Line III *looks* fine because $1<x<2$ does give $1<x^2<4$. But "iff" also claims the other direction, and that one fails. |
 | Answering **C**, thinking line II drops a case | Line II is genuinely two-sided and correct. Check before you accuse a line. |
 | $\sqrt{x^2} = x$ | $\sqrt{x^2} = \lvert x\rvert$. This single fact is what line III gets wrong. |
 :::
@@ -730,8 +679,8 @@ $$1 < |x| < 2, \qquad \text{that is} \qquad 1 < x < 2 \;\text{ or }\; -2 < x < -
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — attacking a chain, and the one-way moves
+::: {.callout-tip}
+## Method — attacking a chain, and the one-way moves
 
 **Method.**
 
@@ -744,11 +693,11 @@ Working
    **not** a decoy.
 
 ::: {.callout-warning appearance="simple"}
-**Step 2 is where people lose this question**, and it is subtle: the forwards direction is usually the
-obvious one, so a false line still *reads* perfectly well. Line III above is exactly that — going
-backwards ($1<x<2 \Rightarrow 1<x^2<4$) is flawless, and only the forwards direction breaks.
+**Step 2 is where people lose this question**, and it is subtle: one direction is usually obvious, so a
+false line still *reads* perfectly well. Line III above is exactly that. The direction
+$1<x<2 \Rightarrow 1<x^2<4$ is flawless, and only $1<x^2<4 \Rightarrow 1<x<2$ breaks.
 
-So a line is **not** verified just because you can get to it. Ask explicitly: *can I get back?*
+So a line is **not** verified because one direction works. Ask explicitly: *does the other one work too?*
 :::
 
 **The moves that are one-way** (these are where chains break):
@@ -790,7 +739,7 @@ equivalent options stand or fall together, so neither can be the unique one). Wh
 
 ---
 
-## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q13</span>
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q13</span>
 
 ::: {.question}
 Consider the four options below about a particular statement $S$:
@@ -836,7 +785,7 @@ Working
 
 ---
 
-## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q20</span>
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q20</span>
 
 ::: {.question}
 $f$ is a function and $a$ is a real number. Given that **exactly one** of the following statements is true,
@@ -872,7 +821,7 @@ true together or all false together, so **none of them can be the unique true on
 
 That leaves **B**, the only option pointing the other way. $\;\blacksquare$
 
-*This question is the entire session compressed into one item.* Every translation rule from Part 1 appears
+*This question is the entire session compressed into one item.* Every translation rule from the Notes appears
 once, and the reward for knowing them is that you answer in twenty seconds without touching $f$.
 :::
 
@@ -882,7 +831,7 @@ Working
 
 ---
 
-## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q12</span>
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q12</span>
 
 ::: {.question}
 Let $P$ be a property of a real number $x$. Each of the following is a statement about **all** real values of
@@ -910,14 +859,15 @@ $x$. **Exactly one** of the following statements is true. Which one is it?
 - **G** is "$P$ only if $x^{2}<1$", i.e. $P\Rightarrow\lvert x\rvert<1$ — the **same statement as C**, so
   neither C nor G can be unique.
 
-That removes five options at a stroke and leaves only **B**'s pair and **D**. Now rank the survivors:
+That removes six options at a stroke and leaves only **D**. As a check, the same conclusion comes from
+ranking the options:
 
 - **B $\Rightarrow$ A**: if $P$ holds for every $x$ with $\lvert x\rvert<2$, it certainly holds on the
-  smaller set $\lvert x\rvert<1$. So B would make A true as well — **B is out**.
+  smaller set $\lvert x\rvert<1$. So B would make A true as well.
 - **C $\Rightarrow$ D**: if $P$ forces $\lvert x\rvert<1$, it forces $\lvert x\rvert<2$ too. So C would
-  make D true as well — **C is out**, which we already knew.
+  make D true as well.
 
-**D** implies none of the others, and nothing else survives. $\;\blacksquare$
+**D** implies none of the others. $\;\blacksquare$
 
 **The two moves to carry into the exam.** *One:* a statement and its contrapositive are the same statement,
 so an option paired with its own contrapositive is automatically eliminated. *Two:* between two "if $H$ then
@@ -931,7 +881,7 @@ Working
 
 ---
 
-## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q10</span>
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q10</span>
 
 ::: {.question}
 The equation $\;\sin x\left(1-\cos^{2}x\right)=k\sin x\;$ has exactly $n$ distinct solutions in
@@ -985,18 +935,67 @@ Working
 
 ---
 
-# Part 5 — Exam bank: real past papers
+# Part 5 — Real past papers: Arg1 proper
 
-Five genuine TMUA papers, one for each connective on the specification. **And** is an intersection of two
-solution sets; **or** is a union, and the exam only uses it when the two branches are exhaustive; **if and
-only if** is a two-way street that has to survive every line of a chain; and *sufficient* and *only if*
-still mean what S3 says they mean even when the mathematics around them is trigonometry.
+Six genuine TMUA questions. **Question 10 (2022 P2 Q5) is the purest Arg1 question in the archive, so do it
+first.** After it come implications wrapped around coordinate geometry, **and** as an intersection of two
+solution sets, an **if and only if** chain that has to survive every line, *sufficient* and *only if* on a
+counting problem, and **or** as an exhaustive split.
 
-[Do the logic first and the mathematics second]{.hl}. In every question below the algebra is short once you
-know which set you are being asked for.
+Questions 11, 12 and 15 are mostly Section 1 mathematics (coordinate geometry, modulus inequalities and logs)
+whose **options** are written in logical form. They train *reading the options*, which is a real S1 skill and
+a real source of lost marks. [Do the logic first and the mathematics second]{.hl}.
 
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q5 &nbsp;◆◆</span>
 
-## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q14 &nbsp;◆</span>
+::: {.question}
+A straight line $L$ passes through $(1,2)$. Let $P$ be the statement
+
+> if the $y$-intercept of $L$ is negative, then the $x$-intercept of $L$ is positive.
+
+Which of the following statements **must** be true?
+
+&nbsp;&nbsp;**I** $P$ &nbsp;&nbsp; **II** the converse of $P$ &nbsp;&nbsp; **III** the contrapositive of $P$
+
+&nbsp;&nbsp;**A** none &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+*A statement, its converse and its contrapositive, with real mathematics underneath. If only one past-paper
+question is done in this session, do this one.*
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**F.** *The contrapositive is free once $P$ is settled; the converse must be tested separately.*
+
+Write $L$ as $y=m(x-1)+2$ with $m\ne0$. Then
+
+$$y\text{-intercept}=2-m,\qquad x\text{-intercept}=1-\frac{2}{m}.$$
+
+**I is true.** $2-m<0$ means $m>2$. For such $m$, $0<\dfrac2m<1$, so $1-\dfrac2m>0$ — the $x$-intercept is
+positive. ✓
+
+**III is true, with no extra work.** A statement and its contrapositive are logically equivalent, so III
+stands or falls with I.
+
+**II is false.** *Solve the converse's hypothesis instead of its conclusion:* $1-\dfrac2m>0$ holds when
+$m>2$ **or** $m<0$, and the second branch is not covered by $m>2$. Take $m=-1$, giving $x+y=3$: its
+$x$-intercept is $3>0$, but its $y$-intercept is $3$, which is not negative.
+
+$$\boxed{\textbf{F — I and III only}}$$
+
+*The converse is always the trap option, precisely because it is the one rearrangement that is **not**
+equivalent.*
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q14</span>
 
 ::: {.question}
 Three lines are given by
@@ -1054,34 +1053,7 @@ Working
 :::
 
 ---
-
-## After this session
-
-::: {.callout-important}
-## Homework
-
-**The main task — this is the one that covers today.**
-
-1. **[Assignment: Statement forms](s01_assignment_student.qmd)** — 8 questions, **32 marks**, about
-   45 minutes. Every question maps onto one you met today, so if today made sense this should be steady
-   work rather than a struggle.
-
-**Then, to make it stick:**
-
-2. **Notes on Logic and Proof, pp. 24–34** (*Statements with "if"*). Work the church-bells tables yourself
-   before you look at theirs.
-3. Redo **Questions 3 and 4** above from blank. If either takes more than a minute, the rewriting rule has
-   not stuck yet.
-
-**Separately — keeping Paper 1 warm:**
-
-4. **Tyler Mock Set A, Paper 1** — 75 minutes, timed, no calculator. Note this is **not** logic: it is
-   Paper 1 calculation practice, set so that your speed and technique keep moving while the Paper 2
-   material settles. Mark it against the worked solutions in the same folder.
-:::
-
-
-## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q14</span>
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q14</span>
 
 ::: {.question}
 Consider the two inequalities:
@@ -1169,7 +1141,7 @@ Working
 ---
 
 
-## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q10</span>
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q10</span>
 
 ::: {.question}
 Here is an attempt to solve the inequality $x^{4}-2x^{2}-3<0$ by completing the square:
@@ -1193,7 +1165,7 @@ Every line claims **if and only if**, so each one has to be checked in *both* di
 one that looks wrong — half of an inequality has simply been deleted. [Before calling it an error, ask
 whether the deleted half was saying anything at all]{.hl}.
 
-You have already met the same chain in [Question 7](#question-7) with $x^{4}-5x^{2}+4<0$; this is the exam's
+You have already met the same chain in [Question 5](#question-5) with $x^{4}-5x^{2}+4<0$; this is the exam's
 own version.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
@@ -1242,7 +1214,7 @@ Working
 ---
 
 
-## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q12</span>
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q12</span>
 
 ::: {.question}
 In this question, $p$ is a real constant.
@@ -1317,7 +1289,7 @@ Working
 ---
 
 
-## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q17</span>
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q17</span>
 
 ::: {.question}
 Consider the following functions defined for $x>1$:
@@ -1410,15 +1382,21 @@ inclusive **or** allows.
 
 ### Why the other options die
 
-Every option offers the same two orderings with a different separating constant. Test $x=16$, where
-$\mathrm{f}=\mathrm{g}=1$: any option separating at $0$ or $\tfrac12$ would need $1\le0$ or $1\le\tfrac12$
-in one branch and fails. *One well-chosen value kills A–D at a stroke.* E has the two orderings the wrong
-way round: it wants $\mathrm{f}\le\mathrm{g}$ when both are above $1$, and at $x=256$ that reads
-$2\le1.5$. ✗
+Every option offers one of the same two orderings with a different separating constant, so test values
+of $u$ on either side of the crossing. *Do not test $x=16$:* there $\mathrm{f}=\mathrm{g}=1$, and every
+option holds.
+
+| value | $\mathrm{f}$ | $\mathrm{g}$ | what it rules out |
+|---|---|---|---|
+| $u=3$ ($x=256$) | $2$ | $1.5$ | **A, C, E** — each needs $\mathrm{f}\le\mathrm{g}$ or $\mathrm{g}\le\mathrm{f}\le$ its constant |
+| $u=1$ ($x=4$) | $0$ | $0.5$ | **B** — needs $0\le0.5\le0$ or $0\le0.5\le0$ |
+| $u=1.5$ ($x\approx7.1$) | $0.5$ | $0.75$ | **D** — needs $\tfrac12\le0.75\le0.5$ or $0.5\le0.75\le\tfrac12$ |
+
+Only **F** survives all three.
 
 **The lesson.** [In a "for all" statement, an **or** is doing the work of a case split]{.hl}, so the
 question is always *where do the cases divide*. Find the threshold, check the two branches are exhaustive,
-and then test one value on the boundary — the boundary is where the wrong constants are exposed.
+and then test one value on each side of it — that is where the wrong constants are exposed.
 $\;\blacksquare$
 :::
 
@@ -1432,9 +1410,5 @@ Working
 
 > **"if" introduces the forcer. "only if" introduces the forced.**
 > When in doubt, **rewrite everything as "if … then …"** before you think.
-
-**Next session ([S2](s02_converse_contrapositive.qmd)): converse and contrapositive** — the two ways of turning an arrow round, one of which
-is always safe and one of which is almost always a trap. Question 6 above already showed you why that
-distinction decides marks.
 
 :::

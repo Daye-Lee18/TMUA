@@ -225,13 +225,13 @@ Work through these in order — each is built on the one before.
 
 | | Session | Class material | Assignment | Spec |
 |---|---|---|---|---|
-| **S1** | **Statement forms — if, only if, if and only if** | **[Concepts](toolkit/s01_concepts.qmd)** · **[Material](toolkit/s01_statement_forms.qmd)** | **[Questions](toolkit/s01_assignment_student.qmd)** · [MS](toolkit/s01_assignment_ms.qmd) | Arg1 |
-| **S2** | **Converse and contrapositive** | **[Concepts](toolkit/s02_concepts.qmd)** · **[Material](toolkit/s02_converse_contrapositive.qmd)** | **[Questions](toolkit/s02_assignment_student.qmd)** · [MS](toolkit/s02_assignment_ms.qmd) | Arg1 |
-| **S3** | **Necessary and sufficient** | **[Concepts](toolkit/s03_concepts.qmd)** · **[Material](toolkit/s03_necessary_sufficient.qmd)** | **[Questions](toolkit/s03_assignment_student.qmd)** · [MS](toolkit/s03_assignment_ms.qmd) | Arg2 |
-| **S4** | **Quantifiers and negation** | **[Concepts](toolkit/s04_concepts.qmd)** · **[Material](toolkit/s04_quantifiers_negation.qmd)** | **[Questions](toolkit/s04_assignment_student.qmd)** · [MS](toolkit/s04_assignment_ms.qmd) | Arg3, Arg4 |
-| **S5** | **Proof methods** — direct, cases, contradiction, counterexample | **[Concepts](toolkit/s05_concepts.qmd)** · **[Material](toolkit/s05_proof_methods.qmd)** | **[Questions](toolkit/s05_assignment_student.qmd)** · [MS](toolkit/s05_assignment_ms.qmd) | Prf1 |
-| **S6** | **Scrambled proofs** — order a jumbled proof fast | **[Concepts](toolkit/s06_concepts.qmd)** · **[Material](toolkit/s06_scrambled_proofs.qmd)** | **[Questions](toolkit/s06_assignment_student.qmd)** · [MS](toolkit/s06_assignment_ms.qmd) · **[Extra practice](toolkit/s06_extra_practice.qmd)** | Prf4 |
-| **S7** | **Spot the error** — find the flaw in a convincing proof | **[Concepts](toolkit/s07_concepts.qmd)** · **[Material](toolkit/s07_spot_the_error.qmd)** · **[Extended: when is squaring the error?](toolkit/s07_extended_equivalence.qmd)** | **[Questions](toolkit/s07_assignment_student.qmd)** · [MS](toolkit/s07_assignment_ms.qmd) | Err1, Err2 |
+| **S1** | **Statement forms — if, only if, if and only if** | **[Concepts & class problems](toolkit/s01_statement_forms.qmd)** | **[Questions](toolkit/s01_assignment_student.qmd)** · [MS](toolkit/s01_assignment_ms.qmd) | Arg1 |
+| **S2** | **Converse and contrapositive** | **[Concepts & class problems](toolkit/s02_converse_contrapositive.qmd)** | **[Questions](toolkit/s02_assignment_student.qmd)** · [MS](toolkit/s02_assignment_ms.qmd) | Arg1 |
+| **S3** | **Necessary and sufficient** | **[Concepts & class problems](toolkit/s03_necessary_sufficient.qmd)** | **[Questions](toolkit/s03_assignment_student.qmd)** · [MS](toolkit/s03_assignment_ms.qmd) | Arg2 |
+| **S4** | **Quantifiers and negation** | **[Concepts & class problems](toolkit/s04_quantifiers_negation.qmd)** | **[Questions](toolkit/s04_assignment_student.qmd)** · [MS](toolkit/s04_assignment_ms.qmd) | Arg3, Arg4 |
+| **S5** | **Proof methods** — direct, cases, contradiction, counterexample | **[Concepts & class problems](toolkit/s05_proof_methods.qmd)** | **[Questions](toolkit/s05_assignment_student.qmd)** · [MS](toolkit/s05_assignment_ms.qmd) | Prf1 |
+| **S6** | **Scrambled proofs** — order a jumbled proof fast <small>(set once in TMUA 2016–2023: 2016 P2 Q7)</small> | **[Concepts & class problems](toolkit/s06_scrambled_proofs.qmd)** | **[Questions](toolkit/s06_assignment_student.qmd)** · [MS](toolkit/s06_assignment_ms.qmd) · **[Extra practice](toolkit/s06_extra_practice.qmd)** | Prf4 |
+| **S7** | **Spot the error** — find the flaw in a convincing proof | **[Concepts & class problems](toolkit/s07_spot_the_error.qmd)** · **[Extended: when is squaring the error?](toolkit/s07_extended_equivalence.qmd)** | **[Questions](toolkit/s07_assignment_student.qmd)** · [MS](toolkit/s07_assignment_ms.qmd) | Err1, Err2 |
 | **Quiz** | **Concepts Quiz — Sessions 1–7** — recall questions + a consolidated True/False memory bank | **[Open the quiz](toolkit/paper2_quiz.qmd)** | — | S1–S7 |
 
 *(All seven toolkit sessions written. Toolkit overview: **[Paper 2 Toolkit](toolkit/index.qmd)**.)*

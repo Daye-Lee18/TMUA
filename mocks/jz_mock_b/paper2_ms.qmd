@@ -30,8 +30,8 @@ extra roots in Q2 and a false implication in Q8. Add Set B Paper 1, where $\sqrt
 decides three more questions, and this one idea is worth about six marks across the set.
 :::
 
-Two of these have been worked in class: **Q12** is [S1 Q10](../../toolkit/s01_statement_forms.qmd), and
-**Q2** is [S7 Q14](../../toolkit/s07_spot_the_error.qmd).
+Two of these have been worked in class: **Q12** is [S1 Q8](../../toolkit/s01_statement_forms.qmd), and
+**Q2** is [S7 Q10](../../toolkit/s07_spot_the_error.qmd).
 
 ---
 
@@ -602,7 +602,7 @@ Let $P$ be a property of a real number $x$. Each of the following is a statement
 
 **Answer — **D** — if $P$ is true, then $\lvert x\rvert<2$**
 
-*Also set as [S1 Q10](../../toolkit/s01_statement_forms.qmd).*
+*Also set as [S1 Q8](../../toolkit/s01_statement_forms.qmd).*
 
 Translate everything into arrows, writing $Q_1$ for $\lvert x\rvert<1$ and $Q_2$ for $\lvert x\rvert<2$.
 Note $x^{2}<1\iff Q_1$ and $x^{2}<4\iff Q_2$.
@@ -749,7 +749,7 @@ divides all three** — which is **D**.
 | **E** | "there **is** a prime which divides $x$ but neither $y$ nor $z$" is $\exists p\,\lnot(\dots)$, not $\lnot\exists p\,(\dots)$ |
 
 *The same two errors as always: forgetting to flip a quantifier, and reading $\lnot\exists p$ as "some $p$
-fails" instead of "no $p$ works". Compare [S4 Q18](../../toolkit/s04_quantifiers_negation.qmd), the 2017
+fails" instead of "no $p$ works". Compare [S4 Q17](../../toolkit/s04_quantifiers_negation.qmd), the 2017
 "stapled" question, which is this question with the numbers changed.*
 :::
 

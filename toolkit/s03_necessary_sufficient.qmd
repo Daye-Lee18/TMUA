@@ -1,6 +1,6 @@
 ---
 title: "Paper 2 Toolkit · S3 — Necessary and Sufficient"
-subtitle: "Work each question — Easy → Medium → Hard"
+subtitle: "Revision sheet · Notes · two concept checks · exam-standard questions"
 format: html
 jupyter: python3
 execute:
@@ -8,12 +8,145 @@ execute:
   warning: false
 ---
 
-::: {.solutions}
+Specification: **Arg2** — *understand and use the terms necessary and sufficient.*
+Official source: **Notes on Logic and Proof**, pp. 51–55.
+
+::: {.callout-important}
+## Why learn this when TMUA is multiple choice?
+
+You never write a proof on TMUA — every question is **multiple choice**. But the exam tests whether you
+can **judge** a claim: is this condition necessary, sufficient, both, or neither? Turning the words into
+an **arrow** in your head — and knowing which way it points — is exactly what lets you pick the right
+option in seconds.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Arg2</div>
+<div class="fs-title">Necessary & Sufficient — Key Concepts</div>
+<div class="fs-sub">The most-tested pair of words on Paper 2. Everything reduces to one question: <strong>which way does the arrow point?</strong> Sufficient points <em>away</em> from the condition; necessary points <em>towards</em> it.</div>
+::::
+
+## The two words
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Sufficient — "enough"
+
+**"$P$ is sufficient for $Q$"** means
+$$P \Rightarrow Q.$$
+$P$ being true is **enough** to guarantee $Q$. The arrow points **away from** the condition $P$.
+
+::: {.logic-highlight}
+**To prove sufficiency:** show that **every** case in $P$ is also in $Q$.
+
+**To disprove it:** find one counterexample that is **in $P$ but not in $Q$** — in symbols,
+$P\land\neg Q$.
+:::
+
+[$x>3$ is sufficient for $x>0$ — but not the only way to have $x>0$]{.eg}
+:::
+
+::: {.fs-card}
+### Necessary — "required"
+
+**"$P$ is necessary for $Q$"** means
+$$Q \Rightarrow P.$$
+$Q$ cannot hold **without** $P$; $P$ is **required**. The arrow points **towards** the condition $P$.
+
+::: {.logic-highlight}
+**To prove necessity:** first rewrite it as the arrow $Q\Rightarrow P$. Then prove it exactly as you proved
+sufficiency above: show that **every** case in $Q$ is also in $P$, following the arrow from $Q$ to $P$.
+
+**To disprove it:** find one counterexample that is **in $Q$ but not in $P$** — in symbols,
+$Q\land\neg P$.
+:::
+
+[$x>0$ is necessary for $x>3$ — required, but not enough on its own]{.eg}
+:::
+
+::: {.fs-card}
+### Necessary **and** sufficient
+
+Both arrows — an **if and only if**:
+$$P \Leftrightarrow Q.$$
+$P$ and $Q$ are two names for the same thing.
+
+[$f''(x)\ge0$ everywhere is necessary **and** sufficient for $f$ to be convex]{.eg}
+:::
+
+::: {.fs-card}
+### Which way — and the link to *if / only if*
+
+$$\boxed{\text{"}P\text{ only if }Q\text{"}\ \equiv\ P\Rightarrow Q\ \equiv\ Q\text{ is necessary for }P}$$
+
+The words **only if** place what follows on the **right-hand side** of the arrow.
+
+$$\boxed{\text{"}P\text{ if }Q\text{"}\ \equiv\ Q\Rightarrow P\ \equiv\ Q\text{ is sufficient for }P}$$
+
+After **if**, the condition $Q$ goes on the **left-hand side**: “if $Q$, then $P$”.
+
+[**S**ufficient = arrow **S**tarts at the condition; **N**ecessary = arrow e**N**ds at it]{.eg}
+:::
+
+::::
+
+::: {.logic-final}
+### The final method — use it for every question
+
+1. **Translate the words into one left-to-right arrow:** premise on the left, conclusion on the right.
+2. **Try to break the arrow first:** look for a case where the **left side is true but the right side is false**.
+   That is the counterexample.
+3. **If the arrow survives and the statement is true, prove it in that same direction:** start from the left
+   side and reach the right side.
+
+$$\boxed{\text{write }A\Rightarrow B\quad\longrightarrow\quad
+\text{seek }A\land\neg B\quad\longrightarrow\quad
+\text{if true, prove }A\Rightarrow B}$$
+:::
+
+## In practice, and the trap
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Turn the words into an arrow — fast
+
+"A **sufficient** condition for $Q$ is $P$" → $P\Rightarrow Q$.
+"A **necessary** condition for $Q$ is $P$" → $Q\Rightarrow P$.
+
+Read off the option, draw the arrow, check it against the maths.
+:::
+
+::: {.fs-card}
+### The trap: sufficient ≠ necessary
+
+One direction does **not** give the other. $x>3\Rightarrow x>0$, so $x>3$ is **sufficient** for $x>0$ but
+**not necessary** ($x=1$ works too). Deciding "which of the two (or both, or neither)" is the whole
+question.
+:::
+
+::: {.fs-card}
+### Where it shows up (cross-exam)
+
+Paper 2 **Arg2** — usually **applied to real maths**: $f'(a)=0$ for a maximum, $f''\ge0$ for convexity,
+"$a>0$ **and** $b^2-4ac<0$" for a positive-definite quadratic. The same wording appears on **MAT** and
+**STEP**.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## Notes
 
 The official Notes say it plainly: *"Almost every TMUA paper will have some questions based on the terms
-necessary and sufficient."* Count them and you find the same — seven appearances in 2019, ten in 2021,
-eight in each of 2022 and 2023. **This is the most-tested pair of words on Paper 2.**
-
+necessary or sufficient."* Count them and you find the same: exactly five questions in each of the 2021, 2022
+and 2023 Paper 2s. **This is the most-tested pair of words on Paper 2.**
 
 ::: {.callout-important}
 ## The two lines this whole session rests on
@@ -25,98 +158,20 @@ $$\textbf{“}A \textbf{ is sufficient for } B \textbf{”} \;=\; A \Rightarrow 
 applying those two lines quickly, under wording designed to disguise them.
 :::
 
-Specification: **Arg2** — *understand and use the terms necessary and sufficient.*
-Official source: **Notes on Logic and Proof**, pp. 51–55.
+### Sufficient: $P\Rightarrow Q$ — "enough"
 
----
+"$P$ is a **sufficient** condition for $Q$" means that **whenever $P$ holds, $Q$ must hold** — $P$ is
+*enough* to force $Q$. In symbols (which you never have to write), $P\Rightarrow Q$. There may be **other**
+ways to get $Q$ too; sufficient does not mean *only*.
 
-# Part 1 — Easy
+For example, "$x>3$" is **sufficient** for "$x>0$": if $x>3$ then certainly $x>0$. It is **not necessary**,
+because $x=1$ has $x>0$ without $x>3$. So "$x>3$" is *sufficient but not necessary* for "$x>0$".
 
-## Question 1
+### Necessary: $Q\Rightarrow P$ — "required"
 
-::: {.question}
-$P$ and $Q$ are statements. Write each of the following as an implication.
-
-&nbsp;&nbsp;(a) $P$ is **sufficient** for $Q$. **[1]**
-
-&nbsp;&nbsp;(b) $P$ is **necessary** for $Q$. **[1]**
-
-&nbsp;&nbsp;(c) $Q$ is **sufficient** for $P$. **[1]**
-
-&nbsp;&nbsp;(d) $P$ is **necessary and sufficient** for $Q$. **[1]**
-:::
-
-Work strictly by the two lines in the box above, and [do not reason about what the words feel like]{.hl}
-— *necessary* sounds stronger than *sufficient* in everyday English, and that intuition is exactly what
-makes people draw the arrow the wrong way. Notice that (b) and (c) should come out identical, which is a
-useful check that you applied the rules rather than your instincts.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-::: {.topic}
-Topic — translating *sufficient* and *necessary* into arrows
-:::
-
-
-**(a)** $P \Rightarrow Q$ &nbsp; — *sufficient points forwards.*
-
-**(b)** $Q \Rightarrow P$ &nbsp; — *necessary points backwards.*
-
-**(c)** $Q \Rightarrow P$ &nbsp; — *sufficient again, but with the letters swapped, so the arrow starts
-at $Q$.*
-
-**(d)** $P \Leftrightarrow Q$ &nbsp; — *both directions at once.*
-
-$\blacksquare$
-
-As predicted, **(b) and (c) are the same implication**. So *"$P$ is necessary for $Q$"* and *"$Q$ is
-sufficient for $P$"* say exactly the same thing — two sentences that look nothing alike in English.
-
-**Common slips.**
-
-| ✗ | ✓ |
-|---|---|
-| (b) written as $P \Rightarrow Q$ | The commonest error in this topic. **Necessary reverses the arrow.** |
-| Treating "necessary" as the stronger word | Neither is stronger — they point in **opposite directions**. A condition can be necessary without being sufficient, and vice versa. |
-:::
-
-::: {.workspace style="min-height:6cm"}
-Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — the official summary table
-
-The Notes give this table, and it is worth knowing in both directions:
-
-| Phrase | Same as | Arrow |
-|---|---|---|
-| $A$ is **sufficient** for $B$ | *$A$ only if $B$*, *if $A$ then $B$* | $A \Rightarrow B$ |
-| $A$ is **necessary** for $B$ | *$A$ if $B$*, *if $B$ then $A$* | $B \Rightarrow A$ |
-| $A$ is **necessary and sufficient** for $B$ | *$A$ if and only if $B$* | $A \Leftrightarrow B$ |
-
-### Important distinction — “necessary” does not mean “necessary only”
-
-If a question asks for **a necessary condition**, it requires only the arrow
-$$B\Rightarrow A.$$
-It does **not** require the reverse arrow to fail. Therefore a condition that is **necessary and sufficient**
-also qualifies as necessary:
-$$A\Leftrightarrow B\quad\Longrightarrow\quad B\Rightarrow A.$$
-Similarly, a necessary-and-sufficient condition also qualifies if a question asks only for **a sufficient
-condition**.
-
-The words **but not sufficient** are what exclude an equivalent condition:
-$$
-\begin{array}{ll}
-\text{necessary:} & B\Rightarrow A,\\
-\text{necessary but not sufficient:} & B\Rightarrow A\ \text{and}\ A\nRightarrow B,\\
-\text{necessary and sufficient:} & B\Rightarrow A\ \text{and}\ A\Rightarrow B.
-\end{array}
-$$
-
-**Reading rule:** never silently add “only” or “but not sufficient” when the question says merely
-**necessary**.
+"$P$ is a **necessary** condition for $Q$" means **$Q$ cannot happen without $P$** — every time $Q$ holds,
+$P$ must already hold. That is $Q\Rightarrow P$ (the arrow points **towards** the condition). Necessary
+does not mean *enough*: $P$ may hold in cases where $Q$ does not.
 
 **How to remember which way each points.**
 
@@ -133,7 +188,6 @@ $$
 
 That last sentence is the heart of it: *necessary* means you cannot manage without it, **not** that it
 suffices.
-:::
 
 ```{python}
 import matplotlib.pyplot as plt
@@ -167,69 +221,43 @@ for ax in axes:
 plt.tight_layout(); plt.show()
 ```
 
----
+*The picture is the fastest check: "$A$ inside $B$" is the single fact $A\Rightarrow B$, and it reads **both**
+ways at once — $A$ sufficient for $B$, $B$ necessary for $A$.*
 
-## Question 2
+### Necessary **and** sufficient: $P\Leftrightarrow Q$
 
-::: {.question}
-Let $n$ be a positive integer. For each pair of conditions, state whether the first is **sufficient**,
-**necessary**, **both**, or **neither** for the second.
+When a condition is **both**, the two conditions are equivalent — an *if and only if*. The Notes give this
+summary table, and it is worth knowing in both directions:
 
-&nbsp;&nbsp;(a) "$n$ is divisible by $4$" &nbsp;·&nbsp; "$n$ is even" **[2]**
+| Phrase | Same as | Arrow |
+|---|---|---|
+| $A$ is **sufficient** for $B$ | *$A$ only if $B$*, *if $A$ then $B$* | $A \Rightarrow B$ |
+| $A$ is **necessary** for $B$ | *$A$ if $B$*, *if $B$ then $A$* | $B \Rightarrow A$ |
+| $A$ is **necessary and sufficient** for $B$ | *$A$ if and only if $B$* | $A \Leftrightarrow B$ |
 
-&nbsp;&nbsp;(b) "$n$ is even" &nbsp;·&nbsp; "$n$ is divisible by $4$" **[2]**
+### "Necessary" does not mean "necessary only"
 
-&nbsp;&nbsp;(c) "$n$ is divisible by $2$ and by $3$" &nbsp;·&nbsp; "$n$ is divisible by $6$" **[2]**
-:::
+If a question asks for **a necessary condition**, it requires only the arrow
+$$B\Rightarrow A.$$
+It does **not** require the reverse arrow to fail. Therefore a condition that is **necessary and sufficient**
+also qualifies as necessary:
+$$A\Leftrightarrow B\quad\Longrightarrow\quad B\Rightarrow A.$$
+Similarly, a necessary-and-sufficient condition also qualifies if a question asks only for **a sufficient
+condition**.
 
-For each pair, [test the two arrows separately]{.hl} — ask "does the first force the second?" and then
-"does the second force the first?" — and answer each with a proof or a counterexample. Parts (a) and (b)
-are deliberately the same two conditions in the opposite order, so if your answers to them are not
-mirror images of each other, something has gone wrong.
+The words **but not sufficient** are what exclude an equivalent condition:
+$$
+\begin{array}{ll}
+\text{necessary:} & B\Rightarrow A,\\
+\text{necessary but not sufficient:} & B\Rightarrow A\ \text{and}\ A\nRightarrow B,\\
+\text{necessary and sufficient:} & B\Rightarrow A\ \text{and}\ A\Rightarrow B.
+\end{array}
+$$
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
+**Reading rule:** never silently add “only” or “but not sufficient” when the question says merely
+**necessary**.
 
-::: {.topic}
-Topic — deciding necessity and sufficiency in a concrete case
-:::
-
-
-**(a) Sufficient, but not necessary.**
-
-- Forwards: if $4$ divides $n$ then $n = 4k = 2(2k)$, so $n$ is even. ✓ So it **is sufficient**.
-- Backwards: $n = 2$ is even but not divisible by $4$. ✗ So it is **not necessary**.
-
-**(b) Necessary, but not sufficient.** *(The mirror image of (a), as it must be.)*
-
-- "Even" is forced by "divisible by $4$", so evenness is **necessary**. ✓
-- But $n=2$ is even without being divisible by $4$, so evenness is **not sufficient**. ✗
-
-**(c) Both** — necessary and sufficient.
-
-- Forwards: if $2$ divides $n$ and $3$ divides $n$, then since $2$ and $3$ share no common factor, $6$ divides $n$. ✓
-- Backwards: if $6$ divides $n$ then $n = 6k = 2(3k) = 3(2k)$, so $2$ divides $n$ and $3$ divides $n$. ✓
-
-$\blacksquare$
-
-Notice the pattern in (a) and (b): [swapping the order of the two conditions swaps *sufficient* and
-*necessary*]{.hl}. That is just the two lines from the top of the page, seen from the other end.
-
-**Common slips.**
-
-| ✗ | ✓ |
-|---|---|
-| Answering (a) and (b) the same way | They are opposite questions. "$X$ sufficient for $Y$" and "$Y$ sufficient for $X$" are different claims. |
-| Claiming "necessary" in (a) without testing backwards | Necessity needs the **backwards** arrow, and $n=2$ kills it. |
-| Answering "neither" whenever a counterexample appears | A counterexample kills **one** direction. Check the other before concluding. |
-:::
-
-::: {.workspace style="min-height:8cm"}
-Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — the four possible verdicts
+### The four possible verdicts
 
 Given two conditions $A$ and $B$, there are exactly four answers, and you settle it by testing **two
 arrows**:
@@ -256,73 +284,11 @@ be enough on its own.
 
 Whenever one condition is genuinely stronger than the other, the stronger one is **sufficient** for the
 weaker, and the weaker one is **necessary** for the stronger.
-:::
 
----
+### A routine for the reversed wording
 
-# Part 2 — Medium
-
-## Question 3
-
-::: {.question}
-Write each of the following as an implication between $P$ and $Q$.
-
-&nbsp;&nbsp;(a) A **sufficient** condition for $Q$ is $P$. **[1]**
-
-&nbsp;&nbsp;(b) A **necessary** condition for $Q$ is $P$. **[1]**
-
-&nbsp;&nbsp;(c) $P$ is a **necessary** condition for $Q$. **[1]**
-
-&nbsp;&nbsp;(d) For $Q$ to hold it is **sufficient** that $P$ holds. **[1]**
-
-&nbsp;&nbsp;(e) For $Q$ to hold it is **necessary** that $P$ holds. **[1]**
-:::
-
-This is the wording the TMUA actually uses, and it is **written back to front on purpose**: the target
-comes first and the condition second, so the sentence reads in the opposite order to the arrow you will
-draw. The safe routine is to [find the two statements, decide which one is the *condition* and which is
-the *target*, and only then apply the rule]{.hl} — never translate left-to-right.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-::: {.topic}
-Topic — the reversed wording: *"a sufficient condition for … is …"*
-:::
-
-
-In every part, $P$ is **the condition** and $Q$ is **the target** — that is what the phrase "*condition
-for $Q$*" tells you.
-
-**(a)** $P \Rightarrow Q$ &nbsp; — *$P$ is sufficient, so $P$ delivers $Q$.*
-
-**(b)** $Q \Rightarrow P$ &nbsp; — *$P$ is necessary, so $Q$ cannot happen without $P$.*
-
-**(c)** $Q \Rightarrow P$ &nbsp; — *the same as (b); only the word order changed.*
-
-**(d)** $P \Rightarrow Q$ &nbsp; — *"sufficient that $P$" = $P$ is enough.*
-
-**(e)** $Q \Rightarrow P$ &nbsp; — *"necessary that $P$" = no $Q$ without $P$.*
-
-$\blacksquare$
-
-So there are really only two answers here, dressed five ways: **sufficient gives $P \Rightarrow Q$, and
-necessary gives $Q \Rightarrow P$**, no matter how the sentence is arranged.
-
-**Common slips.**
-
-| ✗ | ✓ |
-|---|---|
-| Reading (a) left to right as $Q \Rightarrow P$ | The sentence names the **target first**. Identify condition and target before drawing anything. |
-| Thinking (b) and (c) differ | Identical in meaning. English lets you put the condition either side of "is". |
-:::
-
-::: {.workspace style="min-height:7cm"}
-Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — a routine for the reversed wording
+The TMUA usually writes the target first and the condition second, as in "a sufficient condition for $Q$ is
+$P$", so the sentence reads in the opposite order to the arrow you will draw.
 
 Every sentence of this type contains a **condition** and a **target**. The word *"for"* points at the
 target:
@@ -351,90 +317,8 @@ Written that way, the rule never changes even though the English word order does
 
 That last line is the sting: **"$Q$ is necessary for $P$" and "$P$ is sufficient for $Q$" are the same
 statement.** Both are $P \Rightarrow Q$.
-:::
 
----
-
-## Question 4
-
-::: {.question}
-Let $ABC$ and $DEF$ be triangles.
-
-&nbsp;&nbsp;(a) Explain why "the two triangles have an angle in common" is a **necessary** condition for
-them to be similar. **[2]**
-
-&nbsp;&nbsp;(b) Show that it is **not sufficient**. **[2]**
-
-&nbsp;&nbsp;(c) State a condition that **is** sufficient for the triangles to be similar. **[1]**
-:::
-
-Part (b) is the one that carries the marks, and it asks for something very specific: to show a condition
-is *not* sufficient you must [produce a case where the condition holds and the conclusion fails]{.hl} —
-a counterexample, not an explanation. This is exactly the "one forbidden combination" from Session 2,
-used deliberately.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-::: {.topic}
-Topic — *necessary but not sufficient*, and how to demonstrate it
-:::
-
-
-**(a)** If two triangles are similar, then all three of their angles are equal in pairs — so in
-particular they have an angle in common. That is the implication
-
-$$(\text{similar}) \Rightarrow (\text{share an angle}) ,$$
-
-and a condition implied *by* the target is precisely what **necessary** means. ✓
-
-**(b)** We need a case where the condition **holds** but similarity **fails**. Take
-
-- triangle $1$ with angles $90^\circ, 60^\circ, 30^\circ$;
-- triangle $2$ with angles $90^\circ, 45^\circ, 45^\circ$.
-
-Both contain a $90^\circ$ angle, so they share an angle — yet their remaining angles differ, so they are
-**not** similar. The condition therefore does not guarantee similarity: it is **not sufficient**. ✓
-
-**(c)** Several work. The three standard tests for **similarity** are:
-
-- **all three angles equal** (equivalently, two angles equal — the third follows) &nbsp;*(AA)*;
-- **all three pairs of sides in the same ratio** &nbsp;*(SSS)*;
-- **two pairs of sides in the same ratio with the included angle equal** &nbsp;*(SAS)*.
-
-$\blacksquare$
-
-::: {.callout-warning appearance="simple"}
-**Similar is not the same as congruent — mind the wording.** Similarity is about **shape**, so its side
-conditions say *"in the same **ratio**"*. Congruence is about **shape *and* size**, so its side
-conditions say the sides are *"**equal**"*. Writing "all three sides **equal**" as a condition for
-*similarity* is over-strong — that is the test for *congruence*.
-
-In fact this is itself a necessary/sufficient statement, and a clean one:
-$$\text{congruent} \;\Rightarrow\; \text{similar} \qquad \text{but} \qquad \text{similar} \;\not\Rightarrow\; \text{congruent}.$$
-So **being congruent is sufficient for being similar, but not necessary** — two triangles can be similar
-(same shape) without being congruent (a small one and a large one). Congruence is just similarity with
-ratio $1$.
-:::
-
-*Notice how the answer to (c) is a **stronger** condition than the one in (a) — strong enough to
-deliver similarity, where sharing a single angle was not.*
-
-**Common slips.**
-
-| ✗ | ✓ |
-|---|---|
-| Answering (b) with an explanation instead of an example | *"Sharing one angle doesn't tell you about the others"* is the right idea but earns little. **Produce two specific triangles.** |
-| Giving a counterexample where the triangles are not similar **and** share no angle | Useless — the condition must **hold** in your example, or it tests nothing. |
-| Writing "all three sides **equal**" as a condition for **similarity** | That is the *congruence* test. For similarity the sides are in the same **ratio**, not equal. |
-:::
-
-::: {.workspace style="min-height:8cm"}
-Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — proving each of the four verdicts
+### Proving each of the four verdicts
 
 | To show … | You must produce |
 |---|---|
@@ -478,6 +362,465 @@ The same relationship in every direction:
 Whenever one property is "the other plus something extra" — here, *plus equal size* — the **stronger** one
 is sufficient for the weaker, and the weaker is necessary for the stronger.
 :::
+
+::: {.callout-warning appearance="simple"}
+**Similar is not the same as congruent — mind the wording.** Similarity is about **shape**, so its side
+conditions say *"in the same **ratio**"*. Congruence is about **shape *and* size**, so its side
+conditions say the sides are *"**equal**"*. Writing "all three sides **equal**" as a condition for
+*similarity* is over-strong — that is the test for *congruence*. Congruence is just similarity with ratio $1$.
+:::
+
+### The complete translation table
+
+By now every phrase you will meet on Paper 2 reduces to one of three arrows. This is the whole of
+Sessions 1–3 on one card:
+
+| $P \Rightarrow Q$ | $Q \Rightarrow P$ | $P \Leftrightarrow Q$ |
+|---|---|---|
+| if $P$ then $Q$ | if $Q$ then $P$ | $P$ if and only if $Q$ |
+| $P$ only if $Q$ | $P$ if $Q$ | $P$ iff $Q$ |
+| $Q$ if $P$ | $Q$ only if $P$ | $P$ is necessary and sufficient for $Q$ |
+| $P$ is sufficient for $Q$ | $P$ is necessary for $Q$ | $P$ and $Q$ are equivalent |
+| $Q$ is necessary for $P$ | $Q$ is sufficient for $P$ | |
+| a sufficient condition for $Q$ is $P$ | a necessary condition for $Q$ is $P$ | |
+| not $Q \Rightarrow$ not $P$ *(contrapositive)* | not $P \Rightarrow$ not $Q$ *(inverse)* | |
+
+**Reading the table.** Anything in the **same column** is the same statement. Anything in a **different
+column** is not — no matter how similar the English looks.
+
+The two columns on the left are converses of each other, which is why *sufficient* and *necessary* land
+in different columns, and why *necessary* is where the marks are lost.
+
+### Strength: conditions as sets
+
+Think of each condition as a **set of $x$ values**, and the target as another set. Then:
+
+| Relationship of sets | Verdict |
+|---|---|
+| condition **inside** target | **sufficient** (enough, possibly more than needed) |
+| condition **contains** target | **necessary** (implied, but too broad to guarantee) |
+| the sets **coincide** | **necessary and sufficient** |
+| the sets **overlap partially** | **neither** |
+
+::: {.callout-note appearance="simple"}
+**The squares warning.** Any time the target involves $x^2$, check the **negative** branch before
+declaring necessity. It is one of the most productive counterexample-hunting habits on Paper 2.
+:::
+
+### Convexity: a genuine "necessary and sufficient"
+
+This is where the calculus conditions live. "$f''(x)\ge0$ for all $x$" is **both necessary and sufficient** for
+a twice-differentiable function $f$ to be **convex**. Convex means the chord lies on or above the curve, and for
+a twice-differentiable function this holds **exactly when** $f''(x)\ge0$ everywhere. Each implies the other, so
+$P\Leftrightarrow Q$.
+
+::: {.callout-tip}
+## Read $f''(x)>0$ correctly
+
+$f''(x)>0$ means the **gradient $f'(x)$ is increasing**; it does **not** mean that the function itself must
+be increasing.
+
+- If $f'(x)<0$, the graph is going down but becomes **less steep**: for example, gradients
+  $-5\to-3\to-1$.
+- If $f'(x)$ crosses from negative to positive, the graph passes through a **minimum**.
+- If $f'(x)>0$, the graph is going up and becomes **more steep**: for example, gradients
+  $1\to3\to5$.
+
+All three can occur on a convex curve. Keep the roles separate:
+$$f'(x)\text{ tells you up or down};\qquad f''(x)\text{ tells you how the gradient is changing}.$$
+
+For convexity the condition is $f''(x)\ge0$: zero is allowed, corresponding locally to a constant
+gradient. The stronger condition $f''(x)>0$ makes the gradient strictly increase.
+:::
+
+### The classic trap — $f'(a)=0$ and a maximum
+
+"$f'(a)=0$" is **necessary but not sufficient** for a differentiable $f$ to have a **local maximum** at $x=a$. If
+a differentiable $f$ has a local maximum at $a$, then $f'(a)=0$ must hold, so it is necessary. But $f'(a)=0$ alone
+is not enough: it also happens at a minimum ($x^2$ at $0$) and an inflection ($x^3$ at $0$).
+
+*This "necessary but not sufficient" pattern — a required condition that does not settle the matter — is
+the single most common Arg2 answer.*
+
+::: {.callout-tip}
+## Stationary, turning and inflection points — do not mix them up
+
+The whole family fits one pattern: a **derivative equals $0$** gives a candidate, and the relevant **sign
+change** identifies the type. A necessary condition alone only gives a possible candidate; the third
+column gives the **extra check needed to confirm the type of point**.
+
+**Read the two condition columns together.** `Necessary` tells you what must hold and usually *locates* a
+candidate. `Extra check` tells you what else to test before you can confirm the classification; this is
+usually a **change of sign**.
+
+| Type | Necessary condition | Sufficient top-up *(extra check to confirm)* | Example at $x=0$ |
+|---|---|---|:--|
+| **Stationary point** | $f'(a)=0$ | — *(this is the definition)* | $x^{2}$, $x^{3}$ |
+| **Local maximum** | $f'(a)=0$ | $f'$ changes $+\to-$ | $-x^{2}$ |
+| **Local minimum** | $f'(a)=0$ | $f'$ changes $-\to+$ | $x^{2}$ |
+| **Inflection** | $f''(a)=0$ | $f''$ changes sign | $x^{3}$ |
+| **Stationary inflection** | $f'(a)=f''(a)=0$ | $f''$ changes sign, $f'$ does **not** | $x^{3}$ |
+| **Non-stationary inflection** | $f'(a)\neq0$, $f''(a)=0$ | $f''$ changes sign | $x^{3}+x$ |
+
+Two refinements worth carrying:
+
+- a **turning point** forces the second derivative's sign as well — a local maximum has $f''(a)\le0$ and a
+  local minimum has $f''(a)\ge0$ — but **zero is allowed**: $y=x^{4}$ is a minimum at $0$ with $f''(0)=0$;
+- "$f''(a)=0$" is therefore **necessary, never sufficient**, for an inflection. $y=x^{4}$ has $f''(0)=0$ and
+  no inflection at all, because the concavity never changes.
+
+```{python}
+#| fig-cap: "Four point types at the origin. The dot marks the point, the dashed line is the tangent there."
+#| fig-align: center
+#| fig-width: 7.4
+#| fig-height: 5.4
+import numpy as np, matplotlib.pyplot as plt
+
+INK, TAN, DOT, AX = '#0b5563', '#9aa5a5', '#d6a800', '#dcdcdc'
+x = np.linspace(-1.3, 1.3, 500)
+xt = np.linspace(-0.85, 0.85, 50)          # tangent drawn short, so it reads as a tangent
+specs = [
+    ('Local maximum',            r'$y=-x^{2}$',    -x**2,  0*xt,  r"$f'$ changes $+\to-$"),
+    ('Local minimum',            r'$y=x^{2}$',      x**2,  0*xt,  r"$f'$ changes $-\to+$"),
+    ('Stationary inflection',    r'$y=x^{3}$',      x**3,  0*xt,  r"$f'(0)=0$, but no turn"),
+    ('Non-stationary inflection', r'$y=x^{3}+x$', x**3+x,    xt,  r"$f'(0)=1$"),
+]
+fig, axes = plt.subplots(2, 2, figsize=(7.4, 5.4))
+for ax, (name, eqn, y, tangent, note) in zip(axes.flat, specs):
+    pad = 0.18 * (y.max() - y.min())
+    ax.axhline(0, color=AX, lw=0.9, zorder=0)
+    ax.axvline(0, color=AX, lw=0.9, zorder=0)
+    ax.plot(xt, tangent, color=TAN, lw=1.3, ls=(0, (4, 3)), zorder=1)
+    ax.plot(x, y, color=INK, lw=2.4, zorder=2, solid_capstyle='round')
+    ax.plot(0, 0, 'o', color=DOT, ms=7.5, mec='white', mew=1.3, zorder=3)
+    ax.set_title(name, fontsize=10, fontweight='bold', color=INK, pad=20)
+    ax.text(0.5, 1.015, eqn, transform=ax.transAxes, ha='center', va='bottom',
+            fontsize=9.5, color='#444')
+    ax.text(0.5, -0.10, note, transform=ax.transAxes, ha='center',
+            fontsize=8.5, color='#444')
+    ax.set_xlim(-1.4, 1.4)
+    ax.set_ylim(y.min() - pad, y.max() + pad)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp_ in ax.spines.values(): sp_.set_visible(False)
+fig.subplots_adjust(hspace=0.55, wspace=0.16)
+plt.show()
+```
+
+**A stationary point is not a fifth shape.** It is the umbrella term for any point with $f'(a)=0$ — so the
+first three pictured points are all stationary, and the fourth is not.
+
+The hierarchy to remember is:
+
+- **stationary** describes the gradient: $f'(a)=0$;
+- **turning point** describes the direction: a local maximum or minimum;
+- **inflection point** describes the curvature: concavity changes, so $f''$ changes sign.
+
+Therefore, a stationary point need not be a turning point: $f(x)=x^3$ has $f'(0)=0$, but it continues
+increasing through a stationary point of inflection. Likewise, an inflection need not be stationary: for
+$f(x)=x^3+x$, the point $x=0$ is an inflection but $f'(0)=1$.
+
+**The one takeaway:** equations such as $f'(a)=0$ and $f''(a)=0$ usually locate a **candidate**. What
+classifies the point is the appropriate **change of sign** shown in the table.
+:::
+
+### The same trap one derivative up — $f''(a)=0$ and an inflection
+
+The stationary-point idea repeats one derivative higher. A **point of inflection** is where the curve
+changes concavity — where $f''$ **changes sign**. For a twice-differentiable $f$ that forces
+$f''(a)=0$ at the inflection, so "$f''(a)=0$" is *necessary*; but on its own it is not *enough*.
+
+At an inflection $f''$ changes sign, and being continuous it must pass through $0$, so $f''(a)=0$ is **required**.
+But it is not enough: $f(x)=x^{4}$ has $f''(x)=12x^{2}$, so $f''(0)=0$, yet $x=0$ is a **minimum** — $f''$ stays
+$\ge0$ and never changes sign. The extra ingredient that makes it sufficient is "$f''(a)=0$ **and** $f''$ changes
+sign at $a$".
+
+```{python}
+#| fig-cap: "Both curves have f''(0)=0. Only the second has an inflection there — because only its f'' changes sign."
+#| fig-align: center
+#| fig-width: 6.6
+#| fig-height: 5.2
+import numpy as np, matplotlib.pyplot as plt
+
+INK, AX = '#0b5563', '#dcdcdc'
+BAD, GOOD = '#c0392b', '#1e8449'
+x = np.linspace(-1.4, 1.4, 500)
+panels = [
+    (r'$y=x^{4}$', 'NOT an inflection', x**4, BAD,
+     "$f''=12x^{2}$ never changes sign,\nso $x=0$ is a minimum",
+     (0.5, 0.97, 'center', 'top')),          # x^4 is empty across the top middle
+    (r'$y=x^{3}$', 'a genuine inflection', x**3, GOOD,
+     "$f''=6x$ changes sign at $0$,\nso the concavity really flips",
+     (0.03, 0.97, 'left', 'top')),           # x^3 is empty upper-left
+]
+fig, axes = plt.subplots(2, 1, figsize=(6.6, 5.2))
+for ax, (eqn, verdict, y, col, note, pos) in zip(axes, panels):
+    span = y.max() - y.min()
+    ax.axhline(0, color=AX, lw=0.9, zorder=0)
+    ax.axvline(0, color=AX, lw=0.9, zorder=0)
+    ax.plot(x, y, color=INK, lw=2.4, zorder=2, solid_capstyle='round')
+    ax.plot(0, 0, 'o', color=col, ms=7.5, mec='white', mew=1.3, zorder=3)
+    ax.set_title(f'{eqn}  —  {verdict}', fontsize=10.5, fontweight='bold', color=col, pad=8)
+    tx, ty, tha, tva = pos
+    ax.text(tx, ty, note, transform=ax.transAxes, ha=tha, va=tva,
+            fontsize=8.8, color='#444', linespacing=1.5)
+    ax.set_xlim(-1.5, 1.5)
+    ax.set_ylim(y.min() - 0.12 * span, y.max() + 0.42 * span)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp_ in ax.spines.values(): sp_.set_visible(False)
+fig.subplots_adjust(hspace=0.35)
+plt.show()
+```
+
+*Line them up with the stationary-point rule: "$f'(a)=0$" is necessary for a **turning point** (not
+sufficient — $x^3$ is stationary but not a turning point), and "$f''(a)=0$" is necessary for an **inflection**
+(not sufficient — $x^4$). Both need a **sign change** of the derivative to become sufficient.*
+
+::::
+
+::: {.solutions}
+
+# Part 1 — Concept checks
+
+Two questions, only to confirm the notes have landed. Everything after them is exam standard.
+
+## Question 1
+
+::: {.question}
+$P$ and $Q$ are statements. Write each of the following as an implication.
+
+&nbsp;&nbsp;(a) $P$ is **sufficient** for $Q$. **[1]**
+
+&nbsp;&nbsp;(b) $P$ is **necessary** for $Q$. **[1]**
+
+&nbsp;&nbsp;(c) $Q$ is **sufficient** for $P$. **[1]**
+
+&nbsp;&nbsp;(d) $P$ is **necessary and sufficient** for $Q$. **[1]**
+:::
+
+Work strictly by the two lines at the start of the Notes, and [do not reason about what the words feel like]{.hl}
+— *necessary* sounds stronger than *sufficient* in everyday English, and that intuition is exactly what
+makes people draw the arrow the wrong way. Notice that (b) and (c) should come out identical, which is a
+useful check that you applied the rules rather than your instincts.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — translating *sufficient* and *necessary* into arrows
+:::
+
+**(a)** $P \Rightarrow Q$ &nbsp; — *sufficient points forwards.*
+
+**(b)** $Q \Rightarrow P$ &nbsp; — *necessary points backwards.*
+
+**(c)** $Q \Rightarrow P$ &nbsp; — *sufficient again, but with the letters swapped, so the arrow starts
+at $Q$.*
+
+**(d)** $P \Leftrightarrow Q$ &nbsp; — *both directions at once.*
+
+$\blacksquare$
+
+As predicted, **(b) and (c) are the same implication**. So *"$P$ is necessary for $Q$"* and *"$Q$ is
+sufficient for $P$"* say exactly the same thing — two sentences that look nothing alike in English.
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| (b) written as $P \Rightarrow Q$ | The commonest error in this topic. **Necessary reverses the arrow.** |
+| Treating "necessary" as the stronger word | Neither is stronger — they point in **opposite directions**. A condition can be necessary without being sufficient, and vice versa. |
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+::: {.question}
+Let $n$ be a positive integer. For each pair of conditions, state whether the first is **sufficient**,
+**necessary**, **both**, or **neither** for the second.
+
+&nbsp;&nbsp;(a) "$n$ is divisible by $4$" &nbsp;·&nbsp; "$n$ is even" **[2]**
+
+&nbsp;&nbsp;(b) "$n$ is even" &nbsp;·&nbsp; "$n$ is divisible by $4$" **[2]**
+
+&nbsp;&nbsp;(c) "$n$ is divisible by $2$ and by $3$" &nbsp;·&nbsp; "$n$ is divisible by $6$" **[2]**
+:::
+
+For each pair, [test the two arrows separately]{.hl} — ask "does the first force the second?" and then
+"does the second force the first?" — and answer each with a proof or a counterexample. Parts (a) and (b)
+are deliberately the same two conditions in the opposite order, so if your answers to them are not
+mirror images of each other, something has gone wrong.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — deciding necessity and sufficiency in a concrete case
+:::
+
+**(a) Sufficient, but not necessary.**
+
+- Forwards: if $4$ divides $n$ then $n = 4k = 2(2k)$, so $n$ is even. ✓ So it **is sufficient**.
+- Backwards: $n = 2$ is even but not divisible by $4$. ✗ So it is **not necessary**.
+
+**(b) Necessary, but not sufficient.** *(The mirror image of (a), as it must be.)*
+
+- "Even" is forced by "divisible by $4$", so evenness is **necessary**. ✓
+- But $n=2$ is even without being divisible by $4$, so evenness is **not sufficient**. ✗
+
+**(c) Both** — necessary and sufficient.
+
+- Forwards: if $2$ divides $n$ and $3$ divides $n$, then since $2$ and $3$ share no common factor, $6$ divides $n$. ✓
+- Backwards: if $6$ divides $n$ then $n = 6k = 2(3k) = 3(2k)$, so $2$ divides $n$ and $3$ divides $n$. ✓
+
+$\blacksquare$
+
+Notice the pattern in (a) and (b): [swapping the order of the two conditions swaps *sufficient* and
+*necessary*]{.hl}. That is just the two lines at the start of the Notes, seen from the other end.
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| Answering (a) and (b) the same way | They are opposite questions. "$X$ sufficient for $Y$" and "$Y$ sufficient for $X$" are different claims. |
+| Claiming "necessary" in (a) without testing backwards | Necessity needs the **backwards** arrow, and $n=2$ kills it. |
+| Answering "neither" whenever a counterexample appears | A counterexample kills **one** direction. Check the other before concluding. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Part 2 — Medium
+
+## Question 3
+
+::: {.question}
+Write each of the following as an implication between $P$ and $Q$.
+
+&nbsp;&nbsp;(a) A **sufficient** condition for $Q$ is $P$. **[1]**
+
+&nbsp;&nbsp;(b) A **necessary** condition for $Q$ is $P$. **[1]**
+
+&nbsp;&nbsp;(c) $P$ is a **necessary** condition for $Q$. **[1]**
+
+&nbsp;&nbsp;(d) For $Q$ to hold it is **sufficient** that $P$ holds. **[1]**
+
+&nbsp;&nbsp;(e) For $Q$ to hold it is **necessary** that $P$ holds. **[1]**
+:::
+
+This is the wording the TMUA actually uses, and it is **written back to front on purpose**: the target
+comes first and the condition second, so the sentence reads in the opposite order to the arrow you will
+draw. The safe routine is to [find the two statements, decide which one is the *condition* and which is
+the *target*, and only then apply the rule]{.hl} — never translate left-to-right.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — the reversed wording: *"a sufficient condition for … is …"*
+:::
+
+In every part, $P$ is **the condition** and $Q$ is **the target** — that is what the phrase "*condition
+for $Q$*" tells you.
+
+**(a)** $P \Rightarrow Q$ &nbsp; — *$P$ is sufficient, so $P$ delivers $Q$.*
+
+**(b)** $Q \Rightarrow P$ &nbsp; — *$P$ is necessary, so $Q$ cannot happen without $P$.*
+
+**(c)** $Q \Rightarrow P$ &nbsp; — *the same as (b); only the word order changed.*
+
+**(d)** $P \Rightarrow Q$ &nbsp; — *"sufficient that $P$" = $P$ is enough.*
+
+**(e)** $Q \Rightarrow P$ &nbsp; — *"necessary that $P$" = no $Q$ without $P$.*
+
+$\blacksquare$
+
+So there are really only two answers here, dressed five ways: **sufficient gives $P \Rightarrow Q$, and
+necessary gives $Q \Rightarrow P$**, no matter how the sentence is arranged.
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| Reading (a) left to right as $Q \Rightarrow P$ | The sentence names the **target first**. Identify condition and target before drawing anything. |
+| Thinking (b) and (c) differ | Identical in meaning. English lets you put the condition either side of "is". |
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+::: {.question}
+Let $ABC$ and $DEF$ be triangles.
+
+&nbsp;&nbsp;(a) Explain why "the two triangles have an angle in common" is a **necessary** condition for
+them to be similar. **[2]**
+
+&nbsp;&nbsp;(b) Show that it is **not sufficient**. **[2]**
+
+&nbsp;&nbsp;(c) State a condition that **is** sufficient for the triangles to be similar. **[1]**
+:::
+
+Part (b) is the one that carries the marks, and it asks for something very specific: to show a condition
+is *not* sufficient you must [produce a case where the condition holds and the conclusion fails]{.hl} —
+a counterexample, not an explanation. This is exactly the "one forbidden combination" from Session 2,
+used deliberately.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+::: {.topic}
+Topic — *necessary but not sufficient*, and how to demonstrate it
+:::
+
+**(a)** If two triangles are similar, then all three of their angles are equal in pairs — so in
+particular they have an angle in common. That is the implication
+
+$$(\text{similar}) \Rightarrow (\text{share an angle}) ,$$
+
+and a condition implied *by* the target is precisely what **necessary** means. ✓
+
+**(b)** We need a case where the condition **holds** but similarity **fails**. Take
+
+- triangle $1$ with angles $90^\circ, 60^\circ, 30^\circ$;
+- triangle $2$ with angles $90^\circ, 45^\circ, 45^\circ$.
+
+Both contain a $90^\circ$ angle, so they share an angle — yet their remaining angles differ, so they are
+**not** similar. The condition therefore does not guarantee similarity: it is **not sufficient**. ✓
+
+**(c)** Several work. The three standard tests for **similarity** are:
+
+- **all three angles equal** (equivalently, two angles equal — the third follows) &nbsp;*(AA)*;
+- **all three pairs of sides in the same ratio** &nbsp;*(SSS)*;
+- **two pairs of sides in the same ratio with the included angle equal** &nbsp;*(SAS)*.
+
+$\blacksquare$
+
+*Notice how the answer to (c) is a **stronger** condition than the one in (a) — strong enough to
+deliver similarity, where sharing a single angle was not.*
+
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| Answering (b) with an explanation instead of an example | *"Sharing one angle doesn't tell you about the others"* is the right idea but earns little. **Produce two specific triangles.** |
+| Giving a counterexample where the triangles are not similar **and** share no angle | Useless — the condition must **hold** in your example, or it tests nothing. |
+| Writing "all three sides **equal**" as a condition for **similarity** | That is the *congruence* test. For similarity the sides are in the same **ratio**, not equal. |
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
 :::
 
 ---
@@ -516,7 +859,6 @@ sounds.
 Topic — sorting rephrasings, at exam speed
 :::
 
-
 Let $P$ = "$n$ is a perfect square" and $Q$ = "$n$ is not prime". Then $(*) = P \Rightarrow Q$.
 
 **I.** "A **sufficient** condition **for $Q$** is $P$" — target $Q$, condition $P$, rule *sufficient*, so
@@ -548,29 +890,6 @@ negated **and** reversed — the **contrapositive**. **Equivalent.** ✓
 Working
 :::
 
-::: {.callout-tip collapse="true"}
-## Concepts — the complete translation table
-
-By now every phrase you will meet on Paper 2 reduces to one of three arrows. This is the whole of
-Sessions 1–3 on one card:
-
-| $P \Rightarrow Q$ | $Q \Rightarrow P$ | $P \Leftrightarrow Q$ |
-|---|---|---|
-| if $P$ then $Q$ | if $Q$ then $P$ | $P$ if and only if $Q$ |
-| $P$ only if $Q$ | $P$ if $Q$ | $P$ iff $Q$ |
-| $Q$ if $P$ | $Q$ only if $P$ | $P$ is necessary and sufficient for $Q$ |
-| $P$ is sufficient for $Q$ | $P$ is necessary for $Q$ | $P$ and $Q$ are equivalent |
-| $Q$ is necessary for $P$ | $Q$ is sufficient for $P$ | |
-| a sufficient condition for $Q$ is $P$ | a necessary condition for $Q$ is $P$ | |
-| not $Q \Rightarrow$ not $P$ *(contrapositive)* | not $P \Rightarrow$ not $Q$ *(inverse)* | |
-
-**Reading the table.** Anything in the **same column** is the same statement. Anything in a **different
-column** is not — no matter how similar the English looks.
-
-The two columns on the left are converses of each other, which is why *sufficient* and *necessary* land
-in different columns, and why *necessary* is where the marks are lost.
-:::
-
 ---
 
 ## Question 6
@@ -599,7 +918,6 @@ $x > 2$ **or** $x < -2$; keeping that description in view makes every part quick
 Topic — comparing the strength of several conditions
 :::
 
-
 First rewrite the target: $\;x^2 > 4 \iff |x| > 2 \iff (x > 2 \text{ or } x < -2)$.
 
 **(a) $x > 2$: sufficient, but not necessary.**
@@ -624,43 +942,11 @@ Line the three up and the structure is clear: (a) is **too strong** (it delivers
 more than needed), (c) is **too weak in one direction and too narrow in the other**, and only (b)
 matches the target exactly.
 
-**Common slips.**
-
-| ✗ | ✓ |
-|---|---|
-| (a) called "both" | It fails backwards. Always test the negative values of $x$ when squares appear. |
-| (c) called "necessary" because $x^2>4$ often has $x>1$ | *Often* is not *always*: $x=-3$ satisfies the target and fails the condition. |
-| Using one counterexample for both directions | They are different tests, and generally need different examples. |
-:::
-
-::: {.workspace style="min-height:10cm"}
-Working
-:::
-
-::: {.callout-tip collapse="true"}
-## Concepts — strength, and how conditions relate
-
-Think of each condition as a **set of $x$ values**, and the target as another set. Then:
-
-| Relationship of sets | Verdict |
-|---|---|
-| condition **inside** target | **sufficient** (enough, possibly more than needed) |
-| condition **contains** target | **necessary** (implied, but too broad to guarantee) |
-| the sets **coincide** | **necessary and sufficient** |
-| the sets **overlap partially** | **neither** |
-
-In Question 6 with target $\{x : x<-2 \text{ or } x>2\}$:
+**Read as sets**, with target $\{x : x<-2 \text{ or } x>2\}$:
 
 - (a) $\{x>2\}$ is a **subset** — inside, so sufficient only.
 - (b) $\{|x|>2\}$ is the **same set** — so both.
 - (c) $\{x>1\}$ **overlaps** it (shares $x>2$, but includes $1<x\le2$ and misses $x<-2$) — so neither.
-
-::: {.callout-note appearance="simple"}
-**The squares warning.** Any time the target involves $x^2$, check the **negative** branch before
-declaring necessity. It is the single most productive counterexample-hunting habit on Paper 2, and it
-has now appeared in Sessions 1, 2 and 3.
-:::
-:::
 
 ```{python}
 import numpy as np, matplotlib.pyplot as plt
@@ -690,13 +976,26 @@ for s in ('top', 'right', 'left'): ax.spines[s].set_visible(False)
 plt.tight_layout(); plt.show()
 ```
 
+**Common slips.**
+
+| ✗ | ✓ |
+|---|---|
+| (a) called "both" | It fails backwards. Always test the negative values of $x$ when squares appear. |
+| (c) called "necessary" because $x^2>4$ often has $x>1$ | *Often* is not *always*: $x=-3$ satisfies the target and fails the condition. |
+| Using one counterexample for both directions | They are different tests, and generally need different examples. |
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
 ---
 
 # Part 4 — Exam bank
 
-Fourteen more, all from real exam material. **★** marks a question that has already come up on a mock sat
-here. They are
-grouped so that each group drills one *way of thinking*, not one topic. Work the group, not the question.
+Fifteen more, from real TMUA papers and TMUA-style mocks. **★** marks a question that has already come up on a
+mock sat here. They are grouped so that each group drills one *way of thinking*, not one topic. Work the group,
+not the question.
 
 ::: {.callout-note appearance="simple"}
 **The routine that answers every one of these.** Write down the **exact** set of values (or cases) that
@@ -983,9 +1282,9 @@ it guarantees one real root (**sufficient**) but misses every $p\le-1$ that also
 Every other option contains values $\ge1$: $p>1$, $p>-1$, $0<p<2$, $-2<p<2$ and $p^{2}<2$ all admit e.g.
 $p=1.2$, where the equation has three real roots — so none of them is even sufficient.
 
-**Why this one was missed in the mock.** The hard part is not the calculus, it is stopping at $p<1$ and
-*then* asking "which option is a proper subset?" Jumping straight to the options invites picking $p>1$,
-which is the exact **complement** of the answer. $\;\blacksquare$
+**Where the difficulty lies.** The hard part is not the calculus, it is stopping at $p<1$ and *then* asking
+"which option is a proper subset?" Jumping straight to the options invites picking $p>1$, which lies entirely
+**outside** the exact set. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:5cm"}
@@ -1072,7 +1371,7 @@ Working
 
 ---
 
-**Questions 16–18 · Beyond the four verdicts.** The last three drop the P/Q template: one hides the
+**Questions 16–18 · Beyond the four verdicts.** These three drop the P/Q template: one hides the
 condition inside a divisibility fact, one asks which statement implies *all* the others, and one is a
 genuine "necessary **and** sufficient" — the verdict students pick least often and should sometimes pick.
 
@@ -1156,7 +1455,6 @@ If a universal justification is required, follow it with a residue or factorisat
 ::: {.workspace style="min-height:5cm"}
 Working
 :::
-
 ---
 
 ## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q15</span>
@@ -1235,7 +1533,7 @@ $\pi$**:
 import numpy as np, matplotlib.pyplot as plt
 
 POS, NEG = '#2ca02c', '#d62728'
-fig, axes = plt.subplots(1, 2, figsize=(9.6, 3.9))
+fig, axes = plt.subplots(2, 1, figsize=(6.6, 7.2))
 
 def lobes(ax, f, title, note):
     x = np.linspace(0, np.pi, 800)
@@ -1250,7 +1548,7 @@ def lobes(ax, f, title, note):
     ax.set_xticklabels(['$0$', '$\\pi/2$', '$\\pi$', '$3\\pi/2$', '$2\\pi$'])
     ax.set_ylim(-1.45, 1.45)
     ax.set_title(title, fontsize=11.5)
-    ax.text(0.5, -0.30, note, transform=ax.transAxes, ha='center', fontsize=10.5)
+    ax.text(0.5, -0.32, note, transform=ax.transAxes, ha='center', fontsize=10.5)
     ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
 
 lobes(axes[0], np.cos, '$y=\\cos x$',
@@ -1258,7 +1556,7 @@ lobes(axes[0], np.cos, '$y=\\cos x$',
 lobes(axes[1], lambda t: np.cos(2*t)**3, '$y=\\cos^{3}2x$',
       '$[0,\\pi]$ is one whole period,\nso the lobes cancel  $\\rightarrow$  integral $0$')
 
-plt.tight_layout(rect=[0, 0.10, 1, 1]); plt.show()
+fig.subplots_adjust(hspace=0.62, bottom=0.14, top=0.95); plt.show()
 ```
 
 So over **each** block $[m\pi,\,(m+1)\pi]$ both pieces contribute nothing, and therefore
@@ -1364,6 +1662,11 @@ sets came out equal, say so.** $\;\blacksquare$
 Working
 :::
 
+---
+
+**Questions 19–21 · Three more wordings in other clothes.** A convexity inequality, a tangent, and a
+proof to audit. In each one the logic is the same two arrows.
+
 ## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q18 &nbsp;◆</span>
 
 ::: {.question}
@@ -1396,11 +1699,11 @@ right quantity with the wrong sign — $f''\le0$ is **concave**, the opposite co
 inequality" but "which must hold whenever it does" — and since convexity and $f''\ge0$ are **equivalent**
 for polynomials, C is in fact necessary *and* sufficient, which is why it is the only defensible answer.
 
-This is exactly the distinction from the concept box above: **necessary** does not mean “necessary only”.
-The question did not say **necessary but not sufficient**, so an equivalent condition is allowed. Since
-$$Q\Longleftrightarrow C$$
-contains the required direction $Q\Rightarrow C$, option C is a necessary condition even though it is also
-sufficient. Had the question asked for “necessary **but not sufficient**”, C would not qualify.
+This is exactly the distinction from the Notes: **necessary** does not mean “necessary only”. The question did
+not say **necessary but not sufficient**, so an equivalent condition is allowed. Since
+$$\text{the inequality}\Longleftrightarrow C$$
+contains the required direction "the inequality $\Rightarrow C$", option C is a necessary condition even though
+it is also sufficient. Had the question asked for “necessary **but not sufficient**”, C would not qualify.
 $\;\blacksquare$
 :::
 
@@ -1409,12 +1712,6 @@ Working
 :::
 
 ---
-
-**The whole session in one line:**
-
-> **Sufficient points forwards; necessary points backwards. Whatever the sentence looks like, find the
-> condition and the target, then apply that rule.**
-:::
 
 ## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q17</span>
 
@@ -1458,5 +1755,92 @@ Working
 
 ---
 
+## Question 21 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q7</span>
+
+::: {.question}
+Consider the following claim:
+
+> The difference between two consecutive positive cube numbers is always prime.
+
+Here is an attempted proof of this claim:
+
+&nbsp;&nbsp;**I** &nbsp; $(x+1)^{3}=x^{3}+3x^{2}+3x+1$
+
+&nbsp;&nbsp;**II** &nbsp; Taking $x$ to be a positive integer, the difference between two consecutive cube numbers
+can be expressed as $(x+1)^{3}-x^{3}=3x^{2}+3x+1$
+
+&nbsp;&nbsp;**III** &nbsp; It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer
+coefficients because its discriminant is negative.
+
+&nbsp;&nbsp;**IV** &nbsp; Therefore for every positive integer value of $x$ the integer $3x^{2}+3x+1$ cannot be
+factorised.
+
+&nbsp;&nbsp;**V** &nbsp; Hence, the difference between two consecutive cube numbers will always be prime.
+
+Which of the following best describes this proof?
+
+&nbsp;&nbsp;**A** The proof is completely correct, and the claim is true.
+
+&nbsp;&nbsp;**B** The proof is completely correct, but there are counterexamples to the claim.
+
+&nbsp;&nbsp;**C** The proof is wrong, and the first error occurs on line I.
+
+&nbsp;&nbsp;**D** The proof is wrong, and the first error occurs on line II.
+
+&nbsp;&nbsp;**E** The proof is wrong, and the first error occurs on line III.
+
+&nbsp;&nbsp;**F** The proof is wrong, and the first error occurs on line IV.
+
+&nbsp;&nbsp;**G** The proof is wrong, and the first error occurs on line V.
+:::
+
+This one arrives disguised as a "spot the error" question, but underneath it is pure **Arg2**: a *sufficient*
+condition mistaken for a *necessary* one.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(Hard — a real TMUA question; a sufficient condition read as a necessary one)*]{style="color:#7a5195"}
+**F.** The first error is line IV, and the slip is reading a *sufficient* condition as a *necessary* one.
+
+Name the two halves: $P=$ "the polynomial $p(x)$ factorises into two non-constant integer factors" and
+$Q=$ "the value $p(n)$ is composite". Line III establishes $\lnot P$; line IV concludes $\lnot Q$. That is
+$\lnot P\Rightarrow\lnot Q$ — the contrapositive of $Q\Rightarrow P$ — so it treats $P$ as **necessary**
+for $Q$. It is not.
+
+**Sufficient — yes.** If $p(x)=a(x)\,b(x)$ with both factors non-constant, then $p(n)=a(n)\,b(n)$ is a genuine
+product; for all large $n$ both factors exceed $1$ in size, so the value is composite. Factorising the
+polynomial is **enough** to kill primality.
+
+**Necessary — no.** An **irreducible** polynomial can still take composite values:
+
+- $x^{2}+1$ is irreducible, yet at $x=3$ it gives $3^{2}+1=10=2\times5$.
+- $3x^{2}+3x+1$ is irreducible ($D=9-12=-3<0$), yet at $x=5$ it gives $75+15+1=91=7\times13$ — the difference
+  $6^{3}-5^{3}$.
+
+So $P$ is **sufficient but not necessary** for $Q$.
+
+::: {.keyline}
+$$\text{polynomial factorises}\ \Longrightarrow\ \text{its integer values are composite (for large }n)\quad(\textbf{sufficient})$$
+$$\text{value is composite}\ \nRightarrow\ \text{the polynomial factorises}\quad(\textbf{not necessary})$$
+:::
+
+**Back to the options.** Lines I and II are correct algebra. Line III is *true*: the polynomial really has no
+linear factors. Line IV is the false leap, because factorising the polynomial is only **sufficient** for its
+values to be composite, never necessary. The counterexample above settles it: $x=5$ gives $91=7\times13$, which
+is exactly $6^{3}-5^{3}$, so the claim in line V is false too. *Line V is not the first error — it follows
+correctly from IV.* $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
 
 ---
+
+**The whole session in one line:**
+
+> **Sufficient points forwards; necessary points backwards. Whatever the sentence looks like, find the
+> condition and the target, then apply that rule.**
+
+:::

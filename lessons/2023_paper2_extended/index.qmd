@@ -1697,7 +1697,7 @@ Working
 2. **Factor theorem:** $(x-r)$ divides $p(x)$ $\iff p(r)=0$; to find unknown coefficients, divide out the known
    factor and **match coefficients**.
 3. **A quadratic from its turning point** $(h,k)$ is $a(x-h)^{2}+k$ — one more point fixes $a$.
-4. **Roots of a built polynomial:** $g=x\,f''(x)=0$ means $x=0$ **or** $f''(x)=0$; count via degrees.
+4. **Roots of a built polynomial:** $g=x\,f'(x)=0$ means $x=0$ **or** $f'(x)=0$; count via degrees.
 :::
 
 ::: {.callout-note appearance="simple"}
@@ -1748,19 +1748,18 @@ Working
 ### Problem 2 &nbsp; *(TMUA 2023 P2 Q19 — roots of a built polynomial)*
 
 ::: {.question}
-$f$ is a non-constant polynomial and $g(x)=x\,f''(x)$; $f=0$ for exactly $M$ real $x$, $g=0$ for exactly $N$.
+$f$ is a non-constant polynomial and $g(x)=x\,f'(x)$; $f=0$ for exactly $M$ real $x$, $g=0$ for exactly $N$.
 Which orderings are possible? &nbsp;&nbsp;**I** $M<N$ &nbsp; **II** $M=N$ &nbsp; **III** $M>N$
 &nbsp;&nbsp;(**A** none $\dots$ **H** all)
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
-**Answer: H (all three).** $g=0$ means $x=0$ **or** $f''(x)=0$ — pick an $f$ for each case.
+**Answer: H (all three).** $g=0$ means $x=0$ **or** $f'(x)=0$ — pick an $f$ for each case.
 
-- **$M<N$:** $f=x^{4}+1$ has $M=0$; $f''=12x^{2}$, so $g=12x^{3}$ has only $x=0$, $N=1$. ($0<1$.)
-- **$M=N$:** $f=x^{2}$ has $M=1$; $f''=2$, so $g=2x$ has $N=1$.
-- **$M>N$:** $f=x^{4}-5x^{2}+4$ has $M=4$ (roots $\pm1,\pm2$); $f''=12x^{2}-10$, so $g=x(12x^{2}-10)$ has
-  $N=3$. ($4>3$.)
+- **$M<N$:** $f=x^{2}+1$ has $M=0$; $f'=2x$, so $g=2x^{2}$ has only $x=0$, $N=1$. ($0<1$.)
+- **$M=N$:** $f=x^{2}$ has $M=1$; $f'=2x$, so $g=2x^{2}$ has $N=1$.
+- **$M>N$:** $f=x^{2}-1$ has $M=2$ (roots $\pm1$); $f'=2x$, so $g=2x^{2}$ has $N=1$. ($2>1$.)
 
 All three occur, so **H**.
 :::
@@ -1852,7 +1851,7 @@ Working
   roots ($b^{2}-4c>0$, $\,-b>0$, $\,c>0$).
 - **Factor theorem:** $(x-r)$ divides $p(x)\iff p(r)=0$; divide out a known factor and **match coefficients**.
 - **Quadratic from turning point $(h,k)$:** $a(x-h)^{2}+k$, one point fixes $a$.
-- **$x\,f''(x)=0$:** $x=0$ or $f''=0$ — count roots from the degree of $f''$.
+- **$x\,f'(x)=0$:** $x=0$ or $f'=0$ — count the distinct roots, and do not double-count $x=0$.
 :::
 
 :::

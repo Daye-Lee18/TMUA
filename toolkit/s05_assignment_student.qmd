@@ -1,6 +1,6 @@
 ---
 title: "Toolkit S5 — Assignment"
-subtitle: "Proof methods — 36 problems · direct, cases, contradiction, counterexample, error-spotting, long reasoning"
+subtitle: "Proof methods"
 format: html
 execute:
   echo: false
@@ -9,146 +9,344 @@ execute:
 
 ::: {.solutions}
 
-**A large, deliberately hard set** — work through as many as you can, fast. Difficulty is upper-medium to
-high; some ideas repeat on purpose (that is how they become mechanical). Question types are drawn from
-**TMUA Paper 2 (Prf/Err)**, **MAT**, **STEP 1**, and **BMO/AMC** number theory, plus the **2018 Paper 2**
-questions themselves. Argue in **English sentences** — no symbols required.
+**20 questions.** Suggested time: **85 minutes**, no calculator.
 
-| Section | Focus | # |
+Every question comes from a TMUA past paper, a TMUA mock paper, the MAT or the official Notes on Logic and Proof, and its
+source is shown beside the question number. None of them appears in the S5 class questions.
+
+For every question the routine is the same: **write the claim as "if … then", then ask whether each candidate satisfies the
+hypothesis and whether it breaks the conclusion.** To decide a "must be true" statement, either prove it for every case or
+find one case that breaks it.
+
+| Section | What it covers | Questions |
 |---|---|---|
-| **A** | Direct proofs (divisibility, consecutive integers) | 6 |
-| **B** | Proof by cases (parity, mod $n$) | 6 |
-| **C** | Proof by contradiction (irrationality, infinitude) | 6 |
-| **D** | Counterexamples — incl. **calculus claims** | 8 |
-| **E** | Spot the error (MCQ) | 5 |
-| **F** | Long multi-step reasoning (Paper 2 length) | 5 |
-
-::: {.callout-note appearance="simple"}
-**Recall.** algebra → **direct** · even/odd or mod → **cases** · "irrational / infinite / no largest" →
-**contradiction** · a doubtful "for all" → **counterexample**. Never prove a "for all" by examples.
-:::
+| **A — Which candidates work?** | hold each candidate against the hypothesis first, then the conclusion | 1–8 |
+| **B — Prove it or break it** | deciding whether a claim always holds, then proving it or finding one failure | 9–17 |
+| **C — Judging a proof** | finding where a direct proof or a proof by contradiction goes wrong | 18–20 |
 
 ---
 
-# Section A — Direct proofs
+# Section A — Which candidates work?
 
-**A1.** Prove that the product of any three consecutive integers is divisible by $6$.
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q4</span>
 
-**A2.** Prove that if $n$ is an odd integer, then $n^2-1$ is divisible by $8$.
+::: {.question}
+A set of five cards each have a letter printed on their front and a number printed on their back, as follows:
 
-**A3.** Prove that the product of any **four** consecutive integers is divisible by $24$.
+| | Card A | Card B | Card C | Card D | Card E |
+|---|:--:|:--:|:--:|:--:|:--:|
+| **Fronts** | A | B | C | D | E |
+| **Backs** | 3 | 4 | 1 | 7 | 8 |
 
-**A4.** Prove that $n^3+(n+1)^3+(n+2)^3$ is divisible by $9$ for every integer $n$.
+Which one of the five cards (A, B, C, D or E) provides a **counterexample** to the following statement?
 
-**A5.** Prove that $3^{2n}-1$ is divisible by $8$ for every positive integer $n$.
+> *Every card that has a vowel on its front has an even number on its back.*
+:::
 
-**A6.** Prove that for all integers $a$ and $b$, $\;a^2+b^2\;$ is **never** of the form $4k+3$.
-
-::: {.workspace style="min-height:12cm"}
+::: {.workspace style="min-height:4cm"}
 Working
 :::
 
 ---
 
-# Section B — Proof by cases
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q3</span>
 
-**B1.** Prove that $n^2+n$ is even for every integer $n$.
+::: {.question}
+Consider the following statement about the positive integer $n$:
 
-**B2.** Prove that the square of any integer is of the form $4k$ or $4k+1$.
+> if $n$ is prime, then $n^2+2$ is not prime
 
-**B3.** Prove that $\lvert x\rvert\ge x$ and $\lvert x\rvert\ge -x$ for every real $x$ (hence $\lvert
-x\rvert\ge0$).
+Which of the following is a counterexample to this statement?
 
-**B4.** Prove that $n^3-n$ is divisible by $3$ for every integer $n$, using the cases $n\equiv0,1,2
-\pmod3$.
+&nbsp;&nbsp;**I** &nbsp; $n=2$
 
-**B5.** Prove that the last digit of a perfect square is always one of $0,1,4,5,6,9$.
+&nbsp;&nbsp;**II** &nbsp; $n=3$
 
-**B6.** Prove that if the product of two integers is odd, then both integers are odd.
+&nbsp;&nbsp;**III** &nbsp; $n=4$
 
-::: {.workspace style="min-height:12cm"}
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:4cm"}
 Working
 :::
 
 ---
 
-# Section C — Proof by contradiction
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q4</span>
 
-**C1.** Prove that $\sqrt2$ is irrational.
+::: {.question}
+Consider the following claim about positive integers $a$, $b$ and $c$:
 
-**C2.** Prove that $\sqrt3$ is irrational. (You may use: if $n^2$ is divisible by $3$ then $n$ is
-divisible by $3$.)
+> if $a$ is a factor of $bc$, then $a$ is a factor of $b$ or $a$ is a factor of $c$
 
-**C3.** Prove that there is no smallest positive rational number.
+Which of the following provide(s) a counterexample to this claim?
 
-**C4.** Prove that there are infinitely many prime numbers.
+&nbsp;&nbsp;**I** &nbsp; $a=5,\ b=10,\ c=20$
 
-**C5.** Prove that $\sqrt2+\sqrt3$ is irrational. *(Hint: consider $\bigl(\sqrt2+\sqrt3\bigr)^2$.)*
+&nbsp;&nbsp;**II** &nbsp; $a=8,\ b=4,\ c=4$
 
-**C6.** Prove that $\log_2 3$ is irrational.
+&nbsp;&nbsp;**III** &nbsp; $a=6,\ b=7,\ c=12$
 
-::: {.workspace style="min-height:12cm"}
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:4cm"}
 Working
 :::
 
 ---
 
-# Section D — Counterexamples
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q4</span>
 
-For each, decide whether it is true; if false, give an explicit counterexample.
+::: {.question}
+Consider the following statement:
 
-**D1.** Every odd integer greater than $1$ is prime.
+> Every positive integer $N$ that is greater than $6$ can be written as the sum of two non-prime integers that are
+> greater than $1$.
 
-**D2.** $n^2+n+41$ is prime for every positive integer $n$.
+Which of the following is/are counterexample(s) to this statement?
 
-**D3.** $2^{n}-1$ is prime for every integer $n\ge2$.
+&nbsp;&nbsp;**I** &nbsp; $N=5$
 
-**D4.** $2^{n}+1$ is prime for every positive integer $n$.
+&nbsp;&nbsp;**II** &nbsp; $N=7$
 
-**D5.** If $p$ is prime, then $2^{p}-1$ is prime.
+&nbsp;&nbsp;**III** &nbsp; $N=9$
 
-**D6.** If $f'(x)>0$ for all real $x$, then $f(x)>0$ for all real $x$.
+&nbsp;&nbsp;**A** none of them
 
-**D7.** If $f'(a)=0$, then $f$ has a local maximum or a local minimum at $x=a$.
+&nbsp;&nbsp;**B** I only
 
-**D8.** The sum of two irrational numbers is always irrational.
+&nbsp;&nbsp;**C** II only
 
-::: {.workspace style="min-height:12cm"}
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:4cm"}
 Working
 :::
 
 ---
 
-# Section E — Spot the error
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q4</span>
 
-**E1.** A "proof" that $2=1$: *Let $a=b$. Then $a^2=ab$, so $a^2-b^2=ab-b^2$, i.e. $(a-b)(a+b)=b(a-b)$;
-dividing by $(a-b)$ gives $a+b=b$, so $2b=b$, hence $2=1$.* The error is:
+::: {.question}
+Consider the following conjecture:
 
-&nbsp;&nbsp;**A** $a^2=ab$ is wrong &nbsp; **B** the factorisation is wrong &nbsp; **C** dividing by
-$(a-b)=0$ &nbsp; **D** nothing
+> If $N$ is a positive integer that consists of the digit $1$ followed by an odd number of $0$ digits and then a final
+> digit $1$, then $N$ is a prime number.
 
-**E2.** To solve $\sqrt{x+2}=x$ a student squares: $x+2=x^2$, so $(x-2)(x+1)=0$, and gives $x=2$ **and**
-$x=-1$. What is wrong?
+Here are three numbers:
 
-&nbsp;&nbsp;**A** the factorisation &nbsp; **B** $x=-1$ fails the original equation (squaring added it)
-&nbsp; **C** $x=2$ is wrong &nbsp; **D** nothing
+&nbsp;&nbsp;**I** &nbsp; $N=101$ (which is a prime number)
 
-**E3.** Which pair is a **counterexample** to "if $\sin A=\sin B$ then $A=B$" (for $0^\circ\le A,B\le
-180^\circ$)?
+&nbsp;&nbsp;**II** &nbsp; $N=1001$ (which equals $7\times11\times13$)
 
-&nbsp;&nbsp;**A** $A=30^\circ,B=60^\circ$ &nbsp; **B** $A=30^\circ,B=150^\circ$ &nbsp;
-**C** $A=45^\circ,B=45^\circ$ &nbsp; **D** none exists
+&nbsp;&nbsp;**III** &nbsp; $N=10001$ (which equals $73\times137$)
 
-**E4.** A student "proves" that $n^2-n+11$ is prime for all positive integers $n$ by checking
-$n=1,2,3,4,5$ (all prime). The argument is invalid because:
+Which of these provide(s) a counterexample to the conjecture?
 
-&nbsp;&nbsp;**A** the checks are wrong &nbsp; **B** examples cannot prove a "for all" &nbsp;
-**C** the statement is true &nbsp; **D** $n=1$ is not allowed
+&nbsp;&nbsp;**A** none of them
 
-**E5.** Which single fact shows "$a^2=b^2\Rightarrow a=b$" is false?
+&nbsp;&nbsp;**B** I only
 
-&nbsp;&nbsp;**A** $2^2=4$ &nbsp; **B** $(-3)^2=3^2$ but $-3\neq3$ &nbsp; **C** $0^2=0$ &nbsp;
-**D** it is true
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q5</span>
+
+::: {.question}
+Consider the statement:
+
+> $(*)$ A whole number $n$ is prime if it is $1$ less or $5$ less than a multiple of $6$.
+
+How many counterexamples to $(*)$ are there in the range $0<n<50$?
+
+&nbsp;&nbsp;**A** $2$
+
+&nbsp;&nbsp;**B** $3$
+
+&nbsp;&nbsp;**C** $4$
+
+&nbsp;&nbsp;**D** $5$
+
+&nbsp;&nbsp;**E** $6$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q5</span>
+
+::: {.question}
+Consider the following three statements:
+
+&nbsp;&nbsp;**1** &nbsp; $10p^2+1$ and $10p^2-1$ are both prime when $p$ is an odd prime.
+
+&nbsp;&nbsp;**2** &nbsp; Every prime greater than $5$ is of the form $6n+1$ for some integer $n$.
+
+&nbsp;&nbsp;**3** &nbsp; No multiple of $7$ greater than $7$ is prime.
+
+The result $91=7\times13$ can be used to provide a counterexample to which of the above statements?
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** **1** only
+
+&nbsp;&nbsp;**C** **2** only
+
+&nbsp;&nbsp;**D** **3** only
+
+&nbsp;&nbsp;**E** **1** and **2** only
+
+&nbsp;&nbsp;**F** **1** and **3** only
+
+&nbsp;&nbsp;**G** **2** and **3** only
+
+&nbsp;&nbsp;**H** **1**, **2** and **3**
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q1</span>
+
+::: {.question}
+It is a fact that
+$$1729=1^3+12^3=9^3+10^3=7\times13\times19 .$$
+
+Consider the following four statements.
+
+&nbsp;&nbsp;**(1)** Every positive integer that can be written as a sum of two positive cubes in two different ways is prime.
+
+&nbsp;&nbsp;**(2)** If a prime $p>5$ can be written as $p=a^3+b^3$ for some positive integers $a,b$, then $p$ has remainder of $1$ when divided by $6$.
+
+&nbsp;&nbsp;**(3)** No product of three distinct odd primes is one more than a perfect cube.
+
+&nbsp;&nbsp;**(4)** Every positive integer of the form $a^3+b^3$, where $a$ and $b$ are positive integers, has prime factors all of which are at least $3$.
+
+The fact above can be used to provide a counterexample to which of these statements?
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 3 only
+
+&nbsp;&nbsp;**D** 1 and 3 only
+
+&nbsp;&nbsp;**E** 2 and 3 only
+
+&nbsp;&nbsp;**F** 1, 2 and 3 only
+
+&nbsp;&nbsp;**G** 1, 3 and 4 only
+
+&nbsp;&nbsp;**H** 1, 2, 3 and 4
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+# Section B — Prove it or break it
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise P, Q1</span>
+
+::: {.question}
+What would constitute a counterexample to a statement of the form:
+
+&nbsp;&nbsp;**a.** &nbsp; $A$ and $B$
+
+&nbsp;&nbsp;**b.** &nbsp; $A$ or $B$
+
+&nbsp;&nbsp;**c.** &nbsp; $A$ only if $B$
+
+&nbsp;&nbsp;**d.** &nbsp; $A$ iff $B$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise P, Q2</span>
+
+::: {.question}
+Find a counterexample, if one exists, to each of the following:
+
+&nbsp;&nbsp;**a.** &nbsp; all prime numbers are odd and greater than $4$
+
+&nbsp;&nbsp;**b.** &nbsp; all prime numbers are odd or greater than $37$
+
+&nbsp;&nbsp;**c.** &nbsp; $x$ is prime if and only if $x$ is odd
+
+&nbsp;&nbsp;**d.** &nbsp; $x$ is odd only if $x$ is prime
+
+&nbsp;&nbsp;**e.** &nbsp; $x$ is prime only if $x$ is odd
+
+&nbsp;&nbsp;**f.** &nbsp; for all positive odd integers $x$: $x$ is prime or $x$ is divisible by some integer $k<x$
+:::
 
 ::: {.workspace style="min-height:7cm"}
 Working
@@ -156,45 +354,343 @@ Working
 
 ---
 
-# Section F — Long multi-step reasoning *(Paper 2 length)*
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q15</span>
 
-**F1.** *(2018 Paper 2 Q15.)* $f(x)=x^3+3qx^2+2$, where $q$ is a real constant, and $f(x)=0$ has **3
-distinct real roots**. For each of the following, decide — **with reasons** — whether it **necessarily**
-has 3 distinct real roots.
+::: {.question}
+For any real numbers $a$, $b$ and $c$ where $a\ge b$, consider these three statements:
 
-&nbsp;&nbsp;**I** $f(x)+1=0$ &nbsp;&nbsp; **II** $f(x+1)=0$ &nbsp;&nbsp; **III** $f(-x)-1=0$
+&nbsp;&nbsp;**1** &nbsp; $-b\ge-a$
 
-**F2.** *(2018 Paper 2 Q18.)* $f$ is a polynomial defined for all real $x$. Find a **necessary** condition
-for
-$$\frac{f(a)+f(b)}{2}\ge f\!\left(\frac{a+b}{2}\right)\quad\text{to hold for all real }a<b,$$
-and justify why it must hold.
+&nbsp;&nbsp;**2** &nbsp; $a^2+b^2\ge2ab$
 
-**F3.** Let $S$ be the statement: *"For every positive integer $n$, if $n$ is a multiple of $6$ then $n$
-is a multiple of $3$."*
-&nbsp;(a) Prove $S$. &nbsp;(b) Write the negation of $S$. &nbsp;(c) Does a counterexample to $S$ exist?
-Explain.
+&nbsp;&nbsp;**3** &nbsp; $ac\ge bc$
 
-**F4.** A student writes the following "proof" that **every integer is even**:
+Which of the statements 1, 2, and 3 **must** be true?
 
-> *"Let $n$ be any integer. Write $n=2m$ for some number $m$. Then $n$ is twice $m$, so $n$ is even."*
+&nbsp;&nbsp;**A** none
 
-Identify the invalid step and explain why it fails.
+&nbsp;&nbsp;**B** 1 only
 
-**F5.** (a) Prove that for a positive integer $n$, **$n$ is even if and only if $n^2$ is even** (both
-directions). &nbsp;(b) Hence prove that $\sqrt2$ is irrational.
+&nbsp;&nbsp;**C** 2 only
 
-::: {.workspace style="min-height:12cm"}
+&nbsp;&nbsp;**D** 3 only
+
+&nbsp;&nbsp;**E** 1 and 2 only
+
+&nbsp;&nbsp;**F** 1 and 3 only
+
+&nbsp;&nbsp;**G** 2 and 3 only
+
+&nbsp;&nbsp;**H** 1, 2 and 3
+:::
+
+::: {.workspace style="min-height:5cm"}
 Working
 :::
 
 ---
 
-::: {.callout-tip}
-## Before you hand this in
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q14</span>
 
-For every **"for all"** you *proved* (A, B, most of C, F1–F5), check you argued **generally**, not by
-examples. For every one you *disproved* (D, E3, E5), check your counterexample genuinely **fits the
-hypothesis**. Those two checks are exactly where the Paper 2 marks are.
+::: {.question}
+Suppose that $n$ is an integer such that $n^3$ is divisible by $5$.
+
+Which of the following statements are necessarily true?
+
+&nbsp;&nbsp;**I** &nbsp; $5$ is a factor of $n$
+
+&nbsp;&nbsp;**II** &nbsp; $n^3$ is divisible by $125$
+
+&nbsp;&nbsp;**III** &nbsp; If $k$ is a multiple of $5$ which divides $n^3$, then $\dfrac{n^3}{k}$ is a multiple of $5$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q11</span>
+
+::: {.question}
+An arithmetic series has $n$ terms, all of which are integers.
+
+The sum of the series is $20$.
+
+Which of the following statements must be true?
+
+&nbsp;&nbsp;**I** &nbsp; The first term of the series is even.
+
+&nbsp;&nbsp;**II** &nbsp; $n$ is even.
+
+&nbsp;&nbsp;**III** &nbsp; The common difference is even.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2016 · Q1J</span>
+
+::: {.question}
+Let $n>1$ be an integer. Let $\Pi(n)$ denote the number of distinct prime factors of $n$ and let $x(n)$ denote the final
+digit of $n$. For example, $\Pi(8)=1$ and $\Pi(6)=2$. Which of the following statements is **false**?
+
+&nbsp;&nbsp;**(a)** If $\Pi(n)=1$, there are some values of $x(n)$ that mean $n$ cannot be prime,
+
+&nbsp;&nbsp;**(b)** If $\Pi(n)=1$, there are some values of $x(n)$ that mean $n$ must be prime,
+
+&nbsp;&nbsp;**(c)** If $\Pi(n)=1$, there are values of $x(n)$ which are impossible,
+
+&nbsp;&nbsp;**(d)** If $\Pi(n)+x(n)=2$, we cannot tell if $n$ is prime,
+
+&nbsp;&nbsp;**(e)** If $\Pi(n)=2$, all values of $x(n)$ are possible.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2025 · Q26Y(ii)</span>
+
+::: {.question}
+Linear polynomials are functions of the form $a+bx$ with $a$ and $b$ real numbers.
+
+Given two linear polynomials, we define an operation $\cdot$ as follows. To calculate $f(x)\cdot g(x)$, we multiply the
+polynomials as normal, but we ignore any $x^2$ term.
+
+For example, $(1-2x)\cdot(3-5x)=3-11x$, because we are ignoring the $10x^2$ term.
+
+A strictly increasing linear function $f(x)$ has the property that if $y>x$ then $f(y)>f(x)$.
+
+A student claims that if $f(x)$ and $g(x)$ are both strictly increasing linear functions then so is $f(x)\cdot g(x)$. Is
+the student correct? If so, prove the student's claim. Otherwise, find a counterexample.
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q18</span>
+
+::: {.question}
+Consider this statement about a function $\mathrm{f}(x)$:
+
+> $(*)$ If $\bigl(\mathrm{f}(x)\bigr)^2\le1$ for all $-1\le x\le1$ then $\displaystyle\int_{-1}^{1}\bigl(\mathrm{f}(x)\bigr)^2\,\mathrm{d}x\le\int_{-1}^{1}\mathrm{f}(x)\,\mathrm{d}x$
+
+Which one of the following functions provides a **counterexample** to $(*)$?
+
+&nbsp;&nbsp;**A** $\mathrm{f}(x)=x+\dfrac12$
+
+&nbsp;&nbsp;**B** $\mathrm{f}(x)=x-\dfrac12$
+
+&nbsp;&nbsp;**C** $\mathrm{f}(x)=x+x^3$
+
+&nbsp;&nbsp;**D** $\mathrm{f}(x)=x-x^3$
+
+&nbsp;&nbsp;**E** $\mathrm{f}(x)=x^2+x^4$
+
+&nbsp;&nbsp;**F** $\mathrm{f}(x)=x^2-x^4$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q15</span>
+
+::: {.question}
+It is given that $\mathrm{f}(x)=x^3+3qx^2+2$, where $q$ is a real constant.
+
+The equation $\mathrm{f}(x)=0$ has $3$ distinct real roots.
+
+Which of the following statements is/are necessarily true?
+
+&nbsp;&nbsp;**I** &nbsp; The equation $\mathrm{f}(x)+1=0$ has $3$ distinct real roots.
+
+&nbsp;&nbsp;**II** &nbsp; The equation $\mathrm{f}(x+1)=0$ has $3$ distinct real roots.
+
+&nbsp;&nbsp;**III** &nbsp; The equation $\mathrm{f}(-x)-1=0$ has $3$ distinct real roots.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+# Section C — Judging a proof
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise O, Q2</span>
+
+::: {.question}
+Can you adapt the proof that $\sqrt2$ is irrational to show that $\sqrt p$ is irrational for all prime $p$?
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q5</span>
+
+::: {.question}
+A student attempts to prove the following claim:
+
+> For every positive integer $n$, if $n^2+2$ is prime, then $n$ is a multiple of $3$.
+
+The student's argument is given line by line below.
+
+&nbsp;&nbsp;**I.** Suppose $n$ is a positive integer such that $n^2+2$ is prime, but $n$ is not a multiple of $3$.
+
+&nbsp;&nbsp;**II.** Then the remainder of $n$ on division by $3$ is $1$ or $2$.
+
+&nbsp;&nbsp;**III.** In either case, $n^2$ leaves remainder $1$ when divided by $3$.
+
+&nbsp;&nbsp;**IV.** Therefore $n^2+2$ leaves remainder $0$ when divided by $3$.
+
+&nbsp;&nbsp;**V.** So $3$ divides $n^2+2$.
+
+&nbsp;&nbsp;**VI.** Hence $n^2+2=3k$ for some integer $k$.
+
+&nbsp;&nbsp;**VII.** It follows that $n^2+2$ is composite and not prime.
+
+&nbsp;&nbsp;**VIII.** This contradicts the assumption in (I) that $n^2+2$ is prime.
+
+&nbsp;&nbsp;**IX.** Therefore $n$ is a multiple of $3$.
+
+Which one of the following statements about the argument is correct?
+
+&nbsp;&nbsp;**A** The argument is completely correct.
+
+&nbsp;&nbsp;**B** The first error in the argument is on line I.
+
+&nbsp;&nbsp;**C** The first error in the argument is on line II.
+
+&nbsp;&nbsp;**D** The first error in the argument is on line III.
+
+&nbsp;&nbsp;**E** The first error in the argument is on line IV.
+
+&nbsp;&nbsp;**F** The first error in the argument is on line V.
+
+&nbsp;&nbsp;**G** The first error in the argument is on line VI.
+
+&nbsp;&nbsp;**H** The first error in the argument is on line VII.
+
+&nbsp;&nbsp;**I** The first error in the argument is on line VIII.
+
+&nbsp;&nbsp;**J** The first error in the argument is on line IX.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q17</span>
+
+::: {.question}
+In this question, $n$ is an integer greater than $1$.
+
+**Statement:** If $n$ does not divide $k!$ for any positive integer $k$ with $k<n$, then $n$ is prime.
+
+The following is an attempted proof of the statement:
+
+&nbsp;&nbsp;**(1)** Assume $n$ does not divide $k!$ for any positive integer $k$ with $k<n$.
+
+&nbsp;&nbsp;**(2)** Suppose for contradiction that $n$ is composite, so $n=ab$ for some integers $a,b$ with $1<a\le b<n$.
+
+&nbsp;&nbsp;**(3)** Case 1: $a<b$. Then $a$ and $b$ are distinct integers, each in the set $\{2,3,\dots,n-1\}$.
+
+&nbsp;&nbsp;**(4)** Therefore $a$ and $b$ both appear as factors in the product $(n-1)!=1\cdot2\cdots(n-1)$, so $ab=n$ divides $(n-1)!$.
+
+&nbsp;&nbsp;**(5)** Case 2: $a=b$, so $n=a^2$.
+
+&nbsp;&nbsp;**(6)** Since $a\ge2$, the integers $a$ and $2a$ both satisfy $a\ge2$ and $2a\ge4$, so they are positive integers.
+
+&nbsp;&nbsp;**(7)** Since $a\ge2$, we have $a<a^2=n$ and $2a<a^2=n$, so $a$ and $2a$ are distinct integers in the set $\{2,3,\dots,n-1\}$.
+
+&nbsp;&nbsp;**(8)** Therefore $a$ and $2a$ both appear as factors in $(n-1)!$, so $a\cdot2a=2a^2=2n$ divides $(n-1)!$, and in particular $n$ divides $(n-1)!$.
+
+&nbsp;&nbsp;**(9)** In both cases $n$ divides $(n-1)!$, contradicting the assumption in line 1. Hence $n$ is prime.
+
+&nbsp;&nbsp;**A** First mistake appears in line 1 and the statement is false.
+
+&nbsp;&nbsp;**B** First mistake appears in line 2 and the statement is false.
+
+&nbsp;&nbsp;**C** First mistake appears in line 3 and the statement is false.
+
+&nbsp;&nbsp;**D** First mistake appears in line 4 and the statement is false.
+
+&nbsp;&nbsp;**E** First mistake appears in line 5 and the statement is false.
+
+&nbsp;&nbsp;**F** First mistake appears in line 6 and the statement is false.
+
+&nbsp;&nbsp;**G** First mistake appears in line 7 and the statement is false.
+
+&nbsp;&nbsp;**H** The proof is valid and the statement is true.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
 :::
 
 :::

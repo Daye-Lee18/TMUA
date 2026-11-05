@@ -1,6 +1,6 @@
 ---
 title: "Toolkit S6 — Scrambled Proofs · Extra Practice"
-subtitle: "More reordering drills built on the two types you found hardest (Assignment Q2 & Q4)"
+subtitle: "More reordering drills on the two hardest kinds of scrambled proof"
 format: html
 execute:
   echo: false
@@ -9,20 +9,19 @@ execute:
 
 ::: {.solutions}
 
-You lost time on **Q2** (the *"largest run of consecutive odd primes"* number-theory proof) and **Q4** (the
-*"if $\tan\theta>0$ then $\sin\theta+\cos\theta>1$"* algebra). Those are the two flavours of scrambled proof
-that catch everyone, so this page drills each one on its own.
+Two flavours of scrambled proof catch everyone: word proofs built on case splits, and algebra or trig chains. This
+page drills each one on its own. These proofs were written for this course and are not from past papers.
 
-- **Part A — word / case-splitting proofs** (like Q2): the lines are mostly *sentences*. The order is a
+- **Part A — word / case-splitting proofs**: the lines are mostly *sentences*. The order is a
   logical story: set up the general object, split into cases, dispose of each case, then conclude.
-- **Part B — algebraic & trig chains** (like Q4): the lines are mostly *equations/inequalities*. The order is
+- **Part B — algebraic & trig chains**: the lines are mostly *equations/inequalities*. The order is
   a chain where each line is produced from the one above.
 
-For each proof: write the letters in the correct order in the **Working** box, then open the **Solution** to
+For each proof: open the **Solution** only after writing the letters in order in the box below it, to
 check the order *and the reason each line sits where it does*.
 
 ::: {.callout-tip}
-## How to order a **word / case-splitting** proof (the Q2 skill)
+## How to order a **word / case-splitting** proof
 
 Almost every number-theory proof of this kind has the **same five-part shape**. Learn the shape and the
 order writes itself:
@@ -44,7 +43,7 @@ The two anchors are the easiest marks: the **first** line is the set-up ("Write�
 
 ---
 
-# Part A — Word / case-splitting proofs (like Q2)
+# Part A — Word / case-splitting proofs
 
 ## Proof A1
 
@@ -58,10 +57,6 @@ The two anchors are the easiest marks: the **first** line is the set-up ("Write�
 &nbsp;&nbsp;**(f)** If $n$ is two more than a multiple of $3$, then $n+1$ is a multiple of $3$.
 &nbsp;&nbsp;**(g)** In each of the three cases, one of $n,\,n+1,\,n+2$ is a multiple of $3$.
 
-::: {.workspace style="min-height:2.5cm"}
-Order:
-:::
-
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 **Order: b, e, d, a, f, g, c.**
@@ -73,13 +68,17 @@ Order:
 - **g** — *"in each case…"*: collects the three cases into one statement.
 - **c** — *conclude*: restate the claim.
 
-*The frame is exactly Q2's. The only thinking is inside the cases: if $n$ leaves remainder $1$, then $n+2$
+*The only thinking is inside the cases: if $n$ leaves remainder $1$, then $n+2$
 lands back on a multiple of $3$; if remainder $2$, then $n+1$ does.*
+:::
+
+::: {.workspace style="min-height:2.5cm"}
+Order:
 :::
 
 ---
 
-## Proof A2 &nbsp; *(closest cousin of Q2)*
+## Proof A2
 
 **Claim:** *what is the largest number of consecutive integers, all greater than $1$, that can all be prime?*
 
@@ -90,24 +89,23 @@ lands back on a multiple of $3$; if remainder $2$, then $n+1$ does.*
 &nbsp;&nbsp;**(e)** Among any three consecutive integers at least one is even, and here it is at least $4$.
 &nbsp;&nbsp;**(f)** So one of the three is not prime, and they cannot all be prime.
 
-::: {.workspace style="min-height:3cm"}
-Order:
-:::
-
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 **Order: b, d, e, a, f, c.**
 
-- **b** — *the example*: two in a row is achievable ($2,3$). This is the "$\geq 2$" half, exactly like Q2's
-  "$17,19$" line.
+- **b** — *the example*: two in a row is achievable ($2,3$). This is the "$\geq 2$" half.
 - **d** — *set up the general case*: suppose there were three or more in a row.
 - **e** — one of any three consecutive integers is even (and, since all are $>1$, that even one is $\geq 4$).
 - **a** — an even number above $2$ is not prime.
 - **f** — so they cannot all be prime — the "$\leq 2$" half.
 - **c** — *conclude*: the largest run is exactly two.
 
-*This is Q2 with "even" playing the role that "multiple of $3$" played there. A run is pinned down by showing
+*A run is pinned down by showing
 both "at least two" (the example) and "no more than two" (the case argument) — do not forget the example line.*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Order:
 :::
 
 ---
@@ -124,10 +122,6 @@ multiple of $4$.
 &nbsp;&nbsp;**(e)** If $n$ is even, write $n=2k$; then $n^{2}=4k^{2}$, a multiple of $4$.
 &nbsp;&nbsp;**(f)** Therefore every perfect square is a multiple of $4$ or one more than a multiple of $4$.
 
-::: {.workspace style="min-height:2.5cm"}
-Order:
-:::
-
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 **Order: b, c, e, a, d, f.**
@@ -142,6 +136,10 @@ Order:
 $(2k)^2$ and $(2k+1)^2$ are what force the remainder to be $0$ or $1$.*
 :::
 
+::: {.workspace style="min-height:2.5cm"}
+Order:
+:::
+
 ---
 
 ## Proof A4 &nbsp; *(builds on A1)*
@@ -154,10 +152,6 @@ of $3$.
 &nbsp;&nbsp;**(c)** Factorise: $n^{3}-n=n(n^{2}-1)=(n-1)\,n\,(n+1)$.
 &nbsp;&nbsp;**(d)** Therefore $n^{3}-n$ is a multiple of $6$ for every integer $n$.
 &nbsp;&nbsp;**(e)** These factors $n-1,\,n,\,n+1$ are three consecutive integers.
-
-::: {.workspace style="min-height:2.5cm"}
-Order:
-:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
@@ -175,9 +169,13 @@ Spotting that $n^{3}-n$ factorises into consecutive integers is the one creative
 bookkeeping.*
 :::
 
+::: {.workspace style="min-height:2.5cm"}
+Order:
+:::
+
 ---
 
-# Part B — Algebraic & trig chains (like Q4)
+# Part B — Algebraic & trig chains
 
 For these the order is a **chain**: each line is manufactured from the one directly above (square it, expand
 it, factorise it, divide by something positive). Anchor the **first** worked line (straight from the given)
@@ -192,10 +190,6 @@ and the **conclusion**, then read the middle as "what was done to get here".
 &nbsp;&nbsp;**(c)** Expanding, $a^{2}-2a+1\geq 0$.
 &nbsp;&nbsp;**(d)** Adding $2a$ to both sides, $a^{2}+1\geq 2a$.
 
-::: {.workspace style="min-height:2cm"}
-Order (after the opening line):
-:::
-
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 **Order: b, c, d, a.**
@@ -206,8 +200,12 @@ Order (after the opening line):
 - **a** — *the sign-care step*: divide by $a>0$. Because $a$ is **positive**, the inequality direction is
   kept, giving $a+\tfrac1a\geq 2$.
 
-*This is the Q4 idea run forwards: build a square, then unpack it. The single subtle line is **a** — dividing
+*Build a square, then unpack it. The single subtle line is **a** — dividing
 by $a$ is only safe because $a>0$, which is why the proof opened by assuming it.*
+:::
+
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
 :::
 
 ---
@@ -221,10 +219,6 @@ $y>0$.")*
 &nbsp;&nbsp;**(b)** A square is never negative, so $\left(\sqrt{x}-\sqrt{y}\right)^{2}\geq 0$.
 &nbsp;&nbsp;**(c)** Dividing both sides by $2$ gives $\dfrac{x+y}{2}\geq\sqrt{xy}$.
 &nbsp;&nbsp;**(d)** Expanding, $x-2\sqrt{xy}+y\geq 0$.
-
-::: {.workspace style="min-height:2cm"}
-Order (after the opening line):
-:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
@@ -240,9 +234,13 @@ Order (after the opening line):
 inequality. The opening "$x,y>0$" is what lets $\sqrt{x},\sqrt{y}$ exist.*
 :::
 
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
+:::
+
 ---
 
-## Proof B3 &nbsp; *(trig chain — the Q4 twin)*
+## Proof B3 &nbsp; *(trig chain)*
 
 **Claim:** *if $\sin\theta+\cos\theta=1$ then $\sin\theta\cos\theta=0$.* &nbsp; *(opens with "Suppose
 $\sin\theta+\cos\theta=1$.")*
@@ -251,10 +249,6 @@ $\sin\theta+\cos\theta=1$.")*
 &nbsp;&nbsp;**(b)** Squaring both sides, $(\sin\theta+\cos\theta)^{2}=1$.
 &nbsp;&nbsp;**(c)** Therefore $2\sin\theta\cos\theta=0$, so $\sin\theta\cos\theta=0$.
 &nbsp;&nbsp;**(d)** Expanding the left side, $\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta=1$.
-
-::: {.workspace style="min-height:2cm"}
-Order (after the opening line):
-:::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
@@ -265,8 +259,12 @@ Order (after the opening line):
 - **a** — replace $\sin^{2}\theta+\cos^{2}\theta$ by $1$, leaving $1+2\sin\theta\cos\theta=1$.
 - **c** — subtract $1$ and halve: $\sin\theta\cos\theta=0$.
 
-*Line-for-line the Q4 pattern — square, expand, use $\sin^{2}+\cos^{2}=1$, tidy up. The Pythagorean identity
-is the pivot in the middle, just as it was in Q4.*
+*The pattern is square, expand, use $\sin^{2}+\cos^{2}=1$, tidy up. The Pythagorean identity
+is the pivot in the middle.*
+:::
+
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
 :::
 
 ---
@@ -281,10 +279,6 @@ $\dfrac{a}{ab}>\dfrac{b}{ab}$.
 &nbsp;&nbsp;**(c)** Therefore $\dfrac1a<\dfrac1b$.
 &nbsp;&nbsp;**(d)** Since $a>0$ and $b>0$, the product $ab$ is positive.
 
-::: {.workspace style="min-height:2cm"}
-Order (after the opening line):
-:::
-
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 **Order: d, a, b, c.**
@@ -298,6 +292,10 @@ Order (after the opening line):
 would flip it. Line **d** is small but it is the whole reason the argument is valid, so it has to lead.*
 :::
 
+::: {.workspace style="min-height:2cm"}
+Order (after the opening line):
+:::
+
 ---
 
 ::: {.callout-tip}
@@ -306,10 +304,10 @@ would flip it. Line **d** is small but it is the whole reason the argument is va
 Every scrambled proof — words or algebra — is read the same way: **anchor the two ends first**, then order
 the middle so that **each line is justified by the ones above it**.
 
-- **Word / case proofs (Q2 type):** set up → list the cases → do each case → "in each case…" → conclude. The
+- **Word / case proofs:** set up → list the cases → do each case → "in each case…" → conclude. The
   example line ("for example $2,3$") is part of the set-up and is easy to misplace at the end — keep it near
   the front.
-- **Algebra / trig chains (Q4 type):** start from the given (or a true square), then each line is *the
+- **Algebra / trig chains:** start from the given (or a true square), then each line is *the
   previous line with one operation done to it*. Watch the sign-care line — dividing by something is only legal
   once you have said it is positive.
 :::

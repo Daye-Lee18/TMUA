@@ -1,7 +1,8 @@
 ---
-title: "Toolkit S7 — Spot the Error · Mark Scheme"
-subtitle: "8 real TMUA Paper 2 questions + 1 MAT"
+title: "Toolkit S7 — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -9,399 +10,1036 @@ execute:
 
 ::: {.solutions}
 
-Each question is printed **in full** exactly as it appeared on the paper; open the **Solution** below it to
-check your answer and read the reasoning line by line. Every answer letter has been checked against the
-**official answer key** (all confirmed). For the "solve" questions (A1, A2) the step labels sit on the
-**arrows between lines** — a step is the *operation* that turns one line into the next, exactly as printed on
-the original paper.
+18 questions. Answers to the TMUA and Tyler questions and to the MAT question were checked against the official or
+publisher solutions. The five exercises from the Notes on Logic and Proof have no published answers, and are worked here
+from the definitions.
 
 ---
 
-## Section A — Which step is invalid?
+# Section A — Solving an equation: roots gained and roots lost
 
-### A1 &nbsp; *(TMUA 2017 Paper 2, Q18)*
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q3</span>
 
 ::: {.question}
-Consider the following problem: *solve the inequality $\left(\dfrac14\right)^{n}<\left(\dfrac1{32}\right)^{10}$,
-where $n$ is a positive integer.* A student produces the following argument:
+Consider the following attempt to solve an equation. The steps have been numbered for reference.
 
-$$\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}$$
-$$\text{(I)}\ \big\downarrow\quad$$
-$$\log_{\frac12}\left(\tfrac14\right)^{n}<\log_{\frac12}\left(\tfrac1{32}\right)^{10}$$
-$$\text{(II)}\ \big\downarrow\quad$$
-$$n\log_{\frac12}\left(\tfrac14\right)<10\log_{\frac12}\left(\tfrac1{32}\right)$$
-$$\text{(III)}\ \big\downarrow\quad$$
-$$n<\frac{10\log_{\frac12}\left(\tfrac1{32}\right)}{\log_{\frac12}\left(\tfrac14\right)}$$
-$$\text{(IV)}\ \big\downarrow\quad$$
-$$n<\frac{10\times5}{2}=25$$
-$$\text{(V)}\ \big\downarrow\quad$$
-$$1\leq n\leq 24$$
+$$\sqrt{x+5}=x+3$$
+$$\text{step (1)}\ \big\downarrow$$
+$$x+5=x^{2}+6x+9$$
+$$\text{step (2)}\ \big\downarrow$$
+$$x^{2}+5x+4=0$$
+$$\text{step (3)}\ \big\downarrow$$
+$$(x+4)(x+1)=0$$
+$$x=-4\ \text{ or }\ x=-1$$
 
-Which step (if any) in the argument is invalid?
+Which one of the following statements is true?
 
-&nbsp;&nbsp;**A** no invalid steps; the argument is correct &nbsp; **B** only (I) &nbsp; **C** only (II)
-&nbsp; **D** only (III) &nbsp; **E** only (IV) &nbsp; **F** only (V)
+&nbsp;&nbsp;**A** Both $-4$ and $-1$ are solutions of the equation.
+
+&nbsp;&nbsp;**B** Neither $-4$ nor $-1$ are solutions of the equation.
+
+&nbsp;&nbsp;**C** One solution is correct and the incorrect solution arises as a result of step (1).
+
+&nbsp;&nbsp;**D** One solution is correct and the incorrect solution arises as a result of step (2).
+
+&nbsp;&nbsp;**E** One solution is correct and the incorrect solution arises as a result of step (3).
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**B**
+**C.**
 
-**Step 1 — Watch the base of the log.** Step (I) applies $\log_{1/2}$ to both sides. The base $\tfrac12<1$,
-so $\log_{1/2}$ is a **decreasing** function.
+**Step 1 — Test both values in the original equation.** This settles options A and B at once.
 
-**Step 2 — Decreasing functions flip inequalities.** Applying a decreasing function to both sides must
-**reverse** the "$<$". The student kept "$<$", so the very first step already breaks — **step (I)**. Every
-later step is algebraically fine, so *only* (I) is invalid.
+- $x=-4$: the left side is $\sqrt{1}=1$ and the right side is $-4+3=-1$. These differ, so $-4$ is **not** a
+  solution.
+- $x=-1$: the left side is $\sqrt{4}=2$ and the right side is $-1+3=2$. So $-1$ **is** a solution.
 
-**Do it right.** Flip the sign at step (I). Cleanly, $\left(\tfrac14\right)^n=2^{-2n}$ and
-$\left(\tfrac1{32}\right)^{10}=2^{-50}$, so $2^{-2n}<2^{-50}\Leftrightarrow -2n<-50\Leftrightarrow n>25$.
+So exactly one value is correct, which removes A and B.
 
-**Intuition.** Taking a log with base $<1$ is the classic sign-flip trap — the same family as multiplying an
-inequality by a negative. *(This is exactly the [S7 concepts](s07_concepts.qmd) note on "logs with a base
-below $1$".)*
+**Step 2 — Find where $x=-4$ enters.** Put $x=-4$ into each line in turn.
+
+- Original line: $1=-1$, false.
+- After step (1): $x+5=1$ and $x^{2}+6x+9=16-24+9=1$, so the line reads $1=1$, true.
+
+The value $-4$ fails before step (1) and works after it, so step (1) is where it came in.
+
+**Step 3 — Why D and E fail.** Steps (2) and (3) are a rearrangement and a factorisation. Each keeps exactly
+the same solutions, so neither can introduce anything.
+
+**The idea.** Squaring turns $-1=1$ into the true $1=1$. That is how a false value survives.
 :::
 
 ---
 
-### A2 &nbsp; *(TMUA 2018 Paper 2, Q9)*
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise Q</span>
+
+::: {.question}
+Solve: $\;\sqrt{2x+3}+\sqrt{x+1}=\sqrt{7x+4}$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**$x=3$ is the only solution.**
+
+**Step 1 — Square both sides.** The left side is a sum, so a middle term appears:
+
+$$(2x+3)+2\sqrt{(2x+3)(x+1)}+(x+1)=7x+4 .$$
+
+**Step 2 — Isolate the remaining root.** Collect the terms without a root:
+
+$$2\sqrt{(2x+3)(x+1)}=7x+4-3x-4=4x ,$$
+
+and halve:
+
+$$\sqrt{(2x+3)(x+1)}=2x .$$
+
+**Step 3 — Square again.**
+
+$$(2x+3)(x+1)=4x^{2}$$
+$$2x^{2}+5x+3=4x^{2}$$
+$$2x^{2}-5x-3=0$$
+$$(2x+1)(x-3)=0 .$$
+
+So the candidates are $x=-\tfrac12$ and $x=3$.
+
+**Step 4 — Check each candidate in the original.** Squaring is one-way, so these are only candidates.
+
+- $x=3$: $\sqrt9+\sqrt4=3+2=5$ and $\sqrt{25}=5$. ✓
+- $x=-\tfrac12$: $\sqrt2+\sqrt{\tfrac12}$ against $\sqrt{\tfrac12}$. These differ by $\sqrt2$. ✗
+
+**The tell.** Step 2 already gave it away: a square root is never negative, so $\sqrt{\;\cdot\;}=2x$ forces
+$x\ge0$, and $x=-\tfrac12$ was never possible.
+:::
+
+---
+
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q9</span>
 
 ::: {.question}
 Consider the following attempt to solve the equation $4x\sqrt{2x-1}=10x-5$:
 
 $$4x\sqrt{2x-1}=10x-5$$
-$$\text{(I)}\ \big\downarrow\quad$$
+$$\text{(I)}\ \big\downarrow$$
 $$4x\sqrt{2x-1}=5(2x-1)$$
-$$\text{(II)}\ \big\downarrow\quad$$
+$$\text{(II)}\ \big\downarrow$$
 $$16x^{2}(2x-1)=25(2x-1)^{2}$$
-$$\text{(III)}\ \big\downarrow\quad$$
+$$\text{(III)}\ \big\downarrow$$
 $$16x^{2}=25(2x-1)$$
-$$\text{(IV)}\ \big\downarrow\quad$$
+$$\text{(IV)}\ \big\downarrow$$
 $$16x^{2}-50x+25=0$$
-$$\text{(V)}\ \big\downarrow\quad$$
+$$\text{(V)}\ \big\downarrow$$
 $$(8x-5)(2x-5)=0$$
-$$\text{(VI)}\ \big\downarrow\quad$$
+$$\text{(VI)}\ \big\downarrow$$
 $$\text{The solutions of the original equation are } x=\tfrac58 \text{ and } x=\tfrac52.$$
 
 Which one of the following is true?
 
-&nbsp;&nbsp;**A** The solution is correct. &nbsp; **B** Only one of $x=\tfrac58,\tfrac52$ is correct and the
-error arises as a result of step (II). &nbsp; **C** …step (III). &nbsp; **D** …step (IV). &nbsp;
-**E** There is another value of $x$ that satisfies the original equation and the error arises as a result of
-step (II). &nbsp; **F** …step (III). &nbsp; **G** …step (IV).
+&nbsp;&nbsp;**A** The solution is correct.
+
+&nbsp;&nbsp;**B** Only one of $x=\tfrac58$ and $x=\tfrac52$ is correct and the error arises as a result of step (II).
+
+&nbsp;&nbsp;**C** Only one of $x=\tfrac58$ and $x=\tfrac52$ is correct and the error arises as a result of step (III).
+
+&nbsp;&nbsp;**D** Only one of $x=\tfrac58$ and $x=\tfrac52$ is correct and the error arises as a result of step (IV).
+
+&nbsp;&nbsp;**E** There is another value of $x$ that satisfies the original equation and the error arises as a result of step (II).
+
+&nbsp;&nbsp;**F** There is another value of $x$ that satisfies the original equation and the error arises as a result of step (III).
+
+&nbsp;&nbsp;**G** There is another value of $x$ that satisfies the original equation and the error arises as a result of step (IV).
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**F**
+**F.**
 
-**Step 1 — Locate the division.** Step (III) is the move from $16x^{2}(2x-1)=25(2x-1)^{2}$ to
-$16x^{2}=25(2x-1)$: both sides are **divided by $(2x-1)$**.
+**Step 1 — Test the two answers given.**
 
-**Step 2 — Ask whether the divisor can be zero.** $(2x-1)=0$ at $x=\tfrac12$, and $x=\tfrac12$ **is** a
-genuine solution of the original: $4\cdot\tfrac12\cdot\sqrt{0}=0=10\cdot\tfrac12-5$. Dividing by $(2x-1)$ at
-step (III) silently throws that root away.
+- $x=\tfrac58$: the left side is $4\cdot\tfrac58\cdot\sqrt{\tfrac14}=\tfrac54$ and the right side is
+  $\tfrac{25}{4}-5=\tfrac54$. ✓
+- $x=\tfrac52$: the left side is $4\cdot\tfrac52\cdot\sqrt{4}=20$ and the right side is $25-5=20$. ✓
 
-**Step 3 — Read the options.** Both $\tfrac58$ and $\tfrac52$ still check out, so this is a **lost** root, not
-an extraneous one — "there is another value of $x$, and the error arises at step (III)": **F**.
+Both are correct, so B, C and D are out.
 
-**Do it right.** Keep the case $2x-1=0$ separately: from $16x^{2}(2x-1)=25(2x-1)^{2}$, either $2x-1=0$
-($x=\tfrac12$) **or** divide to get $x=\tfrac58,\tfrac52$. Full solution set $\left\{\tfrac12,\tfrac58,\tfrac52\right\}$.
+**Step 2 — Look for a step that could lose a solution.** Squaring at step (II) can only add solutions, and here
+it added none. Step (III) is different: it **divides both sides by $(2x-1)$**, and that bracket is zero at
+$x=\tfrac12$.
 
-**Intuition.** Never cancel a bracket that an earlier line allows to be $0$ — factor and split into cases.
-*(The step labels sit on the arrows, so step (III) is the division, not the squaring.)*
+**Step 3 — Test $x=\tfrac12$ in the original.** The left side is $4\cdot\tfrac12\cdot\sqrt0=0$ and the right
+side is $5-5=0$. So $x=\tfrac12$ is a genuine solution, and step (III) threw it away. That is **F**.
+
+**The repair.** Do not divide. From $16x^{2}(2x-1)=25(2x-1)^{2}$, bring everything to one side and factorise:
+
+$$(2x-1)\big(16x^{2}-25(2x-1)\big)=0 ,$$
+
+which gives $x=\tfrac12,\ \tfrac58,\ \tfrac52$. All three check.
 :::
 
 ---
 
-### A3 &nbsp; *(TMUA 2021 Paper 2, Q5)*
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q4</span>
 
 ::: {.question}
-On which line is the **first** error in the following argument?
+The following question appeared in an examination:
 
-&nbsp;&nbsp;**A** $\sin^{2}x+\cos^{2}x=1$ for all values of $x$.
-&nbsp;&nbsp;**B** Therefore $\cos x=\sqrt{1-\sin^{2}x}$ for all values of $x$.
-&nbsp;&nbsp;**C** Hence $1+\cos x=1+\sqrt{1-\sin^{2}x}$ for all values of $x$.
-&nbsp;&nbsp;**D** Thus $(1+\cos x)^{2}=\left(1+\sqrt{1-\sin^{2}x}\right)^{2}$ for all values of $x$.
-&nbsp;&nbsp;**E** Substituting $x=\pi$ gives $0=4$.
+> Given that $\tan x=\sqrt3$, find the possible values of $\sin 2x$.
 
-(Choose the line **A–E** on which the first error occurs.)
+A student gave the following answer:
+
+> $\tan x=\sqrt3$ so $x=60^\circ$ and $2x=120^\circ$, therefore $\sin 2x=\dfrac{\sqrt3}{2}$.
+
+Which one of the following statements is correct?
+
+&nbsp;&nbsp;**A** $\dfrac{\sqrt3}{2}$ is the only possible value, and this is fully supported by the reasoning given in the student's answer.
+
+&nbsp;&nbsp;**B** $\dfrac{\sqrt3}{2}$ is the only possible value, but the reasoning given should consider other possible values of $x$ for which $\tan x=\sqrt3$.
+
+&nbsp;&nbsp;**C** $\dfrac{\sqrt3}{2}$ is the only possible value, but the reasoning given should consider other possible values of $x$ for which $\sin 2x=\dfrac{\sqrt3}{2}$.
+
+&nbsp;&nbsp;**D** $\dfrac{\sqrt3}{2}$ is **not** the only possible value because the reasoning given should have considered other possible values of $x$ for which $\tan x=\sqrt3$.
+
+&nbsp;&nbsp;**E** $\dfrac{\sqrt3}{2}$ is **not** the only possible value because the reasoning given should have considered other possible values of $x$ for which $\sin 2x=\dfrac{\sqrt3}{2}$.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**B**
+**B.** Two separate questions are being asked: what is the true set of values, and was the reasoning complete?
 
-**Step 1 — Test line B for every $x$.** The symbol $\sqrt{\,}$ denotes the **non-negative** root, so
-$\cos x=\sqrt{1-\sin^{2}x}$ can only hold where $\cos x\geq0$.
+**Step 1 — Find every $x$.** The student stops at $x=60^\circ$, but $\tan$ repeats every $180^\circ$, so
 
-**Step 2 — Find a failing value.** At $x=\pi$, $\cos\pi=-1$ but $\sqrt{1-\sin^{2}\pi}=\sqrt{1}=+1$. So line
-**B** is already false — the dropped sign is the first error.
+$$\tan x=\sqrt3\iff x=60^\circ+180^\circ n\quad\text{for an integer }n .$$
 
-**Do it right.** The correct identity is $\lvert\cos x\rvert=\sqrt{1-\sin^{2}x}$ (equivalently
-$\cos x=\pm\sqrt{1-\sin^{2}x}$).
+So the reasoning is incomplete, which rules out A.
 
-**Intuition.** The absurd "$0=4$" in line E is only the *consequence* of the earlier slip; the error itself is
-the lost $\pm$ back at line B. Always name the **first** broken line.
+**Step 2 — Find every value of $\sin 2x$.** Doubling gives $2x=120^\circ+360^\circ n$. Since $\sin$ repeats every
+$360^\circ$,
+
+$$\sin 2x=\sin 120^\circ=\frac{\sqrt3}{2}\quad\text{for every }n .$$
+
+So there is only one possible value, which rules out D and E.
+
+**Step 3 — Choose between B and C.** The values the student had to consider come from the **given** equation
+$\tan x=\sqrt3$. Starting from $\sin 2x=\tfrac{\sqrt3}{2}$, as in C, would use the answer to find the answer, and
+it would also admit values such as $2x=60^\circ$, where $\tan x\ne\sqrt3$.
+
+```{python}
+#| fig-cap: "tan x meets the line y = √3 at 60° and at 240°. At both of these x, sin 2x takes the same value."
+import numpy as np, matplotlib.pyplot as plt
+fig, (a1, a2) = plt.subplots(2, 1, figsize=(6.4, 6.0))
+x = np.linspace(0, 360, 2000)
+y = np.tan(np.radians(x)); y[np.abs(y) > 8] = np.nan
+a1.plot(x, y, color='#1f77b4', lw=2)
+a1.axhline(np.sqrt(3), color='#d62728', ls='--', lw=1.5)
+for v in (60, 240):
+    a1.plot(v, np.sqrt(3), 'o', color='#d62728')
+    a1.annotate(f'{v}°', (v, np.sqrt(3)), textcoords='offset points', xytext=(-16, 8), color='#d62728')
+a1.set_ylim(-6, 6); a1.set_xlim(0, 360); a1.set_xticks(range(0, 361, 60)); a1.grid(alpha=.25)
+a1.set_title(r'$y=\tan x$ and $y=\sqrt{3}$', fontsize=11)
+a2.plot(x, np.sin(np.radians(2 * x)), color='#2ca02c', lw=2)
+for v in (60, 240):
+    a2.plot(v, np.sqrt(3) / 2, 'o', color='#d62728')
+    a2.annotate(f'{v}°', (v, np.sqrt(3) / 2), textcoords='offset points', xytext=(0, 8), ha='center', color='#d62728')
+a2.set_xlim(0, 360); a2.set_ylim(-1.3, 1.4); a2.set_xticks(range(0, 361, 60)); a2.grid(alpha=.25)
+a2.set_xlabel('x (degrees)'); a2.set_title(r'$y=\sin 2x$', fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+**The idea.** A right answer does not mean right reasoning. On this kind of question, judge the two separately.
 :::
 
 ---
 
-### A4 &nbsp; *(TMUA 2023 Paper 2, Q10)*
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q6</span>
+
+::: {.question}
+A student attempts to solve the equation
+
+$$\cos x+\sin x\tan x=2\sin x-1$$
+
+in the range $0\le x\le 2\pi$. The student's attempt is as follows:
+
+$$\cos x+\sin x\tan x=2\sin x-1$$
+
+So $\;\cos x-\sin x+\sin x\tan x-\sin x=-1$ &nbsp;&nbsp;**(I)**
+
+So $\;(\sin x-\cos x)(\tan x-1)=-1$ &nbsp;&nbsp;**(II)**
+
+So $\;\sin x-\cos x=-1\;$ or $\;\tan x-1=-1$ &nbsp;&nbsp;**(III)**
+
+So $\;(\sin x-\cos x)^{2}=1\;$ or $\;\tan x=0$ &nbsp;&nbsp;**(IV)**
+
+So $\;2\sin x\cos x=0\;$ or $\;\tan x=0$ &nbsp;&nbsp;**(V)**
+
+So $\;x=0,\ \tfrac{\pi}{2},\ \pi,\ \tfrac{3\pi}{2},\ 2\pi$ &nbsp;&nbsp;**(VI)**
+
+Which of the following best describes this attempt?
+
+&nbsp;&nbsp;**A** It is completely correct
+
+&nbsp;&nbsp;**B** It is incorrect, and the first error occurs on line (I)
+
+&nbsp;&nbsp;**C** It is incorrect, and the first error occurs on line (II)
+
+&nbsp;&nbsp;**D** It is incorrect, and the first error occurs on line (III)
+
+&nbsp;&nbsp;**E** It is incorrect, and the first error is that extra solutions were introduced on line (IV)
+
+&nbsp;&nbsp;**F** It is incorrect, and the first error is that extra solutions were introduced on line (V)
+
+&nbsp;&nbsp;**G** It is incorrect, and the first error is not eliminating the values where $\tan x$ is undefined on line (VI)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.** Test a wrong final answer to locate the fault.
+
+**Step 1 — The final list is wrong.** At $x=0$ the left side of the original is $\cos0+0=1$ and the right side
+is $0-1=-1$. So $x=0$ is not a solution, and A fails. Since $\tan0$ is defined, this failure is not about
+undefined values, so G is not the first error either.
+
+**Step 2 — Check the early lines.**
+
+- Line (I) subtracts $2\sin x$ from both sides. ✓
+- Line (II): multiplying out,
+$$(\sin x-\cos x)(\tan x-1)=\sin x\tan x-\sin x-\cos x\tan x+\cos x .$$
+  Since $\cos x\tan x=\sin x$, this equals $\cos x-\sin x+\sin x\tan x-\sin x$, which is line (I). ✓
+
+**Step 3 — Line (III) is the leap.** It says that if two numbers multiply to give $-1$, then one of them must be
+$-1$. That reasoning works for a product equal to **zero**. It fails for $-1$, because $2\times(-\tfrac12)=-1$
+and neither factor is $-1$.
+
+**Step 4 — Confirm with $x=0$.** Line (II) at $x=0$ gives $(-1)(-1)=1\neq-1$, so it is false there. Line (III) at
+$x=0$ gives $-1=-1$, so it is true. A value that fails line (II) passes line (III), so line (III) does not follow.
+
+**Why E and F fail.** Those lines do widen the solution set, but they come after line (III), and the question
+asks for the **first** error.
+:::
+
+---
+
+# Section B — Inequalities and signs
+
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise R, Q3</span>
+
+::: {.question}
+Starting with $\dfrac{x+2}{2x+7}<5$, is it then valid to deduce $x+2<5(2x+7)$? Justify your answer.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**No, the deduction is not valid.**
+
+**Step 1 — What the step does.** It multiplies both sides by $2x+7$. The direction of an inequality is kept only
+if the multiplier is positive, and $2x+7$ is negative whenever $x<-\tfrac72$.
+
+**Step 2 — A value that breaks it.** Take $x=-4$, so that $2x+7=-1$.
+
+- The starting inequality: $\dfrac{-2}{-1}=2<5$. True.
+- The deduced inequality: $x+2=-2$ and $5(2x+7)=-5$, and $-2<-5$ is false.
+
+A true starting line has given a false next line, so the step is invalid.
+
+**Step 3 — The safe move.** Multiply by $(2x+7)^{2}$, which is positive for every $x\ne-\tfrac72$:
+
+$$(x+2)(2x+7)<5(2x+7)^{2}$$
+$$(2x+7)\big(5(2x+7)-(x+2)\big)>0$$
+$$(2x+7)(9x+33)>0 .$$
+
+This gives $x<-\tfrac{11}{3}$ or $x>-\tfrac72$. Our value $x=-4$ lies in the first part, as it should.
+:::
+
+---
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise R, Q1</span>
+
+::: {.question}
+Given $x<y$, what positive integer values of $n$ make $x^{n}<y^{n}$ true?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Exactly the odd values of $n$,** for all real $x<y$.
+
+**Step 1 — Even $n$ can fail.** Take $x=-2$ and $y=1$, so $x<y$. For any even $n$,
+
+$$x^{n}=(-2)^{n}=2^{n}\ge4>1=y^{n} .$$
+
+So $x^{n}<y^{n}$ is false for every even $n$ with this one pair. (It does hold when $x$ and $y$ are both
+non-negative, but the question does not give us that.)
+
+**Step 2 — Odd $n$ always works.** The function $t\mapsto t^{n}$ with $n$ odd is strictly increasing on the whole
+real line, so a larger input always gives a larger output. The graphs below show the difference.
+
+```{python}
+#| fig-cap: "y = x² fails the horizontal line test, so order is not kept. y = x³ is increasing everywhere, so order is kept."
+import numpy as np, matplotlib.pyplot as plt
+fig, (a1, a2) = plt.subplots(2, 1, figsize=(6.0, 6.2))
+x = np.linspace(-2.4, 2.4, 500)
+a1.plot(x, x**2, color='#1f77b4', lw=2)
+a1.plot([-2, 1], [4, 1], 'o', color='#d62728')
+a1.annotate('x = −2, output 4', (-2, 4), textcoords='offset points', xytext=(12, 2), color='#d62728')
+a1.annotate('y = 1, output 1', (1, 1), textcoords='offset points', xytext=(10, -4), color='#d62728')
+a1.axhline(0, color='0.6', lw=.8); a1.axvline(0, color='0.6', lw=.8); a1.grid(alpha=.25)
+a1.set_title(r'$n=2$: $-2<1$ but $(-2)^2>1^2$', fontsize=11)
+a2.plot(x, x**3, color='#2ca02c', lw=2)
+a2.plot([-2, 1], [-8, 1], 'o', color='#d62728')
+a2.annotate('x = −2, output −8', (-2, -8), textcoords='offset points', xytext=(12, 2), color='#d62728')
+a2.annotate('y = 1, output 1', (1, 1), textcoords='offset points', xytext=(10, -6), color='#d62728')
+a2.axhline(0, color='0.6', lw=.8); a2.axvline(0, color='0.6', lw=.8); a2.grid(alpha=.25)
+a2.set_title(r'$n=3$: $-2<1$ and $(-2)^3<1^3$', fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+**The idea.** Applying a function to both sides of an inequality is safe only if the function is increasing on
+all the values in play.
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q3</span>
+
+::: {.question}
+The real numbers $a$, $b$ and $c$ are non-zero and $a\le b$.
+
+Which of the following statements are necessarily true?
+
+&nbsp;&nbsp;**I** $\;\dfrac1a\ge\dfrac1b$
+
+&nbsp;&nbsp;**II** $\;2^{a}\le2^{b}$
+
+&nbsp;&nbsp;**III** $\;ac\le bc$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** Test each statement separately, looking for a counterexample.
+
+**I is false.** The reciprocal rule needs $a$ and $b$ to have the same sign. Take $a=-2$ and $b=1$. Then
+$\tfrac1a=-\tfrac12$ and $\tfrac1b=1$, and $-\tfrac12\ge1$ is false.
+
+```{python}
+#| fig-cap: "y = 1/x has a break at x = 0. Going from a = −2 to b = 1 crosses it, so the order of the outputs does not reverse."
+import numpy as np, matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(5.6, 3.8))
+x1 = np.linspace(-4, -0.2, 300); x2 = np.linspace(0.2, 4, 300)
+ax.plot(x1, 1 / x1, color='#1f77b4', lw=2); ax.plot(x2, 1 / x2, color='#1f77b4', lw=2)
+ax.plot([-2, 1], [-0.5, 1], 'o', color='#d62728')
+ax.annotate('a = −2, 1/a = −1/2', (-2, -0.5), textcoords='offset points', xytext=(-30, 12), color='#d62728')
+ax.annotate('b = 1, 1/b = 1', (1, 1), textcoords='offset points', xytext=(10, 6), color='#d62728')
+ax.axhline(0, color='0.6', lw=.8); ax.axvline(0, color='0.6', lw=.8); ax.set_ylim(-5, 5); ax.grid(alpha=.25)
+ax.set_xlabel('x'); ax.set_ylabel('y')
+plt.tight_layout(); plt.show()
+```
+
+**II is true.** $y=2^{x}$ is an increasing function, so $a\le b$ gives $2^{a}\le2^{b}$ for every $a$ and $b$.
+
+**III is false.** The sign of $c$ is unknown. Take $a=1$, $b=2$, $c=-1$. Then $ac=-1$ and $bc=-2$, and
+$-1\le-2$ is false.
+
+So only II must hold.
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q8</span>
+
+::: {.question}
+A region is defined by the inequalities $x+y>6$ and $x-y>-4$.
+
+Consider the three statements:
+
+&nbsp;&nbsp;**1** $\;x>1$
+
+&nbsp;&nbsp;**2** $\;y>5$
+
+&nbsp;&nbsp;**3** $\;(x+y)(x-y)>-24$
+
+Which of the above statements is/are true for **every** point in the region?
+
+&nbsp;&nbsp;**A** none
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 2 only
+
+&nbsp;&nbsp;**D** 3 only
+
+&nbsp;&nbsp;**E** 1 and 2 only
+
+&nbsp;&nbsp;**F** 1 and 3 only
+
+&nbsp;&nbsp;**G** 2 and 3 only
+
+&nbsp;&nbsp;**H** 1, 2 and 3
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.**
+
+**Statement 1 is true.** Two inequalities pointing the same way may always be added:
+
+$$(x+y)+(x-y)>6+(-4)\quad\Longrightarrow\quad 2x>2\quad\Longrightarrow\quad x>1 .$$
+
+**Statement 2 is false.** Take $(x,y)=(10,0)$. Then $x+y=10>6$ and $x-y=10>-4$, so the point is in the region,
+but $y=0$ is not greater than $5$.
+
+**Statement 3 is false.** It is what you get by multiplying the two given inequalities, $6\times(-4)=-24$. That
+step is not allowed, because $x-y$ can be negative. Take $(x,y)=(3.05,\,6.95)$:
+
+$$x+y=10>6,\qquad x-y=-3.9>-4,\qquad (x+y)(x-y)=-39 ,$$
+
+and $-39$ is not greater than $-24$.
+
+```{python}
+#| fig-cap: "The region is the wedge with apex (1, 5). Every point has x > 1. The marked point is in the wedge but makes (x+y)(x−y) = −39."
+import numpy as np, matplotlib.pyplot as plt
+x = np.linspace(-1, 12, 400)
+fig, ax = plt.subplots(figsize=(5.6, 4.0))
+ax.plot(x, -x + 6, color='#1f77b4', lw=2, label='x + y = 6')
+ax.plot(x, x + 4, color='#dd6b20', lw=2, label='x − y = −4')
+low = np.maximum(-x + 6, -2)
+ax.fill_between(x, low, x + 4, where=(x + 4 > low), color='#2ca02c', alpha=.12)
+ax.plot(1, 5, 'o', color='k'); ax.annotate('apex (1, 5)', (1, 5), (1.4, 2.6), fontsize=9)
+ax.plot(3.05, 6.95, 'o', color='#d62728')
+ax.annotate('(3.05, 6.95)', (3.05, 6.95), (3.4, 9.0), fontsize=9, color='#d62728')
+ax.axhline(0, color='0.6', lw=.6); ax.axvline(0, color='0.6', lw=.6)
+ax.set_xlim(-1, 12); ax.set_ylim(-2, 12); ax.legend(fontsize=8, loc='lower right')
+ax.set_xlabel('x'); ax.set_ylabel('y')
+plt.tight_layout(); plt.show()
+```
+
+**The idea.** Multiplying inequalities needs every quantity to be positive. Here the second bracket is only known
+to be above $-4$.
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q10</span>
 
 ::: {.question}
 Here is an attempt to solve the inequality $x^{4}-2x^{2}-3<0$ by completing the square:
 
 $$x^{4}-2x^{2}-3<0$$
+
 &nbsp;&nbsp;**I** &nbsp; if and only if $x^{4}-2x^{2}+1<4$
+
 &nbsp;&nbsp;**II** &nbsp; if and only if $(x^{2}-1)^{2}<4$
+
 &nbsp;&nbsp;**III** &nbsp; if and only if $-2<x^{2}-1<2$
+
 &nbsp;&nbsp;**IV** &nbsp; if and only if $x^{2}-1<2$
+
 &nbsp;&nbsp;**V** &nbsp; if and only if $x^{2}<3$
+
 &nbsp;&nbsp;**VI** &nbsp; if and only if $-\sqrt3<x<\sqrt3$
 
-Which of the following is true?
+Which of the following statements is true?
 
-&nbsp;&nbsp;**A** The argument is completely correct. &nbsp; **B** First error in line I. &nbsp; **C** line II.
-&nbsp; **D** line III. &nbsp; **E** line IV. &nbsp; **F** line V. &nbsp; **G** line VI.
+&nbsp;&nbsp;**A** The argument is completely correct.
+
+&nbsp;&nbsp;**B** The first error occurs in line I.
+
+&nbsp;&nbsp;**C** The first error occurs in line II.
+
+&nbsp;&nbsp;**D** The first error occurs in line III.
+
+&nbsp;&nbsp;**E** The first error occurs in line IV.
+
+&nbsp;&nbsp;**F** The first error occurs in line V.
+
+&nbsp;&nbsp;**G** The first error occurs in line VI.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**A**
+**A.** Every line claims "if and only if", so each must work in both directions.
 
-**Step 1 — Check each "if and only if".** Line I adds $4$ to both sides; line II writes
-$x^{4}-2x^{2}+1=(x^{2}-1)^{2}$; line III unfolds $(x^{2}-1)^{2}<4$ to $-2<x^{2}-1<2$. All are genuine
-equivalences.
+**Step 1 — Lines I to III.** Line I adds $4$ to both sides. Line II uses $x^{4}-2x^{2}+1=(x^{2}-1)^{2}$. Line III
+uses $u^{2}<4\iff-2<u<2$ with $u=x^{2}-1$. All three are genuine equivalences.
 
-**Step 2 — Inspect the suspicious III → IV.** Line IV keeps only $x^{2}-1<2$ and drops the half
-"$-2<x^{2}-1$". That is **legal**, because $x^{2}-1\geq-1>-2$ for every $x$ — the dropped inequality is
-automatically true, so nothing is lost.
+**Step 2 — The suspicious line IV.** It drops the half "$-2<x^{2}-1$". Dropping a condition can change a solution
+set, so check it. Since $x^{2}\ge0$, we always have $x^{2}-1\ge-1>-2$. The dropped half is true for **every** $x$,
+so removing it changes nothing.
 
-**Step 3 — Confirm the end.** Line V is $x^{2}<3$; line VI is $-\sqrt3<x<\sqrt3$. Check independently:
-$x^{4}-2x^{2}-3=(x^{2}-3)(x^{2}+1)<0\Leftrightarrow x^{2}<3$, since $x^{2}+1>0$ always. Every line holds —
-**A, completely correct**.
+**Step 3 — Lines V and VI.** Line V adds $1$. Line VI is $x^{2}<3\iff\lvert x\rvert<\sqrt3$. Both are fine.
 
-**Intuition.** Not every "spot the error" question has an error. A step that **drops an always-true half** of
-a double inequality is still an equivalence, so do not flag it out of suspicion.
+**Step 4 — An independent check.** Factorise the original:
+
+$$x^{4}-2x^{2}-3=(x^{2}-3)(x^{2}+1) .$$
+
+Since $x^{2}+1>0$, this is negative exactly when $x^{2}<3$. The answer agrees.
+
+**The idea.** Not every question of this type contains an error. Being suspicious is right; you still need a
+value that actually breaks the line.
 :::
 
 ---
 
-## Section B — Evaluate the proof
+# Section C — Proofs that do not hold up
 
-### B1 &nbsp; *(TMUA 2018 Paper 2, Q13)*
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q5</span>
 
 ::: {.question}
-The following is an attempted proof of the conjecture: **if $\tan\theta>0$, then $\sin\theta+\cos\theta>1$.**
-Suppose $\tan\theta>0$, so in particular $\cos\theta\neq0$.
+A student attempts to prove the following statement.
 
-&nbsp;&nbsp;**(I)** &nbsp; Since $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$, then
-$\sin\theta\cos\theta=\tan\theta\cos^{2}\theta>0$.
-&nbsp;&nbsp;**(II)** &nbsp; It follows that $1+2\sin\theta\cos\theta>1$.
-&nbsp;&nbsp;**(III)** &nbsp; Therefore $\sin^{2}\theta+2\sin\theta\cos\theta+\cos^{2}\theta>1$.
-&nbsp;&nbsp;**(IV)** &nbsp; which factorises to give $(\sin\theta+\cos\theta)^{2}>1$.
-&nbsp;&nbsp;**(V)** &nbsp; Therefore $\sin\theta+\cos\theta>1$.
+> Consider the integers $a$ and $b$, where $a$ has remainder $1$ when divided by $3$, and $b$ has remainder $2$
+> when divided by $3$. Then $a+b$ is always divisible by $3$.
 
-Which one of the following is the case? &nbsp; **A** The proof is correct. &nbsp; **B** First error in line
-(I). &nbsp; **C** line (II). &nbsp; **D** line (III). &nbsp; **E** line (IV). &nbsp; **F** line (V).
+Consider the following attempt:
+
+&nbsp;&nbsp;Let $a=3n+1$ and $b=3n+2$ &nbsp;&nbsp;**(I)**
+
+&nbsp;&nbsp;then $\;a+b=3n+1+3n+2$ &nbsp;&nbsp;**(II)**
+
+&nbsp;&nbsp;so $\;a+b=6n+3$ &nbsp;&nbsp;**(III)**
+
+&nbsp;&nbsp;so $\;a+b=3(2n+1)$ &nbsp;&nbsp;**(IV)**
+
+&nbsp;&nbsp;therefore $a+b$ is always divisible by $3$. &nbsp;&nbsp;**(V)**
+
+Which of the following best describes this proof?
+
+&nbsp;&nbsp;**A** The statement is true and the proof is completely correct.
+
+&nbsp;&nbsp;**B** The statement is true but there is an error in the proof in line (I)
+
+&nbsp;&nbsp;**C** The statement is true but there is an error in the proof in line (II)
+
+&nbsp;&nbsp;**D** The statement is not true and there is an error in the proof in line (III)
+
+&nbsp;&nbsp;**E** The statement is not true and there is an error in the proof in line (IV)
+
+&nbsp;&nbsp;**F** The statement is not true and there is an error in the proof in line (V)
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**F**
+**B.**
 
-**Step 1 — Lines (I)–(IV) are sound.** From $\tan\theta>0$ we do get $\sin\theta\cos\theta>0$, hence
-$1+2\sin\theta\cos\theta>1$, and using $\sin^{2}\theta+\cos^{2}\theta=1$ this is
-$(\sin\theta+\cos\theta)^{2}>1$ — all correct.
+**Step 1 — Is the statement true?** Yes. Remainders $1$ and $2$ add to $3$. This removes D, E and F.
 
-**Step 2 — Take the square root carefully.** From $a^{2}>1$ you get $a>1$ **or** $a<-1$, not just $a>1$.
-Line (V) keeps only the positive root.
+**Step 2 — What line (I) assumes.** Using the same letter $n$ in both says that $a$ and $b$ have the **same**
+quotient on division by $3$. That is an extra assumption. For example $a=1$ and $b=5$ satisfy the statement, with
+quotients $0$ and $1$, and line (I) cannot describe that pair. So the proof only covers pairs such as $a=4,\ b=5$.
 
-**Step 3 — Exhibit the failure.** With $\tan\theta>0$ in the **third quadrant**, e.g. $\theta=225^\circ$,
-$\sin\theta+\cos\theta=-\sqrt2<-1$: the square is $>1$ but the conclusion $\sin\theta+\cos\theta>1$ is false.
-First error: **line (V)**.
+**Step 3 — The repair.** Use two letters: $a=3n+1$ and $b=3m+2$. Then
 
-**Intuition.** Square-rooting an inequality is the "lost $\pm$" trap: $\sqrt{a^{2}}=\lvert a\rvert$, so
-$a^{2}>1$ means $\lvert a\rvert>1$, i.e. $a>1$ or $a<-1$.
+$$a+b=3n+3m+3=3(n+m+1) ,$$
+
+which is divisible by $3$. Lines (II) to (V) all follow correctly from line (I), so the first error is line (I).
+
+**The idea.** A new unknown needs a new letter. Reusing one quietly proves a smaller statement.
 :::
 
 ---
 
-### B2 &nbsp; *(TMUA 2022 Paper 2, Q7)*
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q7</span>
 
 ::: {.question}
-Consider the following claim: *the difference between two consecutive positive cube numbers is always prime.*
-Here is an attempted proof:
+A student attempts to prove that there are infinitely many prime numbers as follows:
 
-&nbsp;&nbsp;**I** &nbsp; $(x+1)^{3}=x^{3}+3x^{2}+3x+1$
-&nbsp;&nbsp;**II** &nbsp; Taking $x$ to be a positive integer, the difference between two consecutive cube
-numbers can be expressed as $(x+1)^{3}-x^{3}=3x^{2}+3x+1$.
-&nbsp;&nbsp;**III** &nbsp; It is impossible to factorise $3x^{2}+3x+1$ into two linear factors with integer
-coefficients because its discriminant is negative.
-&nbsp;&nbsp;**IV** &nbsp; Therefore for every positive integer value of $x$ the integer $3x^{2}+3x+1$ cannot
-be factorised.
-&nbsp;&nbsp;**V** &nbsp; Hence, the difference between two consecutive cube numbers will always be prime.
+&nbsp;&nbsp;Assume that there are finitely many prime numbers, and let the largest be $p$ &nbsp;&nbsp;**(I)**
 
-Which of the following best describes this proof? &nbsp; **A** completely correct, claim true. &nbsp;
-**B** completely correct, but there are counterexamples to the claim. &nbsp; **C** wrong, first error line I.
-&nbsp; **D** line II. &nbsp; **E** line III. &nbsp; **F** line IV. &nbsp; **G** line V.
+&nbsp;&nbsp;Let $n=2p+1$ so that $n>p$ &nbsp;&nbsp;**(II)**
+
+&nbsp;&nbsp;Consider $n=2p+1$. This is not divisible by $p$ &nbsp;&nbsp;**(III)**
+
+&nbsp;&nbsp;Therefore $n$ is also a prime number &nbsp;&nbsp;**(IV)**
+
+&nbsp;&nbsp;This contradicts the initial assumption so we conclude that there are infinitely many prime numbers
+&nbsp;&nbsp;**(V)**
+
+Which of the following best describes this proof?
+
+&nbsp;&nbsp;**A** The statement is not true and there is an error in the proof in line (I)
+
+&nbsp;&nbsp;**B** The statement is not true and there is an error in the proof in line (II)
+
+&nbsp;&nbsp;**C** The statement is true but there is an error in the proof in line (III)
+
+&nbsp;&nbsp;**D** The statement is true but there is an error in the proof in line (IV)
+
+&nbsp;&nbsp;**E** The statement is true but there is an error in the proof in line (V)
+
+&nbsp;&nbsp;**F** The statement is true and the proof is completely correct.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**F**
+**D.**
 
-The heart of this question is a single confusion: mixing up **"the polynomial cannot be factorised"** with
-**"the integer value you compute cannot be factorised (is prime)"**. They are not the same thing.
+**Step 1 — The statement is true.** There are infinitely many primes, so A and B are out.
 
-**Step 1 — Line III is true.** The *polynomial* $3x^{2}+3x+1$ has discriminant
-$$D=3^{2}-4(3)(1)=9-12=-3<0,$$
-so it **cannot** be split into linear factors with integer coefficients. It is an **irreducible polynomial** —
-this line is completely correct.
+**Step 2 — Check lines (I) to (III).** Line (I) sets up a proof by contradiction. Line (II) holds since $2p+1>p$.
+Line (III) holds since $2p+1$ leaves remainder $1$ on division by $p$, because $p\ge2$.
 
-**Step 2 — Line IV is the false leap.** Line IV concludes: "since the polynomial doesn't factorise, the
-**number** you get by substituting any integer $x$ can never be factorised either (so it is prime)." But an
-irreducible polynomial can still take **composite values**.
+**Step 3 — Line (IV) is the false step.** Not being divisible by $p$ does not make $n$ prime. It could be divisible
+by a smaller prime. Take $p=7$: then $n=15=3\times5$, which is not divisible by $7$ and is not prime.
 
-::: {.callout-tip appearance="simple"}
-**An easy example to see the leap fail.** Take the simplest irreducible polynomial, $f(x)=x^{2}+1$ (it does
-not factor over the integers). Substitute $x=3$:
-$$f(3)=3^{2}+1=10=2\times5.$$
-The *polynomial* is irreducible, yet the *value* $10$ factorises perfectly — it is **not** prime. Irreducible
-polynomial, composite value.
-:::
+**Why E fails.** Line (V) would follow if line (IV) were true, so it is not the first error.
 
-**Step 3 — The actual counterexample ($x=5$).** For this proof, substitute $x=5$ into $3x^{2}+3x+1$:
-$$3(5)^{2}+3(5)+1=75+15+1=91=7\times13.$$
-This is the difference of the consecutive cubes $6^{3}-5^{3}=216-125=91$ — and $91$ is **composite**, not
-prime. So line IV (and hence the claim) is false.
-
-**Intuition.** Polynomial irreducibility $\neq$ integer primality — the exact lesson of MAT Q1G (C1 below).
-
-::: {.callout-important appearance="simple"}
-**Bottom line.** The first logical error is **line IV**, where an **algebraic** property of the polynomial (it
-does not factorise) is wrongly leaped to a **number-theoretic** property of its integer values (they are
-prime). Answer: **F**.
-:::
+**The repair.** Euclid's proof uses $n=$ (the product of all the primes) $+1$. That leaves remainder $1$ on division
+by **every** prime, not just by $p$.
 :::
 
 ---
 
-### B3 &nbsp; *(TMUA 2023 Paper 2, Q4)*
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise K, Q5</span>
 
 ::: {.question}
-A student attempts to answer: *what is the largest number of consecutive odd integers that are all prime?*
-The attempt is as follows:
+Why is it a mistake to write the contrapositive of
 
-&nbsp;&nbsp;**I** &nbsp; There are two consecutive odd integers that are prime (for example: $17,19$).
-&nbsp;&nbsp;**II** &nbsp; Any three consecutive odd integers can be written in the form $n-2,\,n,\,n+2$ for
-some $n$.
-&nbsp;&nbsp;**III** &nbsp; If $n$ is one more than a multiple of $3$, then $n+2$ is a multiple of $3$.
-&nbsp;&nbsp;**IV** &nbsp; If $n$ is two more than a multiple of $3$, then $n-2$ is a multiple of $3$.
-&nbsp;&nbsp;**V** &nbsp; The only other possibility is that $n$ is a multiple of $3$.
-&nbsp;&nbsp;**VI** &nbsp; In each case, one of the integers is a multiple of $3$, so not prime.
-&nbsp;&nbsp;**VII** &nbsp; Therefore the largest number of consecutive odd integers that are all prime is two.
+> if $a$ and $b$ are odd, then $ab$ is odd
 
-Which of the following best describes this attempt? &nbsp; **A** completely correct. &nbsp; **B** first error
-line I. &nbsp; **C** line II. &nbsp; **D** line III. &nbsp; **E** line IV. &nbsp; **F** line V. &nbsp;
-**G** line VI. &nbsp; **H** line VII.
+as
+
+> if $ab$ is not odd then $a$ and $b$ are not odd?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**G**
+**Because the negation of "$a$ and $b$ are odd" is not "$a$ and $b$ are not odd".**
 
-**Step 1 — Lines I–V hold.** One of any three consecutive odd integers is indeed a multiple of $3$ (the three
-residue cases are covered correctly).
+**Step 1 — Write the two halves.** The hypothesis is an **and**: "$a$ is odd **and** $b$ is odd".
 
-**Step 2 — Check line VI's leap.** "A multiple of $3$, so **not prime**" fails when the multiple of $3$ **is
-$3$ itself** — which is prime. For the triple $3,5,7$ (all prime), the multiple of $3$ is $3$.
+**Step 2 — Negate it correctly.** The negation of "$P$ and $Q$" is "not $P$ **or** not $Q$":
 
-**Step 3 — Conclude.** The run $3,5,7$ has length **three**, so the answer "two" is wrong; the first false
-line is **line VI**.
+$$\text{not}(a\text{ odd and }b\text{ odd})\ =\ a\text{ is even or }b\text{ is even}.$$
 
-**Intuition.** "Multiple of $3$ $\Rightarrow$ not prime" forgets the single exception, $3$. The conclusion in
-line VII is wrong too, but the earliest broken line is VI.
+So the true contrapositive is:
+
+> if $ab$ is even then $a$ and $b$ are not both odd, that is, at least one of $a$ and $b$ is even.
+
+**Step 3 — The careless version is false.** It read "$a$ and $b$ are not odd" as both of them being even. Take
+$a=2$ and $b=3$. Then $ab=6$ is not odd, but $b$ is odd. A true statement must have a true contrapositive, so this
+cannot be its contrapositive.
 :::
 
 ---
 
-### B4 &nbsp; *(TMUA 2020 Paper 2, Q8)*
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise O, Q1</span>
+
+::: {.question}
+Here is the proof that $\sqrt2$ is irrational.
+
+> We assume that $\sqrt2$ is rational. Then it can be written as a fraction in its lowest terms, $\sqrt2=\dfrac ab$,
+> where $a$ and $b$ have no factors in common. Squaring both sides gives $2=\dfrac{a^{2}}{b^{2}}$, which gives
+> $2b^{2}=a^{2}$. From this we can see that $a^{2}$ is even. For $a^{2}$ to be even, $a$ itself must be even. And if
+> $a$ is even then $a^{2}$ is divisible by $4$. If $a^{2}$ is divisible by $4$ then $b^{2}$ must also be even. For
+> $b^{2}$ to be even, $b$ must be even. Thus, we have $a$ is even and $b$ is even. This contradicts the assumption
+> that $\dfrac ab$ is a fraction in its lowest terms.
+
+Replace $2$ by $9$ in the proof that $\sqrt2$ is irrational. Why does the proof no longer work?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Because "$a^{2}$ is a multiple of $9$" does not force "$a$ is a multiple of $9$".** It must fail somewhere, since
+$\sqrt9=3$ is rational.
+
+**Step 1 — Run the proof with $9$.** From $\sqrt9=\tfrac ab$ in lowest terms we get $9b^{2}=a^{2}$, so $a^{2}$ is a
+multiple of $9$.
+
+**Step 2 — The step that breaks.** The proof for $2$ says "for $a^{2}$ to be even, $a$ must be even". That relies on
+$2$ being prime. The version for $9$ is false: $a=3$ has $a^{2}=9$, a multiple of $9$, but $3$ is not a multiple of
+$9$.
+
+**Step 3 — What really follows.** All we may say is that $a$ is a multiple of $3$. Write $a=3k$. Then
+
+$$9b^{2}=9k^{2}\quad\Longrightarrow\quad b^{2}=k^{2}\quad\Longrightarrow\quad b=k$$
+
+for positive $a$ and $b$. So $a=3b$, which is exactly $\sqrt9=3$. Nothing forces $b$ to share a factor with $a$, and
+indeed $\tfrac31$ is in lowest terms. So there is no contradiction.
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q8</span>
 
 ::: {.question}
 A student is asked to prove whether the following statement $(*)$ is true or false:
-$$(*)\quad\text{For all real numbers } a \text{ and } b,\ \ |a+b|<|a|+|b|.$$
-The student's proof is as follows: *Statement $(*)$ is **false**. A counterexample is $a=3,\,b=4$, as
-$|3+4|=7$ and $|3|+|4|=7$, but $7<7$ is false.*
 
-Which of the following best describes the student's proof? &nbsp; **A** $(*)$ is true, and the proof is not
-correct. &nbsp; **B** $(*)$ is false, but the proof is not correct: the counterexample is not valid. &nbsp;
-**C** $(*)$ is false, but the proof is not correct: the student needs to give *all* the values of $a,b$ where
-$|a+b|<|a|+|b|$ is false. &nbsp; **D** $(*)$ is false, but the proof is not correct: the student should have
-stated $|a+b|\leq|a|+|b|$. &nbsp; **E** $(*)$ is false, and the proof is fully correct.
+$$(*)\quad\text{For all real numbers } a \text{ and } b,\quad |a+b|<|a|+|b|$$
+
+The student's proof is as follows:
+
+> Statement $(*)$ is false. A counterexample is $a=3$, $b=4$, as $|3+4|=7$ and $|3|+|4|=7$, but $7<7$ is false.
+
+Which of the following best describes the student's proof?
+
+&nbsp;&nbsp;**A** The statement $(*)$ is true, and the student's proof is not correct.
+
+&nbsp;&nbsp;**B** The statement $(*)$ is false, but the student's proof is not correct: the counterexample is not valid.
+
+&nbsp;&nbsp;**C** The statement $(*)$ is false, but the student's proof is not correct: the student needs to give *all* the values of $a$ and $b$ where $|a+b|<|a|+|b|$ is false.
+
+&nbsp;&nbsp;**D** The statement $(*)$ is false, but the student's proof is not correct: the student should have instead stated that for all real numbers $a$ and $b$, $|a+b|\le|a|+|b|$.
+
+&nbsp;&nbsp;**E** The statement $(*)$ is false, and the student's proof is fully correct.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**E**
+**E.**
 
-**Step 1 — Is $(*)$ actually false?** When $a,b$ share a sign (or either is $0$), $\lvert a+b\rvert=\lvert
-a\rvert+\lvert b\rvert$, so the strict "$<$" fails. $(*)$ is indeed **false**. (The true statement is the
-triangle inequality, with "$\leq$".)
+**Step 1 — Is $(*)$ false?** It claims a **strict** inequality for all $a$ and $b$. When $a$ and $b$ have the same sign
+the two sides are equal, so it fails. This removes A.
 
-**Step 2 — Is one counterexample enough?** Yes — a single case disproves a "for all" claim. There is no need
-to list every failure (so C is wrong), and the task was to judge $(*)$, not to repair it (so D is wrong).
+**Step 2 — Is the counterexample valid?** With $a=3$ and $b=4$, $|a+b|=7$ and $|a|+|b|=7$. "$7<7$" is false. So this
+pair really does break $(*)$, which removes B. Equality counts as a failure of "$<$".
 
-**Step 3 — Is the counterexample valid?** $a=3,b=4$ gives $\lvert a+b\rvert=7$ and $\lvert a\rvert+\lvert
-b\rvert=7$, so "$7<7$" is false there — a genuine counterexample. Statement false, proof fully correct — **E**.
+**Step 3 — Is one enough?** Yes. One case disproves a "for all" statement, so C is wrong.
 
-**Intuition.** To disprove "$<$ for all", you only need one place where "$<$" fails, and **equality counts**
-as a failure of the strict inequality.
+**Step 4 — Did the student need to repair the statement?** No. They were asked whether it is true or false. The
+inequality with "$\le$" is a true fact, but it is not needed, so D is wrong.
+
+**The idea.** The honest answer can be "this proof is fine", even in a question that seems to invite an objection.
 :::
 
 ---
 
-## Section C — Cross-exam (MAT)
-
-### C1 &nbsp; *(MAT 2022, Q1G)*
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q4</span>
 
 ::: {.question}
-For all real $n$, it is the case that
-$n^{4}+1=\left(n^{2}+\sqrt2\,n+1\right)\left(n^{2}-\sqrt2\,n+1\right)$. From this we may deduce that $n^{4}+4$
-is
+A student attempts to answer the following question.
+
+> What is the largest number of consecutive odd integers that are all prime?
+
+The student's attempt is as follows:
+
+&nbsp;&nbsp;**I** &nbsp; There are two consecutive odd integers that are prime (for example: $17,\,19$).
+
+&nbsp;&nbsp;**II** &nbsp; Any three consecutive odd integers can be written in the form $n-2,\ n,\ n+2$ for some $n$.
+
+&nbsp;&nbsp;**III** &nbsp; If $n$ is one more than a multiple of $3$, then $n+2$ is a multiple of $3$.
+
+&nbsp;&nbsp;**IV** &nbsp; If $n$ is two more than a multiple of $3$, then $n-2$ is a multiple of $3$.
+
+&nbsp;&nbsp;**V** &nbsp; The only other possibility is that $n$ is a multiple of $3$.
+
+&nbsp;&nbsp;**VI** &nbsp; In each case, one of the integers is a multiple of $3$, so not prime.
+
+&nbsp;&nbsp;**VII** &nbsp; Therefore the largest number of consecutive odd integers that are all prime is two.
+
+Which of the following best describes this attempt?
+
+&nbsp;&nbsp;**A** It is completely correct.
+
+&nbsp;&nbsp;**B** It is incorrect, and the first error is on line I.
+
+&nbsp;&nbsp;**C** It is incorrect, and the first error is on line II.
+
+&nbsp;&nbsp;**D** It is incorrect, and the first error is on line III.
+
+&nbsp;&nbsp;**E** It is incorrect, and the first error is on line IV.
+
+&nbsp;&nbsp;**F** It is incorrect, and the first error is on line V.
+
+&nbsp;&nbsp;**G** It is incorrect, and the first error is on line VI.
+
+&nbsp;&nbsp;**H** It is incorrect, and the first error is on line VII.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**G.**
+
+**Step 1 — Try small numbers first.** Write out the odd numbers: $1,3,5,7,9,11,\dots$ The run $3,5,7$ is three
+consecutive odd integers that are all prime. So the conclusion "two" is false, which rules out A.
+
+**Step 2 — Check lines I to V.**
+
+- Line I: $17$ and $19$ are both prime. ✓
+- Line II: consecutive odd integers differ by $2$. ✓
+- Line III: if $n=3k+1$ then $n+2=3k+3=3(k+1)$. ✓
+- Line IV: if $n=3k+2$ then $n-2=3k$. ✓
+- Line V: every integer leaves remainder $0$, $1$ or $2$. ✓
+
+**Step 3 — Line VI is the first false line.** "A multiple of $3$, so not prime" forgets that $3$ itself is a multiple
+of $3$ and **is** prime. In the triple $3,5,7$ the multiple of $3$ is $3$.
+
+**Why H fails.** Line VII is false too, but it is not the first false line.
+
+**The idea.** Test the smallest allowed values before you trust a general argument.
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2022 · Q1G</span>
+
+::: {.question}
+For all real $n$, it is the case that $n^{4}+1=\left(n^{2}+\sqrt2\,n+1\right)\left(n^{2}-\sqrt2\,n+1\right)$. From this
+we may deduce that $n^{4}+4$ is
 
 &nbsp;&nbsp;**(a)** never a prime number for any positive whole number $n$.
+
 &nbsp;&nbsp;**(b)** a prime number for exactly one positive whole number $n$.
+
 &nbsp;&nbsp;**(c)** a prime number for exactly two positive whole numbers $n$.
+
 &nbsp;&nbsp;**(d)** a prime number for exactly three positive whole numbers $n$.
+
 &nbsp;&nbsp;**(e)** a prime number for exactly four positive whole numbers $n$.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-**Answer (b)**
+**(b).**
 
-**Step 1 — Factorise $n^{4}+4$ the same way (Sophie Germain).**
-$$n^{4}+4=(n^{2}+2)^{2}-(2n)^{2}=(n^{2}-2n+2)(n^{2}+2n+2).$$
+**Step 1 — Use the given identity.** It holds for all real $n$, so replace $n$ by $\dfrac{m}{\sqrt2}$:
 
-**Step 2 — A product is prime only if a factor is $1$.** The smaller factor is
-$n^{2}-2n+2=(n-1)^{2}+1\geq1$, and it equals $1$ **only at $n=1$**.
+$$\frac{m^{4}}{4}+1=\left(\frac{m^{2}}{2}+m+1\right)\left(\frac{m^{2}}{2}-m+1\right).$$
 
-**Step 3 — Evaluate the one case.** At $n=1$, $n^{4}+4=5$, prime. For every $n\geq2$ both factors exceed $1$,
-so the value is composite. Hence $n^{4}+4$ is prime for **exactly one** positive whole number — **(b)**.
+Multiply both sides by $4$, giving a factor of $2$ to each bracket:
 
-**Intuition.** A genuine factorisation forces compositeness *except* where a factor collapses to $1$ — the
-same idea that sinks B2's claim (irreducible polynomial, still-composite values).
+$$m^{4}+4=\left(m^{2}+2m+2\right)\left(m^{2}-2m+2\right).$$
+
+**Step 2 — When can a product be prime?** Both factors are positive integers when $m$ is a positive whole number. A
+product of two positive integers is prime only if one factor is $1$.
+
+**Step 3 — Find when a factor equals $1$.** The smaller factor is
+
+$$m^{2}-2m+2=(m-1)^{2}+1 ,$$
+
+which equals $1$ only at $m=1$. The larger factor is at least $5$ for $m\ge1$.
+
+**Step 4 — Check.** At $m=1$, $m^{4}+4=5$, which is prime. For $m\ge2$ both factors exceed $1$, so the value is
+composite. For example $2^{4}+4=20=2\times10$. So $n^{4}+4$ is prime for exactly one positive whole number.
+
+**The idea.** Do not stop at "it factorises, so it is never prime". That line is the same kind of error as the ones
+on this sheet, and it leads to option (a).
 :::
+
+---
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q9</span>
+
+::: {.question}
+Consider the following attempt to prove this true theorem:
+
+> *Theorem:* $a^{3}+b^{3}=c^{3}$ has no solutions with $a$, $b$ and $c$ positive integers.
+
+*Attempted proof:* Suppose that there are positive integers $a$, $b$ and $c$ such that $a^{3}+b^{3}=c^{3}$.
+
+&nbsp;&nbsp;**I** &nbsp; We have $a^{3}=c^{3}-b^{3}$.
+
+&nbsp;&nbsp;**II** &nbsp; Hence $a^{3}=(c-b)(c^{2}+cb+b^{2})$.
+
+&nbsp;&nbsp;**III** &nbsp; It follows that $a=c-b$ and $a^{2}=c^{2}+cb+b^{2}$, since $a\leqslant a^{2}$ and
+$c-b\leqslant c^{2}+cb+b^{2}$.
+
+&nbsp;&nbsp;**IV** &nbsp; Eliminating $a$, we have $(c-b)^{2}=c^{2}+cb+b^{2}$.
+
+&nbsp;&nbsp;**V** &nbsp; Multiplying out, we have $c^{2}-2cb+b^{2}=c^{2}+cb+b^{2}$.
+
+&nbsp;&nbsp;**VI** &nbsp; Hence $3cb=0$ so one of $b$ and $c$ is zero.
+
+But this is a contradiction to the original assumption that all of $a$, $b$ and $c$ are positive. It follows that the
+equation has no solutions.
+
+Comment on this proof by choosing one of the following options:
+
+&nbsp;&nbsp;**A** The proof is correct
+
+&nbsp;&nbsp;**B** The proof is incorrect and the first mistake occurs on line I.
+
+&nbsp;&nbsp;**C** The proof is incorrect and the first mistake occurs on line II.
+
+&nbsp;&nbsp;**D** The proof is incorrect and the first mistake occurs on line III.
+
+&nbsp;&nbsp;**E** The proof is incorrect and the first mistake occurs on line IV.
+
+&nbsp;&nbsp;**F** The proof is incorrect and the first mistake occurs on line V.
+
+&nbsp;&nbsp;**G** The proof is incorrect and the first mistake occurs on line VI.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.**
+
+**Step 1 — Lines I and II are fine.** Line I rearranges the equation. Line II is the standard difference of two
+cubes.
+
+**Step 2 — What line III claims.** We have $a\cdot a^{2}=(c-b)(c^{2}+cb+b^{2})$, and in each product the first factor
+is the smaller. Line III concludes that the factors must match, smaller with smaller.
+
+**Step 3 — Why that does not follow.** A number can be written as a product in many ways. Take $a=6$:
+
+$$6^{3}=216=6\times36=3\times72 .$$
+
+Both products have the smaller factor first, and they do not match. So the size comparison on line III cannot rule
+out a pairing such as $c-b=3$ and $c^{2}+cb+b^{2}=72$ with $a=6$. The simplest case that line III ignores is $c-b=1$.
+
+There is no explicit counterexample with $a^{3}+b^{3}=c^{3}$, because the theorem is true. The point is that the step
+**does not follow**, which is what makes a line of a proof wrong.
+
+**Step 4 — Lines IV to VI.** These follow correctly from line III, but they inherit its error. So the first mistake
+is line III.
+
+**The idea.** A true theorem, a contradiction at the end, and neat algebra do not make a proof valid. A proof fails
+at the first step that does not follow.
+:::
+
+---
+
+# What each question tests
+
+| Q | Source | Tests |
+|---|---|---|
+| 1 | TMUA early specimen · P2 Q3 | Where an extra root enters a squaring chain |
+| 2 | Notes on Logic and Proof · Exercise Q | Squaring twice; candidates must be checked in the original |
+| 3 | 2018 · P2 Q9 | A root lost by cancelling a bracket that can be zero |
+| 4 | 2017 · P2 Q4 | Incomplete reasoning that still reaches the right value |
+| 5 | 2019 · P2 Q6 | A product equal to $-1$ does not force a factor to be $-1$ |
+| 6 | Notes on Logic and Proof · Exercise R, Q3 | Multiplying an inequality by an expression of unknown sign |
+| 7 | Notes on Logic and Proof · Exercise R, Q1 | Powers of an inequality: odd powers are safe, even powers are not |
+| 8 | Tyler TMUA Set C · P2 Q3 | Reciprocals, an increasing function and an unknown multiplier |
+| 9 | 2016 · P2 Q8 | Adding inequalities is safe; multiplying them is not |
+| 10 | 2023 · P2 Q10 | A valid chain: dropping a half that is always true |
+| 11 | Tyler TMUA Set C · P2 Q5 | A true statement with a proof that covers too little |
+| 12 | Tyler TMUA Set D · P2 Q7 | A true theorem and a false step inside its proof |
+| 13 | Notes on Logic and Proof · Exercise K, Q5 | A careless negation inside a contrapositive |
+| 14 | Notes on Logic and Proof · Exercise O, Q1 | A proof that breaks when one number changes |
+| 15 | 2020 · P2 Q8 | Judging a disproof: one counterexample is enough |
+| 16 | 2023 · P2 Q4 | The exception hiding in "a multiple of 3, so not prime" |
+| 17 | MAT 2022 · Q1G | A factorisation forces composite values, except where a factor is 1 |
+| 18 | 2017 · P2 Q9 | Two factorisations of one number need not match |
 
 :::

@@ -2,6 +2,7 @@
 title: "Toolkit S1 — Assignment · Mark Scheme"
 subtitle: "Tutor copy — full solutions with reasoning"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -9,301 +10,1100 @@ execute:
 
 ::: {.solutions}
 
-Marks are shown as **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
-
-Each solution carries the *reasoning* as well as the answer — the italic sentences are the bit worth
-saying aloud while marking, because they are what the student actually needs to hear.
+20 multiple-choice questions, each worth one mark. Answers were checked against the official or publisher
+solutions where one exists locally. No solution to MAT 2021 is held here, so Question 15 was checked by proof
+and by computation.
 
 ---
 
-# Section A — Fluency
+# Section A — Reading an implication
 
-## Question 1 **[4]**
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q9</span>
 
 ::: {.question}
-$P$ and $Q$ are statements. Write each of the following using $\Rightarrow$ or $\Leftrightarrow$.
-&nbsp;&nbsp;(a) $Q$ only if $P$ &nbsp; (b) $Q$ if $P$ &nbsp; (c) $P$ if and only if $Q$ &nbsp; (d) If $Q$ then
-$P$.
+A set of cards has a single letter printed on the front and a single number printed on the back.
+
+Five of these cards are laid on the table so that only one side of each card is visible. The cards show:
+
+$$5 \qquad \text{E} \qquad 7 \qquad \text{F} \qquad 9$$
+
+Lara states that all cards with a vowel on the front have a prime number on the back.
+
+Which cards do you need to turn over in order to check if this statement is true?
+
+&nbsp;&nbsp;**A** all of the cards
+
+&nbsp;&nbsp;**B** cards E, 5 and 7
+
+&nbsp;&nbsp;**C** card E only
+
+&nbsp;&nbsp;**D** cards F and 9
+
+&nbsp;&nbsp;**E** cards E and 9
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a)** $Q \Rightarrow P$ &nbsp; **(B1)**
+**E — cards E and 9.**
 
-*"Only if" keeps the order as written: the half in front of "only if" is the one that gets forced.*
+Lara's statement is an implication: **vowel $\Rightarrow$ prime**. It is false in exactly one situation: a
+vowel on one side and a non-prime on the other. So turn over a card only if it could be that situation.
 
-**(b)** $P \Rightarrow Q$ &nbsp; **(B1)**
-
-*The bare "if" introduces the forcer, so the arrow starts at $P$ even though $P$ is written second.*
-
-**(c)** $P \Leftrightarrow Q$ &nbsp; **(B1)**
-
-**(d)** $Q \Rightarrow P$ &nbsp; **(B1)**
-
-**Note for marking.** (a) and (d) come out identical — worth pointing out, because *"$Q$ only if $P$"* and
-*"if $Q$ then $P$"* look quite different in English.
-:::
-
----
-
-## Question 2 **[3]**
-
-::: {.question}
-Let $n=30$. State whether each is **true** or **false**. &nbsp;&nbsp;(a) $n$ is divisible by $4$ **or** by
-$5$. &nbsp; (b) $n$ is divisible by $5$ **and** by $6$. &nbsp; (c) $n$ is **not** divisible by $9$.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-$30 = 2 \times 3 \times 5$.
-
-**(a) True** &nbsp; **(B1)** — $30$ is not divisible by $4$, but it **is** divisible by $5$.
-*"Or" only needs one side.*
-
-**(b) True** &nbsp; **(B1)** — $30 = 5\times 6$, so both halves hold. *"And" needs both, and here it gets both.*
-
-**(c) True** &nbsp; **(B1)** — $30 \div 9$ is not an integer, so "not divisible by $9$" is true.
-
-**Common error.** Marking (a) false on the grounds that the first half fails. One true half is enough for
-*or*.
-:::
-
----
-
-## Question 3 **[3]**
-
-::: {.question}
-Let $n$ be a positive integer. Decide **true**/**false**, with a counterexample for any false one.
-&nbsp;&nbsp;(a) $n$ is divisible by $10$ **only if** $n$ is divisible by $5$. &nbsp; (b) $n$ is divisible by
-$10$ **if** $n$ is divisible by $5$. &nbsp; (c) $n^2$ is even **if and only if** $n$ is even.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a) True** &nbsp; **(B1)**
-
-Rewrite: *if $n$ is divisible by $10$, then $n$ is divisible by $5$.* Every multiple of ten is
-$10k = 5(2k)$. ✓
-
-**(b) False**, counterexample $n = 5$ (or $15$, $25$, …) &nbsp; **(B1)**
-
-*Bare "if", so swap*: this claims *if $n$ is divisible by $5$ then $n$ is divisible by $10$*, and $5$ is a
-counterexample.
-
-**(c) True** &nbsp; **(B1)**
-
-Both directions hold:
-
-- ($\Rightarrow$) if $n$ is even, $n = 2k$, so $n^2 = 4k^2$ is even.
-- ($\Leftarrow$) if $n$ is odd, $n = 2k+1$, so $n^2 = 4k^2+4k+1$ is odd — so $n^2$ even forces $n$ even.
-
-*The second direction is proved by contrapositive, which is the natural move whenever "$n$ is odd" is
-easier to work with than "$n$ is not even".*
-
-**Award the mark in (b) only if a counterexample is given** — "false" alone is not a justification.
-:::
-
----
-
-# Section B — Exam standard
-
-## Question 4 **[4]**
-
-::: {.question}
-Assume true: *if a shape is a square, then it has four equal sides.* State what follows (write "nothing"
-where nothing does). &nbsp;&nbsp;(a) The shape is a square. &nbsp; (b) It has four equal sides. &nbsp;
-(c) It does **not** have four equal sides. &nbsp; (d) It is **not** a square.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a) It has four equal sides.** &nbsp; **(B1)** *— the promise, used forwards.*
-
-**(b) Nothing.** &nbsp; **(B1)**
-
-*A rhombus has four equal sides and is not a square. Knowing the back half tells you nothing.*
-
-**(c) It is not a square.** &nbsp; **(B1)**
-
-*If it were a square it would have four equal sides; it doesn't, so it can't be. This is the
-contrapositive — the one deduction that is always free.*
-
-**(d) Nothing.** &nbsp; **(B1)**
-
-*A rhombus again: not a square, yet four equal sides. The statement says nothing about non-squares.*
-
-**Marking note.** (b) and (d) are the two that matter. A student who answers anything other than "nothing"
-for either has not yet understood that implication is one-way — send them back to the church-bells table.
-:::
-
----
-
-## Question 5 **[4]**
-
-::: {.question}
-For a real number $x$, consider "*$x>3$ **only if** $x^2>9$*". &nbsp;&nbsp;(a) Rewrite it as "if … then …".
-&nbsp; (b) Is it true? Justify. &nbsp; (c) Replace "only if" with "if" — is *that* statement true? If not,
-give a counterexample.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a)** *If $x > 3$, then $x^2 > 9$.* &nbsp; **(B1)**
-
-**(b) True.** &nbsp; **(B1)**
-
-*If $x > 3$ then $x$ is positive and bigger than $3$, so squaring preserves the inequality: $x^2 > 9$.*
-
-**(c)** The new statement is *$x > 3$ **if** $x^2 > 9$*, i.e. **if $x^2 > 9$ then $x > 3$**. &nbsp; **(M1)**
-
-**False**, counterexample $x = -4$: then $x^2 = 16 > 9$ but $x = -4 \not> 3$. &nbsp; **(A1)**
-
-*This is the same trap as $x=3$ / $x^2=9$: squaring throws away the sign, so the reverse implication fails
-on the negatives. The correct reverse statement would be $x^2>9 \Rightarrow |x|>3$.*
-:::
-
----
-
-## Question 6 **[6]**
-
-::: {.question}
-$n$ a positive integer; theorem $(*)$: *if $n$ is divisible by $12$ then $n$ is divisible by $4$*. Which,
-taken individually, is/are equivalent to $(*)$? &nbsp;&nbsp;**I** if $n$ divisible by $4$ then by $12$;
-&nbsp; **II** $n$ divisible by $12$ **only if** by $4$; &nbsp; **III** $n$ **not** divisible by $4$ **only
-if** $n$ **not** divisible by $12$. &nbsp; (Options **A**–**H**.)
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **E** (II and III)
-
-Let $P$ = "$n$ is divisible by $12$" and $Q$ = "$n$ is divisible by $4$". Then
-
-$$(*) \;=\; P \Rightarrow Q . \qquad \textbf{(M1 for naming and writing } (*) \textbf{ as an arrow)}$$
-
-**I.** "If $n$ divisible by $4$, then $n$ divisible by $12$" is $Q \Rightarrow P$ — the **converse**.
-Not equivalent. &nbsp; **(B1)**
-
-*It is also false in fact ($n=8$), but the reason it fails the question is structural: a statement and its
-converse are different claims.*
-
-**II.** "$P$ **only if** $Q$" is $P \Rightarrow Q$ — this is $(*)$ itself. **Equivalent.** &nbsp; **(B1)**
-
-**III.** "$\text{not } Q$ **only if** $\text{not } P$" — apply the rule, keeping the order:
-$$\text{not } Q \Rightarrow \text{not } P ,$$
-which is the **contrapositive** of $(*)$. **Equivalent.** &nbsp; **(M1 A1)**
-
-**So II and III only — option E.** &nbsp; **(A1)**
-
-::: {.callout-warning appearance="simple"}
-**The distinction being tested.** Statement III negates **and** reverses — that is a contrapositive, and
-it is always equivalent. Compare the class-material question (2023 Q11), where the distractor negated both
-halves but **did not** reverse the arrow, giving the *inverse*, which is **not** equivalent. Students who
-learned "negation means contrapositive" will get one of these two questions wrong.
-:::
-:::
-
----
-
-# Section C — Stretch
-
-## Question 7 **[5]**
-
-::: {.question}
-An attempt to solve $x^4-10x^2+9<0$: &nbsp; **I** iff $(x^2-1)(x^2-9)<0$; &nbsp; **II** iff $1<x^2<9$;
-&nbsp; **III** iff $1<x<3$. &nbsp;&nbsp;(a) Which line has the **first** error (or is it correct)? &nbsp;
-(b) Justify, and give the correct solution set.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — the first error is in **line III**
-
-**(a)** Line **III**. &nbsp; **(B1)**
-
-**(b)** Checking each line in turn:
-
-**Line I** ✓ — $x^4 - 10x^2 + 9 = (x^2-1)(x^2-9)$ is an identity, true for every $x$, so the step is
-reversible. &nbsp; **(M1)**
-
-**Line II** ✓ — check both directions. &nbsp; **(M1)**
-
-- ($\Rightarrow$) If $(x^2-1)(x^2-9)<0$ the factors have opposite signs. Either $x^2>1$ and $x^2<9$
-  (giving $1<x^2<9$ ✓), or $x^2<1$ and $x^2>9$ — **impossible**. So $1<x^2<9$.
-- ($\Leftarrow$) If $1<x^2<9$ then $x^2-1>0$ and $x^2-9<0$, so the product is
-  $(\text{positive})\times(\text{negative}) < 0$. ✓
-
-**Line III** ✗ — and again, take the directions one at a time. &nbsp; **(A1)**
-
-- ($\Leftarrow$) If $1<x<3$ then squaring gives $1<x^2<9$. ✓ *This direction is fine — which is exactly
-  why the line looks convincing.*
-- ($\Rightarrow$) If $1<x^2<9$, does $1<x<3$ follow? **No**: $x=-2$ gives $x^2=4$, so line II holds
-  (and indeed $x^4-10x^2+9=-15<0$), but $-2$ does not satisfy $1<x<3$. ✗
-
-One direction survives, the other fails — so the lines are not equivalent and "if and only if" is a false
-claim.
-
-Correct conclusion: $1 < |x| < 3$, so the solution set is
-
-$$(-3,\,-1) \;\cup\; (1,\,3). \qquad \textbf{(A1)}$$
-
-**Teaching point.** The error is *not* that a case was dropped carelessly — it is that
-$\sqrt{x^2} = |x|$, not $x$. Line III silently assumes $x > 0$.
-:::
-
----
-
-## Question 8 **[3]**
-
-::: {.question}
-A student writes: "*Since $A\Rightarrow B$ is true, and $B$ is true, it follows that $A$ is true.*"
-&nbsp;&nbsp;(a) Is the reasoning valid? &nbsp; (b) Give a concrete integer example showing what goes wrong (or
-explain why nothing does).
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a) No — the reasoning is invalid.** &nbsp; **(B1)**
-
-*Knowing $A \Rightarrow B$ and $B$ tells you nothing about $A$. This is the church-bells row 3 again: the
-back half being true does not force the front half.*
-
-**(b)** Any correct counterexample, e.g. &nbsp; **(M1 A1)**
-
-- Let $A$ = "$n$ is divisible by $4$" and $B$ = "$n$ is even".
-- $A \Rightarrow B$ is **true** (every multiple of $4$ is even).
-- Take $n = 6$: then $B$ is **true** ($6$ is even), but $A$ is **false** ($6$ is not divisible by $4$).
-
-So $A \Rightarrow B$ and $B$ can both hold while $A$ fails. &nbsp; $\blacksquare$
-
-::: {.callout-note appearance="simple"}
-**Name for it.** This invalid pattern is called *affirming the consequent*. The **valid** partner is
-*modus tollens*: from $A \Rightarrow B$ and **not $B$**, you may correctly conclude **not $A$**. The
-student had the right idea but used the wrong end of the implication.
-:::
-:::
-
----
-
-## Marking summary
-
-| Q | Marks | The thing being tested |
+| Card | Could it break the rule? | Turn over? |
 |---|---|---|
-| 1 | 4 | Mechanical translation of the four forms |
-| 2 | 3 | *And / or / not*, especially inclusive *or* |
-| 3 | 3 | True/false with counterexamples; both directions of an "iff" |
-| 4 | 4 | **The two "nothing" rows** — one-way implication |
-| 5 | 4 | "Only if" vs "if"; the squaring trap |
-| 6 | 6 | Converse vs contrapositive, under exam wording |
-| 7 | 5 | Reversibility of each step in an "iff" chain |
-| 8 | 3 | Affirming the consequent |
+| **E** | It is a vowel, so the back must be prime. | **Yes** |
+| **F** | It is not a vowel, so the rule says nothing about it. | No |
+| **5**, **7** | They are prime. A consonant or a vowel on the front is fine either way. | No |
+| **9** | It is not prime, so a vowel on the front would break the rule. | **Yes** |
 
-**If the student loses marks in only one place, look first at Question 4(b) and 4(d).** Those two answers
-predict everything else in this topic: a student who is comfortable saying "nothing follows" has understood
-implication, and one who is not will keep flipping arrows for the rest of Paper 2.
+Card 9 is the contrapositive at work: not prime $\Rightarrow$ not a vowel. Turning over 5 or 7 would be
+testing the converse, which Lara never claimed.
+:::
+
+---
+
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q11</span>
+
+::: {.question}
+The fact that $5\times 6=30$ is a counterexample to which of the following statements?
+
+&nbsp;&nbsp;**A** the product of any two odd integers is odd
+
+&nbsp;&nbsp;**B** if the product of two integers is a multiple of $4$ then the integers are not consecutive
+
+&nbsp;&nbsp;**C** if the product of two integers is not a multiple of $4$ then the integers are not consecutive
+
+&nbsp;&nbsp;**D** any even integer can be written as the product of two even integers
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.**
+
+A counterexample to "if $H$ then $K$" must make $H$ **true** and $K$ **false**. Here the integers are $5$ and
+$6$, their product is $30$, they are consecutive, and $30$ is not a multiple of $4$.
+
+- **A:** $5$ and $6$ are not both odd, so the hypothesis fails. This pair says nothing about A.
+- **B:** the hypothesis needs a multiple of $4$, and $30$ is not one. The pair says nothing about B.
+- **C:** the hypothesis "the product is not a multiple of $4$" is true, and the conclusion "not consecutive"
+  is false. This is exactly a counterexample.
+- **D:** the claim concerns one even integer written as a product of two **even** integers. Writing $30$ as
+  $5\times6$ uses an odd factor, so it does not show that $30$ has no such form.
+
+A pair whose hypothesis is false never refutes an implication.
+:::
+
+---
+
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q10</span>
+
+::: {.question}
+Consider the set of integers of the form $3^n-2n-1$, where $n$ is a positive integer greater than $1$.
+
+Which of the following statements are necessarily true?
+
+&nbsp;&nbsp;**I** Integers in this set are even **only if** $n$ is odd.
+
+&nbsp;&nbsp;**II** Integers in this set are always $2$ more or $2$ less than a multiple of $6$.
+
+&nbsp;&nbsp;**III** Integers in this set are always a multiple of $4$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D — III only.**
+
+First list some values:
+
+| $n$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|
+| $3^n-2n-1$ | $4$ | $20$ | $72$ | $232$ |
+
+**I is false.** "Even only if $n$ is odd" means even $\Rightarrow$ $n$ odd. But $n=2$ gives $4$, which is even
+while $n$ is even.
+
+**II is false.** $72$ is itself a multiple of $6$, so it is not $2$ away from one.
+
+**III is true.** Split by the parity of $n$ and work modulo $4$. Note that $3\equiv-1$, so $3^n\equiv(-1)^n$.
+
+- $n$ even: $3^n\equiv1$ and $2n\equiv0$, so $3^n-2n-1\equiv1-0-1=0$.
+- $n$ odd: $3^n\equiv-1\equiv3$ and $2n\equiv2$, so $3^n-2n-1\equiv3-2-1=0$.
+
+Both cases give a multiple of $4$.
+:::
+
+---
+
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q7</span>
+
+::: {.question}
+The non-zero real numbers $a,b,c$ and $d$ satisfy $a<b$ and $c<d$.
+
+Which of the following statements are necessarily true?
+
+&nbsp;&nbsp;**I** $\dfrac{1}{a^3}>\dfrac{1}{b^3}$
+
+&nbsp;&nbsp;**II** $3^{-a}<3^{-b}$
+
+&nbsp;&nbsp;**III** If $a,b$ are negative, then $ac<bd$.
+
+&nbsp;&nbsp;**IV** If $a,b,c,d$ are all negative, then $ac>bd$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** II only
+
+&nbsp;&nbsp;**C** III only
+
+&nbsp;&nbsp;**D** II and IV only
+
+&nbsp;&nbsp;**E** I, II and III only
+
+&nbsp;&nbsp;**F** II, III and IV only
+
+&nbsp;&nbsp;**G** I, II and IV only
+
+&nbsp;&nbsp;**H** IV only
+
+&nbsp;&nbsp;**I** I only
+
+&nbsp;&nbsp;**J** III and IV only
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**H — IV only.**
+
+**I is false.** Take $a=-1,\ b=1$. Then $\dfrac1{a^3}=-1$ and $\dfrac1{b^3}=1$, and $-1>1$ is false.
+
+**II is false.** From $a<b$ we get $-a>-b$. Since $3^x$ is increasing, $3^{-a}>3^{-b}$, which is the reverse
+of what II claims.
+
+**III is false.** The hypothesis is only about $a$ and $b$, so $c$ and $d$ can be anything allowed. Take
+$a=-2,\ b=-1,\ c=-5,\ d=-4$. Then $ac=10$ and $bd=4$, so $ac<bd$ fails.
+
+**IV is true.** All four are negative, so compare sizes:
+
+- $a<b<0$ gives $|a|>|b|$.
+- $c<d<0$ gives $|c|>|d|$.
+
+Multiplying two larger positive sizes gives $|a||c|>|b||d|$. Each product of two negatives is positive, so
+$ac=|a||c|$ and $bd=|b||d|$. Hence $ac>bd$.
+:::
+
+---
+
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q12</span>
+
+::: {.question}
+Which of the following statements about polynomials $\mathrm f$ and $\mathrm g$ is/are true?
+
+&nbsp;&nbsp;**I** If $\mathrm f(x)\ge\mathrm g(x)$ for all $x\ge0$, then $\displaystyle\int_0^x\mathrm f(t)\,dt\ge\int_0^x\mathrm g(t)\,dt$ for all $x\ge0$.
+
+&nbsp;&nbsp;**II** If $\mathrm f(x)\ge\mathrm g(x)$ for all $x\ge0$, then $\mathrm f'(x)\ge\mathrm g'(x)$ for all $x\ge0$.
+
+&nbsp;&nbsp;**III** If $\mathrm f'(x)\ge\mathrm g'(x)$ for all $x\ge0$, then $\mathrm f(x)\ge\mathrm g(x)$ for all $x\ge0$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B — I only.**
+
+**I is true.** Subtract the two integrals:
+
+$$\int_0^x\mathrm f(t)\,dt-\int_0^x\mathrm g(t)\,dt=\int_0^x\big(\mathrm f(t)-\mathrm g(t)\big)\,dt .$$
+
+The integrand is never negative on $[0,x]$, so the integral is never negative.
+
+**II is false.** Take $\mathrm f(x)=(x-1)^2$ and $\mathrm g(x)=0$, shown below. Then $\mathrm f\ge\mathrm g$
+everywhere, but $\mathrm f'(0)=-2<0=\mathrm g'(0)$. Being above a graph says nothing about being steeper.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-0.3,2.4,300); fig,ax=plt.subplots(figsize=(4.8,3.0))
+ax.plot(x,(x-1)**2,color='#1f77b4',lw=2,label='$f(x)=(x-1)^2$'); ax.plot(x,0*x,color='#d62728',lw=2,label='$g(x)=0$')
+ax.axhline(0,color='0.3',lw=1); ax.axvline(0,color='0.3',lw=1); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False)
+plt.tight_layout(); plt.show()
+```
+
+**III is false.** Take $\mathrm f(x)=x$ and $\mathrm g(x)=x+1$. Then $\mathrm f'=\mathrm g'=1$, so the
+hypothesis holds, but $\mathrm f(x)<\mathrm g(x)$ for every $x$. A derivative cannot see an added constant.
+
+Statements II and III are converse-shaped versions of the same idea, and neither direction is automatic.
+:::
+
+---
+
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q18</span>
+
+::: {.question}
+Let $f$ and $g$ be polynomials. Consider the following four statements.
+
+&nbsp;&nbsp;**I** If $f'(x)\ge g'(x)$ for all $x\ge0$ and $f(0)\ge g(0)$, then $f(x)\ge g(x)$ for all $x\ge0$.
+
+&nbsp;&nbsp;**II** If $f(x)\ge g(x)$ for all $x\ge0$, then $\displaystyle\int_0^x t\,f(t)\,dt\ge\int_0^x t\,g(t)\,dt$ for all $x\ge0$.
+
+&nbsp;&nbsp;**III** If $\displaystyle\int_0^x f(t)\,dt\ge\int_0^x g(t)\,dt$ for all $x\ge0$, then $f(x)\ge g(x)$ for all $x\ge0$.
+
+&nbsp;&nbsp;**IV** If $\displaystyle\int_0^x f(t)\,dt\ge\int_0^x g(t)\,dt$ for all $x\ge0$, then $\displaystyle\int_0^x t^2f(t)\,dt\ge\int_0^x t^2g(t)\,dt$ for all $x\ge0$.
+
+Which of the statements are true?
+
+&nbsp;&nbsp;**A** None of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** IV only
+
+&nbsp;&nbsp;**F** I and II only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I and III only
+
+&nbsp;&nbsp;**I** all except I
+
+&nbsp;&nbsp;**J** all except II
+
+&nbsp;&nbsp;**K** all except III
+
+&nbsp;&nbsp;**L** all except IV
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**F — I and II only.**
+
+This extends Question 5. Put $h=f-g$, so every statement is about one polynomial $h$.
+
+**I is true.** $h'\ge0$ means $h$ never decreases on $x\ge0$. Since $h(0)\ge0$, it follows that $h(x)\ge0$.
+
+**II is true.** On $[0,x]$ both $t\ge0$ and $h(t)\ge0$, so $t\,h(t)\ge0$ and its integral is not negative.
+
+**III and IV are both false, and one example breaks both.** Define
+
+$$H(x)=x^2(x-1)^2,\qquad h(x)=H'(x)=4x^3-6x^2+2x .$$
+
+Then $\displaystyle\int_0^x h(t)\,dt=H(x)\ge0$ for all $x\ge0$, so the hypothesis of III and IV holds with
+$g=0$ and $f=h$.
+
+- **III fails:** $h(x)=2x(x-1)(2x-1)$ is negative on $\tfrac12<x<1$. For example, $h\!\left(\tfrac34\right)=-\tfrac3{16}$.
+- **IV fails at $x=1$:**
+
+$$\int_0^1t^2h(t)\,dt=\int_0^1\left(4t^5-6t^4+2t^3\right)dt=\frac23-\frac65+\frac12=-\frac1{30}<0 .$$
+:::
+
+---
+
+# Section B — "Exactly one is true"
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q4</span>
+
+::: {.question}
+Five sealed jars, labelled A, B, C, D and E, each contain the same (non-zero) number of £1 coins.
+
+The following statements are attached to the jars:
+
+&nbsp;&nbsp;**A** This jar contains less than £4
+
+&nbsp;&nbsp;**B** This jar contains £5 or £6
+
+&nbsp;&nbsp;**C** This jar contains £1 or £6
+
+&nbsp;&nbsp;**D** This jar contains more than £3 and less than £6
+
+&nbsp;&nbsp;**E** This jar contains £2 or £3
+
+Exactly one of the jars has a true statement attached to it. Which jar is it?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.**
+
+All the jars hold the same amount $n$, so the five labels are five claims about one number. Count how many
+are true for each $n$.
+
+| $n$ | true labels | how many |
+|---|---|---|
+| $1$ | A, C | $2$ |
+| $2$ | A, E | $2$ |
+| $3$ | A, E | $2$ |
+| $4$ | D | **$1$** |
+| $5$ | B, D | $2$ |
+| $6$ | B, C | $2$ |
+| $7$ or more | none | $0$ |
+
+Only $n=4$ gives exactly one true label, and that label is D. Note the two connectives: *or* in B, C and E
+needs one side, and *and* in D needs both.
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q7</span>
+
+::: {.question}
+Six sealed black bags are labelled $P,Q,R,S,T$ and $U$. Each bag contains the same number of balls. This number is a non-zero whole number from $3$ to $8$ inclusive.
+
+Each bag has a label with a statement written on it. The statement may be true or false.
+
+&nbsp;&nbsp;Bag $P$: "The number of balls in this bag is a multiple of $3$."
+
+&nbsp;&nbsp;Bag $Q$: "The number of balls in this bag is even."
+
+&nbsp;&nbsp;Bag $R$: "The number of balls in this bag is prime."
+
+&nbsp;&nbsp;Bag $S$: "The number of balls in this bag is at most $4$."
+
+&nbsp;&nbsp;Bag $T$: "The number of balls in this bag is at least $7$."
+
+&nbsp;&nbsp;Bag $U$: "The number of balls in this bag is a perfect square."
+
+Given that exactly one of the six statements is true, which bag has the true statement on its label?
+
+&nbsp;&nbsp;**A** $P$
+
+&nbsp;&nbsp;**B** $Q$
+
+&nbsp;&nbsp;**C** $R$
+
+&nbsp;&nbsp;**D** $S$
+
+&nbsp;&nbsp;**E** $T$
+
+&nbsp;&nbsp;**F** $U$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C — bag $R$.**
+
+There are only six possible values, so tabulate them.
+
+| $n$ | true labels | how many |
+|---|---|---|
+| $3$ | $P,R,S$ | $3$ |
+| $4$ | $Q,S,U$ | $3$ |
+| $5$ | $R$ | **$1$** |
+| $6$ | $P,Q$ | $2$ |
+| $7$ | $R,T$ | $2$ |
+| $8$ | $Q,T$ | $2$ |
+
+So $n=5$, and the only true label is the one on bag $R$.
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q3</span>
+
+::: {.question}
+A real number $x$ is such that **exactly one** of the following six statements is true.
+
+&nbsp;&nbsp;**I** $x^2<9$
+
+&nbsp;&nbsp;**II** $|x-1|<1$
+
+&nbsp;&nbsp;**III** $x,\ 2,\ 4$ are the first three terms of a geometric sequence with positive common ratio
+
+&nbsp;&nbsp;**IV** $\log_2(x+1)$ is defined and less than $1$
+
+&nbsp;&nbsp;**V** $x$ is a positive solution of $u^2-3u+2=0$
+
+&nbsp;&nbsp;**VI** the circle $X^2+Y^2=1$ meets the line $X=x$ in two distinct points
+
+&nbsp;&nbsp;**A** I
+
+&nbsp;&nbsp;**B** II
+
+&nbsp;&nbsp;**C** III
+
+&nbsp;&nbsp;**D** IV
+
+&nbsp;&nbsp;**E** V
+
+&nbsp;&nbsp;**F** VI
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — statement I.**
+
+Do not look for $x$. Instead, translate each of II–VI into a range for $x$.
+
+| Statement | Means |
+|---|---|
+| **II** | $0<x<2$ |
+| **III** | the common ratio is $2$, so $x=1$ |
+| **IV** | $0<x+1<2$, so $-1<x<1$ |
+| **V** | $(u-1)(u-2)=0$, so $x=1$ or $x=2$ |
+| **VI** | $-1<x<1$ |
+
+Every one of these ranges lies inside $-3<x<3$, which is statement I. So **each of II–VI implies I**.
+
+If any of II–VI were true, I would be true as well, and that would make two true statements. So none of them
+can be the single true statement, which leaves I.
+
+It really can happen: $x=\tfrac52$ makes I true and all the others false.
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q7</span>
+
+::: {.question}
+The real numbers $a$ and $b$ are such that **exactly one** of the following statements is true.
+
+Which is the true statement?
+
+&nbsp;&nbsp;**A** $a\ge0$
+
+&nbsp;&nbsp;**B** $a<b$
+
+&nbsp;&nbsp;**C** $a^2>b^2$
+
+&nbsp;&nbsp;**D** $\lvert a\rvert\le\lvert b\rvert$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.**
+
+**Step 1 — spot the complementary pair.** $a^2>b^2$ means the same as $|a|>|b|$, which is exactly the negation
+of $|a|\le|b|$. So **C and D are opposites: exactly one of them is always true.**
+
+**Step 2 — use up the "exactly one".** The one true statement must therefore be C or D. So A and B are both
+false, which gives
+
+$$a<0\qquad\text{and}\qquad a\ge b .$$
+
+**Step 3 — decide between C and D.** Together these give $b\le a<0$. Both numbers are negative and $b$ is at
+least as far from zero, so $|b|\ge|a|$. That is statement D.
+
+**Check:** $a=-1,\ b=-2$ makes A false, B false, C false ($1>4$ fails) and D true.
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q19</span>
+
+::: {.question}
+Let $f$ be a function defined on the real numbers. Consider the following seven statements, each intended to hold for all real values of $a$:
+
+&nbsp;&nbsp;**(1)** $f(a)>0$ if $a>0$.
+
+&nbsp;&nbsp;**(2)** $a>0$ is necessary for $f(a)>0$.
+
+&nbsp;&nbsp;**(3)** $a\le0$ only if $f(a)\le0$.
+
+&nbsp;&nbsp;**(4)** If $f(a)\le0$, then $a\le0$.
+
+&nbsp;&nbsp;**(5)** $f(a)>0$ whenever $a\le0$.
+
+&nbsp;&nbsp;**(6)** $a>0$ is sufficient for $f(a)>0$.
+
+&nbsp;&nbsp;**(7)** $f(a)\le0$ is sufficient and necessary for $a>0$.
+
+Given that exactly one of these seven statements is true for the particular function $f$ in question, which one is it?
+
+&nbsp;&nbsp;**A** Statement (1)
+
+&nbsp;&nbsp;**B** Statement (2)
+
+&nbsp;&nbsp;**C** Statement (3)
+
+&nbsp;&nbsp;**D** Statement (4)
+
+&nbsp;&nbsp;**E** Statement (5)
+
+&nbsp;&nbsp;**F** Statement (6)
+
+&nbsp;&nbsp;**G** Statement (7)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E — statement (5).**
+
+Rewrite every statement with the condition on $a$ at the front of the arrow.
+
+| Statement | As written | With $a$ first |
+|---|---|---|
+| **(1)** | $a>0\Rightarrow f(a)>0$ | $a>0\Rightarrow f(a)>0$ |
+| **(2)** | $f(a)>0\Rightarrow a>0$ | $a\le0\Rightarrow f(a)\le0$ |
+| **(3)** | $a\le0\Rightarrow f(a)\le0$ | $a\le0\Rightarrow f(a)\le0$ |
+| **(4)** | $f(a)\le0\Rightarrow a\le0$ | $a>0\Rightarrow f(a)>0$ |
+| **(5)** | $a\le0\Rightarrow f(a)>0$ | $a\le0\Rightarrow f(a)>0$ |
+| **(6)** | $a>0\Rightarrow f(a)>0$ | $a>0\Rightarrow f(a)>0$ |
+| **(7)** | $f(a)\le0\Leftrightarrow a>0$ | includes $a\le0\Rightarrow f(a)>0$ |
+
+Now eliminate:
+
+- **(1), (4) and (6)** are the same statement, so none of them can be the only true one.
+- **(2) and (3)** are the same statement, so neither can be the only true one.
+- **(7)** contains (5), since its "necessary" half says $a\le0\Rightarrow f(a)>0$. If (7) were true then (5)
+  would be true too.
+
+Only **(5)** is left.
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q12</span>
+
+::: {.question}
+Let $f$ be a function. Each of the following is a statement about all real numbers $a$ (for instance, the first reads: for every $a$, if $f(x)>0$ for all $x>a$, then $f(a)<0$). Exactly one of them is true.
+
+Which one is it?
+
+&nbsp;&nbsp;**A** $f(x)>0$ for all $x>a$ **only if** $f(a)<0$
+
+&nbsp;&nbsp;**B** $f(a)<0$ and $f(x)>0$ for all $x>a$ **cannot both** hold
+
+&nbsp;&nbsp;**C** $f(x)>0$ for all $x>a$ is **necessary** for $f(a)<0$
+
+&nbsp;&nbsp;**D** if $f(a)\ge0$ then $f(x)\le0$ for some $x>a$
+
+&nbsp;&nbsp;**E** $f(x)>0$ for all $x>a$ **implies** $f(a)\ge0$
+
+&nbsp;&nbsp;**F** $f(a)\ge0$ **if and only if** $f(x)\le0$ for some $x>a$
+
+&nbsp;&nbsp;**G** $f(a)<0$ is **sufficient** for there to exist $x>a$ with $f(x)\le0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.**
+
+Name the two halves first:
+
+$$P:\ f(x)>0\text{ for all }x>a,\qquad Q:\ f(a)<0 .$$
+
+Their negations are $\text{not }P$: $f(x)\le0$ for some $x>a$, and $\text{not }Q$: $f(a)\ge0$.
+
+| Option | In arrows | Simplified |
+|---|---|---|
+| **A** | $P\Rightarrow Q$ | $P\Rightarrow Q$ |
+| **B** | not both $Q$ and $P$ | $Q\Rightarrow\text{not }P$ |
+| **C** | $Q\Rightarrow P$ | $Q\Rightarrow P$ |
+| **D** | $\text{not }Q\Rightarrow\text{not }P$ | $P\Rightarrow Q$ |
+| **E** | $P\Rightarrow\text{not }Q$ | $Q\Rightarrow\text{not }P$ |
+| **F** | $\text{not }Q\Leftrightarrow\text{not }P$ | $P\Leftrightarrow Q$ |
+| **G** | $Q\Rightarrow\text{not }P$ | $Q\Rightarrow\text{not }P$ |
+
+Now eliminate:
+
+- **A and D** are the same statement, so neither can be the only true one.
+- **B, E and G** are the same statement, so none of them can be the only true one.
+- **F** contains $P\Rightarrow Q$, so if F were true then A would be true too.
+
+Only **C** is left. As in the class questions, you never need to know what $f$ is.
+:::
+
+---
+
+# Section C — "If and only if" and "only if"
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2022 · Q1C</span>
+
+::: {.question}
+The equation $x^2-4kx+y^2-4y+8=k^3-k$ is the equation of a circle
+
+&nbsp;&nbsp;**(a)** for all real values of $k$.
+
+&nbsp;&nbsp;**(b)** if and only if either $-4<k<-1$ or $k>1$.
+
+&nbsp;&nbsp;**(c)** if and only if $k>1$.
+
+&nbsp;&nbsp;**(d)** if and only if $k<-1$.
+
+&nbsp;&nbsp;**(e)** if and only if either $-1<k<0$ or $k>1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(b).**
+
+"If and only if" asks for the **exact** set of $k$, with nothing missing and nothing extra.
+
+**Step 1 — complete the square.**
+
+$$(x-2k)^2-4k^2+(y-2)^2-4+8=k^3-k$$
+
+$$(x-2k)^2+(y-2)^2=k^3+4k^2-k-4 .$$
+
+**Step 2 — state the condition.** This is a circle exactly when the right-hand side is positive.
+
+**Step 3 — factorise by grouping.**
+
+$$k^3+4k^2-k-4=k^2(k+4)-(k+4)=(k+4)(k-1)(k+1).$$
+
+**Step 4 — read off the signs.** The cubic has positive leading coefficient and roots $-4,-1,1$.
+
+| range | sign |
+|---|---|
+| $k<-4$ | $-$ |
+| $-4<k<-1$ | $+$ |
+| $-1<k<1$ | $-$ |
+| $k>1$ | $+$ |
+
+So it is a circle exactly when $-4<k<-1$ or $k>1$. Option (c) is sufficient but misses a whole interval, which
+is why it is not an "if and only if".
+:::
+
+---
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q18</span>
+
+::: {.question}
+The equation $x^4+bx^2+c=0$ has four distinct real roots **if and only if** which of the following conditions is satisfied?
+
+&nbsp;&nbsp;**A** $b^2>4c$
+
+&nbsp;&nbsp;**B** $b^2<4c$
+
+&nbsp;&nbsp;**C** $c>0$ and $b>2\sqrt c$
+
+&nbsp;&nbsp;**D** $c>0$ and $b<-2\sqrt c$
+
+&nbsp;&nbsp;**E** $c<0$ and $b<0$
+
+&nbsp;&nbsp;**F** $c<0$ and $b>0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.**
+
+Put $u=x^2$, so the equation becomes $u^2+bu+c=0$. Each **positive** root $u$ gives two values $x=\pm\sqrt u$,
+while a negative root gives none. So four distinct real $x$ needs **two distinct positive roots $u_1,u_2$.**
+
+Translate that into conditions on the coefficients:
+
+| Requirement | Condition |
+|---|---|
+| two distinct real roots | $b^2>4c$ |
+| product of roots positive, $u_1u_2=c$ | $c>0$ |
+| sum of roots positive, $u_1+u_2=-b$ | $b<0$ |
+
+Now combine. With $c>0$, the condition $b^2>4c$ means $b>2\sqrt c$ or $b<-2\sqrt c$. Since $b<0$, only the
+second branch survives, and $b<-2\sqrt c$ already forces $b<0$. So the three conditions collapse to
+
+$$c>0\quad\text{and}\quad b<-2\sqrt c .$$
+
+**Why A fails as an "iff".** $b^2>4c$ is necessary but not sufficient: $x^4+3x^2+1=0$ has $b^2=9>4$ and no real
+roots at all.
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2021 · Q1J</span>
+
+::: {.question}
+Four distinct real numbers $a,b,c$ and $d$ are used to define four points
+
+$$A=(a,b),\qquad B=(b,c),\qquad C=(c,d),\qquad D=(d,a).$$
+
+The quadrilateral $ABCD$ has all four sides the same length
+
+&nbsp;&nbsp;**(a)** if and only if $(a-b)^2=(c-d)^2$,
+
+&nbsp;&nbsp;**(b)** if and only if $(a-c)^2=(b-d)^2$,
+
+&nbsp;&nbsp;**(c)** if and only if $(a-d)^2=(b-c)^2$,
+
+&nbsp;&nbsp;**(d)** if and only if $a-b+c-d=0$,
+
+&nbsp;&nbsp;**(e)** for no values of $a,b,c,d$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(d).**
+
+**Step 1 — write the four squared lengths.**
+
+$$AB^2=(a-b)^2+(b-c)^2,\qquad BC^2=(b-c)^2+(c-d)^2,$$
+
+$$CD^2=(c-d)^2+(d-a)^2,\qquad DA^2=(d-a)^2+(a-b)^2 .$$
+
+**Step 2 — compare them.** $AB=BC$ gives $(a-b)^2=(c-d)^2$, and $BC=CD$ gives $(b-c)^2=(d-a)^2$. These two
+equations also give $CD=DA$, so all four sides are equal **if and only if** both hold.
+
+**Step 3 — remove the squares, using distinctness.** Each equation splits into two cases.
+
+| Equation | Case 1 | Case 2 |
+|---|---|---|
+| $(a-b)^2=(c-d)^2$ | $a-b=c-d$, so $a+d=b+c$ | $a-b=d-c$, so $a+c=b+d$ |
+| $(b-c)^2=(d-a)^2$ | $b-c=d-a$, so $a+b=c+d$ | $b-c=a-d$, so $a+c=b+d$ |
+
+If both equations take Case 1, then $a+d=b+c$ and $a+b=c+d$. Subtracting gives $d-b=b-d$, so $b=d$, which is
+not allowed.
+
+If the first takes Case 1 and the second Case 2, then $a+d=b+c$ and $a+c=b+d$. Subtracting gives $d-c=c-d$, so
+$c=d$, which is not allowed.
+
+If the first takes Case 2 and the second Case 1, then $a+c=b+d$ and $a+b=c+d$. Subtracting gives $c-b=b-c$, so
+$b=c$, which is not allowed.
+
+So **$a+c=b+d$ must hold**, which is $a-b+c-d=0$.
+
+**Step 4 — the other direction.** If $a+c=b+d$, then $a-b=d-c$ and $b-c=a-d$, so both squared equations hold.
+Both directions work, which earns the "if and only if".
+
+Option (e) fails because $(a,b,c,d)=(6,5,3,4)$ satisfies $a+c=b+d=9$. Options (a)–(c) fail as "iff": for
+example $(a-b)^2=(c-d)^2$ also allows $a+d=b+c$, which does not give equal sides.
+:::
+
+---
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q17</span>
+
+::: {.question}
+A positive integer is called a *squaresum* **if and only if** it can be written as the sum of the squares of two integers. For example, $61$ and $9$ are both squaresums since $61=5^2+6^2$ and $9=3^2+0^2$.
+
+A prime number is called *awkward* **if and only if** it has a remainder of $3$ when divided by $4$. For example, $23$ is awkward since $23=5\times4+3$.
+
+A (true) theorem due to Fermat states that:
+
+> A positive integer is a squaresum **if and only if** each of its awkward prime factors occurs to an even power in its prime factorisation.
+
+It follows that $5\times23^2$ is a squaresum, since $23$ occurs to the power $2$, but $5\times23^3$ is not, since $23$ occurs to the power $3$.
+
+Which one of the following statements is **not** true?
+
+&nbsp;&nbsp;**A** Every square number is a squaresum.
+
+&nbsp;&nbsp;**B** If $N$ and $M$ are squaresums, then so is $NM$.
+
+&nbsp;&nbsp;**C** If $NM$ is a squaresum, then $N$ and $M$ are squaresums.
+
+&nbsp;&nbsp;**D** If $N$ is not a squaresum, then $kN$ is a squaresum for some number $k$ which is a product of awkward primes.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.**
+
+Definitions and theorems stated with "if and only if" can be used in **both** directions, and this question
+uses both.
+
+**A is true.** $N^2=N^2+0^2$, so it is a sum of two squares directly.
+
+**B is true.** Go from squaresum to prime powers: every awkward prime has an even power in $N$ and in $M$.
+Multiplying adds the powers, and even $+$ even is even. Now go back: $NM$ is a squaresum.
+
+**C is false.** Take $N=M=23$. Then $NM=23^2$ has its awkward prime to an even power, so it is a squaresum.
+But $23$ on its own has the awkward prime to the power $1$, so it is not. C is the converse of B, and it fails.
+
+**D is true.** Some awkward primes occur in $N$ to odd powers. Let $k$ be the product of exactly those primes.
+Multiplying by $k$ raises each of those powers by $1$, so every awkward power in $kN$ is even, and $kN$ is a
+squaresum.
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q20</span>
+
+::: {.question}
+Let $f$ be a polynomial with real coefficients.
+
+The integral $I_{p,q}$, where $p<q$, is defined by
+
+$$I_{p,q}=\int_p^q\big(f(x)\big)^2-\big(f(\lvert x\rvert)\big)^2\,dx$$
+
+Which of the following statements must be true?
+
+&nbsp;&nbsp;**1** $I_{p,q}=0$ **only if** $0<p$
+
+&nbsp;&nbsp;**2** $f'(x)<0$ for all $x$ **only if** $I_{p,q}<0$ for all $p<q<0$
+
+&nbsp;&nbsp;**3** $I_{p,q}>0$ **only if** $p<0$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 2 only
+
+&nbsp;&nbsp;**D** 3 only
+
+&nbsp;&nbsp;**E** 1 and 2 only
+
+&nbsp;&nbsp;**F** 1 and 3 only
+
+&nbsp;&nbsp;**G** 2 and 3 only
+
+&nbsp;&nbsp;**H** 1, 2 and 3
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D — 3 only.**
+
+**The key fact.** For $x\ge0$, $|x|=x$, so the integrand is $f(x)^2-f(x)^2=0$. Only negative $x$ can contribute.
+
+**Statement 1 means** $I_{p,q}=0\Rightarrow0<p$. This is false. Take $p=0$ and $q=1$: the integrand is zero
+throughout, so $I_{0,1}=0$, yet $0<p$ fails.
+
+**Statement 2 means** $f'<0$ everywhere $\Rightarrow I_{p,q}<0$. This is false. Take $f(x)=1-x$, which has
+$f'=-1<0$. For $x<0$,
+
+$$f(x)^2-f(|x|)^2=(1-x)^2-(1+x)^2=-4x>0 ,$$
+
+so $I_{p,q}>0$ for $p<q<0$. The graph below shows the two curves on $x<0$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2,0,200); fig,ax=plt.subplots(figsize=(4.8,3.0))
+ax.plot(x,(1-x)**2,color='#1f77b4',lw=2,label='$f(x)^2=(1-x)^2$'); ax.plot(x,(1+x)**2,color='#d62728',lw=2,label='$f(|x|)^2=(1+x)^2$')
+ax.axhline(0,color='0.3',lw=1); ax.axvline(0,color='0.3',lw=1); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False)
+plt.tight_layout(); plt.show()
+```
+
+**Statement 3 means** $I_{p,q}>0\Rightarrow p<0$. Use the contrapositive: if $p\ge0$, then $0\le p<q$, so the
+integrand is zero on the whole interval and $I_{p,q}=0$, which is not positive. So statement 3 is true.
+:::
+
+---
+
+# Section D — Sufficient and necessary
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q19</span>
+
+::: {.question}
+Which one of the following is a **sufficient** condition for the equation $x^3-3x^2+a=0$, where $a$ is a constant, to have exactly one real root?
+
+&nbsp;&nbsp;**A** $a>0$
+
+&nbsp;&nbsp;**B** $a\le0$
+
+&nbsp;&nbsp;**C** $a\ge4$
+
+&nbsp;&nbsp;**D** $a<4$
+
+&nbsp;&nbsp;**E** $\lvert a\rvert>4$
+
+&nbsp;&nbsp;**F** $\lvert a\rvert\le4$
+
+&nbsp;&nbsp;**G** $a=\tfrac94$
+
+&nbsp;&nbsp;**H** $\lvert a\rvert=\tfrac32$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.**
+
+"$X$ is sufficient for exactly one root" means $X\Rightarrow$ exactly one root. So every value allowed by $X$
+must give exactly one root.
+
+**Step 1 — find the turning points.** With $y=x^3-3x^2+a$, we get $y'=3x^2-6x=3x(x-2)$. So there is a maximum
+at $(0,a)$ and a minimum at $(2,a-4)$.
+
+**Step 2 — count the roots.** Changing $a$ only slides the curve up or down. There is exactly one root when
+both turning points lie on the same side of the $x$-axis, that is, when $a<0$ or $a>4$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.3,3.4,300); fig,ax=plt.subplots(figsize=(4.8,3.2))
+for a,c in [(-1,'#1f77b4'),(2,'#7f7f7f'),(5,'#d62728')]:
+    ax.plot(x,x**3-3*x**2+a,color=c,lw=2,label=f'$a={a}$')
+ax.axhline(0,color='0.3',lw=1); ax.axvline(0,color='0.3',lw=1); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_ylim(-7,8); ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False)
+plt.tight_layout(); plt.show()
+```
+
+**Step 3 — test each option against the set "$a<0$ or $a>4$".**
+
+| Option | Verdict |
+|---|---|
+| **A**, **D**, **F** | allow $a=1$, which gives three roots |
+| **B** | allows $a=0$: $x^2(x-3)=0$ has two distinct roots |
+| **C** | allows $a=4$: $(x+1)(x-2)^2=0$ has two distinct roots |
+| **E** | $a>4$ or $a<-4$: every such value is in the set ✓ |
+| **G** | $a=\tfrac94$ lies between $0$ and $4$, so it gives three roots |
+| **H** | allows $a=\tfrac32$, which gives three roots |
+
+E does not cover every good value of $a$, and it does not need to. A sufficient condition only has to sit
+inside the good set.
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q5</span>
+
+::: {.question}
+Consider the two statements
+
+&nbsp;&nbsp;$R$: $k$ is an integer multiple of $\pi$
+
+&nbsp;&nbsp;$S$: $\displaystyle\int_0^k\sin 2x\,dx=0$
+
+Which of the following statements is true?
+
+&nbsp;&nbsp;**A** $R$ is necessary and sufficient for $S$.
+
+&nbsp;&nbsp;**B** $R$ is necessary but not sufficient for $S$.
+
+&nbsp;&nbsp;**C** $R$ is sufficient but not necessary for $S$.
+
+&nbsp;&nbsp;**D** $R$ is not necessary and not sufficient for $S$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A.**
+
+Evaluate the integral:
+
+$$\int_0^k\sin2x\,dx=\left[-\tfrac12\cos2x\right]_0^k=\tfrac12\left(1-\cos2k\right).$$
+
+So $S$ says $\cos2k=1$. This holds exactly when $2k$ is an integer multiple of $2\pi$, that is, when $k$ is an
+integer multiple of $\pi$.
+
+- **Sufficient ($R\Rightarrow S$):** if $k=n\pi$, then $\cos2k=1$, so the integral is $0$.
+- **Necessary ($S\Rightarrow R$):** if the integral is $0$, then $\cos2k=1$, so $k=n\pi$.
+
+The graph shows why: the areas above and below the axis cancel only after whole periods of length $\pi$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-0.2,2*np.pi+0.2,400); fig,ax=plt.subplots(figsize=(5.2,2.8))
+ax.plot(x,np.sin(2*x),color='#1f77b4',lw=2); ax.fill_between(x,np.sin(2*x),0,where=(x>=0)&(x<=np.pi),color='#1f77b4',alpha=0.2)
+ax.axhline(0,color='0.3',lw=1); ax.axvline(0,color='0.3',lw=1); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_xticks([np.pi/2,np.pi,3*np.pi/2,2*np.pi]); ax.set_xticklabels(['$\\pi/2$','$\\pi$','$3\\pi/2$','$2\\pi$']); ax.set_xlabel('$x$'); ax.set_ylabel('$y=\\sin 2x$')
+plt.tight_layout(); plt.show()
+```
+
+A similar question with $\sin^2x$ in place of $\sin 2x$ would be different, because that integrand is never
+negative. Read the integrand with care.
+:::
+
+---
+
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q8</span>
+
+::: {.question}
+Consider the following statement about the polynomial $p(x)$, where $a$ and $b$ are real numbers with $a<b$.
+
+$$(*)\quad\text{There exists a number }c\text{ with }a<c<b\text{ such that }p(c)=0$$
+
+Which of the following is true?
+
+&nbsp;&nbsp;**A** The condition $p(a)p(b)<0$ is necessary and sufficient for $(*)$
+
+&nbsp;&nbsp;**B** The condition $p(a)p(b)<0$ is not necessary and not sufficient for $(*)$
+
+&nbsp;&nbsp;**C** The condition $p(a)p(b)<0$ is necessary but not sufficient for $(*)$
+
+&nbsp;&nbsp;**D** The condition $p(a)p(b)<0$ is sufficient but not necessary for $(*)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.**
+
+**Sufficient: yes.** $p(a)p(b)<0$ means $p(a)$ and $p(b)$ have opposite signs. A polynomial has an unbroken
+graph, so it must cross the $x$-axis somewhere between $a$ and $b$. That crossing is the required $c$.
+
+**Necessary: no.** To show this, find a case where $(*)$ holds but the condition fails. Take $p(x)=x^2$ with
+$a=-1,\ b=1$. Then $c=0$ works, but $p(a)p(b)=1\times1=1$, which is not negative.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.4,1.4,200); fig,ax=plt.subplots(figsize=(4.8,3.0))
+ax.plot(x,x**2,color='#1f77b4',lw=2,label='$p(x)=x^2$'); ax.plot([-1,1],[1,1],'o',color='#d62728',label='$p(a),\\ p(b)$ both positive'); ax.plot([0],[0],'o',color='#2ca02c',label='$c=0$')
+ax.axhline(0,color='0.3',lw=1); ax.axvline(0,color='0.3',lw=1); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False,loc='upper center')
+plt.tight_layout(); plt.show()
+```
+
+The graph can touch the axis, or cross it twice, and still end on the same side at both $a$ and $b$.
+:::
+
+---
+
+# What each question tests
+
+| Q | Source | Tests |
+|---|---|---|
+| 1 | Tyler TMUA Set D · P2 Q9 | The one failing case of an implication; contrapositive vs converse |
+| 2 | Tyler TMUA Set B · P2 Q11 | What a counterexample must do |
+| 3 | Tyler TMUA Set D · P2 Q10 | Reading "only if" with real mathematics underneath |
+| 4 | JZ Maths Mock A · P2 Q7 | Testing "if … then …" claims; one counterexample is enough |
+| 5 | 2021 · P2 Q12 | Implications about functions; building a counterexample |
+| 6 | JZ Maths Mock B · P2 Q18 | Harder implications; one counterexample breaking two claims |
+| 7 | Tyler TMUA Set A · P2 Q4 | And / or as a truth table over one unknown |
+| 8 | JZ Maths Mock C · P2 Q7 | Truth table over a finite set of cases |
+| 9 | JZ Maths Mock E · P2 Q3 | Eliminating an option because it implies another |
+| 10 | Tyler TMUA Set B · P2 Q7 | A statement and its negation; using "exactly one" as information |
+| 11 | JZ Maths Mock D · P2 Q19 | All four forms plus necessary and sufficient in one question |
+| 12 | JZ Maths Mock E · P2 Q12 | "Cannot both", necessary, sufficient and only if, all translated |
+| 13 | MAT 2022 · Q1C | "If and only if" as the exact set |
+| 14 | 2023 · P2 Q18 | An exact condition; necessary is not enough |
+| 15 | MAT 2021 · Q1J | Earning both directions of an "if and only if" |
+| 16 | 2018 · P2 Q17 | Using a definition in both directions; a statement and its converse |
+| 17 | 2023 · P2 Q20 | Three "only if" statements, each rewritten as an arrow |
+| 18 | 2017 · P2 Q19 | "Sufficient" means the option sits inside the good set |
+| 19 | 2023 · P2 Q5 | Both directions of necessary and sufficient |
+| 20 | Tyler TMUA Set B · P2 Q8 | Sufficient but not necessary, shown with a counterexample |
 
 :::

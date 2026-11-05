@@ -1,52 +1,206 @@
 ---
-title: "Toolkit S6 — Scrambled Proofs · Class Problems"
-subtitle: "Put the lines in order — Easy → Hard"
+title: "Paper 2 Toolkit · S6 — Scrambled Proofs"
+subtitle: "Revision sheet · Notes · two concept checks · exam-standard questions"
 format: html
 execute:
   echo: false
   warning: false
 ---
 
+Specification: **Prf4** — *Rearrange a sequence of statements into the correct order to give a proof for a
+statement.*
+Official source: **Notes on Logic and Proof**, p. 7 (the specification list).
+
+::: {.callout-important}
+## Why learn this when TMUA is multiple choice?
+
+You never write a proof on TMUA. In this question type you **judge the logical flow**: the lines are given, and
+the options are possible orders. The format has been set only once in the 2016–2023 papers, so it is a small
+slot. But the skill underneath is not small. Finding what each line **needs** before it can be said is the same
+skill that "which line is the first error?" tests on every paper.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Prf4</div>
+<div class="fs-title">Scrambled Proofs — Key Concepts</div>
+<div class="fs-sub">A jumbled list of statements has to be reassembled into a valid proof. Anchor the two ends — the opening line and the conclusion — then order the middle by "what does each line need before it can be said?"</div>
+::::
+
+## Reassembling a proof
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Find the first line
+
+The opening line **sets up**, it never concludes. Look for:
+
+$$\textbf{"Let…"}\quad\textbf{"Suppose…"}\quad\textbf{"Assume…"}\quad\text{a definition / given}$$
+
+[a proof by contradiction opens with **"Assume the statement is false"**]{.eg}
+:::
+
+::: {.fs-card}
+### Find the last line
+
+The final line is the **conclusion** — the thing you set out to prove, or the contradiction that settles
+it.
+
+$$\textbf{"…which is even."}\quad\textbf{"…a contradiction."}\quad\textbf{"…so } S \text{ is true."}$$
+
+[anchor both ends first; the middle then almost orders itself]{.eg}
+:::
+
+::: {.fs-card}
+### The dependency rule
+
+Every line must be **justified by what comes before it**. A line that **uses** a quantity or a result
+must come **after** that quantity is introduced or that result is established.
+
+[you cannot write "so $a=2c$" before the line that says "$a$ is even"]{.eg}
+:::
+
+::: {.fs-card}
+### Read the connecting words
+
+The linking words fix the order:
+
+**"Let / Suppose"** → opening. **"Since / Because"** → points **back**. **"Therefore / So / Hence"** →
+follows from the lines **above**. **"But this contradicts…"** → near the end.
+:::
+
+::::
+
+## The shape of each proof type
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Direct proof
+
+**Assume/represent** the objects → **algebra/steps** → **state the conclusion**. The order is the order of
+the algebra.
+:::
+
+::: {.fs-card}
+### Proof by contradiction
+
+**Assume the opposite** → derive consequences → **reach something impossible** → **conclude the statement
+is true**. The "contradiction" line comes just before the conclusion, or is joined to it in one line.
+:::
+
+::: {.fs-card}
+### Where it shows up
+
+Prf4 on Paper 2, set **once** in the 2016–2023 papers (2016 P2 Q7). The same reading of a proof's order is what
+you use on every "which line is the first error?" question (Err1).
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## Notes
+
+Never read a scrambled proof from top to bottom. The lines are in the wrong order, so reading them in that order
+tells you nothing. Start from what you can be certain of, which is the two ends.
+
+::: {.callout-tip}
+## Method
+
+**First line** = *Let / Suppose / Assume*, or the given.
+
+**Last line** = the conclusion (or "… a contradiction, so …").
+
+**Middle** = follow the dependencies, so that every line is justified by the ones above it. "$a=2c$" can only
+come after "$a$ is even".
+:::
+
+### Anchor the ends
+
+The first line **sets up**. It never states what you are trying to prove, because that is where you **end**. In
+a direct proof of "if $P$ then $Q$", the first line assumes $P$, never $Q$.
+
+The last line is the goal. A conclusion line cannot sit in the middle of a proof, because nothing after it would
+have any work left to do.
+
+For example, take these lines, which prove that the sum of two odd numbers is even:
+
+&nbsp;&nbsp;**(i)** So the sum is $2(a+b+1)$, which is even.
+
+&nbsp;&nbsp;**(ii)** Let the two odd numbers be $2a+1$ and $2b+1$.
+
+&nbsp;&nbsp;**(iii)** Their sum is $(2a+1)+(2b+1)=2a+2b+2$.
+
+The order is (ii), (iii), (i). Line (ii) is the opening "Let…", and line (i) is the conclusion "…which is even".
+Line (iii) must sit between them, because (i)'s $2(a+b+1)$ is only reached after (iii)'s $2a+2b+2$.
+
+### Follow the dependencies
+
+Ask of each line: **what does it use?** Whatever it uses must already be on the page. That covers a letter (you
+cannot use $k$ before "let $n=2k+1$"), a result (you cannot substitute $a=2c$ before you have written it) and a
+reference ("in both cases" comes after both cases).
+
+The linking words help. A line starting "Therefore" or "So" follows from lines above it. "Since" and "Because"
+point back. "But this contradicts…" comes near the end.
+
+### Lines that do not depend on each other
+
+Sometimes two lines can swap and the proof stays valid. Take the proof that the product of two consecutive
+integers is even, with the lines "Let the integers be $n$ and $n+1$" and "One of two consecutive integers is
+even". The second is a general fact and does not use $n$, so either may come first. In the same way, the two cases
+of a proof by cases can come in either order.
+
+So do not ask "is this the natural order?" Ask "**does any line use something not yet available?**" A well-set
+question offers only one order that passes this test.
+
+### The shape of a contradiction proof
+
+The ends are unmistakable: the first line is "Assume … is false", and the last two are "… a contradiction" then
+"so the statement is true". Here is the proof that $\sqrt2$ is irrational, in the correct order.
+
+1. Suppose $\sqrt2=\dfrac ab$ in lowest terms.
+2. Then $a^2=2b^2$, so $a$ is even; write $a=2c$.
+3. Then $4c^2=2b^2$, so $b^2=2c^2$ and $b$ is even.
+4. But now $a$ and $b$ share the factor $2$, a contradiction.
+5. So $\sqrt2$ is irrational.
+
+Line 2 must come before line 3, because line 3 substitutes $a=2c$. That one dependency is the hardest part of the
+ordering.
+
+### The shape of a disproof
+
+A disproof is short: name the counterexample, show that it breaks the claim, then conclude. For "every prime number
+is odd": consider the number $2$, which is prime; but $2$ is even; so not every prime is odd.
+
+### What the real question looks like
+
+The one real question of this type is harder than a plain reordering, in three ways.
+
+- **Some lines are not used.** You are told to use *some* of the lines given, so there are spare lines waiting to
+  mislead you.
+- **Every option starts the same way.** The first line tells you nothing, so look at the **second** entry of each
+  option. That often removes most of them.
+- **A line can be true and still be out of place.** Two lines may say the same thing in different forms. An option
+  fails if a step does not follow from the line directly before it, even when every line in it is true.
+
+Do not begin by comparing the options, which are written to look alike. Build the chain yourself first, then find
+the option that matches it.
+
+::::
+
+
 ::: {.solutions}
 
-Ten proofs whose lines have been jumbled. For each, **anchor the ends** (the "Let/Suppose/Assume" line
-first, the conclusion last), then order the middle so **every line is justified by the ones above it**.
-These mirror the Paper 2 **Prf4** multiple-choice format.
+# Part 1 — Concept checks
 
-::: {.callout-note appearance="simple"}
-**Method.** first line = *Let / Suppose / Assume* or the given · last line = the conclusion (or "… a
-contradiction, so …") · middle = follow the dependencies ("$a=2c$" only after "$a$ is even").
-:::
-
----
+Two questions, only to confirm the notes have landed. Everything after them is exam standard.
 
 ## Question 1
-
-::: {.question}
-The following prove "the sum of two even numbers is even." Which ordering is correct?
-
-&nbsp;&nbsp;**(i)** So the sum is $2(a+b)$, which is even. &nbsp;&nbsp; **(ii)** Let the two even numbers be
-$2a$ and $2b$. &nbsp;&nbsp; **(iii)** Their sum is $2a+2b$.
-
-&nbsp;&nbsp;**A** (ii),(iii),(i) &nbsp; **B** (ii),(i),(iii) &nbsp; **C** (iii),(ii),(i) &nbsp;
-**D** (i),(ii),(iii)
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(Easy — direct)*]{style="color:#7a5195"}
-**A.** (ii) is the opening "Let…"; (i) is the conclusion "…even"; (iii) is the algebra between them, since
-(i)'s $2(a+b)$ comes from (iii)'s $2a+2b$. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3.5cm"}
-Working
-:::
-
----
-
-## Question 2
 
 ::: {.question}
 Order the proof of "if $n$ is odd, then $n^2$ is odd."
@@ -54,23 +208,71 @@ Order the proof of "if $n$ is odd, then $n^2$ is odd."
 &nbsp;&nbsp;**(i)** Then $n^2=(2k+1)^2=4k^2+4k+1$. &nbsp;&nbsp; **(ii)** Let $n=2k+1$. &nbsp;&nbsp;
 **(iii)** So $n^2=2(2k^2+2k)+1$, which is odd.
 
-&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
+&nbsp;&nbsp;**A** (i),(ii),(iii) &nbsp; **B** (ii),(iii),(i) &nbsp; **C** (ii),(i),(iii) &nbsp;
 **D** (iii),(i),(ii)
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+::: {.topic}
+Topic — a direct proof
+:::
 
-[*(Easy → Medium — direct)*]{style="color:#7a5195"}
-**A.** Open with $n=2k+1$ (ii); square it (i); rearrange to $2(\dots)+1$ (iii). (iii) needs (i)'s
-expansion first. $\;\blacksquare$
+**C.**
+
+1. Open with the set-up: $n=2k+1$, which is (ii).
+2. Square it, which is (i). This line uses $k$, so it must come after (ii).
+3. Rearrange to the form $2(\dots)+1$ and conclude, which is (iii).
+
+**Why not B?** Line (iii) says "So", and what it follows from is the expansion in (i), so (i) must come first.
+$\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:3.5cm"}
 Working
 :::
 
+
 ---
+
+## Question 2
+
+::: {.question}
+Order the proof of "there is no largest positive integer."
+
+&nbsp;&nbsp;**(i)** Then $N+1$ is a positive integer larger than $N$.
+
+&nbsp;&nbsp;**(ii)** Suppose there is a largest positive integer, $N$.
+
+&nbsp;&nbsp;**(iii)** This contradicts $N$ being the largest, so no largest exists.
+
+&nbsp;&nbsp;**A** (ii),(iii),(i) &nbsp; **B** (ii),(i),(iii) &nbsp; **C** (i),(ii),(iii) &nbsp;
+**D** (iii),(ii),(i)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+::: {.topic}
+Topic — a proof by contradiction
+:::
+
+**B.**
+
+1. Assume the opposite of the claim, which is (ii). This is where $N$ is introduced.
+2. Derive something from it, which is (i). This uses $N$, so it comes after (ii).
+3. State the contradiction and conclude, which is (iii). "This contradicts" needs (i) to be already there.
+
+$\blacksquare$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+
+---
+
+# Part 2 — Medium
 
 ## Question 3
 
@@ -78,64 +280,52 @@ Working
 Order the proof of "$n^2+n$ is even for every integer $n$."
 
 &nbsp;&nbsp;**(i)** If $n$ is even, $n=2k$, then $n^2+n=2(2k^2+k)$.
+
 &nbsp;&nbsp;**(ii)** In both cases $n^2+n$ is even, so it holds for all $n$.
+
 &nbsp;&nbsp;**(iii)** Every integer is even or odd.
+
 &nbsp;&nbsp;**(iv)** If $n$ is odd, $n=2k+1$, then $n^2+n=2(2k^2+3k+1)$.
 
-&nbsp;&nbsp;**A** (iii),(i),(iv),(ii) &nbsp; **B** (i),(iv),(iii),(ii) &nbsp; **C** (iii),(ii),(i),(iv)
-&nbsp; **D** (i),(iii),(iv),(ii)
+&nbsp;&nbsp;**A** (iii),(ii),(i),(iv) &nbsp; **B** (ii),(iii),(i),(iv) &nbsp; **C** (i),(ii),(iv),(iii)
+&nbsp; **D** (iii),(i),(iv),(ii)
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+::: {.topic}
+Topic — a proof by cases
+:::
 
-[*(Medium — cases)*]{style="color:#7a5195"}
-**A.** State the exhaustive split (iii) first; do each case (i),(iv); conclude (ii) — which refers to
-"both cases", so it must come **after** them. $\;\blacksquare$
+**D.**
+
+1. State the split that covers every integer, which is (iii).
+2. Do each case, which is (i) and (iv). The two cases do not depend on each other, so their order is free.
+3. Conclude, which is (ii).
+
+**Why the others fail.** Line (ii) refers to "both cases", so it must come **after** (i) and (iv). Options A, B and C
+all place it before at least one of them. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:4cm"}
 Working
 :::
 
+
 ---
 
 ## Question 4
 
 ::: {.question}
-Order the proof of "there is no largest positive integer."
-
-&nbsp;&nbsp;**(i)** Then $N+1$ is a positive integer larger than $N$.
-&nbsp;&nbsp;**(ii)** Suppose there is a largest positive integer, $N$.
-&nbsp;&nbsp;**(iii)** This contradicts $N$ being the largest, so no largest exists.
-
-&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
-**D** (iii),(ii),(i)
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(Medium — contradiction)*]{style="color:#7a5195"}
-**A.** Assume the opposite (ii); derive the larger integer (i); state the contradiction and conclude
-(iii). $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3.5cm"}
-Working
-:::
-
----
-
-## Question 5
-
-::: {.question}
 Order the proof of "a rational plus an irrational is irrational."
 
 &nbsp;&nbsp;**(i)** Then $i=s-r$.
+
 &nbsp;&nbsp;**(ii)** Suppose $r+i=s$ is rational, where $r$ is rational and $i$ is irrational.
+
 &nbsp;&nbsp;**(iii)** But a difference of two rationals is rational, so $i$ would be rational — a
 contradiction.
+
 &nbsp;&nbsp;**(iv)** Hence $r+i$ is irrational.
 
 &nbsp;&nbsp;**A** (ii),(i),(iii),(iv) &nbsp; **B** (ii),(iii),(i),(iv) &nbsp; **C** (i),(ii),(iii),(iv)
@@ -144,174 +334,170 @@ contradiction.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+::: {.topic}
+Topic — a proof by contradiction
+:::
 
-[*(Medium → Hard — contradiction)*]{style="color:#7a5195"}
-**A.** Assume the sum rational (ii); solve for $i$ (i); reach the contradiction (iii) — which needs (i)
-first; conclude (iv). $\;\blacksquare$
+**A.**
+
+1. Assume the sum is rational, which is (ii). This introduces $r$, $i$ and $s$.
+2. Solve for $i$, which is (i).
+3. Reach the contradiction, which is (iii). It speaks of "a difference of two rationals", and that difference is
+   the $s-r$ of line (i), so (i) must come first. This is why B fails.
+4. Conclude, which is (iv).
+
+**Why not C or D?** C uses $s$, $r$ and $i$ before they exist. D concludes before the contradiction that justifies
+the conclusion. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:4cm"}
 Working
 :::
 
----
-
-## Question 6
-
-::: {.question}
-Order the disproof of "every prime number is odd."
-
-&nbsp;&nbsp;**(i)** But $2$ is even. &nbsp;&nbsp; **(ii)** Consider the number $2$, which is prime.
-&nbsp;&nbsp; **(iii)** So not every prime is odd.
-
-&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
-**D** (iii),(ii),(i)
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(Easy — counterexample)*]{style="color:#7a5195"}
-**A.** Name the counterexample (ii); show it breaks the claim (i); conclude the claim is false (iii).
-$\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3cm"}
-Working
-:::
 
 ---
 
-## Question 7
-
-::: {.question}
-Order the proof of "the product of two consecutive integers is even."
-
-&nbsp;&nbsp;**(i)** One of two consecutive integers is even.
-&nbsp;&nbsp;**(ii)** Let the integers be $n$ and $n+1$.
-&nbsp;&nbsp;**(iii)** So their product $n(n+1)$ has an even factor, hence is even.
-
-&nbsp;&nbsp;**A** (ii),(i),(iii) &nbsp; **B** (i),(ii),(iii) &nbsp; **C** (ii),(iii),(i) &nbsp;
-**D** (i),(iii),(ii)
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(Medium — direct)*]{style="color:#7a5195"}
-**A.** Introduce the integers (ii); note one is even (i); conclude the product is even (iii).
-$\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3cm"}
-Working
-:::
-
----
-
-## Question 8
-
-::: {.question}
-Order the proof of "$\sqrt3$ is irrational" (you may use: if $3$ divides $a^2$ then $3$ divides $a$).
-
-&nbsp;&nbsp;**(i)** Suppose $\sqrt3=\dfrac ab$ in lowest terms.
-&nbsp;&nbsp;**(ii)** Then $a^2=3b^2$, so $3$ divides $a^2$, hence $3$ divides $a$; write $a=3c$.
-&nbsp;&nbsp;**(iii)** So $9c^2=3b^2$, i.e. $b^2=3c^2$, so $3$ divides $b$.
-&nbsp;&nbsp;**(iv)** But then $a$ and $b$ share the factor $3$ — a contradiction.
-&nbsp;&nbsp;**(v)** Therefore $\sqrt3$ is irrational.
-
-&nbsp;&nbsp;**A** (i),(ii),(iii),(iv),(v) &nbsp; **B** (i),(iii),(ii),(iv),(v) &nbsp;
-**C** (ii),(i),(iii),(v),(iv) &nbsp; **D** (i),(ii),(iv),(iii),(v)
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(Hard — contradiction)*]{style="color:#7a5195"}
-**A.** Assume lowest terms (i); get "$3$ divides $a$" and $a=3c$ (ii); substitute to get "$3$ divides $b$" (iii) — this
-**needs** $a=3c$ from (ii); the shared factor is the contradiction (iv); conclude (v). $\;\blacksquare$
-
-*The trap is (iii) before (ii): you cannot use $a=3c$ before deriving it.*
-:::
-
-::: {.workspace style="min-height:4.5cm"}
-Working
-:::
-
----
-
-## Question 9
+## Question 5
 
 ::: {.question}
 This proof of "if $n^2$ is even then $n$ is even" (by contrapositive) has its lines listed as
 **(1),(2),(3),(4)** — but **one line is in the wrong place**.
 
 &nbsp;&nbsp;**(1)** Suppose $n$ is odd.
+
 &nbsp;&nbsp;**(2)** So $n^2$ is odd, proving the contrapositive.
+
 &nbsp;&nbsp;**(3)** Then $n=2k+1$.
+
 &nbsp;&nbsp;**(4)** So $n^2=(2k+1)^2=2(2k^2+2k)+1$.
 
 What is the correct order?
 
-&nbsp;&nbsp;**A** (1),(3),(4),(2) &nbsp; **B** (1),(2),(3),(4) &nbsp; **C** (3),(1),(4),(2) &nbsp;
+&nbsp;&nbsp;**A** (1),(2),(3),(4) &nbsp; **B** (3),(1),(4),(2) &nbsp; **C** (1),(3),(4),(2) &nbsp;
 **D** (1),(4),(3),(2)
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+::: {.topic}
+Topic — one misplaced line
+:::
 
-[*(Hard — one line is misplaced)*]{style="color:#7a5195"}
-**A.** Line (2) is the **conclusion**, so it must come **last** — it was misplaced at position 2. Correct:
-suppose $n$ odd (1), write $n=2k+1$ (3), square it (4), conclude $n^2$ odd (2). $\;\blacksquare$
+**C.**
 
-*A conclusion line ("So … proving …") can never sit in the middle.*
+Line (2) is the **conclusion**, so it must come **last**. It was misplaced at position 2.
+
+The correct order is:
+
+1. Suppose $n$ is odd, which is (1).
+2. Write $n=2k+1$, which is (3). It follows from (1).
+3. Square it, which is (4). It uses $k$ from (3), which is why D fails.
+4. Conclude that $n^2$ is odd, which is (2).
+
+A conclusion line ("So … proving …") can never sit in the middle. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:4cm"}
 Working
 :::
 
+
 ---
 
-## Question 10
+# Part 3 — Hard
+
+## Question 6
 
 ::: {.question}
 Order the proof of "the product of any three consecutive integers is divisible by $6$."
 
-&nbsp;&nbsp;**(i)** Among three consecutive integers, one is a multiple of $2$ and one is a multiple of $3$.
+&nbsp;&nbsp;**(i)** Among $n,\,n+1,\,n+2$, at least one is a multiple of $2$ and one is a multiple of $3$.
+
 &nbsp;&nbsp;**(ii)** Let the integers be $n,\,n+1,\,n+2$.
+
 &nbsp;&nbsp;**(iii)** So the product is divisible by both $2$ and $3$.
+
 &nbsp;&nbsp;**(iv)** Since $2$ and $3$ are coprime, the product is divisible by $6$.
 
-&nbsp;&nbsp;**A** (ii),(i),(iii),(iv) &nbsp; **B** (i),(ii),(iii),(iv) &nbsp; **C** (ii),(iii),(i),(iv)
+&nbsp;&nbsp;**A** (ii),(iii),(i),(iv) &nbsp; **B** (ii),(i),(iii),(iv) &nbsp; **C** (i),(ii),(iii),(iv)
 &nbsp; **D** (ii),(i),(iv),(iii)
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+::: {.topic}
+Topic — a longer direct proof
+:::
 
-[*(Hard — longer direct proof)*]{style="color:#7a5195"}
-**A.** Introduce the integers (ii); note the multiples of $2$ and $3$ (i); deduce divisibility by both
-(iii); combine via coprimality to get $6$ (iv). $\;\blacksquare$
+**B.**
+
+1. Introduce the integers, which is (ii). Line (i) names them, which is why C fails.
+2. Note the multiples of $2$ and $3$, which is (i).
+3. Deduce divisibility by both, which is (iii). This is why A fails: its "So" needs (i).
+4. Combine, using coprimality, to get $6$, which is (iv).
+
+**Why not D?** Line (iv) combines "divisible by both $2$ and $3$", so it needs (iii) before it.
+
+For example, with $n=4$ the product is $4\times5\times6=120$, and $120=6\times20$. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:4cm"}
 Working
 :::
 
+
 ---
 
-::: {.callout-tip}
-# Part 2 — The real one
+## Question 7
 
-For a long time this session carried a caveat: *the Prf4 format is in the spec, but no TMUA paper has ever
-used it.* **That was wrong.** It has been set exactly once, in the very first sitting — and the question
-below is it, in full.
+::: {.question}
+Order the proof of "$\sqrt3$ is irrational" (you may use: if $3$ divides $a^2$ then $3$ divides $a$).
 
-Once in eight years is rare, so this page stays last in the running order. But the format is real, and this
-is what it looks like.
+&nbsp;&nbsp;**(i)** Suppose $\sqrt3=\dfrac ab$ in lowest terms.
 
-## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q7</span>
+&nbsp;&nbsp;**(ii)** Then $a^2=3b^2$, so $3$ divides $a^2$, hence $3$ divides $a$; write $a=3c$.
+
+&nbsp;&nbsp;**(iii)** So $9c^2=3b^2$, i.e. $b^2=3c^2$, so $3$ divides $b$.
+
+&nbsp;&nbsp;**(iv)** But then $a$ and $b$ share the factor $3$ — a contradiction.
+
+&nbsp;&nbsp;**(v)** Therefore $\sqrt3$ is irrational.
+
+&nbsp;&nbsp;**A** (i),(iii),(ii),(iv),(v) &nbsp; **B** (ii),(i),(iii),(v),(iv) &nbsp;
+**C** (i),(ii),(iv),(iii),(v) &nbsp; **D** (i),(ii),(iii),(iv),(v)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+::: {.topic}
+Topic — a longer proof by contradiction
+:::
+
+**D.**
+
+1. Assume $\sqrt3=a/b$ in lowest terms, which is (i).
+2. Square to get "$3$ divides $a$" and write $a=3c$, which is (ii).
+3. Substitute to get "$3$ divides $b$", which is (iii). This **needs** $a=3c$ from (ii), which is why A fails.
+4. The shared factor is the contradiction, which is (iv). It needs $3$ to divide **both** $a$ and $b$, so it comes
+   after (iii), which is why C fails.
+5. Conclude, which is (v).
+
+**Why not B?** Line (ii) uses $a$ and $b$ before (i) introduces them, and it puts the conclusion before the
+contradiction. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+
+---
+
+# Part 4 — Exam bank: real past paper
+
+This format has been set once in the 2016–2023 papers, and this is the question.
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q7</span>
 
 ::: {.question}
 The four real numbers $a$, $b$, $c$ and $d$ are all greater than $1$. Suppose that they satisfy the equation
@@ -328,22 +514,30 @@ $$(*)\qquad \log_b d=\left(\log_a b\right)\left(\log_a c\right).$$
 
 &nbsp;&nbsp;**(8)** $d=a^{\left(y^{2}x\right)}$ &nbsp;&nbsp; **(9)** $d=a^{\left(x^{2}y\right)}$
 
-&nbsp;&nbsp;**A** (1). Then (2), so (6), so (8), so (7), and therefore (4), hence $(*)$.
-&nbsp;&nbsp;**B** (1). Then (2), so (7), so (8), so (6), and therefore (4), hence $(*)$.
-&nbsp;&nbsp;**C** (1). Then (3), so (5), so (9), so (7), and therefore (4), hence $(*)$.
-&nbsp;&nbsp;**D** (1). Then (3), so (7), so (9), so (5), and therefore (4), hence $(*)$.
-&nbsp;&nbsp;**E** (1). Then (4), so (5), so (9), so (7), and therefore (3), hence $(*)$.
-&nbsp;&nbsp;**F** (1). Then (4), so (6), so (8), so (7), and therefore (2), hence $(*)$.
-&nbsp;&nbsp;**G** (1). Then (4), so (7), so (8), so (6), and therefore (2), hence $(*)$.
-&nbsp;&nbsp;**H** (1). Then (4), so (7), so (9), so (5), and therefore (3), hence $(*)$.
+&nbsp;&nbsp;**A** (1). Then (2), so (6), so (8), so (7), and therefore (4), hence $(*)$ as required.
+
+&nbsp;&nbsp;**B** (1). Then (2), so (7), so (8), so (6), and therefore (4), hence $(*)$ as required.
+
+&nbsp;&nbsp;**C** (1). Then (3), so (5), so (9), so (7), and therefore (4), hence $(*)$ as required.
+
+&nbsp;&nbsp;**D** (1). Then (3), so (7), so (9), so (5), and therefore (4), hence $(*)$ as required.
+
+&nbsp;&nbsp;**E** (1). Then (4), so (5), so (9), so (7), and therefore (3), hence $(*)$ as required.
+
+&nbsp;&nbsp;**F** (1). Then (4), so (6), so (8), so (7), and therefore (2), hence $(*)$ as required.
+
+&nbsp;&nbsp;**G** (1). Then (4), so (7), so (8), so (6), and therefore (2), hence $(*)$ as required.
+
+&nbsp;&nbsp;**H** (1). Then (4), so (7), so (9), so (5), and therefore (3), hence $(*)$ as required.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
+::: {.topic}
+Topic — the real format: choosing a chain through given lines
+:::
 
-[*(Hard — the only Prf4 question TMUA has ever set)*]{style="color:#7a5195"}
-**C.** *Do not read the eight options first.* Build the chain yourself, then find the option that matches —
-the options are written to look interchangeable and comparing them directly is slower and riskier.
+**C.** *Do not read the eight options first.* Build the chain yourself, then find the option that matches.
 
 With $x=\log_a b$ and $y=\log_a c$, the hypothesis is $\log_c d=x^{2}$.
 
@@ -351,40 +545,41 @@ With $x=\log_a b$ and $y=\log_a c$, the hypothesis is $\log_c d=x^{2}$.
 |---|---|---|
 | start | **(1)** | name the two logs |
 | 1 | **(3)** $d=c^{\left(x^{2}\right)}$ | $\log_c d=x^{2}$ **is** this statement, rewritten as a power |
-| 2 | **(5)** $d=\left(a^{y}\right)^{\left(x^{2}\right)}$ | $y=\log_a c$ means $c=a^{y}$ — substitute |
+| 2 | **(5)** $d=\left(a^{y}\right)^{\left(x^{2}\right)}$ | $y=\log_a c$ means $c=a^{y}$, so substitute |
 | 3 | **(9)** $d=a^{\left(x^{2}y\right)}$ | $\left(a^{y}\right)^{x^{2}}=a^{x^{2}y}$ |
 | 4 | **(7)** $d=\left(a^{x}\right)^{xy}$ | regroup: $x^{2}y=x\cdot xy$ |
 | 5 | **(4)** $d=b^{xy}$ | $a^{x}=b$, since $x=\log_a b$ |
 | finish | $(*)$ | $d=b^{xy}\Rightarrow\log_b d=xy=\left(\log_a b\right)\left(\log_a c\right)$ ✓ |
 
-**How to eliminate without doing the algebra.** Every option starts at (1), so look at the **second** entry:
+**How to eliminate without doing the algebra.** Every option starts at (1), so look at the **second** entry.
 
-- **(2)** $d=\left(c^{x}\right)^{2}=c^{2x}$ — but the hypothesis gives $c^{x^{2}}$, and $2x\neq x^{2}$ in
-  general. *Options A and B die immediately.*
-- **(4)** $d=b^{xy}$ is the **destination**, not a starting move — it is what we are trying to reach. *E, F,
+- **(2)** $d=\left(c^{x}\right)^{2}=c^{2x}$. But the hypothesis gives $c^{x^{2}}$, and $2x\neq x^{2}$ in
+  general. *Options A and B fail immediately.*
+- **(4)** $d=b^{xy}$ is the **destination**, not a starting move. It is what we are trying to reach. *E, F,
   G and H all begin by assuming the conclusion.*
-- **(3)** is the only honest first step, leaving **C** and **D**. Between them, (5) must come before (9)
-  (you substitute $c=a^{y}$ **before** collecting the exponent), so **C**.
+- **(3)** is the only honest first step, leaving **C** and **D**.
 
-*Notice what killed six of the eight options: one bad exponent and one circular start.* Checking the second
-line of each option settled the question before any real work began.
+**C or D?** All of (3), (5), (7) and (9) are true statements about $d$, so truth alone cannot separate them. The
+question is which step can be justified from the line before it. From (3), the next move must bring in $a$, and the
+only tool available is $c=a^{y}$. Substituting that gives (5), not (7). Option D also has to go from (5) straight
+to (4), but $b=a^{x}$ cannot be used until the exponent has been regrouped as in (7). So the answer is **C**.
 
-**Also worth seeing:** the wrong lines are not random. (6) and (8) are the consistent continuation of the
-false branch through (2), and (2)/(6)/(8) form a complete, internally tidy — but wrong — chain. *A scrambled
-proof question hides its distractors as a parallel proof of the wrong thing.* $\;\blacksquare$
+**Why the wrong lines are there.** Lines (2) and (6) say the same thing, $d=a^{2xy}$. They are the natural
+continuation of the slip in (2), which treats $x^{2}$ as $2x$. Line (8) has the same shape as the correct line (9)
+with $x$ and $y$ swapped, and it is not equal to either of them. Lines like these are built to resemble a parallel
+proof, so check each link rather than the general look of the chain. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:5cm"}
 Working
 :::
 
+
 ---
 
-## The one habit to leave with
+**The whole session in one line:**
 
-**Anchor the ends first** — the "Let / Suppose / Assume" line opens, the conclusion (or contradiction)
-closes — then order the middle by **dependency**: a line that uses a result must come after it. A
-conclusion line is never in the middle.
-:::
+> **Anchor the ends first, then order the middle by dependency: a line that uses something must come after it, and
+> a conclusion line is never in the middle.**
 
 :::

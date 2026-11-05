@@ -109,7 +109,7 @@ $$12\text{ divides } n^{2}\iff 6\text{ divides } n,\qquad\text{not } 12\text{ di
 | $12\text{ divides } n^{2}\Rightarrow12\text{ divides } n$ | **False** | *$n=6$: $36=12\times3$* |
 | $12\text{ divides } n^{2}\iff6\text{ divides } n$ | **True** | *halve prime exponents and round up* |
 
-[2019 Q5 · 2021 Q4 · 2023 Q3 in S4 · the whole of S5 Q29–Q30]{.eg}
+[2019 Q5 · 2021 Q4 · 2023 Q3 in S4 · the whole of S5 Q18–Q19]{.eg}
 :::
 
 ::: {.fs-card}
@@ -661,24 +661,24 @@ set. The table is the index: it names each question's reasoning type and the fac
 | Sitting | Question | Reasoning type | Worked at |
 |---|---|---|---|
 | **2016** | **Q5** $6n\pm1$ and primality | counterexample | facts 1, 8 above |
-| **2016** | **Q13** $a\text{ divides } bc\Rightarrow a\text{ divides } b$ or $a\text{ divides }c$ | spot the error | **[S7 Q18](s07_spot_the_error.qmd)** |
+| **2016** | **Q13** $a\text{ divides } bc\Rightarrow a\text{ divides } b$ or $a\text{ divides }c$ | spot the error | **[S7 Q14](s07_spot_the_error.qmd)** |
 | **2017** | **Q5** $91=7\times13$ | counterexample | fact 9 above |
 | **2017** | **Q9** Fermat for $n=3$ | spot the error | pattern E above |
 | **2018** | **Q17** prime factors of $N^{2}$ | which must be true | fact 3 above |
 | **2019** | **Q4** $1\,0\ldots0\,1$ primality | counterexample | facts 1, 10 |
 | **2019** | **Q5** $n$ divides $ab$ | necessary condition | fact 2 above |
-| **2020** | **Q4** sum of two non-primes | counterexample | **[S5 Q28](s05_proof_methods.qmd)** *(same type, Tyler version)* |
+| **2020** | **Q4** sum of two non-primes | counterexample | **[S5 Q17](s05_proof_methods.qmd)** *(same type, Tyler version)* |
 | **2021** | **Q4** $a$ divides $bc$ — the counterexample twin of 2016 Q13 | counterexample | fact 2 above |
 | **2021** | **Q10** $n$ prime $\Rightarrow u_n$ multiple of $3$ or $5$ | counterexample | fact 10 above |
 | **2022** | **Q3** $n$ prime $\Rightarrow n^{2}+2$ not prime | counterexample | pattern A above |
-| **2022** | **Q7** consecutive cubes always prime | spot the error | **[S7 Q19](s07_spot_the_error.qmd)** |
+| **2022** | **Q7** consecutive cubes always prime | spot the error | **[S7 Q15](s07_spot_the_error.qmd)** |
 | **2023** | **Q4** consecutive odd primes | spot the error | facts 8, 1 |
 | **2023** | **Q11** $2^{k}+1$ prime $\Rightarrow k$ a power of $2$ | equivalence | **[S2](s02_converse_contrapositive.qmd)** |
-| **2023** | **Q16** $\gcd(a,b)=7$ down a recurrence | which must be true | **[S5 Q34](s05_proof_methods.qmd)** |
-| *mock* | **JZ A Q5** $n^{2}+2$ prime $\Rightarrow3\text{ divides } n$ | spot the error | **[S7 Q17](s07_spot_the_error.qmd)** |
-| *mock* | **JZ A Q17** $n$ does not divide $k!$ $\Rightarrow n$ prime | spot the error | **[S7 Q20](s07_spot_the_error.qmd)** |
+| **2023** | **Q16** $\gcd(a,b)=7$ down a recurrence | which must be true | **[S5 Q23](s05_proof_methods.qmd)** |
+| *mock* | **JZ A Q5** $n^{2}+2$ prime $\Rightarrow3\text{ divides } n$ | spot the error | **[S7 Q13](s07_spot_the_error.qmd)** |
+| *mock* | **JZ A Q17** $n$ does not divide $k!$ $\Rightarrow n$ prime | spot the error | **[S7 Q16](s07_spot_the_error.qmd)** |
 | *mock* | **JZ B Q11** $12$ divides $n^{3}+5n$ | necessary not sufficient | **[S3 Q16](s03_necessary_sufficient.qmd)** |
-| *mock* | **JZ C Q1** $12$ divides $n^{2}$ | quantifiers | **[S4 Q11](s04_quantifiers_negation.qmd)** |
+| *mock* | **JZ C Q1** $12$ divides $n^{2}$ | quantifiers | **[S4 Q10](s04_quantifiers_negation.qmd)** |
 
 ---
 

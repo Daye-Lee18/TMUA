@@ -106,15 +106,15 @@ isolation. They carry a **◆** beside the source:
 
 | Self-study question | Now also in |
 |---|---|
-| **2018 P2 Q6** — counterexample to "$f'>0\Rightarrow f>0$" | **[S5 Q33](../../toolkit/s05_proof_methods.qmd)** |
+| **2018 P2 Q6** — counterexample to "$f'>0\Rightarrow f>0$" | **[S5 Q22](../../toolkit/s05_proof_methods.qmd)** |
 | **2018 P2 Q18** — necessary condition for the chord to lie above the curve | **[S3 Q19](../../toolkit/s03_necessary_sufficient.qmd)** |
-| **2016 P2 Q13** — the divisibility proof that fails at line 5 | **[S7 Q18](../../toolkit/s07_spot_the_error.qmd)** |
-| **2022 P2 Q7** — "difference of consecutive cubes is prime" | **[S7 Q19](../../toolkit/s07_spot_the_error.qmd)** |
-| **2022 P2 Q10** — the order of quantifiers | **[S4 Q13](../../toolkit/s04_quantifiers_negation.qmd)** |
-| **2023 P2 Q9** — pentagon: statement, contrapositive, converse | **[S2 Q11](../../toolkit/s02_converse_contrapositive.qmd)** |
-| **2023 P2 Q14** — three lines, which implication is correct | **[S1 Q12](../../toolkit/s01_statement_forms.qmd)** |
-| **2023 P2 Q16** — recurrence with $\gcd(a,b)=7$, which must be true | **[S5 Q34](../../toolkit/s05_proof_methods.qmd)** |
-| **2023 P2 Q19** — $g=xf''$, which orderings of $M,N$ are possible | **[S4 Q14](../../toolkit/s04_quantifiers_negation.qmd)** |
+| **2016 P2 Q13** — the divisibility proof that fails at line 5 | **[S7 Q14](../../toolkit/s07_spot_the_error.qmd)** |
+| **2022 P2 Q7** — "difference of consecutive cubes is prime" | **[S7 Q15](../../toolkit/s07_spot_the_error.qmd)** |
+| **2022 P2 Q10** — the order of quantifiers | **[S4 Q12](../../toolkit/s04_quantifiers_negation.qmd)** |
+| **2023 P2 Q9** — pentagon: statement, contrapositive, converse | **[S2 Q9](../../toolkit/s02_converse_contrapositive.qmd)** |
+| **2023 P2 Q14** — three lines, which implication is correct | **[S1 Q11](../../toolkit/s01_statement_forms.qmd)** |
+| **2023 P2 Q16** — recurrence with $\gcd(a,b)=7$, which must be true | **[S5 Q23](../../toolkit/s05_proof_methods.qmd)** |
+| **2023 P2 Q19** — $g=xf'$, which orderings of $M,N$ are possible | **[S4 Q13](../../toolkit/s04_quantifiers_negation.qmd)** |
 
 Each of those toolkit pages now ends with an **exam bank** of the same question type, drawn from the
 Tyler and JZ Maths mock papers and from the real papers: **13** more necessary/sufficient questions in S3,

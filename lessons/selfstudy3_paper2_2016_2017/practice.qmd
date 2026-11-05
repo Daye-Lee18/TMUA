@@ -210,7 +210,7 @@ remainder of $4\div4$ is $\mathbf 0$ — so $a$ **does** divide $bc$. The proof 
 (The statement really is false: $a=6,\ b=2,\ c=3$ gives $bc=6$, which $6$ divides, yet $6$ divides neither $2$ nor $3$.)
 
 *This is exactly the S7 "spot the error" pattern, and the fix is the modular-arithmetic care from S5
-(a remainder lives in $\{0,\dots,a-1\}$). **Toolkit: [S7 — spot the error](../../toolkit/s07_assignment_ms.qmd),
+(a remainder lives in $\{0,\dots,a-1\}$). **Toolkit: [S7 — spot the error](../../toolkit/s07_spot_the_error.qmd),
 S5 — modular arithmetic.***
 :::
 
@@ -517,8 +517,8 @@ is algebraically fine, so *only* (I) is wrong — **B**.
 Done correctly: $\left(\tfrac14\right)^n=2^{-2n}$ and $\left(\tfrac1{32}\right)^{10}=2^{-50}$, so
 $2^{-2n}<2^{-50}\Leftrightarrow-2n<-50\Leftrightarrow n>25$.
 
-*This is the same question as **[S7 assignment A1](../../toolkit/s07_assignment_ms.qmd)** — and the
-[S7 concepts note on logs with a base below 1](../../toolkit/s07_concepts.qmd) has the graph. **Toolkit: S7.***
+*This is the same question as **[S7 Q18](../../toolkit/s07_spot_the_error.qmd)** — and the
+[S7 note on logs with a base below 1](../../toolkit/s07_spot_the_error.qmd) has the graph. **Toolkit: S7.***
 :::
 
 ::: {.workspace style="min-height:5cm"}

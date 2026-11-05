@@ -1,7 +1,8 @@
 ---
 title: "Toolkit S5 — Assignment · Mark Scheme"
-subtitle: "Tutor copy — 36 problems, fully scaffolded solutions"
+subtitle: "Tutor copy — full solutions with reasoning"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -9,504 +10,1053 @@ execute:
 
 ::: {.solutions}
 
-Each solution is written as a **numbered chain of steps** with an English sentence at every transition, a
-clean derivation block, and a short **Intuition** line naming the core idea. Two checks throughout: a
-**"for all"** must be argued **generally** (not by examples); a **disproof** must exhibit a counterexample
-that genuinely **fits the hypothesis**.
+20 questions. Multiple-choice answers from TMUA papers and mocks were checked against the official or publisher solutions, and
+MAT 2025 against its published solution. MAT 2016 Q1J and the Notes on Logic and Proof exercises have no local answer, so they are
+worked here from the definitions.
 
 ---
 
-# Section A — Direct proofs
+# Section A — Which candidates work?
 
-## A1. The product of three consecutive integers is divisible by $6$.
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q4</span>
 
-**Step 1 — Represent the objects generally.** Take any three consecutive integers $n,\ n+1,\ n+2$.
+::: {.question}
+A set of five cards each have a letter printed on their front and a number printed on their back, as follows:
 
-**Step 2 — Guarantee a factor of $2$.** Of any two consecutive integers one is even, so among three there
-is certainly at least one even number — the product carries a factor of $2$.
+| | Card A | Card B | Card C | Card D | Card E |
+|---|:--:|:--:|:--:|:--:|:--:|
+| **Fronts** | A | B | C | D | E |
+| **Backs** | 3 | 4 | 1 | 7 | 8 |
 
-**Step 3 — Guarantee a factor of $3$.** Of any three consecutive integers exactly one is a multiple of
-$3$ — the product carries a factor of $3$.
+Which one of the five cards (A, B, C, D or E) provides a **counterexample** to the following statement?
 
-**Step 4 — Combine the coprime factors.** Because $2$ and $3$ share no common factor,
-$$2\times3=6 \ \text{ divides } \ n(n+1)(n+2).$$
+> *Every card that has a vowel on its front has an even number on its back.*
+:::
 
-**Intuition.** Consecutive integers "sweep" through the residues, so they are guaranteed to land on a
-multiple of $2$ **and** a multiple of $3$; coprime factors multiply.
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
 
-## A2. If $n$ is odd, then $8$ divides $n^2-1$.
+**Card A.**
 
-**Step 1 — Represent an odd number.** Write $n=2k+1$.
+**Step 1 — write it as "if … then".** For every card: if it has a vowel on its front, then it has an even number on
+its back.
 
-**Step 2 — Factorise the difference of squares.**
-$$n^2-1=(n-1)(n+1)=(2k)(2k+2)=4k(k+1).$$
+**Step 2 — say what a counterexample must look like.** The hypothesis must be true and the conclusion false, so
+we need a vowel on the front **and** an odd number on the back.
 
-**Step 3 — Find the hidden extra factor of $2$.** $k$ and $k+1$ are consecutive, so one of them is even;
-write $k(k+1)=2m$. Then
-$$n^2-1=4\cdot 2m=8m.$$
+**Step 3 — check the cards.** Only A and E have vowels on the front.
 
-**Conclusion.** $8$ divides $n^2-1$. $\blacksquare$
+- Card A has $3$ on the back, which is odd. This breaks the statement.
+- Card E has $8$ on the back, which is even. The statement holds for this card.
 
-**Intuition.** Squaring an odd number and subtracting $1$ leaves $4k(k+1)$; the "consecutive pair"
-$k(k+1)$ donates the fourth factor of $2$, upgrading $4$ to $8$.
-
-## A3. The product of four consecutive integers is divisible by $24$.
-
-**Step 1 — Represent them.** Take $n,\ n+1,\ n+2,\ n+3$.
-
-**Step 2 — Collect factors of $2$.** Four consecutive integers contain **two even numbers**, and of any two
-consecutive even numbers one is a multiple of $4$. That gives $2\times4=8$.
-
-**Step 3 — Collect a factor of $3$.** Any four consecutive integers include at least one multiple of $3$.
-
-**Step 4 — Combine.** Since $8$ and $3$ are coprime,
-$$8\times3=24 \ \text{ divides the product.}$$
-
-**Intuition.** Same "sweep" idea as A1, but with one extra even number the two $2$'s become $8$; the
-multiple of $3$ finishes the job.
-
-## A4. $9$ divides $n^3+(n+1)^3+(n+2)^3$ for every integer $n$.
-
-**Step 1 — Expand the sum.**
-$$
-\begin{aligned}
-n^3+(n+1)^3+(n+2)^3
-&= n^3+\bigl(n^3+3n^2+3n+1\bigr)+\bigl(n^3+6n^2+12n+8\bigr)\\
-&= 3n^3+9n^2+15n+9.
-\end{aligned}
-$$
-
-**Step 2 — Take out the obvious factor of $3$.**
-$$3n^3+9n^2+15n+9 = 3\bigl(n^3+3n^2+5n+3\bigr).$$
-The sum is already divisible by $3$; we still need **one more** factor of $3$ from the bracket.
-
-**Step 3 — Reduce the bracket modulo $3$.** Working mod $3$, the terms $3n^2$ and $3$ vanish and $5\equiv2$:
-$$n^3+3n^2+5n+3 \equiv n^3+2n \pmod 3.$$
-Since $2\equiv-1\pmod 3$, this is
-$$n^3+2n \equiv n^3-n \pmod 3.$$
-
-**Step 4 — Recognise $n^3-n$.**
-$$n^3-n=(n-1)\,n\,(n+1),$$
-the product of three consecutive integers, which always contains a multiple of $3$ (by A1). Hence
-$n^3-n\equiv0\pmod3$, so the bracket is divisible by $3$.
-
-**Conclusion.** The sum contributes one factor of $3$ (Step 2) and the bracket a second (Steps 3–4), so it
-is divisible by $3\times3=9$. $\blacksquare$
-
-**Intuition.** Two factors of $3$ are needed. One falls out for free from adding three cubes; the second is
-the hidden "three consecutive integers" ($n^3-n$) that appears once you strip the mod-$3$ noise off the
-bracket.
-
-## A5. $8$ divides $3^{2n}-1$ for every positive integer $n$.
-
-**Step 1 — Rewrite the power.** $3^{2n}=(3^2)^n=9^n$.
-
-**Step 2 — Reduce the base mod $8$.** Because $9\equiv1\pmod8$,
-$$9^n\equiv1^n=1\pmod8.$$
-
-**Step 3 — Subtract $1$.**
-$$3^{2n}-1=9^n-1\equiv1-1=0\pmod8.$$
-
-**Conclusion.** $8$ divides $3^{2n}-1$. $\blacksquare$ *(Alternatively factor
-$9^n-1=(9-1)\bigl(9^{n-1}+\dots+1\bigr)=8\times(\dots)$.)*
-
-**Intuition.** $9$ is just "$1$ more than a multiple of $8$", so every power of $9$ is also $1$ more than a
-multiple of $8$; subtracting $1$ lands exactly on a multiple of $8$.
-
-## A6. $a^2+b^2$ is never of the form $4k+3$.
-
-**Step 1 — Find the residues of a single square mod $4$.** Split into even and odd:
-$$
-\begin{aligned}
-\text{even } a=2m:&\quad a^2=4m^2\equiv0,\\
-\text{odd } a=2m+1:&\quad a^2=4(m^2+m)+1\equiv1 \pmod4.
-\end{aligned}
-$$
-So **every square is $\equiv0$ or $1\pmod4$.**
-
-**Step 2 — Add two of them.** The possible values of $a^2+b^2\pmod4$ are
-$$0+0=0,\quad 0+1=1,\quad 1+1=2.$$
-
-**Conclusion.** $a^2+b^2\equiv0,1,$ or $2\pmod4$ — it can **never** be $3$. $\blacksquare$
-
-**Intuition.** Squares only ever leave remainder $0$ or $1$ mod $4$; you cannot build a remainder of $3$
-out of two numbers each worth $0$ or $1$.
+**Why not the others?** B, C and D have consonants on the front, so the statement says nothing about them. Cards C
+and D have odd backs, which is what makes them tempting, but the hypothesis fails.
+:::
 
 ---
 
-# Section B — Proof by cases
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q3</span>
 
-## B1. $n^2+n$ is even for every integer $n$.
+::: {.question}
+Consider the following statement about the positive integer $n$:
 
-**Case 1 — $n$ even, $n=2k$.**
-$$n^2+n=4k^2+2k=2(2k^2+k)\ \text{— even.}$$
+> if $n$ is prime, then $n^2+2$ is not prime
 
-**Case 2 — $n$ odd, $n=2k+1$.**
-$$n^2+n=(2k+1)^2+(2k+1)=4k^2+6k+2=2(2k^2+3k+1)\ \text{— even.}$$
+Which of the following is a counterexample to this statement?
 
-**Conclusion.** Both cases are even, and every integer is even or odd, so $n^2+n$ is always even.
-$\blacksquare$
+&nbsp;&nbsp;**I** &nbsp; $n=2$
 
-**Intuition.** $n^2+n=n(n+1)$ is a product of two consecutive integers — one of them is always even, which
-is the same fact in one line.
+&nbsp;&nbsp;**II** &nbsp; $n=3$
 
-## B2. The square of any integer is of the form $4k$ or $4k+1$.
+&nbsp;&nbsp;**III** &nbsp; $n=4$
 
-**Case 1 — $n$ even, $n=2m$.** $\ n^2=4m^2=4k$ with $k=m^2$.
+&nbsp;&nbsp;**A** none of them
 
-**Case 2 — $n$ odd, $n=2m+1$.** $\ n^2=4m^2+4m+1=4(m^2+m)+1=4k+1$.
+&nbsp;&nbsp;**B** I only
 
-**Conclusion.** Every square is $4k$ (even $n$) or $4k+1$ (odd $n$). $\blacksquare$
+&nbsp;&nbsp;**C** II only
 
-**Intuition.** This is the engine behind A6: squares miss the residues $2$ and $3$ mod $4$ entirely.
+&nbsp;&nbsp;**D** III only
 
-## B3. $\lvert x\rvert\ge x$ and $\lvert x\rvert\ge -x$ for every real $x$ (hence $\lvert x\rvert\ge0$).
+&nbsp;&nbsp;**E** I and II only
 
-**Case 1 — $x\ge0$.** Here $\lvert x\rvert=x$, so $\lvert x\rvert\ge x$; and since $x\ge0\ge -x$, also
-$\lvert x\rvert=x\ge -x$.
+&nbsp;&nbsp;**F** I and III only
 
-**Case 2 — $x<0$.** Here $\lvert x\rvert=-x>0>x$, so $\lvert x\rvert\ge x$; and $\lvert x\rvert=-x\ge -x$.
+&nbsp;&nbsp;**G** II and III only
 
-**Conclusion.** In both cases $\lvert x\rvert\ge x$ and $\lvert x\rvert\ge -x$. Adding "$\ge x$" and
-"$\ge -x$" covers both signs, so $\lvert x\rvert\ge0$. $\blacksquare$
+&nbsp;&nbsp;**H** I, II and III
+:::
 
-**Intuition.** $\lvert x\rvert$ is whichever of $x,-x$ is non-negative, so it dominates **both**.
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
 
-## B4. $3$ divides $n^3-n$ for every integer $n$ (cases $n\equiv0,1,2\pmod3$).
+**C — II only.**
 
-**Reduce each case mod $3$** (note $2\equiv-1$, which is why the last case is quick):
-$$
-\begin{aligned}
-n\equiv0:&\quad n^3-n\equiv0-0=0,\\
-n\equiv1:&\quad n^3-n\equiv1-1=0,\\
-n\equiv2\equiv-1:&\quad n^3-n\equiv(-1)^3-(-1)=-1+1=0 \pmod3.
-\end{aligned}
-$$
+A counterexample needs $n$ prime **and** $n^2+2$ prime.
 
-**Conclusion.** In all three residue classes $n^3-n\equiv0\pmod3$; the cases are exhaustive, so $3$ divides
-$n^3-n$ for every $n$. $\blacksquare$
+| $n$ | $n$ prime? | $n^2+2$ | $n^2+2$ prime? | counterexample? |
+|---|---|---|---|---|
+| $2$ | yes | $6$ | no | no: the statement holds here |
+| $3$ | yes | $11$ | **yes** | **yes** |
+| $4$ | **no** | $18$ | no | no: the hypothesis fails |
 
-**Intuition.** Using $2\equiv-1$ turns the awkward "$8-2$" into "$-1+1$" — mod arithmetic lets you pick the
-**smallest** representative to keep the algebra trivial.
-
-## B5. The last digit of a perfect square is always one of $0,1,4,5,6,9$.
-
-**Step 1 — The last digit depends only on $n \bmod 10$.** So it is enough to square the ten possible last
-digits.
-
-**Step 2 — Square $0$ through $9$ and read the units digit.**
-$$
-\begin{array}{c|cccccccccc}
-n\ (\text{last digit}) & 0&1&2&3&4&5&6&7&8&9\\\hline
-\text{last digit of }n^2 & 0&1&4&9&6&5&6&9&4&1
-\end{array}
-$$
-
-**Conclusion.** The units digits that occur are exactly $\{0,1,4,5,6,9\}$; $2,3,7,8$ never appear.
-$\blacksquare$
-
-**Intuition.** Only the last digit of $n$ can affect the last digit of $n^2$, so a ten-row check is a
-complete proof — and the list is symmetric because $d$ and $10-d$ square to the same units digit.
-
-## B6. If the product of two integers is odd, then both integers are odd.
-
-**Strategy — prove the contrapositive.** "At least one factor even $\Rightarrow$ product even."
-
-**Case — one factor even, $=2a$** (the other, $b$, arbitrary):
-$$(2a)\,b=2(ab)\ \text{— even.}$$
-
-**Conclusion.** If either factor is even the product is even; therefore an **odd** product forces
-**neither** factor to be even, i.e. both are odd. $\blacksquare$
-
-**Intuition.** A single factor of $2$ anywhere makes the whole product even, so oddness of the product must
-come from oddness of *every* factor.
+**Why $n=4$ is not one.** The statement only talks about prime $n$. It makes no claim about $4$.
+:::
 
 ---
 
-# Section C — Proof by contradiction
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q4</span>
 
-## C1. $\sqrt2$ is irrational.
+::: {.question}
+Consider the following claim about positive integers $a$, $b$ and $c$:
 
-**Step 1 — Assume the opposite.** Suppose $\sqrt2=\dfrac ab$ in lowest terms (so $a,b$ share no common
-factor).
+> if $a$ is a factor of $bc$, then $a$ is a factor of $b$ or $a$ is a factor of $c$
 
-**Step 2 — Clear the root.** $\ 2=\dfrac{a^2}{b^2}\Rightarrow a^2=2b^2$, so $a^2$ is even, hence $a$ is
-even; write $a=2c$.
+Which of the following provide(s) a counterexample to this claim?
 
-**Step 3 — Push the parity onto $b$.**
-$$(2c)^2=2b^2\Rightarrow 4c^2=2b^2\Rightarrow b^2=2c^2,$$
-so $b^2$ is even, hence $b$ is even.
+&nbsp;&nbsp;**I** &nbsp; $a=5,\ b=10,\ c=20$
 
-**Step 4 — Contradiction.** Now $a$ and $b$ are both even, contradicting "lowest terms". $\blacksquare$
+&nbsp;&nbsp;**II** &nbsp; $a=8,\ b=4,\ c=4$
 
-**Intuition.** Assuming a fraction in lowest terms and then forcing **both** parts even is impossible — the
-engine is "$a^2$ even $\Rightarrow a$ even" (proved in F5).
+&nbsp;&nbsp;**III** &nbsp; $a=6,\ b=7,\ c=12$
 
-## C2. $\sqrt3$ is irrational. *(Given: if $n^2$ is divisible by $3$ then $n$ is.)*
+&nbsp;&nbsp;**A** none of them
 
-**Step 1 — Assume the opposite.** $\sqrt3=\dfrac ab$ in lowest terms.
+&nbsp;&nbsp;**B** I only
 
-**Step 2 — Clear the root.** $\ a^2=3b^2$, so $3$ divides $a^2$, hence (by the given fact) $3$ divides $a$;
-write $a=3c$.
+&nbsp;&nbsp;**C** II only
 
-**Step 3 — Push it onto $b$.** $\ 9c^2=3b^2\Rightarrow b^2=3c^2$, so $3$ divides $b$.
+&nbsp;&nbsp;**D** III only
 
-**Step 4 — Contradiction.** Both $a$ and $b$ are multiples of $3$, contradicting "lowest terms".
-$\blacksquare$
+&nbsp;&nbsp;**E** I and II only
 
-**Intuition.** Identical structure to C1 with the prime $3$ in place of $2$; the "given fact" is the $3$-analogue of "square even $\Rightarrow$ even".
+&nbsp;&nbsp;**F** I and III only
 
-## C3. There is no smallest positive rational number.
+&nbsp;&nbsp;**G** II and III only
 
-**Step 1 — Assume one exists.** Suppose $q$ is the smallest positive rational.
+&nbsp;&nbsp;**H** I, II and III
+:::
 
-**Step 2 — Produce a smaller one.** $\dfrac q2$ is positive, rational, and
-$$0<\frac q2<q.$$
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
 
-**Step 3 — Contradiction.** $\dfrac q2$ is a positive rational smaller than $q$, contradicting that $q$ was
-smallest. $\blacksquare$
+**C — II only.**
 
-**Intuition.** You can always halve — the rationals have no "bottom rung".
+A counterexample needs $a$ to divide $bc$, but $a$ to divide **neither** $b$ nor $c$. Negating the "or" is what makes
+it "neither".
 
-## C4. There are infinitely many prime numbers.
+| | $bc$ | $a$ divides $bc$? | $a$ divides $b$? | $a$ divides $c$? | counterexample? |
+|---|---|---|---|---|---|
+| **I** | $200$ | yes | yes | yes | no |
+| **II** | $16$ | yes | no | no | **yes** |
+| **III** | $84$ | yes | no | yes | no |
 
-**Step 1 — Assume finitely many.** Suppose $p_1,p_2,\dots,p_n$ are **all** the primes.
-
-**Step 2 — Build a new number.** Let
-$$N=p_1p_2\cdots p_n+1.$$
-
-**Step 3 — No listed prime divides $N$.** Dividing $N$ by any $p_i$ leaves remainder $1$, so none of the
-$p_i$ is a factor of $N$.
-
-**Step 4 — Contradiction.** Then $N$ has a prime factor **not** on the list (possibly $N$ itself),
-contradicting that the list was complete. $\blacksquare$
-
-**Intuition.** "$+1$" makes $N$ coprime to every prime you already have, forcing a brand-new prime to
-exist. *(Note: $N$ need not itself be prime — the point is only that a new prime factor must appear.)*
-
-## C5. $\sqrt2+\sqrt3$ is irrational.
-
-**Step 1 — Assume rational.** Suppose $\sqrt2+\sqrt3=r$ with $r$ rational.
-
-**Step 2 — Square to isolate a single surd.**
-$$r^2=(\sqrt2+\sqrt3)^2=2+2\sqrt6+3=5+2\sqrt6,$$
-so
-$$\sqrt6=\frac{r^2-5}{2}.$$
-
-**Step 3 — Spot the contradiction.** The right-hand side is rational (it is built from the rational $r$),
-so $\sqrt6$ would be rational. But $\sqrt6$ is **irrational** (same argument as C1: $6b^2=a^2$ forces $2$ to
-divide both $a$ and $b$).
-
-**Conclusion.** $\sqrt6$ cannot be both rational and irrational, so $\sqrt2+\sqrt3$ is irrational.
-$\blacksquare$
-
-**Intuition.** Squaring collapses two surds into one ($\sqrt6$); if the sum were rational that lone surd
-would be too, which it isn't.
-
-## C6. $\log_2 3$ is irrational.
-
-**Step 1 — Assume rational.** Suppose $\log_2 3=\dfrac ab$ with $a,b$ positive integers.
-
-**Step 2 — Exponentiate.**
-$$2^{a/b}=3\ \Longrightarrow\ 2^{a}=3^{b}.$$
-
-**Step 3 — Parity contradiction.** The left side $2^a$ is **even**, while the right side $3^b$ is **odd**.
-An even number cannot equal an odd number.
-
-**Conclusion.** No such $a,b$ exist, so $\log_2 3$ is irrational. $\blacksquare$
-
-**Intuition.** A power of $2$ and a power of $3$ can never coincide (unique factorisation) — the quickest
-witness is even $\ne$ odd.
+**The idea behind it.** The factor $8=2^3$ can be shared out between $b$ and $c$, with some powers of $2$ in each. The
+claim does hold when $a$ is prime, which is why it looks believable.
+:::
 
 ---
 
-# Section D — Counterexamples
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q4</span>
 
-*A single explicit counterexample that fits the hypothesis disproves each "for all".*
+::: {.question}
+Consider the following statement:
 
-**D1. "Every odd integer greater than $1$ is prime." — False.**
-$$9=3\times3\ \text{ is odd, } >1, \text{ and not prime.}$$
+> Every positive integer $N$ that is greater than $6$ can be written as the sum of two non-prime integers that are
+> greater than $1$.
 
-**D2. "$n^2+n+41$ is prime for every positive integer $n$." — False.** At $n=40$,
-$$40^2+40+41=1681=41^2.$$
-*(Also clean: $n=41$ gives $41^2+41+41=41(41+2)=41\times43$.)*
+Which of the following is/are counterexample(s) to this statement?
 
-**D3. "$2^n-1$ is prime for every $n\ge2$." — False.** At $n=4$,
-$$2^4-1=15=3\times5.$$
+&nbsp;&nbsp;**I** &nbsp; $N=5$
 
-**D4. "$2^n+1$ is prime for every positive integer $n$." — False.** At $n=3$,
-$$2^3+1=9=3^2.$$
+&nbsp;&nbsp;**II** &nbsp; $N=7$
 
-**D5. "If $p$ is prime, then $2^p-1$ is prime." — False.** These are the **Mersenne numbers** $2^p-1$; a
-prime exponent does **not** force the result to be prime. It is worth knowing two ways to produce the
-counterexample quickly.
+&nbsp;&nbsp;**III** &nbsp; $N=9$
 
-**The counterexample.** $p=11$ is prime, but
-$$2^{11}-1=2047=23\times89.$$
+&nbsp;&nbsp;**A** none of them
 
-**Strategy 1 — memorise the first failure.** Factorising $2047$ by hand in the exam wastes time, so learn
-the short run of small Mersenne numbers:
+&nbsp;&nbsp;**B** I only
 
-| $p$ | $2^{p}-1$ | |
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**G — II and III only.**
+
+A counterexample is an $N$ greater than $6$ that **cannot** be written this way. The non-primes greater than $1$ begin
+$4,6,8,9,\dots$
+
+- **$N=5$** is not greater than $6$, so the statement says nothing about it. Not a counterexample.
+- **$N=7$:** the splits into numbers greater than $1$ are $2+5$ and $3+4$. Each contains a prime, so $7$ cannot be
+  written this way. Counterexample.
+- **$N=9$:** the splits are $2+7$, $3+6$ and $4+5$. Each contains a prime, so $9$ cannot be written this way.
+  Counterexample.
+
+**Quick check on $9$.** The smallest possible sum is $4+4=8$, and the next is $4+6=10$. So $9$ is skipped.
+:::
+
+---
+
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q4</span>
+
+::: {.question}
+Consider the following conjecture:
+
+> If $N$ is a positive integer that consists of the digit $1$ followed by an odd number of $0$ digits and then a final
+> digit $1$, then $N$ is a prime number.
+
+Here are three numbers:
+
+&nbsp;&nbsp;**I** &nbsp; $N=101$ (which is a prime number)
+
+&nbsp;&nbsp;**II** &nbsp; $N=1001$ (which equals $7\times11\times13$)
+
+&nbsp;&nbsp;**III** &nbsp; $N=10001$ (which equals $73\times137$)
+
+Which of these provide(s) a counterexample to the conjecture?
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D — III only.**
+
+A counterexample must have the right form (an **odd** number of zeros) **and** be not prime.
+
+| $N$ | zeros | right form? | prime? | counterexample? |
+|---|---|---|---|---|
+| $101$ | $1$ | yes | yes | no: the conjecture holds here |
+| $1001$ | $2$ | **no** | no | no: the hypothesis fails |
+| $10001$ | $3$ | yes | **no** | **yes** |
+
+**The trap is $1001$.** It is composite, and the question even shows the factors, but it has an even number of zeros.
+The conjecture never mentioned it.
+:::
+
+---
+
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q5</span>
+
+::: {.question}
+Consider the statement:
+
+> $(*)$ A whole number $n$ is prime if it is $1$ less or $5$ less than a multiple of $6$.
+
+How many counterexamples to $(*)$ are there in the range $0<n<50$?
+
+&nbsp;&nbsp;**A** $2$
+
+&nbsp;&nbsp;**B** $3$
+
+&nbsp;&nbsp;**C** $4$
+
+&nbsp;&nbsp;**D** $5$
+
+&nbsp;&nbsp;**E** $6$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C — four.**
+
+**Step 1 — rewrite the word "if".** "$A$ is prime **if** $B$" means "if $B$, then $A$ is prime". So:
+
+> if $n$ is $1$ less or $5$ less than a multiple of $6$, then $n$ is prime.
+
+**Step 2 — list the numbers fitting the hypothesis.** Being $1$ less than a multiple of $6$ gives
+$5,11,17,23,29,35,41,47$. Being $5$ less gives $1,7,13,19,25,31,37,43,49$.
+
+**Step 3 — pick out the ones that are not prime.**
+$$1,\quad 25=5^2,\quad 35=5\times7,\quad 49=7^2 .$$
+
+That is four counterexamples.
+
+**The one people miss is $n=1$.** It is $5$ less than $6$, and $1$ is not prime.
+:::
+
+---
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q5</span>
+
+::: {.question}
+Consider the following three statements:
+
+&nbsp;&nbsp;**1** &nbsp; $10p^2+1$ and $10p^2-1$ are both prime when $p$ is an odd prime.
+
+&nbsp;&nbsp;**2** &nbsp; Every prime greater than $5$ is of the form $6n+1$ for some integer $n$.
+
+&nbsp;&nbsp;**3** &nbsp; No multiple of $7$ greater than $7$ is prime.
+
+The result $91=7\times13$ can be used to provide a counterexample to which of the above statements?
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** **1** only
+
+&nbsp;&nbsp;**C** **2** only
+
+&nbsp;&nbsp;**D** **3** only
+
+&nbsp;&nbsp;**E** **1** and **2** only
+
+&nbsp;&nbsp;**F** **1** and **3** only
+
+&nbsp;&nbsp;**G** **2** and **3** only
+
+&nbsp;&nbsp;**H** **1**, **2** and **3**
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B — statement 1 only.**
+
+The fact tells us $91$ is **not prime**, and that it is a multiple of $7$ and of $13$. Test it against each statement.
+
+**Statement 1.** Take the odd prime $p=3$. Then $10p^2+1=91$, which is not prime. The hypothesis holds and the
+conclusion fails, so this is a counterexample.
+
+**Statement 2.** This statement is about primes, and $91$ is not prime, so the fact says nothing. *(The statement is
+false, because $11=6\times2-1$, but $91$ is not what shows it.)*
+
+**Statement 3.** $91$ is a multiple of $7$ greater than $7$, and it is not prime. That **agrees** with the statement.
+Agreeing with a statement is the opposite of breaking it. In fact statement 3 is true, so it has no counterexample.
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q1</span>
+
+::: {.question}
+It is a fact that
+$$1729=1^3+12^3=9^3+10^3=7\times13\times19 .$$
+
+Consider the following four statements.
+
+&nbsp;&nbsp;**(1)** Every positive integer that can be written as a sum of two positive cubes in two different ways is prime.
+
+&nbsp;&nbsp;**(2)** If a prime $p>5$ can be written as $p=a^3+b^3$ for some positive integers $a,b$, then $p$ has remainder of $1$ when divided by $6$.
+
+&nbsp;&nbsp;**(3)** No product of three distinct odd primes is one more than a perfect cube.
+
+&nbsp;&nbsp;**(4)** Every positive integer of the form $a^3+b^3$, where $a$ and $b$ are positive integers, has prime factors all of which are at least $3$.
+
+The fact above can be used to provide a counterexample to which of these statements?
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 3 only
+
+&nbsp;&nbsp;**D** 1 and 3 only
+
+&nbsp;&nbsp;**E** 2 and 3 only
+
+&nbsp;&nbsp;**F** 1, 2 and 3 only
+
+&nbsp;&nbsp;**G** 1, 3 and 4 only
+
+&nbsp;&nbsp;**H** 1, 2, 3 and 4
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D — 1 and 3 only.**
+
+**Statement 1.** $1729$ is a sum of two positive cubes in two different ways, and $1729=7\times13\times19$ is not prime.
+Hypothesis true, conclusion false, so this is a counterexample.
+
+**Statement 2.** This is about primes, and $1729$ is not prime. The fact is outside the hypothesis.
+
+**Statement 3.** $1729$ is a product of three distinct odd primes. Also $1729=1^3+12^3$, so
+$$1729=12^3+1,$$
+which is one more than a perfect cube. The statement says this never happens, so this is a counterexample. *Rewriting
+$1^3+12^3$ as $12^3+1$ is the step to spot.*
+
+**Statement 4.** $1729$ is of the form $a^3+b^3$, and its prime factors $7,13,19$ are all at least $3$. It **agrees**
+with the statement, so it is not a counterexample.
+:::
+
+---
+
+# Section B — Prove it or break it
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise P, Q1</span>
+
+::: {.question}
+What would constitute a counterexample to a statement of the form:
+
+&nbsp;&nbsp;**a.** &nbsp; $A$ and $B$
+
+&nbsp;&nbsp;**b.** &nbsp; $A$ or $B$
+
+&nbsp;&nbsp;**c.** &nbsp; $A$ only if $B$
+
+&nbsp;&nbsp;**d.** &nbsp; $A$ iff $B$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+A counterexample is a case that makes the statement false, so ask when each form is false.
+
+**a.** "$A$ and $B$" needs both, so it fails as soon as **at least one of $A$, $B$ is false**.
+
+**b.** "$A$ or $B$" needs just one, so it fails only when **$A$ and $B$ are both false**.
+
+**c.** "$A$ only if $B$" means "if $A$ then $B$". It fails when **$A$ is true and $B$ is false**.
+
+**d.** "$A$ iff $B$" says the two always match. It fails when **one is true and the other is false**, in either order.
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise P, Q2</span>
+
+::: {.question}
+Find a counterexample, if one exists, to each of the following:
+
+&nbsp;&nbsp;**a.** &nbsp; all prime numbers are odd and greater than $4$
+
+&nbsp;&nbsp;**b.** &nbsp; all prime numbers are odd or greater than $37$
+
+&nbsp;&nbsp;**c.** &nbsp; $x$ is prime if and only if $x$ is odd
+
+&nbsp;&nbsp;**d.** &nbsp; $x$ is odd only if $x$ is prime
+
+&nbsp;&nbsp;**e.** &nbsp; $x$ is prime only if $x$ is odd
+
+&nbsp;&nbsp;**f.** &nbsp; for all positive odd integers $x$: $x$ is prime or $x$ is divisible by some integer $k<x$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Use the answers to Question 9 in each part.
+
+**a.** We need a prime that is even **or** not greater than $4$. Both $2$ and $3$ work. Note that $3$ is odd, but it is
+not greater than $4$.
+
+**b.** We need a prime that is even **and** not greater than $37$. The only even prime is $2$, and it qualifies. So $2$
+is the only counterexample.
+
+**c.** We need a number that is one but not the other: $2$ is prime and not odd, and $9$ is odd and not prime.
+
+**d.** "If $x$ is odd, then $x$ is prime". We need an odd non-prime, such as $9$.
+
+**e.** "If $x$ is prime, then $x$ is odd". We need an even prime, so $x=2$.
+
+**f.** No counterexample exists, if we read "some integer $k$" literally. The only awkward case is $x=1$, which is
+odd and not prime. If $k$ must be positive, then no $k<1$ exists, so $x=1$ **would** be a counterexample. But the
+statement says *integer*, and $k=-1$ satisfies $k<1$ and divides $1$. In fact $k=-1$ divides every integer, so the
+statement holds for every $x$.
+
+*Parts (d) and (e) use the same two words in opposite orders, and they need different counterexamples.*
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q15</span>
+
+::: {.question}
+For any real numbers $a$, $b$ and $c$ where $a\ge b$, consider these three statements:
+
+&nbsp;&nbsp;**1** &nbsp; $-b\ge-a$
+
+&nbsp;&nbsp;**2** &nbsp; $a^2+b^2\ge2ab$
+
+&nbsp;&nbsp;**3** &nbsp; $ac\ge bc$
+
+Which of the statements 1, 2, and 3 **must** be true?
+
+&nbsp;&nbsp;**A** none
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 2 only
+
+&nbsp;&nbsp;**D** 3 only
+
+&nbsp;&nbsp;**E** 1 and 2 only
+
+&nbsp;&nbsp;**F** 1 and 3 only
+
+&nbsp;&nbsp;**G** 2 and 3 only
+
+&nbsp;&nbsp;**H** 1, 2 and 3
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E — 1 and 2 only.**
+
+**Statement 1 — prove it.** Multiply $a\ge b$ by $-1$. Multiplying by a negative number reverses the inequality, so
+$-a\le-b$, which is the same as $-b\ge-a$. True.
+
+**Statement 2 — prove it.** Rearrange to $a^2-2ab+b^2\ge0$, which is
+$$(a-b)^2\ge0 .$$
+A square is never negative, so this is true. The condition $a\ge b$ is not even needed.
+
+**Statement 3 — break it.** The sign of $c$ is not given. Take $a=2$, $b=1$, $c=-1$. Then $a\ge b$ holds, but $ac=-2$
+and $bc=-1$, and $-2\ge-1$ is false.
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q14</span>
+
+::: {.question}
+Suppose that $n$ is an integer such that $n^3$ is divisible by $5$.
+
+Which of the following statements are necessarily true?
+
+&nbsp;&nbsp;**I** &nbsp; $5$ is a factor of $n$
+
+&nbsp;&nbsp;**II** &nbsp; $n^3$ is divisible by $125$
+
+&nbsp;&nbsp;**III** &nbsp; If $k$ is a multiple of $5$ which divides $n^3$, then $\dfrac{n^3}{k}$ is a multiple of $5$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E — I and II only.**
+
+**I — prove it.** $n^3=n\times n\times n$. Since $5$ is prime and divides this product, it must divide one of the factors,
+and each factor is $n$. So $5$ divides $n$.
+
+**II — prove it.** By I, write $n=5m$ for an integer $m$. Then $n^3=125m^3$, which is divisible by $125$.
+
+**III — break it.** Take $n=10$, so $n^3=1000=5^3\times2^3$. Take $k=125$, which is a multiple of $5$ dividing $1000$. Then
+$$\frac{n^3}{k}=\frac{1000}{125}=8,$$
+which is not a multiple of $5$.
+
+**Why III fails.** $n^3$ contains at least three factors of $5$, and $k$ can use all of them, leaving none behind.
+:::
+
+---
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q11</span>
+
+::: {.question}
+An arithmetic series has $n$ terms, all of which are integers.
+
+The sum of the series is $20$.
+
+Which of the following statements must be true?
+
+&nbsp;&nbsp;**I** &nbsp; The first term of the series is even.
+
+&nbsp;&nbsp;**II** &nbsp; $n$ is even.
+
+&nbsp;&nbsp;**III** &nbsp; The common difference is even.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — none of them.**
+
+Each statement falls to one small series, so we just need to find them.
+
+**Step 1 — set up.** With first term $a$ and common difference $d$,
+$$\tfrac12n\bigl(2a+(n-1)d\bigr)=20,\quad\text{so}\quad n\bigl(2a+(n-1)d\bigr)=40 .$$
+So $n$ must be a factor of $40$, which tells us which lengths to try.
+
+**Step 2 — break each statement.**
+
+- **I:** take $n=2$, with $9+11=20$. The first term is $9$, which is odd.
+- **II:** take $n=5$, with $2+3+4+5+6=20$. Here $n$ is odd.
+- **III:** the same series $2+3+4+5+6$ has $d=1$, which is odd.
+
+One series, $9+11$, breaks I and another, $2+3+4+5+6$, breaks II and III.
+:::
+
+---
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2016 · Q1J</span>
+
+::: {.question}
+Let $n>1$ be an integer. Let $\Pi(n)$ denote the number of distinct prime factors of $n$ and let $x(n)$ denote the final
+digit of $n$. For example, $\Pi(8)=1$ and $\Pi(6)=2$. Which of the following statements is **false**?
+
+&nbsp;&nbsp;**(a)** If $\Pi(n)=1$, there are some values of $x(n)$ that mean $n$ cannot be prime,
+
+&nbsp;&nbsp;**(b)** If $\Pi(n)=1$, there are some values of $x(n)$ that mean $n$ must be prime,
+
+&nbsp;&nbsp;**(c)** If $\Pi(n)=1$, there are values of $x(n)$ which are impossible,
+
+&nbsp;&nbsp;**(d)** If $\Pi(n)+x(n)=2$, we cannot tell if $n$ is prime,
+
+&nbsp;&nbsp;**(e)** If $\Pi(n)=2$, all values of $x(n)$ are possible.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(b).**
+
+$\Pi(n)=1$ means $n$ is a power of a single prime, such as $7$, $8$ or $81$.
+
+**(a) is true.** Take $x(n)=4$, as in $n=4$. A number ending in $4$ is even and bigger than $2$, so it cannot be prime.
+
+**(b) is false.** Go through the final digits a prime can have. Each also occurs on a prime power that is not prime:
+
+| final digit | prime | non-prime power of a prime |
 |---|---|---|
-| $2$ | $3$ | prime |
-| $3$ | $7$ | prime |
-| $5$ | $31$ | prime |
-| $7$ | $127$ | prime |
-| $\mathbf{11}$ | $\mathbf{2047=23\times89}$ | **first counterexample** |
+| $1$ | $11$ | $81=3^4$ |
+| $2$ | $2$ | $32=2^5$ |
+| $3$ | $3$ | $243=3^5$ |
+| $5$ | $5$ | $25=5^2$ |
+| $7$ | $7$ | $27=3^3$ |
+| $9$ | $19$ | $9=3^2$ |
 
-*Exam tip: "the first Mersenne failure is $p=11$ ($=23\times89$)" answers this whole family of questions in
-seconds.*
+No final digit forces $n$ to be prime.
 
-**Strategy 2 — narrow the prime factors, if you must find it.** A useful theorem: **every prime factor $q$
-of $2^{p}-1$ (with $p$ prime) has the form $q=2kp+1$** for some positive integer $k$. So for $p=11$ the
-only candidates are
-$$q=22k+1:\quad k=1\Rightarrow 23,\quad k=2\Rightarrow 45\ (\text{not prime}),\quad k=3\Rightarrow 67,\quad
-k=4\Rightarrow 89.$$
-Rather than testing $2,3,5,7,11,13,17,19,\dots$, you try the very first candidate $23$ and immediately find
-$2047=23\times89$.
+**(c) is true.** $x(n)=0$ is impossible, because such an $n$ is divisible by both $2$ and $5$, which gives $\Pi(n)\ge2$.
 
-**Why the form $2kp+1$?** If a prime $q$ divides $2^{p}-1$ then $2^{p}\equiv1\pmod q$, so the order of $2$
-modulo $q$ divides $p$. As $p$ is prime that order must be $p$ (it cannot be $1$, since $2\not\equiv1$), and
-by **Fermat's little theorem** the order divides $q-1$; hence $p$ divides $q-1$. Since $q$ is also odd,
-$2p$ divides $q-1$, i.e. $q=2kp+1$.
+**(d) is true.** $\Pi(n)+x(n)=2$ allows $\Pi(n)=1,\ x(n)=1$. Then $n=11$ is prime but $n=81$ is not, so we cannot tell.
 
-**Intuition.** A prime exponent gives no guarantee. Either recall the standard failure ($p=11$), or use the
-"$2kp+1$" filter to shrink the list of possible divisors to almost nothing.
-
-**D6. "If $f'(x)>0$ for all $x$, then $f(x)>0$ for all $x$." — False.** Let $f(x)=x^3+x+1$. Then
-$$f'(x)=3x^2+1>0\ \text{everywhere},\quad\text{yet}\quad f(-2)=-8-2+1=-9<0.$$
-*Increasing means the graph always rises — it says nothing about its height.*
-
-**D7. "If $f'(a)=0$, then $f$ has a local max or min at $a$." — False.** Let $f(x)=x^3$. Then
-$$f'(0)=0,\quad\text{but } x=0 \text{ is a point of inflection, neither a max nor a min.}$$
-
-**D8. "The sum of two irrationals is always irrational." — False.**
-$$\sqrt2+(-\sqrt2)=0,\ \text{rational.}$$
+**(e) is true.** Each digit occurs: $10,21,12,33,14,15,6,57,18,39$ all have exactly two distinct prime factors.
+:::
 
 ---
 
-# Section E — Spot the error
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2025 · Q26Y(ii)</span>
 
-**E1 — Answer C.** The "$2=1$" proof cancels the factor $(a-b)$. But $a=b$, so $a-b=0$; **dividing by
-$(a-b)=0$ is invalid**. Every other line is correct.
+::: {.question}
+Linear polynomials are functions of the form $a+bx$ with $a$ and $b$ real numbers.
 
-**E2 — Answer B.** Squaring $\sqrt{x+2}=x$ gives the candidates $x=2$ and $x=-1$. Check them: $x=2$ works
-($\sqrt4=2$); $x=-1$ gives $\sqrt1=1\neq-1$. **Squaring introduced the extraneous root $x=-1$**, which must
-be rejected.
+Given two linear polynomials, we define an operation $\cdot$ as follows. To calculate $f(x)\cdot g(x)$, we multiply the
+polynomials as normal, but we ignore any $x^2$ term.
 
-**E3 — Answer B.** $A=30^\circ,\ B=150^\circ$ give $\sin A=\sin B=\tfrac12$ but $A\neq B$ — the classic
-Err2 that $\sin A=\sin B\not\Rightarrow A=B$.
+For example, $(1-2x)\cdot(3-5x)=3-11x$, because we are ignoring the $10x^2$ term.
 
-**E4 — Answer B.** Checking $n=1,\dots,5$ leaves infinitely many $n$ untested — **examples cannot prove a
-"for all"**. *(Here the claim is even false: $n=11$ gives $121=11^2$ — but the method is invalid regardless
-of the answer.)*
+A strictly increasing linear function $f(x)$ has the property that if $y>x$ then $f(y)>f(x)$.
 
-**E5 — Answer B.** $(-3)^2=3^2$ while $-3\neq3$; the correct implication is $a^2=b^2\Rightarrow a=\pm b$.
+A student claims that if $f(x)$ and $g(x)$ are both strictly increasing linear functions then so is $f(x)\cdot g(x)$. Is
+the student correct? If so, prove the student's claim. Otherwise, find a counterexample.
+:::
 
----
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
 
-# Section F — Long multi-step reasoning
+**The student is not correct.**
 
-## F1. $f(x)=x^3+3qx^2+2$ has $3$ distinct real roots. For each, does it necessarily have $3$ distinct roots? *(2018 P2 Q15.)*
+**Step 1 — work out the rule.** Multiplying and ignoring the $x^2$ term gives
+$$(a+bx)\cdot(c+dx)=ac+(ad+bc)x .$$
+A linear function is strictly increasing exactly when its $x$ coefficient is positive. So $f$ and $g$ being increasing
+means $b>0$ and $d>0$, and we want $ad+bc\le0$.
 
-**Step 1 — Locate the turning points.**
-$$f'(x)=3x^2+6qx=3x(x+2q)\ \Rightarrow\ x=0\ \text{or}\ x=-2q.$$
+**Step 2 — choose constants to make $ad+bc$ negative.** Since $b$ and $d$ are positive, a negative constant term can do
+it. Take $f(x)=1+x$ and $g(x)=-2+x$. Both have $x$ coefficient $1$, so both are strictly increasing. Then
+$$(1+x)\cdot(-2+x)=-2+(1\times1+1\times(-2))x=-2-x .$$
 
-**Step 2 — Pin down the local maximum.** For a positive-leading cubic to have $3$ distinct roots it needs
-its local max $>0$ and local min $<0$. Since $f(0)=2>0$, the point $x=0$ must be the **local maximum**
-(forcing $q<0$, so the min sits at $x=-2q>0$). **The local maximum is therefore fixed at $f(0)=2$.**
-
-**Step 3 — Test each transformation** (three roots $\Leftrightarrow$ the horizontal level lies strictly
-between min and max):
-
-- **I. $f(x)+1=0$**, i.e. level $y=-1$. Needs $\text{min}<-1<2$. But the minimum could be, say, $-0.5$, so
-  $-1$ need not be above it. **Not necessarily $3$ roots.**
-- **II. $f(x+1)=0$**. A pure horizontal shift — identical shape, roots moved by $-1$. **Always $3$
-  roots.** ✓
-- **III. $f(-x)-1=0$**, i.e. level $y=1$. Needs $\text{min}<1<\text{max}=2$. Since $\text{max}=2>1$ and
-  $\text{min}<0<1$, the level $1$ is always strictly between. **Always $3$ roots.** ✓
-
-**Conclusion.** **II and III only.** $\blacksquare$
-
-**Intuition.** The whole question turns on one fact — the local maximum is *nailed* at $2=f(0)$. So a level
-of $+1$ is always safely below it (three roots), but a level of $-1$ may drop below the (movable) minimum.
-*(Watch out: the tempting wrong answer is "II only" — it misses that the fixed max makes III safe.)*
-
-## F2. Find a necessary condition for $\dfrac{f(a)+f(b)}2\ge f\!\left(\dfrac{a+b}2\right)$ for all $a<b$. *(2018 P2 Q18.)*
-
-**Step 1 — Read the two sides geometrically.** $\dfrac{f(a)+f(b)}2$ is the height of the **chord** joining
-$(a,f(a))$ and $(b,f(b))$ at its midpoint; $f\!\left(\dfrac{a+b}2\right)$ is the height of the **curve**
-there.
-
-**Step 2 — Name the property.** "Chord on or above the curve for *all* $a<b$" is precisely the definition
-of a **convex** function.
-
-**Step 3 — State the necessary condition.** For a twice-differentiable polynomial, convex
-$\Leftrightarrow$
-$$f''(x)\ge0\ \text{ for all } x.$$
-
-**Conclusion.** A necessary (indeed sufficient) condition is **$f''(x)\ge0$ everywhere (convexity).**
-$\blacksquare$
-
-**Intuition.** The inequality *is* the midpoint definition of convexity; for smooth functions that is
-exactly "curving upward", i.e. $f''\ge0$.
-
-## F3. $S$: "for every positive integer $n$, if $n$ is a multiple of $6$ then $n$ is a multiple of $3$."
-
-**(a) Prove $S$.** If $6$ divides $n$, write $n=6k=3(2k)$. This exhibits $n$ as $3\times(2k)$, so $3$
-divides $n$. Since this holds for every such $n$, $S$ is true. $\blacksquare$
-
-**(b) Negation of $S$.** "**There exists** a positive integer $n$ that is a multiple of $6$ **but not** a
-multiple of $3$."
-
-**(c) Does a counterexample exist?** **No.** A counterexample would be exactly an object satisfying the
-negation in (b); but $S$ is true, so nothing satisfies it.
-
-**Intuition.** $6=3\times2$, so being a multiple of $6$ automatically carries a factor of $3$ — the
-implication can never fail.
-
-## F4. A "proof" that every integer is even: *"Let $n$ be any integer. Write $n=2m$ for some number $m$. Then $n$ is twice $m$, so $n$ is even."*
-
-**The invalid step:** "**Write $n=2m$ for some number $m$.**"
-
-**Why it fails.** Setting $m=\dfrac n2$ always makes $n=2m$ true, but "even" means $n=2\times(\text{an
-integer})$. Here $m=\dfrac n2$ is an integer **only when $n$ is already even**. The argument silently
-assumes what it is trying to prove.
-
-**Intuition.** Every number is "twice *something*"; being even is the stronger claim that the *something*
-is a whole number.
-
-## F5. (a) $n$ is even iff $n^2$ is even. (b) Hence $\sqrt2$ is irrational.
-
-**(a) Both directions.**
-
-- **($\Rightarrow$) $n$ even $\Rightarrow n^2$ even.** If $n=2k$ then $n^2=4k^2=2(2k^2)$ — even.
-- **($\Leftarrow$) $n^2$ even $\Rightarrow n$ even**, by contrapositive: if $n$ is odd, $n=2k+1$, then
-  $$n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1\ \text{— odd.}$$
-  So an odd $n$ gives an odd $n^2$; contrapositively, an even $n^2$ forces an even $n$.
-
-Both directions together give the "if and only if". $\blacksquare$
-
-**(b) $\sqrt2$ irrational.** Suppose $\sqrt2=\dfrac ab$ in lowest terms. Then $a^2=2b^2$, so $a^2$ is even,
-hence by **(a)** $a$ is even; write $a=2c$. Then $4c^2=2b^2\Rightarrow b^2=2c^2$, so $b^2$ is even, hence
-(again by (a)) $b$ is even. Now $a$ and $b$ are both even — contradicting "lowest terms". Therefore
-$\sqrt2$ is irrational. $\blacksquare$
-
-**Intuition.** Part (a) is the exact lemma the $\sqrt2$ proof leans on: it is what lets you turn "$a^2$
-even" into "$a$ even" without hand-waving.
+**Step 3 — check.** $-2-x$ has $x$ coefficient $-1$, so it is decreasing, and the claim fails.
+:::
 
 ---
 
-## Marking notes
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q18</span>
 
-- **Sections A–C, F:** a "for all" needs a **general** argument. Award method marks for the right setup
-  (representing objects generally, choosing the right cases, or assuming the negation), accuracy marks for
-  correct algebra, and a final mark for stating the conclusion / contradiction explicitly.
-- **Sections D, E:** the mark is for a **specific** counterexample or the **exact** faulty step — a vague
-  "it's wrong" scores nothing.
-- **Two answers to watch on this student's script:** **D5** (a prime exponent does *not* force a Mersenne
-  prime — $2^{11}-1=2047=23\times89$) and **F1 part III** (the fixed local maximum $f(0)=2$ makes level
-  $+1$ always give three roots, so the answer is **II and III**, not II alone). Both are the upper-end,
-  2018-Paper-2-adjacent traps.
+::: {.question}
+Consider this statement about a function $\mathrm{f}(x)$:
+
+> $(*)$ If $\bigl(\mathrm{f}(x)\bigr)^2\le1$ for all $-1\le x\le1$ then $\displaystyle\int_{-1}^{1}\bigl(\mathrm{f}(x)\bigr)^2\,\mathrm{d}x\le\int_{-1}^{1}\mathrm{f}(x)\,\mathrm{d}x$
+
+Which one of the following functions provides a **counterexample** to $(*)$?
+
+&nbsp;&nbsp;**A** $\mathrm{f}(x)=x+\dfrac12$
+
+&nbsp;&nbsp;**B** $\mathrm{f}(x)=x-\dfrac12$
+
+&nbsp;&nbsp;**C** $\mathrm{f}(x)=x+x^3$
+
+&nbsp;&nbsp;**D** $\mathrm{f}(x)=x-x^3$
+
+&nbsp;&nbsp;**E** $\mathrm{f}(x)=x^2+x^4$
+
+&nbsp;&nbsp;**F** $\mathrm{f}(x)=x^2-x^4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.**
+
+**Step 1 — test the hypothesis first, because it is cheap.**
+
+- **A:** $\mathrm{f}(1)=\tfrac32$, so $\mathrm{f}(1)^2>1$. Out.
+- **B:** $\mathrm{f}(-1)=-\tfrac32$, so $\mathrm{f}(-1)^2>1$. Out.
+- **C:** $\mathrm{f}(1)=2$. Out.
+- **E:** $\mathrm{f}(1)=2$. Out.
+
+That leaves D and F.
+
+**Step 2 — check that D and F satisfy the hypothesis.**
+
+For **D**, $\mathrm{f}(x)=x-x^3$ has $\mathrm{f}'(x)=1-3x^2$, so its stationary points are at $x=\pm\tfrac1{\sqrt3}$, where
+$\lvert \mathrm{f}\rvert=\tfrac{2}{3\sqrt3}<1$. Also $\mathrm{f}(\pm1)=0$. So $\mathrm{f}(x)^2\le1$ on the whole interval.
+
+For **F**, $\mathrm{f}(x)=x^2-x^4$ has maximum value $\tfrac14$ on the interval and is never negative there.
+
+**Step 3 — test the conclusion.**
+
+For **D**, $\mathrm{f}$ is an odd function, so $\displaystyle\int_{-1}^{1}\mathrm{f}(x)\,\mathrm{d}x=0$. The integral of $\mathrm{f}^2$ is positive,
+because a square is never negative and $\mathrm{f}$ is not always zero. Exactly,
+$$\int_{-1}^{1}(x-x^3)^2\,\mathrm{d}x=\frac{16}{105}>0 .$$
+So the conclusion fails, and **D is the counterexample**.
+
+For **F**, $0\le\mathrm{f}(x)<1$ gives $\mathrm{f}(x)^2\le\mathrm{f}(x)$ everywhere, so the conclusion holds.
+
+```{python}
+#| fig-cap: "y = x − x³ on [−1, 1]: it stays within ±1, and the two lobes cancel, so its integral is 0."
+import numpy as np, matplotlib.pyplot as plt
+x = np.linspace(-1, 1, 400); y = x - x**3
+fig, ax = plt.subplots(figsize=(6.0, 3.2))
+ax.fill_between(x, y, 0, where=(y > 0), color='#1f77b4', alpha=0.18)
+ax.fill_between(x, y, 0, where=(y < 0), color='#d62728', alpha=0.18)
+ax.plot(x, y, color='#1f77b4', lw=2.2, label=r'$y=x-x^{3}$')
+ax.axhline(0, color='0.55', lw=0.9); ax.axvline(0, color='0.55', lw=0.9)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-0.6, 0.6)
+ax.legend(fontsize=9, loc='upper right')
+plt.tight_layout(); plt.show()
+```
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q15</span>
+
+::: {.question}
+It is given that $\mathrm{f}(x)=x^3+3qx^2+2$, where $q$ is a real constant.
+
+The equation $\mathrm{f}(x)=0$ has $3$ distinct real roots.
+
+Which of the following statements is/are necessarily true?
+
+&nbsp;&nbsp;**I** &nbsp; The equation $\mathrm{f}(x)+1=0$ has $3$ distinct real roots.
+
+&nbsp;&nbsp;**II** &nbsp; The equation $\mathrm{f}(x+1)=0$ has $3$ distinct real roots.
+
+&nbsp;&nbsp;**III** &nbsp; The equation $\mathrm{f}(-x)-1=0$ has $3$ distinct real roots.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**G — II and III only.**
+
+**Step 1 — find the turning points.** $\mathrm{f}'(x)=3x^2+6qx=3x(x+2q)$, so the stationary points are at $x=0$ and $x=-2q$:
+$$(0,\ 2)\qquad\text{and}\qquad(-2q,\ 2+4q^3).$$
+
+**Step 2 — use the hypothesis.** Three distinct roots means the turning points lie on opposite sides of the $x$-axis.
+The first is at height $2>0$, so the second must be below the axis:
+$$2+4q^3<0 .$$
+
+**II — prove it.** $y=\mathrm{f}(x+1)$ is $y=\mathrm{f}(x)$ moved $1$ left. Sliding sideways does not change the number of crossings. True.
+
+**III — prove it.** Put $t=-x$. Then $\mathrm{f}(-x)-1=0$ is the same as $\mathrm{f}(t)=1$, and each root $t$ gives one root $x$.
+The line $y=1$ lies strictly between the two turning-point heights, since $2+4q^3<0<1<2$. So it crosses the cubic three
+times. True.
+
+**I — break it.** $\mathrm{f}(x)+1=0$ means $\mathrm{f}(x)=-1$, so it has three roots only if the lower turning point is below
+$-1$. The hypothesis only puts it below $0$. Take $q=-0.8$, so $2+4q^3=-0.048$. That is below $0$, so $\mathrm{f}(x)=0$ has three
+roots, but it is above $-1$, so $\mathrm{f}(x)+1=0$ has only one root.
+
+```{python}
+#| fig-cap: "q = −0.8: y = f(x) crosses the x-axis three times, because the lower turning point is just below it."
+import numpy as np, matplotlib.pyplot as plt
+q = -0.8; x = np.linspace(-1.2, 2.8, 500); f = x**3 + 3*q*x**2 + 2
+fig, ax = plt.subplots(figsize=(6.0, 3.2))
+ax.plot(x, f, color='#1f77b4', lw=2.2, label=r'$y=f(x)$')
+ax.axhline(0, color='0.55', lw=0.9); ax.axvline(0, color='0.55', lw=0.9)
+ax.plot([0, 1.6], [2, 2+4*q**3], 'o', color='#d62728', zorder=5)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-1.5, 4); ax.legend(fontsize=9, loc='upper left')
+plt.tight_layout(); plt.show()
+```
+
+```{python}
+#| fig-cap: "q = −0.8: y = f(x) + 1 is the same curve moved up 1. The lower turning point is now above the axis, so there is only one root."
+import numpy as np, matplotlib.pyplot as plt
+q = -0.8; x = np.linspace(-1.2, 2.8, 500); f = x**3 + 3*q*x**2 + 3
+fig, ax = plt.subplots(figsize=(6.0, 3.2))
+ax.plot(x, f, color='#1f77b4', lw=2.2, label=r'$y=f(x)+1$')
+ax.axhline(0, color='0.55', lw=0.9); ax.axvline(0, color='0.55', lw=0.9)
+ax.plot([0, 1.6], [3, 3+4*q**3], 'o', color='#d62728', zorder=5)
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_ylim(-1.5, 4); ax.legend(fontsize=9, loc='upper left')
+plt.tight_layout(); plt.show()
+```
+:::
+
+---
+
+# Section C — Judging a proof
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise O, Q2</span>
+
+::: {.question}
+Can you adapt the proof that $\sqrt2$ is irrational to show that $\sqrt p$ is irrational for all prime $p$?
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**Yes.**
+
+**Step 1 — assume the opposite.** Suppose $\sqrt p=\dfrac ab$, with $a,b$ positive integers and the fraction in lowest terms.
+
+**Step 2 — square.** $a^2=pb^2$, so $p$ divides $a^2=a\times a$.
+
+**Step 3 — use that $p$ is prime.** A prime dividing a product must divide one of the factors, so $p$ divides $a$. Write
+$a=pc$.
+
+**Step 4 — substitute.** $p^2c^2=pb^2$, so $b^2=pc^2$. Then $p$ divides $b^2$, and in the same way $p$ divides $b$.
+
+**Step 5 — the contradiction.** $p$ divides both $a$ and $b$, but $\dfrac ab$ was in lowest terms. So $\sqrt p$ is irrational.
+
+*Step 3 is the only place primality is used. For $p=9$ it fails, since $9$ can divide $a^2$ without dividing $a$ (take $a=3$).*
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q5</span>
+
+::: {.question}
+A student attempts to prove the following claim:
+
+> For every positive integer $n$, if $n^2+2$ is prime, then $n$ is a multiple of $3$.
+
+The student's argument is given line by line below.
+
+&nbsp;&nbsp;**I.** Suppose $n$ is a positive integer such that $n^2+2$ is prime, but $n$ is not a multiple of $3$.
+
+&nbsp;&nbsp;**II.** Then the remainder of $n$ on division by $3$ is $1$ or $2$.
+
+&nbsp;&nbsp;**III.** In either case, $n^2$ leaves remainder $1$ when divided by $3$.
+
+&nbsp;&nbsp;**IV.** Therefore $n^2+2$ leaves remainder $0$ when divided by $3$.
+
+&nbsp;&nbsp;**V.** So $3$ divides $n^2+2$.
+
+&nbsp;&nbsp;**VI.** Hence $n^2+2=3k$ for some integer $k$.
+
+&nbsp;&nbsp;**VII.** It follows that $n^2+2$ is composite and not prime.
+
+&nbsp;&nbsp;**VIII.** This contradicts the assumption in (I) that $n^2+2$ is prime.
+
+&nbsp;&nbsp;**IX.** Therefore $n$ is a multiple of $3$.
+
+Which one of the following statements about the argument is correct?
+
+&nbsp;&nbsp;**A** The argument is completely correct.
+
+&nbsp;&nbsp;**B** The first error in the argument is on line I.
+
+&nbsp;&nbsp;**C** The first error in the argument is on line II.
+
+&nbsp;&nbsp;**D** The first error in the argument is on line III.
+
+&nbsp;&nbsp;**E** The first error in the argument is on line IV.
+
+&nbsp;&nbsp;**F** The first error in the argument is on line V.
+
+&nbsp;&nbsp;**G** The first error in the argument is on line VI.
+
+&nbsp;&nbsp;**H** The first error in the argument is on line VII.
+
+&nbsp;&nbsp;**I** The first error in the argument is on line VIII.
+
+&nbsp;&nbsp;**J** The first error in the argument is on line IX.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**H — line VII.**
+
+**Lines I–VI are all correct.** Line I is the right opening for a contradiction on an "if … then": assume the hypothesis and
+deny the conclusion. For lines II–III, $1^2=1$ and $2^2=4$ both leave remainder $1$. Lines IV–VI follow directly.
+
+**Line VII is the error.** $n^2+2=3k$ is composite only if $k>1$. If $k=1$, the number is $3$ itself, and $3$ is prime.
+
+**This is more than a gap, because the claim is false.** Take $n=1$. Then $n^2+2=3$ is prime, and $1$ is not a multiple of $3$. That
+is a counterexample.
+
+**The habit.** "A multiple of $3$ is not prime" has one exception, and it is $3$. Whenever a proof says "divisible by $p$, so not
+prime", ask whether the number could be $p$ itself.
+:::
+
+---
+
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q17</span>
+
+::: {.question}
+In this question, $n$ is an integer greater than $1$.
+
+**Statement:** If $n$ does not divide $k!$ for any positive integer $k$ with $k<n$, then $n$ is prime.
+
+The following is an attempted proof of the statement:
+
+&nbsp;&nbsp;**(1)** Assume $n$ does not divide $k!$ for any positive integer $k$ with $k<n$.
+
+&nbsp;&nbsp;**(2)** Suppose for contradiction that $n$ is composite, so $n=ab$ for some integers $a,b$ with $1<a\le b<n$.
+
+&nbsp;&nbsp;**(3)** Case 1: $a<b$. Then $a$ and $b$ are distinct integers, each in the set $\{2,3,\dots,n-1\}$.
+
+&nbsp;&nbsp;**(4)** Therefore $a$ and $b$ both appear as factors in the product $(n-1)!=1\cdot2\cdots(n-1)$, so $ab=n$ divides $(n-1)!$.
+
+&nbsp;&nbsp;**(5)** Case 2: $a=b$, so $n=a^2$.
+
+&nbsp;&nbsp;**(6)** Since $a\ge2$, the integers $a$ and $2a$ both satisfy $a\ge2$ and $2a\ge4$, so they are positive integers.
+
+&nbsp;&nbsp;**(7)** Since $a\ge2$, we have $a<a^2=n$ and $2a<a^2=n$, so $a$ and $2a$ are distinct integers in the set $\{2,3,\dots,n-1\}$.
+
+&nbsp;&nbsp;**(8)** Therefore $a$ and $2a$ both appear as factors in $(n-1)!$, so $a\cdot2a=2a^2=2n$ divides $(n-1)!$, and in particular $n$ divides $(n-1)!$.
+
+&nbsp;&nbsp;**(9)** In both cases $n$ divides $(n-1)!$, contradicting the assumption in line 1. Hence $n$ is prime.
+
+&nbsp;&nbsp;**A** First mistake appears in line 1 and the statement is false.
+
+&nbsp;&nbsp;**B** First mistake appears in line 2 and the statement is false.
+
+&nbsp;&nbsp;**C** First mistake appears in line 3 and the statement is false.
+
+&nbsp;&nbsp;**D** First mistake appears in line 4 and the statement is false.
+
+&nbsp;&nbsp;**E** First mistake appears in line 5 and the statement is false.
+
+&nbsp;&nbsp;**F** First mistake appears in line 6 and the statement is false.
+
+&nbsp;&nbsp;**G** First mistake appears in line 7 and the statement is false.
+
+&nbsp;&nbsp;**H** The proof is valid and the statement is true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**G — line 7, and the statement is false.**
+
+**Lines 1–2** set up the contradiction correctly.
+
+**Case 1 (lines 3–4) is fine.** $a$ and $b$ are different numbers below $n$, so they are separate factors of $(n-1)!$.
+
+**Lines 5–6 are fine**, if unexciting.
+
+**Line 7 is the mistake.** $2a<a^2$ means $2<a$, so it needs $a\ge3$. When $a=2$, we get $2a=4=a^2=n$, which is not below $n$.
+
+**The statement really does fail there.** Take $n=4=2\times2$. Then $1!=1$, $2!=2$ and $3!=6$, and $4$ divides none of them, so the
+hypothesis holds. But $4$ is not prime. So $n=4$ is a counterexample, and the proof's gap is exactly at this one value.
+
+**The habit.** When a proof by cases uses an inequality like "since $a\ge2$", test the smallest allowed value.
+:::
+
+---
+
+# What each question tests
+
+| Q | Source | Tests |
+|---|---|---|
+| 1 | TMUA early specimen · P2 Q4 | The two conditions of a counterexample, in their plainest form |
+| 2 | 2022 · P2 Q3 | Table of hypothesis against conclusion |
+| 3 | 2021 · P2 Q4 | Negating an "or" in the conclusion |
+| 4 | 2020 · P2 Q4 | Exhausting all the splits to confirm one candidate |
+| 5 | 2019 · P2 Q4 | A tempting candidate that fails the hypothesis |
+| 6 | 2016 · P2 Q5 | Reading "if" placed after the conclusion; counting systematically |
+| 7 | 2017 · P2 Q5 | One fact against several claims |
+| 8 | JZ Maths Mock B · P2 Q1 | One fact, four claims; rewriting the fact to fit |
+| 9 | Notes on Logic and Proof · Exercise P, Q1 | What "false" means for each logical form |
+| 10 | Notes on Logic and Proof · Exercise P, Q2 | Finding counterexamples for "and", "or", "iff" and "only if" |
+| 11 | TMUA early specimen · P2 Q15 | One line of proof for two statements, one counterexample for the third |
+| 12 | Tyler TMUA Set D · P2 Q14 | Using primality in a proof; breaking the third statement |
+| 13 | 2019 · P2 Q11 | Using a factor argument to find counterexamples |
+| 14 | MAT 2016 · Q1J | Disproving "some value forces…" by covering every value |
+| 15 | MAT 2025 · Q26Y(ii) | Constructing a counterexample rather than choosing one |
+| 16 | 2016 · P2 Q18 | Testing the cheap half first; odd functions and integrals |
+| 17 | 2018 · P2 Q15 | Proving two cases and building a counterexample from the hypothesis |
+| 18 | Notes on Logic and Proof · Exercise O, Q2 | Generalising a proof by contradiction |
+| 19 | JZ Maths Mock A · P2 Q5 | The exceptional small case in a contradiction proof |
+| 20 | JZ Maths Mock A · P2 Q17 | Testing the boundary value in a case split |
+
 :::

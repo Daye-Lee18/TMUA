@@ -9,78 +9,49 @@ execute:
 
 ::: {.solutions}
 
-**Show all your reasoning.** Total: **32 marks** · Suggested time: **45 minutes**.
+**20 questions.** Suggested time: **90 minutes**, no calculator.
+
+Every question comes from a TMUA past paper, a MAT paper or a TMUA mock, and its source is shown beside the
+question number. None of them appears in the S1 class questions.
 
 For every question the method is the same: **rewrite the sentence as "if … then …" first**, then read off
-which way the arrow points. Do not try to reason about the meaning in English — that is how arrows get
+which way the arrow points. Do not try to reason about the meaning in English, because that is how arrows get
 flipped by accident.
 
-| Section | What it covers | Marks |
+| Section | What it covers | Questions |
 |---|---|---|
-| **A — Fluency** | translating the four forms; *and / or / not* | 10 |
-| **B — Exam standard** | deciding what follows; equivalence | 14 |
-| **C — Stretch** | chains of *if and only if*; multi-statement reasoning | 8 |
-
-::: {.callout-note appearance="simple"}
-**Also due this session** (from the class material):
-
-- **Notes on Logic and Proof, pp. 24–34** — work the church-bells tables yourself before reading theirs.
-- **Tyler Mock Set A, Paper 1** — 75 minutes, timed, no calculator. *(Paper 1 practice, to keep calculation
-  speed moving while the logic settles.)*
-:::
+| **A — Reading an implication** | testing implications, counterexamples, contrapositives | 1–6 |
+| **B — "Exactly one is true"** | translating options, then eliminating | 7–12 |
+| **C — "If and only if" and "only if"** | exact conditions, and using a definition in both directions | 13–17 |
+| **D — Sufficient and necessary** | the link between the forms and necessary / sufficient | 18–20 |
 
 ---
 
-# Section A — Fluency
+# Section A — Reading an implication
 
-## Question 1 **[4]**
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q9</span>
 
-$P$ and $Q$ are statements. Write each of the following using $\Rightarrow$ or $\Leftrightarrow$.
+::: {.question}
+A set of cards has a single letter printed on the front and a single number printed on the back.
 
-&nbsp;&nbsp;(a) $Q$ only if $P$ **[1]**
+Five of these cards are laid on the table so that only one side of each card is visible. The cards show:
 
-&nbsp;&nbsp;(b) $Q$ if $P$ **[1]**
+$$5 \qquad \text{E} \qquad 7 \qquad \text{F} \qquad 9$$
 
-&nbsp;&nbsp;(c) $P$ if and only if $Q$ **[1]**
+Lara states that all cards with a vowel on the front have a prime number on the back.
 
-&nbsp;&nbsp;(d) If $Q$ then $P$ **[1]**
+Which cards do you need to turn over in order to check if this statement is true?
 
-*Answer form: an implication such as $P \Rightarrow Q$.*
+&nbsp;&nbsp;**A** all of the cards
 
-::: {.workspace style="min-height:5cm"}
-Working
+&nbsp;&nbsp;**B** cards E, 5 and 7
+
+&nbsp;&nbsp;**C** card E only
+
+&nbsp;&nbsp;**D** cards F and 9
+
+&nbsp;&nbsp;**E** cards E and 9
 :::
-
----
-
-## Question 2 **[3]**
-
-Let $n = 30$. State whether each is **true** or **false**.
-
-&nbsp;&nbsp;(a) $n$ is divisible by $4$ **or** $n$ is divisible by $5$. **[1]**
-
-&nbsp;&nbsp;(b) $n$ is divisible by $5$ **and** $n$ is divisible by $6$. **[1]**
-
-&nbsp;&nbsp;(c) $n$ is **not** divisible by $9$. **[1]**
-
-::: {.workspace style="min-height:4cm"}
-Working
-:::
-
----
-
-## Question 3 **[3]**
-
-Let $n$ be a positive integer. For each statement, decide whether it is **true** or **false**, and give a
-counterexample for any that is false.
-
-&nbsp;&nbsp;(a) $n$ is divisible by $10$ **only if** $n$ is divisible by $5$. **[1]**
-
-&nbsp;&nbsp;(b) $n$ is divisible by $10$ **if** $n$ is divisible by $5$. **[1]**
-
-&nbsp;&nbsp;(c) $n^2$ is even **if and only if** $n$ is even. **[1]**
-
-*Answer form: true or false, plus a counterexample where false.*
 
 ::: {.workspace style="min-height:6cm"}
 Working
@@ -88,23 +59,19 @@ Working
 
 ---
 
-# Section B — Exam standard
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q11</span>
 
-## Question 4 **[4]**
+::: {.question}
+The fact that $5\times 6=30$ is a counterexample to which of the following statements?
 
-Assume this statement is **true**:
+&nbsp;&nbsp;**A** the product of any two odd integers is odd
 
-> *If a shape is a square, then it has four equal sides.*
+&nbsp;&nbsp;**B** if the product of two integers is a multiple of $4$ then the integers are not consecutive
 
-State what, if anything, you can conclude in each case. Write "nothing" where nothing follows.
+&nbsp;&nbsp;**C** if the product of two integers is not a multiple of $4$ then the integers are not consecutive
 
-&nbsp;&nbsp;(a) The shape is a square. **[1]**
-
-&nbsp;&nbsp;(b) The shape has four equal sides. **[1]**
-
-&nbsp;&nbsp;(c) The shape does **not** have four equal sides. **[1]**
-
-&nbsp;&nbsp;(d) The shape is **not** a square. **[1]**
+&nbsp;&nbsp;**D** any even integer can be written as the product of two even integers
+:::
 
 ::: {.workspace style="min-height:6cm"}
 Working
@@ -112,18 +79,35 @@ Working
 
 ---
 
-## Question 5 **[4]**
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q10</span>
 
-For a real number $x$, consider the statement
+::: {.question}
+Consider the set of integers of the form $3^n-2n-1$, where $n$ is a positive integer greater than $1$.
 
-> $x > 3$ **only if** $x^2 > 9$.
+Which of the following statements are necessarily true?
 
-&nbsp;&nbsp;(a) Rewrite the statement in the form "if … then …". **[1]**
+&nbsp;&nbsp;**I** Integers in this set are even **only if** $n$ is odd.
 
-&nbsp;&nbsp;(b) Is the statement true? Justify your answer. **[1]**
+&nbsp;&nbsp;**II** Integers in this set are always $2$ more or $2$ less than a multiple of $6$.
 
-&nbsp;&nbsp;(c) Write down the statement obtained by replacing "only if" with "if". Is *that* statement
-true? If not, give a counterexample. **[2]**
+&nbsp;&nbsp;**III** Integers in this set are always a multiple of $4$.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
 
 ::: {.workspace style="min-height:7cm"}
 Working
@@ -131,64 +115,225 @@ Working
 
 ---
 
-## Question 6 **[6]**
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q7</span>
 
-In this question, $n$ is a positive integer. Consider the theorem
+::: {.question}
+The non-zero real numbers $a,b,c$ and $d$ satisfy $a<b$ and $c<d$.
 
-$$\text{If } n \text{ is divisible by } 12, \text{ then } n \text{ is divisible by } 4. \tag{$*$}$$
+Which of the following statements are necessarily true?
 
-Which of the following, **taken individually**, is/are equivalent to $(*)$?
+&nbsp;&nbsp;**I** $\dfrac{1}{a^3}>\dfrac{1}{b^3}$
 
-&nbsp;&nbsp;**I** &nbsp; If $n$ is divisible by $4$, then $n$ is divisible by $12$.
+&nbsp;&nbsp;**II** $3^{-a}<3^{-b}$
 
-&nbsp;&nbsp;**II** &nbsp; $n$ is divisible by $12$ **only if** $n$ is divisible by $4$.
+&nbsp;&nbsp;**III** If $a,b$ are negative, then $ac<bd$.
 
-&nbsp;&nbsp;**III** &nbsp; $n$ is **not** divisible by $4$ **only if** $n$ is **not** divisible by $12$.
+&nbsp;&nbsp;**IV** If $a,b,c,d$ are all negative, then $ac>bd$.
 
-&nbsp;&nbsp;**A** I only &nbsp;&nbsp; **B** II only &nbsp;&nbsp; **C** III only &nbsp;&nbsp;
-**D** I and II &nbsp;&nbsp; **E** II and III &nbsp;&nbsp; **F** I and III &nbsp;&nbsp;
-**G** I, II and III &nbsp;&nbsp; **H** None of them
+&nbsp;&nbsp;**A** none of them
 
-**Name the two halves $P$ and $Q$ before you start.** Show your arrows. **[6]**
+&nbsp;&nbsp;**B** II only
 
-::: {.workspace style="min-height:9cm"}
+&nbsp;&nbsp;**C** III only
+
+&nbsp;&nbsp;**D** II and IV only
+
+&nbsp;&nbsp;**E** I, II and III only
+
+&nbsp;&nbsp;**F** II, III and IV only
+
+&nbsp;&nbsp;**G** I, II and IV only
+
+&nbsp;&nbsp;**H** IV only
+
+&nbsp;&nbsp;**I** I only
+
+&nbsp;&nbsp;**J** III and IV only
+:::
+
+::: {.workspace style="min-height:8cm"}
 Working
 :::
 
 ---
 
-# Section C — Stretch
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q12</span>
 
-## Question 7 **[5]**
+::: {.question}
+Which of the following statements about polynomials $\mathrm f$ and $\mathrm g$ is/are true?
 
-Here is an attempt to solve the inequality $x^4 - 10x^2 + 9 < 0$.
+&nbsp;&nbsp;**I** If $\mathrm f(x)\ge\mathrm g(x)$ for all $x\ge0$, then $\displaystyle\int_0^x\mathrm f(t)\,dt\ge\int_0^x\mathrm g(t)\,dt$ for all $x\ge0$.
 
-> $x^4 - 10x^2 + 9 < 0$
-> **I** &nbsp; if and only if &nbsp; $(x^2-1)(x^2-9) < 0$
-> **II** &nbsp; if and only if &nbsp; $1 < x^2 < 9$
-> **III** &nbsp; if and only if &nbsp; $1 < x < 3$
+&nbsp;&nbsp;**II** If $\mathrm f(x)\ge\mathrm g(x)$ for all $x\ge0$, then $\mathrm f'(x)\ge\mathrm g'(x)$ for all $x\ge0$.
 
-&nbsp;&nbsp;(a) State which line contains the **first** error, or say that the argument is completely
-correct. **[1]**
+&nbsp;&nbsp;**III** If $\mathrm f'(x)\ge\mathrm g'(x)$ for all $x\ge0$, then $\mathrm f(x)\ge\mathrm g(x)$ for all $x\ge0$.
 
-&nbsp;&nbsp;(b) Justify your answer, and give the correct solution set. **[4]**
+&nbsp;&nbsp;**A** none of them
 
-::: {.workspace style="min-height:9cm"}
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.workspace style="min-height:8cm"}
 Working
 :::
 
 ---
 
-## Question 8 **[3]**
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q18</span>
 
-Let $A$ and $B$ be statements. A student writes:
+::: {.question}
+Let $f$ and $g$ be polynomials. Consider the following four statements.
 
-> "Since $A \Rightarrow B$ is true, and $B$ is true, it follows that $A$ is true."
+&nbsp;&nbsp;**I** If $f'(x)\ge g'(x)$ for all $x\ge0$ and $f(0)\ge g(0)$, then $f(x)\ge g(x)$ for all $x\ge0$.
 
-&nbsp;&nbsp;(a) Is the student's reasoning valid? **[1]**
+&nbsp;&nbsp;**II** If $f(x)\ge g(x)$ for all $x\ge0$, then $\displaystyle\int_0^x t\,f(t)\,dt\ge\int_0^x t\,g(t)\,dt$ for all $x\ge0$.
 
-&nbsp;&nbsp;(b) Give a concrete example, using statements about integers, that shows what goes wrong (or
-explain why nothing goes wrong). **[2]**
+&nbsp;&nbsp;**III** If $\displaystyle\int_0^x f(t)\,dt\ge\int_0^x g(t)\,dt$ for all $x\ge0$, then $f(x)\ge g(x)$ for all $x\ge0$.
+
+&nbsp;&nbsp;**IV** If $\displaystyle\int_0^x f(t)\,dt\ge\int_0^x g(t)\,dt$ for all $x\ge0$, then $\displaystyle\int_0^x t^2f(t)\,dt\ge\int_0^x t^2g(t)\,dt$ for all $x\ge0$.
+
+Which of the statements are true?
+
+&nbsp;&nbsp;**A** None of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** IV only
+
+&nbsp;&nbsp;**F** I and II only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I and III only
+
+&nbsp;&nbsp;**I** all except I
+
+&nbsp;&nbsp;**J** all except II
+
+&nbsp;&nbsp;**K** all except III
+
+&nbsp;&nbsp;**L** all except IV
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+# Section B — "Exactly one is true"
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q4</span>
+
+::: {.question}
+Five sealed jars, labelled A, B, C, D and E, each contain the same (non-zero) number of £1 coins.
+
+The following statements are attached to the jars:
+
+&nbsp;&nbsp;**A** This jar contains less than £4
+
+&nbsp;&nbsp;**B** This jar contains £5 or £6
+
+&nbsp;&nbsp;**C** This jar contains £1 or £6
+
+&nbsp;&nbsp;**D** This jar contains more than £3 and less than £6
+
+&nbsp;&nbsp;**E** This jar contains £2 or £3
+
+Exactly one of the jars has a true statement attached to it. Which jar is it?
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q7</span>
+
+::: {.question}
+Six sealed black bags are labelled $P,Q,R,S,T$ and $U$. Each bag contains the same number of balls. This number is a non-zero whole number from $3$ to $8$ inclusive.
+
+Each bag has a label with a statement written on it. The statement may be true or false.
+
+&nbsp;&nbsp;Bag $P$: "The number of balls in this bag is a multiple of $3$."
+
+&nbsp;&nbsp;Bag $Q$: "The number of balls in this bag is even."
+
+&nbsp;&nbsp;Bag $R$: "The number of balls in this bag is prime."
+
+&nbsp;&nbsp;Bag $S$: "The number of balls in this bag is at most $4$."
+
+&nbsp;&nbsp;Bag $T$: "The number of balls in this bag is at least $7$."
+
+&nbsp;&nbsp;Bag $U$: "The number of balls in this bag is a perfect square."
+
+Given that exactly one of the six statements is true, which bag has the true statement on its label?
+
+&nbsp;&nbsp;**A** $P$
+
+&nbsp;&nbsp;**B** $Q$
+
+&nbsp;&nbsp;**C** $R$
+
+&nbsp;&nbsp;**D** $S$
+
+&nbsp;&nbsp;**E** $T$
+
+&nbsp;&nbsp;**F** $U$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q3</span>
+
+::: {.question}
+A real number $x$ is such that **exactly one** of the following six statements is true.
+
+&nbsp;&nbsp;**I** $x^2<9$
+
+&nbsp;&nbsp;**II** $|x-1|<1$
+
+&nbsp;&nbsp;**III** $x,\ 2,\ 4$ are the first three terms of a geometric sequence with positive common ratio
+
+&nbsp;&nbsp;**IV** $\log_2(x+1)$ is defined and less than $1$
+
+&nbsp;&nbsp;**V** $x$ is a positive solution of $u^2-3u+2=0$
+
+&nbsp;&nbsp;**VI** the circle $X^2+Y^2=1$ meets the line $X=x$ in two distinct points
+
+&nbsp;&nbsp;**A** I
+
+&nbsp;&nbsp;**B** II
+
+&nbsp;&nbsp;**C** III
+
+&nbsp;&nbsp;**D** IV
+
+&nbsp;&nbsp;**E** V
+
+&nbsp;&nbsp;**F** VI
+:::
 
 ::: {.workspace style="min-height:7cm"}
 Working
@@ -196,12 +341,319 @@ Working
 
 ---
 
-::: {.callout-tip}
-## Before you hand this in
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q7</span>
 
-Check every answer against the **one rule**: could you rewrite the sentence as "if … then …", and does
-your arrow match? For Questions 6 and 7 in particular, an answer without arrows written down is an answer
-you cannot check.
+::: {.question}
+The real numbers $a$ and $b$ are such that **exactly one** of the following statements is true.
+
+Which is the true statement?
+
+&nbsp;&nbsp;**A** $a\ge0$
+
+&nbsp;&nbsp;**B** $a<b$
+
+&nbsp;&nbsp;**C** $a^2>b^2$
+
+&nbsp;&nbsp;**D** $\lvert a\rvert\le\lvert b\rvert$
 :::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q19</span>
+
+::: {.question}
+Let $f$ be a function defined on the real numbers. Consider the following seven statements, each intended to hold for all real values of $a$:
+
+&nbsp;&nbsp;**(1)** $f(a)>0$ if $a>0$.
+
+&nbsp;&nbsp;**(2)** $a>0$ is necessary for $f(a)>0$.
+
+&nbsp;&nbsp;**(3)** $a\le0$ only if $f(a)\le0$.
+
+&nbsp;&nbsp;**(4)** If $f(a)\le0$, then $a\le0$.
+
+&nbsp;&nbsp;**(5)** $f(a)>0$ whenever $a\le0$.
+
+&nbsp;&nbsp;**(6)** $a>0$ is sufficient for $f(a)>0$.
+
+&nbsp;&nbsp;**(7)** $f(a)\le0$ is sufficient and necessary for $a>0$.
+
+Given that exactly one of these seven statements is true for the particular function $f$ in question, which one is it?
+
+&nbsp;&nbsp;**A** Statement (1)
+
+&nbsp;&nbsp;**B** Statement (2)
+
+&nbsp;&nbsp;**C** Statement (3)
+
+&nbsp;&nbsp;**D** Statement (4)
+
+&nbsp;&nbsp;**E** Statement (5)
+
+&nbsp;&nbsp;**F** Statement (6)
+
+&nbsp;&nbsp;**G** Statement (7)
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q12</span>
+
+::: {.question}
+Let $f$ be a function. Each of the following is a statement about all real numbers $a$ (for instance, the first reads: for every $a$, if $f(x)>0$ for all $x>a$, then $f(a)<0$). Exactly one of them is true.
+
+Which one is it?
+
+&nbsp;&nbsp;**A** $f(x)>0$ for all $x>a$ **only if** $f(a)<0$
+
+&nbsp;&nbsp;**B** $f(a)<0$ and $f(x)>0$ for all $x>a$ **cannot both** hold
+
+&nbsp;&nbsp;**C** $f(x)>0$ for all $x>a$ is **necessary** for $f(a)<0$
+
+&nbsp;&nbsp;**D** if $f(a)\ge0$ then $f(x)\le0$ for some $x>a$
+
+&nbsp;&nbsp;**E** $f(x)>0$ for all $x>a$ **implies** $f(a)\ge0$
+
+&nbsp;&nbsp;**F** $f(a)\ge0$ **if and only if** $f(x)\le0$ for some $x>a$
+
+&nbsp;&nbsp;**G** $f(a)<0$ is **sufficient** for there to exist $x>a$ with $f(x)\le0$
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+# Section C — "If and only if" and "only if"
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2022 · Q1C</span>
+
+::: {.question}
+The equation $x^2-4kx+y^2-4y+8=k^3-k$ is the equation of a circle
+
+&nbsp;&nbsp;**(a)** for all real values of $k$.
+
+&nbsp;&nbsp;**(b)** if and only if either $-4<k<-1$ or $k>1$.
+
+&nbsp;&nbsp;**(c)** if and only if $k>1$.
+
+&nbsp;&nbsp;**(d)** if and only if $k<-1$.
+
+&nbsp;&nbsp;**(e)** if and only if either $-1<k<0$ or $k>1$.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q18</span>
+
+::: {.question}
+The equation $x^4+bx^2+c=0$ has four distinct real roots **if and only if** which of the following conditions is satisfied?
+
+&nbsp;&nbsp;**A** $b^2>4c$
+
+&nbsp;&nbsp;**B** $b^2<4c$
+
+&nbsp;&nbsp;**C** $c>0$ and $b>2\sqrt c$
+
+&nbsp;&nbsp;**D** $c>0$ and $b<-2\sqrt c$
+
+&nbsp;&nbsp;**E** $c<0$ and $b<0$
+
+&nbsp;&nbsp;**F** $c<0$ and $b>0$
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2021 · Q1J</span>
+
+::: {.question}
+Four distinct real numbers $a,b,c$ and $d$ are used to define four points
+
+$$A=(a,b),\qquad B=(b,c),\qquad C=(c,d),\qquad D=(d,a).$$
+
+The quadrilateral $ABCD$ has all four sides the same length
+
+&nbsp;&nbsp;**(a)** if and only if $(a-b)^2=(c-d)^2$,
+
+&nbsp;&nbsp;**(b)** if and only if $(a-c)^2=(b-d)^2$,
+
+&nbsp;&nbsp;**(c)** if and only if $(a-d)^2=(b-c)^2$,
+
+&nbsp;&nbsp;**(d)** if and only if $a-b+c-d=0$,
+
+&nbsp;&nbsp;**(e)** for no values of $a,b,c,d$.
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q17</span>
+
+::: {.question}
+A positive integer is called a *squaresum* **if and only if** it can be written as the sum of the squares of two integers. For example, $61$ and $9$ are both squaresums since $61=5^2+6^2$ and $9=3^2+0^2$.
+
+A prime number is called *awkward* **if and only if** it has a remainder of $3$ when divided by $4$. For example, $23$ is awkward since $23=5\times4+3$.
+
+A (true) theorem due to Fermat states that:
+
+> A positive integer is a squaresum **if and only if** each of its awkward prime factors occurs to an even power in its prime factorisation.
+
+It follows that $5\times23^2$ is a squaresum, since $23$ occurs to the power $2$, but $5\times23^3$ is not, since $23$ occurs to the power $3$.
+
+Which one of the following statements is **not** true?
+
+&nbsp;&nbsp;**A** Every square number is a squaresum.
+
+&nbsp;&nbsp;**B** If $N$ and $M$ are squaresums, then so is $NM$.
+
+&nbsp;&nbsp;**C** If $NM$ is a squaresum, then $N$ and $M$ are squaresums.
+
+&nbsp;&nbsp;**D** If $N$ is not a squaresum, then $kN$ is a squaresum for some number $k$ which is a product of awkward primes.
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q20</span>
+
+::: {.question}
+Let $f$ be a polynomial with real coefficients.
+
+The integral $I_{p,q}$, where $p<q$, is defined by
+
+$$I_{p,q}=\int_p^q\big(f(x)\big)^2-\big(f(\lvert x\rvert)\big)^2\,dx$$
+
+Which of the following statements must be true?
+
+&nbsp;&nbsp;**1** $I_{p,q}=0$ **only if** $0<p$
+
+&nbsp;&nbsp;**2** $f'(x)<0$ for all $x$ **only if** $I_{p,q}<0$ for all $p<q<0$
+
+&nbsp;&nbsp;**3** $I_{p,q}>0$ **only if** $p<0$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 2 only
+
+&nbsp;&nbsp;**D** 3 only
+
+&nbsp;&nbsp;**E** 1 and 2 only
+
+&nbsp;&nbsp;**F** 1 and 3 only
+
+&nbsp;&nbsp;**G** 2 and 3 only
+
+&nbsp;&nbsp;**H** 1, 2 and 3
+:::
+
+::: {.workspace style="min-height:10cm"}
+Working
+:::
+
+---
+
+# Section D — Sufficient and necessary
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q19</span>
+
+::: {.question}
+Which one of the following is a **sufficient** condition for the equation $x^3-3x^2+a=0$, where $a$ is a constant, to have exactly one real root?
+
+&nbsp;&nbsp;**A** $a>0$
+
+&nbsp;&nbsp;**B** $a\le0$
+
+&nbsp;&nbsp;**C** $a\ge4$
+
+&nbsp;&nbsp;**D** $a<4$
+
+&nbsp;&nbsp;**E** $\lvert a\rvert>4$
+
+&nbsp;&nbsp;**F** $\lvert a\rvert\le4$
+
+&nbsp;&nbsp;**G** $a=\tfrac94$
+
+&nbsp;&nbsp;**H** $\lvert a\rvert=\tfrac32$
+:::
+
+::: {.workspace style="min-height:8cm"}
+Working
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q5</span>
+
+::: {.question}
+Consider the two statements
+
+&nbsp;&nbsp;$R$: $k$ is an integer multiple of $\pi$
+
+&nbsp;&nbsp;$S$: $\displaystyle\int_0^k\sin 2x\,dx=0$
+
+Which of the following statements is true?
+
+&nbsp;&nbsp;**A** $R$ is necessary and sufficient for $S$.
+
+&nbsp;&nbsp;**B** $R$ is necessary but not sufficient for $S$.
+
+&nbsp;&nbsp;**C** $R$ is sufficient but not necessary for $S$.
+
+&nbsp;&nbsp;**D** $R$ is not necessary and not sufficient for $S$.
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
+---
+
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set B · P2 Q8</span>
+
+::: {.question}
+Consider the following statement about the polynomial $p(x)$, where $a$ and $b$ are real numbers with $a<b$.
+
+$$(*)\quad\text{There exists a number }c\text{ with }a<c<b\text{ such that }p(c)=0$$
+
+Which of the following is true?
+
+&nbsp;&nbsp;**A** The condition $p(a)p(b)<0$ is necessary and sufficient for $(*)$
+
+&nbsp;&nbsp;**B** The condition $p(a)p(b)<0$ is not necessary and not sufficient for $(*)$
+
+&nbsp;&nbsp;**C** The condition $p(a)p(b)<0$ is necessary but not sufficient for $(*)$
+
+&nbsp;&nbsp;**D** The condition $p(a)p(b)<0$ is sufficient but not necessary for $(*)$
+:::
+
+::: {.workspace style="min-height:7cm"}
+Working
+:::
+
 
 :::

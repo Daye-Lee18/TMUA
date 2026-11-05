@@ -2,6 +2,7 @@
 title: "Toolkit S4 — Assignment · Mark Scheme"
 subtitle: "Tutor copy — full solutions with reasoning"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -9,301 +10,1259 @@ execute:
 
 ::: {.solutions}
 
-Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
-
-The one thing to check on every negation: **did the student flip the quantifier *and* negate the
-inside?** A negation that changed only one is the standard error, and it is what most of these questions
-are really testing.
+19 questions. Answers were checked against the official or publisher solutions. Questions 1 and 2 are exercises from
+the Notes on Logic and Proof, worked here from the definitions.
 
 ---
 
-# Section A — Fluency
+# Section A — Reading for all and there exists
 
-## Question 1 **[4]**
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise M, Q1</span>
 
 ::: {.question}
-State whether each is **true** or **false**. In each case $x$ is real, $n$ an integer.
+Which of the following are true and which are false?
 
-&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^2 + 1 > 0$. **[1]** &nbsp;&nbsp;&nbsp; (b) There exists a real $x$ such that $x^2 = -1$. **[1]**
+&nbsp;&nbsp;**i.** **for every** real $x$, $x^2$ is rational
 
-&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $2n$ is even. **[1]** &nbsp;&nbsp;&nbsp; (d) There exists an integer $n$ such that $n^2 = 2$. **[1]**
+&nbsp;&nbsp;**ii.** **there exists** a real $x$ such that $x^2$ is rational
+
+&nbsp;&nbsp;**iii.** **for every** real $x$, $x^2>x$
+
+&nbsp;&nbsp;**iv.** **there exists** a real $x$ such that $x^2>x$
+
+&nbsp;&nbsp;**v.** **for every** real $x$, $x^3>0$
+
+&nbsp;&nbsp;**vi.** **there exists** a real $x$ such that $x^3>0$
+
+&nbsp;&nbsp;**vii.** **for every** real $x$ and $y$, $x^2+y^2>2xy$
+
+&nbsp;&nbsp;**viii.** **there exists** real $x$ and $y$ such that $x^2+y^2>2xy$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a) True** &nbsp; **(B1)** — $x^2 \ge 0$ for every real $x$, so $x^2+1 \ge 1 > 0$.
+**i, iii, v and vii are false. ii, iv, vi and viii are true.**
 
-**(b) False** &nbsp; **(B1)** — no real number squares to a negative.
+A "for every" statement falls to one counterexample. A "there exists" statement is proved by one witness.
 
-**(c) True** &nbsp; **(B1)** — $2n$ is a multiple of $2$ for every integer $n$.
-
-**(d) False** &nbsp; **(B1)** — $n^2=2$ has no integer solution ($1^2=1$, $2^2=4$).
-
-**Marking note.** For (a) and (c) the reason must cover **every** case; for (b) and (d), "no such
-$x$/$n$ exists" is the whole point — a "there exists" is false only when nothing works.
-:::
-
----
-
-## Question 2 **[3]**
-
-::: {.question}
-Write the **negation** of each, as a positive sentence.
-
-&nbsp;&nbsp;(a) For all real $x$, &nbsp; $x^3 \ge 0$. **[1]**
-
-&nbsp;&nbsp;(b) There exists an integer $n$ such that $n^2 = 10$. **[1]**
-
-&nbsp;&nbsp;(c) Every triangle has three equal sides. **[1]**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a)** Flip *for all* → *there exists*, negate $x^3 \ge 0$ to $x^3 < 0$: &nbsp; **(B1)**
-
-> There exists a real $x$ such that $x^3 < 0$. &nbsp;*(True — e.g. $x=-1$.)*
-
-**(b)** Flip *there exists* → *for all*, negate $n^2=10$ to $n^2 \ne 10$: &nbsp; **(B1)**
-
-> For all integers $n$, &nbsp; $n^2 \ne 10$.
-
-**(c)** "Every triangle has three equal sides" is a *for all*; negate to a *there exists*: &nbsp; **(B1)**
-
-> There exists a triangle that does **not** have three equal sides &nbsp;(at least one triangle is not
-> equilateral).
-
-**Common error:** (c) given as "no triangle has three equal sides" — too strong; that is the opposite
-extreme, not the negation.
-:::
-
----
-
-## Question 3 **[3]**
-
-::: {.question}
-Consider the statement: &nbsp; **All multiples of $4$ are even.**
-
-&nbsp;&nbsp;(a) Is it true or false? **[1]**
-
-&nbsp;&nbsp;(b) Write its correct negation. **[1]**
-
-&nbsp;&nbsp;(c) A student says the negation is *"No multiple of $4$ is even."* Explain why that is wrong. **[1]**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a) True** &nbsp; **(B1)** — every multiple of $4$ is $4k = 2(2k)$, hence even.
-
-**(b)** &nbsp; **(B1)**
-
-> There exists a multiple of $4$ that is **not** even &nbsp;(at least one multiple of $4$ is odd).
-
-*This negation is false, of course — but it is the correctly-formed negation, and that is what is asked.*
-
-**(c)** &nbsp; **(B1)** *"No multiple of $4$ is even"* claims **every** multiple of $4$ is odd — a "for
-all", and a strong (false) one. The negation of "all are even" needs only **one** odd multiple of $4$,
-not *all* of them to be odd. **Negating a "for all" gives a "there exists", never another "for all".**
-:::
-
----
-
-# Section B — Exam standard
-
-## Question 4 **[6]**
-
-::: {.question}
-For each statement, decide whether it is true. If false, **disprove it with a counterexample**; if true,
-give a one-line reason.
-
-&nbsp;&nbsp;(a) For all real $x$, &nbsp; $\sqrt{x^2} = x$. **[2]**
-
-&nbsp;&nbsp;(b) For all real $x$, &nbsp; if $x > 3$ then $x^2 > 9$. **[2]**
-
-&nbsp;&nbsp;(c) For all integers $n$, &nbsp; $n^2 - n$ is even. **[2]**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a) False.** &nbsp; **(M1 A1)** &nbsp; Counterexample $x = -1$: then $\sqrt{x^2} = \sqrt1 = 1$, which is
-**not** equal to $x = -1$.
-
-*The correct identity is $\sqrt{x^2} = |x|$. Any negative $x$ is a counterexample — the "check the
-negatives" habit again.*
-
-**(b) True.** &nbsp; **(M1 A1)** &nbsp; If $x>3$ then $x>0$, so multiplying $x>3$ by $x$ gives $x^2 > 3x >
-9$. No counterexample exists.
-
-**(c) True.** &nbsp; **(M1 A1)** &nbsp; $n^2 - n = n(n-1)$, a product of two **consecutive** integers, one
-of which is even — so the product is even for every $n$.
-
-**Marking note.** In (a) the mark is for a **specific counterexample**, not for saying "$\sqrt{x^2}=|x|$"
-alone. In (b) and (c) a general argument is required — checking a few values scores the method mark at
-most.
-:::
-
----
-
-## Question 5 **[4]**
-
-::: {.question}
-Write the negation of each, as a positive statement.
-
-&nbsp;&nbsp;(a) For all real $x$, &nbsp; if $x < 0$ then $x^3 < 0$. **[2]**
-
-&nbsp;&nbsp;(b) There exists an integer $n$ such that $n$ is odd **and** $n > 100$. **[2]**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a)** Flip *for all* → *there exists*; negate the implication "if $x<0$ then $x^3<0$" to "$x<0$ **and**
-$x^3 \ge 0$": &nbsp; **(M1 A1)**
-
-> There exists a real $x$ such that $x < 0$ **and** $x^3 \ge 0$.
-
-*(False, since $x<0 \Rightarrow x^3<0$ — but correctly formed. The negation of an implication is $H$ and
-not $C$, never another implication.)*
-
-**(b)** Flip *there exists* → *for all*; negate "odd and $>100$" by De Morgan to "not odd **or** not
-$>100$": &nbsp; **(M1 A1)**
-
-> For all integers $n$, &nbsp; $n$ is even **or** $n \le 100$.
-
-**Common errors:** (a) negated to "if $x<0$ then $x^3 \ge 0$" (implication not negated properly); (b)
-negated with "and" instead of "or" (De Morgan missed).
-:::
-
----
-
-## Question 6 **[4]**
-
-::: {.question}
-$n$ denotes a positive integer. Consider the statement
-
-$$\textbf{(S):}\quad \text{For all } n,\ \text{if } n \text{ is a multiple of } 6 \text{ then } n \text{ is a multiple of } 3.$$
-
-&nbsp;&nbsp;(a) Is (S) true? Justify. **[1]**
-
-&nbsp;&nbsp;(b) Write the negation of (S). **[2]**
-
-&nbsp;&nbsp;(c) Does a counterexample to (S) exist? If so give one; if not, explain why. **[1]**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a) True.** &nbsp; **(B1)** &nbsp; If $6$ divides $n$ then $n = 6k = 3(2k)$, so $3$ divides $n$ — for every $n$.
-
-**(b)** Flip *for all* → *there exists*, negate the implication: &nbsp; **(M1 A1)**
-
-> There exists a positive integer $n$ such that $n$ is a multiple of $6$ **and** $n$ is **not** a
-> multiple of $3$.
-
-**(c)** &nbsp; **(B1)** &nbsp; **No counterexample exists**, because (S) is true — every multiple of $6$
-really is a multiple of $3$. Equivalently, the negation in (b) is false: nothing satisfies "multiple of
-$6$ but not of $3$".
-
-**Teaching point.** (b) and (c) are two views of the same fact: a counterexample is exactly a witness
-making the negation true. (S) true ⟺ negation false ⟺ no counterexample.
-:::
-
----
-
-# Section C — Stretch
-
-## Question 7 **[5]**
-
-::: {.question}
-For positive integers, consider:
-
-&nbsp;&nbsp;**P:** For all $m$, there exists $n$ such that $n > m$.
-
-&nbsp;&nbsp;**Q:** There exists $n$ such that for all $m$, $n > m$.
-
-&nbsp;&nbsp;(a) Explain the difference in meaning between **P** and **Q**. **[2]**
-
-&nbsp;&nbsp;(b) State, with reasons, whether each is true. **[2]**
-
-&nbsp;&nbsp;(c) Write the negation of **Q**. **[1]**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a)** &nbsp; **(M1 A1)** &nbsp; In **P**, *"for all $m$"* comes first, so $n$ is chosen **after** $m$
-and may depend on it: *given any $m$, there is some larger $n$.* In **Q**, *"there exists $n$"* comes
-first, so **one** $n$ is fixed **before** $m$ and must beat **every** $m$: *there is a largest positive
-integer.*
-
-**(b)** &nbsp; **(A1 A1)**
-
-- **P is true** — given any $m$, take $n = m+1 > m$. ✓
-- **Q is false** — it claims a largest positive integer exists; whatever $n$ you fix, $m = n$ gives
-  $n \not> m$ (indeed $n = m$), and $m=n+1$ is larger still. No such $n$ exists.
-
-**(c)** Negate **Q** = *there exists $n$, for all $m$, $n>m$*. Flip each quantifier, negate the inside
-($n>m$ → $n \le m$): &nbsp; **(B1)**
-
-> For all $n$, there exists $m$ such that $n \le m$.
-
-*(In words: for every positive integer there is one at least as large — true, fitting the fact that Q was
-false.)*
-
-::: {.callout-warning appearance="simple"}
-**The teaching point of the whole question:** swapping ∀ and ∃ changes the meaning. P and Q use identical
-words in a different order, and one is true while the other is false.
-:::
-:::
-
----
-
-## Question 8 **[3]**
-
-::: {.question}
-$n$ denotes a positive integer. Consider
-
-$$\textbf{(T):}\quad \text{For all } n,\; n^2 \ge n.$$
-
-&nbsp;&nbsp;(a) Write the negation of (T). **[1]**
-
-&nbsp;&nbsp;(b) Is (T) true or false? If false, give a counterexample; if true, say why no counterexample exists. **[2]**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
-
-**(a)** Flip *for all* → *there exists*, negate $n^2 \ge n$ to $n^2 < n$: &nbsp; **(B1)**
-
-> There exists a positive integer $n$ such that $n^2 < n$.
-
-**(b) True** &nbsp; **(M1 A1)** — for a positive integer $n \ge 1$, multiplying $n \ge 1$ by $n$ (positive)
-gives $n^2 \ge n$. So **no counterexample exists**; equivalently, the negation in (a) is false, since
-$n^2 < n$ would need $0 < n < 1$, impossible for a positive integer.
-
-**Marking note.** Award (b) only if the reason is general. A student who writes "$n=2$ gives $4\ge2$, so
-true" has checked one case, not proved the "for all".
-:::
-
----
-
-## Marking summary
-
-| Q | Marks | The thing being tested |
+| | Verdict | Why |
 |---|---|---|
-| 1 | 4 | Truth of quantified statements |
-| 2 | 3 | Single negation — flip **and** negate |
-| 3 | 3 | "not all" ≠ "none" |
-| 4 | 6 | Counterexamples; the $\sqrt{x^2}=\lvert x\rvert$ trap |
-| 5 | 4 | Negating an implication / an "and" inside |
-| 6 | 4 | Negation ⟺ counterexample |
-| 7 | 5 | Order of two quantifiers |
-| 8 | 3 | Negating and settling a "for all" |
+| **i** | False | $x=\sqrt[4]{2}$ gives $x^2=\sqrt2$, which is irrational |
+| **ii** | True | $x=1$ gives $x^2=1$ |
+| **iii** | False | $x=\tfrac12$ gives $x^2=\tfrac14$, which is not greater than $\tfrac12$ |
+| **iv** | True | $x=2$ gives $4>2$ |
+| **v** | False | $x=-1$ gives $x^3=-1$ |
+| **vi** | True | $x=1$ gives $1>0$ |
+| **vii** | False | $x=y=1$ gives $2>2$, which fails |
+| **viii** | True | $x=1,\ y=0$ gives $1>0$ |
 
-**If marks are lost in one place, look at 2, 3(c) and 5.** All three test the negation rule, and 3(c) and
-5 catch the two commonest failures: turning "not all" into "none", and negating only half of a compound
-statement. A student solid on those is solid on the whole topic.
+**Look at vii carefully.** Rearranging, $x^2+y^2-2xy=(x-y)^2$, which is **at least** $0$ and equals $0$ exactly
+when $x=y$. So the statement fails only on the line $x=y$, but one failure is all a "for every" can stand.
+
+**The pattern in the pairs.** Each even-numbered statement is the "there exists" version of the one before it. A
+false "for every" can sit next to a true "there exists" with the same inside, as here in all four pairs.
+:::
+
+---
+
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise N, Q1</span>
+
+::: {.question}
+Which of the following are true and which are false?
+
+&nbsp;&nbsp;**i.** **for all** real $x$ **there exists** a real $y$ such that: $x>y$
+
+&nbsp;&nbsp;**ii.** **for all** real $x$ **there exists** a real $y$ such that: $y>x$
+
+&nbsp;&nbsp;**iii.** **for all** real $y$ **there exists** a real $x$ such that: $x>y$
+
+&nbsp;&nbsp;**iv.** **for all** real $y$ **there exists** a real $x$ such that: $y>x$
+
+&nbsp;&nbsp;**v.** **there exists** a real $x$ such that **for all** real $y$: $x>y$
+
+&nbsp;&nbsp;**vi.** **there exists** a real $x$ such that **for all** real $y$: $y>x$
+
+&nbsp;&nbsp;**vii.** **there exists** a real $y$ such that **for all** real $x$: $x>y$
+
+&nbsp;&nbsp;**viii.** **there exists** a real $y$ such that **for all** real $x$: $y>x$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**i, ii, iii and iv are true. v, vi, vii and viii are false.**
+
+**The first four.** The "for all" comes first, so the first letter is given to you and you choose the second
+letter afterwards, knowing the first.
+
+- **i.** Given $x$, take $y=x-1$. Then $x>y$.
+- **ii.** Given $x$, take $y=x+1$. Then $y>x$.
+- **iii.** Given $y$, take $x=y+1$. Then $x>y$.
+- **iv.** Given $y$, take $x=y-1$. Then $y>x$.
+
+**The last four.** The "there exists" comes first, so **one** number must be fixed before the second letter is
+seen, and it must then work against every value of that letter.
+
+- **v.** This claims a largest real number. Whatever $x$ you fix, $y=x+1$ gives $x>y$ false.
+- **vi.** This claims a smallest real number. Whatever $x$ you fix, $y=x-1$ gives $y>x$ false.
+- **vii.** The same claim as vi with the letters renamed. Take $x=y-1$.
+- **viii.** The same claim as v with the letters renamed. Take $x=y+1$.
+
+**The inequality never changes in spirit. Only the order does**, and the order alone decides the truth value.
+:::
+
+---
+
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q8</span>
+
+::: {.question}
+Consider the following statement about the positive integer $n$:
+
+> Statement $(*)$: *The sum of the four consecutive integers, the smallest of which is $n$, is a multiple of $6$.*
+
+Which **one** of the following is true?
+
+&nbsp;&nbsp;**A** Statement $(*)$ is true for all values of $n$.
+
+&nbsp;&nbsp;**B** Statement $(*)$ is true for all values of $n$ which are odd, but not for any other values of $n$.
+
+&nbsp;&nbsp;**C** Statement $(*)$ is true for all values of $n$ which are multiples of $3$, but not for any other values of $n$.
+
+&nbsp;&nbsp;**D** Statement $(*)$ is true for all values of $n$ which are multiples of $6$, but not for any other values of $n$.
+
+&nbsp;&nbsp;**E** Statement $(*)$ is not true for any value of $n$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.**
+
+**Step 1 — find the sum.**
+
+$$n+(n+1)+(n+2)+(n+3)=4n+6 .$$
+
+**Step 2 — decide when it is a multiple of $6$.** Since $4n+6=6+4n$, and $6$ is already a multiple of $6$, the sum
+is a multiple of $6$ exactly when $4n$ is. Now $4n=2\times2n$ and $6=2\times3$, so we can cancel the common
+factor $2$: this happens exactly when $3$ divides $2n$. As $3$ is prime and does not divide $2$, that means
+$3$ divides $n$.
+
+$$4n+6 \text{ is a multiple of } 6 \iff n \text{ is a multiple of } 3 .$$
+
+**Step 3 — read the options as quantified statements.** Each of B, C and D makes **two** claims: "true for all
+values of this kind" **and** "not true for any other value".
+
+- **A** fails at $n=1$: the sum is $10$.
+- **B** fails at $n=1$: this is odd, and the sum is $10$.
+- **C** is exactly the result of Step 2.
+- **D** has the first half right, because multiples of $6$ do work. But "not for any other value" fails at $n=3$,
+  where $3+4+5+6=18$.
+- **E** fails at $n=3$ too, because one working value is all it takes to break "not for any value".
+:::
+
+---
+
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q9</span>
+
+::: {.question}
+Consider the following statement:
+
+$(*)$ **For all** real numbers $x$, **if** $x<k$ **then** $x^2<k$
+
+What is the complete set of values of $k$ for which $(*)$ is true?
+
+&nbsp;&nbsp;**A** no real numbers
+
+&nbsp;&nbsp;**B** $k>0$
+
+&nbsp;&nbsp;**C** $k<1$
+
+&nbsp;&nbsp;**D** $k\le1$
+
+&nbsp;&nbsp;**E** $0<k<1$
+
+&nbsp;&nbsp;**F** $0<k\le1$
+
+&nbsp;&nbsp;**G** all real numbers
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — no real numbers.**
+
+**Step 1 — write what would break $(*)$.** Negating the "for all" and the "if … then":
+
+$$\text{there exists a real } x \text{ such that } x<k \ \text{ and }\ x^2\ge k .$$
+
+So $(*)$ is false for a given $k$ as soon as we find **one** such $x$.
+
+**Step 2 — find that $x$ for every $k$.** The domain is **all** real numbers, so negative values are allowed. Take
+any $k$ and let
+
+$$x=-\lvert k\rvert-2 .$$
+
+- $x<k$, because $x$ is below $-\lvert k\rvert$, and $-\lvert k\rvert\le k$.
+- $x^2=(\lvert k\rvert+2)^2\ge\lvert k\rvert+2>k$, because a number that is at least $2$ is no bigger than its
+  square.
+
+So the hypothesis holds and the conclusion fails. Every value of $k$ has a counterexample, and $(*)$ is never true.
+
+**Why E and F tempt.** If $0<x<k\le1$, then $x^2<x<k$, so the statement does hold for **positive** $x$. Those
+options come from forgetting that "for all real numbers $x$" includes the negatives. For $k=\tfrac12$, the value
+$x=-1$ satisfies $x<k$, yet $x^2=1$ is not below $\tfrac12$.
+:::
+
+---
+
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q12</span>
+
+::: {.question}
+Consider the curve
+
+$$y=\log_{x-1}4\qquad\text{for } x>1,\ x\ne2 .$$
+
+Which of the following statements about this curve are true?
+
+&nbsp;&nbsp;**I** &nbsp; $y>0$ **for every** $x$ in the domain.
+
+&nbsp;&nbsp;**II** &nbsp; $y$ is a strictly decreasing function of $x$ on the domain.
+
+&nbsp;&nbsp;**III** &nbsp; **For every** real number $y$, **there exists** a value of $x$ in the domain such that $y=\log_{x-1}4$.
+
+&nbsp;&nbsp;**IV** &nbsp; $y=0$ is an asymptote.
+
+&nbsp;&nbsp;**A** I only
+
+&nbsp;&nbsp;**B** II only
+
+&nbsp;&nbsp;**C** III only
+
+&nbsp;&nbsp;**D** IV only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and IV only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** III and IV only
+
+&nbsp;&nbsp;**I** None of the statements is true.
+
+&nbsp;&nbsp;**J** All four statements are true.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D — IV only.**
+
+**Step 1 — make the curve readable.** $y=\log_{x-1}4$ means $(x-1)^y=4$. Taking natural logarithms,
+
+$$y\ln(x-1)=\ln4\quad\Longrightarrow\quad y=\frac{\ln4}{\ln(x-1)} ,$$
+
+where dividing is allowed because $x\ne2$ makes $\ln(x-1)\ne0$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(6.0,3.6))
+for lo,hi in [(1.02,1.93),(2.07,40)]:
+    x=np.linspace(lo,hi,800); ax.plot(x,np.log(4)/np.log(x-1),color='#1f77b4',lw=2)
+ax.axvline(2,color='0.5',ls=':',lw=1.2); ax.axhline(0,color='#d62728',ls='--',lw=1.2,label='$y=0$: approached, never reached')
+ax.plot([1.5,3],[-2,2],'o',color='#d62728')
+ax.annotate('$(3/2,\\,-2)$',(1.5,-2),textcoords='offset points',xytext=(12,-6),fontsize=9)
+ax.annotate('$(3,\\,2)$',(3,2),textcoords='offset points',xytext=(10,6),fontsize=9)
+ax.set_xlim(1,16); ax.set_ylim(-8,8); ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False,fontsize=9)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False); plt.tight_layout(); plt.show()
+```
+
+**I is false.** A "for every" needs one failure. At $x=\tfrac32$, $\;\ln\tfrac12<0$, so $y<0$. In fact $y=-2$.
+
+**II is false.** Compare $x=\tfrac32$, where $y=-2$, with $x=3$, where $y=2$. As $x$ went up, $y$ went up. The
+function decreases on $(1,2)$ and on $(2,\infty)$ separately, but not on the whole domain, because of the jump at
+the vertical asymptote $x=2$.
+
+**III is false.** It is a "for every $y$, there exists $x$", so its negation is "there exists a $y$ such that **no**
+$x$ works". That $y$ is $0$: the numerator $\ln4$ is non-zero, so the fraction is never $0$. Equivalently,
+$(x-1)^0=1\ne4$.
+
+**IV is true.** As $x\to\infty$, $\ln(x-1)\to\infty$, so $y\to0$.
+
+**Link between III and IV.** The value $y=0$ that breaks III is exactly the asymptote in IV: the curve gets
+arbitrarily close to it and never reaches it.
+:::
+
+---
+
+# Section B — Negating a definition
+
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q17</span>
+
+::: {.question}
+Let $S$ be a set of positive integers, for example $S$ could consist of $3$, $4$, and $8$.
+
+A positive integer $n$ is called an $S$-number **if and only if** for every factor $m$ of $n$ with $m>1$, the number
+$m$ is a multiple of some number in $S$.
+
+So in the above example, $9$ is an $S$-number; this is because the factors of $9$ greater than $1$ are $3$ and $9$, and
+each of these is a multiple of $3$.
+
+Positive integer $n$ is therefore **not** an $S$-number **if and only if**
+
+&nbsp;&nbsp;**A** for **every** (positive) factor $m$ of $n$ with $m>1$, there is a number in $S$ which is not a factor of $m$.
+
+&nbsp;&nbsp;**B** for **every** (positive) factor $m$ of $n$ with $m>1$, there is no number in $S$ which is a factor of $m$.
+
+&nbsp;&nbsp;**C** for **every** (positive) factor $m$ of $n$ with $m>1$, every number in $S$ is a factor of $m$.
+
+&nbsp;&nbsp;**D** for **some** (positive) factor $m$ of $n$ with $m>1$, there is a number in $S$ which is not a factor of $m$.
+
+&nbsp;&nbsp;**E** for **some** (positive) factor $m$ of $n$ with $m>1$, there is no number in $S$ which is a factor of $m$.
+
+&nbsp;&nbsp;**F** for **some** (positive) factor $m$ of $n$ with $m>1$, every number in $S$ is a factor of $m$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.**
+
+**Step 1 — write the definition as a chain.** "$m$ is a multiple of some number in $S$" says the same as "some
+number in $S$ is a factor of $m$". So
+
+$$n \text{ is an } S\text{-number}\iff \forall m\ (\text{factor of } n,\ m>1),\ \ \exists s\in S,\ \ s \text{ is a factor of } m .$$
+
+**Step 2 — negate, keeping the domain of $m$.**
+
+- $\forall m$ becomes $\exists m$: "for **some** factor $m$ of $n$ with $m>1$".
+- $\exists s$ becomes $\forall s$, and "is a factor" becomes "is not a factor": "**every** $s$ in $S$ fails to be a
+  factor of $m$", which is "there is **no** number in $S$ which is a factor of $m$".
+
+That is **E**.
+
+**Step 3 — why the others fail.**
+
+- **A, B, C** begin with "every", so the outer quantifier was never flipped.
+- **D** says **one** number of $S$ is not a factor of $m$. The negation needs **all** of them to fail. This is the
+  "there is one that fails" slip, in place of "none works".
+- **F** flips both quantifiers but never negates the inside: it still says "is a factor".
+
+**A sanity check on the example.** With $S=\{3,4,8\}$, the integer $n=2$ is not an $S$-number: its factor $m=2$ has
+no factor in $S$. This matches E, and D alone could not detect it, since D would also hold for the $S$-number $9$
+(take $m=3$, and $4$ is not a factor of $3$).
+:::
+
+---
+
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock B · P2 Q15</span>
+
+::: {.question}
+A set $X$ of positive integers, with $\lvert X\rvert\ge3$, is called **cross-linked** if and only if for every number $x$ in
+$X$ there exist two distinct numbers $y$ and $z$ in $X$, both different from $x$, and a prime $p$, such that $p$ divides
+each of $x$, $y$ and $z$.
+
+Let $Y$ be a set of positive integers with $\lvert Y\rvert\ge3$.
+
+Which of the following statements is equivalent to $Y$ being **not** cross-linked?
+
+&nbsp;&nbsp;**A** For every number $x$ in $Y$, and for every two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, there is no prime which divides all of $x$, $y$ and $z$.
+
+&nbsp;&nbsp;**B** For every number $x$ in $Y$ there exist two distinct numbers $y$ and $z$ in $Y$, both different from $x$, such that no prime divides all of $x$, $y$ and $z$.
+
+&nbsp;&nbsp;**C** There exists a number $x$ in $Y$, and there exist two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, such that no prime divides all of $x$, $y$ and $z$.
+
+&nbsp;&nbsp;**D** There exists a number $x$ in $Y$ such that for every two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, there is no prime which divides all of $x$, $y$ and $z$.
+
+&nbsp;&nbsp;**E** There exists a number $x$ in $Y$ such that for every two distinct numbers $y$ and $z$ in $Y$ with $y\ne x$ and $z\ne x$, there is a prime which divides $x$ but divides neither $y$ nor $z$.
+
+&nbsp;&nbsp;**F** For every number $x$ in $Y$ there exist two distinct numbers $y$ and $z$ in $Y$, both different from $x$, and a prime $p$, such that $p$ divides $x$ but $p$ does not divide $y$ and $p$ does not divide $z$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.**
+
+**Step 1 — the chain.**
+
+$$\text{cross-linked}\iff\forall x\ \ \exists(y,z)\ \ \exists p:\ \ p \text{ divides each of } x,y,z .$$
+
+**Step 2 — negate in two passes.** Flip every quantifier in order, then negate the inside.
+
+$$\text{not cross-linked}\iff\exists x\ \ \forall(y,z)\ \ \forall p:\ \ p \text{ does not divide all of } x,y,z .$$
+
+**Step 3 — translate back.** "For every prime $p$, $p$ does not divide all three" is the same as "**no** prime
+divides all three". So: there exists $x$ such that for every pair $y,z$, no prime divides all of $x,y,z$. That is
+**D**.
+
+**Step 4 — the wrong options.**
+
+| Option | Chain | What went wrong |
+|---|---|---|
+| **A** | $\forall x\ \forall(y,z)$ | the outer quantifier was not flipped, so this is far too strong |
+| **B** | $\forall x\ \exists(y,z)$ | neither of the first two was flipped |
+| **C** | $\exists x\ \exists(y,z)$ | the second was not flipped: one bad pair does not stop another pair working |
+| **E** | $\exists x\ \forall(y,z)\ \exists p$ | the prime quantifier was not flipped, and the inside was rewritten |
+| **F** | $\forall x\ \exists(y,z)\ \exists p$ | nothing was flipped, and the inside was rewritten |
+
+**The C trap in one example.** Take $Y=\{2,3,4,6,9,12\}$. This set **is** cross-linked: $2,4,6,12$ share the prime
+$2$, and $3,6,9,12$ share the prime $3$, so every number has two partners. Yet C's condition holds, with $x=2$ and the
+pair $3,4$. One failing pair proves nothing, because the definition only asked for **one** good pair.
+:::
+
+---
+
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q12</span>
+
+::: {.question}
+A student makes the following claim:
+
+> If $f$ is a real-valued function such that, for some constant $a$, $\;\dfrac{f(x)+f(-x)}{2}=a\;$ for all real values of $x$, then there exists a constant $k$ such that $f(x)=kx+a$ for all real values of $x$.
+
+Examine their claim above, and determine which of the following is true?
+
+&nbsp;&nbsp;**A** The claim is true.
+
+&nbsp;&nbsp;**B** $f(x)=2x+1$ is a counterexample to the claim.
+
+&nbsp;&nbsp;**C** $f(x)=\sin x$ is a counterexample to the claim.
+
+&nbsp;&nbsp;**D** $f(x)=\tan x$ is a counterexample to the claim.
+
+&nbsp;&nbsp;**E** $f(x)=\cos x$ is a counterexample to the claim.
+
+&nbsp;&nbsp;**F** $f(x)=-x$ is a counterexample to the claim.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.**
+
+**Step 1 — what a counterexample must do.** The claim has the shape "if $H$ then $C$", with quantifiers inside both
+halves:
+
+- $H$: **there exists** $a$ such that, **for all** $x$, $\dfrac{f(x)+f(-x)}{2}=a$.
+- $C$: **there exists** $k$ such that, **for all** $x$, $f(x)=kx+a$.
+
+A counterexample makes $H$ **true** and $C$ **false**. Note that making $C$ false needs **every** $k$ to fail.
+
+**Step 2 — test each option.**
+
+| Option | $\dfrac{f(x)+f(-x)}{2}$ | $H$ true? | $C$ false? | Counterexample? |
+|---|---|---|---|---|
+| **B** $\;2x+1$ | $1$ | yes, $a=1$ | no: $k=2$ works | no |
+| **C** $\;\sin x$ | $0$ | yes, $a=0$ | **yes**: $\sin x$ is not a straight line | **yes** |
+| **D** $\;\tan x$ | not defined at $x=\tfrac{\pi}{2}$ | no: $\tan x$ is not defined for all real $x$ | — | no |
+| **E** $\;\cos x$ | $\cos x$ | no: not constant | — | no |
+| **F** $\;-x$ | $0$ | yes, $a=0$ | no: $k=-1$ works | no |
+
+**Step 3 — check C properly.** If $\sin x=kx$ for all $x$, then $x=\pi$ gives $0=k\pi$, so $k=0$. But then $\sin x=0$
+for all $x$, which is false at $x=\tfrac{\pi}{2}$. So no $k$ works, and since C is a counterexample, the claim is false and A goes too.
+
+**D is the subtle one.** It looks right, because $\tan$ is odd. But the claim is about functions with the average
+equal to $a$ **for all real values of $x$**, and $\tan x$ has no value at $\tfrac{\pi}{2}$. An object outside the
+domain of a statement cannot be a counterexample to it.
+:::
+
+---
+
+# Section C — What "for every" forces
+
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q10</span>
+
+::: {.question}
+The region $R$ in the $(x,y)$-plane consists of all points satisfying both
+
+$$\lvert y-x^2\rvert<2\qquad\text{and}\qquad x+y<4 .$$
+
+Which of the following claims about points in $R$ are true?
+
+&nbsp;&nbsp;**I:** **For every** $(x,y)\in R$, $\;y\le6$.
+
+&nbsp;&nbsp;**II:** **For every** $(x,y)\in R$, $\;y>-2$.
+
+&nbsp;&nbsp;**III:** **For every** $(x,y)\in R$, $\;x\le2$.
+
+&nbsp;&nbsp;**A** None of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**G — II and III only.**
+
+**Step 1 — rewrite the conditions.** $\lvert y-x^2\rvert<2$ means $x^2-2<y<x^2+2$, and $x+y<4$ means $y<4-x$. So
+
+$$x^2-2<y<x^2+2\qquad\text{and}\qquad y<4-x .$$
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(6.0,4.4))
+x=np.linspace(-3.6,2.6,800)
+ax.plot(x,x**2-2,color='#1f77b4',lw=2,label='$y=x^2-2$'); ax.plot(x,x**2+2,color='#1f77b4',lw=2,ls='--',label='$y=x^2+2$')
+ax.plot(x,4-x,color='#2ca02c',lw=2,label='$y=4-x$')
+ax.fill_between(x,x**2-2,np.minimum(x**2+2,4-x),where=(x>-3)&(x<2),color='#7a5195',alpha=0.22,label='$R$')
+ax.axhline(6,color='0.5',ls=':',lw=1.2); ax.plot([-2.9],[6.5],'o',color='#d62728',ms=7)
+ax.annotate('$(-2.9,\\,6.5)\\in R$\nabove $y=6$: kills I',(-2.9,6.5),textcoords='offset points',xytext=(34,6),fontsize=9,color='#d62728',arrowprops=dict(arrowstyle='->',color='#d62728',lw=1.1))
+ax.set_ylim(-3,9); ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False,fontsize=9,loc='lower left')
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False); plt.tight_layout(); plt.show()
+```
+
+**Step 2 — find the range of $x$.** A point of $R$ needs $x^2-2<y<4-x$, so $x^2-2<4-x$:
+
+$$x^2+x-6<0\quad\Longrightarrow\quad(x+3)(x-2)<0\quad\Longrightarrow\quad-3<x<2 .$$
+
+**III is true,** since every point of $R$ has $x<2$.
+
+**II is true.** Every point has $y>x^2-2$, and $x^2-2\ge-2$ because $x^2\ge0$. So $y>-2$.
+
+**I is false.** A "for every" falls to one point. The region's top left corner approaches $(-3,7)$, so look near
+there. Take $(-2.9,\ 6.5)$:
+
+- $x^2=8.41$, so $\lvert y-x^2\rvert=1.91<2$ ✓
+- $x+y=3.6<4$ ✓
+
+This point is in $R$ and has $y=6.5>6$.
+
+**The trap in I.** Testing points near the origin suggests that $y$ stays small. The extreme is at the far corner, so
+always ask where the region reaches furthest in the direction the claim is about.
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q18</span>
+
+::: {.question}
+Consider the following inequality:
+
+$$(*):\quad a\lvert x\rvert+1\le\lvert x-2\rvert$$
+
+where $a$ is a real constant.
+
+Which one of the following describes the complete set of values of $a$ such that $(*)$ is **true for all real $x$**?
+
+&nbsp;&nbsp;**A** $a\le\tfrac32$
+
+&nbsp;&nbsp;**B** $a\le1$
+
+&nbsp;&nbsp;**C** $a\le\tfrac12$
+
+&nbsp;&nbsp;**D** $a\le0$
+
+&nbsp;&nbsp;**E** $a\le-\tfrac12$
+
+&nbsp;&nbsp;**F** $a\le-1$
+
+&nbsp;&nbsp;**G** $a\le-\tfrac32$
+
+&nbsp;&nbsp;**H** There are no such values of $a$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E — $a\le-\tfrac12$.**
+
+**Step 1 — use the "for all" at the most useful $x$.** The right-hand side is smallest at $x=2$, where it is $0$. Since
+$(*)$ must hold there too,
+
+$$2a+1\le0\quad\Longrightarrow\quad a\le-\tfrac12 .$$
+
+So no larger $a$ can work. This rules out A, B, C and D, and it leaves open whether all such $a$ do work.
+
+**Step 2 — check that every $a\le-\tfrac12$ works.** Since $\lvert x\rvert\ge0$, lowering $a$ lowers the left-hand side. So
+it is enough to check $a=-\tfrac12$, which is to show
+
+$$1\le\lvert x-2\rvert+\tfrac12\lvert x\rvert\quad\text{for all real } x .$$
+
+Let $h(x)=\lvert x-2\rvert+\tfrac12\lvert x\rvert$. On each interval it is a straight line:
+
+| Interval | $h(x)$ | Gradient |
+|---|---|---|
+| $x<0$ | $2-\tfrac32x$ | $-\tfrac32$ |
+| $0\le x<2$ | $2-\tfrac12x$ | $-\tfrac12$ |
+| $x\ge2$ | $\tfrac32x-2$ | $+\tfrac32$ |
+
+So $h$ falls until $x=2$ and then rises. Its minimum is $h(2)=1$, and the inequality holds for every $x$.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-5,7,800); fig,ax=plt.subplots(figsize=(6.0,3.8))
+ax.plot(x,np.abs(x-2),color='#1f77b4',lw=2.2,label='$y=|x-2|$')
+ax.plot(x,-0.5*np.abs(x)+1,color='#2ca02c',lw=2,label='$a=-1/2$: touches at $x=2$, never above')
+ax.plot(x,-0.3*np.abs(x)+1,color='#d62728',lw=1.6,ls='--',label='$a=-0.3$: above at $x=2$, so fails')
+ax.plot([2],[0],'o',color='k',ms=5); ax.axhline(0,color='0.7',lw=.8); ax.axvline(0,color='0.7',lw=.8)
+ax.set_ylim(-3,6); ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False,fontsize=9)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False); plt.tight_layout(); plt.show()
+```
+
+**The two jobs.** One $x$ was enough to **rule out** values of $a$. Keeping the remaining values needed an argument
+over **every** $x$. That is the difference between disproving a "for all" and proving one.
+:::
+
+---
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q19</span>
+
+::: {.question}
+Consider the quadratic graphs given by $\;f(x)=ax^2+bx+c\;$ and $\;g(x)=px^2+qx+r$
+
+If $f'(x)>g'(x)$ **for all real $x$**, which of the following is/are **necessarily** true?
+
+&nbsp;&nbsp;**I** &nbsp; $a>p$ and $b>q$
+
+&nbsp;&nbsp;**II** &nbsp; $a=p$ and $b>q$
+
+&nbsp;&nbsp;**III** &nbsp; $b>q$ and $c>r$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C — II only.**
+
+**Step 1 — write the condition.** Differentiating,
+
+$$f'(x)-g'(x)=2(a-p)x+(b-q)>0\quad\text{for all real } x .$$
+
+**Step 2 — use "for all".** The left-hand side is a straight line in $x$. If $a\ne p$, its gradient is non-zero, so it takes
+every real value, negative ones included, and the condition fails. Therefore
+
+$$a=p .$$
+
+The line is then the constant $b-q$, and the condition becomes $b-q>0$, so $b>q$.
+
+**Step 3 — the three statements.**
+
+- **II is true.** It is exactly what Step 2 proved.
+- **I is false.** It requires $a>p$, and Step 2 showed $a=p$.
+- **III is false.** $c$ and $r$ vanish on differentiating, so the condition says nothing about them. For example, $f=x^2+2x$ and $g=x^2+x+5$ have $f'-g'=1>0$ for all $x$, yet $c=0<5=r$.
+
+**The instinct to resist.** "$f'$ is bigger" sounds like it should make the leading coefficient bigger. But a bigger
+leading coefficient only makes $f'$ bigger on one side, and "for all real $x$" covers both sides.
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q13</span>
+
+::: {.question}
+$\mathrm{f}(x)$ is a function for which
+
+$$\int_0^3\big(\mathrm{f}(x)\big)^2\,\mathrm{d}x+\int_0^3\mathrm{f}(x)\,\mathrm{d}x=\int_0^1\mathrm{f}(x)\,\mathrm{d}x$$
+
+Which of the following claims about $\mathrm{f}(x)$ is/are **necessarily** true?
+
+&nbsp;&nbsp;**I** &nbsp; $\mathrm{f}(x)\le0$ **for some** $x$ with $1\le x\le3$
+
+&nbsp;&nbsp;**II** &nbsp; $\displaystyle\int_0^3\mathrm{f}(x)\,\mathrm{d}x\le\int_0^1\mathrm{f}(x)\,\mathrm{d}x$
+
+&nbsp;&nbsp;**A** neither of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** I and II
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D — I and II.**
+
+**II first.** Rearranging the given equation,
+
+$$\int_0^3\mathrm{f}\,\mathrm{d}x-\int_0^1\mathrm{f}\,\mathrm{d}x=-\int_0^3\mathrm{f}^2\,\mathrm{d}x .$$
+
+Since $\mathrm{f}^2\ge0$ everywhere, $\int_0^3\mathrm{f}^2\,\mathrm{d}x\ge0$, so the right-hand side is at most $0$. That is II.
+
+**I by negating it.** Statement I is a "for some". To test it, write its negation:
+
+$$\text{for all } x \text{ with } 1\le x\le3,\quad\mathrm{f}(x)>0 .$$
+
+Suppose this negation were true. Split the integral on the left of the rearranged equation:
+
+$$\int_0^3\mathrm{f}\,\mathrm{d}x-\int_0^1\mathrm{f}\,\mathrm{d}x=\int_1^3\mathrm{f}\,\mathrm{d}x ,$$
+
+which gives
+
+$$\int_0^3\mathrm{f}^2\,\mathrm{d}x+\int_1^3\mathrm{f}\,\mathrm{d}x=0 .$$
+
+The first integral is at least $0$, and the second would be **strictly positive**, because $\mathrm{f}>0$ on all of
+$[1,3]$. Their sum could not be $0$. So the negation is false, and I is true.
+
+**The move to remember.** A "for some" that is hard to prove directly can be attacked by assuming its negation, a
+"for all", which gives you something strong to work with.
+:::
+
+---
+
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q8</span>
+
+::: {.question}
+A selection, $S$, of $n$ terms is taken from the arithmetic sequence $1,4,7,10,\dots,70$.
+
+Consider the following statement:
+
+$(*)$ There are two distinct terms in $S$ whose sum is $74$.
+
+What is the smallest value of $n$ for which $(*)$ is **necessarily** true?
+
+&nbsp;&nbsp;**A** $12$
+
+&nbsp;&nbsp;**B** $13$
+
+&nbsp;&nbsp;**C** $14$
+
+&nbsp;&nbsp;**D** $21$
+
+&nbsp;&nbsp;**E** $22$
+
+&nbsp;&nbsp;**F** $23$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C — $14$.**
+
+**Step 1 — find the quantifiers.** "Necessarily true" means: **for every** selection of $n$ terms, **there exist** two
+distinct terms summing to $74$. Its negation is: **there exists** a selection of $n$ terms with **no** such pair. So we
+want the largest selection with no pair, and then one more term.
+
+**Step 2 — group the terms.** The sequence has $\dfrac{70-1}{3}+1=24$ terms. Pair each term $t$ with $74-t$:
+
+$$(4,70),\ (7,67),\ (10,64),\ \dots,\ (34,40) .$$
+
+That gives $11$ pairs, using $22$ terms. Two terms are left over, and neither can be in a pair:
+
+- $1$, because its partner would be $73$, which is not in the sequence;
+- $37$, because its partner would be $37$ itself, and the terms must be distinct.
+
+**Step 3 — build the largest selection with no pair.** Take both leftovers and **one** term from each of the $11$ pairs:
+
+$$1,\ 37,\ 4,\ 7,\ 10,\ \dots,\ 34 .$$
+
+That is $13$ terms with no pair summing to $74$. So $(*)$ is **not** forced when $n=13$.
+
+**Step 4 — show $n=14$ forces a pair.** Any $14$ terms contain at most $2$ leftovers, so at least $12$ terms come from
+the $11$ pairs. Two of them must then lie in the same pair, and those two sum to $74$.
+
+**The two jobs again.** One example was enough to show that $n=13$ fails. The proof for $n=14$ had to cover **every**
+selection, which is why it is a counting argument rather than an example.
+:::
+
+---
+
+# Section D — "For some" and "possible"
+
+## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q8</span>
+
+::: {.question}
+A student draws a triangle that is acute-angled or obtuse-angled but not right-angled.
+
+The student counts the number of straight lines that divide the triangle into two triangles, at least one of which is
+right-angled.
+
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**I** &nbsp; The student can draw a triangle for which there is exactly $1$ such straight line.
+
+&nbsp;&nbsp;**II** &nbsp; The student can draw a triangle for which there are exactly $2$ such straight lines.
+
+&nbsp;&nbsp;**III** &nbsp; The student can draw a triangle for which there are exactly $3$ such straight lines.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D — III only.**
+
+**Step 1 — read "can draw" as "there exists".** Each statement says **there exists** a triangle with that count. To
+reject I and II we must show that **no** triangle has that count, which means counting for **every** triangle.
+
+**Step 2 — which lines count?** A line that divides a triangle into two **triangles** must pass through a vertex and cross
+the opposite side. (Any other line leaves a triangle and a quadrilateral.) Say it goes from vertex $A$ to a point $D$
+on $BC$. The original has no right angle, so a right angle in a piece can only occur:
+
+- at $D$, which makes the line the **altitude** from $A$, with its foot inside $BC$; or
+- at $A$, which needs a part of angle $A$ to be $90°$, so angle $A$ must be **obtuse**.
+
+**Step 3 — acute triangles.** All three altitudes land inside the opposite sides, and no angle is obtuse. That gives
+**exactly $3$** lines.
+
+**Step 4 — obtuse triangles.** Let the obtuse angle be at $A$.
+
+- The altitude from $A$ lands inside $BC$: **one** line.
+- The altitudes from $B$ and $C$ land outside the triangle: no lines.
+- At $A$, there are **two** ways to cut off a right angle, with $\angle BAD=90°$ or with $\angle CAD=90°$. Neither is
+  the altitude, since a triangle cannot have two right angles.
+
+That is also **exactly $3$** lines.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+def tri(ax,P,col='k'):
+    P=np.array(P+[P[0]]); ax.plot(P[:,0],P[:,1],color=col,lw=2)
+fig,ax=plt.subplots(figsize=(5.0,3.2))
+A,B,C=np.array([1.6,3.0]),np.array([0.0,0.0]),np.array([4.0,0.0])
+tri(ax,[A,B,C])
+def foot(P,Q,R):
+    d=R-Q; return Q+d*np.dot(P-Q,d)/np.dot(d,d)
+for P,Q,R in [(A,B,C),(B,A,C),(C,A,B)]:
+    F=foot(P,Q,R); ax.plot([P[0],F[0]],[P[1],F[1]],color='#d62728',lw=1.6)
+ax.set_title('Acute: the three altitudes',fontsize=10); ax.set_aspect('equal'); ax.axis('off'); plt.tight_layout(); plt.show()
+```
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(figsize=(5.0,2.6))
+A,B,C=np.array([1.4,1.2]),np.array([0.0,0.0]),np.array([5.0,0.0])
+P=np.array([A,B,C,A]); ax.plot(P[:,0],P[:,1],color='k',lw=2)
+ax.plot([A[0],A[0]],[A[1],0],color='#d62728',lw=1.6,label='altitude from the obtuse vertex')
+# right angle at A with side AB, and with side AC
+D1=np.array([A[0]+A[1]*(B[1]-A[1])/(B[0]-A[0]),0.0])
+D2=np.array([A[0]+A[1]*(C[1]-A[1])/(C[0]-A[0]),0.0])
+ax.plot([A[0],D1[0]],[A[1],0],color='#1f77b4',lw=1.6,label='right angle cut off at the obtuse vertex')
+ax.plot([A[0],D2[0]],[A[1],0],color='#1f77b4',lw=1.6)
+ax.set_title('Obtuse: one altitude and two cut-off right angles',fontsize=10); ax.set_aspect('equal'); ax.axis('off'); ax.legend(frameon=False,fontsize=8,loc='lower center',bbox_to_anchor=(0.5,-0.32)); plt.tight_layout(); plt.show()
+```
+
+**Step 5 — conclude.** Every triangle gives exactly $3$. So III is true, and no triangle gives $1$ or $2$, so I and II are
+false.
+:::
+
+---
+
+## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock D · P2 Q8</span>
+
+::: {.question}
+Let $a$ be a real number with $a>1$, and let $f$ be a function such that
+
+$$f(0)=1,\qquad f(2)>a^2,\qquad f(-1)<a^{-1}.$$
+
+Consider the following four statements.
+
+&nbsp;&nbsp;**I.** $f(x)=b^x$ **for some** real number $b$ with $b>a$.
+
+&nbsp;&nbsp;**II.** $f(x)=b^x$ **for some** real number $b$ with $0<b<a$.
+
+&nbsp;&nbsp;**III.** $f(x)=a^{kx}$ **for some** real number $k$.
+
+&nbsp;&nbsp;**IV.** $f(x)=b^{x^2}$ **for some** positive real number $b$.
+
+Which of the statements **might** be true?
+
+&nbsp;&nbsp;**A** Statement I only.
+
+&nbsp;&nbsp;**B** Statement III only.
+
+&nbsp;&nbsp;**C** Statements I and III only.
+
+&nbsp;&nbsp;**D** Statements I, II and III only.
+
+&nbsp;&nbsp;**E** Statements I, III and IV only.
+
+&nbsp;&nbsp;**F** Statements II and IV only.
+
+&nbsp;&nbsp;**G** Statements II, III and IV only.
+
+&nbsp;&nbsp;**H** All four statements.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C — I and III only.**
+
+**"Might be true" is a "there exists".** A statement might be true when **there exists** a function of that form
+meeting all three conditions. So a statement is kept by one witness, and it is rejected only by showing that **no** value of
+the constant works.
+
+**I might be true.** Take any $b>a$. Then $f(0)=1$ ✓, $f(2)=b^2>a^2$ ✓, and $f(-1)=\dfrac1b<\dfrac1a$ ✓. All three hold.
+
+**II cannot be true.** With $0<b<a$, we get $f(2)=b^2<a^2$, which contradicts $f(2)>a^2$. This covers **every** such $b$.
+
+**III might be true.** Take $k=2$, so $f(x)=a^{2x}=(a^2)^x$. This is form I with $b=a^2$, and $a^2>a$ because $a>1$. So
+all three conditions hold.
+
+**IV cannot be true.** Here $f(2)=b^4$ and $f(-1)=b^{(-1)^2}=b$. The conditions would need
+
+- $b^4>a^2>1$, which forces $b>1$;
+- $b<a^{-1}<1$, which forces $b<1$.
+
+These contradict each other, so no $b$ works. $f(0)=b^0=1$ holds, but that does not rescue it.
+
+**The trap in IV.** The square in the exponent means $f(-1)$ uses $(-1)^2=1$, so $f(-1)=b$ rather than $\tfrac1b$. Missing that
+makes IV look just like I.
+:::
+
+---
+
+## Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q18</span>
+
+::: {.question}
+A student chooses two distinct real numbers $x$ and $y$ with $0<x<y<1$.
+
+The student then attempts to draw a triangle $ABC$ with:
+
+$$AB=1,\qquad\sin A=x,\qquad\sin B=y$$
+
+Which of the following statements is/are correct?
+
+&nbsp;&nbsp;**I** &nbsp; **For some** choice of $x$ and $y$, there is exactly **one** triangle the student could draw.
+
+&nbsp;&nbsp;**II** &nbsp; **For some** choice of $x$ and $y$, there are exactly **two** different triangles the student could draw.
+
+&nbsp;&nbsp;**III** &nbsp; **For some** choice of $x$ and $y$, there are exactly **three** different triangles the student could draw.
+
+(Note that congruent triangles are considered to be the same.)
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C — II only.**
+
+**Step 1 — list the angle options.** Let $\theta$ and $\phi$ be the **acute** angles with $\sin\theta=x$ and $\sin\phi=y$. As
+$x<y$, we have $\theta<\phi$. Each of $A$ and $B$ can be acute or obtuse, since $\sin(180°-\alpha)=\sin\alpha$:
+
+$$A=\theta\ \text{ or }\ 180°-\theta,\qquad B=\phi\ \text{ or }\ 180°-\phi .$$
+
+Two angles and the side $AB$ between them fix a triangle uniquely, **provided** $A+B<180°$. So there are four cases to test.
+
+**Step 2 — test the cases.**
+
+| $A$ | $B$ | $A+B$ | Triangle? |
+|---|---|---|---|
+| $\theta$ | $\phi$ | $\theta+\phi<180°$ | **yes** |
+| $180°-\theta$ | $\phi$ | $180°+(\phi-\theta)>180°$ | no |
+| $\theta$ | $180°-\phi$ | $180°-(\phi-\theta)<180°$ | **yes** |
+| $180°-\theta$ | $180°-\phi$ | $360°-\theta-\phi>180°$ | no |
+
+The two surviving triangles have different angles at $B$, so they are not congruent.
+
+**Step 3 — read the statements.** The table used nothing about $x$ and $y$ except $0<x<y<1$, so **for every** choice there
+are **exactly two** triangles.
+
+- **II** is a "for some", and one choice is enough, so it is true.
+- **I** and **III** are also "for some", but the count is always $2$. **No** choice gives $1$ or $3$, so they are false.
+
+**Why the "for some" matters.** The count turned out never to depend on the choice, and that is the surprise here. A
+"for some" statement is rejected only by an argument covering every choice, and the table is that argument.
+:::
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P2 Q17</span>
+
+::: {.question}
+Consider these simultaneous equations, where $c$ is a constant:
+
+$$y=3\sin x+2$$
+
+$$y=x+c$$
+
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**1** &nbsp; **For some** value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there is at least one solution with $-\pi<x<0$.
+
+&nbsp;&nbsp;**2** &nbsp; **For some** value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there are no solutions with $-\pi<x<0$.
+
+&nbsp;&nbsp;**3** &nbsp; **For some** value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there are no solutions with $x>\pi$.
+
+&nbsp;&nbsp;**A** none
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 2 only
+
+&nbsp;&nbsp;**D** 3 only
+
+&nbsp;&nbsp;**E** 1 and 2 only
+
+&nbsp;&nbsp;**F** 1 and 3 only
+
+&nbsp;&nbsp;**G** 2 and 3 only
+
+&nbsp;&nbsp;**H** 1, 2 and 3
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**H — all three.**
+
+**Each statement is a "for some $c$", so each one needs just one witness.** Sliding $c$ moves the line $y=x+c$ up and
+down across the fixed wave, which runs between $-1$ and $5$.
+
+**Statement 1: take $c=1$.**
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+xs=np.linspace(-np.pi,2.2*np.pi,900); fig,ax=plt.subplots(figsize=(6.2,3.4))
+ax.plot(xs,3*np.sin(xs)+2,color='#1f77b4',lw=2,label='$y=3\\sin x+2$'); ax.plot(xs,xs+1,color='#d62728',lw=1.8,label='$y=x+1$')
+for r in [-1.868,-0.538,2.585]: ax.plot(r,r+1,'o',color='#7a5195',ms=6)
+ax.axvline(0,color='0.8',lw=.8); ax.axvline(np.pi,color='0.8',lw=.8); ax.axhline(0,color='0.8',lw=.8); ax.set_ylim(-3,8); ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+ax.legend(frameon=False,fontsize=9,loc='upper left'); ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False); plt.tight_layout(); plt.show()
+```
+
+On $0\le x\le\pi$, the wave starts above the line ($2>1$) and ends below it ($2<\pi+1$), so they cross; and the
+curve is concave there, so they cross only once, near $x\approx2.59$. On $-\pi<x<0$ they cross near $x\approx-1.87$ and $x\approx-0.54$.
+So statement 1 holds.
+
+**Statements 2 and 3: take $c=2-\pi$.** This value makes the line pass through $(\pi,2)$, which is on the wave.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+xs=np.linspace(-np.pi,2.5*np.pi,900); c=2-np.pi; fig,ax=plt.subplots(figsize=(6.2,3.4))
+ax.plot(xs,3*np.sin(xs)+2,color='#1f77b4',lw=2,label='$y=3\\sin x+2$'); ax.plot(xs,xs+c,color='#d62728',lw=1.8,label='$y=x+2-\\pi$')
+ax.plot(np.pi,2,'o',color='#7a5195',ms=6); ax.axvline(0,color='0.8',lw=.8); ax.axvline(np.pi,color='0.8',lw=.8); ax.axhline(0,color='0.8',lw=.8)
+ax.set_ylim(-5,7); ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False,fontsize=9,loc='upper left')
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False); plt.tight_layout(); plt.show()
+```
+
+- **On $0\le x<\pi$** the line is below $2$ and the wave is at least $2$, so they do not meet. With $x=\pi$, that is exactly one solution.
+- **On $-\pi<x<0$** the line is below $2-\pi\approx-1.14$, while the wave is never below $-1$. No solutions, so statement 2 holds.
+- **On $\pi<x<2\pi$** the wave is below $2$ and the line is above $2$. No solutions.
+- **For $x\ge2\pi$** the line is at least $2+\pi>5$, above the top of the wave. No solutions, so statement 3 holds.
+
+**Notice** that statement 1 and statement 2 look contradictory, but they are about **different** values of $c$. Two "for some" statements
+do not have to share their witness.
+:::
+
+---
+
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q16</span>
+
+::: {.question}
+$p$ and $q$ are real numbers, and the equation
+
+$$x\lvert x\rvert=px+q$$
+
+has exactly $k$ distinct real solutions for $x$.
+
+Which one of the following is the complete list of **possible** values for $k$?
+
+&nbsp;&nbsp;**A** $0,1,2$
+
+&nbsp;&nbsp;**B** $0,1,2,3$
+
+&nbsp;&nbsp;**C** $0,1,2,3,4$
+
+&nbsp;&nbsp;**D** $0,2,4$
+
+&nbsp;&nbsp;**E** $1,2,3$
+
+&nbsp;&nbsp;**F** $1,2,3,4$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E — $1,2,3$.**
+
+**"Possible" splits into two jobs.** A value of $k$ is possible when **there exist** $p,q$ giving it, so including a value needs one
+example. Excluding a value needs an argument **for all** $p,q$.
+
+**Step 1 — the curve.** $y=x\lvert x\rvert$ is $y=x^2$ for $x\ge0$ and $y=-x^2$ for $x<0$. It rises through the origin.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-3.2,3.2,800); fig,ax=plt.subplots(figsize=(6.0,4.2))
+ax.plot(x,x*np.abs(x),color='#1f77b4',lw=2.4,label='$y=x|x|$')
+ax.plot(x,0*x+1,color='#2ca02c',lw=1.6,label='$y=1$: $k=1$')
+ax.plot(x,2*x-1,color='#d62728',lw=1.6,label='$y=2x-1$: tangent, $k=2$')
+ax.plot(x,x,color='#7a5195',lw=1.6,label='$y=x$: $k=3$')
+ax.axhline(0,color='0.8',lw=.8); ax.axvline(0,color='0.8',lw=.8); ax.set_ylim(-7,7); ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False,fontsize=9,loc='upper left')
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False); plt.tight_layout(); plt.show()
+```
+
+**Step 2 — $k=0$ is impossible.** $x\lvert x\rvert-px-q$ is continuous, and the $x^2$ term dominates for large $\lvert x\rvert$: it tends to $+\infty$ as $x\to\infty$
+and to $-\infty$ as $x\to-\infty$. So it is zero somewhere, for all $p,q$.
+
+**Step 3 — $k\ge4$ is impossible.** The solutions come from two quadratics:
+
+$$x\ge0:\ \ x^2-px-q=0,\qquad\qquad x<0:\ \ x^2+px+q=0 .$$
+
+- If $q>0$, the first quadratic has product of roots $-q<0$, so it has exactly **one** positive root. The second gives at most two. Total at most $3$.
+- If $q<0$, the second quadratic has product of roots $q<0$, so it has exactly **one** negative root. The first gives at most two. Total at most $3$.
+- If $q=0$, the equation is $x\lvert x\rvert=px$. Then $x=0$ is a solution, and for $x\ne0$ we need $\lvert x\rvert=p$, which has at most two solutions. Total at most $3$.
+
+**Step 4 — $k=1,2,3$ all occur.**
+
+| $k$ | Example | Solutions |
+|---|---|---|
+| $1$ | $p=0,\ q=1$ | $x=1$ only |
+| $2$ | $p=2,\ q=-1$ | $x=1$ (a tangent point) and $x=-1-\sqrt2$ |
+| $3$ | $p=1,\ q=0$ | $x=-1,\ 0,\ 1$ |
+
+So the complete list is $1,2,3$.
+
+*Check of $k=2$:* for $x\ge0$, $x^2-2x+1=(x-1)^2=0$ gives $x=1$. For $x<0$, $x^2+2x-1=0$ gives $x=-1\pm\sqrt2$, and only $-1-\sqrt2$ is negative.
+:::
+
+---
+
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock E · P2 Q16</span>
+
+::: {.question}
+Let $f$ be a positive function defined on $[0,\infty)$ and twice differentiable on $(0,\infty)$. Define
+
+$$I=\int_0^4f(x)\,\mathrm{d}x,$$
+
+and let $J_n$ be the trapezium rule estimate of $I$ using $n$ strips of equal width, where $n$ is a positive integer.
+
+Which of the following statements are **necessarily** true?
+
+&nbsp;&nbsp;**(1)** If $f''(x)>0$ **for all** $0<x<4$, then $J_n>I$ **for every** positive integer $n$.
+
+&nbsp;&nbsp;**(2)** If $f''(x)\ge0$ and $f'(x)>0$ **for all** $0<x<4$, then $J_{n+1}<J_n$ **for every** positive integer $n$.
+
+&nbsp;&nbsp;**(3)** If $I<J_n$ **for some** positive integer $n$, then $\displaystyle\int_0^4f(4-x)\,\mathrm{d}x<J_{n+1}$.
+
+&nbsp;&nbsp;**A** (1) only.
+
+&nbsp;&nbsp;**B** (2) only.
+
+&nbsp;&nbsp;**C** (3) only.
+
+&nbsp;&nbsp;**D** (1) and (2) only.
+
+&nbsp;&nbsp;**E** (1) and (3) only.
+
+&nbsp;&nbsp;**F** (2) and (3) only.
+
+&nbsp;&nbsp;**G** none of them.
+
+&nbsp;&nbsp;**H** all of them
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A — (1) only.**
+
+**(1) is true.** $f''>0$ means that the graph curves upward, so on each strip the chord joining the endpoints lies above the
+curve. So each trapezium has more area than the curve beneath it, and adding up the strips gives $J_n>I$. The argument
+never used the value of $n$, so it covers **every** $n$.
+
+**(2) is false.** It is a "for all $f$" and "for every $n$" statement, so one function at one $n$ breaks it. Take $f(x)=x+1$.
+It is positive, with $f''=0\ge0$ and $f'=1>0$. The trapezium rule is exact for a straight line, so
+
+$$J_{n+1}=J_n=I ,$$
+
+and $J_{n+1}<J_n$ fails. The "$\ge0$" in the hypothesis is exactly what lets this example in.
+
+**(3) is false.** First simplify. Substituting $u=4-x$ reflects the curve without changing the area, so
+
+$$\int_0^4f(4-x)\,\mathrm{d}x=I .$$
+
+Statement (3) is therefore: if $I<J_n$ for some $n$, then $I<J_{n+1}$ for that same $n$. In words, an overestimate
+stays an overestimate with one more strip. With no condition on the curvature of $f$, it need not. Take
+
+$$f(x)=2+2x-\frac{\big(x(4-x)\big)^3}{64} .$$
+
+This is positive on $[0,\infty)$: on $[0,4]$ the fraction is at most $1$, so $f\ge1$, and for $x>4$ the fraction is negative. It has $f(0)=2,\ f(2)=5,\ f(4)=10$.
+
+$$J_1=\frac{4}{2}(2+10)=24,\qquad J_2=\frac{2}{2}\big(2+2\times5+10\big)=22,\qquad I=\frac{776}{35}\approx22.17 .$$
+
+So $J_1>I$ but $J_2<I$, and (3) fails at $n=1$: the extra midpoint falls in the dip and drags the estimate from above $I$ to below it.
+
+**The quantifier point.** In (1) and (2), "for every $n$" is in the **conclusion**, so you must cover all $n$. In (3), "for some $n$" is in
+the **hypothesis**, so you are simply handed one $n$. Only then is $J_{n+1}$ compared, using that same $n$.
+:::
+
+---
+
+# What each question tests
+
+| Q | Source | Tests |
+|---|---|---|
+| 1 | Notes on Logic and Proof · Exercise M, Q1 | Settling a "for every" with one failure and a "there exists" with one witness |
+| 2 | Notes on Logic and Proof · Exercise N, Q1 | The order of the quantifiers, with nothing else changing |
+| 3 | TMUA early specimen · P2 Q8 | Reading "true for all of these, and not for any others" as two claims |
+| 4 | 2022 · P2 Q9 | Forming the negation first, and keeping the whole domain |
+| 5 | JZ Maths Mock A · P2 Q12 | A "for every, there exists" statement about the range of a curve |
+| 6 | TMUA early specimen · P2 Q17 | Negating a definition with the domain kept: "for some" and "no" |
+| 7 | JZ Maths Mock B · P2 Q15 | Negating three nested quantifiers, with a pair in the middle |
+| 8 | JZ Maths Mock C · P2 Q12 | A counterexample when each half of the implication has its own quantifiers |
+| 9 | JZ Maths Mock A · P2 Q10 | Testing a "for every point" claim at the far corner of a region |
+| 10 | 2019 · P2 Q18 | What "true for all real x" forces on a constant, and both directions |
+| 11 | Tyler TMUA Set D · P2 Q19 | What "for all real x" forces on coefficients |
+| 12 | 2020 · P2 Q13 | Proving a "for some" by contradicting its "for all" negation |
+| 13 | 2022 · P2 Q8 | "Necessarily" as a hidden for-all, then a counting argument |
+| 14 | 2023 · P2 Q8 | "Can draw" as there exists; rejecting it means covering every triangle |
+| 15 | JZ Maths Mock D · P2 Q8 | "Might be true" as there exists, with "for some" inside each statement |
+| 16 | 2021 · P2 Q18 | "For some" rejected by a case analysis covering every choice |
+| 17 | 2016 · P2 Q17 | Three "for some c" statements, each settled by one witness on a graph |
+| 18 | 2021 · P2 Q16 | "Possible values": one example to include, a general argument to exclude |
+| 19 | JZ Maths Mock E · P2 Q16 | "For every n" in a conclusion against "for some n" in a hypothesis |
+
 :::

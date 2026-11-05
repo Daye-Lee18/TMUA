@@ -1,6 +1,6 @@
 ---
-title: "Toolkit S5 — Proof Methods · Class Problems"
-subtitle: "34 problems — solve fast, in three batches"
+title: "Paper 2 Toolkit · S5 — Proof Methods"
+subtitle: "Revision sheet · Notes · two concept checks · exam-standard questions"
 format: html
 jupyter: python3
 execute:
@@ -8,47 +8,344 @@ execute:
   warning: false
 ---
 
+Specification: **Prf1** — *follow a proof of the following types, and in simple cases know how to construct such
+a proof: direct deductive proof; proof by cases; proof by contradiction; disproof by counterexample.*
+Official source: **Notes on Logic and Proof**, pp. 64–71.
+
+::: {.callout-important}
+## Why learn to *write* proofs when TMUA is multiple choice?
+
+You never write a proof on TMUA — every question is **multiple choice**. You study this for the ability
+to **judge** a proof: which argument is valid, what to assume for a contradiction, which example is a
+counterexample, where the error is, how to order a scrambled proof. Being able to *construct* the
+reasoning in your head is exactly what lets you pick the right option in seconds — the writing here is the
+training; on the day you do it mentally.
+:::
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Prf1</div>
+<div class="fs-title">Proof Methods — Key Concepts</div>
+<div class="fs-sub">Four ways to establish (or destroy) a mathematical claim: <strong>direct proof</strong>, <strong>proof by cases</strong>, <strong>proof by contradiction</strong>, and <strong>disproof by counterexample</strong>. The whole skill is picking the right one on sight and running it cleanly in English sentences — no symbols required.</div>
+::::
+
+## The four methods
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Direct proof
+
+Assume the hypothesis, then reach the conclusion by a chain of **valid steps**.
+
+$$\text{"if } P \text{ then } Q\text{": assume } P,\ \text{deduce } Q$$
+
+Represent the objects generally — an even number as $2k$, an odd number as $2k+1$ — so the argument
+covers **every** case at once.
+
+[the default method: reach for it first]{.eg}
+:::
+
+::: {.fs-card}
+### Proof by cases
+
+Split the possibilities into a **complete** list of cases and prove the claim in **each** one.
+
+$$\text{every integer is even }(2k)\ \textbf{or}\ \text{odd }(2k+1)$$
+
+The cases must be **exhaustive** — together they must cover everything.
+
+[use when the statement behaves differently for even/odd, or positive/negative]{.eg}
+:::
+
+::: {.fs-card}
+### Proof by contradiction
+
+**Assume the statement is false**, then derive something impossible. The contradiction forces the
+statement to be true.
+
+$$\text{to prove } S:\ \text{assume not-}S \ \Rightarrow\ \text{something absurd}$$
+
+[the go-to for "irrational", "infinitely many", "impossible", "no largest…"]{.eg}
+:::
+
+::: {.fs-card}
+### Disproof by counterexample
+
+To show a **"for all"** statement is **false**, exhibit **one** object that satisfies the hypothesis but
+breaks the conclusion.
+
+$$\text{one counterexample kills a "for all"}$$
+
+[you can **disprove** a "for all" with an example — you can never **prove** one that way]{.eg}
+:::
+
+::::
+
+## Choosing, and the classic traps
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Which method to reach for
+
+| The claim… | Method |
+|---|---|
+| follows by straight algebra | **direct** |
+| behaves differently for even/odd, ± | **cases** |
+| says "impossible / irrational / no largest" | **contradiction** |
+| is a "for all" you suspect is **false** | **counterexample** |
+:::
+
+::: {.fs-card}
+### The traps that lose the mark
+
+- **Proving a "for all" by examples** — examples only ever *disprove*.
+- **Cases that miss a possibility** — they must be exhaustive.
+- A "contradiction" that just **restates** the assumption — it must be genuinely impossible.
+- A counterexample that **doesn't satisfy the hypothesis** — then it proves nothing.
+:::
+
+::: {.fs-card}
+### Where these show up (cross-exam)
+
+Paper 2 **Prf1** tests exactly these four. The same methods are the backbone of **STEP** and **MAT**
+long-answer proofs, and of any olympiad. On Paper 2 they appear as **multiple choice** — "which is a
+valid proof / disproof", "what must you assume for a contradiction".
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## Notes
+
+Every Paper 2 proof question comes down to four methods. Three of them establish a claim and one destroys it. The
+notes below take them in turn, then collect the elementary facts the questions assume you already know.
+
+### Direct proof
+
+A direct proof assumes the hypothesis and walks to the conclusion by valid steps. The one habit that makes it work
+is **representing the objects generally**: write "an even number" as $2k$ and "an odd number" as $2k+1$ for some
+integer $k$, so a single line of algebra settles *every* number at once.
+
+For example, two odd numbers are $2a+1$ and $2b+1$, where $a$ and $b$ are integers. Their sum is
+
+$$(2a+1)+(2b+1)=2a+2b+2=2(a+b+1).$$
+
+Since $a+b+1$ is an integer, the sum is $2\times(\text{an integer})$, which is even. The two odd numbers need
+**different letters** $a$ and $b$: using the same letter would prove the result only for two equal numbers.
+
+### Proof by cases
+
+When a statement behaves differently depending on the kind of number, split into a **complete** set of cases and
+prove each. The commonest split is **even or odd**. The rule you must not break: the cases have to be
+**exhaustive**, so every possibility lands in one of them. Overlap is harmless, and a gap is fatal.
+
+For example, to show $n^2+n$ is even for every integer $n$:
+
+- if $n=2k$, then $n^2+n=4k^2+2k=2(2k^2+k)$, which is even;
+- if $n=2k+1$, then $n^2+n=4k^2+6k+2=2(2k^2+3k+1)$, which is even.
+
+Every integer is even or odd, so the cases are exhaustive. A neater direct proof also exists:
+$n^2+n=n(n+1)$ is a product of two consecutive integers, one of which is even.
+
+Three splits cover almost everything on TMUA:
+
+- **Even / odd:** $\ n=2k\ $ or $\ n=2k+1$.
+- **Sign:** $\ x>0,\ x=0,\ x<0\ $ (the natural split for $\lvert x\rvert$).
+- **Residue classes mod $m$:** $\ n\equiv 0,1,\dots,m-1 \pmod m\ $, the general version of even/odd.
+
+### Modular arithmetic — the language of proof by cases {#modular-arithmetic-the-language-of-proof-by-cases}
+
+Modular arithmetic is **not** a fifth proof method. It is the fast **language** for the case split you have just
+seen: $a\equiv b\pmod m$ means $a$ and $b$ leave the **same remainder** when divided by $m$, read "$a$ is
+**congruent** to $b$, modulo $m$", where $m$ is the **modulus**.
+
+**The "$\equiv$" sign has two meanings.** The three-bar sign signals a stronger or more specific "sameness" than
+the ordinary equals $=$.
+
+1. **Congruence modulo $m$** *(the use all through this session):*
+   $$a\equiv b \pmod{m}\quad\text{means}\quad a\text{ and }b\text{ leave the same remainder when divided by }m.$$
+   For example $5\equiv2\pmod3$, because $5$ and $2$ both leave remainder $2$ on division by $3$.
+2. **Identity or definition:** $(x+1)^2\equiv x^2+2x+1$ is true for **every** $x$ (an identity, not an equation to
+   solve); $f(x)\equiv x^2+1$ reads "**define** $f(x)$ to be $x^2+1$".
+
+*You are never required to write $\equiv$ on TMUA, but you will see it in solutions and textbooks.*
+
+**Which word, when.** The four words share one Latin root but do different jobs:
+
+| Word | Part of speech | Meaning | Say it like |
+|---|---|---|---|
+| **modulus** | noun | the number you divide by (the base) | "$5$ is the modulus" *(plural: moduli)* |
+| **modulo** (mod) | preposition / operator | "with respect to the remainder" | "evaluate this **modulo** $5$"; "$17$ mod $5$ is $2$" |
+| **modular** | adjective | describing the whole system | "**modular** arithmetic", "modular inverse" |
+| **congruent** / congruence | adjective / noun | leaving the **same remainder** | "$17$ is **congruent** to $2$" |
+
+Read every part of $17\equiv2\ (\mathrm{mod}\ 5)$ off the board card:
+
+```
+   17  ≡  2   ( mod  5 )
+       │           └──── modulus  (noun): the base, 5
+       │         └────── modulo   (preposition): "with respect to the remainder"
+       └──────────────── congruent (adjective): "leave the same remainder"
+```
+
+**Master sentence.** *"In modular arithmetic, $17$ and $2$ are congruent modulo $5$, where $5$ is the modulus."*
+&nbsp; *(Wording: say **divisor**, never "divider", which is a partition or a compass; and prefer "**reduced
+modulo**" or "**relative to**" over the casual "clocked by".)*
+
+**The shortcut: substitute the remainders**, not $n=mk+r$. For example, to show $3$ divides $n^3-n$, split by the
+remainder of $n$ modulo $3$:
+
+- $n\equiv0:\ \ n^3-n\equiv0-0=0$;
+- $n\equiv1:\ \ n^3-n\equiv1-1=0$;
+- $n\equiv2\equiv-1:\ \ n^3-n\equiv(-1)^3-(-1)=-1+1=0$.
+
+All three classes give $0$ and the split is exhaustive. Using $2\equiv-1$ collapses the awkward "$8-2$" into
+"$-1+1$", which is the whole speed advantage.
+
+### Proof by contradiction
+
+Assume the statement is **false**, then derive something impossible. The impossibility means the assumption was
+wrong, so the statement is true. It is the natural weapon for claims about **irrationality, impossibility, or
+"there is no largest…"**, where a direct construction is hopeless.
+
+The standard example is that $\sqrt2$ is irrational. Suppose it is rational, so $\sqrt2=\dfrac{a}{b}$ for integers
+$a,b$ with **no common factor** (the fraction in lowest terms) and $b\neq0$.
+
+Squaring gives $2=\dfrac{a^2}{b^2}$, so $a^2=2b^2$. Then $a^2$ is even, so $a$ is even; write $a=2c$. Then
+$4c^2=2b^2$, so $b^2=2c^2$, so $b^2$ is even and hence $b$ is even.
+
+Now $a$ and $b$ are **both even**, so they share the factor $2$, contradicting "no common factor". The contradiction
+is real: we forced a common factor into a fraction we chose to have none. The engine is the fact "$a^2$ even
+$\Rightarrow a$ even", used twice, and you prove it yourself in Question 3.
+
+### Disproof by counterexample
+
+A statement of the form **"for all … , …"** is **false** the moment a single example satisfies its hypothesis but
+breaks its conclusion. One counterexample is a complete disproof. The mirror-image warning: you can **never prove**
+a "for all" statement by checking examples, however many.
+
+For example, "for all integers $a,b$, if $a<b$ then $a^2<b^2$" fails at $a=-3$, $b=2$: the hypothesis holds, but
+$a^2=9$ and $b^2=4$. Negatives are exactly where squaring reverses an inequality, so always test them on claims like
+this.
+
+::: {.callout-important}
+## What makes a counterexample
+
+To disprove *"if $H$ then $C$"*, you need one case where
+$$H \text{ is \textbf{true}}\qquad\text{and}\qquad C\text{ is \textbf{false}} .$$
+
+**Both conditions, every time.** A case where $H$ is false proves nothing, because it is simply outside what the
+claim ever said. *This is the single most common wrong answer on counterexample questions:* candidates pick the
+value that makes the conclusion fail without noticing it was never covered by the hypothesis.
+:::
+
+::: {.callout-tip}
+## How to find the counterexample fast (a 2-step recipe)
+
+Take the claim "$n^2+n+17$ is prime for every positive integer $n$". Testing $n=1,2,3,\dots$ wastes time, because
+the first $15$ values are all prime. For **any** "$f(n)$ is prime for all $n$" claim, force a factor in two steps.
+
+**Step 1 — try $n=f(0)$.**
+The constant term is $f(0)=17$. For an integer-coefficient polynomial, putting $n=f(0)$ **always** makes $f(n)$ a
+multiple of $f(0)$:
+$$f(17)=17^2+17+17=17(17+1+1)=17\times19.$$
+That is one counterexample in three seconds, with no primality test.
+
+**Step 2 — group off the constant, then solve a divisibility.**
+Peel the constant $c=f(0)$ off and factor what is left:
+$$f(n)=n^2+bn+c=n(n+b)+c \qquad\bigl(\text{in general } an^2+bn+c=n(an+b)+c\bigr).$$
+Here $f(n)=n(n+1)+17$, and since $17$ is already a multiple of $17$, the whole thing is a multiple of $17$ **exactly
+when $n(n+1)$ is a multiple of $17$**:
+
+- **Case 1:** $n$ is a multiple of $17$ &nbsp;$\to$&nbsp; $n=17$.
+- **Case 2:** $n+1$ is a multiple of $17$ &nbsp;$\to$&nbsp; $n=16$, the smallest counterexample, with
+  $f(16)=289=17^2$.
+
+**If it doesn't factor:** look **mod a small number** ($2,3,5$) for an $n$ that always makes $f(n)\equiv0$.
+:::
+
+### Facts the questions assume
+
+Paper 2 proof questions take these for granted. Each comes with its one-line reason, and each **trap** is a tempting
+statement that is false.
+
+**Parity**
+
+- Odd $+$ odd is even: $(2a+1)+(2b+1)=2(a+b+1)$. Odd $+$ even is odd: $(2a+1)+2b=2(a+b)+1$.
+- Odd $\times$ odd is odd: $(2a+1)(2b+1)=2(2ab+a+b)+1$. Even $\times$ even is divisible by $4$: $(2a)(2b)=4ab$.
+- The product of two consecutive integers is even, since one of $n,\,n+1$ is even.
+- If $n^2$ is even, then $n$ is even, by contrapositive: odd $n=2k+1$ gives $n^2=2(2k^2+2k)+1$, which is odd.
+- **Trap:** "the sum of three consecutive integers is always even". False, since $2+3+4=9$. It is always a multiple of
+  $3$: $(n-1)+n+(n+1)=3n$.
+
+**Divisibility**
+
+- $n^3-n=(n-1)\,n\,(n+1)$ is three consecutive integers, so it is a multiple of both $2$ and $3$, hence of $6$.
+- **Trap:** "every multiple of $3$ is a multiple of $6$". False, since $3$ itself is not.
+- **Trap:** "divisible by $2$ and by $4$ means divisible by $8$". False, since $12=4\times3$.
+
+**Primes**
+
+- $2$ is the only even prime, because any larger even number has $2$ as a proper factor. So every prime above $2$ is
+  odd.
+- There are infinitely many primes (Euclid): if $p_1,\dots,p_k$ were all of them, $p_1\cdots p_k+1$ leaves remainder $1$
+  on division by each, so it has a prime factor not on the list.
+- **Trap:** "$1$ is prime". False: a prime has exactly two distinct positive factors, and $1$ has one.
+- **Trap:** "the sum of two primes is even". False, since $2+3=5$.
+
+**Rational and irrational**
+
+- Rational $+$ irrational is irrational (you prove this in Question 6).
+- **Trap:** "the sum of two irrationals is irrational". False, since $\sqrt2+(-\sqrt2)=0$.
+- **Trap:** "the product of two irrationals is irrational". False, since $\sqrt2\times\sqrt2=2$.
+
+**Inequalities and squares**
+
+- $x^2\ge0$ for all real $x$, and every integer square is $4k$ or $4k+1$ (Question 4).
+- **Trap:** "$x^2>0$ for all real $x$". False at $x=0$.
+- **Trap:** "$a<b$ implies $a^2<b^2$". False at $a=-3$, $b=2$.
+- **Trap:** "$\sqrt{x^2}=x$". In fact $\sqrt{x^2}=\lvert x\rvert$, so it fails at $x=-1$.
+
+### Factorisation and primality are different things
+
+The most-tested trap on the number-theory proofs (2022 P2 Q7) is confusing **"the polynomial does not factorise"**
+with **"the value it computes is prime"**.
+
+- **An irreducible polynomial can take composite values.** $P(x)=x^2+1$ does not factorise, yet $P(3)=10=2\times5$.
+  This is the Line IV error in 2022 Q7: the *polynomial* is irreducible, but the *number* factorises.
+- **A polynomial that factorises can still take prime values.** $P(x)=x^2-1=(x-1)(x+1)$, yet $P(2)=1\times3=3$ is prime,
+  because a factor collapsed to $1$. A factorisation proves a value composite only when both factors are bigger than
+  $1$ in size. See the note in [S3](s03_necessary_sufficient.qmd).
+- **No polynomial with integer coefficients and degree at least $2$ is prime at every integer.** Euler's $x^2+x+41$ is
+  prime for $n=0,\dots,39$, but $40^2+40+41=41^2$.
+
+Prime itself is defined by the factorisation of the *number*: $N>1$ is prime exactly when it cannot be written as
+$a\times b$ with $1<a,b<N$. Both directions hold, so this is an "if and only if".
+
+The named families are worth knowing as well:
+
+- For integer $n>1$, if $n^2-1$ is prime then $n=2$: $n^2-1=(n-1)(n+1)$, and a product is prime only if the smaller
+  factor $n-1$ is $1$.
+- If $2^n-1$ is prime, then $n$ is prime: if $n=ab$ is composite, then $2^a-1$ is a proper factor of $2^n-1$.
+- **Trap:** the converse fails. $n=11$ is prime, but $2^{11}-1=2047=23\times89$.
+- If $2^n+1$ is prime, then $n$ is a power of $2$: if $n$ has an odd factor $m>1$, then $2^{n/m}+1$ is a proper factor of
+  $2^n+1$.
+
+::::
+
 ::: {.solutions}
 
-**Twenty-seven problems** across the four methods — **direct**, **cases**, **contradiction**,
-**counterexample** — plus choosing the right one and spotting a flaw. Work them in **two fast batches**
-(Part 1 + Part 2, then the longer Part 3), the way the session runs. **Part 3 is the hard tier** — the
-questions that separate a 7 from a 9. Everything is argued in **English sentences**;
-no symbols are required on Paper 2. Question types are drawn from **MAT, AMC, STEP** proof questions —
-the same ideas, one notch harder.
+# Part 1 — Concept checks
 
-::: {.callout-note appearance="simple"}
-**Recall box.** algebra → **direct** · even/odd or ± → **cases** · "impossible / irrational / no
-largest" → **contradiction** · a "for all" you doubt → **counterexample**. You can *disprove* a "for
-all" with one example; you can never *prove* one that way.
-:::
-
----
-
-# Part 1 — Core methods, fast
+Two questions, only to confirm the notes have landed. Everything after them is exam standard.
 
 ## Question 1
-
-::: {.question}
-Prove that the sum of any two odd numbers is even.
-:::
-
-Write each odd number as $2k+1$ — [that makes the argument cover every odd number at once]{.hl}.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(direct)*]{style="color:#7a5195"}
-$(2a+1)+(2b+1)=2(a+b+1)$, which is $2\times(\text{integer})$ — even. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3.5cm"}
-Working
-:::
-
----
-
-## Question 2
 
 ::: {.question}
 Which single value disproves **"every prime number is odd"**?
@@ -72,30 +369,7 @@ Working
 
 ---
 
-## Question 3
-
-::: {.question}
-What is the best method to prove **"$\sqrt2$ is irrational"**?
-
-&nbsp;&nbsp;**A** direct proof &nbsp; **B** proof by cases &nbsp; **C** proof by contradiction &nbsp;
-**D** disproof by counterexample
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(choosing a method, MCQ)*]{style="color:#7a5195"}
-**C.** "Irrational" is a claim of impossibility (no fraction works) — contradiction is the natural weapon:
-assume it *is* rational and force an absurdity. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3cm"}
-Working
-:::
-
----
-
-## Question 4
+## Question 2
 
 ::: {.question}
 To prove by contradiction that **there is no largest positive integer**, what do you assume first?
@@ -110,8 +384,8 @@ Contradiction opens with the **exact negation** of the goal.
 ## Solution
 
 [*(contradiction, MCQ)*]{style="color:#7a5195"}
-**B.** Assume a largest positive integer $N$ exists; then $N+1$ is larger — contradiction. (**D** is the
-conclusion, not the assumption.) $\;\blacksquare$
+**B.** Assume a largest positive integer $N$ exists; then $N+1$ is larger — contradiction. (**D** points towards what you hope to conclude, so it cannot be the opening
+assumption.) $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -120,115 +394,9 @@ Working
 
 ---
 
-## Question 5
+# Part 2 — Medium
 
-::: {.question}
-Prove that $\lvert x\rvert \ge x$ for every real number $x$.
-:::
-
-Split at the sign of $x$ — [two exhaustive cases]{.hl}.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(cases)*]{style="color:#7a5195"}
-**Case $x\ge0$:** $\lvert x\rvert=x$, so $\lvert x\rvert\ge x$. **Case $x<0$:** $\lvert x\rvert=-x>0>x$,
-so $\lvert x\rvert> x$. Both cases give $\lvert x\rvert\ge x$. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:4cm"}
-Working
-:::
-
----
-
-## Question 6
-
-::: {.question}
-Disprove: **"for all real $a,b$, if $a<b$ then $a^2<b^2$."**
-:::
-
-[Test negatives]{.hl} — squaring can reverse an inequality.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(counterexample)*]{style="color:#7a5195"}
-$a=-3$, $b=2$: then $a<b$ holds, but $a^2=9>4=b^2$. One counterexample disproves it. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3.5cm"}
-Working
-:::
-
----
-
-## Question 7
-
-::: {.question}
-Prove that if $n$ is even, then $n^2$ is even.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(direct)*]{style="color:#7a5195"}
-$n=2k\Rightarrow n^2=4k^2=2(2k^2)$ — even. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3cm"}
-Working
-:::
-
----
-
-## Question 8
-
-::: {.question}
-A student writes: *"$n^2+n$ is even because $1^2+1=2$, $2^2+2=6$, $3^2+3=12$ are all even, so it holds for
-all $n$."* The conclusion is true, but why is this not a proof?
-
-&nbsp;&nbsp;**A** the sums are wrong &nbsp; **B** examples cannot prove a "for all" &nbsp;
-**C** the statement is false &nbsp; **D** nothing — it is valid
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(spot the flaw, MCQ)*]{style="color:#7a5195"}
-**B.** A finite list leaves infinitely many $n$ unchecked. A real proof: $n^2+n=n(n+1)$ is a product of
-two consecutive integers, one even. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3cm"}
-Working
-:::
-
----
-
-# Part 2 — Constructing proofs (exam standard)
-
-## Question 9
-
-::: {.question}
-Prove that the product of two consecutive integers is even.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(direct / cases)*]{style="color:#7a5195"}
-Take $n$ and $n+1$. One of any two consecutive integers is even, so their product $n(n+1)$ is even. (Or:
-if $n=2k$, product $=2k(n+1)$; if $n=2k+1$, then $n+1=2k+2$ is even.) $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:4cm"}
-Working
-:::
-
----
-
-## Question 10
+## Question 3
 
 ::: {.question}
 Prove that if $n^2$ is even, then $n$ is even.
@@ -250,7 +418,7 @@ Working
 
 ---
 
-## Question 11
+## Question 4
 
 ::: {.question}
 Prove that the square of any integer is of the form $4k$ or $4k+1$.
@@ -272,7 +440,7 @@ Working
 
 ---
 
-## Question 12
+## Question 5
 
 ::: {.question}
 Prove that if $n$ is an odd integer, then $n^2-1$ is divisible by $8$.
@@ -294,7 +462,7 @@ Working
 
 ---
 
-## Question 13
+## Question 6
 
 ::: {.question}
 Prove that the sum of a rational number and an irrational number is irrational.
@@ -314,7 +482,7 @@ Working
 
 ---
 
-## Question 14
+## Question 7
 
 ::: {.question}
 Disprove: **"$2^{n}-1$ is prime for every integer $n\ge2$."**
@@ -344,37 +512,23 @@ Working
 
 ---
 
-## Question 15
-
-::: {.question}
-Prove, by cases, that $n^2+3n$ is even for every integer $n$.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(cases)*]{style="color:#7a5195"}
-**Even $n=2k$:** $4k^2+6k=2(2k^2+3k)$. **Odd $n=2k+1$:** $(2k+1)^2+3(2k+1)=4k^2+10k+4=2(2k^2+5k+2)$. Both
-even; exhaustive. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:4.5cm"}
-Working
-:::
-
----
-
-## Question 16
+## Question 8
 
 ::: {.question}
 A student claims **"$n^2+n+41$ is prime for every positive integer $n$."** Disprove it.
 :::
 
+Do not test $n=1,2,3,\dots$ in order. Use the two-step recipe from the Notes.
+
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
 [*(counterexample)*]{style="color:#7a5195"}
-$n=40$: $40^2+40+41=1681=41^2$, not prime. Counterexample. $\;\blacksquare$
+Either step of the recipe gives a counterexample.
+
+**Step 1, $n=f(0)=41$:** $41^2+41+41=41(41+1+1)=41\times43$, not prime.
+
+**Step 2, $n(n+1)$ a multiple of $41$:** this suggests $n=40$ as well, and $40^2+40+41=1681=41^2$, not prime. $\;\blacksquare$
 
 *Checking small $n$ (all prime) proves nothing — the value at $n=40$ is forced to have factor $41$.*
 :::
@@ -385,31 +539,7 @@ Working
 
 ---
 
-# Part 3 — Push to 8–9 (harder, cross-exam)
-
-## Question 17
-
-::: {.question}
-Prove, by contradiction, that $\sqrt3$ is irrational. You may use: **if $m^2$ is divisible by $3$ then
-$m$ is divisible by $3$.**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(contradiction — MAT/STEP)*]{style="color:#7a5195"}
-Suppose $\sqrt3=\dfrac{a}{b}$ in lowest terms. Then $a^2=3b^2$, so $3$ divides $a^2$, hence $3$ divides $a$; write
-$a=3c$. Then $9c^2=3b^2\Rightarrow b^2=3c^2$, so $3$ divides $b$. Now $3$ divides both $a$ and $b$ —
-contradicting "lowest terms". So $\sqrt3$ is irrational. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:6cm"}
-Working
-:::
-
----
-
-## Question 18
+## Question 9
 
 ::: {.question}
 Prove that $n^3-n$ is divisible by $6$ for every integer $n$.
@@ -420,7 +550,7 @@ Factor into consecutive integers, then argue divisibility by $2$ **and** by $3$.
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(cases / direct — STEP)*]{style="color:#7a5195"}
+[*(cases / direct)*]{style="color:#7a5195"}
 $n^3-n=n(n^2-1)=(n-1)\,n\,(n+1)$ — three **consecutive** integers. Among any three consecutive integers
 one is a multiple of $3$, and at least one is even, so the product is divisible by both $3$ and $2$, hence
 by $6$. $\;\blacksquare$
@@ -432,27 +562,7 @@ Working
 
 ---
 
-## Question 19
-
-::: {.question}
-Decide whether **"if $p$ and $q$ are prime then $p+q$ is even"** is true; if false, disprove it.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(counterexample — AMC)*]{style="color:#7a5195"}
-**False.** $p=2$, $q=3$ are prime but $p+q=5$ is odd. The claim quietly assumes both primes are odd, but
-$2$ is the even prime. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:4cm"}
-Working
-:::
-
----
-
-## Question 20
+## Question 10
 
 ::: {.question}
 Prove that there is no smallest positive rational number.
@@ -473,11 +583,11 @@ Working
 
 ---
 
-## Question 21
+## Question 11
 
 ::: {.question}
 A "proof" that $2=1$: *Let $a=b$. Then $a^2=ab$, so $a^2-b^2=ab-b^2$, i.e. $(a-b)(a+b)=b(a-b)$. Dividing
-by $(a-b)$ gives $a+b=b$, so $2b=b$, hence $2=1$.* Where is the error?
+by $(a-b)$ gives $a+b=b$, so $2b=b$, hence $2=1$.* Where is the **first** error?
 
 &nbsp;&nbsp;**A** $a^2=ab$ is wrong &nbsp; **B** the factorisation is wrong &nbsp;
 **C** dividing by $(a-b)$, which is $0$ &nbsp; **D** $2b=b$ does not give $2=1$
@@ -486,9 +596,12 @@ by $(a-b)$ gives $a+b=b$, so $2b=b$, hence $2=1$.* Where is the error?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(spot the flaw — MAT-style)*]{style="color:#7a5195"}
-**C.** Since $a=b$, $a-b=0$, and dividing by $0$ is not allowed — that step is invalid. Every other line
-is correct. $\;\blacksquare$
+[*(spot the flaw)*]{style="color:#7a5195"}
+**C.** Since $a=b$, $a-b=0$, and dividing by $0$ is not allowed — that step is invalid. Every line before
+it is correct. $\;\blacksquare$
+
+Option **D** is a real concern too, since going from $2b=b$ to $2=1$ divides by $b$ and needs $b\neq0$. But it
+comes later, and by then the argument has already broken.
 
 *The classic Err2 trap: cancelling a factor that might be (here, definitely is) zero.*
 :::
@@ -499,110 +612,7 @@ Working
 
 ---
 
-## Question 22
-
-::: {.question}
-Disprove: **"the sum of two irrational numbers is always irrational."**
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(counterexample — STEP)*]{style="color:#7a5195"}
-$\sqrt2$ and $2-\sqrt2$ are both irrational, but their sum is $\sqrt2+(2-\sqrt2)=2$, which is rational.
-Counterexample. (Simplest: $\sqrt2+(-\sqrt2)=0$.) $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:4cm"}
-Working
-:::
-
-## Question 23
-
-::: {.question}
-Prove that $\log_2 3$ is irrational.
-:::
-
-Assume it is rational, clear to an **integer power equation**, then compare parities.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(contradiction — STEP/olympiad)*]{style="color:#7a5195"}
-
-::: {.topic}
-Topic — contradiction; an even-vs-odd clash
-:::
-
-Suppose $\log_2 3=\dfrac{a}{b}$ with positive integers $a,b$. Then $2^{a/b}=3$, so $2^{a}=3^{b}$. But
-$2^{a}$ is **even** (as $a\ge1$) while $3^{b}$ is **odd** — impossible. So $\log_2 3$ is irrational.
-$\;\blacksquare$
-
-*The contradiction is a parity clash: an even number cannot equal an odd number.*
-:::
-
-::: {.workspace style="min-height:4.5cm"}
-Working
-:::
-
----
-
-## Question 24
-
-::: {.question}
-Prove that if $a^2+b^2$ is divisible by $4$, then $a$ and $b$ are both even.
-:::
-
-Use the earlier fact that every square is $4k$ (even) or $4k+1$ (odd), and check the three parity
-combinations.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(cases — harder)*]{style="color:#7a5195"}
-
-::: {.topic}
-Topic — cases via squares mod 4
-:::
-
-A square is $4k$ if the base is even and $4k+1$ if odd. So, working modulo $4$:
-
-- both even: $0+0=0$ ✓ (divisible by $4$);
-- one odd: $0+1=1$;
-- both odd: $1+1=2$.
-
-Only "both even" gives a multiple of $4$. Hence if $4$ divides $a^2+b^2$, then $a$ and $b$ are both even.
-$\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:5cm"}
-Working
-:::
-
----
-
-## Question 25
-
-::: {.question}
-Disprove: **"$n!+1$ is prime for every positive integer $n$."**
-:::
-
-The first few work — test a little further.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(counterexample — harder)*]{style="color:#7a5195"}
-$n=1,2,3$ give $2,3,7$ (all prime), but $n=4$: $4!+1=25=5^2$, not prime. Counterexample. $\;\blacksquare$
-:::
-
-::: {.workspace style="min-height:3.5cm"}
-Working
-:::
-
----
-
-## Question 26
+## Question 12
 
 ::: {.question}
 Prove that $n^3$ and $n$ always have the **same parity** (both odd, or both even).
@@ -613,7 +623,7 @@ Show their **difference** is even.
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(direct — harder)*]{style="color:#7a5195"}
+[*(direct)*]{style="color:#7a5195"}
 $n^3-n=(n-1)\,n\,(n+1)$, a product of three consecutive integers, which is even. Since $n^3-n$ is even,
 $n^3$ and $n$ differ by an even number, so they have the same parity. $\;\blacksquare$
 :::
@@ -624,7 +634,7 @@ Working
 
 ---
 
-## Question 27
+## Question 13
 
 ::: {.question}
 To solve $\sqrt{x+2}=x$, a student squares both sides: $x+2=x^2\Rightarrow x^2-x-2=0\Rightarrow
@@ -659,28 +669,102 @@ Working
 
 ---
 
-::: {.callout-tip}
-# Part 4 — Exam bank: mock papers
+# Part 3 — Hard
 
-One counterexample kills a "for all" claim, and the exam knows it: every question in Parts 4 and 5 hands
-you a short list of candidates and asks **which of them actually work**. The whole skill is checking a candidate against
-**both** halves of the claim — the hypothesis *and* the conclusion — instead of only the part that catches
-the eye.
+## Question 14
 
-::: {.callout-important}
-## What makes a counterexample
+::: {.question}
+Prove, by contradiction, that $\sqrt3$ is irrational. You may use: **if $m^2$ is divisible by $3$ then
+$m$ is divisible by $3$.**
+:::
 
-To disprove *"if $H$ then $C$"*, you need one case where
-$$H \text{ is \textbf{true}}\qquad\text{and}\qquad C\text{ is \textbf{false}} .$$
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
 
-**Both conditions, every time.** A case where $H$ is false proves nothing — it is simply outside what the
-claim ever said. *That is the single most common wrong answer in this part:* candidates pick the value that
-makes the conclusion fail without noticing it was never covered by the hypothesis.
+[*(contradiction)*]{style="color:#7a5195"}
+Suppose $\sqrt3=\dfrac{a}{b}$ in lowest terms. Then $a^2=3b^2$, so $3$ divides $a^2$, hence $3$ divides $a$; write
+$a=3c$. Then $9c^2=3b^2\Rightarrow b^2=3c^2$, so $3$ divides $b$. Now $3$ divides both $a$ and $b$ —
+contradicting "lowest terms". So $\sqrt3$ is irrational. $\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
 :::
 
 ---
 
-## Question 28 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q3</span>
+## Question 15
+
+::: {.question}
+Prove that $\log_2 3$ is irrational.
+:::
+
+Assume it is rational, clear to an **integer power equation**, then compare parities.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(contradiction)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — contradiction; an even-vs-odd clash
+:::
+
+Suppose $\log_2 3=\dfrac{a}{b}$. Since $3>1$, $\log_2 3$ is positive, so $a,b$ can be taken as positive integers. Then $2^{a/b}=3$, so $2^{a}=3^{b}$. But
+$2^{a}$ is **even** (as $a\ge1$) while $3^{b}$ is **odd** — impossible. So $\log_2 3$ is irrational.
+$\;\blacksquare$
+
+*The contradiction is a parity clash: an even number cannot equal an odd number.*
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+::: {.question}
+Prove that if $a^2+b^2$ is divisible by $4$, then $a$ and $b$ are both even.
+:::
+
+Use the fact that every square is $4k$ (even) or $4k+1$ (odd), and check the three parity
+combinations.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(cases)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — cases via squares mod 4
+:::
+
+A square is $4k$ if the base is even and $4k+1$ if odd. So, working modulo $4$:
+
+- both even: $0+0=0$ ✓ (divisible by $4$);
+- one odd: $0+1=1$;
+- both odd: $1+1=2$.
+
+Only "both even" gives a multiple of $4$. Hence if $4$ divides $a^2+b^2$, then $a$ and $b$ are both even.
+$\;\blacksquare$
+:::
+
+::: {.workspace style="min-height:5cm"}
+Working
+:::
+
+---
+
+# Part 4 — Exam bank: mock papers
+
+Five from exam-style mock papers. Each hands you candidates and asks **which of them actually work**, so the whole
+skill is checking a candidate against **both** halves of the claim: the hypothesis *and* the conclusion.
+
+---
+
+## Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q3</span>
 
 ::: {.question}
 Consider the statement: *no positive integer $N$ that is less than $20$ can be written as the sum of two
@@ -697,7 +781,7 @@ Which of the following is a counterexample to this statement?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Easy — but read the range)*]{style="color:#7a5195"}
+[*(but read the range)*]{style="color:#7a5195"}
 **B.** The non-prime integers greater than $1$ start $4,6,8,9,10,12,14,15,16,18,\dots$
 
 - **I, $N=8$:** $8=4+4$, and $4$ is non-prime and $>1$. Also $8<20$. **Counterexample ✓**
@@ -718,7 +802,7 @@ Working
 
 ---
 
-## Question 29 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q4</span>
+## Question 18 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q4</span>
 
 ::: {.question}
 Consider the following statement: *if a positive integer $N$ has the property that $N^{2}$ is divisible by
@@ -735,7 +819,7 @@ Which of the following is a counterexample to this statement?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Medium — tabulate both columns)*]{style="color:#7a5195"}
+[*(tabulate both columns)*]{style="color:#7a5195"}
 **G.** Check each candidate against **both** halves:
 
 | $N$ | $N^{2}$ | $9$ divides $N^{2}$ ? (hypothesis) | $6$ divides $N$ ? (conclusion) | counterexample? |
@@ -760,7 +844,7 @@ Working
 
 ---
 
-## Question 30 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q4</span>
+## Question 19 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q4</span>
 
 ::: {.question}
 Consider the following statement: *if a positive integer $N$ has the property that $N^{2}$ is divisible by
@@ -770,13 +854,14 @@ Which of the following are counterexamples to this statement?
 
 &nbsp;&nbsp;**I** $N=6$ &nbsp;&nbsp; **II** $N=8$ &nbsp;&nbsp; **III** $N=18$ &nbsp;&nbsp; **IV** $N=24$
 
-&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** I and III only
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** I and III only &nbsp;
+**E** I, II and III only &nbsp; **F** II and IV only &nbsp; **G** I, III and IV only &nbsp; **H** I, II, III and IV
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Medium — the same table, one step harder)*]{style="color:#7a5195"}
+[*(the same table, one step further)*]{style="color:#7a5195"}
 **D.**
 
 | $N$ | $N^{2}$ | $12$ divides $N^{2}$ ? | $12$ divides $N$ ? | counterexample? |
@@ -791,7 +876,7 @@ $N=8$ never enters the discussion, and $N=24$ is a case where the claim is true.
 
 **Where the claim goes wrong.** $12=2^{2}\times3$, so $12$ divides $N^{2}$ needs $N^{2}$ to carry $2^{2}$ and $3$ —
 which only forces $N$ to carry $2$ and $3$, i.e. $6$ divides $N$. The extra factor of $2$ is not implied.
-*Compare with Q29:* same structure, $9=3^{2}$ in place of $12=2^{2}\cdot3$. $\;\blacksquare$
+*Compare with Question 18:* same structure, $9=3^{2}$ in place of $12=2^{2}\cdot3$. $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:4cm"}
@@ -800,7 +885,7 @@ Working
 
 ---
 
-## Question 31 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q7</span>
+## Question 20 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q7</span>
 
 ::: {.question}
 Consider the statement &nbsp;$(*)$&nbsp; *every prime number $n$ can be written as the sum of $2$ square
@@ -814,7 +899,7 @@ How many counterexamples to $(*)$ are there in the range $0<n<40$?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Medium — count, do not just find one)*]{style="color:#7a5195"}
+[*(count, do not just find one)*]{style="color:#7a5195"}
 **E — six.** The squares available are $1,4,9,16,25,36$. Go through every prime below $40$:
 
 | $n$ | as a sum of two squares | | $n$ | as a sum of two squares |
@@ -832,7 +917,7 @@ The failures are $3,7,11,19,23,31$ — **six** of them.
 work are $2$ and those of the form $4k+1$; those that fail are exactly the primes of the form $4k+3$. Check:
 $3,7,11,19,23,31$ all leave remainder $3$ on division by $4$.
 
-**The exam skill here is different from Q28–Q30.** Those asked *is this one a counterexample?*; this asks
+**The exam skill here is different from Questions 17–19.** Those asked *is this one a counterexample?*; this asks
 *how many are there?* — so you must be systematic, not lucky. $\;\blacksquare$
 :::
 
@@ -842,7 +927,7 @@ Working
 
 ---
 
-## Question 32 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q15</span>
+## Question 21 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q15</span>
 
 ::: {.question}
 Consider the following statement: *if $f'(x)>0$ for all real $x$, then $f(x+1)>f(x)$ for all real $x$.*
@@ -856,7 +941,7 @@ Which function provides a counterexample?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Hard — the counterexample lives at the asymptote)*]{style="color:#7a5195"}
+[*(the counterexample lives at the asymptote)*]{style="color:#7a5195"}
 **E.** Again both halves must hold: **$f'>0$** *and* **$f(x+1)>f(x)$ fails somewhere**.
 
 | | $f$ | $f'$ | hypothesis $f'>0$? | verdict |
@@ -890,19 +975,20 @@ Working
 
 # Part 5 — Exam bank: real past papers
 
-Seven genuine TMUA papers. Counterexample is one of the two most stable slots on the whole test — about two
-questions a year in every sitting from 2016 to 2023 — and the exam asks for it in four recognisable ways:
+Seven questions from real TMUA papers. Counterexample is one of the most stable slots on the whole test, with one or
+two questions in every sitting from 2016 to 2023, and the exam asks for it in four recognisable ways:
 
 1. **Which of these candidates works?** (2018 Q3, 2023 Q3) — check each against *both* halves of the claim.
 2. **Which statement can this one fact disprove?** (2019 Q7) — the fact is fixed; the claim varies.
-3. **Which function is a counterexample?** (2017 Q16) — the hypothesis is itself something to verify.
+3. **Which function is a counterexample?** (2018 Q6, 2017 Q16) — the hypothesis is itself something to verify.
 4. **Is this disproof valid?** (2020 Q8) — and sometimes the honest answer is *yes*.
 
 [The recurring wrong answer is a candidate that breaks the conclusion but never satisfied the
 hypothesis]{.hl}, so it was never covered by the claim at all. Check the hypothesis first, every time.
 
+---
 
-## Question 33 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q6 &nbsp;◆</span>
+## Question 22 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q6 &nbsp;◆</span>
 
 ::: {.question}
 Which function is a **counterexample** to the claim *"if $f'(x)>0$ for all real $x$, then $f(x)>0$ for all
@@ -915,7 +1001,7 @@ real $x$"*?
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Hard — a real TMUA question; both halves again)*]{style="color:#7a5195"}
+[*(both halves again)*]{style="color:#7a5195"}
 **C.** You need a function that **is increasing everywhere** (hypothesis true) yet **dips below zero**
 somewhere (conclusion false).
 
@@ -939,10 +1025,9 @@ it. Only C fails the claim while obeying its hypothesis.
 *Why the claim is false in general:* $f'>0$ controls the **direction** a function moves, never its
 **height**. Any increasing function can be slid downwards — $x^{3}+x+1$ is just $x^{3}+x$ shifted, and it
 runs to $-\infty$ as $x\to-\infty$ however it is shifted. $\;\blacksquare$
-:::
 
 ```{python}
-#| fig-cap: "Question 33 · y = x³ + x + 1 rises everywhere (f' = 3x² + 1 > 0) yet is negative to the left of x ≈ −0.68 — the hypothesis holds and the conclusion fails."
+#| fig-cap: "Question 22 · y = x³ + x + 1 rises everywhere (f' = 3x² + 1 > 0) yet is negative to the left of x ≈ −0.68 — the hypothesis holds and the conclusion fails."
 import numpy as np, matplotlib.pyplot as plt
 x = np.linspace(-2.2, 1.5, 500); y = x**3 + x + 1
 fig, ax = plt.subplots(figsize=(6.0, 3.6))
@@ -961,6 +1046,7 @@ ax.set_title(r"increasing everywhere, but not always positive", fontsize=11)
 ax.legend(fontsize=9, loc='lower right')
 plt.tight_layout(); plt.show()
 ```
+:::
 
 ::: {.workspace style="min-height:5cm"}
 Working
@@ -968,7 +1054,7 @@ Working
 
 ---
 
-## Question 34 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q16 &nbsp;◆</span>
+## Question 23 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q16 &nbsp;◆</span>
 
 ::: {.question}
 A sequence is given by $u_{1}=a$, $u_{2}=b$ and $u_{n+2}=u_{n}+u_{n+1}$, where $a$ and $b$ are positive
@@ -986,9 +1072,9 @@ any $n>1$.
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(Hard — a real TMUA question; one proof and two counterexamples)*]{style="color:#7a5195"}
+[*(one proof and two counterexamples)*]{style="color:#7a5195"}
 **B — I only.** *"Must be true" makes each statement a "for all $a,b$" claim, so each is settled either by a
-proof covering every case or by a single counterexample.* Here one of each, twice over.
+proof covering every case or by a single counterexample.* Here one needs a proof and two fall to a counterexample.
 
 **I — true, and it needs a proof.** $\gcd(a,b)=7$ means $7$ divides **both** $a$ and $b$. A sum of two
 multiples of $7$ is a multiple of $7$, so $u_{3}=u_{1}+u_{2}$ is one; and then $u_{4}$, and so on. By
@@ -1018,8 +1104,7 @@ Working
 
 ---
 
-
-## Question 35 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q3</span>
+## Question 24 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q3</span>
 
 ::: {.question}
 Consider the following statement:
@@ -1053,11 +1138,11 @@ Topic — testing candidates one at a time; the case that is *not* a counterexam
 
 The claimed answer in every case is $\tfrac12(50+40)=45$ km/h.
 
-| | distance | time | total | average speed | counterexample? |
-|---|---|---|---|---|---|
-| **I** | $100+100=200$ | $\tfrac{100}{50}+\tfrac{100}{40}=2+2.5=4.5$ | | $\dfrac{200}{4.5}=44.\dot4$ | **yes**, $\neq45$ |
-| **II** | $50+40=90$ | $1+1=2$ | | $\dfrac{90}{2}=45$ | **no** — the claim holds |
-| **III** | $80+100=180$ | $\tfrac{80}{50}+\tfrac{100}{40}=1.6+2.5=4.1$ | | $\dfrac{180}{4.1}=43.90\ldots$ | **yes**, $\neq45$ |
+| | distance | time | average speed | counterexample? |
+|---|---|---|---|---|
+| **I** | $100+100=200$ | $\tfrac{100}{50}+\tfrac{100}{40}=2+2.5=4.5$ | $\dfrac{200}{4.5}=44.\dot4$ | **yes**, $\neq45$ |
+| **II** | $50+40=90$ | $1+1=2$ | $\dfrac{90}{2}=45$ | **no** — the claim holds |
+| **III** | $80+100=180$ | $\tfrac{80}{50}+\tfrac{100}{40}=1.6+2.5=4.1$ | $\dfrac{180}{4.1}=43.90\ldots$ | **yes**, $\neq45$ |
 
 ### Why II is the interesting one
 
@@ -1074,7 +1159,7 @@ $$\frac{2uv}{u+v}=\frac{2\times50\times40}{90}=44.\dot4 ,$$
 
 which is always **less** than $\tfrac12(u+v)$ unless $u=v$.
 
-**The lesson.** A claim that is false in general can still be true in special cases, and [the exam always
+**The lesson.** A claim that is false in general can still be true in special cases, and [the exam often
 includes one such case among the candidates]{.hl} — it is the commonest way to lose the mark. Test every
 candidate; do not stop at the first one that works. $\;\blacksquare$
 :::
@@ -1085,8 +1170,7 @@ Working
 
 ---
 
-
-## Question 36 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q3</span>
+## Question 25 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q3</span>
 
 ::: {.question}
 Consider the claim:
@@ -1118,7 +1202,7 @@ The left side is $\sqrt{x^{y}}=x^{y/2}$. So the claim is really
 
 $$x^{y/2}=x^{\sqrt y}\;,$$
 
-which for $x\neq1$ needs $\dfrac y2=\sqrt y$, i.e. $y=2\sqrt y$, i.e. $y=0$ or $y=4$.
+which for $x\neq1$ needs $\dfrac y2=\sqrt y$, i.e. $y=2\sqrt y$. Since $y>0$, this means $\sqrt y=2$, so $y=4$.
 *So the claim holds only when $x=1$ or $y=4$ — and both escape routes are on the candidate list.*
 
 | | left $=x^{y/2}$ | right $=x^{\sqrt y}$ | equal? | counterexample? |
@@ -1141,8 +1225,7 @@ Working
 
 ---
 
-
-## Question 37 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q7</span>
+## Question 26 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q7</span>
 
 ::: {.question}
 For which one of the following statements can the fact that $12^{2}+16^{2}=20^{2}$ be used to produce a
@@ -1174,7 +1257,7 @@ The fact: $12^{2}+16^{2}=144+256=400=20^{2}$ ✓
 
 The claim only covers triples with **no common divisor**, and $\gcd(12,16,20)=4$. *So $12,16,20$ lies
 outside the claim entirely and can say nothing about it.* This is the classic trap: the conclusion does
-fail here (two of $12,16,20$ are even, not odd), which makes A look right until the hypothesis is checked.
+fail here (all three of $12,16,20$ are even), which makes A look right until the hypothesis is checked.
 
 ### B — a counterexample, once you rewrite the fact
 
@@ -1199,12 +1282,12 @@ $\sqrt{12}$ is irrational. *(This is Fermat's Last Theorem for $n=4$; no counter
 $$\tfrac12(12+20)=16 ,$$
 
 so $16$ **is** the arithmetic mean of the other two. The triple satisfies both the hypothesis and the
-conclusion, so it supports D rather than refuting it. *(D is false in general — $3,4,5$ has no such mean —
+conclusion, so it supports D rather than refuting it. *(D is false in general — $5,12,13$ has no such mean —
 but this fact is not the counterexample for it.)*
 
 **The lesson.** Two different failures are on display here, and both are worth naming. [A candidate outside
 the hypothesis is not a counterexample]{.hl} (option A), and [a candidate that satisfies the conclusion is
-not one either]{.hl} (option D). Between them they account for most lost marks in this slot — and option B
+not one either]{.hl} (option D). Both are common ways to go wrong in this slot — and option B
 adds a third demand: *the fact may need rewriting before it fits the claim.* $\;\blacksquare$
 :::
 
@@ -1214,8 +1297,7 @@ Working
 
 ---
 
-
-## Question 38 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q16</span>
+## Question 27 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q16</span>
 
 ::: {.question}
 Consider the following statement:
@@ -1277,8 +1359,8 @@ $$\mathrm{f}'(2)=\frac{32+12+4+1}{2}=\frac{49}{2},$$
 
 **not an integer.** Hypothesis holds, conclusion fails — **C is the counterexample.** ✓
 
-*(Note $\mathrm{f}'(1)=\tfrac{10}{2}=5$ is an integer, so $x=1$ would not have found it. The odd term
-$3x^{2}$ is what breaks parity, and it needs an even $x$ to show.)*
+*(Note $\mathrm{f}'(1)=\tfrac{10}{2}=5$ is an integer, so $x=1$ would not have found it. At odd $x$ the odd terms $3x^{2}$ and $1$
+cancel each other's parity. At even $x$ only the $1$ is left, so the numerator is odd.)*
 
 **D.** &nbsp; $\mathrm{f}'(x)=\dfrac{4x^{3}+6x^{2}+2x}{4}=\dfrac{2x^{3}+3x^{2}+x}{2}=\dfrac{x(x+1)(2x+1)}{2}$,
 which is an integer for every integer $x$ — again because $x(x+1)$ is even. The conclusion **holds**, so D
@@ -1295,8 +1377,7 @@ Working
 
 ---
 
-
-## Question 39 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q8</span>
+## Question 28 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q8</span>
 
 ::: {.question}
 A student is asked to prove whether the following statement $(*)$ is true or false:
@@ -1368,15 +1449,9 @@ Working
 
 ---
 
-## The one habit to leave with
+**The whole session in one line:**
 
-Match the claim to the method on sight, and never prove a "for all" by examples. Contradiction and
-counterexample carry the most marks on Paper 2 — the two to be fastest at. Part 3 is where the 8–9 marks
-live: parity clashes, squares mod 4, extraneous roots.
-
-And in Parts 4 and 5, before deciding whether a candidate is a counterexample, always ask the two questions
-in this order: **does it satisfy the hypothesis**, and **does it break the conclusion**. Almost every wrong
-answer in that bank is a candidate that fails the first question.
-:::
+> **Match the claim to the method on sight, never prove a "for all" by examples, and before calling anything a
+> counterexample ask whether it satisfies the hypothesis and then whether it breaks the conclusion.**
 
 :::

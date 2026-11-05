@@ -1,6 +1,6 @@
 ---
 title: "Paper 2 Toolkit · S2 — Converse and Contrapositive"
-subtitle: "Work each question — Easy → Medium → Hard → past papers"
+subtitle: "Revision sheet · Notes · two concept checks · exam-standard questions"
 format: html
 jupyter: python3
 execute:
@@ -8,128 +8,336 @@ execute:
   warning: false
 ---
 
-::: {.solutions}
-
-Last session ended with a warning: from $A \Rightarrow B$ you may deduce one thing for free, and one
-thing not at all. This session is about which is which.
-
-There are **three** ways to rearrange an implication, and only **one** of them says the same thing as the
-original. Getting them mixed up is the single most expensive mistake in Paper 2, because every
-*"which of these is equivalent?"* question turns on it — and the exam writes them in English, not
-symbols, precisely so that they are easy to confuse.
-
-::: {.callout-important}
-## Two words that are easy to swap — do not
-
-It is the **contrapositive** that is always equivalent to the original. The **converse** almost never is.
-
-A one-second check: **the contrapositive has negations in it; the converse does not.**
-:::
-
 Specification: **Arg1** — *the converse of a statement; the contrapositive of a statement; the
 relationship between the truth of a statement and its converse and its contrapositive.*
 Official source: **Notes on Logic and Proof**, pp. 43–49.
 
----
+::: {.callout-important}
+## Why learn this when TMUA is multiple choice?
 
-# Part 1 — Easy
-
-Mechanical drills. Get the three rearrangements automatic before you try to judge them.
-
-## Question 1
-
-::: {.question}
-Consider the statement
-
-> **If $n$ is divisible by $6$, then $n$ is even.**
-
-&nbsp;&nbsp;(a) Write down its **converse**. **[1]**
-
-&nbsp;&nbsp;(b) Write down its **contrapositive**. **[1]**
-
-&nbsp;&nbsp;(c) Write down its **inverse** (negate both halves, keeping the arrow's direction). **[1]**
-
-*Write your answers as full English sentences — the TMUA never asks for symbols such as $\lnot$ or
-$\Rightarrow$, and every option on the real paper is written out in words.*
+You never write a proof on TMUA — every question is **multiple choice**. But the exam tests whether you
+can **judge** a claim: which of these is the contrapositive? does the converse follow? Being able to swap
+and negate an "if … then …" correctly in your head is exactly what lets you pick the right option in
+seconds.
 :::
 
-Each of the three is made by one small operation, so [do them by the rule, not by the meaning]{.hl}:
-the converse **reverses** the arrow, the inverse **negates** both halves, and the contrapositive does
-**both**. Write $A$ = *"$n$ is divisible by $6$"* and $B$ = *"$n$ is even"* on your paper first — with
-names in front of you it is almost impossible to go wrong.
+::::: {.formulasheet}
 
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Mathematical Reasoning · Arg1</div>
+<div class="fs-title">Converse & Contrapositive — Key Concepts</div>
+<div class="fs-sub">From one statement "if P then Q" you can build three relatives. The one rule that matters: the <strong>contrapositive is always equivalent</strong> to the original; the <strong>converse almost never is</strong>.</div>
+::::
 
-::: {.topic}
-Topic — forming the converse, inverse and contrapositive
+## The original and its three relatives
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Build them from "if $P$ then $Q$"
+
+Start from $P\Rightarrow Q$.
+
+$$\textbf{Converse:}\ \text{if } Q \text{ then } P \quad(\text{swap})$$
+$$\textbf{Inverse:}\ \text{if not }P\text{ then not }Q \quad(\text{negate both})$$
+$$\textbf{Contrapositive:}\ \text{if not }Q\text{ then not }P \quad(\text{swap }\textbf{and}\text{ negate})$$
 :::
 
+::: {.fs-card}
+### Contrapositive — **always** equivalent
 
-Let $A$ = "$n$ is divisible by $6$" and $B$ = "$n$ is even". The original is $A \Rightarrow B$.
+$$\text{"if }P\text{ then }Q\text{"}\ \equiv\ \text{"if not }Q\text{ then not }P\text{"}$$
 
-**(a) Converse** — reverse only, $B \Rightarrow A$:
+Same truth value, every time. This is why **proof by contrapositive** is valid: to prove $P\Rightarrow Q$
+you may instead prove $\text{not }Q\Rightarrow\text{not }P$.
 
-> If $n$ is even, then $n$ is divisible by $6$.
+[to prove "if $n^2$ even then $n$ even", prove the contrapositive "if $n$ odd then $n^2$ odd"]{.eg}
+:::
 
-**(b) Contrapositive** — negate **and** reverse, $\text{not }B \Rightarrow \text{not }A$:
+::: {.fs-card}
+### Converse — almost **never** equivalent
 
-> If $n$ is **not** even, then $n$ is **not** divisible by $6$.
->
-> *(More naturally: if $n$ is odd, then $n$ is not divisible by $6$.)*
+The converse is a **separate** statement, with its own truth value. A true statement can have a false
+converse.
 
-**(c) Inverse** — negate only, $\text{not }A \Rightarrow \text{not }B$:
+[$x>3\Rightarrow x>0$ is true, but its converse $x>0\Rightarrow x>3$ is false ($x=1$)]{.eg}
+:::
 
-> If $n$ is **not** divisible by $6$, then $n$ is **not** even.
+::: {.fs-card}
+### The equivalence map
 
-$\blacksquare$
-
-Now look at what you have. The original is **true**. So is the contrapositive (b) — as it must be. But
-the converse (a) is **false** ($n=4$ is even and not divisible by $6$), and so is the inverse (c) — the
-same $n=4$ breaks it.
-
-**Common slips.**
-
-| ✗ | ✓ |
+| This form | has the same truth value as |
 |---|---|
-| Giving the inverse when asked for the contrapositive | The contrapositive needs **both** operations. Negating alone is the *inverse*, and it is not equivalent. |
-| "If $n$ is not even" left as-is when a cleaner form exists | Not wrong, but say **"if $n$ is odd"** — the exam's options are usually phrased naturally. |
+| **original** | **contrapositive** |
+| **converse** | **inverse** |
+
+[original & contrapositive stand or fall together; converse & inverse stand or fall together]{.eg}
 :::
 
-::: {.workspace style="min-height:7cm"}
-Working
+::::
+
+## In practice, and the trap
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Form each one fast
+
+**Converse:** swap the two halves. **Inverse:** negate both halves (keep order). **Contrapositive:**
+do both — swap *and* negate.
+
+Only the **contrapositive** is guaranteed to match the original.
 :::
+
+::: {.fs-card}
+### The trap — assuming the converse
+
+"If $P$ then $Q$" does **not** give you "if $Q$ then $P$." Treating a statement and its converse as the
+same thing is the classic Arg1 error — and if both happen to hold, that is exactly an **if and only if**.
+:::
+
+::: {.fs-card}
+### Link to necessary / sufficient
+
+$P\Rightarrow Q$ says $P$ is **sufficient** for $Q$ and $Q$ is **necessary** for $P$. The **converse**
+$Q\Rightarrow P$ swaps those roles — which is why it is a genuinely different claim.
+:::
+
+::::
+
+:::::
+
+:::: {.fpnotes}
+
+## Notes
+
+From $P \Rightarrow Q$ you may deduce one thing for free, and one thing not at all. There are **three** ways
+to rearrange an implication, and only **one** of them says the same thing as the original. Mixing them up is
+the most expensive mistake in Paper 2, because every *"which of these is equivalent?"* question turns on it.
+
+::: {.callout-warning appearance="simple"}
+**Two words that are easy to swap.** It is the **contrapositive** that is always equivalent to the original.
+The **converse** almost never is. A one-second check: **the contrapositive has negations in it; the converse
+does not.**
+:::
+
+### The three relatives of "if $P$ then $Q$"
+
+| Name | Form | Built by | Equivalent to the original? |
+|---|---|---|---|
+| **Original** | if $P$ then $Q$ | — | — |
+| **Converse** | if $Q$ then $P$ | swap | **No** |
+| **Inverse** | if not $P$ then not $Q$ | negate both | **No** |
+| **Contrapositive** | if not $Q$ then not $P$ | swap **and** negate | **Yes, always** |
+
+Take "if $n$ is divisible by $6$, then $n$ is even", which is true.
+
+- **Converse:** if $n$ is even, then $n$ is divisible by $6$. This is false, since $n=4$ breaks it.
+- **Inverse:** if $n$ is not divisible by $6$, then $n$ is not even. This is false, and $n=4$ breaks it too.
+- **Contrapositive:** if $n$ is odd, then $n$ is not divisible by $6$. This is true, as it must be.
+
+The contrapositive is the only one built by **two** operations, and it is the only one that is safe. The
+**converse and the inverse are contrapositives of each other**, so they are true or false **together**.
+
+**A picture.** Read $P\Rightarrow Q$ as "circle $P$ sits inside circle $Q$".
 
 ```{python}
+#| fig-cap: "P ⇒ Q means every P is a Q. The contrapositive re-reads the same picture; the converse asks for a different one."
 import matplotlib.pyplot as plt
-ROOT_CLR, YINT_CLR, ASYM_CLR = '#1f77b4', '#2ca02c', '#d62728'
-
-fig, ax = plt.subplots(figsize=(6.6, 5.0))
-ax.add_patch(plt.Circle((0, 0), 2.7, fc=YINT_CLR, alpha=0.10, ec=YINT_CLR, lw=2))
-ax.add_patch(plt.Circle((-0.6, -0.2), 1.35, fc=ROOT_CLR, alpha=0.20, ec=ROOT_CLR, lw=2))
-ax.text(-0.6, -0.25, '$A$', ha='center', va='center', fontsize=15, color=ROOT_CLR)
-ax.text(1.55, 1.75, '$B$', ha='center', va='center', fontsize=15, color=YINT_CLR)
-
-ax.plot([3.7], [-1.9], 'o', color=ASYM_CLR, ms=10, zorder=5)
-ax.annotate('outside $B$\n$\\Rightarrow$ certainly outside $A$\n(the CONTRAPOSITIVE — same picture)',
-            (3.7, -1.9), textcoords='offset points', xytext=(-70, -52), fontsize=9, color=ASYM_CLR,
-            arrowprops=dict(arrowstyle='->', color=ASYM_CLR, lw=1.2))
-
-ax.plot([1.6], [-0.7], 'o', color='#7a5195', ms=10, zorder=5)
-ax.annotate('inside $B$ but NOT in $A$\n$\\Rightarrow$ the CONVERSE fails here',
-            (1.6, -0.7), textcoords='offset points', xytext=(26, 22), fontsize=9, color='#7a5195',
-            arrowprops=dict(arrowstyle='->', color='#7a5195', lw=1.2))
-
-ax.set_xlim(-3.6, 6.2); ax.set_ylim(-4.4, 3.4)
-ax.set_aspect('equal'); ax.axis('off')
-ax.set_title('“$A\\Rightarrow B$” = every $A$ is a $B$.\nThe contrapositive re-reads the same picture; the converse asks for a different one.',
-             fontsize=11)
+PC, QC, RC, VC = '#1f77b4', '#2ca02c', '#d62728', '#7a5195'
+fig, ax = plt.subplots(figsize=(6.6, 4.6))
+ax.add_patch(plt.Circle((0, 0), 2.7, fc=QC, alpha=0.10, ec=QC, lw=2))
+ax.add_patch(plt.Circle((-0.6, -0.2), 1.35, fc=PC, alpha=0.20, ec=PC, lw=2))
+ax.text(-0.6, -0.25, '$P$', ha='center', va='center', fontsize=15, color=PC)
+ax.text(1.55, 1.75, '$Q$', ha='center', va='center', fontsize=15, color=QC)
+ax.plot([3.7], [-1.9], 'o', color=RC, ms=10, zorder=5)
+ax.annotate('outside $Q$\n$\\Rightarrow$ certainly outside $P$\n(the contrapositive: same picture)',
+            (3.7, -1.9), textcoords='offset points', xytext=(-70, -52), fontsize=9, color=RC,
+            arrowprops=dict(arrowstyle='->', color=RC, lw=1.2))
+ax.plot([1.6], [-0.7], 'o', color=VC, ms=10, zorder=5)
+ax.annotate('inside $Q$ but not in $P$\n$\\Rightarrow$ the converse fails here',
+            (1.6, -0.7), textcoords='offset points', xytext=(26, 22), fontsize=9, color=VC,
+            arrowprops=dict(arrowstyle='->', color=VC, lw=1.2))
+ax.set_xlim(-3.6, 6.2); ax.set_ylim(-4.4, 3.4); ax.set_aspect('equal'); ax.axis('off')
 plt.tight_layout(); plt.show()
 ```
 
----
+- **Contrapositive:** outside $Q\Rightarrow$ outside $P$. If all of $P$ is inside $Q$, anything outside $Q$
+  certainly missed $P$. It is the same picture read from outside in, which is *why* it is always equivalent.
+- **Converse:** inside $Q\Rightarrow$ inside $P$. That would need the two circles to **coincide**, a genuinely
+  different claim.
 
-## Question 2
+### What an implication actually promises
+
+$P \Rightarrow Q$ makes exactly **one** promise: *you will never find $P$ true while $Q$ is false.*
+Everything else is permitted.
+
+**How to read the table.** Each row is one possible situation — a combination of "is $P$ true?" and "is
+$Q$ true?". The last column asks: *would that situation make the promise a lie?*
+
+| Row | $P$ | $Q$ | Situation, for "if it rains, the ground gets wet" | Promise broken? |
+|---|---|---|---|---|
+| 1 | true | true | it rained, ground wet | no — exactly as promised |
+| 2 | true | **false** | it rained, ground **dry** | **YES** — the only way to break it |
+| 3 | false | true | no rain, ground wet | no — a burst pipe; the promise said nothing about this |
+| 4 | false | false | no rain, ground dry | no — again, nothing was promised |
+
+**Rows 3 and 4 are why the converse and inverse cannot be deduced.** When $P$ is false, the statement
+makes **no claim at all** about $Q$ — so $Q$ is free to be either. Row 3 is precisely the counterexample
+that kills the converse.
+
+**The same promise, written with "or".** Compare $P \Rightarrow Q$ with "(not $P$) or $Q$" in the same four
+rows. An "or" statement is false only when both of its parts are false.
+
+| Row | $P$ | $Q$ | (not $P$) or $Q$ | $P \Rightarrow Q$ |
+|:---:|:---:|:---:|:---:|:---:|
+| 1 | T | T | T | T |
+| 2 | T | **F** | **F** | **F** |
+| 3 | F | T | T | T |
+| 4 | F | F | T | T |
+
+The last two columns are identical, so they say the same thing:
+
+$$P \Rightarrow Q \quad\Longleftrightarrow\quad (\text{not } P) \text{ or } Q.$$
+
+Now read the negation from the table. $P \Rightarrow Q$ is false only in row 2, where $P$ is true and $Q$ is
+false. So:
+
+$$\text{not}(P \Rightarrow Q) \quad\Longleftrightarrow\quad P \text{ and } (\text{not } Q).$$
+
+The negation of an implication is an "and" statement, not another implication.
+
+**Why this makes the contrapositive equivalent — slowly.**
+
+Two statements are the same statement when they are **broken by exactly the same situations**. So ask,
+for the contrapositive "not $Q \Rightarrow$ not $P$", which row breaks *it*.
+
+An implication is broken when its **front is true and its back is false**. For "not $Q \Rightarrow$ not
+$P$", that means:
+
+- front true: &nbsp; "not $Q$" is true &nbsp;$\longrightarrow$&nbsp; **$Q$ is false**
+- back false: &nbsp; "not $P$" is false &nbsp;$\longrightarrow$&nbsp; **$P$ is true**
+
+So the contrapositive is broken when $P$ is true and $Q$ is false — **row 2, the same single row** that
+breaks the original. Same breaking condition, same statement. ∎
+
+Now try the same test on the **converse** ($Q \Rightarrow P$): it is broken when $Q$ is true and $P$ is
+false — that is **row 3**, a *different* row. Different breaking condition, different statement. That is
+the whole distinction, in one calculation.
+
+**Proving something is false.** To show $P \Rightarrow Q$ is *false*, you must produce a case where $P$
+holds and $Q$ fails — a **counterexample**. That is row 2 of the table: not "I disagree", but a specific
+situation the statement forbids.
+
+### Why proof by contrapositive works
+
+Because "if $P$ then $Q$" and "if not $Q$ then not $P$" are the same statement, you can prove either one.
+Reach for the contrapositive when the **negations are easier to work with than the originals**:
+
+| Original hypothesis | Negation | Which is easier? |
+|---|---|---|
+| $n^{2}$ is even | $n$ is odd | the **negation** — it gives you $n=2m+1$ |
+| $x$ is irrational | $x$ is rational | the **negation** — it gives you $x=p/q$ |
+| "at least one of …" | "none of …" | the **negation** — one case instead of many |
+
+For example, to prove "if $n^2$ is even, then $n$ is even", prove "if $n$ is odd, then $n^2$ is odd" instead.
+If $n=2m+1$ for some integer $m$, then
+
+$$n^2=4m^2+4m+1=2\left(2m^2+2m\right)+1 ,$$
+
+which is odd. Attacking the original directly gives only $n^2=2k$, and that is hard to use.
+
+**Not the same as proof by contradiction.** In a proof by contrapositive you assume **not $Q$** and derive
+**not $P$**, a clean direct argument. In a proof by contradiction you assume **$P$ and not $Q$ together** and
+derive an absurdity. Contradiction is Session 5.
+
+### Do not assume the converse
+
+The commonest error in this topic is to treat "if $P$ then $Q$" as if it also gave "if $Q$ then $P$." It does
+not. If a statement **and** its converse are both true, then $P$ and $Q$ are equivalent, an **if and only
+if**, which is a stronger claim you must justify separately.
+
+### A 30-second routine for "which is equivalent?"
+
+1. **Name the halves.** Write "$P$ = …, $Q$ = …" on your paper.
+2. **Write the theorem as one arrow**, $P \Rightarrow Q$.
+3. **Convert each option to an arrow**, using the S1 rules for *if* / *only if*.
+4. **Match by shape**, not by meaning:
+
+| What you see | It is | Equivalent? |
+|---|---|---|
+| $P \Rightarrow Q$ | the original (perhaps restyled) | ✓ |
+| not $Q \Rightarrow$ not $P$ | contrapositive | ✓ |
+| $Q \Rightarrow P$ | converse | ✗ |
+| not $P \Rightarrow$ not $Q$ | inverse | ✗ |
+
+**Never** let the truth of a statement enter this decision. Exam writers deliberately choose theorems
+where the converse is *also* true, precisely so that candidates who reason "it's true, so it
+must be equivalent" get it wrong.
+
+### Auditing a proof in two lines
+
+Whenever you are asked whether a proof is valid, ignore the algebra at first and write down two things:
+
+$$\textbf{ASSUMED: } \underline{\qquad\qquad} \qquad\qquad \textbf{REQUIRED: } \underline{\qquad\qquad}$$
+
+Then check the match:
+
+| Assumed → concluded | Verdict |
+|---|---|
+| exactly what was required | ✓ valid (direct proof) |
+| **not $Q$** → **not $P$**, when $P \Rightarrow Q$ was required | ✓ valid (proof by contrapositive) |
+| $Q$ → $P$, when $P \Rightarrow Q$ was required | ✗ **proved the converse** |
+| not $P$ → not $Q$, when $P \Rightarrow Q$ was required | ✗ **proved the inverse** |
+
+**A quick tell:** a genuine proof by contrapositive **contains negations** — it starts from "suppose $n$
+is *even*", "suppose $x$ is *rational*". If a student claims contrapositive but their argument has no
+negation anywhere, they have almost certainly proved the converse instead.
+
+### The routine, and negating comparisons
+
+**The routine for any awkward wording:**
+
+$$\text{English sentence}\;\longrightarrow\;\text{“if … then …”}\;\longrightarrow\;\text{contrapositive}
+\;\longrightarrow\;\text{(translate back if asked)}$$
+
+**Never operate on the original English directly.** Trying to negate an "only if" sentence in place is how
+people produce the *inverse* by accident.
+
+**The three styles, side by side.** Recall from S1 that *only if* keeps the order while a bare *if* swaps
+it — which is why the last row looks back-to-front and is the one most often got wrong:
+
+| Statement | As an arrow | Contrapositive | …as an arrow |
+|---|---|---|---|
+| if $P$ then $Q$ | $P\Rightarrow Q$ | if not $Q$ then not $P$ | $\lnot Q\Rightarrow\lnot P$ |
+| $P$ **only if** $Q$ | $P\Rightarrow Q$ | not $Q$ **only if** not $P$ | $\lnot Q\Rightarrow\lnot P$ |
+| $P$ **if** $Q$ | $Q\Rightarrow P$ | not $Q$ **if** not $P$ | $\lnot P\Rightarrow\lnot Q$ |
+
+*Read the last row carefully.* "$P$ if $Q$" has contrapositive $\lnot P\Rightarrow\lnot Q$, and writing that
+back in "if" style puts the **target first**: **not $Q$ if not $P$**. The tempting "not $P$ if not $Q$"
+unpacks to $\lnot Q\Rightarrow\lnot P$ — the **inverse**.
+
+**Negating comparisons** — get these exactly right, because the wrong options are built from these slips:
+
+| Statement | Its negation |
+|---|---|
+| $x>3$ | $x\le3$ |
+| $x\ge3$ | $x<3$ |
+| $x=3$ | $x\ne3$ |
+| $1<x<4$ | $x\le1$ **or** $x\ge4$ |
+
+The pattern: **negating a strict inequality gives a non-strict one, and vice versa** — the boundary case
+always changes sides. And negating a double inequality gives an **or**, never an *and*.
+
+::::
+
+::: {.solutions}
+
+# Part 1 — Concept checks
+
+Two questions, only to confirm the notes have landed. Everything after them is exam standard.
+
+## Question 1
 
 ::: {.question}
 Assume this statement is **true**:
@@ -196,7 +404,7 @@ Working
 
 ---
 
-## Question 3
+## Question 2
 
 ::: {.question}
 Let $a$ and $b$ be integers. Consider
@@ -255,7 +463,7 @@ trap is here already.
 |---|---|
 | Proving (c) from scratch | Unnecessary. (a) true $\Rightarrow$ (c) true, automatically. That is the whole value of the contrapositive. |
 | (c) written as "if $ab$ is even, then $a$ and $b$ are both even" | Over-negated. "not (both odd)" means **at least one** is even, not *both*. |
-| Concluding from (b) that converses are usually true | Here both directions happen to hold — because "odd product" and "both factors odd" really are the *same condition*, so the pair forms an "if and only if". That is **unusual**: compare Question 1, where the converse was false. |
+| Concluding from (b) that converses are usually true | Here both directions happen to hold — because "odd product" and "both factors odd" really are the *same condition*, so the pair forms an "if and only if". That is **unusual**: compare the divisible-by-$6$ example in the Notes, where the converse was false. |
 :::
 
 ::: {.workspace style="min-height:8cm"}
@@ -266,63 +474,7 @@ Working
 
 # Part 2 — Medium
 
-## Question 4
-
-::: {.question}
-Let $n$ be an integer. Prove that
-
-> **if $n^2$ is even, then $n$ is even.**
-
-&nbsp;&nbsp;(a) Write down the contrapositive of the statement. **[1]**
-
-&nbsp;&nbsp;(b) Prove the contrapositive. **[3]**
-
-&nbsp;&nbsp;(c) Explain why this proves the original statement. **[1]**
-:::
-
-Try proving the original directly and you will get stuck fast: "$n^2$ is even" gives you $n^2 = 2k$, and
-extracting information about $n$ from that requires facts you have not been given. The contrapositive,
-though, starts from "*$n$ is odd*" — and [an odd number has a formula you can actually compute
-with]{.hl}, namely $n = 2m+1$. That asymmetry is the whole reason this technique exists.
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-::: {.topic}
-Topic — proof by contrapositive
-:::
-
-
-**(a) Contrapositive:** *If $n$ is **not** even, then $n^2$ is **not** even* — that is,
-
-> **if $n$ is odd, then $n^2$ is odd.**
-
-**(b) Proof.** Suppose $n$ is odd. Then $n = 2m+1$ for some integer $m$, so
-
-$$n^2 = (2m+1)^2 = 4m^2 + 4m + 1 = 2\left(2m^2 + 2m\right) + 1 .$$
-
-Since $2m^2 + 2m$ is an integer, $n^2$ is **odd**. $\blacksquare$
-
-**(c)** A statement and its contrapositive are **logically equivalent** — they are true in exactly the
-same circumstances. So having proved the contrapositive, [the original statement is proved as well; there
-is nothing further to do]{.hl}.
-
-**Common slips.**
-
-| ✗ | ✓ |
-|---|---|
-| Proving the **converse** ("if $n$ is even then $n^2$ is even") instead | That is a different statement. True here, but it does **not** prove the original. |
-| Writing $n = 2m+1$ and then forgetting to say *"for some integer $m$"* | The quantifier matters — it is what makes $2m^2+2m$ an integer at the end. |
-| Stopping at $4m^2+4m+1$ | Not finished. You must display it in the form $2(\text{integer})+1$ to have shown it is odd. |
-:::
-
-::: {.workspace style="min-height:9cm"}
-Working
-:::
-
----
-
-## Question 5
+## Question 3
 
 ::: {.question}
 $P$ and $Q$ are statements. For each sentence below, write down its **contrapositive**, in the same
@@ -398,7 +550,7 @@ Working
 
 # Part 3 — Hard
 
-## Question 6
+## Question 4
 
 ::: {.question}
 $m$ is a positive integer. Consider the theorem
@@ -465,7 +617,7 @@ Working
 
 ---
 
-## Question 7
+## Question 5
 
 ::: {.question}
 A student is asked to prove:
@@ -565,7 +717,7 @@ options write it for you, badly.
 
 ---
 
-## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q9</span>
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set C · P2 Q9</span>
 
 ::: {.question}
 A locked box has two levers, $A$ and $B$, which can be positioned either left or right at any particular
@@ -590,7 +742,7 @@ $P\Rightarrow Q$, and the only statement guaranteed to follow is the contraposit
 $\lnot Q\Rightarrow\lnot P$.
 
 **Negate $Q$:** "locked". **Negate $P$:** $\lnot(A\text{ left or }B\text{ right})
-=(A\text{ **not** left})\ \textbf{and}\ (B\text{ **not** right})$, i.e. **$A$ right and $B$ left**. So:
+=(A\text{ not left})\ \textbf{and}\ (B\text{ not right})$, i.e. **$A$ right and $B$ left**. So:
 
 > *If the box is locked, then lever $A$ is right **and** lever $B$ is left.* — option **F**.
 
@@ -612,7 +764,7 @@ Working
 
 ---
 
-## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q16 &nbsp;★</span>
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock A · P2 Q16 &nbsp;★</span>
 
 ::: {.question}
 A safe has three levers, $A$, $B$ and $C$, each of which can be positioned either left or right at any
@@ -671,7 +823,7 @@ Working
 
 ---
 
-## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q12</span>
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set D · P2 Q12</span>
 
 ::: {.question}
 Let $P$ be the set of prime numbers greater than $3$. Consider the following assertion:
@@ -723,7 +875,7 @@ the answer to both is the same — and here it is "no". $\;\blacksquare$
 
 *(For the record $(*)$ is true: any integer is $6n,6n\pm1,6n\pm2$ or $6n+3$, and all but $6n\pm1$ are
 divisible by $2$ or $3$, so they cannot be prime beyond $3$. But the question never asks whether $(*)$ is
-true — only which statements say the **same thing**.)* $\;\blacksquare$
+true — only which statements say the **same thing**.)*
 :::
 
 ::: {.workspace style="min-height:5cm"}
@@ -738,13 +890,13 @@ Converse and contrapositive is a **small** slot. Across the eight papers 2016–
 only seven questions — against twenty-nine for necessary/sufficient. But it is never absent for long, and
 when it does appear the mark is usually available with no calculation at all.
 
-Every question below is a genuine TMUA paper. Notice what they have in common: in three of the four you are
-never asked whether a statement is **true**, only which statements **say the same thing**. [The work is
-translation before it is mathematics]{.hl} — convert every option into $\Rightarrow$ form first, then look
-for options that are secretly each other.
+Every question below is from a genuine TMUA paper. In Questions 10 and 12 you never need to know what the
+statement says, only which options **say the same thing**. [The work is translation before it is
+mathematics]{.hl} — convert every option into $\Rightarrow$ form first, then look for options that are secretly
+each other.
 
 
-## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q9 &nbsp;◆</span>
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q9 &nbsp;◆</span>
 
 ::: {.question}
 Consider the statement about a pentagon $P$:
@@ -770,7 +922,7 @@ Which of the following is/are true?
 
 **Start with the structural fact, before any geometry:** *a statement and its contrapositive are logically
 equivalent*, so **I and II always have the same truth value**. That instantly eliminates every option
-containing exactly one of them — B, C, E and G are gone before you draw a pentagon.
+containing exactly one of them — B, C, F and G are gone before you draw a pentagon.
 
 - **I — false.** The interior angles of a pentagon sum to $540^\circ$. Take
   $100^\circ,102^\circ,108^\circ,110^\circ,120^\circ$: the sum is $540^\circ$ and one angle **is** $108^\circ$,
@@ -784,7 +936,7 @@ containing exactly one of them — B, C, E and G are gone before you draw a pent
 
 **The lesson.** A false statement can have a true converse; the two carry no information about each other.
 But the contrapositive carries **all** of it. *Knowing that pair rule reduced an eight-option question to
-three candidates without any mathematics.* $\;\blacksquare$
+four candidates without any mathematics.* $\;\blacksquare$
 :::
 
 ::: {.workspace style="min-height:5cm"}
@@ -794,7 +946,7 @@ Working
 ---
 
 
-## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q17</span>
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q17</span>
 
 ::: {.question}
 A multiple-choice test question offered the following four options relating to a certain statement:
@@ -856,7 +1008,7 @@ Working
 ---
 
 
-## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q12</span>
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q12</span>
 
 ::: {.question}
 Which one of **A**–**F** correctly completes the following statement?
@@ -896,7 +1048,7 @@ which is exactly what the question is testing.*
 import numpy as np, matplotlib.pyplot as plt
 
 CURVE, CHORD = '#1f77b4', '#d62728'
-fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.3))
+fig, axes = plt.subplots(2, 1, figsize=(6.4, 8.2))
 
 def panel(ax, f, a, b, n, title, note, loc):
     x = np.linspace(a, b, 400)
@@ -944,7 +1096,7 @@ So **the condition that matters is $\mathrm{f}''>0$**, and it appears in options
   $1.75393$ against the exact $e-1=1.71828$ — an overestimate with $\mathrm{f}'>0$. *One counterexample is
   all a "necessary" claim needs to die.*
 - **F is false** the moment E is, since it asserts E as one of its halves.
-- **A is false**, from the right-hand picture: concave gives an **under**estimate. B and C carry the same
+- **A is false**, from the lower picture: concave gives an **under**estimate. B and C carry the same
   condition, so they fail too.
 
 ### The lesson
@@ -962,7 +1114,7 @@ Working
 ---
 
 
-## Question 14 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q20</span>
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q20</span>
 
 ::: {.question}
 $x$ is a real number and $\mathrm{f}$ is a function.
@@ -977,8 +1129,8 @@ Given that **exactly one** of the following statements is true, which one is it?
 &nbsp;&nbsp;**F** &nbsp; $\mathrm{f}(x)\ge0$ **if and only if** $x<0$
 :::
 
-This is the last question on the paper and it contains no mathematics at all. Six options, but only two
-statements between them — so [translate every line into an arrow first and look for duplicates]{.hl}. The
+This is the last question on the paper and it contains no mathematics at all. Six options, but only four
+different statements between them — so [translate every line into an arrow first and look for duplicates]{.hl}. The
 phrase *"exactly one is true"* is doing far more work than it appears to.
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
@@ -1056,7 +1208,7 @@ Working
 ---
 
 
-## Question 15 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q11</span>
+## Question 13 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q11</span>
 
 ::: {.question}
 Consider the equation $2^{x}=mx+c$, where $m$ and $c$ are real constants.

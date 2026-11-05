@@ -2,6 +2,7 @@
 title: "Toolkit S2 — Assignment · Mark Scheme"
 subtitle: "Tutor copy — full solutions with reasoning"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -9,302 +10,626 @@ execute:
 
 ::: {.solutions}
 
-Marks: **(M1)** method, **(A1)** accuracy, **(B1)** independent. Total **32**.
-
-The italic sentences are the reasoning to say aloud while marking. Throughout, insist the student
-**writes arrows** — an answer with no arrow in the working cannot be checked, by them or by you.
+12 questions. Answers were checked against the official or publisher solutions. Question 1 is an exercise from
+the Notes on Logic and Proof, worked here from the definitions.
 
 ---
 
-# Section A — Fluency
+# Section A — The relatives of a statement
 
-## Question 1 **[4]**
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Notes on Logic and Proof · Exercise K, Q2–3</span>
 
 ::: {.question}
-Consider *if $n$ is divisible by $10$ then $n$ is divisible by $5$*. Write the (a) converse, (b)
-contrapositive, (c) inverse; and (d) state which of the four (original, converse, contrapositive, inverse)
-are **true**.
+Let $S$ be the statement "if $A$ then $B$".
+
+&nbsp;&nbsp;**(a)** What is the contrapositive of the converse of $S$? Is it logically equivalent to $S$?
+
+&nbsp;&nbsp;**(b)** What is the converse of the contrapositive of $S$? Is it logically equivalent to $S$?
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-Let $A$ = "$n$ is divisible by $10$", $B$ = "$n$ is divisible by $5$". Original: $A \Rightarrow B$.
+**Both are the inverse of $S$, and neither is equivalent to $S$.**
 
-**(a) Converse** ($B \Rightarrow A$): *If $n$ is divisible by $5$, then $n$ is divisible by $10$.* &nbsp; **(B1)**
+**(a)** The converse of $S$ is $B\Rightarrow A$. Its contrapositive negates and swaps:
 
-**(b) Contrapositive** (not $B \Rightarrow$ not $A$): *If $n$ is **not** divisible by $5$, then $n$ is
-**not** divisible by $10$.* &nbsp; **(B1)**
+$$\text{not }A\Rightarrow\text{not }B .$$
 
-**(c) Inverse** (not $A \Rightarrow$ not $B$): *If $n$ is **not** divisible by $10$, then $n$ is **not**
-divisible by $5$.* &nbsp; **(B1)**
+**(b)** The contrapositive of $S$ is $\text{not }B\Rightarrow\text{not }A$. Its converse swaps:
 
-**(d)** The **original** and the **contrapositive** are true; the **converse** and the **inverse** are
-false. &nbsp; **(B1)**
+$$\text{not }A\Rightarrow\text{not }B .$$
 
-*Counterexample for both false ones: $n = 5$ — divisible by $5$ but not by $10$.*
-
-**Marking note.** The pattern (original ✓, contrapositive ✓, converse ✗, inverse ✗) is the standard one,
-and the two ✗s always share a counterexample — because converse and inverse are contrapositives of each
-other.
+Both routes give the **inverse**. It is equivalent to the converse, and it is broken by the row "$A$ false, $B$
+true", whereas $S$ is broken by "$A$ true, $B$ false". Different breaking rows mean different statements.
 :::
 
 ---
 
-## Question 2 **[3]**
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q10</span>
 
 ::: {.question}
-Assume true: *if a number is a multiple of $9$, then its digits sum to a multiple of $9$*. For each, state
-**must be true / must be false / cannot be determined**. &nbsp;&nbsp;(a) if the digits do not sum to a
-multiple of $9$, the number is not a multiple of $9$; &nbsp; (b) if the digits sum to a multiple of $9$,
-the number is a multiple of $9$; &nbsp; (c) a number is a multiple of $9$ and its digits sum to $7$.
+The first seven terms of a sequence of positive integers are:
+
+$$u_1=15,\quad u_2=21,\quad u_3=30,\quad u_4=37,\quad u_5=44,\quad u_6=51,\quad u_7=59$$
+
+Consider the following statement about this sequence:
+
+> $(*)$ If $n$ is a prime number, then $u_n$ is a multiple of $3$ or $u_n$ is a multiple of $5$.
+
+What is the smallest value of $n$ that provides a counterexample to $(*)$?
+
+&nbsp;&nbsp;**A** $1$
+
+&nbsp;&nbsp;**B** $2$
+
+&nbsp;&nbsp;**C** $3$
+
+&nbsp;&nbsp;**D** $4$
+
+&nbsp;&nbsp;**E** $5$
+
+&nbsp;&nbsp;**F** $6$
+
+&nbsp;&nbsp;**G** $7$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a) Must be true** &nbsp; **(B1)** — this is the **contrapositive**, always equivalent to a true
-statement.
+**E — $n=5$.**
 
-**(b) Cannot be determined** &nbsp; **(B1)** — this is the **converse**.
+A counterexample needs the hypothesis **true** and the conclusion **false**. Negating the "or", the conclusion
+is false when $u_n$ is a multiple of neither $3$ nor $5$.
 
-::: {.callout-warning appearance="simple"}
-**Expect an argument here.** The converse *is* in fact a true theorem about digit sums. But the question
-asks what follows **from the given statement**, and a converse never follows. *"True in mathematics"* and
-*"deducible from what you were given"* are different things — and Paper 2 tests the second.
-:::
+| $n$ | $n$ prime? | $u_n$ | multiple of $3$ or $5$? | counterexample? |
+|---|---|---|---|---|
+| $1$ | no | $15$ | — | no |
+| $2$ | yes | $21$ | yes | no |
+| $3$ | yes | $30$ | yes | no |
+| $4$ | no | $37$ | — | no |
+| $5$ | yes | $44$ | **no** | **yes** |
 
-**(c) Must be false** &nbsp; **(B1)** — a multiple of $9$ whose digits sum to $7$ would be a case where
-the hypothesis holds and the conclusion fails, which is precisely what the true statement forbids.
-
-*This is what a counterexample would look like — so if one existed, the original statement would be false.*
+$n=4$ is the trap: $37$ fails the conclusion, but $4$ is not prime, so the statement says nothing about it.
 :::
 
 ---
 
-## Question 3 **[3]**
+## Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q1</span>
 
 ::: {.question}
-Let $x$ be real. Write the **negation** of each. &nbsp;&nbsp;(a) $x>5$; &nbsp; (b) $2\le x<7$; &nbsp;
-(c) $x$ is positive **and** $x$ is an integer.
+Let $n$ denote a positive integer. Consider the following three statements.
+
+&nbsp;&nbsp;**I** For every $n$, if $n^2$ is divisible by $12$, then $n$ is divisible by $6$.
+
+&nbsp;&nbsp;**II** For every $n$, if $n^2$ is divisible by $12$, then $n$ is divisible by $12$.
+
+&nbsp;&nbsp;**III** There exists an $n$ such that $n^2$ is divisible by $12$ but $n$ is not divisible by $12$.
+
+Which of the statements are true?
+
+&nbsp;&nbsp;**A** I only
+
+&nbsp;&nbsp;**B** II only
+
+&nbsp;&nbsp;**C** III only
+
+&nbsp;&nbsp;**D** I and II only
+
+&nbsp;&nbsp;**E** II and III only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** all of them
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a)** $x \le 5$ &nbsp; **(B1)** &nbsp; *— not $x<5$. The boundary case moves to the other side.*
+**F — I and III only.**
 
-**(b)** $x < 2$ **or** $x \ge 7$ &nbsp; **(B1)**
+**I is true.** Use the contrapositive idea on primes. $n^2$ divisible by $3$ forces $3\mid n$, since $3$ is
+prime. $n^2$ divisible by $4$ forces $n$ even, since an odd $n$ has an odd square. So $2\mid n$ and $3\mid n$,
+which gives $6\mid n$.
 
-*Negating a two-sided inequality gives an **or**, not an **and** — there is no number that is both below
-$2$ and above $7$, so an "and" here would be impossible.*
+**II is false.** Take $n=6$. Then $n^2=36=12\times3$, but $12$ does not divide $6$.
 
-**(c)** $x$ is **not** positive **or** $x$ is **not** an integer &nbsp; **(B1)**
-
-*Negating an "and" produces an "or". Accept "$x \le 0$ or $x$ is not an integer".*
-
-**Common error:** answering (c) with "*$x$ is negative and not an integer*" — over-negated in two ways
-(both halves forced, and "not positive" narrowed to "negative", losing $x=0$).
+**III is true.** The same $n=6$ works. **III is exactly the negation of II**: a "hypothesis true, conclusion
+false" case. So one of II and III had to be true and the other false.
 :::
 
 ---
 
-# Section B — Exam standard
-
-## Question 4 **[4]**
+## Question 4 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA early specimen · P2 Q9</span>
 
 ::: {.question}
-$a$ an integer; *if $a$ is a multiple of $4$, then $a$ is even*. &nbsp;&nbsp;(a) Write the contrapositive.
-&nbsp; (b) Is it true — argued **without** a fresh direct proof? &nbsp; (c) Write the converse and decide
-if it is true.
+Consider the statement about Fred:
+
+> $(*)$ Every day next week, Fred will do at least one maths problem.
+
+If statement $(*)$ is **not** true, which of the following is certainly true?
+
+&nbsp;&nbsp;**A** Every day next week, Fred will do more than one maths problem.
+
+&nbsp;&nbsp;**B** Some day next week, Fred will do more than one maths problem.
+
+&nbsp;&nbsp;**C** On no day next week will Fred do more than one maths problem.
+
+&nbsp;&nbsp;**D** Every day next week, Fred will do no maths problems.
+
+&nbsp;&nbsp;**E** Some day next week, Fred will do no maths problems.
+
+&nbsp;&nbsp;**F** On no day next week will Fred do no maths problems.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a) Contrapositive:** *If $a$ is **not** even (i.e. $a$ is odd), then $a$ is **not** a multiple of $4$.*
-&nbsp; **(B1)**
+**E.**
 
-**(b) True** &nbsp; **(B1)** — *because the original is true, and a statement and its contrapositive are
-logically equivalent. No separate proof is needed.*
+To use a contrapositive you must be able to negate. "$(*)$ is not true" means there is at least one day that
+breaks it, and nothing more.
 
-**Award the mark only if the reason is the equivalence**, not a fresh proof. That is the point of the part.
+- Negating "every day" gives "some day".
+- Negating "at least one problem" gives "no problems".
 
-**(c) Converse:** *If $a$ is even, then $a$ is a multiple of $4$.* &nbsp; **(M1)**
+So the negation is "some day next week, Fred will do no maths problems".
 
-**False**, counterexample $a = 2$ (even, not a multiple of $4$). &nbsp; **(A1)**
-
-*So here the original and its contrapositive are true while the converse is false — the ordinary
-situation, and a useful contrast with Question 6 where the converse is also true.*
+**D is the tempting wrong answer.** It over-negates: one failing day is enough, and $(*)$ can be false while
+Fred works on the other six days. Session 4 covers this in full.
 :::
 
 ---
 
-## Question 5 **[5]**
+# Section B — What follows, and what does not
+
+## Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q3</span>
 
 ::: {.question}
-$n$ an integer. Prove *if $n^2$ is divisible by $3$ then $n$ is divisible by $3$*. &nbsp;&nbsp;(a) Write the
-contrapositive. &nbsp; (b) Prove it (an integer not divisible by $3$ is $3k+1$ or $3k+2$). &nbsp; (c)
-Explain why that proves the original.
+$a,b$ and $c$ are real numbers.
+
+Given that $ab=ac$, which of the following statements must be true?
+
+&nbsp;&nbsp;**I** $a=0$
+
+&nbsp;&nbsp;**II** $b=0$ or $c=0$
+
+&nbsp;&nbsp;**III** $b=c$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a) Contrapositive:** *If $n$ is **not** divisible by $3$, then $n^2$ is **not** divisible by $3$.*
-&nbsp; **(B1)**
+**A — none of them.**
 
-**(b) Proof.** Suppose $n$ is not divisible by $3$. Then $n = 3k+1$ or $n = 3k+2$ for some integer $k$.
-&nbsp; **(M1 — both cases identified)**
+Do not divide by $a$, since $a$ might be zero. Rearrange and factorise instead:
 
-**Case 1:** $n = 3k+1$.
-$$n^2 = 9k^2 + 6k + 1 = 3\left(3k^2 + 2k\right) + 1 ,$$
-which leaves remainder $1$, so is not divisible by $3$. &nbsp; **(A1)**
+$$ab-ac=0\quad\Longrightarrow\quad a(b-c)=0 .$$
 
-**Case 2:** $n = 3k+2$.
-$$n^2 = 9k^2 + 12k + 4 = 3\left(3k^2 + 4k + 1\right) + 1 ,$$
-which also leaves remainder $1$, so is not divisible by $3$. &nbsp; **(A1)**
+So what follows is the **"or"**: $a=0$ or $b=c$. Neither half follows on its own.
 
-In both cases $n^2$ is not divisible by $3$. $\blacksquare$
+- **I fails:** $a=1,\ b=c=2$ satisfies $ab=ac$, and $a\ne0$.
+- **II fails:** the same example has $b$ and $c$ both non-zero.
+- **III fails:** $a=0,\ b=1,\ c=2$ satisfies $ab=ac$, and $b\ne c$.
 
-**(c)** A statement and its contrapositive are equivalent, so proving the contrapositive proves the
-original. &nbsp; **(B1)**
-
-::: {.callout-note appearance="simple"}
-**Why the contrapositive was essential here.** Starting from "$n^2$ is divisible by $3$" gives
-$n^2 = 3m$, from which nothing about $n$ follows without deeper number theory. Starting from the negation
-gives a **formula for $n$** ($3k+1$ or $3k+2$) that you can square. Whenever the negation supplies a
-formula and the original does not, take the contrapositive.
-
-**Both cases are required** for full marks — a student who does only $3k+1$ has proved half of it.
-:::
+Note that $b=c\Rightarrow ab=ac$ is always true. It is the **converse** that fails, which is the whole trap.
 :::
 
 ---
 
-## Question 6 **[5]**
+## Question 6 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">JZ Maths Mock C · P2 Q2</span>
 
 ::: {.question}
-$n$ a positive integer; $(*)$: *if $n$ is divisible by $9$ then $n$ is divisible by $3$*. Which, taken
-individually, is/are equivalent to $(*)$? &nbsp;&nbsp;**I** if $n$ not divisible by $3$ then not by $9$;
-&nbsp; **II** if $n$ divisible by $3$ then by $9$; &nbsp; **III** $n$ divisible by $9$ only if by $3$.
-&nbsp; (Options **A**–**H**; also note for each whether it is *true*.)
+Let $x,y,z$ be real numbers with $x\ge y$. Which of the following statements must be true?
+
+&nbsp;&nbsp;**1** $x^3\ge y^3$
+
+&nbsp;&nbsp;**2** $x^2\ge y^2$
+
+&nbsp;&nbsp;**3** $xz\ge yz$
+
+&nbsp;&nbsp;**4** $xz^2\ge yz^2$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** 1 only
+
+&nbsp;&nbsp;**C** 4 only
+
+&nbsp;&nbsp;**D** 1 and 2 only
+
+&nbsp;&nbsp;**E** 1 and 3 only
+
+&nbsp;&nbsp;**F** 1 and 4 only
+
+&nbsp;&nbsp;**G** 2 and 4 only
+
+&nbsp;&nbsp;**H** 1, 2 and 4 only
+
+&nbsp;&nbsp;**I** 1, 3 and 4 only
+
+&nbsp;&nbsp;**J** 1, 2, 3 and 4
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer — **E** (I and III)
+## Solution
 
-Let $P$ = "$n$ is divisible by $9$", $Q$ = "$n$ is divisible by $3$". Then $(*) = P \Rightarrow Q$.
-&nbsp; **(M1 for naming and writing the arrow)**
+**F — 1 and 4 only.**
 
-**I.** "not $Q \Rightarrow$ not $P$" — negated **and** reversed: the **contrapositive**.
-**Equivalent** ✓, and **true**. &nbsp; **(B1)**
+Each line claims "$x\ge y\Rightarrow\dots$", so each false one needs a single counterexample.
 
-**II.** "$Q \Rightarrow P$" — reversed only: the **converse**. **Not equivalent** ✗, and also **false**
-(e.g. $n=3$ is divisible by $3$ but not by $9$). &nbsp; **(B1)**
-
-**III.** "$P$ **only if** $Q$" is $P \Rightarrow Q$ — the original restyled. **Equivalent** ✓, and
-**true**. &nbsp; **(B1)**
-
-**Answer: E.** &nbsp; **(A1)**
-
-::: {.callout-warning appearance="simple"}
-**The comparison to draw in class.** Here the converse is **false**, so truth and equivalence happen to
-agree, and a careless student still gets the right answer. In the **class material's Question 6** the
-converse was **true** — and there, reasoning by truth gives the wrong answer.
-
-Put the two side by side and the lesson lands: *equivalence is about the arrows, and truth is a
-distraction that sometimes happens to be harmless.*
-:::
+- **1 is true.** $t^3$ is increasing on all real numbers.
+- **2 is false.** $x=1,\ y=-2$ gives $1\ge4$, which fails. Squaring is not increasing on negative numbers.
+- **3 is false.** $x=1,\ y=0,\ z=-1$ gives $-1\ge0$, which fails.
+- **4 is true.** $z^2\ge0$, and multiplying by a non-negative number keeps the direction.
 :::
 
 ---
 
-# Section C — Stretch
-
-## Question 7 **[5]**
+## Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">Tyler TMUA Set A · P2 Q7</span>
 
 ::: {.question}
-A student "proves" *if $n^2$ is odd then $n$ is odd* by writing: "Suppose $n$ is odd; then $n=2k+1$, so
-$n^2=2(2k^2+2k)+1$ is odd; therefore if $n^2$ is odd then $n$ is odd." &nbsp;&nbsp;(a) Is the algebra
-correct? &nbsp; (b) Is the **proof** correct — state what was assumed, concluded, and required. &nbsp;
-(c) If wrong, write a correct proof.
+The real numbers $a,b,c$ and $d$ satisfy $0<a<b<c<d$.
+
+Which of the following inequalities must be true?
+
+&nbsp;&nbsp;**I** $a+c<b+d$
+
+&nbsp;&nbsp;**II** $d-c>b-a$
+
+&nbsp;&nbsp;**III** $\dfrac bc<\dfrac da$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** II and III only
+
+&nbsp;&nbsp;**G** I and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a) Yes, the algebra is correct.** &nbsp; **(B1)** — $(2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$, which is odd.
+**G — I and III only.**
 
-**(b) No, the proof is not correct.** &nbsp; **(M1)**
+**I is true.** Add $a<b$ and $c<d$.
 
-- **Assumed:** $n$ is odd.
-- **Concluded:** $n^2$ is odd.
-- So what was proved is $(n \text{ odd}) \Rightarrow (n^2 \text{ odd})$. &nbsp; **(A1)**
-- **Required:** $(n^2 \text{ odd}) \Rightarrow (n \text{ odd})$.
+**II is false.** The gaps can be any sizes. Take $a=1,\ b=8,\ c=9,\ d=10$. Then $d-c=1$ and $b-a=7$.
 
-The student has proved the **converse** of what was asked. A converse is not equivalent to the original,
-so nothing about the required statement has been established. &nbsp; **(A1)**
-
-*Both statements happen to be true — but proving one does not prove the other, and that is the error.*
-
-**(c) Correct proof** — use the contrapositive, *if $n$ is even then $n^2$ is even*: &nbsp; **(B1)**
-
-Suppose $n$ is even, so $n = 2k$. Then $n^2 = 4k^2 = 2(2k^2)$, which is even. Since a statement and its
-contrapositive are equivalent, the original follows. $\blacksquare$
-
-::: {.callout-note appearance="simple"}
-**The tell to teach.** A genuine proof by contrapositive **starts from a negation** — "suppose $n$ is
-*even*". This student's argument contains no negation anywhere, which is the giveaway that they proved the
-converse. Ask any student claiming "contrapositive": *where is your negation?*
-:::
+**III is true.** Since $b<c$, we have $\dfrac bc<1$. Since $d>a>0$, we have $\dfrac da>1$. So
+$\dfrac bc<1<\dfrac da$.
 :::
 
 ---
 
-## Question 8 **[3]**
+## Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q8</span>
 
 ::: {.question}
-$P,Q$ statements; it is given that "**$P$ only if $Q$**" is true. &nbsp;&nbsp;(a) Write it as an
-implication. &nbsp; (b) Write its contrapositive as an implication. &nbsp; (c) A student claims "since $P$
-only if $Q$, it follows that $Q$ only if $P$." Right? Justify.
+$a,b$ and $c$ are real numbers with $a<b<c<0$.
+
+Which of the following statements must be true?
+
+&nbsp;&nbsp;**I** $ac<ab<a^2$
+
+&nbsp;&nbsp;**II** $b(c+a)>0$
+
+&nbsp;&nbsp;**III** $\dfrac cb>\dfrac ab$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Answer
+## Solution
 
-**(a)** $P \Rightarrow Q$ &nbsp; **(B1)** — *"only if" keeps the order.*
+**E — I and II only.**
 
-**(b)** not $Q \Rightarrow$ not $P$ &nbsp; **(B1)**
+All three numbers are negative, so multiplying or dividing by any of them reverses an inequality.
 
-**(c) No, the student is wrong.** &nbsp; **(B1)**
+**I is true.** Start with $a<b<c$ and multiply through by $a<0$. This reverses both signs:
 
-*"$Q$ only if $P$" means $Q \Rightarrow P$, which is the **converse** of the given statement. A converse
-does not follow from the original.*
+$$a^2>ab>ac,\qquad\text{which is}\qquad ac<ab<a^2 .$$
 
-Accept any concrete counterexample, e.g. $P$ = "$n$ is divisible by $10$", $Q$ = "$n$ is divisible by
-$5$": then "$P$ only if $Q$" is true, but "$Q$ only if $P$" is false ($n=5$).
+**II is true.** $c+a<0$ and $b<0$, and the product of two negatives is positive.
 
-*If both did happen to hold, the two statements together would form an "if and only if" — but that has to
-be earned, never assumed.*
+**III is false.** Start with $c>a$ and divide by $b<0$, which reverses the sign: $\dfrac cb<\dfrac ab$. This is
+the opposite of III, so III is false for every allowed choice.
 :::
 
 ---
 
-## Marking summary
+## Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P2 Q10</span>
 
-| Q | Marks | The thing being tested |
+::: {.question}
+The real numbers $a,b,c$ and $d$ satisfy both
+
+$$0<a+b<c+d\qquad\text{and}\qquad0<a+c<b+d$$
+
+Which of the following inequalities must be true?
+
+&nbsp;&nbsp;**I** $a<d$
+
+&nbsp;&nbsp;**II** $b<c$
+
+&nbsp;&nbsp;**III** $a+b+c+d>0$
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**F — I and III only.**
+
+**I is true.** Add the two right-hand inequalities:
+
+$$a+b+a+c<c+d+b+d\quad\Longrightarrow\quad2a<2d\quad\Longrightarrow\quad a<d .$$
+
+**II is false.** The hypotheses are symmetric in $b$ and $c$: swapping them turns each one into the other. So
+if they forced $b<c$, they would also force $c<b$. For an explicit case, take $a=1,\ b=2,\ c=1,\ d=100$. Then
+$0<3<101$ and $0<2<102$, but $b>c$.
+
+**III is true.** $a+b>0$ and $c+d>a+b>0$. Adding gives $a+b+c+d>0$.
+:::
+
+---
+
+## Question 10 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P2 Q16</span>
+
+::: {.question}
+In this question, $x_1,x_2,x_3,\dots$ is an arithmetic progression, all of whose terms are integers.
+
+Let $n$ be a positive integer. **If** the median of the first $n$ terms of the sequence is an integer, which of the following three statements must be true?
+
+&nbsp;&nbsp;**I** The median of the first $n+2$ terms is an integer.
+
+&nbsp;&nbsp;**II** The median of the first $2n$ terms is an integer.
+
+&nbsp;&nbsp;**III** The median of $x_2,x_4,x_6,\dots,x_{2n}$ is an integer.
+
+&nbsp;&nbsp;**A** none of them
+
+&nbsp;&nbsp;**B** I only
+
+&nbsp;&nbsp;**C** II only
+
+&nbsp;&nbsp;**D** III only
+
+&nbsp;&nbsp;**E** I and II only
+
+&nbsp;&nbsp;**F** I and III only
+
+&nbsp;&nbsp;**G** II and III only
+
+&nbsp;&nbsp;**H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**F — I and III only.**
+
+Let the common difference be $d$. The median of the first $k$ terms of an arithmetic progression is the mean of
+the first and last terms:
+
+$$\text{median of first }k\text{ terms}=x_1+\frac{(k-1)d}{2}.$$
+
+The hypothesis says that $x_1+\dfrac{(n-1)d}{2}$ is an integer.
+
+**I is true.** The median of the first $n+2$ terms is $x_1+\dfrac{(n+1)d}{2}$. This is the hypothesis value plus
+$d$, so it is an integer.
+
+**II is false.** Take $x_k=k$ and $n=3$. The median of $1,2,3$ is $2$, an integer. The median of the first six
+terms is $3.5$.
+
+**III is true.** The terms $x_2,x_4,\dots,x_{2n}$ form an arithmetic progression, and its median is the mean of
+its first and last terms:
+
+$$\frac{x_2+x_{2n}}{2}=\frac{2x_1+2nd}{2}=x_1+nd ,$$
+
+which is always an integer, whatever the hypothesis says.
+:::
+
+---
+
+# Section C — Proving the right direction
+
+## Question 11 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q11</span>
+
+::: {.question}
+A student attempts to solve the following problem, where $a$ and $b$ are non-zero real numbers:
+
+> Show that if $a^2-4b^3\ge0$ then there exist real numbers $x$ and $y$ such that $a=xy(x+y)$ and $b=xy$.
+
+Consider the following attempt:
+
+&nbsp;&nbsp;$(x-y)^2\ge0$ &nbsp; **(I)**
+
+&nbsp;&nbsp;so $x^2+y^2-2xy\ge0$ &nbsp; **(II)**
+
+&nbsp;&nbsp;so $(x+y)^2-4xy\ge0$ &nbsp; **(III)**
+
+&nbsp;&nbsp;so $x^2y^2(x+y)^2-4x^3y^3\ge0$ &nbsp; **(IV)**
+
+&nbsp;&nbsp;so $a^2-4b^3\ge0$ &nbsp; **(V)**
+
+Which of the following best describes this attempt?
+
+&nbsp;&nbsp;**A** It is completely correct.
+
+&nbsp;&nbsp;**B** It is incorrect, but it would be correct if written in the reverse order.
+
+&nbsp;&nbsp;**C** It is incorrect, but the student has correctly proved the converse.
+
+&nbsp;&nbsp;**D** It is incorrect because there is an error in line (II).
+
+&nbsp;&nbsp;**E** It is incorrect because there is an error in line (III).
+
+&nbsp;&nbsp;**F** It is incorrect because there is an error in line (IV).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.**
+
+Use the two-line audit from the Notes.
+
+**Check the algebra first.** Line (II) expands (I). Line (III) rewrites (II), because
+$(x+y)^2-4xy=x^2+y^2-2xy$. Line (IV) multiplies (III) by $x^2y^2\ge0$, which keeps the direction.
+
+**Now look at line (V).** Getting there uses $a=xy(x+y)$ and $b=xy$. So the student has **assumed** that such
+$x,y$ exist and **concluded** that $a^2-4b^3\ge0$.
+
+| | Statement |
+|---|---|
+| **Required** | $a^2-4b^3\ge0\Rightarrow$ such $x,y$ exist |
+| **Proved** | such $x,y$ exist $\Rightarrow a^2-4b^3\ge0$ |
+
+That is the converse, and each line of it is valid.
+
+**Why not B?** Reversing the order would need steps such as (V) to (IV), which require already having $x$ and
+$y$. Their existence is exactly what has to be shown.
+:::
+
+---
+
+## Question 12 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q17</span>
+
+::: {.question}
+A student answered the following question:
+
+> $a$ and $b$ are non-zero real numbers.
+>
+> Prove that the equation $x^3+ax^2+b=0$ has three distinct real roots if $27b\left(b+\dfrac{4a^3}{27}\right)<0$
+
+Here is the student's solution:
+
+&nbsp;&nbsp;**I** We differentiate $y=x^3+ax^2+b$ to get $\dfrac{dy}{dx}=3x^2+2ax=x(3x+2a)$. Solving $\dfrac{dy}{dx}=0$ shows that the stationary points are at $(0,b)$ and $\left(-\dfrac{2a}{3},\ b+\dfrac{4a^3}{27}\right)$.
+
+&nbsp;&nbsp;**II** If $27b\left(b+\dfrac{4a^3}{27}\right)<0$, then $b$ and $b+\dfrac{4a^3}{27}$ must have opposite signs, and so one of the stationary points is above the $x$-axis and one is below.
+
+&nbsp;&nbsp;**III** If the cubic has three distinct real roots, then one of the stationary points is above the $x$-axis and one is below.
+
+&nbsp;&nbsp;**IV** Hence if $27b\left(b+\dfrac{4a^3}{27}\right)<0$, then the equation has three distinct real roots.
+
+Which one of the following options best describes the student's solution?
+
+&nbsp;&nbsp;**A** It is a completely correct solution.
+
+&nbsp;&nbsp;**B** The student has instead proved the converse of the statement in the question.
+
+&nbsp;&nbsp;**C** The solution is wrong, because the student should have stated step II after step III.
+
+&nbsp;&nbsp;**D** The solution is wrong, because the student should have shown the converse of the result in step II.
+
+&nbsp;&nbsp;**E** The solution is wrong, because the student should have shown the converse of the result in step III.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.**
+
+Write the arrows for each step. Let $C$ be the condition, $S$ be "the stationary points are on opposite sides of
+the $x$-axis", and $R$ be "three distinct real roots".
+
+| Step | Arrow | Useful? |
 |---|---|---|
-| 1 | 4 | Forming all three rearrangements; the ✓✓✗✗ pattern |
-| 2 | 3 | "True in maths" vs "follows from what's given" |
-| 3 | 3 | Negating inequalities and "and" |
-| 4 | 4 | **Using equivalence instead of re-proving** |
-| 5 | 5 | Proof by contrapositive, with case work |
-| 6 | 5 | Equivalence vs truth, under exam wording |
-| 7 | 5 | Auditing a proof: assumed vs required |
-| 8 | 3 | "Only if" both ways round |
+| **II** | $C\Rightarrow S$ | Yes |
+| **III** | $R\Rightarrow S$ | No: it points into $S$ |
+| **IV** | claims $C\Rightarrow R$ | needs $C\Rightarrow S\Rightarrow R$ |
 
-**If marks are lost in one place, look at 4(b) and 7(b).** Question 4(b) asks whether the student will
-*use* the equivalence rather than re-prove it, and 7(b) asks whether they can spot a converse dressed as a
-proof. Those two answers predict how the rest of Paper 2 will go.
+To reach $R$ from $S$, the student needed $S\Rightarrow R$, which is the **converse of step III**. Step III as
+written gives a chain that does not connect.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.6,3.4,300); fig,ax=plt.subplots(figsize=(5.0,3.2))
+ax.plot(x,x**3-3*x**2+2,color='#1f77b4',lw=2,label='$y=x^3-3x^2+2$')
+ax.plot([0,2],[2,-2],'o',color='#d62728',label='stationary points')
+ax.axhline(0,color='0.3',lw=1); ax.axvline(0,color='0.3',lw=1); ax.set_ylim(-5,4)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False)
+plt.tight_layout(); plt.show()
+```
+
+The graph shows why $S\Rightarrow R$ is in fact true, and so the theorem is fine. Only the logic of the written
+solution is faulty.
+
+**Why not B?** The student's first and last lines do target the correct statement. **Why not D?** Step II already
+points the right way, from $C$ to $S$.
+:::
+
+---
+
+# What each question tests
+
+| Q | Source | Tests |
+|---|---|---|
+| 1 | Notes on Logic and Proof · Exercise K, Q2–3 | Composing the operations; the converse and inverse as a pair |
+| 2 | 2021 · P2 Q10 | Row 2 of the table; negating an "or" |
+| 3 | JZ Maths Mock C · P2 Q1 | A statement and the case that breaks it |
+| 4 | TMUA early specimen · P2 Q9 | Negating before you take a contrapositive |
+| 5 | 2019 · P2 Q3 | A one-way step: the converse of "multiply both sides" |
+| 6 | JZ Maths Mock C · P2 Q2 | Testing implications with one counterexample |
+| 7 | Tyler TMUA Set A · P2 Q7 | What follows from a hypothesis, and what does not |
+| 8 | 2019 · P2 Q8 | Implications through a sign change |
+| 9 | 2020 · P2 Q10 | Deciding which conclusions a hypothesis forces |
+| 10 | 2018 · P2 Q16 | An "if" in the stem: hold the hypothesis, test each conclusion |
+| 11 | 2021 · P2 Q11 | Assumed vs required in a real paper |
+| 12 | 2022 · P2 Q17 | Spotting which step has the arrow the wrong way round |
+
 :::

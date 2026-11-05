@@ -53,19 +53,19 @@ of ordinary English (*"only if"*, *"some"*) is exactly where the marks are won a
 ::: {.callout-tip}
 ## Part 4 — the exam banks (added 2026-09-24)
 
-**S1–S5 and S7 now each end with a "Part 4 — Exam bank"**: real questions pulled from the TMUA past papers
+**S1–S5 and S7 each include an exam bank, starting at Part 4**: real questions pulled from the TMUA past papers
 and from the Tyler and JZ Maths mock sets, grouped by *way of thinking* rather than by topic, with every
 answer checked against the official solution.
 
-| Session | Class questions | of which Part 4 |
+| Session | Class questions | in the exam banks |
 |---|---|---|
-| **S1** Statement forms | 16 | 9 |
-| **S2** Converse & contrapositive | 15 | 8 |
-| **S3** Necessary & sufficient | 20 | 14 |
-| **S4** Quantifiers & negation | 19 | 12 |
-| **S5** Proof methods | 39 | 12 |
-| **S6** Scrambled proofs | 11 | 1 |
-| **S7** Spot the error | 27 | 17 |
+| **S1** Statement forms | 15 | 10 |
+| **S2** Converse & contrapositive | 13 | 8 |
+| **S3** Necessary & sufficient | 21 | 15 |
+| **S4** Quantifiers & negation | 18 | 12 |
+| **S5** Proof methods | 28 | 12 |
+| **S6** Scrambled proofs | 8 | 1 |
+| **S7** Spot the error | 23 | 17 |
 | **S7 Extended** · [when is squaring the error?](s07_extended_equivalence.qmd) | 6 shapes + 6 | all real |
 | **T1** Divisors & primes | 15 checks + 19 past-paper | — |
 | **T2** Shapes as logic | 8 checks + 8 past-paper | — |
@@ -73,16 +73,17 @@ answer checked against the official solution.
 **S1, S2, S4 and S5 each split the bank in two**: **Part 4** is mock material, **Part 5** is genuine TMUA
 papers.
 
-- **S1 Part 5** — 2021 Q17, 2022 Q14, 2023 Q10, 2023 Q12, 2023 Q14. One for each connective: **and** as an
-  intersection, **or** as an exhaustive split, an **if and only if** chain, and *sufficient* / *only if*.
+- **S1 Part 5** — 2021 Q17, 2022 Q5, 2022 Q14, 2023 Q10, 2023 Q12, 2023 Q14. A statement with its converse
+  and contrapositive, then **and** as an intersection, **or** as an exhaustive split, an **if and only if**
+  chain, and *sufficient* / *only if*.
 - **S2 Part 5** — 2018 Q11, 2019 Q17, 2020 Q12, 2020 Q20, 2023 Q9. That is very nearly the whole supply:
   converse and contrapositive is the named topic of only **seven** questions in 2016–2023, against
   twenty-nine for necessary/sufficient, which is why S2 is a short page and S3 a long one.
 - **S4 Part 5** — 2017 Q17, 2018 Q12, 2020 Q18, 2021 Q13, 2022 Q10, 2022 Q13, 2023 Q19. Quantifiers are
   the **fastest-growing** slot: exactly one question a paper from 2016 to 2020, then two to four from 2021.
 - **S5 Part 5** — 2017 Q16, 2018 Q3, 2018 Q6, 2019 Q7, 2020 Q8, 2023 Q3, 2023 Q16. Counterexample is one of
-  the two **most stable** slots — about two a year in all eight sittings.
-- **S7 Part 3** — 2017 Q18, 2018 Q13, 2020 Q3, 2020 Q16, 2021 Q5, 2021 Q11, 2022 Q17, plus 2016 Q13 and
+  the two **most stable** slots — one or two a year in all eight sittings.
+- **S7 Part 5** — 2017 Q18, 2018 Q13, 2020 Q3, 2020 Q16, 2021 Q5, 2021 Q11, 2022 Q17, plus 2016 Q13 and
   2022 Q7 above. Grouped by **the kind of fault**: an algebraic slip, the direction of an inequality, a
   sign lost to squaring, and the direction of the argument itself.
 
@@ -93,19 +94,19 @@ which is why both banks were assembled by reading question structure, not by sea
 Questions marked **★** have already come up on a mock sat here; **◆** marks questions that also appear in
 the **[self-study sets](../lessons/index.qmd)**. **S6** has only one: the Prf4 scrambled-proof format has been
 examined exactly **once in eight years**, and that question — **2016 P2 Q7** — is now
-[S6 Q11](s06_scrambled_proofs.qmd). There is no bank to build beyond it, so the rest of that page stays
+[S6 Q8](s06_scrambled_proofs.qmd). There is no bank to build beyond it, so the rest of that page stays
 purpose-built.
 :::
 
 | | Session | Class material | Assignment | Spec |
 |---|---|---|---|---|
-| **S1** | **Statement forms — if, only if, if and only if** — why *A only if B* means $A \Rightarrow B$, not $B \Rightarrow A$ | **[Concepts](s01_concepts.qmd)** · **[Material](s01_statement_forms.qmd)** | **[Questions](s01_assignment_student.qmd)** · [MS](s01_assignment_ms.qmd) | Arg1 |
-| **S2** | **Converse and contrapositive** — the contrapositive is always equivalent, the converse almost never is | **[Concepts](s02_concepts.qmd)** · **[Material](s02_converse_contrapositive.qmd)** | **[Questions](s02_assignment_student.qmd)** · [MS](s02_assignment_ms.qmd) | Arg1 |
-| **S3** | **Necessary and sufficient** — the most-tested pair of words on Paper 2 | **[Concepts](s03_concepts.qmd)** · **[Material](s03_necessary_sufficient.qmd)** | **[Questions](s03_assignment_student.qmd)** · [MS](s03_assignment_ms.qmd) | Arg2 |
-| **S4** | **Quantifiers and negation** — *for all*, *there exists*, De Morgan, and the order of quantifiers | **[Concepts](s04_concepts.qmd)** · **[Material](s04_quantifiers_negation.qmd)** | **[Questions](s04_assignment_student.qmd)** · [MS](s04_assignment_ms.qmd) | Arg3, Arg4 |
-| **S5** | **Proof methods** — direct, by cases, by contradiction, by counterexample | **[Concepts](s05_concepts.qmd)** · **[Material](s05_proof_methods.qmd)** | **[Questions](s05_assignment_student.qmd)** · [MS](s05_assignment_ms.qmd) | Prf1 |
-| **S6** | **Scrambled proofs** — the Prf4 question type, and how to order statements fast | **[Concepts](s06_concepts.qmd)** · **[Material](s06_scrambled_proofs.qmd)** | **[Questions](s06_assignment_student.qmd)** · [MS](s06_assignment_ms.qmd) · **[Extra practice](s06_extra_practice.qmd)** | Prf4 |
-| **S7** | **Spot the error** — the catalogue of classic false steps | **[Concepts](s07_concepts.qmd)** · **[Material](s07_spot_the_error.qmd)** | **[Questions](s07_assignment_student.qmd)** · [MS](s07_assignment_ms.qmd) | Err1, Err2 |
+| **S1** | **Statement forms — if, only if, if and only if** — why *A only if B* means $A \Rightarrow B$, not $B \Rightarrow A$ | **[Concepts & class problems](s01_statement_forms.qmd)** | **[Questions](s01_assignment_student.qmd)** · [MS](s01_assignment_ms.qmd) | Arg1 |
+| **S2** | **Converse and contrapositive** — the contrapositive is always equivalent, the converse almost never is | **[Concepts & class problems](s02_converse_contrapositive.qmd)** | **[Questions](s02_assignment_student.qmd)** · [MS](s02_assignment_ms.qmd) | Arg1 |
+| **S3** | **Necessary and sufficient** — the most-tested pair of words on Paper 2 | **[Concepts & class problems](s03_necessary_sufficient.qmd)** | **[Questions](s03_assignment_student.qmd)** · [MS](s03_assignment_ms.qmd) | Arg2 |
+| **S4** | **Quantifiers and negation** — *for all*, *there exists*, De Morgan, and the order of quantifiers | **[Concepts & class problems](s04_quantifiers_negation.qmd)** | **[Questions](s04_assignment_student.qmd)** · [MS](s04_assignment_ms.qmd) | Arg3, Arg4 |
+| **S5** | **Proof methods** — direct, by cases, by contradiction, by counterexample | **[Concepts & class problems](s05_proof_methods.qmd)** | **[Questions](s05_assignment_student.qmd)** · [MS](s05_assignment_ms.qmd) | Prf1 |
+| **S6** | **Scrambled proofs** — the Prf4 question type, and how to order statements fast <small>(set once in TMUA 2016–2023: 2016 P2 Q7)</small> | **[Concepts & class problems](s06_scrambled_proofs.qmd)** | **[Questions](s06_assignment_student.qmd)** · [MS](s06_assignment_ms.qmd) · **[Extra practice](s06_extra_practice.qmd)** | Prf4 |
+| **S7** | **Spot the error** — the catalogue of classic false steps | **[Concepts & class problems](s07_spot_the_error.qmd)** | **[Questions](s07_assignment_student.qmd)** · [MS](s07_assignment_ms.qmd) | Err1, Err2 |
 
 : **Skill sessions — organised by reasoning type.**
 

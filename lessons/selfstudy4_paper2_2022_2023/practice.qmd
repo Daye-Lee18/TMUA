@@ -79,8 +79,8 @@ Topic — spot the first error in a "difference of cubes is prime" proof · **sp
 
 *Your slip: you picked **G (line V)** — the conclusion looks wrong, so it seems the guilty line. But V is a
 valid deduction from IV; the flaw is the polynomial-to-number jump at **IV**. **Full solution:
-[2022 P2 MS · Q7](../2022_paper2/class_material.qmd). Toolkit: [S7](../../toolkit/s07_assignment_ms.qmd),
-[S5 — factorisation ⇒ primality](../../toolkit/s05_concepts.qmd).***
+[2022 P2 MS · Q7](../2022_paper2/class_material.qmd). Toolkit: [S7](../../toolkit/s07_spot_the_error.qmd),
+[S5 — factorisation ⇒ primality](../../toolkit/s05_proof_methods.qmd).***
 :::
 
 ::: {.workspace style="min-height:5cm"}
@@ -127,7 +127,7 @@ So II and III hold — **G**.
 *Your slip: you doubted **II**. "$\forall x\,\exists n$" only asks that **some** $n$ work for each $x$, and a
 different $n$ for a different $x$ is allowed — that is exactly the Archimedean property. Do not confuse it
 with I ("one statement for all $x,n$ at once"). **Full solution: [2022 P2 MS · Q10](../2022_paper2/class_material.qmd).
-Toolkit: [S4 — quantifiers & order](../../toolkit/s04_concepts.qmd).***
+Toolkit: [S4 — quantifiers & order](../../toolkit/s04_quantifiers_negation.qmd).***
 :::
 
 ::: {.workspace style="min-height:5cm"}
@@ -335,7 +335,7 @@ Only III — **D**.
 *Your slip: you picked **A (none)**, assuming all three fail. The converse is forced true because a $5$-term
 arithmetic sequence summing to $540^\circ$ has middle term $540/5=108$. Always check a converse by building
 the object, not by guessing. **Full solution: [2023 P2 MS · Q9](../2023_paper2/class_material.qmd).
-Toolkit: [S2 — converse & contrapositive](../../toolkit/s02_concepts.qmd).***
+Toolkit: [S2 — converse & contrapositive](../../toolkit/s02_converse_contrapositive.qmd).***
 :::
 
 ::: {.workspace style="min-height:5cm"}

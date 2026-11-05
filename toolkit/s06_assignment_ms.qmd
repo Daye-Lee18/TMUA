@@ -1,7 +1,8 @@
 ---
-title: "Toolkit S6 — Scrambled Proofs · Mark Scheme"
-subtitle: "6 real TMUA Paper 2 proofs — self-contained, scaffolded ordering"
+title: "Toolkit S6 — Assignment · Mark Scheme"
+subtitle: "Tutor copy — full solutions with reasoning"
 format: html
+jupyter: python3
 execute:
   echo: false
   warning: false
@@ -9,119 +10,174 @@ execute:
 
 ::: {.solutions}
 
-For each proof: the goal, the correct order (by the shuffled letters), and a **step-by-step** account of
-why each line sits where it does. The method is always the same — **anchor the ends** (the opening
-"Let / Suppose / given" and the final conclusion), then order the middle so that **every line is justified
-by the ones above it**. A note flags which proofs are sound and which you will return to in Session 7 to
-find the flaw.
+2 questions. Both answers were checked against the official worked answers and answer keys.
 
 ---
 
-### 1. &nbsp; Order: **b, e, d, a, c** &nbsp; *(TMUA 2022 P2 Q7)*
+# Section A — Which way does the proof run?
 
-**Proof of:** *the difference between two consecutive positive cubes is always prime.*
+## Question 1 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q11</span>
 
-**Step 1 — anchor the ends.** The opening must state a fact to build on — the expansion $(x+1)^3=\dots$
-(**b**); the closing is the claim "…is always prime" (**c**).
+::: {.question}
+A student attempts to solve the following problem, where $a$ and $b$ are non-zero real numbers:
 
-**Step 2 — order the middle by dependency.**
+> Show that **if** $a^2-4b^3\ge0$ **then** there exist real numbers $x$ and $y$ such that $a=xy(x+y)$ and $b=xy$.
 
-- **b** — expand $(x+1)^3$.
-- **e** — use that expansion to write the difference of consecutive cubes as $3x^2+3x+1$ (needs **b**).
-- **d** — note $3x^2+3x+1$ has no linear factors (talks about the expression from **e**).
-- **a** — conclude it "cannot be factorised" (rests on **d**).
-- **c** — therefore the difference is prime.
+Consider the following attempt:
 
-**Flag:** this proof is **flawed** — you meet it again in S7 (2022 Q7): step **a/IV** wrongly turns
-"irreducible polynomial" into "prime value" ($x=5$ gives $91=7\times13$). Ordering it correctly is still
-valid practice.
+&nbsp;&nbsp;$(x-y)^2\ge0$ &nbsp; **(I)**
 
-### 2. &nbsp; Order: **d, b, f, e, g, a, c** &nbsp; *(TMUA 2023 P2 Q4)*
+&nbsp;&nbsp;so $x^2+y^2-2xy\ge0$ &nbsp; **(II)**
 
-**Proof of:** *the largest run of consecutive odd integers that are all prime is two.*
+&nbsp;&nbsp;so $(x+y)^2-4xy\ge0$ &nbsp; **(III)**
 
-**Step 1 — anchor the ends.** Open with the example that two consecutive odd primes exist (**d**); close
-with the final claim (**c**).
+&nbsp;&nbsp;so $x^2y^2(x+y)^2-4x^3y^3\ge0$ &nbsp; **(IV)**
 
-**Step 2 — dependency order.**
+&nbsp;&nbsp;so $a^2-4b^3\ge0$ &nbsp; **(V)**
 
-- **d** — there are two consecutive odd primes (e.g. $17,19$).
-- **b** — write any three consecutive odd integers as $n-2,\,n,\,n+2$.
-- **f**, then **e** — the two residue cases ($n$ one/two more than a multiple of $3$).
-- **g** — the remaining case ($n$ itself a multiple of $3$).
-- **a** — "in each case one integer is a multiple of $3$" — must come **after** all three cases.
-- **c** — conclude the run is at most two.
+Which of the following best describes this attempt?
 
-**Flag:** **flawed** at **a/VI** in S7 (a multiple of $3$ can be $3$ itself, which is prime — the triple
-$3,5,7$).
+&nbsp;&nbsp;**A** It is completely correct.
 
-### 3. &nbsp; Order: **d, b, f, e, a, c** &nbsp; *(TMUA 2023 P2 Q10)*
+&nbsp;&nbsp;**B** It is incorrect, but it would be correct if written in the reverse order.
 
-**Proof of:** *$x^4-2x^2-3<0 \Leftrightarrow -\sqrt3<x<\sqrt3$* (by completing the square).
+&nbsp;&nbsp;**C** It is incorrect, but the student has correctly proved the converse.
 
-**Step 1 — anchor.** Open by completing the square (**d**); close with the interval (**c**).
+&nbsp;&nbsp;**D** It is incorrect because there is an error in line (II).
 
-**Step 2 — dependency order.**
+&nbsp;&nbsp;**E** It is incorrect because there is an error in line (III).
 
-- **d** — $x^4-2x^2+1<4$.
-- **b** — rewrite the left side as $(x^2-1)^2<4$ (needs **d**).
-- **f** — unfold to $-2<x^2-1<2$.
-- **e** — drop the always-true left half, leaving $x^2-1<2$.
-- **a** — simplify to $x^2<3$.
-- **c** — read off $-\sqrt3<x<\sqrt3$.
+&nbsp;&nbsp;**F** It is incorrect because there is an error in line (IV).
+:::
 
-**Flag:** **completely correct** — a good model of a clean chain of equivalences.
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
 
-### 4. &nbsp; Order: **b, d, e, a, c** &nbsp; *(TMUA 2018 P2 Q13)*
+**C.**
 
-**Proof of:** *if $\tan\theta>0$ then $\sin\theta+\cos\theta>1$.* (Opens with "Suppose $\tan\theta>0$".)
+**Step 1 — check each link.**
 
-**Step 1 — anchor.** After the "Suppose", the first worked line is **b**; the conclusion is **c**.
+- Line (II) expands the bracket in (I).
+- Line (III) rewrites (II), because $(x+y)^2-4xy=x^2+2xy+y^2-4xy=x^2+y^2-2xy$.
+- Line (IV) multiplies (III) by $x^2y^2$. Since $x^2y^2\ge0$, the inequality keeps its direction.
 
-**Step 2 — dependency order.**
+So options D, E and F are out: lines (II), (III) and (IV) are all valid.
 
-- **b** — from $\tan\theta>0$ deduce $\sin\theta\cos\theta>0$.
-- **d** — hence $1+2\sin\theta\cos\theta>1$ (needs **b**).
-- **e** — rewrite $1$ as $\sin^2\theta+\cos^2\theta$, giving $\sin^2\theta+2\sin\theta\cos\theta+\cos^2\theta>1$.
-- **a** — factorise to $(\sin\theta+\cos\theta)^2>1$.
-- **c** — conclude $\sin\theta+\cos\theta>1$.
+**Step 2 — ask what line (V) uses.** To go from (IV) to (V) the student replaces $xy(x+y)$ by $a$ and $xy$ by $b$:
 
-**Flag:** **flawed** at the last step **c/V** in S7: $(\,\cdot\,)^2>1$ gives $\sin\theta+\cos\theta>1$
-**or** $<-1$ (lost $\pm$).
+$$x^2y^2(x+y)^2=a^2,\qquad 4x^3y^3=4b^3 .$$
 
-### 5. &nbsp; Order: **b, f, d, a, e, c** &nbsp; *(TMUA 2017 P2 Q18)*
+That uses $a=xy(x+y)$ and $b=xy$, so the student has **assumed** that such $x$ and $y$ exist.
 
-**Proof of:** *solving $\left(\tfrac14\right)^n<\left(\tfrac1{32}\right)^{10}$.*
+**Step 3 — compare the two ends.**
 
-**Step 1 — anchor.** Open with the given inequality (**b**); close with the range of $n$ (**c**).
+| | Starts from | Reaches |
+|---|---|---|
+| **Required** | $a^2-4b^3\ge0$ | such $x,y$ exist |
+| **Proved** | such $x,y$ exist | $a^2-4b^3\ge0$ |
 
-**Step 2 — dependency order.**
+The proof runs from the wrong end. Every line is valid, and what it proves is the **converse**. That is option C, and
+it also rules out A.
 
-- **b** — start from the inequality.
-- **f** — take $\log_{1/2}$ of both sides.
-- **d** — bring the powers down in front.
-- **a** — divide to isolate $n$.
-- **e** — evaluate the logs to a number.
-- **c** — state the range.
+**Why not B?** Reversing the lines does not rescue the proof. The reversed proof would start at (V) and go to (IV),
+but (IV) is written in terms of $x$ and $y$, and their existence is exactly what has to be shown. The order of the
+lines is not the only thing missing: nothing in the attempt ever produces $x$ and $y$ from $a$ and $b$.
+:::
 
-**Flag:** **flawed** at step **f** in S7: $\log_{1/2}$ is decreasing, so the inequality should reverse.
+---
 
-### 6. &nbsp; Order: **c, f, d, g, a, e, b** &nbsp; *(TMUA 2018 P2 Q9)*
+# Section B — What does each step need?
 
-**Proof of:** *solving $4x\sqrt{2x-1}=10x-5$.*
+## Question 2 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q17</span>
 
-**Step 1 — anchor.** Open with the equation (**c**); close with the roots (**b**).
+::: {.question}
+A student answered the following question:
 
-**Step 2 — dependency order.**
+> $a$ and $b$ are non-zero real numbers.
+>
+> Prove that the equation $x^3+ax^2+b=0$ has three distinct real roots if $27b\left(b+\dfrac{4a^3}{27}\right)<0$
 
-- **c** — the original equation.
-- **f** — write $10x-5=5(2x-1)$.
-- **d** — square both sides.
-- **g** — divide by $(2x-1)$.
-- **a** — expand.
-- **e** — factorise.
-- **b** — read off $x=\tfrac58,\tfrac52$.
+Here is the student's solution:
 
-**Flag:** **flawed** at step **g** in S7: dividing by $(2x-1)$ loses the root $x=\tfrac12$.
+&nbsp;&nbsp;**I** We differentiate $y=x^3+ax^2+b$ to get $\dfrac{dy}{dx}=3x^2+2ax=x(3x+2a)$. Solving $\dfrac{dy}{dx}=0$ shows that the stationary points are at $(0,b)$ and $\left(-\dfrac{2a}{3},\ b+\dfrac{4a^3}{27}\right)$.
+
+&nbsp;&nbsp;**II** If $27b\left(b+\dfrac{4a^3}{27}\right)<0$, then $b$ and $b+\dfrac{4a^3}{27}$ must have opposite signs, and so one of the stationary points is above the $x$-axis and one is below.
+
+&nbsp;&nbsp;**III** If the cubic has three distinct real roots, then one of the stationary points is above the $x$-axis and one is below.
+
+&nbsp;&nbsp;**IV** Hence if $27b\left(b+\dfrac{4a^3}{27}\right)<0$, then the equation has three distinct real roots.
+
+Which one of the following options best describes the student's solution?
+
+&nbsp;&nbsp;**A** It is a completely correct solution.
+
+&nbsp;&nbsp;**B** The student has instead proved the converse of the statement in the question.
+
+&nbsp;&nbsp;**C** The solution is wrong, because the student should have stated step II after step III.
+
+&nbsp;&nbsp;**D** The solution is wrong, because the student should have shown the converse of the result in step II.
+
+&nbsp;&nbsp;**E** The solution is wrong, because the student should have shown the converse of the result in step III.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.**
+
+The options are about the order and purpose of the steps, so you do not need to check the algebra.
+
+**Step 1 — name the three statements.**
+
+- $C$ is the condition $27b\left(b+\dfrac{4a^3}{27}\right)<0$.
+- $S$ is "one stationary point is above the $x$-axis and one is below".
+- $R$ is "the equation has three distinct real roots".
+
+The question asks for $C\Rightarrow R$.
+
+**Step 2 — write the arrow for each step.**
+
+| Step | Arrow | Useful? |
+|---|---|---|
+| **II** | $C\Rightarrow S$ | Yes: it starts from the assumption we are allowed |
+| **III** | $R\Rightarrow S$ | No: it points **into** $S$ |
+| **IV** | claims $C\Rightarrow R$ | needs $C\Rightarrow S$ and then $S\Rightarrow R$ |
+
+**Step 3 — find the missing link.** Step IV needs $S\Rightarrow R$. That is the **converse of step III**, so the
+answer is E.
+
+Here is an example where $S\Rightarrow R$ can be seen. Take $a=-3$ and $b=2$. The condition holds, since
+$27\times2\times(2-4)=-108<0$, and the stationary points $(0,2)$ and $(2,-2)$ are on opposite sides of the $x$-axis.
+
+```{python}
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-1.6,3.4,300); fig,ax=plt.subplots(figsize=(5.0,3.2))
+ax.plot(x,x**3-3*x**2+2,color='#1f77b4',lw=2,label='$y=x^3-3x^2+2$')
+ax.plot([0,2],[2,-2],'o',color='#d62728',label='stationary points')
+ax.axhline(0,color='0.3',lw=1); ax.axvline(0,color='0.3',lw=1); ax.set_ylim(-5,4)
+ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.legend(frameon=False)
+plt.tight_layout(); plt.show()
+```
+
+The curve crosses the $x$-axis three times. So the theorem itself is fine, and only the logic of the written solution
+is faulty.
+
+**Why the other options fail.**
+
+- **A:** the chain does not connect, as Step 3 shows.
+- **B:** the student's first and last lines target the correct statement, and nothing here proves $R\Rightarrow C$.
+- **C:** swapping II and III changes nothing, because the arrows stay exactly as they are. Order is not the fault.
+- **D:** step II already points the right way, from $C$ to $S$.
+:::
+
+---
+
+# What each question tests
+
+| Q | Source | Tests |
+|---|---|---|
+| 1 | 2021 · P2 Q11 | Valid lines running from the wrong end; why reversing the order does not repair them |
+| 2 | 2022 · P2 Q17 | Writing an arrow for each step; seeing that the fault is a wrong arrow and not the order of the steps |
 
 :::
