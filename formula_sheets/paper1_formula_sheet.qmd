@@ -90,7 +90,7 @@ $$\text{centre }(-g,-f),\qquad r=\sqrt{g^{2}+f^{2}-c}.$$
 
 Let the circles have centres $C_1,C_2$ and radii $r_1,r_2$, and write
 
-$$\boxed{\,d=\lvert C_1C_2\rvert=\textbf{the distance between the two centres}\,}$$
+$$\boxed{\,d=\textbf{the distance between the two centres}\,}$$
 
 — **not** a distance between the circles themselves. Then:
 
@@ -140,7 +140,7 @@ plt.tight_layout(); plt.show()
 ::: {.fs-card}
 ### C3 · Shortest distance between two circles ★
 
-Here $d=\lvert C_1C_2\rvert$ is again **the distance between the two centres**, as in C2. Once the
+Here $d$ is again **the distance between the two centres**, as in C2. Once the
 classification is known, the gap between the circles is a subtraction:
 
 $$\text{separate: } d-r_1-r_2 ,\qquad
@@ -217,6 +217,27 @@ $$\text{between points: } \sqrt{(x_2-x_1)^{2}+(y_2-y_1)^{2}}$$
 [a "closest point on the curve" question with no calculus is almost always a circle in disguise]{.eg}
 :::
 
+::: {.fs-card}
+### D5 · Point to a quadratic curve ★
+
+There is **no separate closed formula** to memorise. For a fixed point $P=(p,q)$ and a point
+$Q=(x,f(x))$ on the curve, minimise the squared distance
+
+$$\boxed{\ D^{2}(x)=(x-p)^{2}+\bigl(f(x)-q\bigr)^{2}\ }.$$
+
+For $f(x)=ax^{2}+bx+c$, use either method:
+
+1. **Differentiate:**
+   $$\frac12\frac{\mathrm d}{\mathrm dx}D^{2}
+   =(x-p)+\bigl(f(x)-q\bigr)f'(x)=0.$$
+2. **Hidden quadratic:** if only $x^{2}$ occurs, let $t=x^{2}\ge0$ and complete the square.
+
+The stationary equation says the shortest segment is **normal to the curve**. Check all stationary values
+and any endpoints or domain boundaries.
+
+[$P=(0,3)$, $y=x^{2}$: $D^{2}=x^{2}+(x^{2}-3)^{2}$; let $t=x^{2}$]{.eg}
+:::
+
 ::::
 
 :::::
@@ -227,6 +248,7 @@ $$\text{between points: } \sqrt{(x_2-x_1)^{2}+(y_2-y_1)^{2}}$$
 1. **"How many solutions / for what values of $k$"** $\to$ form a quadratic and go to $\Delta$. Check whether the coefficient of $x^{2}$ can vanish.
 2. **"Touches", "tangent", "exactly one point"** $\to$ either $\Delta=0$ or perpendicular distance $=r$. Pick whichever avoids more algebra.
 3. **Any two circles** $\to$ compute $d$, $r_1+r_2$ and $\lvert r_1-r_2\rvert$ **before anything else**. Every question about crossing, touching, containing or gap size is read straight off those three numbers.
+4. **Point to a non-circular curve** $\to$ write $D^{2}$, not $D$; then differentiate or expose a hidden quadratic.
 :::
 
 ## 1 · Algebra and functions (MM1)
@@ -368,7 +390,7 @@ $S_n-S_{n-1}=ar^{\,n-1}$ as it must.*
 ::: {.fs-card}
 ### Telescoping — the sum you were never given
 
-(*부분급수*). If the term can be written as a difference,
+(Also called the **method of differences**.) If the term can be written as a difference,
 
 $$b_k=f(k)-f(k+1)\quad\Longrightarrow\quad \sum_{k=1}^{n}b_k=f(1)-f(n+1),$$
 
@@ -439,18 +461,16 @@ $$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}, \qquad M = \left(\tfrac{x_1+x_2}{2}, \tf
 :::
 
 ::: {.fs-card}
-### Circle ★
-
-Centre $(a,b)$, radius $r$:
-$$(x-a)^2 + (y-b)^2 = r^2.$$
-General form $x^2 + y^2 + 2gx + 2fy + c = 0$ has centre $(-g,-f)$ and radius $\sqrt{g^2+f^2-c}$.
-:::
-
-::: {.fs-card}
 ### Circle facts
 
-The tangent is perpendicular to the radius at the point of contact; the angle in a
-semicircle is a right angle; the perpendicular from the centre bisects a chord.
+The equation, the general form and the test for whether it is a circle at all are **C1** in Part 0; two
+circles, gaps between them and the line-and-circle cases are **C2**, **C3** and **D2**.
+
+What those cards do not give you are the three geometric facts:
+
+- the **tangent is perpendicular to the radius** at the point of contact;
+- the **angle in a semicircle is a right angle**;
+- the **perpendicular from the centre bisects a chord**.
 :::
 
 :::::
@@ -601,6 +621,36 @@ $$\sin^2\theta + \cos^2\theta = 1, \qquad \tan\theta = \frac{\sin\theta}{\cos\th
 (for solving equations over an interval):
 $$\sin(180^\circ - \theta) = \sin\theta, \qquad \cos(360^\circ - \theta) = \cos\theta,$$
 $$\sin(180^\circ + \theta) = -\sin\theta, \qquad \cos(180^\circ - \theta) = -\cos\theta.$$
+
+A shift by $90^\circ$ behaves differently: **it swaps sine and cosine.**
+
+| shift | $\sin$ | $\cos$ | $\tan$ |
+|---|---|---|---|
+| $90^\circ-\theta$ | $\cos\theta$ | $\sin\theta$ | $1/\tan\theta$ |
+| $90^\circ+\theta$ | $\cos\theta$ | $-\sin\theta$ | $-1/\tan\theta$ |
+| $270^\circ-\theta$ | $-\cos\theta$ | $-\sin\theta$ | $1/\tan\theta$ |
+| $270^\circ+\theta$ | $-\cos\theta$ | $\sin\theta$ | $-1/\tan\theta$ |
+| $-\theta$ | $-\sin\theta$ | $\cos\theta$ | $-\tan\theta$ |
+
+An **odd** multiple of $90^\circ$ swaps $\sin\leftrightarrow\cos$; an **even** multiple keeps the function.
+The sign is then whichever one the quadrant of the shifted angle requires.
+
+**Memory tip — how to get the sign without memorising the table.** Each identity holds for **every** angle
+$\theta$. But to *recall* a sign, pretend $\theta$ is **acute**, see which quadrant the shifted angle lands
+in, and take the sign that the **original function** — the one on the left — has in that quadrant.
+
+| | with $\theta$ acute, the shifted angle is in | there, the function on the left is | so |
+|---|---|---|---|
+| $\sin(90^\circ+\theta)$ | quadrant 2 | $\sin>0$ | $+\cos\theta$ |
+| $\cos(90^\circ+\theta)$ | quadrant 2 | $\cos<0$ | $-\sin\theta$ |
+| $\sin(270^\circ-\theta)$ | quadrant 3 | $\sin<0$ | $-\cos\theta$ |
+| $\cos(270^\circ+\theta)$ | quadrant 4 | $\cos>0$ | $+\sin\theta$ |
+
+Taking $\theta$ acute is only a device for fixing the sign — the finished identity is then valid for all
+$\theta$.
+
+[$\sin(90^\circ+\theta)=\cos\theta$, so $\sin 120^\circ=\cos 30^\circ=\tfrac{\sqrt3}{2}$]{.eg}
+
 Periods: $\sin,\cos$ repeat every $360^\circ$; $\tan$ every $180^\circ$.
 :::
 
@@ -643,13 +693,29 @@ With $c$ the **longest** side, the sign of $a^{2}+b^{2}-c^{2}$ decides the trian
 ::: {.fs-card}
 ### The two radii ★
 
+Neither radius needs an angle — both are pinned down by the **area** $K$, which is why Heron is usually the
+first step.
+
+::: {.callout-tip}
+**The two radii, from the area.** With $s=\tfrac12(a+b+c)$ the semiperimeter,
+
 $$\boxed{\,R=\frac{abc}{4K}\,}\qquad\qquad \boxed{\,r=\frac{K}{s}\,}$$
-*$R$ comes from combining $\sin A=\dfrac{a}{2R}$ with $K=\tfrac12bc\sin A$; the denominator is
-$4\times\text{area}$, not $\tfrac{abc}{4}\times K$.* Here $r$ is the **inradius**.
+
+**Circumradius.** Substituting $\sin A=\dfrac{a}{2R}$ into $K=\tfrac12bc\sin A$ gives
+
+$$K=\tfrac12\,bc\cdot\frac{a}{2R}=\frac{abc}{4R}.$$
+
+So the denominator of $R$ is $4\times\text{area}$ — not $\tfrac{abc}{4}\times K$.
+
+**Inradius.** Join the incentre to the three vertices. That splits the triangle into three triangles with
+bases $a$, $b$, $c$ and the **same** height $r$, since the incircle touches every side. Adding them,
+
+$$K=\tfrac12ar+\tfrac12br+\tfrac12cr=\tfrac12r(a+b+c)=rs .$$
+:::
 
 [Worked check on the $13,14,15$ triangle: $s=21$, Heron gives $K=\sqrt{21\cdot8\cdot7\cdot6}=84$, the same
 as $\tfrac12ab\sin C$ and as the shoelace value; then $R=\tfrac{13\cdot14\cdot15}{4\cdot84}=\tfrac{65}{8}$ and
-$r=\tfrac{84}{21}=4$.]{.eg}
+$r=\tfrac{84}{21}=4$. For $3,4,5$: $R=\tfrac52$, half the hypotenuse, and $r=1$.]{.eg}
 :::
 
 ::: {.fs-card}
@@ -662,15 +728,31 @@ $r=\tfrac{84}{21}=4$.]{.eg}
 | perimeter and $n$, for an $n$-gon | regular $n$-gon |
 | two sides, angle free | the angle is $90^\circ$, since $K=\tfrac12ab\sin\theta$ |
 
-*A base alone is not enough — the height, and so the area, grows without bound.*
+**No maximum from a base alone:** the height, and therefore the area, can grow without bound.
 
-Use the **cosine rule** for SSS or SAS; the **sine rule** for a known opposite side–angle pair.
-With SSA, $\sin B=\sin(180^\circ-B)$ can give **two triangles**; check the angle sum and any “acute/obtuse”
-condition. Writing $h=c\sin A$ for the distance from the far vertex to the opposite ray, there are
-**two** triangles exactly when $h<a<c$, one when $a=h$ or $a\ge c$, and none when $a<h$.
+**Choose the rule**
 
-*When two triangles share an angle and one adjacent side, their areas are in the same ratio as the other
-adjacent sides* — because $K=\tfrac12bc\sin A$ holds everything but that side fixed.
+- **SSS or SAS** $\rightarrow$ cosine rule
+- A known **opposite side–angle pair** $\rightarrow$ sine rule
+
+**SSA: the ambiguous case**
+
+- $\sin B=\sin(180^\circ-B)$, so the same data may produce two triangles.
+- Let $h=c\sin A$ be the perpendicular distance to the opposite ray.
+
+| condition | number of triangles |
+|---|:---:|
+| $a<h$ | $0$ |
+| $a=h$ or $a\ge c$ | $1$ |
+| $h<a<c$ | $2$ |
+
+Always check the angle sum and any stated **acute/obtuse** condition.
+
+**Area-ratio shortcut:** if two triangles share an angle and one adjacent side, then
+
+$$\frac{K_1}{K_2}=\frac{\text{other adjacent side}_1}{\text{other adjacent side}_2},$$
+
+because $K=\tfrac12bc\sin A$ keeps every other factor fixed.
 :::
 
 :::::
@@ -1085,6 +1167,4 @@ Write only what you personally forget. A strong default set is:
 8. $\sqrt{u^2}=|u|$ and every log argument must be $>0$.
 
 **Final check on every answer:** domain · rejected roots · interval endpoints · degrees/radians · exact form.
-:::
-
 :::

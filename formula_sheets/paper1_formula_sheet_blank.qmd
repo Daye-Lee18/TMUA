@@ -121,6 +121,11 @@ Section 3 — worked examples, diagrams, anything extra
 | The two identities the spec assumes ★ | |
 | $\sin(180^\circ-\theta)$, &nbsp; $\sin(180^\circ+\theta)$ | |
 | $\cos(180^\circ-\theta)$, &nbsp; $\cos(360^\circ-\theta)$ | |
+| $\sin(90^\circ\pm\theta)$, &nbsp; $\cos(90^\circ\pm\theta)$ ★ | |
+| $\sin(270^\circ\pm\theta)$, &nbsp; $\cos(270^\circ\pm\theta)$ | |
+| $\sin(-\theta)$, &nbsp; $\cos(-\theta)$, &nbsp; $\tan(-\theta)$ | |
+| Which shifts swap $\sin$ and $\cos$, and which keep them? ★ | |
+| Sign rule: take $\theta$ acute, then…? ★ | |
 | Periods of $\sin$, $\cos$, $\tan$ | |
 | Range trap: $\sin 2x$ with $0\le x\le 360^\circ$ → $2x$ runs over? | |
 

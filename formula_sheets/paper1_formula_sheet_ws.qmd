@@ -1,0 +1,1893 @@
+---
+title: "TMUA Paper 1 Formula Sheet — Worksheet and Mark Scheme"
+subtitle: "57 concept-by-concept practice problems with worked solutions"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+---
+
+This worksheet collects the practice problems from the [Paper 1 Formula Sheet challenges](paper1_formula_sheet_challenge.qmd).
+
+---
+
+# Part 0 · The high-yield engines
+
+## Question 1 — Q1 · The discriminant engine
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find all $k$ for which $(k-2)x^{2}+2(k+1)x+k=0$ has **exactly one** real root.
+&nbsp;&nbsp;**(b)** For those $k$, state the root in each case.
+
+[Adapted from **2018 P1 Q9** (a parameter and a root count).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Two separate cases — and forgetting the second is the standard lost mark.*
+
+**Case $k=2$:** the $x^{2}$ term vanishes and the equation is $6x+2=0$, a **linear** equation with the single
+root $x=-\tfrac13$. ✓
+
+**Case $k\ne2$:** it is a genuine quadratic, so one root means $\Delta=0$:
+
+$$\Delta=4(k+1)^{2}-4(k-2)k=4\left(k^{2}+2k+1-k^{2}+2k\right)=4(4k+1),$$
+
+giving $k=-\tfrac14$.
+
+$$\boxed{k=2\ \text{ or }\ k=-\tfrac14}$$
+
+**(b)** At $k=2$: $x=-\tfrac13$. At $k=-\tfrac14$: the repeated root is
+$x=-\dfrac{2(k+1)}{2(k-2)}=-\dfrac{k+1}{k-2}=-\dfrac{3/4}{-9/4}=\boxed{\tfrac13}$.
+
+## Question 2 — Q2 · "For all $x$" and the sign of $a$
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find all $k$ for which $(k-1)x^{2}-2kx+(k+3)>0$ for **every** real $x$.
+&nbsp;&nbsp;**(b)** What happens at $k=1$, and why must it be checked separately?
+
+[Adapted from **2021 P1 Q12** and the degenerate-case trap in **2022 P1 Q2**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Two conditions, both needed.
+
+*The parabola must open upwards:* $k-1>0$, i.e. $k>1$.
+
+*It must never touch the axis:* $\Delta<0$, where
+
+$$\Delta=4k^{2}-4(k-1)(k+3)=4\left(k^{2}-k^{2}-2k+3\right)=4(3-2k),$$
+
+so $3-2k<0$, i.e. $k>\tfrac32$.
+
+The second condition is the stronger one: $\boxed{k>\tfrac32}$.
+
+**(b)** At $k=1$ the expression is $-2x+4$, which is **linear** — it takes every real value, so it is
+certainly not always positive. *A "for all $x$" question about $ax^{2}+bx+c$ is only a discriminant question
+when $a\ne0$; the degenerate case has to be ruled out by hand.*
+
+## Question 3 — Q3 · Hidden quadratics
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Solve $4^{x}-3\cdot2^{\,x+1}+8=0$.
+&nbsp;&nbsp;**(b)** Solve $9^{x}-4\cdot3^{x}+3=0$.
+&nbsp;&nbsp;**(c)** Explain why $4^{x}-3\cdot2^{\,x+1}+10=0$ has **no** real solutions.
+
+[Adapted from **2019 P1 Q11** and **2022 P1 Q6** (exponential equations as quadratics).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Put $u=2^{x}>0$. Then $4^{x}=u^{2}$ and $2^{x+1}=2u$, so
+
+$$u^{2}-6u+8=0\;\Longrightarrow\;(u-2)(u-4)=0\;\Longrightarrow\;u=2,4\;\Longrightarrow\;\boxed{x=1,\ 2}.$$
+
+**(b)** Put $u=3^{x}>0$: $u^{2}-4u+3=0$, so $u=1,3$ and $\boxed{x=0,\ 1}$.
+
+**(c)** Now $u^{2}-6u+10=0$ has $\Delta=36-40=-4<0$, so there is **no real $u$** at all — *and therefore no
+$x$, since every $x$ would give a real $u$.* $\blacksquare$
+
+*The substitution must carry $u>0$ with it: a negative root for $u$ would also have to be discarded.*
+
+## Question 4 — C1 · Circle — centre and radius
+
+::: {.question}
+The equation $x^{2}+y^{2}+2kx-4y+\left(k^{2}+3\right)=0$ is given.
+
+&nbsp;&nbsp;**(a)** Show that it is a circle for **every** real $k$, and find its radius.
+&nbsp;&nbsp;**(b)** Describe the locus of its centre as $k$ varies.
+&nbsp;&nbsp;**(c)** For which $k$ does the circle touch the $x$-axis?
+
+[Adapted from **2020 P1 Q16** (condition for an equation to represent a circle).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Completing the square in $x$ and in $y$ separately:
+
+$$(x+k)^{2}+(y-2)^{2}=k^{2}+4-\left(k^{2}+3\right)=1 .$$
+
+The right-hand side is $1>0$ for **every** $k$, so it is always a circle, of radius $\boxed{1}$.
+
+**(b)** The centre is $(-k,2)$, so as $k$ varies the centre runs along the **line $y=2$** — the whole of it.
+
+**(c)** The circle touches the $x$-axis when the distance from the centre to $y=0$ equals the radius:
+$\lvert2\rvert=1$ is **false**, so $\boxed{\text{it never does}}$ — *the centre is always $2$ above the axis
+and the radius is always $1$, so the circle stays clear of it for every $k$.*
+
+## Question 5 — C2 · Two circles — the whole classification
+
+::: {.question}
+$C_1:\;(x-1)^{2}+(y+2)^{2}=16$ and $C_2:\;(x-7)^{2}+(y-6)^{2}=r^{2}$ with $r>0$.
+
+&nbsp;&nbsp;**(a)** Find the distance $d$ between the centres.
+&nbsp;&nbsp;**(b)** Find all $r$ for which the circles meet at exactly **two** points.
+&nbsp;&nbsp;**(c)** Find all $r$ for which $C_1$ lies entirely inside $C_2$.
+
+[Adapted from **2022 P1 Q19** (two circles and the distance between their centres).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Centres $(1,-2)$ and $(7,6)$, so
+
+$$d=\sqrt{6^{2}+8^{2}}=\boxed{10}.$$
+
+**(b)** With $r_1=4$ and $r_2=r$, two intersection points means $\lvert r-4\rvert<10<r+4$, i.e.
+
+$$r>6\quad\text{and}\quad -10<r-4<10\;\Longrightarrow\;r<14 .$$
+
+$$\boxed{6<r<14}$$
+
+**(c)** $C_1$ inside $C_2$ without touching needs $d<r_2-r_1$, i.e. $10<r-4$:
+
+$$\boxed{r>14}.$$
+
+*Note $r=14$ is the internal-tangency case — one point — which is why (b) and (c) meet but do not overlap.*
+
+## Question 6 — C3 · Shortest distance between two circles
+
+::: {.question}
+$C_1$ has centre $(0,0)$ and radius $2$; $C_2$ has centre $(12,5)$ and radius $3$.
+
+&nbsp;&nbsp;**(a)** Find the shortest and the longest distance between a point of $C_1$ and a point of $C_2$.
+In parts **(b)** and **(c)**, the radius of $C_2$ is instead an unknown $r>0$; its centre stays at $(12,5)$.
+
+&nbsp;&nbsp;**(b)** Find **every** $r$ for which the shortest distance between the two circles is $4$.
+&nbsp;&nbsp;**(c)** Find every $r$ for which the two circles meet at exactly two points.
+
+[Adapted from **2021 P1 Q1** and the two-circle distance setup in **2022 P1 Q19**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $d=\sqrt{12^{2}+5^{2}}=13$ — *the distance between the two **centres***. Since
+$d=13>2+3$, the circles are separate, so
+
+$$\text{shortest}=d-r_1-r_2=13-5=\boxed{8},\qquad \text{longest}=d+r_1+r_2=13+5=\boxed{18}.$$
+
+*Both extremes occur on the line of centres, which is why only $d$ matters.*
+
+**(b)** *There are two ways for the circles to end up $4$ apart, and each needs a different one of the
+two formulas above.* The distance between the centres is still $d=13$, and $r_1=2$.
+
+*Case 1 — the circles are separate,* so the gap is $d-r_1-r$:
+
+$$13-2-r=4\;\Longrightarrow\;r=7. \qquad\text{Valid, since } d=13>2+7=9 .$$
+
+*Case 2 — $C_1$ lies inside $C_2$,* so the gap is $\lvert r-r_1\rvert-d$:
+
+$$r-2-13=4\;\Longrightarrow\;r=19. \qquad\text{Valid, since } d+r_1=15<19 .$$
+
+$$\boxed{r=7\ \text{ or }\ r=19}$$
+
+*$C_2$ inside $C_1$ is impossible here, because $r_1=2$ is smaller than $d$ alone.*
+
+**(c)** Two intersection points need the centre distance to sit **strictly between** the sum and the
+difference of the radii:
+
+$$\lvert r_1-r\rvert<d<r_1+r \;\Longleftrightarrow\; \lvert 2-r\rvert<13<2+r .$$
+
+From $13<2+r$, $r>11$; from $\lvert2-r\rvert<13$, $-11<r<15$. Together:
+
+$$\boxed{11<r<15}.$$
+
+*The two excluded endpoints are exactly the tangency cases — $r=11$ touches on the outside and $r=15$
+touches from the inside, each giving one point, not two.*
+
+## Question 7 — D1 · Point to line — perpendicular distance
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find the distance from $(3,-2)$ to the line $5x-12y+c=0$ in terms of $c$.
+&nbsp;&nbsp;**(b)** Find both values of $c$ for which that distance is $2$.
+&nbsp;&nbsp;**(c)** Find the distance between the two lines found in (b).
+
+[Adapted from **2023 P1 Q10** (perpendicular distance with an unknown constant).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\dfrac{\lvert5(3)-12(-2)+c\rvert}{\sqrt{5^{2}+12^{2}}}=\boxed{\dfrac{\lvert39+c\rvert}{13}}$.
+
+*The line must be in $Ax+By+C=0$ form before the formula is used.*
+
+**(b)** $\lvert39+c\rvert=26$, so $39+c=\pm26$ and $\boxed{c=-13\ \text{or}\ c=-65}$.
+
+**(c)** The two lines $5x-12y-13=0$ and $5x-12y-65=0$ are **parallel**, so take any point on the first —
+e.g. $(5,1)$, since $25-12-13=0$ — and find its distance to the second:
+
+$$\frac{\lvert25-12-65\rvert}{13}=\frac{52}{13}=\boxed{4}.$$
+
+*Consistent: the point $(3,-2)$ sits $2$ from each, on opposite sides.*
+
+## Question 8 — D2 · Point to circle, and line to circle
+
+::: {.question}
+The circle $C$ has centre $(2,3)$ and radius $5$, and $P=(14,8)$.
+
+&nbsp;&nbsp;**(a)** Find the shortest and longest distances from $P$ to a point of $C$.
+&nbsp;&nbsp;**(b)** Find the length of the tangent from $P$ to $C$.
+&nbsp;&nbsp;**(c)** The line $y=3$ cuts $C$ in a chord. Find its length, and the length of the chord cut by
+$4x+3y=37$.
+
+[Adapted from **2020 P1 Q16** and **2023 P1 Q13** (chord length from the centre distance).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $PC=\sqrt{12^{2}+5^{2}}=13$, so nearest $=13-5=\boxed{8}$ and furthest $=13+5=\boxed{18}$.
+
+**(b)** The tangent is perpendicular to the radius at the point of contact, so the tangent length is
+
+$$\sqrt{PC^{2}-r^{2}}=\sqrt{169-25}=\boxed{12}.$$
+
+**(c)** $y=3$ passes through the **centre**, so the chord is a diameter: length $\boxed{10}$.
+
+For $4x+3y-37=0$ the distance from $(2,3)$ is $\dfrac{\lvert8+9-37\rvert}{5}=4$, so the chord is
+
+$$2\sqrt{25-16}=\boxed{6}.$$
+
+## Question 9 — D3 · Tangency is a discriminant
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find both values of $m$ for which $y=mx+4$ is a tangent to $x^{2}+y^{2}=4$.
+&nbsp;&nbsp;**(b)** Verify your answer using the perpendicular-distance formula instead.
+&nbsp;&nbsp;**(c)** For which $c$ does $y=x+c$ **miss** the circle $x^{2}+y^{2}=4$ entirely?
+
+[Adapted from **2021 P1 Q17** and **2019 P1 Q6** (tangency to a circle).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Substituting: $x^{2}+(mx+4)^{2}=4$, i.e.
+
+$$\left(1+m^{2}\right)x^{2}+8mx+12=0 .$$
+
+Tangency means $\Delta=0$: $64m^{2}-48\left(1+m^{2}\right)=0$, so $16m^{2}=48$ and
+$\boxed{m=\pm\sqrt3}$.
+
+**(b)** Distance from $(0,0)$ to $mx-y+4=0$ is $\dfrac{4}{\sqrt{m^{2}+1}}$, and setting this equal to $2$
+gives $m^{2}+1=4$, so $m=\pm\sqrt3$ ✓ — *the same condition, reached with no algebra.*
+
+**(c)** Distance from the origin to $x-y+c=0$ is $\dfrac{\lvert c\rvert}{\sqrt2}$, and the line misses the
+circle when this exceeds the radius:
+
+$$\frac{\lvert c\rvert}{\sqrt2}>2\;\Longrightarrow\;\boxed{\lvert c\rvert>2\sqrt2}.$$
+
+## Question 10 — D4 · Distances you are expected to just know
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find the point on the line $y=2x$ closest to $(5,0)$.
+&nbsp;&nbsp;**(b)** Find the equation of the perpendicular bisector of $A(-1,3)$ and $B(5,-1)$, and show it
+passes through the centre of every circle through $A$ and $B$.
+
+[Adapted from **2021 P1 Q20** and **2017 P1 Q6** (shortest distance and loci).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Minimise $d^{2}$, never $d$.* A point of the line is $(t,2t)$, so
+
+$$d^{2}=(t-5)^{2}+4t^{2}=5t^{2}-10t+25=5(t-1)^{2}+20 ,$$
+
+least at $t=1$: the point is $\boxed{(1,2)}$, at distance $\sqrt{20}=2\sqrt5$.
+
+*Equivalently, the closest point is the foot of the perpendicular — the same answer with no calculus.*
+
+**(b)** Midpoint $(2,1)$; gradient of $AB$ is $\dfrac{-1-3}{5+1}=-\tfrac23$, so the bisector has gradient
+$\tfrac32$:
+
+$$y-1=\tfrac32(x-2)\;\Longrightarrow\;\boxed{2y=3x-4}.$$
+
+*Any circle through $A$ and $B$ has its centre equidistant from them, and the set of points equidistant from
+$A$ and $B$ **is** the perpendicular bisector* — so every such centre lies on this line. $\blacksquare$
+
+## Question 11 — D5 · Point to a quadratic curve
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find the shortest distance from $(0,3)$ to the curve $y=x^{2}$, and all points achieving
+it.
+&nbsp;&nbsp;**(b)** Repeat for the point $(0,c)$ with $c<\tfrac12$, and explain what changes.
+
+[Adapted from **2017 P1 Q9** (closest point on a parabola).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** With a point $(x,x^{2})$ on the curve,
+
+$$d^{2}=x^{2}+\left(x^{2}-3\right)^{2}=x^{4}-5x^{2}+9 .$$
+
+*Treat it as a quadratic in $x^{2}$:* $\left(x^{2}-\tfrac52\right)^{2}+\tfrac{11}{4}$, least when
+$x^{2}=\tfrac52$. So
+
+$$d_{\min}=\boxed{\tfrac{\sqrt{11}}{2}},\qquad \text{at }\left(\pm\sqrt{\tfrac52},\,\tfrac52\right).$$
+
+*There are **two** nearest points, one on each side of the $y$-axis — the symmetry of the parabola
+guarantees it.*
+
+**(b)** Now $d^{2}=x^{4}+(1-2c)x^{2}+c^{2}$. *When $c<\tfrac12$ the coefficient $1-2c$ is **positive**, so
+the expression increases with $x^{2}$ and is least at $x^{2}=0$.* The nearest point is the **vertex**
+$(0,0)$, at distance $\lvert c\rvert$ — a single point, not two.
+
+*The switch happens at $c=\tfrac12$: above it the vertex stops being nearest and the minimum splits into a
+symmetric pair.*
+
+---
+
+# Part 1 · Algebra and functions (MM1)
+
+## Question 12 — Indices
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Solve $9^{x}-4\cdot3^{x}+3=0$.
+&nbsp;&nbsp;**(b)** Simplify $\dfrac{27^{\,2/3}\times8^{\,-1/3}}{6^{-2}}$.
+&nbsp;&nbsp;**(c)** Given $2^{a}=5$ and $2^{b}=3$, express $\log_{2}\!\left(\tfrac{45}{8}\right)$ in terms of
+$a$ and $b$.
+
+[Adapted from **2019 P1 Q11** and **2018 P1 Q14**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Put $u=3^{x}>0$: $u^{2}-4u+3=0$, so $(u-1)(u-3)=0$ and $u=1,3$, giving $\boxed{x=0,\ 1}$.
+
+**(b)** $27^{2/3}=9$, $8^{-1/3}=\tfrac12$ and $6^{-2}=\tfrac1{36}$, so the value is
+$9\cdot\tfrac12\cdot36=\boxed{162}$.
+
+**(c)** $45=9\times5=3^{2}\times5$, so $\log_{2}45=2b+a$, and $\log_{2}8=3$:
+
+$$\log_{2}\!\left(\tfrac{45}{8}\right)=\boxed{a+2b-3}.$$
+
+## Question 13 — Surds
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Show that $\dfrac{3+\sqrt5}{3-\sqrt5}+\dfrac{3-\sqrt5}{3+\sqrt5}$ is an integer, and
+find it.
+&nbsp;&nbsp;**(b)** Express $\dfrac{1}{\sqrt{7}-\sqrt{3}}$ with a rational denominator.
+&nbsp;&nbsp;**(c)** Given $x=2+\sqrt3$, find $x+\dfrac1x$ without a calculator.
+
+[Adapted from **2017 P1 Q2** and **2021 P1 Q3** (conjugates and rationalising).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Over the common denominator $(3-\sqrt5)(3+\sqrt5)=9-5=4$:
+
+$$\frac{(3+\sqrt5)^{2}+(3-\sqrt5)^{2}}{4}=\frac{2\left(9+5\right)}{4}=\boxed{7}.$$
+
+*The cross terms cancel — a sum of conjugate squares is always rational.*
+
+**(b)** Multiply by the conjugate: $\dfrac{\sqrt7+\sqrt3}{7-3}=\boxed{\dfrac{\sqrt7+\sqrt3}{4}}$.
+
+**(c)** $\dfrac1x=\dfrac1{2+\sqrt3}=2-\sqrt3$ *(since $(2+\sqrt3)(2-\sqrt3)=4-3=1$)*, so
+
+$$x+\frac1x=(2+\sqrt3)+(2-\sqrt3)=\boxed{4}.$$
+
+## Question 14 — Quadratics
+
+::: {.question}
+The quadratic $x^{2}-px+q=0$ has roots $\alpha,\beta$.
+
+&nbsp;&nbsp;**(a)** Express $\alpha^{2}+\beta^{2}$ and $\alpha^{3}+\beta^{3}$ in terms of $p$ and $q$.
+&nbsp;&nbsp;**(b)** If $p=4$ and $q=3$, evaluate both without finding the roots.
+&nbsp;&nbsp;**(c)** For which $q$ does $x^{2}-4x+q=0$ have roots differing by $2$?
+
+[Adapted from **2022 P1 Q4** (symmetric functions of the roots).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\alpha+\beta=p$, $\alpha\beta=q$, so
+
+$$\alpha^{2}+\beta^{2}=p^{2}-2q,\qquad
+\alpha^{3}+\beta^{3}=(\alpha+\beta)^{3}-3\alpha\beta(\alpha+\beta)=\boxed{p^{3}-3pq}.$$
+
+**(b)** $16-6=\boxed{10}$ and $64-36=\boxed{28}$. *(Check: the roots are $1$ and $3$, giving $1+9=10$ and
+$1+27=28$.)* ✓
+
+**(c)** $(\alpha-\beta)^{2}=(\alpha+\beta)^{2}-4\alpha\beta=16-4q$, and we need this to equal $2^{2}=4$:
+
+$$16-4q=4\;\Longrightarrow\;\boxed{q=3}.$$
+
+## Question 15 — Completing the square
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find the range of $f(x)=3x^{2}-12x+7$.
+&nbsp;&nbsp;**(b)** Find the greatest value of $g(x)=\dfrac{1}{x^{2}-6x+13}$ and where it occurs.
+&nbsp;&nbsp;**(c)** Find the least value of $x^{2}+y^{2}$ subject to $x+y=6$.
+
+[Adapted from **2020 P1 Q5** and **2023 P1 Q3** (range via completing the square).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $3\left(x^{2}-4x\right)+7=3(x-2)^{2}-5$, so the range is $\boxed{f(x)\ge-5}$.
+
+**(b)** $x^{2}-6x+13=(x-3)^{2}+4\ge4$, with equality at $x=3$. *A positive denominator is smallest exactly
+where the reciprocal is largest,* so the greatest value is $\boxed{\tfrac14}$, at $x=3$.
+
+**(c)** Substituting $y=6-x$:
+
+$$x^{2}+(6-x)^{2}=2x^{2}-12x+36=2(x-3)^{2}+18 ,$$
+
+least $\boxed{18}$ at $x=y=3$. *Geometrically: the nearest point of the line $x+y=6$ to the origin, at
+distance $\sqrt{18}$.*
+
+## Question 16 — Sum and product of roots
+
+::: {.question}
+&nbsp;&nbsp;**(a)** The roots of $2x^{2}-7x+m=0$ differ by $\tfrac32$. Find $m$.
+&nbsp;&nbsp;**(b)** Find a quadratic with integer coefficients whose roots are $\alpha+1$ and $\beta+1$,
+where $\alpha,\beta$ are the roots of $x^{2}-5x+2=0$.
+
+[Adapted from **2022 P1 Q4** and **2018 P1 Q7**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\alpha+\beta=\tfrac72$ and $\alpha\beta=\tfrac m2$, so
+
+$$\left(\alpha-\beta\right)^{2}=\left(\tfrac72\right)^{2}-4\cdot\tfrac m2=\tfrac{49}{4}-2m .$$
+
+Setting this equal to $\left(\tfrac32\right)^{2}=\tfrac94$:
+
+$$\tfrac{49}{4}-2m=\tfrac94\;\Longrightarrow\;2m=10\;\Longrightarrow\;\boxed{m=5}.$$
+
+**(b)** The new sum is $(\alpha+1)+(\beta+1)=5+2=7$ and the new product is
+$(\alpha+1)(\beta+1)=\alpha\beta+\alpha+\beta+1=2+5+1=8$, so
+
+$$\boxed{x^{2}-7x+8=0}.$$
+
+*Equivalently, substitute $x\mapsto x-1$ into the original — the shift of the roots is a shift of the
+variable the other way.*
+
+## Question 17 — Factor / Remainder Theorem
+
+::: {.question}
+Let $f(x)=x^{3}+ax^{2}+bx-6$.
+
+&nbsp;&nbsp;**(a)** Given that $(x-1)$ and $(x+2)$ are factors, find $a$ and $b$.
+&nbsp;&nbsp;**(b)** Factorise $f$ completely.
+&nbsp;&nbsp;**(c)** Find the remainder when $f$ is divided by $(x-3)$.
+
+[Adapted from **2019 P1 Q4** and **2021 P1 Q8**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $f(1)=0$ gives $1+a+b-6=0$, i.e. $a+b=5$. &nbsp;$f(-2)=0$ gives $-8+4a-2b-6=0$, i.e. $4a-2b=14$,
+so $2a-b=7$.
+
+Adding, $3a=12$, so $\boxed{a=4,\ b=1}$.
+
+**(b)** *With two factors known, the third root comes free from the product of the roots.* For
+$x^{3}+4x^{2}+x-6$ the product of the roots is $-\dfrac{-6}{1}=6$, so if the roots are $1,\,-2,\,\gamma$ then
+$1\cdot(-2)\cdot\gamma=6$, giving $\gamma=-3$. Hence
+
+$$\boxed{f(x)=(x-1)(x+2)(x+3)}.$$
+
+**(c)** By the remainder theorem, $f(3)=27+36+3-6=\boxed{60}$. *(Check: $(2)(5)(6)=60$.)* ✓
+
+## Question 18 — Modulus (absolute value)
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Solve $\lvert2x-1\rvert+\lvert x+3\rvert=10$.
+&nbsp;&nbsp;**(b)** Solve $\lvert x-1\rvert<\lvert x+3\rvert$.
+&nbsp;&nbsp;**(c)** For which $k$ does $\lvert x-2\rvert=k-x$ have exactly one solution?
+
+[Adapted from **2018 P1 Q3** and **2022 P1 Q7** (several moduli, and a count of solutions).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Mark the breakpoints first:* $x=\tfrac12$ and $x=-3$, then solve a linear equation on each piece.
+
+| region | equation | root | valid? |
+|---|---|---|---|
+| $x<-3$ | $(1-2x)+(-x-3)=10$ | $x=-4$ | ✓ |
+| $-3\le x<\tfrac12$ | $(1-2x)+(x+3)=10$ | $x=-6$ | ✗ outside |
+| $x\ge\tfrac12$ | $(2x-1)+(x+3)=10$ | $x=\tfrac83$ | ✓ |
+
+$$\boxed{x=-4\ \text{ or }\ x=\tfrac83}$$
+
+**(b)** *Both sides are non-negative, so squaring is an equivalence here:*
+$x^{2}-2x+1<x^{2}+6x+9$, giving $-8x<8$ and $\boxed{x>-1}$.
+
+**(c)** The left side is a V with vertex $(2,0)$; the right side is a line of gradient $-1$ through $(k,0)$.
+*The left branch of the V also has gradient $-1$, so the two are parallel there* — they meet exactly once
+when the line cuts only the right branch, i.e. when $k>2$; at $k=2$ they coincide along the whole left
+branch, giving infinitely many. So $\boxed{k>2}$.
+
+---
+
+# Part 2 · Sequences and series (MM2)
+
+## Question 19 — Arithmetic
+
+::: {.question}
+An arithmetic series has $S_n=3n^{2}+5n$.
+
+&nbsp;&nbsp;**(a)** Find $u_n$, and hence the first term and the common difference.
+&nbsp;&nbsp;**(b)** Which term equals $74$?
+&nbsp;&nbsp;**(c)** Find the least $n$ for which $S_n>1000$.
+
+[Adapted from **2020 P1 Q6** (recovering a term from a partial sum).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** For $n\ge2$, $u_n=S_n-S_{n-1}$:
+
+$$u_n=\left(3n^{2}+5n\right)-\left(3(n-1)^{2}+5(n-1)\right)=(6n-3)+5=\boxed{6n+2}.$$
+
+*Check $n=1$ separately, since the subtraction is only valid from $n=2$:* $u_1=S_1=8$, and the formula gives
+$6+2=8$ ✓ — so $u_n=6n+2$ holds for **all** $n$. Reading off, $\boxed{a=8,\ d=6}$.
+
+**(b)** $6n+2=74\Rightarrow\boxed{n=12}$.
+
+**(c)** $3n^{2}+5n>1000$. The root of $3n^{2}+5n-1000=0$ is
+$n=\dfrac{-5+\sqrt{25+12000}}{6}=\dfrac{-5+\sqrt{12025}}{6}\approx17.4$, so $n\ge18$.
+
+*Check:* $S_{17}=952$ and $S_{18}=1062$, giving $\boxed{n=18}$.
+
+## Question 20 — Sum of the first $n$ integers
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find the least $n$ with $1+2+\cdots+n>2000$.
+&nbsp;&nbsp;**(b)** Show that $\displaystyle\sum_{k=1}^{n}k(k+1)=\frac{n(n+1)(n+2)}{3}$.
+&nbsp;&nbsp;**(c)** Hence evaluate $\displaystyle\sum_{k=1}^{20}k^{2}$.
+
+[Adapted from **2022 P1 Q11** and the method-of-differences construction in the MM2 clinic.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\tfrac12n(n+1)>2000$, i.e. $n(n+1)>4000$. Since $62\times63=3906$ and $63\times64=4032$,
+the answer is $\boxed{n=63}$.
+
+**(b)** *Telescoping is cleanest.* Note that
+
+$$k(k+1)=\tfrac13\Bigl[k(k+1)(k+2)-(k-1)k(k+1)\Bigr],$$
+
+so the sum collapses to $\tfrac13 n(n+1)(n+2)-0=\dfrac{n(n+1)(n+2)}{3}$. $\blacksquare$
+
+**(c)** $\displaystyle\sum k^{2}=\sum k(k+1)-\sum k=\frac{n(n+1)(n+2)}{3}-\frac{n(n+1)}{2}$. At $n=20$:
+
+$$\frac{20\cdot21\cdot22}{3}-\frac{20\cdot21}{2}=3080-210=\boxed{2870}.$$
+
+## Question 21 — Geometric
+
+::: {.question}
+A geometric series with positive common ratio satisfies $u_2+u_4=60$ and $u_3+u_5=180$.
+
+&nbsp;&nbsp;**(a)** Find the first term and the common ratio.
+&nbsp;&nbsp;**(b)** Find $S_6$.
+&nbsp;&nbsp;**(c)** Explain why this series has no sum to infinity.
+
+[Adapted from **2021 P1 Q5** and **2016 P1 Q14** (two GP equations, divided).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Divide the two equations — this kills the first term in one step:*
+
+$$\frac{u_3+u_5}{u_2+u_4}=\frac{r\left(u_2+u_4\right)}{u_2+u_4}=r=\frac{180}{60}=3 .$$
+
+Then $u_2+u_4=ar+ar^{3}=a\left(3+27\right)=60$, so $\boxed{a=2,\ r=3}$.
+
+**(b)** $S_6=\dfrac{2\left(3^{6}-1\right)}{3-1}=\dfrac{2(728)}{2}=\boxed{728}$.
+
+**(c)** $S_\infty$ exists only when $\lvert r\rvert<1$; here $r=3$, so the terms grow and the partial sums
+diverge. $\boxed{\text{No sum to infinity.}}$
+
+## Question 22 — Recovering a term from a partial sum
+
+::: {.question}
+&nbsp;&nbsp;**(a)** A sequence has $S_n=2^{n}-1$. Find $u_n$ and check $n=1$.
+&nbsp;&nbsp;**(b)** A sequence has $S_n=n^{2}+3$. Find $u_n$ and check $n=1$.
+&nbsp;&nbsp;**(c)** Explain what the difference between (a) and (b) tells you about $S_n$.
+
+[Adapted from **2020 P1 Q6**; the constant-term trap is the standard variant.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $u_n=S_n-S_{n-1}=\left(2^{n}-1\right)-\left(2^{n-1}-1\right)=2^{n-1}$ for $n\ge2$, and
+$u_1=S_1=1=2^{0}$ ✓. So $\boxed{u_n=2^{\,n-1}}$ for **all** $n$ — a GP with $a=1$, $r=2$.
+
+**(b)** $u_n=\left(n^{2}+3\right)-\left((n-1)^{2}+3\right)=2n-1$ for $n\ge2$, but $u_1=S_1=4$, whereas the
+formula gives $1$. So
+
+$$\boxed{u_1=4,\qquad u_n=2n-1\ (n\ge2)} .$$
+
+**(c)** *The subtraction $S_n-S_{n-1}$ is only valid from $n=2$, because $S_0$ is not part of the
+definition.* The formula agrees at $n=1$ exactly when $S_0=0$ — true in (a), false in (b), where the
+constant $3$ means $S_0$ would have to be $3$.
+
+## Question 23 — Telescoping — the sum you were never given
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\sum_{r=1}^{n}\frac{1}{(2r-1)(2r+1)}$.
+&nbsp;&nbsp;**(b)** Hence state $\displaystyle\sum_{r=1}^{\infty}\frac{1}{(2r-1)(2r+1)}$.
+&nbsp;&nbsp;**(c)** Evaluate $\displaystyle\sum_{r=1}^{n}\frac{1}{r(r+2)}$.
+
+[Adapted from the method of differences in **2021 P1 Q15**; not on the specification, which is why it appears.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Partial fractions:
+$\dfrac{1}{(2r-1)(2r+1)}=\dfrac12\left(\dfrac{1}{2r-1}-\dfrac{1}{2r+1}\right)$. Summing, *everything
+cancels in pairs except the first and last:*
+
+$$\tfrac12\left(1-\frac{1}{2n+1}\right)=\boxed{\frac{n}{2n+1}}.$$
+
+**(b)** As $n\to\infty$ this tends to $\boxed{\tfrac12}$.
+
+**(c)** Here the gap is $2$, so $\dfrac{1}{r(r+2)}=\dfrac12\left(\dfrac1r-\dfrac{1}{r+2}\right)$ and **two**
+terms survive at each end:
+
+$$\tfrac12\left(1+\tfrac12-\frac{1}{n+1}-\frac{1}{n+2}\right)=\boxed{\frac{n(3n+5)}{4(n+1)(n+2)}}.$$
+
+## Question 24 — Binomial expansion
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find the coefficient of $x^{3}$ in $(1+2x)^{5}(1-x)^{4}$.
+&nbsp;&nbsp;**(b)** Find the coefficient of $x^{2}$ in the same product.
+&nbsp;&nbsp;**(c)** Find the term independent of $x$ in $\left(2x+\dfrac{1}{x^{2}}\right)^{6}$.
+
+[Adapted from **2018 P1 Q13** and **2023 P1 Q6** (a named coefficient in a product).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Expand each only as far as $x^{3}$ and collect the ways the powers combine.*
+
+$$(1+2x)^{5}=1+10x+40x^{2}+80x^{3}+\cdots,\qquad (1-x)^{4}=1-4x+6x^{2}-4x^{3}+\cdots$$
+
+$$[x^{3}]:\;80(1)+40(-4)+10(6)+1(-4)=80-160+60-4=\boxed{-24}.$$
+
+**(b)** $[x^{2}]:\;40(1)+10(-4)+1(6)=40-40+6=\boxed{6}$.
+
+**(c)** The general term is $\binom{6}{k}(2x)^{6-k}\left(x^{-2}\right)^{k}$, with power
+$6-k-2k=6-3k$. This is zero when $k=2$:
+
+$$\binom{6}{2}2^{4}=15\times16=\boxed{240}.$$
+
+---
+
+# Part 3 · Coordinate geometry (MM3)
+
+## Question 25 — Straight line
+
+::: {.question}
+From the point $P(7,1)$ two tangents are drawn to the circle $x^{2}+y^{2}=25$, touching it at $A$ and $B$.
+
+&nbsp;&nbsp;**(a)** Find the length $PA$.
+&nbsp;&nbsp;**(b)** Show that the line $AB$ (the *chord of contact*) has equation $7x+y=25$.
+&nbsp;&nbsp;**(c)** Hence find the distance from the centre to $AB$, and the length of $AB$.
+
+[Adapted from **2021 P1 Q1** (circle–line configuration); the chord-of-contact idea is the 2022 P1 Q19 technique.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $OP^{2}=7^{2}+1^{2}=50$, and $OA\perp PA$ with $OA=5$, so
+$PA=\sqrt{50-25}=\boxed{5}$.
+
+*The tangent is perpendicular to the radius, so $OAP$ is right-angled at $A$ — that is the only fact needed.*
+
+**(b)** If $A=(x_1,y_1)$ then the tangent at $A$ is $x_1x+y_1y=25$, and it passes through $P$, so
+$7x_1+y_1=25$. The same holds for $B$. *Both $A$ and $B$ satisfy $7x+y=25$, and two points determine a
+line,* so $AB:\;7x+y=25$.
+
+**(c)** Distance from $O$: $\dfrac{\lvert-25\rvert}{\sqrt{49+1}}=\dfrac{25}{5\sqrt2}=\dfrac{5}{\sqrt2}$, so
+
+$$AB=2\sqrt{25-\tfrac{25}{2}}=2\cdot\tfrac{5}{\sqrt2}=\boxed{5\sqrt2}.$$
+
+## Question 26 — Distance and midpoint
+
+::: {.question}
+A circle passes through $A(5,4)$ and $B(-3,-2)$ and its centre lies on the line $y=x$.
+
+&nbsp;&nbsp;**(a)** Find the centre and radius.
+&nbsp;&nbsp;**(b)** Show that $AB$ is **not** a diameter.
+&nbsp;&nbsp;**(c)** Find the two points of the circle that are furthest from, and nearest to, the line $y=x$.
+
+[Adapted from **2021 P1 Q17** (locus + circle) and the 2023 P1 Q13 centre-on-a-line setup.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** The centre is equidistant from $A$ and $B$, so it lies on their perpendicular bisector. With centre
+$(t,t)$,
+
+$$(t-5)^{2}+(t-4)^{2}=(t+3)^{2}+(t+2)^{2}\;\Longrightarrow\;-18t+41=10t+13\;\Longrightarrow\;t=1 .$$
+
+Centre $\boxed{(1,1)}$, radius $\sqrt{4^{2}+3^{2}}=\boxed{5}$.
+
+**(b)** The midpoint of $AB$ is $(1,1)$ — which *is* the centre, so $AB$ **is** a diameter. *Check:
+$AB=\sqrt{8^{2}+6^{2}}=10=2r$.* **The claim in the question is false, and saying so is the answer.**
+
+**(c)** The centre lies **on** $y=x$, so the furthest and nearest points are the ends of the diameter
+perpendicular to it: direction $\tfrac1{\sqrt2}(1,-1)$, giving
+
+$$\left(1+\tfrac{5}{\sqrt2},\,1-\tfrac{5}{\sqrt2}\right)\quad\text{and}\quad
+\left(1-\tfrac{5}{\sqrt2},\,1+\tfrac{5}{\sqrt2}\right),$$
+
+both at distance $5$ from the line; **no point of the circle is nearer than $0$** — the circle crosses $y=x$.
+
+## Question 27 — Circle
+
+::: {.question}
+The circle $C$ has equation $x^{2}+y^{2}-6x+2y-15=0$.
+
+&nbsp;&nbsp;**(a)** Find its centre and radius.
+&nbsp;&nbsp;**(b)** Find the length of the chord cut on $C$ by the line $3x+4y+10=0$.
+&nbsp;&nbsp;**(c)** Find the two values of $c$ for which $3x+4y+c=0$ is a **tangent** to $C$.
+
+[Adapted from **2020 P1 Q16** and **2023 P1 Q10** (circle–line distance).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Completing the square: $(x-3)^{2}+(y+1)^{2}=9+1+15=25$, so centre $\boxed{(3,-1)}$, radius
+$\boxed{5}$.
+
+**(b)** Perpendicular distance from $(3,-1)$:
+
+$$h=\frac{\lvert3(3)+4(-1)+10\rvert}{\sqrt{3^{2}+4^{2}}}=\frac{15}{5}=3 .$$
+
+*Half the chord, the radius and $h$ form a right-angled triangle,* so
+
+$$\text{chord}=2\sqrt{r^{2}-h^{2}}=2\sqrt{25-9}=\boxed{8}.$$
+
+**(c)** Tangency means $h=r$: $\dfrac{\lvert5+c\rvert}{5}=5$, so $\lvert5+c\rvert=25$ and
+$\boxed{c=20\ \text{or}\ c=-30}$.
+
+## Question 28 — Circle facts
+
+::: {.question}
+$C_1$ is the circle $x^{2}+y^{2}=25$. A second circle $C_2$ has radius $1$ and centre $P$.
+
+&nbsp;&nbsp;**(a)** For which positions of $P$ do $C_1$ and $C_2$ meet?
+&nbsp;&nbsp;**(b)** Describe that set of positions geometrically, and find its area.
+&nbsp;&nbsp;**(c)** For which positions is $C_2$ entirely **inside** $C_1$ without touching it?
+
+[Adapted from **2022 P1 Q19**, where the centre of the second circle is constrained to a region.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+Let $d=\lvert OP\rvert$ — **the distance between the two centres**.
+
+**(a)** They meet exactly when $\lvert r_1-r_2\rvert\le d\le r_1+r_2$, i.e.
+
+$$\boxed{4\le d\le 6}.$$
+
+**(b)** That is the **annulus** between the circles of radius $4$ and $6$ about the origin. Its area is
+
+$$\pi\left(6^{2}-4^{2}\right)=\boxed{20\pi}.$$
+
+**(c)** Strictly inside and not touching means $d<\lvert r_1-r_2\rvert=4$, i.e. $\boxed{d<4}$ — *the open disc
+of radius $4$, and note $d=0$ (concentric) is included.*
+
+---
+
+# Part 4 · Trigonometry (MM4)
+
+## Question 29 — Exact values
+
+::: {.question}
+Let $S=\displaystyle\sum_{k=0}^{n}\sin\left(10^{\circ}+90^{\circ}k\right)$.
+
+&nbsp;&nbsp;**(a)** Write out the first four terms and show that they sum to $0$.
+&nbsp;&nbsp;**(b)** Find $S$ when $n=2023$.
+&nbsp;&nbsp;**(c)** Find all $n\le2023$ for which $S=\sin10^{\circ}+\cos10^{\circ}$.
+
+[Adapted from **2019 P1 Q19**, which sums $\sin(10^\circ+90^\circ k)$ and uses the period-4 cancellation.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\sin10^{\circ}$, $\sin100^{\circ}=\cos10^{\circ}$, $\sin190^{\circ}=-\sin10^{\circ}$,
+$\sin280^{\circ}=-\cos10^{\circ}$. *Adding $180^{\circ}$ flips the sign,* so the four cancel in pairs and the
+block sums to $0$.
+
+**(b)** $n=2023$ means $2024$ terms $=506$ complete blocks, so $S=\boxed{0}$.
+
+**(c)** $S$ depends only on $n\bmod 4$: the running totals are
+$\sin10^{\circ}$, $\sin10^{\circ}+\cos10^{\circ}$, $\cos10^{\circ}$, $0$ for
+$n\equiv0,1,2,3\pmod4$. So we need $n\equiv1\pmod 4$:
+
+$$\boxed{n=1,5,9,\dots,2021}\qquad(506\text{ values}).$$
+
+## Question 30 — Identities
+
+::: {.question}
+The quartic $12x^{4}-7x^{2}+1=0$ has roots $\pm\cos\alpha$ and $\pm\cos\beta$, where $\alpha,\beta$ are acute.
+
+&nbsp;&nbsp;**(a)** Find $\cos^{2}\alpha$ and $\cos^{2}\beta$.
+&nbsp;&nbsp;**(b)** Hence find $\sin^{2}\alpha$ and $\sin^{2}\beta$.
+&nbsp;&nbsp;**(c)** Find a quartic with integer coefficients whose roots are $\pm\sin\alpha$ and $\pm\sin\beta$.
+
+[Adapted from **2022 P1 Q16**; the original uses $7x^4-6x^2+1$, whose roots involve $\sqrt2$.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** It is a quadratic in $x^{2}$: $12t^{2}-7t+1=0$ with $t=x^{2}$ gives $(3t-1)(4t-1)=0$, so
+
+$$\cos^{2}\alpha,\ \cos^{2}\beta=\boxed{\tfrac13,\ \tfrac14}\quad\text{(in some order).}$$
+
+**(b)** $\sin^{2}=1-\cos^{2}$, so $\sin^{2}\alpha,\sin^{2}\beta=\boxed{\tfrac23,\ \tfrac34}$.
+
+**(c)** We need $\left(t-\tfrac23\right)\left(t-\tfrac34\right)=0$ with $t=x^{2}$; clearing denominators,
+
+$$12\left(x^{2}-\tfrac23\right)\left(x^{2}-\tfrac34\right)=\boxed{12x^{4}-17x^{2}+6=0}.$$
+
+*Note the sum of the roots-squared went from $\tfrac7{12}$ to $\tfrac{17}{12}$ — the two quartics are related
+by $t\mapsto1-t$, which is exactly $\cos^{2}\mapsto\sin^{2}$.*
+
+## Question 31 — Symmetries
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Solve $\sin 3x=\cos 2x$ for $0^{\circ}\le x\le180^{\circ}$.
+&nbsp;&nbsp;**(b)** How many solutions does $\sin 3x=\cos 2x$ have in $0^{\circ}\le x\le 720^{\circ}$?
+
+[Adapted from **2018 P1 Q6** and **2023 P1 Q5** (counting trigonometric solutions on an interval).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Write $\cos2x=\sin(90^{\circ}-2x)$. *Two sines are equal exactly when the angles are equal or
+supplementary:*
+
+$$3x=90^{\circ}-2x+360^{\circ}k\quad\text{or}\quad 3x=180^{\circ}-(90^{\circ}-2x)+360^{\circ}k .$$
+
+The first gives $5x=90^{\circ}+360^{\circ}k$, so $x=18^{\circ},90^{\circ},162^{\circ}$ in range.
+The second gives $x=90^{\circ}+360^{\circ}k$, so $x=90^{\circ}$ — already counted.
+
+$$\boxed{x=18^{\circ},\ 90^{\circ},\ 162^{\circ}}$$
+
+**(b)** From the first family $x=18^{\circ}+72^{\circ}k$: that is $18,90,162,\dots,666$ — **ten** values in
+$[0,720]$. The second family gives $x=90^{\circ}$ and $x=450^{\circ}$, but *both* are already in the first
+one ($90=18+72$ and $450=18+72\times6$), so neither is new. Total $\boxed{10}$.
+
+## Question 32 — Triangles — the extended sine rule
+
+::: {.question}
+A triangle has sides $4$, $13$ and $15$.
+
+&nbsp;&nbsp;**(a)** Find its area.
+&nbsp;&nbsp;**(b)** Find its circumradius $R$.
+&nbsp;&nbsp;**(c)** Find its inradius $r$, and verify $\dfrac{R}{r}$ is rational.
+
+[Adapted from **2023 P1 Q8** (triangle with given sides, area and a derived length).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $s=\tfrac12(4+13+15)=16$, so by Heron
+
+$$K=\sqrt{16\cdot12\cdot3\cdot1}=\sqrt{576}=\boxed{24}.$$
+
+**(b)** $R=\dfrac{abc}{4K}=\dfrac{4\cdot13\cdot15}{96}=\boxed{\dfrac{65}{8}}$.
+
+**(c)** $r=\dfrac{K}{s}=\dfrac{24}{16}=\boxed{\dfrac32}$, and
+$\dfrac{R}{r}=\dfrac{65/8}{3/2}=\dfrac{65}{12}$ — rational. ✓
+
+*All three formulas come from the same place: $\sin A=\dfrac{a}{2R}$ substituted into
+$K=\tfrac12bc\sin A$.*
+
+## Question 33 — The cosine rule
+
+::: {.question}
+In triangle $PQR$ the three sides are in arithmetic progression: $a$, $a+d$, $a+2d$ with $a,d>0$. Let
+$\theta$ be the angle **opposite the longest side**.
+
+&nbsp;&nbsp;**(a)** Show that $\cos\theta=\dfrac{a-3d}{2a}$.
+&nbsp;&nbsp;**(b)** Deduce the range of values $\cos\theta$ can take.
+&nbsp;&nbsp;**(c)** For which ratio $a:d$ is the triangle right-angled?
+
+[Adapted from **2017 P1 Q20**, which sets the sides in AP and asks for $\cos\theta$.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** The longest side is $a+2d$, opposite $\theta$, so
+
+$$(a+2d)^{2}=a^{2}+(a+d)^{2}-2a(a+d)\cos\theta .$$
+
+Expanding: $a^{2}+4ad+4d^{2}=2a^{2}+2ad+d^{2}-2a(a+d)\cos\theta$, so
+
+$$2a(a+d)\cos\theta=a^{2}-2ad-3d^{2}=(a-3d)(a+d),$$
+
+and dividing by $2a(a+d)>0$ gives $\cos\theta=\dfrac{a-3d}{2a}$. $\blacksquare$
+
+**(b)** The triangle inequality needs $a+(a+d)>a+2d$, i.e. $a>d>0$. Writing $u=d/a\in(0,1)$,
+
+$$\cos\theta=\tfrac12(1-3u)\in\left(-1,\tfrac12\right).$$
+
+So $\boxed{-1<\cos\theta<\tfrac12}$ — the angle is always **greater than $60^{\circ}$**.
+
+**(c)** Right-angled means $\cos\theta=0$, i.e. $a=3d$: the ratio $\boxed{a:d=3:1}$, giving sides
+$3d,4d,5d$. ✓
+
+## Question 34 — Area — three formulas, one for each kind of data
+
+::: {.question}
+&nbsp;&nbsp;**(a)** A triangle has vertices $(1,1)$, $(5,3)$, $(2,7)$. Find its area by the shoelace formula.
+&nbsp;&nbsp;**(b)** Find the area of a triangle with sides $13,14,15$ **without** finding any angle.
+&nbsp;&nbsp;**(c)** Two triangles share the angle $A$ and the side $AB$. Their areas are in the ratio $5:2$.
+Find the ratio of their sides $AC$.
+
+[Adapted from **2023 P1 Q8** and the area-ratio technique in **2016 P1 Q20**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $K=\tfrac12\lvert1(3-7)+5(7-1)+2(1-3)\rvert=\tfrac12\lvert-4+30-4\rvert=\boxed{11}$.
+
+**(b)** $s=21$, so $K=\sqrt{21\cdot8\cdot7\cdot6}=\sqrt{7056}=\boxed{84}$.
+
+**(c)** $K=\tfrac12\,(AB)(AC)\sin A$, and $AB$ and $\sin A$ are the **same** in both. *So the areas are
+proportional to $AC$ alone,* giving $\boxed{AC_1:AC_2=5:2}$.
+
+## Question 35 — The two radii
+
+::: {.question}
+A triangle has an inscribed circle of radius $r$ and a circumscribed circle of radius $R$.
+
+&nbsp;&nbsp;**(a)** For an equilateral triangle of side $a$, find $r$ and $R$ in terms of $a$, and the ratio
+$R:r$.
+&nbsp;&nbsp;**(b)** For a right-angled triangle with legs $3,4$, find $R$ and $r$.
+&nbsp;&nbsp;**(c)** Show that for **any** right-angled triangle, $R=\tfrac12\times$ hypotenuse.
+
+[Adapted from **2021 P1 Q6** and the extended sine rule in **2019 P1 Q14**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $K=\tfrac{\sqrt3}{4}a^{2}$ and $s=\tfrac{3a}{2}$, so
+
+$$r=\frac{K}{s}=\frac{a}{2\sqrt3},\qquad R=\frac{abc}{4K}=\frac{a^{3}}{\sqrt3\,a^{2}}=\frac{a}{\sqrt3},
+\qquad \boxed{R:r=2:1}.$$
+
+**(b)** Hypotenuse $5$, $K=6$, $s=6$, so $r=\dfrac{6}{6}=\boxed{1}$ and
+$R=\dfrac{3\cdot4\cdot5}{24}=\boxed{\dfrac52}$.
+
+**(c)** *The angle in a semicircle is a right angle,* so the hypotenuse subtends $90^{\circ}$ and is therefore
+a **diameter** of the circumcircle. Hence $R=\tfrac12\times$ hypotenuse. $\blacksquare$
+(Equivalently $\dfrac{c}{\sin C}=2R$ with $C=90^{\circ}$.)
+
+## Question 36 — Greatest area for fixed information
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Two sides of a triangle sum to $14$ and the angle between them may vary. Find the
+greatest possible area.
+&nbsp;&nbsp;**(b)** A triangle has perimeter $P$ fixed. Which shape maximises the area, and why can a fixed
+**base** alone never bound the area?
+&nbsp;&nbsp;**(c)** A rectangle is inscribed in a circle of radius $5$. Find its greatest possible area.
+
+[Adapted from **2022 P1 Q9** (optimisation with a trigonometric area).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** With sides $u$ and $14-u$ and included angle $\theta$,
+$K=\tfrac12u(14-u)\sin\theta$. *Both factors are maximised independently:* $\sin\theta=1$ at
+$\theta=90^{\circ}$, and $u(14-u)$ peaks at $u=7$. So
+
+$$K_{\max}=\tfrac12\cdot7\cdot7=\boxed{\tfrac{49}{2}}.$$
+
+**(b)** For fixed perimeter the **equilateral** triangle maximises area. A fixed base is not enough: *the
+apex may be taken arbitrarily far from the base, so the height and hence the area grow without bound.*
+
+**(c)** The diagonal is a diameter, $10$. With sides $p,q$ and $p^{2}+q^{2}=100$,
+$pq\le\tfrac12(p^{2}+q^{2})=50$ with equality when $p=q$. Greatest area $\boxed{50}$ — a square of side
+$5\sqrt2$.
+
+---
+
+# Part 5 · Exponentials and logarithms (MM5)
+
+## Question 37 — Definition
+
+::: {.question}
+The graph of $y=\log_{10}x$ is translated $2$ units in the positive $y$-direction to give $C_1$, and
+separately stretched parallel to the $x$-axis by scale factor $k>0$ to give $C_2$.
+
+&nbsp;&nbsp;**(a)** Write down the equation of each of $C_1$ and $C_2$.
+&nbsp;&nbsp;**(b)** Find the value of $k$ for which $C_1$ and $C_2$ are the **same** curve.
+&nbsp;&nbsp;**(c)** Explain why no such $k$ exists if $\log_{10}$ is replaced by $\sqrt{\;}$.
+
+[Adapted from **2017 P1 Q18**, which asks exactly this for $\log_{10}$.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $C_1:\;y=\log_{10}x+2$. &nbsp;A stretch of factor $k$ parallel to $x$ replaces $x$ by $x/k$:
+$C_2:\;y=\log_{10}\!\left(\dfrac{x}{k}\right)$.
+
+**(b)** They agree for all $x>0$ exactly when
+
+$$\log_{10}x+2=\log_{10}x-\log_{10}k\;\Longrightarrow\;\log_{10}k=-2\;\Longrightarrow\;\boxed{k=\tfrac1{100}}.$$
+
+*A horizontal stretch of a log graph **is** a vertical translation — that is the whole point, and it is
+special to the logarithm.*
+
+**(c)** For $f(x)=\sqrt x$ the stretch gives $\sqrt{x/k}=\tfrac{1}{\sqrt k}\sqrt x$, a **vertical stretch**,
+not a translation. *A vertical stretch and a vertical translation agree for all $x$ only if both are trivial,
+and $\sqrt x+2=\tfrac1{\sqrt k}\sqrt x$ has no solution valid for every $x$.*
+
+## Question 38 — Laws of logarithms
+
+::: {.question}
+The real numbers $x,y$ satisfy
+
+$$\log_{10}\!\left((x-y)^{2}\right)=\log_{10}(2-2x)+\log_{10}(y+3).$$
+
+&nbsp;&nbsp;**(a)** State the restrictions on $x$ and $y$ needed for both sides to be defined.
+&nbsp;&nbsp;**(b)** Show that the pairs $(x,y)$ lie on a circle, and find its centre and radius.
+&nbsp;&nbsp;**(c)** Explain why the full circle is **not** the solution set, and describe the part that is.
+
+[Adapted from **2021 P1 Q20**, where the same manipulation produces a circle of radius $6$.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Need $2-2x>0$ and $y+3>0$, i.e. $\boxed{x<1\ \text{and}\ y>-3}$. *(Then $(x-y)^{2}>0$ follows
+automatically unless $x=y$, which must also be excluded.)*
+
+**(b)** Removing logs: $(x-y)^{2}=(2-2x)(y+3)$. Expanding,
+
+$$x^{2}-2xy+y^{2}=2y+6-2xy-6x\;\Longrightarrow\;x^{2}+y^{2}+6x-2y-6=0 .$$
+
+*The $-2xy$ cancels on both sides — that is what makes it a circle.* Completing the square,
+
+$$(x+3)^{2}+(y-1)^{2}=16,$$
+
+centre $\boxed{(-3,1)}$, radius $\boxed{4}$.
+
+**(c)** Only the arc satisfying the part (a) restrictions counts. *Squaring and removing logs can admit
+points where the original logarithms do not exist,* so the solution set is the part of the circle with
+$x<1$, $y>-3$ and $x\ne y$ — not the whole circle.
+
+## Question 39 — Change of base
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\sum_{n=1}^{50}\log_{10}\!\left(3^{\,1-n}\right)$, giving the
+answer as a multiple of $\log_{10}3$.
+&nbsp;&nbsp;**(b)** Given $\log_{2}3=a$, express $\log_{6}24$ in terms of $a$.
+&nbsp;&nbsp;**(c)** Solve $\log_{x}4+\log_{2}x=3$ for $x>0$, $x\ne1$.
+
+[Adapted from **2022 P1 Q11** (sum of logs as an AP) and **2018 P1 Q14** (change of base).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\log_{10}\!\left(3^{1-n}\right)=(1-n)\log_{10}3$, so the sum is $\log_{10}3$ times
+
+$$\sum_{n=1}^{50}(1-n)=0-1-2-\cdots-49=-\tfrac12(49)(50)=-1225 .$$
+
+Answer: $\boxed{-1225\log_{10}3}$.
+
+**(b)** Change everything to base $2$: $\log_{6}24=\dfrac{\log_{2}24}{\log_{2}6}=\dfrac{3+a}{1+a}$, since
+$\log_{2}24=\log_{2}8+\log_{2}3=3+a$ and $\log_{2}6=1+a$. &nbsp;$\boxed{\dfrac{3+a}{1+a}}$
+
+**(c)** Put $u=\log_{2}x$. Then $\log_{x}4=\dfrac{\log_{2}4}{\log_{2}x}=\dfrac2u$, so
+$\dfrac2u+u=3$, i.e. $u^{2}-3u+2=0$ and $u=1$ or $u=2$.
+
+$$\boxed{x=2\ \text{or}\ x=4}$$
+
+*Both are valid: each is positive and $\ne1$.*
+
+---
+
+# Part 6 · Differentiation (MM6)
+
+## Question 40 — Power rule
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Show that for $y=(2x+a)(x-2a)^{2}$ the gradient at $x=1$ equals $4a^{2}-14a+6$.
+&nbsp;&nbsp;**(b)** Find the **least** possible gradient at $x=1$ as $a$ varies, and the value of $a$ giving it.
+&nbsp;&nbsp;**(c)** For which $a$ is the curve stationary at $x=1$?
+
+[Adapted from **2016 P1 Q15**, which minimises a gradient over a parameter.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Differentiating as a product and factorising:
+
+$$\frac{\mathrm dy}{\mathrm dx}=2(x-2a)^{2}+(2x+a)\cdot2(x-2a)=2(x-2a)(3x-a).$$
+
+*Taking the common factor $(x-2a)$ out first avoids expanding a cubic.* At $x=1$:
+
+$$2(1-2a)(3-a)=\boxed{4a^{2}-14a+6}.$$
+
+**(b)** This is a quadratic in $a$ opening upwards, so complete the square:
+
+$$4a^{2}-14a+6=4\left(a-\tfrac74\right)^{2}-\tfrac{25}{4}.$$
+
+Least gradient $\boxed{-\tfrac{25}{4}}$, at $\boxed{a=\tfrac74}$.
+
+**(c)** Stationary means the gradient is $0$: $2(1-2a)(3-a)=0$, so $\boxed{a=\tfrac12\ \text{or}\ a=3}$.
+
+## Question 41 — Uses
+
+::: {.question}
+Let $y=x^{3}-3x^{2}+2$.
+
+&nbsp;&nbsp;**(a)** Find the tangent at $x=2$, and say what is special about it.
+&nbsp;&nbsp;**(b)** Find where that tangent meets the curve again.
+&nbsp;&nbsp;**(c)** Find the shortest distance from the origin to the line $y=2x+10$.
+
+[Adapted from **2021 P1 Q2** and **2019 P1 Q6**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\dfrac{\mathrm dy}{\mathrm dx}=3x^{2}-6x$, which is $0$ at $x=2$; and $y(2)=-2$. The tangent is
+
+$$\boxed{y=-2},$$
+
+a **horizontal** line — $x=2$ is a stationary point.
+
+**(b)** Solving $x^{3}-3x^{2}+2=-2$, i.e. $x^{3}-3x^{2}+4=0$. Since $x=2$ is a (repeated) root,
+factorising gives $(x-2)^{2}(x+1)=0$, so it meets the curve again at $\boxed{x=-1}$.
+
+*The double root at $x=2$ is the algebraic signature of tangency.*
+
+**(c)** *Use the perpendicular-distance formula, not calculus.* Writing the line as $2x-y+10=0$,
+
+$$d=\frac{\lvert2(0)-0+10\rvert}{\sqrt{4+1}}=\frac{10}{\sqrt5}=\boxed{2\sqrt5}.$$
+
+## Question 42 — The definitions, kept apart
+
+::: {.question}
+Let $g(x)=x^{5}-5x^{4}$.
+
+&nbsp;&nbsp;**(a)** Find all stationary points and classify each.
+&nbsp;&nbsp;**(b)** Find all points of inflection.
+&nbsp;&nbsp;**(c)** Explain why $x=0$ is a stationary point but **not** a point of inflection, even though
+$g''(0)=0$.
+
+[Adapted from **2023 P1 Q14** and **2018 P1 Q16** (classifying stationary points).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $g'(x)=5x^{4}-20x^{3}=5x^{3}(x-4)$, so stationary at $x=0$ and $x=4$.
+
+*Sign of $g'$:* for $x<0$ both factors are negative so $g'>0$; for $0<x<4$ we have $x^{3}>0$ and $x-4<0$ so
+$g'<0$; for $x>4$ both positive so $g'>0$. Hence
+
+$$x=0:\ \boxed{\text{local maximum}},\qquad x=4:\ \boxed{\text{local minimum}}\ \ (g(4)=-256).$$
+
+**(b)** $g''(x)=20x^{3}-60x^{2}=20x^{2}(x-3)$, zero at $x=0$ and $x=3$. *The factor $x^{2}$ does not change
+sign,* so $g''$ changes sign only at $x=3$: the sole inflection is at $\boxed{x=3}$.
+
+**(c)** $g''(0)=0$ is **necessary** for an inflection but not **sufficient**. At $x=0$ the second derivative
+touches zero without crossing, so the concavity never flips — meanwhile $g'$ *does* change sign there, which
+is what makes it a turning point. $\blacksquare$
+
+## Question 43 — Necessary or sufficient — the whole table
+
+::: {.question}
+Decide each, with a counterexample where the claim fails.
+
+&nbsp;&nbsp;**(a)** $f'(a)=0$ is sufficient for $f$ to have a local extremum at $a$.
+&nbsp;&nbsp;**(b)** $f''(a)>0$ is necessary for a local minimum at $a$.
+&nbsp;&nbsp;**(c)** $f''(a)=0$ is sufficient for a point of inflection at $a$.
+&nbsp;&nbsp;**(d)** A local minimum must occur at a stationary point.
+
+[Adapted from **2023 P1 Q14** (conditions for three distinct roots via turning points).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a) False.** $f(x)=x^{3}$ at $a=0$: stationary, but neither a maximum nor a minimum — *the derivative does
+not change sign.*
+
+**(b) False.** $f(x)=x^{4}$ at $a=0$ is a genuine minimum, yet $f''(0)=0$. *The second-derivative test is
+sufficient, not necessary; when it returns $0$ it says nothing at all.*
+
+**(c) False.** $f(x)=x^{4}$ again: $f''(0)=0$, but $f''(x)=12x^{2}\ge0$ never changes sign, so the concavity
+does not flip.
+
+**(d) False.** $f(x)=\lvert x\rvert$ at $a=0$ is a minimum, but $f'(0)$ does not exist. *The claim is true
+only when $f$ is differentiable.*
+
+*The pattern: $f'=0$ and $f''=0$ are **necessary** conditions; every sufficient condition needs a **sign
+change** — of $f'$ for a turning point, of $f''$ for an inflection.*
+
+## Question 44 — Stationary does not automatically mean turning
+
+::: {.question}
+&nbsp;&nbsp;**(a)** For $y=x^{3}-3x^{2}+3x-1$, show that there is exactly one stationary point and that it
+is **not** a turning point.
+&nbsp;&nbsp;**(b)** How many real roots does $x^{3}-3x^{2}+3x-1=k$ have, for each real $k$?
+
+[Adapted from **2018 P1 Q9** and **2016 P1 Q13** (root counts from the shape).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\dfrac{\mathrm dy}{\mathrm dx}=3x^{2}-6x+3=3(x-1)^{2}$, which is $0$ only at $x=1$ and is
+$\ge0$ **everywhere**.
+
+*Since $y'$ never changes sign, the curve is increasing on both sides of $x=1$* — so $x=1$ is a stationary
+point of inflection, not a turning point. (Indeed $y=(x-1)^{3}$.)
+
+**(b)** $y=(x-1)^{3}$ is strictly increasing, so it takes every real value exactly once:
+
+$$\boxed{\text{exactly one real root, for every }k}.$$
+
+*Contrast a cubic with two turning points, where the count is $1$, $2$ or $3$ depending on $k$ — the number
+of stationary points is what decides which behaviour you get.*
+
+---
+
+# Part 7 · Integration (MM7)
+
+## Question 45 — Power rule
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find $\displaystyle\int\frac{(2\sqrt x-1)^{2}}{x}\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Given $\displaystyle\int_1^{a}\frac{3}{x^{2}}\,\mathrm dx=2$, find $a$.
+&nbsp;&nbsp;**(c)** For which $n$ does $\displaystyle\int_1^{\infty}x^{n}\,\mathrm dx$ fail to exist?
+
+[Adapted from **2020 P1 Q11** and **2017 P1 Q12** (index manipulation before integrating).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Expand before integrating — never integrate a product as a product.*
+
+$$\frac{4x-4\sqrt x+1}{x}=4-4x^{-1/2}+x^{-1}
+\;\Longrightarrow\;\boxed{4x-8\sqrt x+\ln\lvert x\rvert+C}.$$
+
+**(b)** $\displaystyle\int_1^{a}3x^{-2}\,\mathrm dx=\left[-\tfrac3x\right]_1^{a}=3-\tfrac3a=2$, so
+$\tfrac3a=1$ and $\boxed{a=3}$.
+
+**(c)** $\int_1^{R}x^{n}=\dfrac{R^{n+1}-1}{n+1}$ for $n\ne-1$, which stays finite as $R\to\infty$ only when
+$n+1<0$. With $n=-1$ it is $\ln R\to\infty$. So it fails for $\boxed{n\ge-1}$.
+
+## Question 46 — Definite integral
+
+::: {.question}
+$f$ is continuous and $\displaystyle\int_0^1 f(x)\,\mathrm dx=A$, $\displaystyle\int_1^2 f(x)\,\mathrm dx=B$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_0^1 f(x+1)\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_0^2 f(x)\,\mathrm dx-\int_1^0 f(x)\,\mathrm dx$.
+&nbsp;&nbsp;**(c)** Evaluate $\displaystyle\int_0^{1} f(2x)\,\mathrm dx$ in terms of $A$ and $B$.
+
+[Adapted from **2019 P1 Q16**, which compares $\int_0^1 f(x+1)$ with $\int_1^2 f$.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Substituting $u=x+1$ (so $\mathrm du=\mathrm dx$, and the limits $0,1$ become $1,2$):
+
+$$\int_0^1 f(x+1)\,\mathrm dx=\int_1^2 f(u)\,\mathrm du=\boxed{B}.$$
+
+*A translation slides the region sideways and does not change its area.*
+
+**(b)** $\displaystyle\int_0^2 f=A+B$, and $\displaystyle\int_1^0 f=-A$, so the answer is
+$(A+B)-(-A)=\boxed{2A+B}$.
+
+**(c)** Substituting $u=2x$, $\mathrm dx=\tfrac12\mathrm du$, limits $0,1\to0,2$:
+
+$$\int_0^1 f(2x)\,\mathrm dx=\tfrac12\int_0^2 f(u)\,\mathrm du=\boxed{\tfrac12(A+B)}.$$
+
+*A horizontal stretch by $\tfrac12$ halves every width, so it halves the area.*
+
+## Question 47 — Area vs integral
+
+::: {.question}
+Let $f(x)=x^{3}-4x$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{-2}^{2}f(x)\,\mathrm dx$ and explain the answer in one
+sentence.
+&nbsp;&nbsp;**(b)** Find the **total area** enclosed between $y=f(x)$ and the $x$-axis on $[-2,2]$.
+&nbsp;&nbsp;**(c)** Find $\displaystyle\int_{0}^{3}\lvert f(x)\rvert\,\mathrm dx$.
+
+[Adapted from **2021 P1 Q15** and **2023 P1 Q10** (signed versus total area).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $f$ is **odd**, so $\displaystyle\int_{-2}^{2}f=\boxed{0}$ — *the area below the axis on $[0,2]$
+exactly cancels the area above it on $[-2,0]$.*
+
+**(b)** $f(x)=x(x-2)(x+2)$, positive on $(-2,0)$ and negative on $(0,2)$. By symmetry the total area is
+twice one piece:
+
+$$2\int_{-2}^{0}\left(x^{3}-4x\right)\mathrm dx=2\left[\tfrac{x^{4}}{4}-2x^{2}\right]_{-2}^{0}
+=2\bigl(0-(4-8)\bigr)=\boxed{8}.$$
+
+**(c)** On $[0,2]$, $f\le0$; on $[2,3]$, $f\ge0$.
+
+$$\int_0^3\lvert f\rvert=-\int_0^2 f+\int_2^3 f=4+\left[\tfrac{x^4}{4}-2x^2\right]_2^3
+=4+\left(\tfrac{81}{4}-18\right)-\left(4-8\right)=4+\tfrac94+4-4=\boxed{\tfrac{41}{4}}.$$
+
+## Question 48 — Area between two curves
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Find the area enclosed between $y=x^{2}-2x$ and $y=3x-6$.
+&nbsp;&nbsp;**(b)** A line meets the parabola $y=x^{2}+bx+c$ at $x=p$ and $x=q$. Show that the area
+enclosed is $\dfrac{(q-p)^{3}}{6}$, whatever $b$, $c$ and the line are.
+
+[Adapted from **2020 P1 Q14** (line and cubic enclosing equal areas).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** They meet where $x^{2}-2x=3x-6$, i.e. $x^{2}-5x+6=0$, so $x=2$ and $x=3$. On $(2,3)$ the line is
+above, so
+
+$$A=\int_2^3\bigl[(3x-6)-(x^{2}-2x)\bigr]\mathrm dx=\int_2^3\left(-x^{2}+5x-6\right)\mathrm dx=\boxed{\tfrac16}.$$
+
+*For a quadratic meeting a line at $p,q$ the area is $\dfrac{(q-p)^{3}}{6}$ — here $\dfrac{1^{3}}{6}$,
+a useful check.*
+
+**(b)** Let the parabola be $y=x^{2}+bx+c$ and the line $y=mx+k$, meeting where
+$x^{2}+(b-m)x+(c-k)=0$, i.e. at $x=p$ and $x=q$. Then the difference of the two functions factorises as
+$(x-p)(x-q)$, so
+
+$$A=\left\lvert\int_p^q (x-p)(x-q)\,\mathrm dx\right\rvert=\boxed{\frac{(q-p)^{3}}{6}} .$$
+
+*Checking part (a): $q-p=1$, giving $\tfrac16$ as found.* The result needs only that the $x^{2}$ coefficient
+is $1$ — nothing about $b$, $c$, $m$ or $k$.
+
+## Question 49 — Translation
+
+::: {.question}
+$f$ satisfies $\displaystyle\int_{2}^{6} f(x)\,\mathrm dx=10$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{0}^{4} f(x+2)\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{1}^{3} f(2x)\,\mathrm dx$.
+&nbsp;&nbsp;**(c)** Evaluate $\displaystyle\int_{-6}^{-2} f(-x)\,\mathrm dx$.
+
+[Adapted from **2019 P1 Q16** (translation) and **2021 P1 Q15** (scaling inside $f$).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $u=x+2$ sends the limits $0,4$ to $2,6$: the integral is $\boxed{10}$.
+
+**(b)** $u=2x$, $\mathrm dx=\tfrac12\mathrm du$, limits $1,3\to2,6$:
+$\tfrac12\displaystyle\int_2^6 f(u)\,\mathrm du=\boxed{5}$.
+
+**(c)** $u=-x$, $\mathrm dx=-\mathrm du$, limits $-6,-2\to6,2$:
+
+$$\int_{-6}^{-2}f(-x)\,\mathrm dx=-\int_{6}^{2}f(u)\,\mathrm du=\int_{2}^{6}f(u)\,\mathrm du=\boxed{10}.$$
+
+*Reflecting in the $y$-axis preserves area; the two sign changes — from $\mathrm dx$ and from swapping the
+limits — cancel.*
+
+## Question 50 — Even & odd symmetry
+
+::: {.question}
+$f$ is **odd** and $\displaystyle\int_{0}^{3} f(x)\,\mathrm dx=5$.
+
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{-3}^{3}\bigl(f(x)+x^{2}\bigr)\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{-3}^{3} x\,f(x)\,\mathrm dx$ in terms of
+$\displaystyle\int_{0}^{3} x\,f(x)\,\mathrm dx=c$.
+&nbsp;&nbsp;**(c)** Is $f(\lvert x\rvert)$ odd, even, or neither? Justify it.
+
+[Adapted from **2021 P1 Q15** and the parity arguments in **2020 P1 Q18**.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $\displaystyle\int_{-3}^{3}f=0$ (odd), and $x^{2}$ is even so
+$\displaystyle\int_{-3}^{3}x^{2}=2\int_0^3x^{2}=18$. Total $\boxed{18}$.
+
+**(b)** *The product of an odd function and an odd function is **even**,* so
+
+$$\int_{-3}^{3}x\,f(x)\,\mathrm dx=2\int_{0}^{3}x\,f(x)\,\mathrm dx=\boxed{2c}.$$
+
+**(c)** $f(\lvert -x\rvert)=f(\lvert x\rvert)$, so it is **even** — *for every $f$ whatsoever,* because
+$\lvert x\rvert$ already destroys the sign before $f$ sees it. (It is odd only in the trivial case where
+$f(\lvert x\rvert)\equiv0$.)
+
+## Question 51 — Floor, ceiling & step functions
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{0}^{5}\lfloor x\rfloor\,\mathrm dx$ and
+$\displaystyle\int_{0}^{5}\lceil x\rceil\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{0}^{3.5}\lfloor x\rfloor\,\mathrm dx$.
+&nbsp;&nbsp;**(c)** Evaluate $\displaystyle\int_{0}^{4}2^{\lfloor x\rfloor}\,\mathrm dx$.
+
+[Adapted from **2017 P1 Q15** and **2022 P1 Q7** (step functions under an integral).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+*Each integrand is constant on every unit interval, so each integral is a sum of rectangles of width $1$.*
+
+**(a)** $\displaystyle\int_0^5\lfloor x\rfloor=0+1+2+3+4=\boxed{10}$ and
+$\displaystyle\int_0^5\lceil x\rceil=1+2+3+4+5=\boxed{15}$.
+
+**(b)** Three whole strips plus a half strip of height $3$:
+
+$$0+1+2+3(0.5)=\boxed{4.5}.$$
+
+**(c)** $\displaystyle\int_0^4 2^{\lfloor x\rfloor}=2^{0}+2^{1}+2^{2}+2^{3}=\boxed{15}$ —
+*a geometric sum, $2^{4}-1$.*
+
+## Question 52 — How it meets integration
+
+::: {.question}
+Let $f(x)=\lfloor x\rfloor$ and define $\displaystyle g(x)=\sum_{r=1}^{4}f\!\left(2^{\,r-1}x\right)$.
+
+&nbsp;&nbsp;**(a)** Show that $\displaystyle\int_0^1 f\!\left(2^{\,r-1}x\right)\mathrm dx
+=\frac{1}{2^{\,r-1}}\int_0^{2^{\,r-1}} f(u)\,\mathrm du$.
+&nbsp;&nbsp;**(b)** Hence evaluate $\displaystyle\int_0^1 g(x)\,\mathrm dx$.
+
+[Adapted from **2021 P1 Q15**, which sums $f(2^{r-1}x)$ over ten terms.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Substitute $u=2^{\,r-1}x$, so $\mathrm dx=\dfrac{\mathrm du}{2^{\,r-1}}$ and the limits $0,1$ become
+$0,2^{\,r-1}$. The factor $\dfrac1{2^{\,r-1}}$ comes straight out. $\blacksquare$
+
+**(b)** Using $\displaystyle\int_0^n\lfloor u\rfloor\,\mathrm du=\tfrac{n(n-1)}{2}$ with $n=2^{\,r-1}$:
+
+| $r$ | $n=2^{r-1}$ | $\int_0^n\lfloor u\rfloor$ | contribution $\tfrac1n\int$ |
+|---|---|---|---|
+| 1 | 1 | $0$ | $0$ |
+| 2 | 2 | $1$ | $\tfrac12$ |
+| 3 | 4 | $6$ | $\tfrac32$ |
+| 4 | 8 | $28$ | $\tfrac72$ |
+
+$$\int_0^1 g=0+\tfrac12+\tfrac32+\tfrac72=\boxed{\tfrac{11}{2}}.$$
+
+*Integration is linear, so the sum comes outside — the whole question is one substitution repeated.*
+
+## Question 53 — Modulus integral
+
+::: {.question}
+&nbsp;&nbsp;**(a)** Evaluate $\displaystyle\int_{-3}^{3}\lvert x^{2}-4\rvert\,\mathrm dx$.
+&nbsp;&nbsp;**(b)** Evaluate $\displaystyle\int_{0}^{4}\bigl\lvert\,\lvert x-1\rvert-2\,\bigr\rvert\,\mathrm dx$.
+
+[Adapted from **2018 P1 Q3** and **2022 P1 Q7** (nested moduli inside an integral).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** $x^{2}-4$ is negative on $(-2,2)$ and positive outside. *Both the integrand and the interval are
+symmetric, so work on $[0,3]$ and double:*
+
+$$2\left[\int_0^2\left(4-x^{2}\right)\mathrm dx+\int_2^3\left(x^{2}-4\right)\mathrm dx\right]
+=2\left[\tfrac{16}{3}+\tfrac{7}{3}\right]=\boxed{\tfrac{46}{3}}.$$
+
+**(b)** The inner modulus has a corner at $x=1$; the outer one vanishes where $\lvert x-1\rvert=2$, i.e.
+$x=3$ (and $x=-1$, outside the range). So split at $1$ and $3$:
+
+| interval | integrand | integral |
+|---|---|---|
+| $[0,1]$ | $2-(1-x)=1+x$ | $\tfrac32$ |
+| $[1,3]$ | $2-(x-1)=3-x$ | $2$ |
+| $[3,4]$ | $(x-1)-2=x-3$ | $\tfrac12$ |
+
+Total $\boxed{4}$.
+
+---
+
+# Part 8 · Graphs and transformations (MM8)
+
+## Question 54 — Graph transformations
+
+::: {.question}
+The curve $y=x^{2}$ is subjected, **in this order**, to
+
+&nbsp;&nbsp;1. a stretch parallel to the $y$-axis, scale factor $3$;
+&nbsp;&nbsp;2. a translation by $\begin{pmatrix}-2\\4\end{pmatrix}$;
+&nbsp;&nbsp;3. a reflection in the $x$-axis.
+
+&nbsp;&nbsp;**(a)** Find the equation of the resulting curve in the form $y=ax^{2}+bx+c$.
+&nbsp;&nbsp;**(b)** Apply the same three transformations in the **reverse** order. Show that the result is
+different, and identify exactly which part of the data is responsible.
+&nbsp;&nbsp;**(c)** Exactly one of
+$$y=x^{3}-6x^{2}+12x-5 \qquad\text{and}\qquad y=x^{3}-6x^{2}+9x-5$$
+is a translation of $y=x^{3}$. Decide which, by finding a condition on the coefficients of
+$y=x^{3}+px^{2}+qx+r$, and give the translation.
+
+[Adapted from **2020 P1 Q10** (a three-step sequence applied to $y=4x^{2}$) and **2022 P1 Q10** (which cubics are translations of $y=x^{3}$).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Apply the steps to the equation one at a time, and remember that a translation by
+$\binom{-2}{4}$ means $x\mapsto x+2$ and $+4$ on the outside.*
+
+$$x^{2}\ \xrightarrow{\ \times3\ }\ 3x^{2}\ \xrightarrow{\ \text{translate}\ }\ 3(x+2)^{2}+4
+\ \xrightarrow{\ \text{reflect}\ }\ -3(x+2)^{2}-4,$$
+
+so
+
+$$\boxed{y=-3x^{2}-12x-16}.$$
+
+**(b)** Reflect first, then translate, then stretch:
+
+$$-x^{2}\ \longrightarrow\ -(x+2)^{2}+4\ \longrightarrow\ -3(x+2)^{2}+12
+\;=\;\boxed{y=-3x^{2}-12x},$$
+
+which differs from (a) by $16$.
+
+*The horizontal part of the translation survives both orders untouched — the bracket is $(x+2)^{2}$ in
+each case — because neither a vertical stretch nor a reflection in the $x$-axis does anything to $x$. It is
+the **vertical** $+4$ that is responsible. In (a) the stretch has already happened, so the $+4$ is only
+negated, becoming $-4$; in (b) the stretch comes afterwards, so the $+4$ is multiplied by $3$, becoming
+$+12$.* The two curves therefore differ by $-4-12=-16$, and a further translation of $16$ **downwards**
+would turn (b) into (a).
+
+**(c)** A translation of $y=x^{3}$ has the form $y=(x-h)^{3}+k$, i.e.
+
+$$y=x^{3}-3h\,x^{2}+3h^{2}x+\left(k-h^{3}\right).$$
+
+So $p=-3h$ and $q=3h^{2}$, giving $9h^{2}=p^{2}$ and $3q=9h^{2}$:
+
+$$\boxed{p^{2}=3q}.$$
+
+*The constant $r$ is unconstrained, because $k$ is free — a translation can move the curve to any height.*
+
+| curve | $p^{2}$ | $3q$ | translation? |
+|---|---|---|---|
+| $x^{3}-6x^{2}+12x-5$ | $36$ | $36$ | ✓ |
+| $x^{3}-6x^{2}+9x-5$ | $36$ | $27$ | ✗ |
+
+For the first, $h=2$ and $(x-2)^{3}=x^{3}-6x^{2}+12x-8$, so $k=3$:
+
+$$y=(x-2)^{3}+3,\qquad\text{a translation by }\begin{pmatrix}2\\3\end{pmatrix}.$$
+
+## Question 55 — Shapes to know on sight
+
+::: {.question}
+&nbsp;&nbsp;**(a)** How many solutions does $(x+1)(3-x)=4\cos x$ have?
+&nbsp;&nbsp;**(b)** How many solutions does $x^{2}=2^{x}$ have?
+&nbsp;&nbsp;**(c)** State, with a reason, how many solutions $\lvert x-2\rvert=\tfrac1x$ has for $x>0$.
+
+[Adapted from **2021 P1 Q14**, which counts solutions of a quadratic against a trigonometric curve.]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** *Do not solve it — sketch both sides and count crossings.* The left side is a downward parabola with
+roots $-1$ and $3$ and maximum $4$ at $x=1$; the right side oscillates in $[-4,4]$.
+
+Outside $[-1,3]$ the parabola plunges below $-4$ almost immediately *(at $x=-2$ it is already $-5$)*, so it
+can never meet the cosine wave again. Inside $[-1,3]$ the parabola rises from $0$ to $4$ and back while
+$4\cos x$ falls from about $2.2$ to $-4$: they cross $\boxed{2}$ times, near $x\approx0.42$ and
+$x\approx3.71$.
+
+**(b)** $y=x^{2}$ and $y=2^{x}$ meet at $x=2$ and $x=4$ (both give $4$ and $16$), and once more for a
+negative $x$ *because $x^{2}\to+\infty$ while $2^{x}\to0$*. So $\boxed{3}$.
+
+**(c)** For $0<x<2$ we need $2-x=\tfrac1x$, i.e. $x^{2}-2x+1=0$, so $(x-1)^{2}=0$ and $x=1$ — but there
+$2-x=1$ and $\tfrac1x=1$, so this **is** a solution: the curves *touch*. For $x>2$ we need
+$x-2=\tfrac1x$, i.e. $x^{2}-2x-1=0$, giving $x=1+\sqrt2\approx2.414$.
+
+So there are $\boxed{2}$ solutions, $x=1$ and $x=1+\sqrt2$ — *and the first is a tangential touch, which a
+rough sketch easily misses.*
+
+## Question 56 — "For which $k$…" questions
+
+::: {.question}
+&nbsp;&nbsp;**(a)** For which $k$ does $x^{3}-6x^{2}+9x=k$ have three distinct real solutions?
+&nbsp;&nbsp;**(b)** For which $k$ does it have exactly two?
+&nbsp;&nbsp;**(c)** For which $k$ does $x^{4}-4x^{2}=k$ have exactly four distinct real solutions?
+
+[Adapted from **2018 P1 Q9** and **2023 P1 Q14** (range of a constant for a given root count).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Let $g(x)=x^{3}-6x^{2}+9x$. Then $g'(x)=3x^{2}-12x+9=3(x-1)(x-3)$, so the stationary points are
+$x=1$ and $x=3$ with
+
+$$g(1)=4\ (\text{max}),\qquad g(3)=0\ (\text{min}).$$
+
+*A horizontal line cuts all three monotone stretches exactly when it lies strictly between the two turning
+values:*
+
+$$\boxed{0<k<4}.$$
+
+**(b)** Exactly two distinct roots happens when the line passes **through** a turning point, so
+$\boxed{k=0\ \text{or}\ k=4}$.
+
+**(c)** $h(x)=x^{4}-4x^{2}$ has $h'(x)=4x(x^{2}-2)$, so turning values $h(0)=0$ (local max) and
+$h(\pm\sqrt2)=-4$ (two equal minima). Four distinct roots needs the line strictly between them:
+
+$$\boxed{-4<k<0}.$$
+
+## Question 57 — Sketch checklist
+
+::: {.question}
+Let $f(x)=\dfrac{x^{2}-4}{x^{2}-1}$.
+
+&nbsp;&nbsp;**(a)** State the intercepts, the vertical asymptotes and the behaviour as $x\to\pm\infty$.
+&nbsp;&nbsp;**(b)** Show that $f$ never takes a value strictly between $1$ and $4$.
+&nbsp;&nbsp;**(c)** Hence state the range of $f$.
+
+[Adapted from **2022 P1 Q15** and **2020 P1 Q18** (range of a rational function via the $y$-method).]{.eg}
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+### Solution
+
+**(a)** Roots where $x^{2}=4$: $x=\pm2$. Intercept $f(0)=\dfrac{-4}{-1}=4$. Vertical asymptotes where the
+denominator vanishes, $x=\pm1$. As $x\to\pm\infty$ the leading terms dominate, so $f\to1$: a **horizontal
+asymptote $y=1$**.
+
+**(b)** Set $y=f(x)$ and solve for $x^{2}$:
+
+$$y\left(x^{2}-1\right)=x^{2}-4\;\Longrightarrow\;x^{2}(y-1)=y-4\;\Longrightarrow\;x^{2}=\frac{y-4}{y-1}.$$
+
+*A real $x$ exists exactly when that fraction is $\ge0$,* which fails precisely for $1<y<4$. So no value
+strictly between $1$ and $4$ is attained. $\blacksquare$
+
+**(c)** $\dfrac{y-4}{y-1}\ge0$ holds for $y\le1$... but $y=1$ itself forces $0=-3$, impossible. So
+
+$$\boxed{y<1\ \text{ or }\ y\ge4 } .$$
+
+*The $y$-parameter method — solve for $x$ and demand a real solution — is the reliable way to get a range.*
+

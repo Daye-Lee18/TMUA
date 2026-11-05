@@ -15,8 +15,11 @@ reasoning vocabulary and the two topics that appear in every sitting.
 | | Sheet | What it carries |
 |---|---|---|
 | **Paper 1** | **[Blank — fill it in yourself](paper1_formula_sheet_blank.qmd)** | the same headings with the formulas removed |
-| **Paper 1** | **[Completed reference copy](paper1_formula_sheet.qmd)** | MM1–MM8: indices and surds, quadratics, sequences and series, coordinate geometry, trigonometry, logarithms, differentiation, integration, graphs |
-| **Paper 2** | **[Formula sheet & concept summary](paper2_formula_sheet.qmd)** | S1–S7 reasoning, T1 divisors and primes, T2 shapes as logical conditions, and an exam-day card |
+| **Paper 1** | **[Completed reference copy](paper1_formula_sheet.qmd)** | MM1–MM8 formulas, mini-examples, recurring question types, fast methods, and exam traps |
+| **Paper 1** | **[Formula sheet + card challenges](paper1_formula_sheet_challenge.qmd)** | the full reference with one high-difficulty problem and inline solution toggle directly under every concept card |
+| **Paper 1** | **[Formula-sheet worksheet and mark scheme](paper1_formula_sheet_ws.qmd)** | all 57 concept-card challenges with working space and fully visible English solutions |
+| **Paper 2** | **[Formula sheet & concept summary](paper2_formula_sheet.qmd)** | S1–S7 reasoning, recurring topic engines, standard counterexamples, and an exam-day card |
+| **Paper 2** | **[Formula sheet + card challenges](paper2_formula_sheet_challenge.qmd)** | the full reasoning reference with one high-difficulty problem and inline solution toggle under every concept card |
 
 ::: {.callout-tip}
 ## Use the blank one first

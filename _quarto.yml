@@ -30,8 +30,12 @@ website:
             href: formula_sheets/paper1_formula_sheet_blank.qmd
           - text: "Paper 1 — completed reference copy"
             href: formula_sheets/paper1_formula_sheet.qmd
+          - text: "Paper 1 — worksheet & mark scheme"
+            href: formula_sheets/paper1_formula_sheet_ws.qmd
           - text: "Paper 2 — formula sheet & concepts"
             href: formula_sheets/paper2_formula_sheet.qmd
+          - text: "Paper 2 — formula sheet + card challenges"
+            href: formula_sheets/paper2_formula_sheet_challenge.qmd
 
 format:
   html:

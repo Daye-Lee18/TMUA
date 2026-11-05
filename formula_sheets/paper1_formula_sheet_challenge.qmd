@@ -1260,9 +1260,8 @@ Working
 ::: {.fs-card}
 ### Circle ★
 
-Centre $(a,b)$, radius $r$:
-$$(x-a)^2 + (y-b)^2 = r^2.$$
-General form $x^2 + y^2 + 2gx + 2fy + c = 0$ has centre $(-g,-f)$ and radius $\sqrt{g^2+f^2-c}$.
+Equation, general form and the test for whether it is a circle at all: **C1** in Part 0. Two circles, the
+gaps between them, and the line-and-circle cases: **C2**, **C3** and **D2**.
 
 #### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
 
@@ -1300,8 +1299,11 @@ Working
 ::: {.fs-card}
 ### Circle facts
 
-The tangent is perpendicular to the radius at the point of contact; the angle in a
-semicircle is a right angle; the perpendicular from the centre bisects a chord.
+The three geometric facts that the coordinates alone will not hand you:
+
+- the **tangent is perpendicular to the radius** at the point of contact;
+- the **angle in a semicircle is a right angle**;
+- the **perpendicular from the centre bisects a chord**.
 
 #### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
 
@@ -1544,6 +1546,36 @@ Working
 (for solving equations over an interval):
 $$\sin(180^\circ - \theta) = \sin\theta, \qquad \cos(360^\circ - \theta) = \cos\theta,$$
 $$\sin(180^\circ + \theta) = -\sin\theta, \qquad \cos(180^\circ - \theta) = -\cos\theta.$$
+
+A shift by $90^\circ$ behaves differently: **it swaps sine and cosine.**
+
+| shift | $\sin$ | $\cos$ | $\tan$ |
+|---|---|---|---|
+| $90^\circ-\theta$ | $\cos\theta$ | $\sin\theta$ | $1/\tan\theta$ |
+| $90^\circ+\theta$ | $\cos\theta$ | $-\sin\theta$ | $-1/\tan\theta$ |
+| $270^\circ-\theta$ | $-\cos\theta$ | $-\sin\theta$ | $1/\tan\theta$ |
+| $270^\circ+\theta$ | $-\cos\theta$ | $\sin\theta$ | $-1/\tan\theta$ |
+| $-\theta$ | $-\sin\theta$ | $\cos\theta$ | $-\tan\theta$ |
+
+An **odd** multiple of $90^\circ$ swaps $\sin\leftrightarrow\cos$; an **even** multiple keeps the function.
+The sign is then whichever one the quadrant of the shifted angle requires.
+
+**Memory tip — how to get the sign without memorising the table.** Each identity holds for **every** angle
+$\theta$. But to *recall* a sign, pretend $\theta$ is **acute**, see which quadrant the shifted angle lands
+in, and take the sign that the **original function** — the one on the left — has in that quadrant.
+
+| | with $\theta$ acute, the shifted angle is in | there, the function on the left is | so |
+|---|---|---|---|
+| $\sin(90^\circ+\theta)$ | quadrant 2 | $\sin>0$ | $+\cos\theta$ |
+| $\cos(90^\circ+\theta)$ | quadrant 2 | $\cos<0$ | $-\sin\theta$ |
+| $\sin(270^\circ-\theta)$ | quadrant 3 | $\sin<0$ | $-\cos\theta$ |
+| $\cos(270^\circ+\theta)$ | quadrant 4 | $\cos>0$ | $+\sin\theta$ |
+
+Taking $\theta$ acute is only a device for fixing the sign — the finished identity is then valid for all
+$\theta$.
+
+[$\sin(90^\circ+\theta)=\cos\theta$, so $\sin 120^\circ=\cos 30^\circ=\tfrac{\sqrt3}{2}$]{.eg}
+
 Periods: $\sin,\cos$ repeat every $360^\circ$; $\tan$ every $180^\circ$.
 
 #### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
@@ -1567,8 +1599,8 @@ The second gives $x=90^{\circ}+360^{\circ}k$, so $x=90^{\circ}$ — already coun
 $$\boxed{x=18^{\circ},\ 90^{\circ},\ 162^{\circ}}$$
 
 **(b)** From the first family $x=18^{\circ}+72^{\circ}k$: that is $18,90,162,\dots,666$ — **ten** values in
-$[0,720]$. From the second, $x=90^{\circ}$ and $x=450^{\circ}$, of which $90^{\circ}$ repeats. Total
-$\boxed{11}$.
+$[0,720]$. The second family gives $x=90^{\circ}$ and $x=450^{\circ}$, but *both* are already in the first
+one ($90=18+72$ and $450=18+72\times6$), so neither is new. Total $\boxed{10}$.
 :::
 
 ::: {.workspace style="min-height:5cm"}
@@ -1707,13 +1739,29 @@ Working
 ::: {.fs-card}
 ### The two radii ★
 
+Neither radius needs an angle — both are pinned down by the **area** $K$, which is why Heron is usually the
+first step.
+
+::: {.callout-tip}
+**The two radii, from the area.** With $s=\tfrac12(a+b+c)$ the semiperimeter,
+
 $$\boxed{\,R=\frac{abc}{4K}\,}\qquad\qquad \boxed{\,r=\frac{K}{s}\,}$$
-*$R$ comes from combining $\sin A=\dfrac{a}{2R}$ with $K=\tfrac12bc\sin A$; the denominator is
-$4\times\text{area}$, not $\tfrac{abc}{4}\times K$.* Here $r$ is the **inradius**.
+
+**Circumradius.** Substituting $\sin A=\dfrac{a}{2R}$ into $K=\tfrac12bc\sin A$ gives
+
+$$K=\tfrac12\,bc\cdot\frac{a}{2R}=\frac{abc}{4R}.$$
+
+So the denominator of $R$ is $4\times\text{area}$ — not $\tfrac{abc}{4}\times K$.
+
+**Inradius.** Join the incentre to the three vertices. That splits the triangle into three triangles with
+bases $a$, $b$, $c$ and the **same** height $r$, since the incircle touches every side. Adding them,
+
+$$K=\tfrac12ar+\tfrac12br+\tfrac12cr=\tfrac12r(a+b+c)=rs .$$
+:::
 
 [Worked check on the $13,14,15$ triangle: $s=21$, Heron gives $K=\sqrt{21\cdot8\cdot7\cdot6}=84$, the same
 as $\tfrac12ab\sin C$ and as the shoelace value; then $R=\tfrac{13\cdot14\cdot15}{4\cdot84}=\tfrac{65}{8}$ and
-$r=\tfrac{84}{21}=4$.]{.eg}
+$r=\tfrac{84}{21}=4$. For $3,4,5$: $R=\tfrac52$, half the hypotenuse, and $r=1$.]{.eg}
 
 #### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
 
@@ -1757,15 +1805,31 @@ Working
 | perimeter and $n$, for an $n$-gon | regular $n$-gon |
 | two sides, angle free | the angle is $90^\circ$, since $K=\tfrac12ab\sin\theta$ |
 
-*A base alone is not enough — the height, and so the area, grows without bound.*
+**No maximum from a base alone:** the height, and therefore the area, can grow without bound.
 
-Use the **cosine rule** for SSS or SAS; the **sine rule** for a known opposite side–angle pair.
-With SSA, $\sin B=\sin(180^\circ-B)$ can give **two triangles**; check the angle sum and any “acute/obtuse”
-condition. Writing $h=c\sin A$ for the distance from the far vertex to the opposite ray, there are
-**two** triangles exactly when $h<a<c$, one when $a=h$ or $a\ge c$, and none when $a<h$.
+**Choose the rule**
 
-*When two triangles share an angle and one adjacent side, their areas are in the same ratio as the other
-adjacent sides* — because $K=\tfrac12bc\sin A$ holds everything but that side fixed.
+- **SSS or SAS** $\rightarrow$ cosine rule
+- A known **opposite side–angle pair** $\rightarrow$ sine rule
+
+**SSA: the ambiguous case**
+
+- $\sin B=\sin(180^\circ-B)$, so the same data may produce two triangles.
+- Let $h=c\sin A$ be the perpendicular distance to the opposite ray.
+
+| condition | number of triangles |
+|---|:---:|
+| $a<h$ | $0$ |
+| $a=h$ or $a\ge c$ | $1$ |
+| $h<a<c$ | $2$ |
+
+Always check the angle sum and any stated **acute/obtuse** condition.
+
+**Area-ratio shortcut:** if two triangles share an angle and one adjacent side, then
+
+$$\frac{K_1}{K_2}=\frac{\text{other adjacent side}_1}{\text{other adjacent side}_2},$$
+
+because $K=\tfrac12bc\sin A$ keeps every other factor fixed.
 
 #### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
 
@@ -2656,6 +2720,8 @@ large.
 ::::: {.fs-grid}
 
 ::: {.fs-card}
+### Graph transformations ★
+
 For $y = f(x)$:
 
 | Transformation | Effect |

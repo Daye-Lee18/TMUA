@@ -1,0 +1,3143 @@
+---
+title: "TMUA Paper 2 Formula Sheet and Card Challenges"
+subtitle: "The complete reasoning reference with a high-difficulty problem directly under every concept card"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: false
+  warning: false
+---
+
+The reference is unchanged in content, but every concept card now ends with a challenge adapted from the
+local TMUA Paper 2 archive and the MAT, STEP-foundation and ECAA papers. The problems are harder than the
+originals they come from: each is multi-part, and several ask you to decide a claim *and* supply the
+counterexample. Attempt a problem before opening its solution.
+
+::: {.callout-note appearance="simple"}
+**Where the marks are, from eight years of papers.** Necessary/sufficient **25 %** · straight calculation
+**28 %** · quantifiers **15 %** · spot the error **10 %** · converse/contrapositive **8 %** ·
+counterexample **7 %**. Divisors and primes carry about **13 %** of the questions, and a plane shape asked
+as a logical condition appears in **every** sitting.
+:::
+
+::: {.callout-important}
+## How to use this page
+
+| Section | Use it for |
+|---|---|
+| **Part 1 · S1–S7** | Make the reasoning core automatic. The exam uses English sentences; arrows here are thinking tools. |
+| **Parts 2–3** | Review two question types that frequently appear in Paper 2. |
+| **Part 4** | Refresh the recurring mathematical techniques used inside logic questions. |
+| **Part 5** | Use as your exam-day checklist. |
+| **★ cards** | Prioritise these; they appear on almost every paper. |
+:::
+
+---
+
+# Part 1 · The reasoning core — S1 to S7
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Section 2 — Arg, Prf, Err</div>
+<div class="fs-title">Logic and proof — the whole of it</div>
+<div class="fs-sub">Seven sessions. If you can reproduce these from memory you have the entire non-A-level content of Paper 2; everything else on the paper is Paper 1 mathematics wearing a logical wrapper.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### S1 · Statement forms ★
+
+$$A\Rightarrow B\;=\;\text{“if }A\text{ then }B\text{”}\;=\;\text{“}A\text{ only if }B\text{”}\;=\;\text{“}B\text{ if }A\text{”}$$
+
+**The bare "if" introduces the forcing statement.** So "$A$ **if** $B$" is $B\Rightarrow A$ — backwards from
+the reading order.
+
+"$A$ **if and only if** $B$" is both arrows: $A\Leftrightarrow B$.
+
+**Reversed wording:** in "a condition **for** $Q$ is $P$", the target follows the word *for*. Find the
+target first, then the condition.
+
+[the trap: "only if" points forwards, "if" points backwards]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $n$ be a positive integer and put
+
+$$P:\ n\text{ is divisible by }6,\qquad Q:\ n\text{ is even},\qquad R:\ n\text{ is divisible by }3 .$$
+
+&nbsp;&nbsp;**(a)** Rewrite each sentence as an implication between the labels, then say whether it is true.
+Exactly one of them is false.
+
+&nbsp;&nbsp;&nbsp;&nbsp;(i) $P$ only if $Q$. &nbsp;&nbsp; (ii) $Q$ if $P$. &nbsp;&nbsp;
+(iii) A condition for $Q$ is $P$. &nbsp;&nbsp; (iv) $Q$ is necessary for $P$. &nbsp;&nbsp;
+(v) $P$ unless $Q$.
+
+&nbsp;&nbsp;**(b)** Write $P$ as an "if and only if" statement built from $Q$ and $R$, and justify it.
+
+&nbsp;&nbsp;**(c)** A multiple-choice question offers these two options about $P$:
+
+&nbsp;&nbsp;&nbsp;&nbsp;**A** &nbsp;$P$ is true **if** $n$ is divisible by $12$. &nbsp;&nbsp;&nbsp;&nbsp;
+**B** &nbsp;$P$ is true **if and only if** $n$ is divisible by $12$.
+
+&nbsp;&nbsp;Exactly one is correct. Which, and what refutes the other?
+
+[Adapted from **2022 P2 Q5** (a statement, its converse and its contrapositive) and **2019 P2 Q17** ("true if" against "true if and only if").]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)**
+
+| | sentence | implication | true? |
+|---|---|---|---|
+| (i) | $P$ only if $Q$ | $P\Rightarrow Q$ | **yes** |
+| (ii) | $Q$ if $P$ | $P\Rightarrow Q$ | **yes** |
+| (iii) | a condition for $Q$ is $P$ | $P\Rightarrow Q$ | **yes** |
+| (iv) | $Q$ is necessary for $P$ | $P\Rightarrow Q$ | **yes** |
+| (v) | $P$ unless $Q$ | $\lnot Q\Rightarrow P$ | **no** |
+
+*The first four are the same implication in four disguises.* "Only if" points forwards; the bare "if" points
+backwards, so (ii) reverses to $P\Rightarrow Q$ as well; in (iii) the target follows the word *for*, so $Q$
+is the target; and "necessary" points backwards from $Q$ to $P$ — which is again $P\Rightarrow Q$. Every one
+of them is true, because $6\mid n$ forces $2\mid n$.
+
+**(v)** is the odd one out. "$P$ unless $Q$" means *$P$ holds in the absence of $Q$*, i.e.
+$\lnot Q\Rightarrow P$: every **odd** $n$ would have to be divisible by $6$.
+
+$$\boxed{n=5\text{ refutes (v)}}$$
+
+**(b)** $\boxed{P\iff(Q\text{ and }R)}$, that is $6\mid n\iff\left(2\mid n\text{ and }3\mid n\right)$.
+
+*Both directions are needed.* Forwards is immediate. Backwards: $2$ and $3$ share no factor, so if both
+divide $n$ then so does their product. *(With $4$ and $6$ in place of $2$ and $3$ this fails — $n=12$ is
+divisible by both but not by $24$.)*
+
+**(c)** $\boxed{\textbf{A}}$. "$P$ is true if $12\mid n$" is $12\mid n\Rightarrow6\mid n$, which holds.
+
+**B** claims the converse as well, $6\mid n\Rightarrow12\mid n$, and $n=6$ refutes it.
+
+*This is the standard pair of distractors: an "if" option and an "if and only if" option differing by one
+arrow. Test the extra arrow and one of them dies.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S2 · Converse and contrapositive ★
+
+| | form | equivalent to the original? |
+|---|---|---|
+| statement | $A\Rightarrow B$ | — |
+| **converse** | $B\Rightarrow A$ | **no** |
+| inverse | $\lnot A\Rightarrow\lnot B$ | **no** |
+| **contrapositive** | $\lnot B\Rightarrow\lnot A$ | **always yes** |
+
+The inverse and the converse are contrapositives *of each other*, so they stand or fall together.
+
+When a question asks **"which must be true"**, the answer is almost always the contrapositive and the
+**converse is the trap option**.
+
+**The standard question: "which is logically equivalent?"** You are being asked to find one of
+
+$$\text{if }P\text{ then }Q
+\ \ \equiv\ \ P\ \textbf{only if}\ Q
+\ \ \equiv\ \ \lnot Q\Rightarrow\lnot P .$$
+
+**Method: symbolise the whole sentence first, then swap and negate.** Write $P$ and $Q$ down as labels,
+read the sentence into $P\Rightarrow Q$, then exchange the two sides **and** negate both. Never try to
+rearrange the English directly.
+
+[negate a compound with De Morgan — see S4]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+A straight line $L$ passes through $(1,2)$ and is neither horizontal nor vertical. Let $P$ be the statement
+
+> if the $y$-intercept of $L$ is negative, then the $x$-intercept of $L$ is positive.
+
+&nbsp;&nbsp;**(a)** Write down the converse and the contrapositive of $P$.
+&nbsp;&nbsp;**(b)** Taking the gradient as $m$, express both intercepts in terms of $m$, and hence **prove**
+that $P$ is true.
+&nbsp;&nbsp;**(c)** Decide whether the converse is true. If it is not, give the equation of a line through
+$(1,2)$ that refutes it.
+&nbsp;&nbsp;**(d)** Explain why parts (b) and (c) together settle the contrapositive with no further work.
+
+[Adapted from **2022 P2 Q5**, where the same line and statement appear; here the intercepts must actually be computed and the converse refuted.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** With $Y$: "the $y$-intercept is negative" and $X$: "the $x$-intercept is positive", $P$ is
+$Y\Rightarrow X$, so
+
+$$\text{converse: } X\Rightarrow Y,\qquad \text{contrapositive: } \lnot X\Rightarrow\lnot Y .$$
+
+In words: the converse is "if the $x$-intercept is positive then the $y$-intercept is negative"; the
+contrapositive is "if the $x$-intercept is not positive then the $y$-intercept is not negative".
+
+**(b)** The line is $y=m(x-1)+2$ with $m\ne0$, so
+
+$$y\text{-intercept}=2-m,\qquad x\text{-intercept}=1-\frac{2}{m}.$$
+
+*Now translate the hypothesis into a condition on $m$:* $2-m<0$ means $m>2$. For such $m$ we have
+$0<\dfrac{2}{m}<1$, hence
+
+$$1-\frac{2}{m}>0 .$$
+
+So the $x$-intercept is positive and $\boxed{P\text{ is true}}$.
+
+**(c)** The converse is **false**. *Solve the hypothesis instead of the conclusion:*
+$1-\dfrac{2}{m}>0$ holds when $m>2$ **or** $m<0$ — and the second branch is not covered by $m>2$.
+
+Take $m=-1$, giving $y=-(x-1)+2$:
+
+$$\boxed{x+y=3}$$
+
+Its $x$-intercept is $3>0$, but its $y$-intercept is $3$, which is not negative.
+
+**(d)** A statement and its contrapositive are logically equivalent — they are true or false together — so
+(b) makes the contrapositive **true**. No separate argument is possible or needed. *The converse is the
+trap option precisely because it is the one rearrangement that is **not** equivalent.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S3 · Necessary and sufficient ★
+
+$$\text{“}P\text{ sufficient for }Q\text{”}=P\Rightarrow Q\qquad
+\text{“}P\text{ necessary for }Q\text{”}=Q\Rightarrow P$$
+
+**Sufficient points forwards; necessary points backwards.**
+
+**The routine that answers every one of these.** Write the *exact* set of cases making each statement
+true, then compare by inclusion:
+
+$$P\subset Q\Rightarrow\textbf{sufficient, not necessary}\qquad
+Q\subset P\Rightarrow\textbf{necessary, not sufficient}$$
+$$P=Q\Rightarrow\textbf{both}\qquad\text{overlapping}\Rightarrow\textbf{neither}$$
+
+**The tip: turn every "necessary" into a "sufficient".** The two words describe the same arrow from opposite
+ends, so
+
+"$X$ is **necessary** for $Y$" &nbsp;=&nbsp; "$Y$ is **sufficient** for $X$".
+
+Rewrite the question that way and you only ever have to think in **one** direction.
+
+**Then: the sufficient one is always the more restricted condition — the smaller set.** Of the two, whichever
+is **harder to satisfy** is sufficient for the other; the easier one is necessary.
+
+[25 % of recent papers — the largest single block of marks]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $a$, $b$ and $n$ be positive integers and let
+
+$$(*):\ ab\text{ is divisible by }n .$$
+
+Classify each condition below as **sufficient but not necessary**, **necessary but not sufficient**,
+**both**, or **neither** for $(*)$ — and support every "not" with an explicit counterexample.
+
+&nbsp;&nbsp;**(a)** $n$ divides $a$, or $n$ divides $b$.
+&nbsp;&nbsp;**(b)** $n$ divides $ab^{2}$.
+&nbsp;&nbsp;**(c)** $n$ divides $a+b$.
+&nbsp;&nbsp;**(d)** $\dfrac{n}{\gcd(n,a)}$ divides $b$.
+
+[Adapted from **2019 P2 Q5**, which asks only about condition (a); **2021 P2 Q4** is the same divisibility trap stated as a counterexample question.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+*Use the S3 routine: ask one direction at a time, and hunt for a counterexample the moment a direction looks
+doubtful.*
+
+**(a) Sufficient but not necessary.** If $n\mid a$ then $n\mid ab$, and likewise for $b$ — so the condition
+forces $(*)$.
+
+It is not necessary: $\boxed{a=2,\ b=2,\ n=4}$ gives $ab=4$, divisible by $4$, yet $4$ divides neither $a$
+nor $b$. *The factors of $n$ can be split between $a$ and $b$ instead of sitting inside one of them.*
+
+**(b) Necessary but not sufficient.** If $n\mid ab$ then $n\mid ab\cdot b=ab^{2}$, so the condition must
+hold.
+
+It is not sufficient: $\boxed{a=1,\ b=2,\ n=4}$ gives $ab^{2}=4$, divisible by $4$, but $ab=2$ is not.
+
+**(c) Neither.** Not sufficient: $a=b=1$, $n=2$ gives $a+b=2$ divisible by $2$, while $ab=1$ is not. Not
+necessary: $a=1$, $b=2$, $n=2$ gives $ab=2$ divisible by $2$, while $a+b=3$ is not.
+
+$$\boxed{\text{neither direction holds}}$$
+
+**(d) Both — this is the exact condition.** Write $g=\gcd(n,a)$. Then $n\mid ab$ holds precisely when
+$\dfrac{n}{g}\ \Big|\ \dfrac{a}{g}\,b$, and $\dfrac{n}{g}$ and $\dfrac{a}{g}$ share no factor, so by
+Euclid's lemma this happens exactly when $\dfrac{n}{g}\mid b$.
+
+$$\boxed{\text{necessary and sufficient}}$$
+
+*Note how (a) and (d) are related: (a) is the special case $g=n$ or $g=1$. The exam's favourite distractor is
+to offer the special case and call it the condition.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S4 · Quantifiers and negation ★
+
+$$\lnot(\forall x,\;P)=\exists x,\;\lnot P\qquad\lnot(\exists x,\;P)=\forall x,\;\lnot P$$
+
+The negation of "**all** X are Y" is "**some** X is **not** Y" — *not* "no X is Y".
+
+**De Morgan.** $\lnot(P\text{ and }Q)=\lnot P\text{ or }\lnot Q$; $\lnot(P\text{ or }Q)=\lnot P\text{ and }\lnot Q$.
+
+**Negating an implication.** $\lnot(P\Rightarrow Q)=P\;\textbf{and}\;\lnot Q$ — never "if $P$ then not $Q$".
+
+**Order matters.** $\forall x\,\exists y$ lets $y$ depend on $x$; $\exists y\,\forall x$ needs one $y$ for
+all $x$ at once — far stronger.
+
+[to negate a chain, flip every quantifier in order, then the inside]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Decide whether each statement is true, with a reason or a counterexample.
+
+&nbsp;&nbsp;&nbsp;&nbsp;I. $\ \forall x\in\mathbb R\ \ \forall n\in\mathbb Z^{+}:\ x<n$
+&nbsp;&nbsp;&nbsp;&nbsp;II. $\ \forall x\in\mathbb R\ \ \exists n\in\mathbb Z^{+}:\ x<n$
+&nbsp;&nbsp;&nbsp;&nbsp;III. $\ \exists x\in\mathbb R\ \ \forall n\in\mathbb Z^{+}:\ x<n$
+
+&nbsp;&nbsp;**(b)** Negate each of I, II and III, and check your answers to (a) against them.
+
+&nbsp;&nbsp;**(c)** For how many real $x$ is the following true?
+
+$$(\ast)\ \ \exists y\in\mathbb R:\ x-xy+y<0$$
+
+[Adapted from **2022 P2 Q10** (the three quantifier orders) and **2022 P2 Q13** (the $\exists y$ count), combined into one question.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)**
+
+**I is false.** *One pair kills a $\forall\forall$:* take $x=5$ and $n=1$.
+
+**II is true.** Given $x$, choose $n=\lfloor x\rfloor+1$ if $x\ge0$ and $n=1$ otherwise; either way $n>x$.
+*Here $n$ is allowed to depend on $x$, which is the whole difference from I.*
+
+**III is true.** *A single $x$ must work for every $n$ at once* — and $x=0$ does, since every positive
+integer is at least $1>0$. (Any negative $x$ works too.)
+
+**(b)** Flip each quantifier in order, then negate the inside; $\lnot(x<n)$ is $x\ge n$.
+
+| | negation | truth |
+|---|---|---|
+| I | $\exists x\ \exists n:\ x\ge n$ | **true** |
+| II | $\exists x\ \forall n:\ x\ge n$ | **false** |
+| III | $\forall x\ \exists n:\ x\ge n$ | **false** |
+
+*Each negation has the opposite truth value to the original, which is the check.* Note that II and the
+negation of III say almost the same thing with the inequality reversed — II is the Archimedean property,
+and its failure would mean some real number exceeds every positive integer.
+
+**(c)** *Collect the $y$ terms, because $y$ is the variable we are allowed to choose:*
+
+$$x-xy+y=x+y(1-x).$$
+
+**If $x\ne1$** the coefficient $1-x$ is non-zero, so $y(1-x)$ can be made as large and negative as we like;
+some $y$ certainly drives the total below $0$. So $(\ast)$ holds.
+
+**If $x=1$** the expression collapses to $1-y+y=1$ for *every* $y$, and $1<0$ is false. So $(\ast)$ fails.
+
+$$\boxed{(\ast)\text{ is true for all real }x\text{ except }x=1}$$
+
+*The question is really "for which $x$ does the $y$ actually disappear?" — a $\forall\exists$ problem solved
+by looking at the coefficient, not by trying values.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S5 · Proof methods
+
+- **Direct** — assume the hypothesis, deduce the conclusion. Represent generally ($2k$, $2k+1$).
+- **By cases** — split by remainder; check every case.
+- **By contradiction** — assume the negation, derive an absurdity.
+- **By counterexample** — to disprove "for all", one case is enough.
+
+**A counterexample must satisfy the hypothesis *and* fail the conclusion.** A case where the hypothesis
+fails proves nothing.
+
+**"Possible" is $\exists$** — produce one witness. **"Must" is $\forall$** — one counterexample destroys it.
+
+[read which one you were given before starting]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Consider this claim about positive integers $a$, $b$, $c$:
+
+> if $a$ divides $bc$, then $a$ divides $b$ or $a$ divides $c$.
+
+&nbsp;&nbsp;**(a)** Which of the following are counterexamples?
+
+&nbsp;&nbsp;&nbsp;&nbsp;I. $a=5,\ b=10,\ c=20$ &nbsp;&nbsp;&nbsp;&nbsp;
+II. $a=8,\ b=4,\ c=4$ &nbsp;&nbsp;&nbsp;&nbsp;
+III. $a=6,\ b=7,\ c=12$
+
+&nbsp;&nbsp;**(b)** State the extra hypothesis on $a$ that turns the claim into a theorem, and name the
+theorem.
+&nbsp;&nbsp;**(c)** Prove or disprove: if $a$ divides $bc$ and $\gcd(a,b)=1$, then $a$ divides $c$.
+&nbsp;&nbsp;**(d)** The claim "$\lvert a+b\rvert<\lvert a\rvert+\lvert b\rvert$ for all real $a,b$" is
+false. State the correct version, and describe **every** case in which your version is an equality.
+
+[Adapted from **2021 P2 Q4** (the three candidate counterexamples, verbatim) and **2020 P2 Q8** (the modulus claim a student is asked to prove or disprove).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *A counterexample needs the hypothesis true and the conclusion false — check both halves every
+time.*
+
+| | $a\mid bc$? | $a\mid b$? | $a\mid c$? | counterexample? |
+|---|---|---|---|---|
+| I | $5\mid200$ ✓ | $5\mid10$ ✓ | — | **no** — the conclusion holds |
+| II | $8\mid16$ ✓ | $8\mid4$ ✗ | $8\mid4$ ✗ | **yes** |
+| III | $6\mid84$ ✓ | $6\mid7$ ✗ | $6\mid12$ ✓ | **no** — the conclusion holds |
+
+$$\boxed{\text{II only}}$$
+
+*I and III are the two standard distractors: in I the hypothesis holds and so does the conclusion; in III
+one disjunct fails, which is not enough, because "or" needs **both** to fail.*
+
+**(b)** The claim becomes true when $a$ is **prime** — this is $\boxed{\text{Euclid's lemma}}$. In II the
+divisor $8$ is composite, and its factors of $2$ are shared out between $b$ and $c$.
+
+**(c)** **True.** By Bézout there are integers $x,y$ with $ax+by=1$. Multiply by $c$:
+
+$$acx+bcy=c .$$
+
+*Now both terms on the left are multiples of $a$:* the first obviously, and the second because $a\mid bc$.
+Hence $a\mid c$. $\blacksquare$
+
+*This is the real content of Euclid's lemma — "$a$ prime" was only ever a convenient way of guaranteeing
+$\gcd(a,b)=1$.*
+
+**(d)** The correct statement is the **triangle inequality**
+
+$$\boxed{\lvert a+b\rvert\le\lvert a\rvert+\lvert b\rvert}$$
+
+Equality holds exactly when $a$ and $b$ do not point in opposite directions — that is, when $ab\ge0$: both
+non-negative, both non-positive, or at least one of them zero. Strict inequality holds exactly when
+$ab<0$.
+
+*So the original claim fails on a very large set, not just at one point — any $a=b=1$ will do.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S6 · Scrambled proofs
+
+Anchor the ends, then follow the dependencies.
+
+1. **First line** introduces notation or assumes the hypothesis ("Let…", "Suppose…").
+2. **Last line** states the conclusion, or the contradiction.
+3. A line can only come after every line it **uses**.
+4. Connecting words carry the order: *therefore*, *hence*, *so*, *it follows*.
+
+**Build the chain yourself before reading the options** — the distractors are a tidy but wrong parallel
+chain, so comparing them directly is slower and riskier.
+
+[rare: one TMUA question in eight years, 2016 P2 Q7]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+These five steps form a proof that, for non-zero real $a$ and $b$, the curve $y=x^{3}+ax^{2}+b$ has three
+distinct real roots whenever
+
+$$27b\left(b+\frac{4a^{3}}{27}\right)<0 .$$
+
+&nbsp;&nbsp;**P.** Therefore $y$ has a local maximum and a local minimum, with values $b$ and
+$b+\tfrac{4a^{3}}{27}$.
+&nbsp;&nbsp;**Q.** Differentiating, $\tfrac{\mathrm dy}{\mathrm dx}=3x^{2}+2ax=x(3x+2a)$, which vanishes at
+$x=0$ and $x=-\tfrac{2a}{3}$.
+&nbsp;&nbsp;**R.** A cubic has three distinct real roots exactly when its two stationary values have
+opposite signs.
+&nbsp;&nbsp;**S.** The given inequality says precisely that $b$ and $b+\tfrac{4a^{3}}{27}$ have opposite
+signs.
+&nbsp;&nbsp;**T.** Hence the cubic has three distinct real roots.
+
+&nbsp;&nbsp;**(a)** Put the five steps in a correct order.
+&nbsp;&nbsp;**(b)** Verify the two stationary values quoted in **P**.
+&nbsp;&nbsp;**(c)** Which step silently needs $a\ne0$, and what goes wrong without it?
+&nbsp;&nbsp;**(d)** Is the condition also **necessary** for three distinct real roots?
+
+[Adapted from **2022 P2 Q17**, where a student's version of exactly this proof must be assessed; the ordering, the $a=0$ gap and the converse are added here.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\boxed{\textbf{Q},\ \textbf{P},\ \textbf{R},\ \textbf{S},\ \textbf{T}}$ — differentiate, read off
+the stationary values, quote the criterion, check the criterion, conclude. (Swapping **R** and **S** is
+equally valid; nothing else is.)
+
+**(b)** $y(0)=b$, and
+
+$$y\!\left(-\tfrac{2a}{3}\right)=-\frac{8a^{3}}{27}+a\cdot\frac{4a^{2}}{9}+b
+=-\frac{8a^{3}}{27}+\frac{12a^{3}}{27}+b=\frac{4a^{3}}{27}+b .\ ✓$$
+
+**(c)** Step **P**. If $a=0$ then $\tfrac{\mathrm dy}{\mathrm dx}=3x^{2}$, which is zero only at $x=0$ and
+never changes sign:
+
+$$\boxed{a=0\text{ gives one stationary point, a point of inflection — no maximum and no minimum.}}$$
+
+The curve $y=x^{3}+b$ is strictly increasing and has exactly **one** real root for every $b$, so the whole
+argument collapses. *Step Q is still correct at $a=0$; it is the move from "two stationary points" to "a
+maximum and a minimum" that needs the two to be distinct.*
+
+**(d)** **Yes.** Every link in the chain is reversible: three distinct real roots force the two stationary
+values to have strictly opposite signs, hence a negative product, hence the inequality. So
+
+$$\boxed{\text{the condition is necessary and sufficient, not merely sufficient.}}$$
+
+*The exam asks only for "if", which is a hint worth distrusting — check whether the stronger "if and only
+if" is available, because a later part often needs it.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S7 · The 20-second error scan ★
+
+1. **Name the target:** write the claim as $P\Rightarrow Q$.
+2. **Check the ends:** does the proof start from $P$ and reach $Q$ — or has it proved the converse?
+3. **Read one arrow at a time:** ask, *"Does this follow for every value still allowed?"*
+4. **Stop at the first false claim**, not the final absurdity it causes.
+5. **Stress-test the boundary:** try $0$, $1$, equality, the smallest case, and any excluded endpoint.
+
+Every line may be true but the **link** between two lines can still fail. A one-way step is not an error if
+it is stated only as a necessary condition; the error comes when it is treated as reversible.
+
+[do not force an error — sometimes the whole argument is valid]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**A.** $\sin^{2}x+\cos^{2}x=1$ for all values of $x$.
+&nbsp;&nbsp;**B.** Therefore $\cos x=\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**C.** Hence $1+\cos x=1+\sqrt{1-\sin^{2}x}$ for all values of $x$.
+&nbsp;&nbsp;**D.** Thus $(1+\cos x)^{2}=\left(1+\sqrt{1-\sin^{2}x}\right)^{2}$ for all values of $x$.
+&nbsp;&nbsp;**E.** Substituting $x=\pi$ gives $0=4$.
+
+&nbsp;&nbsp;**(a)** On which line does the first error occur?
+&nbsp;&nbsp;**(b)** Give the complete set of $x$ in $[0,2\pi]$ for which that line is in fact valid.
+&nbsp;&nbsp;**(c)** Repair the line, and show that line **E** then produces no contradiction.
+
+[Adapted from **2021 P2 Q5**, which asks only for the offending line; parts (b) and (c) are added.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\boxed{\textbf{B}}$.
+
+*The square root symbol denotes the **non-negative** root,* so $\sqrt{1-\sin^{2}x}=\lvert\cos x\rvert$, not
+$\cos x$. Line A is a genuine identity; lines C, D and E are all legitimate consequences of B — adding $1$
+and squaring are valid operations. The falsehood is injected at B and merely carried along.
+
+**(b)** Line B asserts $\cos x=\lvert\cos x\rvert$, which holds exactly when $\cos x\ge0$:
+
+$$\boxed{\left[0,\tfrac{\pi}{2}\right]\cup\left[\tfrac{3\pi}{2},\,2\pi\right]}$$
+
+**(c)** The correct statement is
+
+$$\lvert\cos x\rvert=\sqrt{1-\sin^{2}x},\qquad\text{equivalently}\qquad \cos x=\pm\sqrt{1-\sin^{2}x}.$$
+
+At $x=\pi$ the correct sign is the negative one, so $\cos\pi=-\sqrt{1-0}=-1$. Line C then reads
+$1+(-1)=0$ and line D reads $0^{2}=0^{2}$:
+
+$$\boxed{0=0\ \text{— no contradiction.}}$$
+
+*The absurd conclusion was not caused by the squaring, which is where the eye is drawn. Scan for the step
+that quietly discarded a sign.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+::: {.fs-card}
+### S7 · High-risk moves ★
+
+| If you see… | Check immediately… |
+|---|---|
+| **cancel / divide** | Can the divisor be $0$? Factor and split cases instead. |
+| **square / root** | Squaring may add roots; $\sqrt{u^2}=\lvert u\rvert$; check candidates in the original. |
+| **inequality** | Is the sign known? Negative multipliers and decreasing functions reverse the sign; $0<a<1$ makes $\log_a$ decreasing. |
+| **inverse or trig step** | Is the function one-to-one on the stated domain? $\sin A=\sin B\not\Rightarrow A=B$. |
+| **theorem or implication** | Are all hypotheses met, and is the arrow being used in the stated direction? |
+| **"for all" claim** | One valid counterexample destroys it; test exceptional and boundary cases. |
+
+**Wording controls equivalence.** "Is equivalent to" demands both directions. "Any solution must satisfy"
+claims only one direction; those values are **candidates**, not solutions, until checked.
+
+[full notes: **[S7 notes](../toolkit/s07_spot_the_error.qmd)** · **[S7 extended](../toolkit/s07_extended_equivalence.qmd)**]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Solve $4x\sqrt{2x-1}=10x-5$ completely. A student divides both sides by
+$\sqrt{2x-1}$ — which solution does that lose, and why?
+
+&nbsp;&nbsp;**(b)** A student solves $x^{4}-2x^{2}-3<0$ like this:
+
+$$x^{4}-2x^{2}-3<0\ \iff\ x^{4}-2x^{2}+1<4\ \iff\ \left(x^{2}-1\right)^{2}<4\ \iff\ x^{2}-1<2 .$$
+
+Solve the inequality correctly. The student's final answer is right — so what exactly is wrong with the last
+step, and why does it not bite here?
+
+&nbsp;&nbsp;**(c)** Now solve $\left(x^{2}-5\right)^{2}<4$, and show that the same slip would give the wrong
+answer.
+
+[Adapted from **2018 P2 Q9** (the $4x\sqrt{2x-1}=10x-5$ manipulation) and **2023 P2 Q10** (the completing-the-square attempt at a quartic inequality).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *Substitute rather than divide.* Put $t=\sqrt{2x-1}\ge0$, so $x=\tfrac{t^{2}+1}{2}$ and the right
+side is $5(2x-1)=5t^{2}$:
+
+$$4\cdot\frac{t^{2}+1}{2}\cdot t=5t^{2}\ \Longrightarrow\ 2t^{3}-5t^{2}+2t=0\ \Longrightarrow\
+t\left(2t-1\right)\left(t-2\right)=0 .$$
+
+So $t=0,\tfrac12,2$, giving $2x-1=0,\tfrac14,4$ and
+
+$$\boxed{x=\tfrac12,\ \tfrac58,\ \tfrac52}$$
+
+*(All three check in the original equation.)* Dividing by $\sqrt{2x-1}$ throws away $\boxed{x=\tfrac12}$,
+because at that value the divisor is **zero** — and dividing by zero is not a reversible step.
+
+**(b)** Correctly: put $u=x^{2}$, so $u^{2}-2u-3<0$, i.e. $(u-3)(u+1)<0$, i.e. $-1<u<3$. Since
+$u=x^{2}\ge0$ this means $0\le x^{2}<3$:
+
+$$\boxed{-\sqrt3<x<\sqrt3}$$
+
+The faulty step is $\left(x^{2}-1\right)^{2}<4\iff x^{2}-1<2$. *Squaring is not order-preserving on the
+negatives,* so the right statement is
+
+$$\left(x^{2}-1\right)^{2}<4\iff\left\lvert x^{2}-1\right\rvert<2\iff-2<x^{2}-1<2 .$$
+
+The student kept only the upper half and dropped $x^{2}-1>-2$. It does not bite because that half says
+$x^{2}>-1$, which is **automatic** for real $x$ — a vacuous condition. *A right answer from a wrong step.*
+
+**(c)** $\left(x^{2}-5\right)^{2}<4\iff-2<x^{2}-5<2\iff3<x^{2}<7$, so
+
+$$\boxed{-\sqrt7<x<-\sqrt3\ \text{ or }\ \sqrt3<x<\sqrt7}$$
+
+Keeping only $x^{2}-5<2$ would give $-\sqrt7<x<\sqrt7$, wrongly including everything between $-\sqrt3$ and
+$\sqrt3$ — for instance $x=0$, where $\left(0-5\right)^{2}=25$ is nowhere near less than $4$.
+
+*Here the lower bound $x^{2}>3$ is a real restriction, so the same slip is fatal. Whether a dropped
+inequality matters depends on the numbers, which is exactly why you must not drop it.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::::
+
+:::::
+---
+
+## Equivalence, necessary and sufficient conditions {#s2-check}
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · One arrow or two?</div>
+<div class="fs-title">Equivalent means exactly the same cases</div>
+<div class="fs-sub">Track both the logical direction and the domain. A valid one-way step produces a necessary condition; it does not automatically produce an equivalent statement.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Equivalent = both directions
+
+$$A\Leftrightarrow B
+\quad\Longleftrightarrow\quad
+(A\Rightarrow B)\text{ and }(B\Rightarrow A).$$
+
+Across the stated domain, $A$ and $B$ must be true in **exactly the same cases**. For equations or
+inequalities, this means the **same solution set**: no gained solutions and no lost solutions.
+
+| known | correct description |
+|---|---|
+| $A\Leftrightarrow B$ | each is necessary **and** sufficient for the other |
+| $A\Rightarrow B$ only | $A$ is sufficient for $B$; $B$ is necessary for $A$ |
+| $B\Rightarrow A$ only | $B$ is sufficient for $A$; $A$ is necessary for $B$ |
+
+[tail = sufficient; head = necessary]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Find a **necessary and sufficient** condition on the real numbers $b$ and $c$ for
+$x^{4}+bx^{2}+c=0$ to have four distinct real roots.
+&nbsp;&nbsp;**(b)** Show that $b^{2}>4c$ on its own is necessary but **not** sufficient, and that
+"$c>0$ and $b<0$" on its own is also necessary but not sufficient.
+&nbsp;&nbsp;**(c)** How many distinct real roots are there when $c>0$ and $b=-2\sqrt c$?
+
+[Adapted from **2023 P2 Q18**, which asks for the condition alone; the failure modes and the boundary case are added.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *Substitute $u=x^{2}$, but remember that each $u$ gives two values of $x$ only when $u>0$.*
+Four distinct real $x$ requires $u^{2}+bu+c=0$ to have **two distinct positive** roots, so
+
+$$b^{2}-4c>0,\qquad u_1+u_2=-b>0,\qquad u_1u_2=c>0 .$$
+
+That is $c>0$, $b<0$ and $b^{2}>4c$. With $c>0$ the last two collapse into one:
+
+$$\boxed{c>0\ \text{ and }\ b<-2\sqrt c}$$
+
+**(b)** Each condition is necessary, being part of (a). Neither is sufficient:
+
+| | satisfied by | distinct real roots |
+|---|---|---|
+| $b^{2}>4c$ only | $b=2,\ c=-3$ | $2$ — the $u$-roots are $1$ and $-3$, and the negative one gives nothing |
+| $c>0,\ b<0$ only | $b=-5,\ c=7$ | $0$ — $b^{2}=25<28=4c$, so no real $u$ at all |
+
+**(c)** Then $b^{2}=4c$ exactly, so $u^{2}+bu+c=\left(u-\sqrt c\right)^{2}$ has the single **repeated**
+root $u=\sqrt c>0$, giving $x=\pm c^{1/4}$:
+
+$$\boxed{2\text{ distinct real roots}}$$
+
+*So the boundary $b=-2\sqrt c$ must be excluded, which is why the inequality in (a) is strict.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### A valid one-way step
+
+Let $A:\sqrt{2x+3}=x$ and $B:2x+3=x^2$. Squaring proves
+
+$$A\Rightarrow B,$$
+
+so $B$ is **necessary for** $A$. But $x=-1$ satisfies $B$ and not $A$, so $B\not\Rightarrow A$.
+
+The safe wording is:
+
+> Any solution of $A$ **must satisfy** $B$; solve $B$, then check those candidates in $A$.
+
+A one-way step can be valid. The error is calling it **equivalent**, or promoting unchecked candidates to
+solutions.
+
+[$A\Rightarrow B$ means $\operatorname{Sol}(A)\subseteq\operatorname{Sol}(B)$]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Solve $\sqrt{2x+3}=x$. Which of the two roots of the squared equation is genuine, and
+which direction of implication does the squaring provide?
+&nbsp;&nbsp;**(b)** Solve $\sqrt{x+4}-\sqrt{x-1}=1$, squaring twice. State the domain restriction before
+you start.
+&nbsp;&nbsp;**(c)** For each part, write the relation between $\operatorname{Sol}(A)$ and
+$\operatorname{Sol}(B)$, where $A$ is the original equation and $B$ the squared one, and say which part
+gained a false candidate.
+
+[Adapted from **2018 P2 Q9**, where a similar surd equation is manipulated and a root is lost.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Squaring gives $2x+3=x^{2}$, i.e. $x^{2}-2x-3=0$, so $x=3$ or $x=-1$.
+
+*Check both in the original, because squaring only works forwards:*
+
+$$x=3:\ \sqrt9=3\ ✓\qquad x=-1:\ \sqrt1=1\ne-1\ ✗$$
+
+$$\boxed{x=3}$$
+
+Squaring gives $A\Rightarrow B$ only: a square root is never negative, so $x=-1$ could never have been a
+solution of $A$. *The squared equation is **necessary**, not equivalent.*
+
+**(b)** The domain needs $x+4\ge0$ and $x-1\ge0$, so $\boxed{x\ge1}$. Rearrange before squaring, to keep one
+surd on each side:
+
+$$\sqrt{x+4}=1+\sqrt{x-1}\ \Longrightarrow\ x+4=1+2\sqrt{x-1}+x-1\ \Longrightarrow\ 2\sqrt{x-1}=4 .$$
+
+So $\sqrt{x-1}=2$ and $x=5$. *Check:* $\sqrt9-\sqrt4=3-2=1$ ✓.
+
+$$\boxed{x=5}$$
+
+**(c)** In both parts $A\Rightarrow B$, hence
+$\operatorname{Sol}(A)\subseteq\operatorname{Sol}(B)$.
+
+- In (a) the inclusion is **strict**: $\operatorname{Sol}(B)=\{-1,3\}$ against $\operatorname{Sol}(A)=\{3\}$,
+so squaring gained a false candidate.
+- In (b) it happens to be an **equality**, $\{5\}=\{5\}$ — but that is a fact discovered by checking, not
+something the squaring guaranteed.
+
+*The safe wording is always "any solution must satisfy $B$": solve $B$, then test the candidates in $A$.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Equivalent statement $\neq$ negation
+
+For $S:\ \forall n>1,\ P(n)\Rightarrow Q(n)$:
+
+| asked for | result |
+|---|---|
+| **equivalent to $S$** | $\forall n>1,\ \lnot Q(n)\Rightarrow\lnot P(n)$ |
+| **negation of $S$** | $\exists n>1,\ P(n)\wedge\lnot Q(n)$ |
+
+The first is the **contrapositive**, so it has the same truth conditions as $S$. The second gives exactly
+the counterexample that makes $S$ false.
+
+The domain restriction $n>1$ stays fixed; it is not replaced by $n\le1$.
+
+[equivalent: same truth · negation: opposite truth]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+For a positive integer $k$, let $(\ast)$ be the theorem
+
+> if $2^{k}+1$ is prime, then $k$ is a power of $2$.
+
+&nbsp;&nbsp;**(a)** Which of these is **equivalent** to $(\ast)$? Justify each verdict.
+
+&nbsp;&nbsp;&nbsp;&nbsp;I. If $k$ is a power of $2$, then $2^{k}+1$ is prime.
+&nbsp;&nbsp;&nbsp;&nbsp;II. $2^{k}+1$ is not prime only if $k$ is not a power of $2$.
+&nbsp;&nbsp;&nbsp;&nbsp;III. A sufficient condition for $k$ to be a power of $2$ is that $2^{k}+1$ is prime.
+
+&nbsp;&nbsp;**(b)** Write the **negation** of $(\ast)$.
+&nbsp;&nbsp;**(c)** Prove $(\ast)$ by proving its contrapositive.
+&nbsp;&nbsp;**(d)** Give a value of $k$ showing that statement I is false.
+
+[Adapted from **2023 P2 Q11**, which asks only which statements are equivalent; the negation, the proof and the counterexample to the converse are added.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+Write $P$: "$2^{k}+1$ is prime" and $Q$: "$k$ is a power of $2$", so $(\ast)$ is $P\Rightarrow Q$.
+
+**(a)**
+
+| | symbolic form | name | equivalent? |
+|---|---|---|---|
+| I | $Q\Rightarrow P$ | converse | **no** |
+| II | $\lnot P\Rightarrow\lnot Q$ | inverse | **no** |
+| III | $P\Rightarrow Q$ | the statement itself | **yes** |
+
+$$\boxed{\text{III only}}$$
+
+*II is the trap.* "$\lnot P$ only if $\lnot Q$" puts $\lnot P$ at the tail, giving
+$\lnot P\Rightarrow\lnot Q$ — the **inverse**. The contrapositive would be $\lnot Q\Rightarrow\lnot P$, with
+the two sides the other way round.
+
+**(b)** $$\boxed{\exists k\in\mathbb Z^{+}:\ 2^{k}+1\text{ is prime and }k\text{ is not a power of }2}$$
+
+**(c)** Contrapositive: *if $k$ is not a power of $2$, then $2^{k}+1$ is not prime.*
+
+If $k$ is not a power of $2$ it has an **odd** factor $d>1$; write $k=dm$. For odd $d$,
+
+$$y+1\ \text{ divides }\ y^{d}+1 ,$$
+
+since $y^{d}+1=(y+1)\left(y^{d-1}-y^{d-2}+\cdots+1\right)$. Put $y=2^{m}$:
+
+$$2^{m}+1\ \text{ divides }\ 2^{dm}+1=2^{k}+1 .$$
+
+*And the divisor is proper:* $1<2^{m}+1<2^{k}+1$ because $m<k$. So $2^{k}+1$ is composite. $\blacksquare$
+
+**(d)** $\boxed{k=32}$, a power of $2$, yet
+
+$$2^{32}+1=4294967297=641\times6700417 .$$
+
+*Euler's factorisation. So the converse fails, which is exactly why $(\ast)$ is one-directional.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::::
+
+:::::
+
+## Part 1 examples — high-frequency traps
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · S1–S7</div>
+<div class="fs-title">Ten questions to check before the exam</div>
+<div class="fs-sub">One question for each of S1–S7, plus three harder S4 checks from the dedicated clinic. Decide first; then read the check.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### S1 · Read the wording
+
+Let $P$ mean “$n$ is divisible by $6$” and $Q$ mean “$n$ is divisible by $3$”. Which are equivalent to
+$P\Rightarrow Q$?
+
+1. $P$ **only if** $Q$.
+2. $Q$ **if** $P$.
+3. $P$ **if** $Q$.
+4. $Q$ **only if** $P$.
+
+**Check:** **1 and 2**. Statements 3 and 4 are the converse, $Q\Rightarrow P$; $n=3$ disproves it.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $x$ be a real number and consider the five statements
+
+$$\textbf{A}:\ x\ge0\qquad \textbf{B}:\ x=1\qquad \textbf{C}:\ x=0\text{ or }x=1$$
+$$\textbf{D}:\ x\ge0\text{ or }x\le1\qquad \textbf{E}:\ x\ge0\text{ and }x\le1$$
+
+&nbsp;&nbsp;**(a)** Which one is a **sufficient** condition for exactly **three** of the other four?
+&nbsp;&nbsp;**(b)** Which one is sufficient for **all** four of the others?
+&nbsp;&nbsp;**(c)** Which one is **necessary** for all four of the others?
+
+[Adapted from **2023 P2 Q13** (exactly these five statements); parts (b) and (c) are added.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+*Turn each statement into its solution set — "sufficient" then means "is a subset of".*
+
+$$A=[0,\infty),\quad B=\{1\},\quad C=\{0,1\},\quad D=\mathbb R,\quad E=[0,1].$$
+
+*$D$ is the whole line:* every real number is either $\ge0$ or $\le1$ — in fact numbers in $[0,1]$ are both.
+Spotting that $D$ is vacuous is the key move.
+
+| is a subset of $\to$ | $A$ | $B$ | $C$ | $D$ | $E$ | count |
+|---|---|---|---|---|---|---|
+| $A=[0,\infty)$ | — | ✗ | ✗ | ✓ | ✗ | 1 |
+| $B=\{1\}$ | ✓ | — | ✓ | ✓ | ✓ | **4** |
+| $C=\{0,1\}$ | ✓ | ✗ | — | ✓ | ✓ | **3** |
+| $D=\mathbb R$ | ✗ | ✗ | ✗ | — | ✗ | 0 |
+| $E=[0,1]$ | ✓ | ✗ | ✗ | ✓ | — | 2 |
+
+**(a)** $\boxed{\textbf{C}}$ — sufficient for $A$, $D$ and $E$, but not for $B$ (since $x=0$ is allowed).
+
+**(b)** $\boxed{\textbf{B}}$ — the smallest set, so it sits inside all the others.
+
+**(c)** $\boxed{\textbf{D}}$ — "necessary for $Y$" means $Y$ is a subset of it, and $\mathbb R$ contains
+everything.
+
+*The smallest set is sufficient for the most; the largest set is necessary for the most. Reading the columns
+instead of the rows answers (c) with no extra work.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S2 · Equivalent or negated?
+
+For every integer $n>1$,
+
+$$n^2\text{ even}\Rightarrow n\text{ even}.$$
+
+Write (a) an equivalent statement and (b) its negation.
+
+**Check:** (a) the contrapositive: *if $n$ is odd, then $n^2$ is odd*. (b) there exists an integer $n>1$
+such that $n^2$ is even **and** $n$ is odd.
+
+[swap-and-negate gives an equivalent; keep-and-deny gives the negation]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Consider the claim
+
+> the difference between two consecutive positive cube numbers is always prime.
+
+A student argues: $(x+1)^{3}-x^{3}=3x^{2}+3x+1$; the discriminant of $3x^{2}+3x+1$ is negative, so it has no
+linear factors with integer coefficients; therefore $3x^{2}+3x+1$ cannot be factorised; hence the difference
+is always prime.
+
+&nbsp;&nbsp;**(a)** Write the negation of the claim.
+&nbsp;&nbsp;**(b)** Decide the claim, giving the smallest counterexample.
+&nbsp;&nbsp;**(c)** Identify the first faulty step in the student's argument and say exactly what is wrong
+with it.
+&nbsp;&nbsp;**(d)** Write the contrapositive of "if $3x^{2}+3x+1$ is prime then $x$ is not a multiple of
+$5$", and decide whether it is true.
+
+[Adapted from **2022 P2 Q7**, where the same claim and the same flawed proof are assessed.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $$\boxed{\exists\text{ a positive integer }x:\ (x+1)^{3}-x^{3}\text{ is not prime}}$$
+
+**(b)** The differences are $7,19,37,61,\mathbf{91},127,169,217,\dots$ and
+
+$$\boxed{x=5:\quad 216-125=91=7\times13}$$
+
+so the claim is **false**. *(Later failures: $x=7$ gives $169=13^{2}$ and $x=8$ gives $217=7\times31$.)*
+
+**(c)** The step "**therefore $3x^{2}+3x+1$ cannot be factorised**" is the first faulty one.
+
+*Irreducibility as a polynomial says nothing about the integer values it takes.* A polynomial with no
+integer linear factors can still produce composite **numbers** — its value at a particular $x$ may factorise
+in a way that has nothing to do with factorising the polynomial. At $x=5$ the value $91$ splits as
+$7\times13$, while $3x^{2}+3x+1$ itself remains irreducible.
+
+**(d)** Contrapositive: *if $x$ is a multiple of $5$, then $3x^{2}+3x+1$ is not prime.*
+
+This is **false**: $x=10$ gives $3(100)+30+1=331$, which is prime. *Since a statement and its
+contrapositive stand or fall together, the original implication is false too — $x=10$ refutes both.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S3 · Necessary means the larger set
+
+For real $x$, let
+
+$$A:x<2,\quad B:0<x<1,\quad C:x^2<1,$$
+$$D:\lvert x-1\rvert<2,\quad E:x^2<4.$$
+
+Which statement is necessary for **exactly three** of the other four?
+
+**Check:** **$A$**. Its set $(-\infty,2)$ contains $B=(0,1)$, $C=(-1,1)$ and $E=(-2,2)$, but not
+$D=(-1,3)$.
+
+[Woonju dedicated clinic: draw the five intervals before counting]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+The line $ax+by=c$ is drawn, where $a$, $b$ and $c$ are non-zero real constants. Let $T$ be the property
+
+> the line has positive gradient **and** positive $y$-intercept.
+
+&nbsp;&nbsp;**(a)** Write the gradient and the $y$-intercept in terms of $a$, $b$, $c$, and hence give a
+**necessary and sufficient** condition for $T$.
+&nbsp;&nbsp;**(b)** Show that "$a$ and $c$ have opposite signs" is necessary but **not** sufficient for $T$.
+&nbsp;&nbsp;**(c)** Show that "$a>b>c$" is **neither** necessary nor sufficient for $T$.
+
+[Adapted from **2023 P2 Q7**, which asks for the necessary-but-not-sufficient option; here every option is classified.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Since $b\ne0$ we may write $y=-\dfrac{a}{b}x+\dfrac{c}{b}$, so
+
+$$\text{gradient}=-\frac{a}{b},\qquad y\text{-intercept}=\frac{c}{b}.$$
+
+$$\boxed{T\iff \frac{a}{b}<0\ \text{ and }\ \frac{c}{b}>0}$$
+
+**(b)** **Necessary.** If $T$ holds then $a$ and $b$ have opposite signs while $c$ and $b$ have the same
+sign, so $a$ and $c$ have opposite signs.
+
+**Not sufficient.** Take $a=-3$, $b=-3$, $c=1$: here $a$ and $c$ have opposite signs, but
+
+$$\text{gradient}=-\frac{-3}{-3}=-1<0 .$$
+
+$$\boxed{\text{necessary, not sufficient}}$$
+
+*The condition says nothing about $b$, and the gradient and intercept both depend on $b$ — so information
+about $a$ and $c$ alone can never be enough.*
+
+**(c)** **Not sufficient:** $a=-1$, $b=-2$, $c=-3$ satisfies $-1>-2>-3$, yet the $y$-intercept is
+$\tfrac{-3}{-2}=\tfrac32>0$ while the gradient is $-\tfrac{-1}{-2}=-\tfrac12<0$.
+
+**Not necessary:** $a=-3$, $b=1$, $c=1$ gives gradient $3>0$ and $y$-intercept $1>0$, so $T$ holds — but
+$-3>1$ is false.
+
+$$\boxed{\text{neither}}$$
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S4 · Quantifier order
+
+Which statements are true?
+
+1. $\forall x\in\mathbb R\ \forall n\in\mathbb Z^+:\ x<n$.
+2. $\forall x\in\mathbb R\ \exists n\in\mathbb Z^+:\ x<n$.
+3. $\exists x\in\mathbb R\ \forall n\in\mathbb Z^+:\ x<n$.
+
+**Check:** **2 and 3**. In 2, choose an $n$ depending on $x$. In 3, one value such as $x=0$ works for
+every positive integer $n$. Statement 1 fails at $x=100,n=1$.
+
+[2022 Paper 2 trap: later variables may depend on earlier ones]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Find the complete set of real $k$ for which
+
+$$(\ast)\quad \forall x\in\mathbb R:\ \ x<k\Rightarrow x^{2}<k$$
+
+&nbsp;&nbsp;is true. Justify your answer.
+
+&nbsp;&nbsp;**(b)** Now restrict the variable: find the complete set of $k$ for which
+
+$$(\ast\ast)\quad \forall x\ \text{with}\ 0<x<k:\ \ x^{2}<k$$
+
+&nbsp;&nbsp;is true.
+
+&nbsp;&nbsp;**(c)** Write the negation of $(\ast)$ and use it to confirm your answer to (a).
+
+[Adapted from **2022 P2 Q9** (the statement in part (a) verbatim) and the quantifier-order trio in **2022 P2 Q10**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $$\boxed{\text{no values of }k}$$
+
+*The hypothesis $x<k$ is satisfied by arbitrarily negative $x$, and squaring makes those enormous.* Given
+any $k$, choose
+
+$$x=-\left(\lvert k\rvert+1\right).$$
+
+Then $x<k$ certainly holds, while $x^{2}=\left(\lvert k\rvert+1\right)^{2}>\lvert k\rvert\ge k$. So
+$(\ast)$ fails for **every** $k$.
+
+**(b)** Now $x$ is squeezed into $(0,k)$, which is empty unless $k>0$. For $k>0$ the values of $x^{2}$ fill
+$\left(0,k^{2}\right)$, so we need $k^{2}\le k$, i.e. $k\le1$:
+
+$$\boxed{0<k\le1}$$
+
+*Check the endpoint:* at $k=1$, $0<x<1$ gives $x^{2}<x<1$ ✓. At $k=1.5$, $x=1.4$ gives
+$x^{2}=1.96>1.5$ ✗.
+
+**(c)** $$\lnot(\ast)=\exists x\in\mathbb R:\ x<k\ \textbf{and}\ x^{2}\ge k .$$
+
+*The implication becomes an "and" — never another implication.* Part (a) produced exactly such an $x$ for
+every $k$, so the negation is true for all $k$ and $(\ast)$ is true for none. ✓
+
+*The whole question turns on the **unstated domain** of $x$. Changing it from $\mathbb R$ to $(0,k)$ turns
+"never" into a genuine interval.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S4+ · Negate through an implication
+
+Negate
+
+$$\forall\varepsilon>0\ \exists\delta>0\ \forall x:\quad
+\lvert x-a\rvert<\delta\Rightarrow\lvert f(x)-f(a)\rvert<\varepsilon.$$
+
+**Check:**
+
+$$\exists\varepsilon>0\ \forall\delta>0\ \exists x:\quad
+\lvert x-a\rvert<\delta\ \wedge\ \lvert f(x)-f(a)\rvert\ge\varepsilon.$$
+
+Every quantifier flips in place, and $\lnot(P\Rightarrow Q)=P\wedge\lnot Q$ — the implication becomes
+**and**, not another implication.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $u_1,u_2,u_3,\dots$ be a sequence of real numbers and $L$ a real number. Consider
+
+$$S:\quad \forall\varepsilon>0\ \ \exists N\in\mathbb Z^{+}\ \ \forall n>N:\quad
+\lvert u_n-L\rvert<\varepsilon .$$
+
+&nbsp;&nbsp;**(a)** Write $\lnot S$, flipping every quantifier in place.
+&nbsp;&nbsp;**(b)** For $u_n=(-1)^{n}$, prove that $\lnot S$ holds for **every** real $L$.
+&nbsp;&nbsp;**(c)** Explain why the weaker statement
+$\ \forall\varepsilon>0\ \forall N\ \exists n>N:\ \lvert u_n-L\rvert<\varepsilon$
+is satisfied by $u_n=(-1)^{n}$ for two values of $L$, and say which.
+
+[Adapted from the nested-quantifier negation in **2020 P2 Q6** and **2020 P2 Q13**, where conditions on a function must be sorted into necessary and sufficient.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $$\boxed{\lnot S:\quad \exists\varepsilon>0\ \ \forall N\in\mathbb Z^{+}\ \ \exists n>N:\quad
+\lvert u_n-L\rvert\ge\varepsilon}$$
+
+*Each quantifier flips where it stands, and the final inequality is negated. There is no implication inside
+here, but if there were, $\lnot(P\Rightarrow Q)$ would become $P\wedge\lnot Q$ — an "and", not an arrow.*
+
+**(b)** Take $\varepsilon=1$. Let $N$ be any positive integer. Among $n=N+1$ and $n=N+2$ the terms $u_n$
+take **both** values $+1$ and $-1$. Now
+
+$$\lvert1-L\rvert+\lvert-1-L\rvert\ \ge\ \lvert(1-L)-(-1-L)\rvert=2 ,$$
+
+so at least one of the two distances is $\ge1$. *Whatever $L$ is, it cannot be within $1$ of both $+1$ and
+$-1$, because they are $2$ apart.* Hence some $n>N$ has $\lvert u_n-L\rvert\ge1$, which is exactly
+$\lnot S$. $\blacksquare$
+
+**(c)** The weaker statement only asks that $u_n$ comes within $\varepsilon$ of $L$ **infinitely often**,
+not eventually always — the order $\forall N\,\exists n$ lets $n$ depend on $N$, so the sequence may wander
+away again in between.
+
+$$\boxed{L=1\ \text{ and }\ L=-1}$$
+
+For $L=1$ every even $n$ gives $\lvert u_n-1\rvert=0<\varepsilon$, and there are even $n$ beyond every $N$;
+similarly for $L=-1$ with odd $n$. No other $L$ works, since every term is at distance at least
+$\min\left(\lvert1-L\rvert,\lvert1+L\rvert\right)>0$ from it.
+
+*Moving one quantifier changes "converges to $L$" into "has a subsequence converging to $L$".*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S4+ · Negate $\forall\exists$
+
+Negate:
+
+> For every integer $n>1$, there exists a prime $p$ such that $p$ divides $n$.
+
+**Check:** there exists an integer $n>1$ such that **every** prime $p$ fails to divide $n$:
+
+$$\exists n>1\ \forall p\text{ prime}:\quad p\nmid n.$$
+
+The original is true, so its negation is false. The condition $n>1$ is the **domain**, so it stays fixed:
+the negation asks for a counterexample **inside the same domain**, not an unrelated value with $n\le1$.
+
+[for a universal claim, its negation is the statement that a valid counterexample exists]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Consider the statement
+
+> every positive integer $N$ greater than $6$ can be written as the sum of two non-prime integers, each
+> greater than $1$.
+
+&nbsp;&nbsp;**(a)** Write the negation, keeping the domain restriction in place.
+&nbsp;&nbsp;**(b)** Which of $N=5$, $N=7$, $N=9$ are counterexamples? Give full reasons.
+&nbsp;&nbsp;**(c)** Find the next counterexample after those, and show that every **even** $N\ge8$ **can**
+be written in the required form.
+
+[Adapted from **2020 P2 Q4** (the statement and the three candidates verbatim); the domain trap is the point of the question.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $$\boxed{\exists N>6:\ N\text{ cannot be written as a sum of two non-prime integers each }>1}$$
+
+*The condition $N>6$ is the **domain**, so it stays. The negation hunts for a counterexample inside the same
+domain — it does not become $N\le6$.*
+
+**(b)**
+
+| $N$ | in the domain? | all splits into two integers $>1$ | counterexample? |
+|---|---|---|---|
+| $5$ | **no** ($5\not>6$) | — | **no** |
+| $7$ | yes | $2+5$, $3+4$ | **yes** — every split contains a prime |
+| $9$ | yes | $2+7$, $3+6$, $4+5$ | **yes** — $2,7$ prime; $3$ prime; $5$ prime |
+
+$$\boxed{N=7\text{ and }N=9\text{ only}}$$
+
+*$N=5$ is the trap: it fails the property, but it is outside the range the statement claims anything about,
+so it refutes nothing.*
+
+**(c)** The next counterexample is $\boxed{N=11}$: the splits are $2+9,3+8,4+7,5+6$, and each contains a
+prime.
+
+For even $N\ge8$, write
+
+$$N=4+(N-4).$$
+
+Here $4$ is non-prime and greater than $1$; and $N-4$ is **even** and at least $4$, so it is non-prime and
+greater than $1$ as well. $\blacksquare$
+
+*So the statement is false, but only for small odd $N$ — $7$, $9$ and $11$. From $13=4+9$ onwards the odd
+cases work too.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S4+ · Who may depend on whom?
+
+Explain why
+
+$$\forall x\in\mathbb R\ \exists y\in\mathbb R:\ x+y=0$$
+
+is true, while $\exists y\in\mathbb R\ \forall x\in\mathbb R:\ x+y=0$ is false. Then negate both.
+
+**Check:** in the first, choose $y=-x$; in the second, one fixed $y$ cannot work for every $x$.
+
+$$\neg(\forall x\exists y:\ x+y=0)=\exists x\forall y:\ x+y\ne0,$$
+$$\neg(\exists y\forall x:\ x+y=0)=\forall y\exists x:\ x+y\ne0.$$
+
+[the later variable may depend on earlier choices; the earlier one cannot depend on later choices]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $a_1,\dots,a_{100}$, $b_1,\dots,b_{100}$ and $c_1,\dots,c_{100}$ be integers with
+
+$$a_n\ \ge\ b_n+c_n\qquad\text{for every }n .$$
+
+Decide which of the following must be true, and refute the others.
+
+&nbsp;&nbsp;**I.** $\min a\ \ge\ \min b+\min c$
+&nbsp;&nbsp;**II.** $\max a\ \ge\ \max b+\max c$
+&nbsp;&nbsp;**III.** $\displaystyle\sum a_n\ \ge\ \sum b_n+\sum c_n$
+
+[Adapted from **2022 P2 Q16**, where three sequences are related term by term and claims about their extremes must be judged.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**I is true.** For every $n$,
+
+$$a_n\ \ge\ b_n+c_n\ \ge\ \min b+\min c ,$$
+
+so **every** $a_n$ — in particular the smallest — is at least $\min b+\min c$. ✓
+
+**III is true.** Add the $100$ given inequalities. ✓
+
+**II is false.** *The maxima of $b$ and of $c$ need not occur at the same index, and the hypothesis only
+links the three sequences index by index.* With two terms:
+
+$$b=(10,\,0),\qquad c=(0,\,10),\qquad a=(10,\,10).$$
+
+The hypothesis holds ($10\ge10$ twice), but
+
+$$\max a=10,\qquad \max b+\max c=10+10=20 .$$
+
+$$\boxed{\text{I and III only}}$$
+
+*The asymmetry is the content of the question. For the minimum, the bound $\min b+\min c$ is available at
+**every** index, so it survives; for the maximum, $\max b+\max c$ may be achieved at **no** index, so
+nothing forces $a$ to reach it.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S5 · One counterexample is enough
+
+A proof claims that the difference between consecutive positive cubes is always prime because
+
+$$(x+1)^3-x^3=3x^2+3x+1$$
+
+and this polynomial is irreducible over the integers. What breaks the proof?
+
+**Check:** irreducible **polynomial** does not mean every integer **value** is prime. At $x=5$ the value is
+$91=7\times13$. One counterexample disproves the universal claim.
+
+[algebraic irreducibility $\neq$ numerical primality]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+The function $f$ is defined for all real $x$. Consider
+
+$$(\ast)\qquad \int_{-5}^{0}f(x)\,\mathrm dx=\int_{0}^{5}f(x)\,\mathrm dx .$$
+
+&nbsp;&nbsp;**(a)** Which of the following conditions are **necessary** for $(\ast)$?
+
+&nbsp;&nbsp;&nbsp;&nbsp;I. $f(x)=f(-x)$ on $[-5,5]$ &nbsp;&nbsp;&nbsp;&nbsp;
+II. $f(x)=c$ on $[-5,5]$ &nbsp;&nbsp;&nbsp;&nbsp;
+III. $f(x)=-f(-x)$ on $[-5,5]$
+
+&nbsp;&nbsp;**(b)** Exhibit a **single** $f$ satisfying $(\ast)$ that refutes all three at once.
+&nbsp;&nbsp;**(c)** Give a condition that is necessary **and** sufficient for $(\ast)$.
+
+[Adapted from **2020 P2 Q6**, which asks only which conditions are necessary; the single refuting function and the exact condition are added.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\boxed{\text{none of them}}$.
+
+*A condition is necessary only if it holds in **every** case where $(\ast)$ does, so one well-chosen $f$
+kills it.* Conditions I and II are each *sufficient* — which is the distractor — and III is neither: an odd
+$f$ gives $\int_{-5}^{0}f=-\int_{0}^{5}f$, which matches $(\ast)$ only when both sides are $0$.
+
+**(b)** Take $$\boxed{f(x)=x^{2}+\sin\frac{2\pi x}{5}}.$$
+
+The sine term has period $5$, so it integrates to $0$ over $[-5,0]$ and over $[0,5]$ alike, leaving
+
+$$\int_{-5}^{0}f=\frac{125}{3}=\int_{0}^{5}f\ ✓$$
+
+Yet $f$ is not even (the sine term), not odd (the $x^{2}$ term), and certainly not constant. One function,
+three conditions refuted.
+
+**(c)** Substituting $x\mapsto-x$ in the left-hand integral turns $(\ast)$ into
+$\int_{0}^{5}f(-x)\,\mathrm dx=\int_{0}^{5}f(x)\,\mathrm dx$, i.e.
+
+$$\boxed{\int_{0}^{5}\bigl(f(x)-f(-x)\bigr)\mathrm dx=0}$$
+
+*In words: the **odd part** of $f$ must integrate to zero on $[0,5]$ — nothing at all is required of the even
+part.* Conditions I and II force the odd part to vanish identically, which is far more than needed.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S6 · Start at the hypothesis
+
+The task is to prove $H\Rightarrow C$. A student starts from $C$ and, through correct reversible algebra,
+arrives at $H$. What has the written argument proved?
+
+**Check:** as written, it proves the **converse** $C\Rightarrow H$. If every displayed step is explicitly an
+equivalence, the chain may be reversed to prove the target — but the argument must say so or run from $H$ to
+$C$.
+
+[dedicated clinic: label the first line and last line before checking the middle]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+A student is asked to show that, for non-zero reals $a$ and $b$,
+
+> if $a^{2}-4b^{3}\ge0$ then there exist real $x$ and $y$ with $a=xy(x+y)$ and $b=xy$.
+
+The attempt reads:
+
+&nbsp;&nbsp;(I) $(x-y)^{2}\ge0$ &nbsp;&nbsp;&nbsp;&nbsp;(II) so $x^{2}+y^{2}-2xy\ge0$
+&nbsp;&nbsp;&nbsp;&nbsp;(III) so $(x+y)^{2}-4xy\ge0$
+&nbsp;&nbsp;(IV) so $x^{2}y^{2}(x+y)^{2}-4x^{3}y^{3}\ge0$ &nbsp;&nbsp;&nbsp;&nbsp;
+(V) so $a^{2}-4b^{3}\ge0$
+
+&nbsp;&nbsp;**(a)** Check each line for an algebraic error.
+&nbsp;&nbsp;**(b)** What has the student actually proved? State it precisely.
+&nbsp;&nbsp;**(c)** Explain why reversing the written order would not repair the proof either, and identify
+the one step that is genuinely not reversible.
+
+[Adapted from **2021 P2 Q11**, which presents exactly this attempt and asks what is wrong with it.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Every line is algebraically **correct**.
+
+$(x+y)^{2}-4xy=x^{2}+2xy+y^{2}-4xy=x^{2}+y^{2}-2xy$, so (II) and (III) say the same thing; (IV) multiplies
+(III) by $x^{2}y^{2}\ge0$, which preserves the inequality; and with $a=xy(x+y)$, $b=xy$ we have
+$a^{2}=x^{2}y^{2}(x+y)^{2}$ and $4b^{3}=4x^{3}y^{3}$, giving (V).
+
+**(b)** The argument begins by **assuming $x$ and $y$ exist** and ends at the hypothesis. So it proves
+
+$$\boxed{\text{if such }x,y\text{ exist, then }a^{2}-4b^{3}\ge0}$$
+
+— the **converse** of what was asked. *The question wanted the hypothesis as the starting point and the
+existence as the destination; the student ran the road the other way.*
+
+**(c)** Reading the lines bottom to top would require each "so" to reverse. Lines (V)$\to$(IV),
+(III)$\to$(II)$\to$(I) are genuine equivalences, but
+
+$$\boxed{\text{(III)}\Rightarrow\text{(IV)}\ \text{ is not reversible:}}$$
+
+it multiplies by $x^{2}y^{2}$, and dividing back is illegal when $xy=0$. More fundamentally, the reversed
+chain still starts from an expression **in $x$ and $y$**, so it never establishes that such $x$ and $y$ exist
+— which is the whole content of the claim. *A proof of existence has to produce the objects.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### S7 · Where equivalence first fails
+
+A student solving
+
+$$\log_2(3x-1)=1+2\log_2(x-1)$$
+
+replaces $2\log_2(x-1)$ by $\log_2((x-1)^2)$ and later obtains $x=\tfrac12$ or $3$. Where is the first
+error if every line claims equivalence?
+
+**Check:** at the replacement. The original requires $x>1$, whereas $\log_2((x-1)^2)$ exists for $x\ne1$.
+The widened domain admits the false root $x=\tfrac12$; only $x=3$ solves the original.
+
+[same formula on the old domain; different equation on the larger domain]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+A student solves $\cos x+\sin x\tan x=2\sin x-1$ for $0\le x\le2\pi$:
+
+&nbsp;&nbsp;(I) $\cos x-\sin x+\sin x\tan x-\sin x=-1$
+&nbsp;&nbsp;(II) so $(\sin x-\cos x)(\tan x-1)=-1$
+&nbsp;&nbsp;(III) so $\sin x-\cos x=-1$ or $\tan x-1=-1$
+&nbsp;&nbsp;(IV) so $(\sin x-\cos x)^{2}=1$ or $\tan x=0$
+&nbsp;&nbsp;(V) so $2\sin x\cos x=0$ or $\tan x=0$
+&nbsp;&nbsp;(VI) so $x=0,\ \tfrac{\pi}{2},\ \pi,\ \tfrac{3\pi}{2},\ 2\pi$
+
+&nbsp;&nbsp;**(a)** Verify that lines (I) and (II) are correct.
+&nbsp;&nbsp;**(b)** On which line does equivalence first fail, and why?
+&nbsp;&nbsp;**(c)** Name a second place where equivalence is lost even if (III) were repaired.
+
+[Adapted from **2019 P2 Q6**, which asks only for the first faulty line.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Line (I) is the original rearranged: $\cos x+\sin x\tan x-2\sin x=-1$. ✓
+
+For line (II), expand and use $\cos x\tan x=\sin x$:
+
+$$(\sin x-\cos x)(\tan x-1)=\sin x\tan x-\sin x-\underbrace{\cos x\tan x}_{=\,\sin x}+\cos x
+=\sin x\tan x-2\sin x+\cos x .\ ✓$$
+
+**(b)** $\boxed{\text{Line (III)}}$.
+
+*From $AB=-1$ it does not follow that $A=-1$ or $B=-1$.* That inference is only valid when the product is
+**zero**, because a product vanishes exactly when a factor does. A product equal to $-1$ can be split in
+infinitely many ways — $A=2,\,B=-\tfrac12$, for instance. The student has applied the zero-product rule to a
+non-zero product.
+
+**(c)** Line (III)$\to$(IV) squares $\sin x-\cos x=-1$ into $(\sin x-\cos x)^{2}=1$.
+
+$$\boxed{\text{Squaring also admits }\sin x-\cos x=+1 ,}$$
+
+so (IV) is strictly weaker than (III) and gains candidates. *Two separate failures of equivalence, each
+pushing the answer in the direction of too many solutions — which is why every value in (VI) must be
+substituted back into the original equation.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 2 · T1 — Divisors and primes
+
+*Fifteen-plus Paper 2 questions across 2016–2023, and **not one of them a calculation**. The mathematics is
+tiny and repeats; learn it cold. Full page: **[T1](../toolkit/t01_divisors_primes.qmd)**.*
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Topic T1</div>
+<div class="fs-title">Divisors &amp; primes — the memorisable core</div>
+<div class="fs-sub">Every card has a standard counterexample attached. Learn the counterexample with the fact — that is what the questions actually test.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Primes and the $6n\pm1$ form ★
+
+Every prime $>3$ is of the form $6n\pm1$, because $6n$, $6n\pm2$ and $6n+3$ all carry a factor of $2$ or $3$.
+
+**The converse is false:** $25$, $35$, $49$, $55$ are all $6n\pm1$ and none is prime.
+
+**Edge cases that break proofs:** $1$ is **not** prime; $2$ is the **only** even prime; $3k$ is composite
+**only when $k>1$**, since $3\times1=3$ is prime.
+
+[$n^{2}+2$ is prime at $n=1$ — that single case kills several textbook "proofs"]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Prove that every prime greater than $3$ has the form $6n\pm1$.
+&nbsp;&nbsp;**(b)** Is the converse true? Give the two smallest counterexamples.
+&nbsp;&nbsp;**(c)** Find a counterexample to: *if $n$ is prime then $n^{2}+2$ is not prime.*
+&nbsp;&nbsp;**(d)** Prove that your counterexample is the **only** one.
+
+[Adapted from **2017 P2 Q5** (statements about $10p^{2}\pm1$ and the $6n\pm1$ form) and **2022 P2 Q3** (a counterexample to the $n^{2}+2$ claim).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Every integer is $6n,6n\pm1,6n\pm2$ or $6n+3$. Of these, $6n$, $6n\pm2$ are even and $6n+3$ is a
+multiple of $3$, so a prime bigger than $3$ can only be
+
+$$\boxed{6n-1\ \text{ or }\ 6n+1}$$
+
+*The argument discards four of the six residue classes on sight — that is why it is worth memorising rather
+than re-deriving.*
+
+**(b)** **No.** The form is necessary, not sufficient:
+
+$$\boxed{25=6(4)+1,\qquad 35=6(6)-1}$$
+
+both composite. *A classic distractor is to offer "$n$ has the form $6k\pm1$" as a sufficient condition for
+primality.*
+
+**(c)** $$\boxed{n=3:\quad 3^{2}+2=11,\ \text{which is prime}}$$
+
+**(d)** Let $p$ be prime with $p>3$. By (a), $p\equiv\pm1\pmod 3$, so
+
+$$p^{2}\equiv1\pmod 3\quad\Longrightarrow\quad p^{2}+2\equiv0\pmod3 .$$
+
+Since $p^{2}+2>3$, it is a proper multiple of $3$ and therefore composite. For the two small primes,
+$p=2$ gives $6$ (composite) and $p=3$ gives $11$ (prime).
+
+$$\boxed{n=3\text{ is the unique prime counterexample.}}$$
+
+*Note how the $6n\pm1$ fact did the work: it fixed $p$ modulo $3$, and the whole question then collapsed to
+one line of arithmetic.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Euclid's lemma — the missing word ★
+
+**If $p$ divides $ab$, then $p$ divides $a$ or $p$ divides $b$** — *only if $p$ is prime.*
+
+**Drop "prime" and it collapses:** $4$ divides $2\times2$ but $4$ does not divide $2$. Smallest
+counterexample $a=4,\ b=c=2$.
+
+[2016 P2 Q13 and 2021 P2 Q4 are the *same* false statement — this is the word they removed]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** State Euclid's lemma, underlining the word that cannot be dropped.
+&nbsp;&nbsp;**(b)** Find the **smallest** composite $a$, together with integers $b,c>1$, such that $a$
+divides $bc$ but divides neither $b$ nor $c$.
+&nbsp;&nbsp;**(c)** Prove: if $p$ is prime and $p\mid a^{n}$ for some $n\ge1$, then $p\mid a$.
+&nbsp;&nbsp;**(d)** Is it true that $a\mid b^{2}$ forces $a\mid b$? Decide, and give the smallest
+counterexample if not.
+
+[Adapted from **2021 P2 Q4**, whose counterexample $a=8,\ b=4,\ c=4$ is the same phenomenon one size larger.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** If a **prime** $p$ divides $bc$, then $p\mid b$ or $p\mid c$.
+
+$$\boxed{\textbf{prime}\text{ is the word that cannot be dropped}}$$
+
+**(b)** $$\boxed{a=4,\quad b=2,\quad c=2}$$
+
+Here $bc=4$ is divisible by $4$, while $4\nmid2$. *The factor $2^{2}$ of $a$ is **split** between $b$ and
+$c$, one copy each — which is exactly what primality rules out, since a prime has only one copy to give.*
+No smaller composite exists, $4$ being the smallest composite number.
+
+**(c)** Induct on $n$. For $n=1$ it is the statement itself. Suppose it holds for $n-1$ and let
+$p\mid a^{n}=a\cdot a^{n-1}$. By Euclid's lemma, $p\mid a$ — in which case we are done — or
+$p\mid a^{n-1}$, and then the inductive hypothesis gives $p\mid a$. $\blacksquare$
+
+**(d)** **False.** $$\boxed{a=4,\ b=2:\quad 4\mid4\ \text{but}\ 4\nmid2}$$
+
+*The implication $a\mid b^{2}\Rightarrow a\mid b$ holds exactly when $a$ is **squarefree** — see the card on
+$m\mid n^{k}$. For $a=4$ the repeated prime is what breaks it.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Squaring doubles every exponent ★
+
+$n=p_1^{e_1}p_2^{e_2}\cdots\Rightarrow n^{2}=p_1^{2e_1}p_2^{2e_2}\cdots$, so $n^{2}$ carries only **even**
+powers.
+
+For a **prime** $p$: if $p$ divides $n^{2}$ then $p$ divides $n$. For a composite divisor you only recover
+its square root — **$12$ divides $n^{2}$ exactly when $6$ divides $n$**, *not* when $12$ divides $n$.
+
+**Counterexample:** $n=6$ gives $n^{2}=36=12\times3$, yet $12$ does not divide $6$.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Explain why every exponent in the prime factorisation of a perfect square is even, and
+deduce that a perfect square has an **odd** number of divisors.
+&nbsp;&nbsp;**(b)** Find the smallest integer $n>1$ for which $2n$ is a perfect square **and** $3n$ is a
+perfect cube.
+&nbsp;&nbsp;**(c)** Hence state, in terms of exponents, the condition for $kn$ to be a perfect $k$th power.
+
+[Adapted from **2018 P2 Q17** ("squaresum" integers) and the exponent bookkeeping behind **2023 P2 Q16**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** If $m=\prod p_i^{e_i}$ then $m^{2}=\prod p_i^{2e_i}$, so every exponent of a square is even.
+
+The number of divisors is $\prod(2e_i+1)$ — *a product of odd numbers, hence odd.* Conversely an odd divisor
+count forces every $e_i$ to be even, so
+
+$$\boxed{\text{odd divisor count}\iff\text{perfect square}}$$
+
+*The reason is that divisors pair up as $d$ with $m/d$, and only a square has a divisor paired with itself.*
+
+**(b)** Only the primes $2$ and $3$ can appear, so write $n=2^{a}3^{b}$.
+
+$$2n=2^{a+1}3^{b}\ \text{ a square}\ \Longrightarrow\ a+1\ \text{even},\ b\ \text{even}$$
+$$3n=2^{a}3^{b+1}\ \text{ a cube}\ \Longrightarrow\ a\equiv0,\ b+1\equiv0 \pmod 3$$
+
+So $a$ is **odd** and a multiple of $3$, giving $a=3$; and $b$ is **even** with $b\equiv2\pmod3$, giving
+$b=2$:
+
+$$\boxed{n=2^{3}\cdot3^{2}=72}$$
+
+*Check:* $2n=144=12^{2}$ ✓ and $3n=216=6^{3}$ ✓.
+
+**(c)** $kn$ is a perfect $k$th power exactly when, for every prime $p$,
+
+$$\boxed{v_p(k)+v_p(n)\equiv0\pmod k}$$
+
+where $v_p$ is the exponent of $p$. *Each prime is an independent congruence — which is why (b) reduced to
+two tiny simultaneous conditions.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Remainders, and what squares leave
+
+"$b$ leaves remainder $r$ on division by $a$" means $b=aq+r$ **with $0\le r<a$** — the size condition is
+half the definition.
+
+**Trap:** if $r,s<a$ the product $rs$ need **not** be $<a$, so $rs$ is not the remainder of $bc$. Take
+$a=4$, $r=s=2$: $rs=4$, true remainder $0$.
+
+$$n^{2}\equiv0,1\ (\mathrm{mod}\ 3)\qquad n^{2}\equiv0,1\ (\mathrm{mod}\ 4)\qquad n^{2}\equiv0,1,4\ (\mathrm{mod}\ 8)$$
+
+A square is **never** $2\bmod3$ and **never** $3\bmod4$.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** List the possible remainders of a perfect square modulo $3$, $4$, $5$ and $8$.
+&nbsp;&nbsp;**(b)** Prove that $n^{2}+n+1$ is never divisible by $5$.
+&nbsp;&nbsp;**(c)** Prove that no integer of the form $8k+7$ is a sum of **three** squares.
+
+[Adapted from **2019 P2 Q7**, which uses $12^{2}+16^{2}=20^{2}$ to build a counterexample, and the residue arguments in **2018 P2 Q17**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *Only the residue of $n$ matters, so test one full set of residues.*
+
+| modulus | possible residues of $n^{2}$ |
+|---|---|
+| $3$ | $0,1$ |
+| $4$ | $0,1$ |
+| $5$ | $0,1,4$ |
+| $8$ | $0,1,4$ |
+
+*Mod $8$ needs $n=0,\dots,7$ and gives only three values — the single most useful fact in this family.*
+
+**(b)** Work modulo $5$ and test $n\equiv0,1,2,3,4$:
+
+| $n$ | $0$ | $1$ | $2$ | $3$ | $4$ |
+|---|---|---|---|---|---|
+| $n^{2}+n+1$ | $1$ | $3$ | $2$ | $3$ | $1$ |
+
+The value $0$ never appears, so $\boxed{5\nmid n^{2}+n+1\text{ for every integer }n}$.
+
+*Five cases, five lines — a finite check settles a statement about infinitely many $n$.*
+
+**(c)** By (a), each square is $0$, $1$ or $4$ modulo $8$. The possible sums of three such values are
+
+$$\{0,1,2,3,4,5,6\}\pmod 8 ,$$
+
+obtained by adding three elements of $\{0,1,4\}$ in all $10$ combinations. *The residue $7$ is the one that
+never occurs.* Hence
+
+$$\boxed{8k+7\text{ is never a sum of three squares.}}$$
+
+*(This is sharp: every other residue class does contain sums of three squares.)*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Squares modulo 4 — what a sum of two squares can be ★
+
+Every square is $0$ or $1$ modulo $4$, so
+
+$$a^{2}+b^{2}\equiv 0,\ 1\ \text{or}\ 2 \pmod 4 \quad\text{— never } 3 .$$
+
+**So no integer of the form $4k+3$ is a sum of two squares.** One residue check replaces a search.
+
+Companion facts: a square is never $\equiv2\pmod 3$ and never $\equiv3\pmod 4$; and modulo $8$ a square is $0$, $1$ or $4$.
+
+[$255=4(63)+3$, so it is not $a^{2}+b^{2}$ — no trial needed]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Prove that no integer of the form $4k+3$ is a sum of two squares.
+&nbsp;&nbsp;**(b)** Decide whether $2019$ is a sum of two squares, with reasons.
+&nbsp;&nbsp;**(c)** Prove that if $m$ and $n$ are each a sum of two squares, then so is $mn$.
+&nbsp;&nbsp;**(d)** Does the converse of (c) hold? Justify with the smallest example you can find.
+
+[Adapted from **2018 P2 Q17**, which defines a "squaresum" and asks which integers are one.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Modulo $4$ every square is $0$ or $1$, so a sum of two squares is
+
+$$0+0,\ 0+1,\ 1+1\ \equiv\ 0,\ 1,\ 2\pmod4 .$$
+
+$$\boxed{3\text{ is unreachable, so no }4k+3\text{ is a sum of two squares.}}$$
+
+**(b)** $2019=4(504)+3$, so by (a)
+
+$$\boxed{2019\text{ is not a sum of two squares}}$$
+
+*One residue check replaces a search through $45$ candidate squares.*
+
+**(c)** Write $m=a^{2}+b^{2}$ and $n=c^{2}+d^{2}$. Then
+
+$$\boxed{(a^{2}+b^{2})(c^{2}+d^{2})=(ac-bd)^{2}+(ad+bc)^{2}}$$
+
+*(expand both sides: the cross terms $-2abcd$ and $+2abcd$ cancel).* So $mn$ is a sum of two squares.
+$\blacksquare$
+
+*For example $5\times25=125=5^{2}+10^{2}$, via $a,b,c,d=1,2,3,4$.*
+
+**(d)** **No.** Take
+
+$$\boxed{m=3,\quad n=3,\quad mn=9=3^{2}+0^{2}}$$
+
+$mn$ is a sum of two squares, yet $3$ is of the form $4k+3$ and so by (a) is not. *The product can "repair"
+a bad factor only when the bad factor appears an even number of times — which is the start of the full
+characterisation: $N$ is a sum of two squares exactly when every prime $\equiv3\pmod4$ occurs to an even
+power.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Digit sums — why the tests work ★
+
+Since $10\equiv1\pmod 9$, every power of $10$ is $\equiv1$, so for the digit sum $s(N)$
+
+$$N\equiv s(N)\pmod 9,\qquad\text{hence } 9\mid N\iff 9\mid s(N),$$
+
+and the same argument modulo $3$ gives the test for $3$. Modulo $11$, $10\equiv-1$, so the **alternating**
+digit sum is what matters.
+
+[$3\mid s(N)$ is necessary but **not** sufficient for $9\mid N$ — take $N=12$]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Prove the test for $9$: an integer $N$ is divisible by $9$ exactly when its digit sum
+is.
+&nbsp;&nbsp;**(b)** Derive the corresponding test for $11$, stating clearly what replaces the digit sum.
+&nbsp;&nbsp;**(c)** Prove that $10^{n}+1$ is divisible by $11$ exactly when $n$ is odd, and hence write
+down a composite number consisting of a $1$, some zeros and another $1$.
+&nbsp;&nbsp;**(d)** Is "the digit sum of $N$ is divisible by $3$" sufficient for $9\mid N$?
+
+[Adapted from **2023 P2 Q15**, which sets up base-$2$ place value and asks for an analogous divisibility argument.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Since $10\equiv1\pmod9$, every power $10^{k}\equiv1$. So for $N=\sum d_k10^{k}$,
+
+$$N\equiv\sum d_k\cdot1=s(N)\pmod9 ,$$
+
+and $N$ and $s(N)$ leave the **same** remainder. In particular one is divisible by $9$ exactly when the
+other is. $\blacksquare$
+
+**(b)** Modulo $11$ we have $10\equiv-1$, so $10^{k}\equiv(-1)^{k}$ and
+
+$$N\equiv d_0-d_1+d_2-d_3+\cdots\pmod{11}.$$
+
+$$\boxed{\text{the }\textbf{alternating}\text{ digit sum replaces the digit sum}}$$
+
+**(c)** $10^{n}+1\equiv(-1)^{n}+1\pmod{11}$, which is $0$ when $n$ is odd and $2$ when $n$ is even:
+
+$$\boxed{11\mid10^{n}+1\iff n\text{ odd}}$$
+
+Taking $n=3$ gives $\boxed{1001=11\times91=7\times11\times13}$. *(Taking $n=2$ gives $101$, which is prime —
+so the parity of $n$ genuinely decides it.)*
+
+**(d)** **No.** $$\boxed{N=12:\ s(N)=3\text{ is divisible by }3,\text{ but }9\nmid12}$$
+
+*The congruence $N\equiv s(N)\pmod 9$ gives the test for $9$ **and** for $3$, because $3\mid9$ — but the
+tests are not interchangeable. "Digit sum divisible by $3$" is necessary for $9\mid N$, never sufficient.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### When does $m\mid n^{k}$ force $m\mid n$? ★
+
+Cubing **triples every exponent** in the prime factorisation, so the condition is about **repeated** primes,
+not about being composite:
+
+| $m$ | $m\mid n^{3}\Rightarrow m\mid n$? | |
+|---|---|---|
+| $2$, $3$, $p$ prime | **yes** | Euclid's lemma |
+| $6=2\times3$ | **yes** | distinct primes, each to the power $1$ |
+| $8=2^{3}$ | no | $n=2$ |
+| $9=3^{2}$ | no | $n=3$ |
+
+**$m$ works exactly when $m$ is squarefree** — no prime appears twice.
+
+[composite is not the test: $6$ works and $8$ does not]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** For which $m$ in the range $2\le m\le12$ is it true that $m\mid n^{3}\Rightarrow m\mid n$
+for **every** positive integer $n$? Give a counterexample for each failure.
+&nbsp;&nbsp;**(b)** Characterise the integers $m$ with that property, and prove your characterisation.
+&nbsp;&nbsp;**(c)** Does replacing $n^{3}$ by $n^{2}$ change the answer?
+
+[Adapted from **2021 P2 Q4**, which asks for counterexamples to the $k=1$ version; the characterisation is the generalisation.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)**
+
+| $m$ | works? | counterexample |
+|---|---|---|
+| $2,3,5,7,11$ | **yes** | — (prime) |
+| $6,10$ | **yes** | — (distinct primes) |
+| $4$ | no | $n=2$: $4\mid8$, $4\nmid2$ |
+| $8$ | no | $n=2$: $8\mid8$, $8\nmid2$ |
+| $9$ | no | $n=3$: $9\mid27$, $9\nmid3$ |
+| $12$ | no | $n=6$: $12\mid216$, $12\nmid6$ |
+
+$$\boxed{m=2,3,5,6,7,10,11}$$
+
+**(b)** $$\boxed{\text{exactly the }\textbf{squarefree}\ m\text{ — no repeated prime factor}}$$
+
+*Forwards.* Let $m=p_1p_2\cdots p_r$ with distinct primes and suppose $m\mid n^{3}$. Each $p_i$ divides
+$n^{3}$, so by Euclid's lemma $p_i\mid n$. The $p_i$ are distinct, so their product divides $n$. ✓
+
+*Backwards.* If $p^{2}\mid m$, write $m=p^{2}t$ and take $n=pt$. Then
+$n^{3}=p^{3}t^{3}=m\cdot pt^{2}$, so $m\mid n^{3}$; but $m=p^{2}t$ does not divide $n=pt$, since that would
+need $p\mid1$. ✓
+
+**(c)** **No** — the characterisation is the same for every exponent $k\ge2$. *Cubing triples each exponent
+and squaring doubles it, but either way one copy of a repeated prime can be hidden inside $n$ and still
+produce enough copies in $n^{k}$.* Taking $k=2$: $m=4$, $n=2$ gives $4\mid4$ and $4\nmid2$ exactly as
+before.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### The gcd toolkit
+
+Let $d=\gcd(a,b)$. This means $d$ is the greatest positive integer dividing **both** $a$ and $b$.
+Therefore $a=dr$ and $b=ds$ for some integers $r,s$, so $d$ also divides every integer combination
+$xa+yb$ — in particular, $a+b$ and $a-b$.
+
+$$\gcd(a,\,b+ka)=\gcd(a,b)\qquad \gcd(n,\,n+1)=1$$
+
+**Why this matters for a recurrence.** Suppose
+
+$$u_1=a,\qquad u_2=b,\qquad u_{n+2}=u_n+u_{n+1}.$$
+
+If $d$ divides both starting terms, then it divides $u_3=a+b$. It then divides
+$u_4=b+u_3$, and the same argument repeats, so $d$ divides **every** term.
+
+Also, the gcd of consecutive terms stays unchanged:
+
+$$\gcd(u_{n+1},u_{n+2})
+=\gcd(u_{n+1},u_n+u_{n+1})
+=\gcd(u_n,u_{n+1}).$$
+
+[example: $u_1=14,u_2=21$ gives $14,21,35,56,91,\ldots$; every term is divisible by $7$, and each consecutive gcd is $7$]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+A sequence is defined by $u_1=a$, $u_2=b$ and $u_{n+2}=u_n+u_{n+1}$, where $a$ and $b$ are positive
+integers with $\gcd(a,b)=h$.
+
+&nbsp;&nbsp;**(a)** Prove that $\gcd(u_n,u_{n+1})=h$ for every $n$.
+&nbsp;&nbsp;**(b)** Deduce the highest common factor of $u_{10}$ and $u_{11}$ when $a=10$ and $b=15$.
+&nbsp;&nbsp;**(c)** Use the Euclidean algorithm to evaluate $\gcd\!\left(2^{12}-1,\ 2^{18}-1\right)$, and
+state the general rule it illustrates.
+
+[Adapted from **2023 P2 Q16**, where exactly this recurrence appears and the highest common factor of consecutive terms is the subject.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *The recurrence is a single step of the Euclidean algorithm run backwards.* For any $n$,
+
+$$\gcd(u_{n+1},u_{n+2})=\gcd(u_{n+1},\,u_n+u_{n+1})=\gcd(u_{n+1},u_n),$$
+
+since adding a multiple of one argument to the other never changes a gcd. So the gcd of consecutive terms is
+**invariant**, and equals its value at the start:
+
+$$\boxed{\gcd(u_n,u_{n+1})=\gcd(a,b)=h}$$
+
+**(b)** By (a) the answer is immediate, with no need to compute the terms:
+
+$$\boxed{\gcd(u_{10},u_{11})=\gcd(10,15)=5}$$
+
+**(c)** $2^{12}-1=4095$ and $2^{18}-1=262143$. Running the algorithm,
+
+$$262143=64\times4095+63,\qquad 4095=65\times63+0,$$
+
+so $\boxed{\gcd=63}$. *Check:* $4095=3^{2}\cdot5\cdot7\cdot13$ and $262143=3^{3}\cdot7\cdot19\cdot73$,
+sharing $3^{2}\cdot7=63$ ✓.
+
+The general rule is
+
+$$\boxed{\gcd\!\left(2^{m}-1,\ 2^{n}-1\right)=2^{\gcd(m,n)}-1}$$
+
+and here $\gcd(12,18)=6$ with $2^{6}-1=63$. *An invariant turns a question about huge numbers into a
+question about their exponents.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Irreducible $\neq$ prime-valued ★
+
+A polynomial **factorises over the integers** if it can be written as
+
+$$P(x)=A(x)B(x),$$
+
+where $A$ and $B$ are non-constant polynomials whose **every coefficient — including each constant term —
+is an integer**. If no such factorisation exists, $P$ is *irreducible over the integers*.
+
+This does **not** mean “it cannot factor over the reals”: for example,
+$x^2-2=(x-\sqrt2)(x+\sqrt2)$ over the reals, but not over the integers.
+
+Irreducibility describes the polynomial as an algebraic expression; it does not guarantee that the integer
+$P(n)$ is prime.
+
+$3x^{2}+3x+1$ is irreducible ($D=9-12=-3<0$), yet $x=5$ gives $91=7\times13$ — which is exactly
+$6^{3}-5^{3}$.
+
+In fact, no non-constant polynomial in $\mathbb Z[x]$ gives a prime for **every** integer input. For TMUA,
+you do not need the general proof: one composite output is enough to disprove an “always prime” claim.
+
+**Two different meanings of “factor”:** 
+
+- **integer factor:** $91=7\times13$, so $7$ and $13$ divide the number $91$;
+- **polynomial factor:** $x^2-1=(x-1)(x+1)$ as an identity in $x$.
+
+An irreducible polynomial can therefore produce a composite integer. Treating these two meanings as the
+same is the error.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Verify that $n^{2}+n+41$ is prime for $n=0,1,2$, and find the smallest $n\ge0$ for
+which it is **not**.
+&nbsp;&nbsp;**(b)** Prove that $n^{4}+4$ is composite for every integer $n>1$.
+&nbsp;&nbsp;**(c)** Prove that **no** non-constant polynomial with integer coefficients takes a prime value
+at every positive integer.
+
+[Adapted from **2022 P2 Q7**, where a student mistakes an irreducible quadratic for a prime-generating one, and **2018 P2 Q12**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $n=0,1,2$ give $41$, $43$, $47$ — all prime. The polynomial keeps producing primes for a
+remarkably long time, and then
+
+$$\boxed{n=40:\quad 40^{2}+40+41=1681=41^{2}}$$
+
+*Visible in hindsight: at $n=41$ every term is a multiple of $41$, and at $n=40$ the expression is
+$40\cdot41+41=41\cdot41$.*
+
+**(b)** *Complete the square and factorise as a difference of two squares.*
+
+$$n^{4}+4=\left(n^{4}+4n^{2}+4\right)-4n^{2}=\left(n^{2}+2\right)^{2}-(2n)^{2}$$
+$$=\boxed{\left(n^{2}-2n+2\right)\left(n^{2}+2n+2\right)}$$
+
+For $n>1$ the smaller factor is $n^{2}-2n+2=(n-1)^{2}+1\ge2$, so both factors exceed $1$ and the number is
+composite. *(At $n=1$ the first factor is $1$, and indeed $5$ is prime — so the restriction $n>1$ is
+exactly right.)*
+
+**(c)** Let $f$ be non-constant with integer coefficients and suppose $f(1)=p$ is prime. For every integer
+$k$,
+
+$$f(1+kp)\equiv f(1)=p\equiv0\pmod p ,$$
+
+because $f(1+kp)-f(1)$ is divisible by $(1+kp)-1=kp$. So $p$ divides $f(1+kp)$ for **every** $k$. Since $f$
+is non-constant, $\lvert f(1+kp)\rvert>p$ for all large $k$, and such a value is a proper multiple of $p$ —
+hence composite. $\blacksquare$
+
+*So the pattern in (a) was always going to break. Irreducibility of a polynomial and primality of its values
+are unrelated properties.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::::
+
+:::::
+
+::: {.callout-tip}
+## The two reflexes for this topic
+
+1. **Test $n=1,2,3,4$ before reasoning.** For $n^{3}+5n$ that gives $6,18,42,84$ — one line of arithmetic
+   that eliminates five of seven options.
+2. **Check the smallest allowed case of every "therefore it is composite" step.** Almost every flawed proof
+   in this topic is correct for large $n$ and dies at the boundary.
+:::
+
+---
+
+# Part 3 · T2 — Shapes as logical conditions
+
+*Eight sittings, eight appearances. The geometry never goes beyond GCSE; what is tested is which property
+forces which, and whether you can produce the standard counterexample on demand. Full page:
+**[T2](../toolkit/t02_shapes_as_logic.qmd)**.*
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Topic T2</div>
+<div class="fs-title">Shapes as logical conditions</div>
+<div class="fs-sub">The lattice, the diagonal table, the congruence criteria and the three counterexamples. Learn the <strong>arrows</strong>: every question here is asking you to read one off, usually backwards.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### The quadrilateral lattice ★
+
+$$\text{square}\Rightarrow\text{rhombus}\Rightarrow\text{parallelogram}\Rightarrow\text{trapezium}$$
+$$\text{square}\Rightarrow\text{rectangle}\Rightarrow\text{parallelogram}$$
+
+A square is **both** a rhombus and a rectangle; nothing else is. A **kite** sits outside the chain unless it
+is a rhombus.
+
+*Arrows run one way only* — reading one backwards is what every wrong option in this topic does.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+$PQRS$ is a quadrilateral labelled anticlockwise. Classify each condition as **sufficient but not
+necessary**, **necessary but not sufficient**, **both**, or **neither** for $PQRS$ to be a parallelogram,
+giving a counterexample for every "not".
+
+&nbsp;&nbsp;**(a)** $PQ=SR$ and $PS$ is parallel to $QR$.
+&nbsp;&nbsp;**(b)** $PQ=SR$ and $PQ$ is parallel to $SR$.
+&nbsp;&nbsp;**(c)** $PQ=QR=SR=SP$.
+&nbsp;&nbsp;**(d)** $PR=QS$.
+
+[Adapted from **2019 P2 Q10**, which asks only which option is necessary but not sufficient; here all four are classified.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+*One shape settles three of the four parts.* Take the isosceles trapezium
+
+$$P(1,2),\quad Q(0,0),\quad R(6,0),\quad S(5,2).$$
+
+Here $PS$ and $QR$ are both horizontal, so they are parallel; the legs are
+$PQ=SR=\sqrt5$; the diagonals are $PR=QS=\sqrt{29}$; and it is **not** a parallelogram, since
+$\vec p+\vec r=(7,2)$ while $\vec q+\vec s=(5,2)$.
+
+**(a) Necessary but not sufficient.** A parallelogram has both properties, so the condition is necessary.
+The trapezium above satisfies it without being a parallelogram.
+
+$$\boxed{\text{necessary, not sufficient}}$$
+
+*This is the classic near-miss: one pair of sides **equal** and the **other** pair parallel. Equal and
+parallel must be the **same** pair.*
+
+**(b) Both.** One pair of opposite sides equal **and** parallel forces a parallelogram — and a
+parallelogram has it. $\boxed{\text{necessary and sufficient}}$
+
+**(c) Sufficient but not necessary.** Four equal sides make a rhombus, which is a parallelogram. But
+$P(0,0),Q(4,0),R(5,2),S(1,2)$ is a parallelogram with unequal adjacent sides.
+
+$$\boxed{\text{sufficient, not necessary}}$$
+
+**(d) Neither.** Not sufficient — the trapezium has $PR=QS=\sqrt{29}$. Not necessary — the parallelogram
+$P(0,0),Q(4,0),R(5,2),S(1,2)$ has $PR=\sqrt{29}$ and $QS=\sqrt{13}$.
+
+$$\boxed{\text{neither}}$$
+
+*Equal diagonals characterise a **rectangle** among parallelograms, not a parallelogram among
+quadrilaterals.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### The three counterexamples ★
+
+- **rhombus** — equal sides, perpendicular diagonals, **not a square**
+- **rectangle** — equal diagonals, right angles, **not a square**
+- **isosceles trapezium** — one pair parallel, other pair equal, **not a parallelogram**
+
+Almost every "is this sufficient?" question is killed by one of these three. *Reach for a named shape
+before you try to prove anything.*
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+The two diagonals of the quadrilateral $Q$ are perpendicular. Consider
+
+&nbsp;&nbsp;**I.** One of the diagonals of $Q$ is a line of symmetry of $Q$.
+&nbsp;&nbsp;**II.** The midpoints of the sides of $Q$ are the vertices of a square.
+
+&nbsp;&nbsp;**(a)** Decide whether each is necessarily true, with a single counterexample if possible.
+&nbsp;&nbsp;**(b)** What shape **are** the midpoints always the vertices of, given perpendicular diagonals?
+&nbsp;&nbsp;**(c)** What extra hypothesis makes II true?
+
+[Adapted from **2018 P2 Q5**, which poses exactly statements I and II; the shape of the midpoint quadrilateral and the repair are added.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Put the diagonals along the axes — which is exactly what "perpendicular" allows:
+
+$$P(-1,0),\quad Q(0,2),\quad R(3,0),\quad S(0,-5).$$
+
+The diagonals $PR$ and $QS$ lie along the axes, so they are perpendicular ✓.
+
+**I is false.** Reflecting in $PR$ (the $x$-axis) sends $Q(0,2)$ to $(0,-2)$, which is not $S(0,-5)$.
+Reflecting in $QS$ (the $y$-axis) sends $P(-1,0)$ to $(1,0)$, which is not $R(3,0)$. *Neither diagonal is an
+axis — a kite has one, but perpendicular diagonals alone do not make a kite.*
+
+**II is false.** The four midpoints are $\left(-\tfrac12,1\right)$, $\left(\tfrac32,1\right)$,
+$\left(\tfrac32,-\tfrac52\right)$, $\left(-\tfrac12,-\tfrac52\right)$ — a rectangle with sides $2$ and
+$\tfrac72$, not a square.
+
+$$\boxed{\text{neither I nor II}}$$
+
+**(b)** For **any** quadrilateral the midpoints form a parallelogram whose sides are parallel to the
+diagonals (Varignon). If the diagonals are perpendicular, those sides are perpendicular too:
+
+$$\boxed{\text{always a rectangle}}$$
+
+**(c)** The midpoint rectangle's side lengths are **half the diagonals**, so it is a square exactly when
+
+$$\boxed{\text{the diagonals are also equal in length}}$$
+
+*In the counterexample $\lvert PR\rvert=4$ and $\lvert QS\rvert=7$ — perpendicular but unequal, which is why
+II failed.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### The diagonal table — these are the *iff*s ★
+
+| diagonals | shape guaranteed |
+|---|---|
+| bisect each other | parallelogram |
+| bisect **and equal** | rectangle |
+| bisect **and perpendicular** | rhombus |
+| bisect, equal **and** perpendicular | square |
+| one perpendicularly bisects the other | kite |
+
+Read each as **at least** that shape — a square satisfies every row. Most nec/suff options on the paper are
+one of these rows, altered.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+$PQRS$ is a **parallelogram**, labelled anticlockwise. Consider
+
+&nbsp;&nbsp;**I.** $\lvert PQ\rvert=\lvert QR\rvert$ &nbsp;&nbsp;&nbsp;&nbsp;
+**II.** $PR$ meets $QS$ at right angles &nbsp;&nbsp;&nbsp;&nbsp;
+**III.** $\angle PQR=\angle QRS$
+
+&nbsp;&nbsp;**(a)** Which conditions, taken **individually**, are sufficient for $PQRS$ to be a square?
+&nbsp;&nbsp;**(b)** For each, name the shape it does force.
+&nbsp;&nbsp;**(c)** Which **pairs** are sufficient for a square?
+
+[Adapted from **2020 P2 Q7**, which asks only about the three conditions individually.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\boxed{\text{none of them}}$
+
+**(b)**
+
+| | forces | why it is not enough |
+|---|---|---|
+| I | **rhombus** | adjacent sides equal, but the angles are unconstrained |
+| II | **rhombus** | perpendicular diagonals characterise a rhombus among parallelograms |
+| III | **rectangle** | see below |
+
+For III: consecutive angles of a parallelogram are **supplementary**, so
+$\angle PQR+\angle QRS=180^{\circ}$. Combined with equality,
+
+$$2\angle PQR=180^{\circ}\ \Longrightarrow\ \angle PQR=90^{\circ},$$
+
+a rectangle — and a $4\times2$ rectangle is not a square.
+
+*A rhombus that is not a square:* $P(0,0),Q(5,0),R(8,4),S(3,4)$ — all four sides $5$, diagonals
+perpendicular, angles not right.
+
+**(c)** A square is precisely **rhombus and rectangle**, so a pair works exactly when it supplies both:
+
+$$\boxed{\text{I}+\text{III}\ \text{ and }\ \text{II}+\text{III}}$$
+
+*I$+$II fails: both only give a rhombus, so together they still give a rhombus. Two conditions that force
+the same thing are worth no more than one.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Forcing a parallelogram
+
+**Sufficient, each alone:** both pairs of sides parallel · both pairs equal · the **same one pair** both
+equal **and** parallel · diagonals bisect each other.
+
+**Not sufficient — the exam's favourite:** one pair *equal* and a **different** pair *parallel*
+($AB=CD$ but $AD\parallel BC$). That describes an **isosceles trapezium**.
+
+*Splitting "equal" and "parallel" across different pairs is the whole trap.*
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $A$, $B$, $C$, $D$ have position vectors $\vec a,\vec b,\vec c,\vec d$.
+
+&nbsp;&nbsp;**(a)** Prove that $ABCD$ (in that order) is a parallelogram if and only if
+$\vec a+\vec c=\vec b+\vec d$.
+&nbsp;&nbsp;**(b)** Decide whether $A(1,2)$, $B(4,3)$, $C(6,7)$, $D(3,6)$ is a parallelogram.
+&nbsp;&nbsp;**(c)** Prove that the diagonals of a quadrilateral bisect each other **if and only if** it is a
+parallelogram.
+&nbsp;&nbsp;**(d)** Explain why the test in (a) would wrongly accept the points if they were given in the
+order $A$, $B$, $D$, $C$.
+
+[Adapted from **2019 P2 Q10** and **2020 P2 Q7**, both of which hinge on the anticlockwise labelling.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $ABCD$ is a parallelogram exactly when $\vec{AB}=\vec{DC}$, that is
+
+$$\vec b-\vec a=\vec c-\vec d\ \iff\ \boxed{\vec a+\vec c=\vec b+\vec d}$$
+
+*Both sides equal twice the midpoint of a diagonal, which is the content of (c).*
+
+**(b)** $\vec a+\vec c=(1,2)+(6,7)=(7,9)$ and $\vec b+\vec d=(4,3)+(3,6)=(7,9)$:
+
+$$\boxed{\text{yes, a parallelogram}}$$
+
+**(c)** The midpoint of $AC$ is $\tfrac12(\vec a+\vec c)$ and the midpoint of $BD$ is
+$\tfrac12(\vec b+\vec d)$. These coincide exactly when $\vec a+\vec c=\vec b+\vec d$, which by (a) is exactly
+the parallelogram condition. $\blacksquare$
+
+*Note this is a genuine **iff**, proved in one line in both directions — unlike the near-misses in the
+lattice card.*
+
+**(d)** The condition $\vec a+\vec c=\vec b+\vec d$ pairs $A$ with $C$ and $B$ with $D$ — it tests whether
+**those** are the diagonals.
+
+$$\boxed{\text{Relabelling changes which pairs count as diagonals.}}$$
+
+With the order $A,B,D,C$ the diagonals are $AD$ and $BC$, so the correct test becomes
+$\vec a+\vec d=\vec b+\vec c$: here $(4,8)\ne(10,10)$, and indeed $ABDC$ is a self-crossing quadrilateral.
+*The vertex order is part of the hypothesis, which is why every exam question specifies "labelled
+anticlockwise".*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Congruence, and the one that is not ★
+
+**Criteria:** SSS · SAS · ASA · AAS · RHS.
+
+**SSA is not a criterion** — two sides and a *non-included* angle give the ambiguous case, two triangles.
+
+**Equal area is not a criterion either:** $\tfrac12ab\sin C$ equal gives only $\sin C_1=\sin C_2$, and
+
+$$\sin A=\sin B\iff B=A\ \text{ or }\ B=180^\circ-A .$$
+
+*Whenever an angle is recovered from a sine, stop — there are two possibilities.*
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+In triangle $PQR$, $PR=2$, $QR=p$ and $\angle RPQ=30^{\circ}$.
+
+&nbsp;&nbsp;**(a)** Show that $PQ$ satisfies $PQ^{2}-2\sqrt3\,PQ+\left(4-p^{2}\right)=0$, and solve for
+$PQ$.
+&nbsp;&nbsp;**(b)** Hence find the complete set of $p$ for which the given information determines the
+triangle **uniquely**.
+&nbsp;&nbsp;**(c)** For which $p$ is there no triangle at all, and for which are there exactly two?
+&nbsp;&nbsp;**(d)** Which congruence criterion is being tested, and why is it not a criterion?
+
+[Adapted from **2018 P2 Q14**, which asks only for the set of $p$ giving a unique triangle.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Cosine rule at $P$, with $\cos30^{\circ}=\tfrac{\sqrt3}{2}$:
+
+$$p^{2}=2^{2}+PQ^{2}-2(2)(PQ)\frac{\sqrt3}{2}\ \Longrightarrow\ PQ^{2}-2\sqrt3\,PQ+\left(4-p^{2}\right)=0 .$$
+
+$$PQ=\sqrt3\pm\sqrt{3-\left(4-p^{2}\right)}=\boxed{\sqrt3\pm\sqrt{p^{2}-1}}$$
+
+**(b)** We need exactly one **positive** root.
+
+| $p$ | $\sqrt{p^{2}-1}$ | roots $\sqrt3\pm\sqrt{p^{2}-1}$ | triangles |
+|---|---|---|---|
+| $p<1$ | not real | — | $0$ |
+| $p=1$ | $0$ | $\sqrt3$ (repeated) | $1$ |
+| $1<p<2$ | $0<\cdot<\sqrt3$ | both positive | $2$ |
+| $p=2$ | $\sqrt3$ | $2\sqrt3$ and $0$ | $1$ |
+| $p>2$ | $>\sqrt3$ | one positive, one negative | $1$ |
+
+$$\boxed{p=1\ \text{ or }\ p\ge2}$$
+
+**(c)** $\boxed{\text{no triangle for }p<1;\quad\text{exactly two for }1<p<2}$
+
+*The value $p=1$ is the perpendicular distance from $R$ to the line $PQ$, namely $PR\sin30^{\circ}=1$ — below
+it the side cannot reach, at it the triangle is right-angled, just above it there are two positions.*
+
+**(d)** The data is two sides and a **non-included** angle, $\boxed{\text{SSA}}$ — the one arrangement that
+is not a congruence criterion. *SAS, ASA, SSS and RHS all determine a triangle; SSA leaves the ambiguous
+case above, and the algebra shows it as a quadratic with two positive roots.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### The midpoint quadrilateral ★
+
+Join the midpoints of the sides of **any** quadrilateral: the result is **always a parallelogram**, with its
+sides parallel to the diagonals and half their length.
+
+| condition on the diagonals of $ABCD$ | midpoint quadrilateral |
+|---|---|
+| none | parallelogram |
+| equal | **rhombus** |
+| perpendicular | **rectangle** |
+| equal **and** perpendicular | **square** |
+
+*Each row is an **iff**, so this converts a fact about the diagonals into one about the sides and back.*
+
+[equal gives the rhombus, perpendicular gives the rectangle — not the other way round]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Prove that the midpoints of the sides of **any** quadrilateral are the vertices of a
+parallelogram, and say what its sides are parallel to.
+&nbsp;&nbsp;**(b)** State the condition on the original quadrilateral for the midpoint parallelogram to be
+(i) a rectangle, (ii) a rhombus, (iii) a square.
+&nbsp;&nbsp;**(c)** Prove that the midpoint parallelogram always has **half** the area of the original.
+
+[Adapted from **2018 P2 Q5**, whose statement II is the square case of part (b).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** Let the vertices be $\vec a,\vec b,\vec c,\vec d$ and the midpoints
+$\vec m_1=\tfrac12(\vec a+\vec b)$, $\vec m_2=\tfrac12(\vec b+\vec c)$, $\vec m_3=\tfrac12(\vec c+\vec d)$,
+$\vec m_4=\tfrac12(\vec d+\vec a)$. Then
+
+$$\vec m_2-\vec m_1=\tfrac12(\vec c-\vec a)=\vec m_3-\vec m_4 .$$
+
+*One pair of opposite sides equal **and** parallel,* so it is a parallelogram. Moreover each side is
+parallel to a **diagonal** of the original, and half its length:
+
+$$\boxed{\text{sides parallel to }AC\text{ and }BD,\text{ of half their lengths}}$$
+
+**(b)** Since the sides carry the directions and half the lengths of the diagonals:
+
+| midpoint shape | condition on the original |
+|---|---|
+| (i) rectangle | the diagonals are **perpendicular** |
+| (ii) rhombus | the diagonals are **equal in length** |
+| (iii) square | the diagonals are **perpendicular and equal** |
+
+*Note the swap — perpendicular diagonals give equal **angles** in the midpoint figure, equal diagonals give
+equal **sides**.*
+
+**(c)** The parallelogram has sides $\tfrac12\vec{AC}$ and $\tfrac12\vec{BD}$, so its area is
+
+$$\left\lvert\tfrac12\vec{AC}\times\tfrac12\vec{BD}\right\rvert=\tfrac14\left\lvert\vec{AC}\times\vec{BD}\right\rvert .$$
+
+For any quadrilateral the area is $\tfrac12\left\lvert\vec{AC}\times\vec{BD}\right\rvert$. Hence
+
+$$\boxed{\text{midpoint area}=\tfrac12\times\text{original area}}$$
+
+*Independent of the shape — which makes it a useful check in any question that builds a figure from
+midpoints.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Polygons and circles
+
+$$\text{interior sum}=(n-2)\times180^\circ\qquad\text{regular interior}=180^\circ-\frac{360^\circ}{n}$$
+
+$n=3,4,5,6,8,12\Rightarrow60^\circ,90^\circ,108^\circ,120^\circ,135^\circ,150^\circ$.
+
+**Pentagon consequence:** five angles in arithmetic progression sum to $5a=540^\circ$, so the **middle one
+is forced to be $108^\circ$**, whatever the common difference.
+
+**Equal areas from the centre $\neq$ regular:** each central angle is $\alpha$ or $180^\circ-\alpha$, so
+only $n=3$ forces regularity. For $n=4$, angles $60,120,60,120$ work.
+
+**Cyclic quadrilateral:** opposite angles sum to $180^\circ$ — a genuine *iff*.
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Consider this statement about a pentagon $P$:
+
+&nbsp;&nbsp;&nbsp;&nbsp;$(\ast)$ if at least one interior angle of $P$ is $108^{\circ}$, then **all** its
+interior angles are $108^{\circ}$.
+
+&nbsp;&nbsp;Decide $(\ast)$, giving a counterexample if it is false, and write its contrapositive.
+
+&nbsp;&nbsp;**(b)** A convex polygon has all its vertices on a circle and all its sides equal. Prove it is
+regular.
+&nbsp;&nbsp;**(c)** Is "all interior angles equal" sufficient for a cyclic polygon to be regular?
+
+[Adapted from **2023 P2 Q9** (the pentagon statement) and **2022 P2 Q19** (a polygon with every vertex on a circle).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** **False.** The interior angles of a pentagon sum to $540^{\circ}$, and
+
+$$\boxed{108^{\circ},\ 100^{\circ},\ 110^{\circ},\ 112^{\circ},\ 110^{\circ}}$$
+
+sums to $540^{\circ}$ with one angle equal to $108^{\circ}$ and the rest not. *The angle sum is the only
+constraint, and it leaves enormous freedom — fixing one angle fixes nothing else.*
+
+Contrapositive: *if not all the interior angles of $P$ are $108^{\circ}$, then none of them is
+$108^{\circ}$.* (Equally false, as it must be.)
+
+**(b)** Equal chords of a circle subtend equal arcs, so all $n$ arcs between consecutive vertices are
+equal. An inscribed angle depends only on the arc it stands on, and each interior angle stands on the arc
+made of the other $n-2$ pieces — the same in every case. So all the interior angles are equal as well, and
+the polygon is $\boxed{\text{regular}}$. $\blacksquare$
+
+**(c)** **No.** $$\boxed{\text{A }4\times2\text{ rectangle}}$$
+
+is cyclic with every angle $90^{\circ}$, yet it is not regular. *Equal sides plus cyclic gives regular;
+equal angles plus cyclic does not. The two halves of "regular" are not interchangeable — and for a
+**triangle** either one suffices, which is where the false intuition comes from.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 4 · The recurring mathematical engines
+
+*Paper 2 recombines a short reasoning list with ordinary Paper 1 mathematics. The cards below are not a
+second Paper 1 formula sheet: they are the moves that repeatedly decide the reasoning questions.*
+
+::::: {.formulasheet}
+
+:::: {.fs-head}
+<div class="fs-kicker">TMUA · Paper 2 · Applications and reasoning</div>
+<div class="fs-title">Eight engines that carry the logic</div>
+<div class="fs-sub">For each one: remember the fact, recognise the question shape, then use the routine.</div>
+::::
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### Roots and graphs ★
+
+**Formula / facts**
+
+$$f(x)=0\iff\text{$x$-intercept},\qquad f'(x)=0\iff\text{stationary point}.$$
+
+A degree-$n$ polynomial has at most $n$ real roots. Between two distinct roots of differentiable $f$ lies
+a root of $f'$ (Rolle), so $n$ distinct roots of $f$ force at least $n-1$ roots of $f'$.
+
+**Never reverse it:** a stationary point need not give two roots. $f(x)=x^2+1$ has $f'(0)=0$ but no real
+root.
+
+**Frequent type — “how many roots are possible?”** Sketch the simplest allowed shape; count intersections,
+not algebraic solutions. Use end behaviour + turning points + tangencies. A repeated root touches; a simple
+root crosses.
+
+[example: $x|x|=px+q$ means intersect the two-branch graph $y=x|x|$ with a line]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $f$ be a non-constant polynomial and $g(x)=x\,f'(x)$. Suppose $f(x)=0$ for exactly $M$ real values of
+$x$, and $g(x)=0$ for exactly $N$ real values of $x$.
+
+&nbsp;&nbsp;**(a)** Decide which of $M<N$, $M=N$, $M>N$ are possible, giving an explicit $f$ for each.
+&nbsp;&nbsp;**(b)** Prove that $N\ge M-1$ always.
+&nbsp;&nbsp;**(c)** Show that $N-M$ can be made as large as we please.
+
+[Adapted from **2023 P2 Q19**, which asks only which of the three comparisons are possible.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *All three are possible — and three quadratics settle it.* In every case $g(x)=2x^{2}$, whose only
+real zero is $x=0$, so $N=1$.
+
+| $f$ | real roots of $f$ | $M$ | $N$ | |
+|---|---|---|---|---|
+| $x^{2}+1$ | none | $0$ | $1$ | $M<N$ |
+| $x^{2}$ | $0$ | $1$ | $1$ | $M=N$ |
+| $x^{2}-1$ | $\pm1$ | $2$ | $1$ | $M>N$ |
+
+$$\boxed{\text{all three}}$$
+
+*Note that $M$ counts **distinct** roots, so the repeated root of $x^{2}$ contributes $1$, not $2$.*
+
+**(b)** The zeros of $g$ are $x=0$ together with the zeros of $f'$. If $f$ has $M$ distinct real roots, then
+between each consecutive pair Rolle's theorem supplies a zero of $f'$ — at least $M-1$ of them, all distinct.
+Hence
+
+$$N\ \ge\ \#\{\text{zeros of }f'\}\ \ge\ M-1 .$$
+
+$$\boxed{N\ge M-1}$$
+
+*The deficit of exactly $1$ is achieved when $0$ happens to be one of those zeros of $f'$, as in the third
+row above.*
+
+**(c)** Take $f$ with **no** real roots but many turning points, so $M=0$ while $N$ is large. For instance
+
+$$f(x)=\left(x^{2}+1\right)\left(x^{2}+4\right)\cdots\left(x^{2}+k^{2}\right)$$
+
+has $M=0$, while $f'$ is an odd polynomial of degree $2k-1$ and may have up to $2k-1$ real zeros.
+
+$$\boxed{N-M\text{ is unbounded}}$$
+
+*So the inequality in (b) is one-sided: $N$ can fall below $M$ by at most $1$, but exceed it without
+limit.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Calculus conditions ★
+
+**Formula / facts**
+
+$$f'(a)=0\text{ is necessary, not sufficient, for an interior differentiable maximum/minimum.}$$
+$$f''(a)>0\Rightarrow\text{local minimum},\qquad f''(a)<0\Rightarrow\text{local maximum}.$$
+
+$f''(a)=0$ alone proves nothing: $x^4$ has a minimum at $0$; $x^3$ has an inflection there.
+An inflection needs **concavity to change sign**. Increasing means $f'\ge0$ (strictly increasing does not
+require $f'>0$ at every point: $x^3$ is the standard counterexample).
+
+**Frequent type — necessary or sufficient?** Translate the geometric word into its exact derivative
+condition, then test both arrows with $x^2$, $x^3$, $x^4$ or a constant function.
+
+[memory: stationary = flat; turning = changes direction; inflection = changes bend]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $f$ be a polynomial and consider
+
+$$P:\ f(x)=0\text{ for exactly three real values of }x,\qquad
+Q:\ f'(x)=0\text{ for exactly two real values of }x .$$
+
+&nbsp;&nbsp;**(a)** Is $P$ sufficient for $Q$? Justify with a polynomial if not.
+&nbsp;&nbsp;**(b)** Is $P$ necessary for $Q$? Justify with a polynomial if not.
+&nbsp;&nbsp;**(c)** State the correct relationship, and say what extra hypothesis would make $P$ and $Q$
+equivalent.
+
+[Adapted from **2021 P2 Q6**, which asks for the classification only; the two witnesses are supplied here.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** **Not sufficient.** Take
+
+$$\boxed{f(x)=x(x-1)^{2}(x+1)^{2}}$$
+
+Its distinct real roots are $-1,0,1$, so $P$ holds. But $f$ has degree $5$ and $f'$ has **four** distinct
+real zeros — the two repeated roots are themselves stationary points, and Rolle adds one in each of the two
+gaps. So $Q$ fails.
+
+*Repeated roots are the loophole: they are roots **and** turning points at once.*
+
+**(b)** **Not necessary.** Take
+
+$$\boxed{f(x)=x^{3}-3x+10}$$
+
+Here $f'(x)=3x^{2}-3$ has exactly two zeros, $x=\pm1$, so $Q$ holds. But the local maximum
+$f(-1)=12$ and the local minimum $f(1)=8$ are **both positive**, so the curve crosses the axis once only:
+$f$ has exactly **one** real root and $P$ fails.
+
+**(c)** $$\boxed{P\text{ is neither necessary nor sufficient for }Q}$$
+
+For a **cubic**, however, three distinct real roots and two stationary points are equivalent: a cubic with
+three distinct roots must have two turning points (Rolle), and a cubic with two turning points has three
+distinct roots exactly when the two stationary values have opposite signs.
+
+$$\boxed{\text{restrict to cubics }\textbf{and}\text{ require stationary values of opposite signs}}$$
+
+*The general-polynomial version fails in both directions, and for opposite reasons — multiplicity in (a),
+the position of the turning values in (b).*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Inequalities and domains ★
+
+**Safe moves:** add the same expression; multiply by a known positive number; square only after controlling
+signs. Multiplying or dividing by a negative reverses the sign.
+
+$$a^2\ge0,\qquad (a-b)^2\ge0\Rightarrow a^2+b^2\ge2ab,$$
+$$\sqrt{X}=|Y|\text{ when }X=Y^2,\qquad \cos x=\pm\sqrt{1-\sin^2x}.$$
+
+**Domains:** denominators $\ne0$; square-root inputs $\ge0$; logarithm inputs $>0$. For $0<a<1$,
+$\log_a x$ is decreasing, so an inequality reverses when applying it.
+
+**Frequent type — first error.** Annotate every risky line with its missing condition: “divisor non-zero?”,
+“both sides non-negative?”, “log base above 1?”, “domain retained?”. Stop at the first missing condition.
+
+[counterexample to multiplying inequalities: $-3<-2$ and $-1<0$, but $3\not<0$]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Solve $\lvert x+5\rvert<\lvert x+11\rvert$.
+&nbsp;&nbsp;**(b)** Solve $\lvert x+11\rvert<\lvert x+1\rvert$.
+&nbsp;&nbsp;**(c)** Hence describe the set of real numbers satisfying **both**, and state its length.
+&nbsp;&nbsp;**(d)** Explain why squaring both sides is legitimate here but not in
+$\lvert x+5\rvert<x+11$.
+
+[Adapted from **2022 P2 Q14**, which gives exactly these two inequalities and asks for the length of the overlap.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+*For a modulus inequality between two moduli, square — both sides are non-negative, so squaring is
+reversible.*
+
+**(a)** $(x+5)^{2}<(x+11)^{2}$ gives $10x+25<22x+121$, i.e. $-96<12x$:
+
+$$\boxed{x>-8}$$
+
+*Geometrically: $x$ is closer to $-5$ than to $-11$, so it lies on the $-5$ side of the midpoint $-8$.*
+
+**(b)** $(x+11)^{2}<(x+1)^{2}$ gives $22x+121<2x+1$, i.e. $20x<-120$:
+
+$$\boxed{x<-6}$$
+
+**(c)** $$\boxed{-8<x<-6,\ \text{ an interval of length }2}$$
+
+**(d)** Squaring $\lvert A\rvert<\lvert B\rvert$ is an **equivalence**, because $t\mapsto t^{2}$ is strictly
+increasing on $[0,\infty)$ and both sides are already non-negative.
+
+In $\lvert x+5\rvert<x+11$ the right-hand side is **not** known to be non-negative.
+
+$$\boxed{\text{Squaring is only valid once }x+11\ge0\text{ has been imposed.}}$$
+
+*With $x<-11$ the inequality is false outright, since a modulus cannot be less than a negative number —
+and squaring would silently lose that case. Correctly: $x\ge-11$ and $(x+5)^{2}<(x+11)^{2}$, giving
+$x>-8$.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Transformations and solution counts
+
+Horizontal shifts, reflections and non-zero stretches preserve the **number** of roots:
+
+$$f(x-a)=0,\quad f(-x)=0,\quad f(kx)=0\ (k\ne0)$$
+
+are re-labellings of the roots of $f$. A vertical shift $f(x)+c=0$ can change the count.
+
+Inverse graphs reflect in $y=x$, so $f(x)=x$ and $f^{-1}(x)=x$ have the same fixed points (when the inverse
+exists). But squaring or modulus can add a branch:
+
+$$|f(x)|=k\iff f(x)=\pm k\qquad(k\ge0).$$
+
+**Frequent type — “same number of solutions”.** Substitute to expose a bijection between solution sets.
+If the manipulation introduces $\pm$, squares, or discards a domain, count the new branches separately.
+
+[example: $\cos^2x=c^2$ means $\cos x=c$ or $\cos x=-c$]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+Let $p$ and $q$ be real and suppose $x\lvert x\rvert=px+q$ has exactly $k$ distinct real solutions.
+
+&nbsp;&nbsp;**(a)** Explain why $y=x\lvert x\rvert$ is strictly increasing, and describe its shape either
+side of the origin.
+&nbsp;&nbsp;**(b)** Find the largest possible value of $k$, giving $p$ and $q$ that achieve it.
+&nbsp;&nbsp;**(c)** Prove that $k=4$ is impossible.
+
+[Adapted from **2021 P2 Q16**, which asks for the largest possible number of solutions of this equation.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $$x\lvert x\rvert=\begin{cases}x^{2}&x\ge0\\[2pt]-x^{2}&x<0\end{cases}$$
+
+Both branches increase, and they agree at $0$, so the function is strictly increasing throughout. It is
+**convex** on $x\ge0$ (the right half of $y=x^{2}$) and **concave** on $x\le0$:
+
+$$\boxed{\text{an odd, strictly increasing curve with an inflection at the origin}}$$
+
+**(b)** Split the equation at $0$:
+
+$$x\ge0:\ x^{2}-px-q=0,\qquad x<0:\ x^{2}+px+q=0 .$$
+
+Take $p=3$, $q=-2$. The first becomes $x^{2}-3x+2=0$, with roots $1$ and $2$, both $\ge0$ ✓. The second
+becomes $x^{2}+3x-2=0$, with roots $\tfrac{-3\pm\sqrt{17}}{2}$, of which only
+$\tfrac{-3-\sqrt{17}}{2}\approx-3.56$ is negative ✓.
+
+$$\boxed{k=3,\text{ achieved at }p=3,\ q=-2}$$
+
+**(c)** $k=4$ would need **two** roots $\ge0$ from $x^{2}-px-q=0$ and **two** roots $<0$ from
+$x^{2}+px+q=0$. Comparing the products of the roots:
+
+$$\text{two non-negative roots}\Rightarrow -q\ge0,\qquad
+\text{two negative roots}\Rightarrow q>0 .$$
+
+$$\boxed{q\le0\text{ and }q>0\text{ cannot both hold, so }k\le3 .}$$
+
+*A line can cut a convex arc twice and a concave arc twice, so $4$ looks available — the sign of $q$ is what
+forbids it.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Trigonometric counting ★
+
+$$\sin u=\sin\alpha\Rightarrow u=\alpha+360^\circ k\text{ or }180^\circ-\alpha+360^\circ k,$$
+$$\cos u=\cos\alpha\Rightarrow u=\pm\alpha+360^\circ k.$$
+
+For $u=mx+c$, **transform the interval first**, solve in $u$, then convert back. Endpoints matter.
+
+**Frequent type — number of solutions / sufficient condition.** Draw one-period graphs and count horizontal
+line intersections. Split squares or modulus into $+$ and $-$ levels before counting.
+
+**Two traps:** $\sin A=\sin B$ does not force $A=B$; and $\sqrt{\cos^2x}=|\cos x|$, not $\cos x$.
+
+[memory: equation in $2x$ over $0^\circ\le x\le360^\circ$ spans two full turns]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+The angle $\theta$ takes each of the values $1^{\circ},2^{\circ},\dots,360^{\circ}$.
+
+&nbsp;&nbsp;**(a)** Simplify
+$\ \sin\theta\sqrt{1+\sin\theta}\,\sqrt{1-\sin\theta}+\cos\theta\sqrt{1+\cos\theta}\,\sqrt{1-\cos\theta}$.
+&nbsp;&nbsp;**(b)** For how many of the $360$ values is the expression zero?
+&nbsp;&nbsp;**(c)** Why is the answer not $180$?
+
+[Adapted from **2021 P2 Q19**, which gives the same expression and asks for the count.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** $\sqrt{1+s}\,\sqrt{1-s}=\sqrt{1-s^{2}}$, and *the square root is the non-negative one*, so
+
+$$\sqrt{1-\sin^{2}\theta}=\lvert\cos\theta\rvert,\qquad\sqrt{1-\cos^{2}\theta}=\lvert\sin\theta\rvert .$$
+
+$$\boxed{\sin\theta\lvert\cos\theta\rvert+\cos\theta\lvert\sin\theta\rvert}$$
+
+**(b)** Work quadrant by quadrant, since only the **signs** matter.
+
+| quadrant | $\sin$ | $\cos$ | expression | zero? |
+|---|---|---|---|---|
+| 1 | $+$ | $+$ | $2\sin\theta\cos\theta$ | no |
+| 2 | $+$ | $-$ | $-\sin\theta\cos\theta+\cos\theta\sin\theta=0$ | **yes, always** |
+| 3 | $-$ | $-$ | $-2\sin\theta\cos\theta$ | no |
+| 4 | $-$ | $+$ | $\sin\theta\cos\theta-\cos\theta\sin\theta=0$ | **yes, always** |
+
+Counting the integer degrees: quadrant 2 contributes $91^{\circ}$ to $179^{\circ}$, which is $89$ values,
+and quadrant 4 contributes $271^{\circ}$ to $359^{\circ}$, another $89$. The four axis values
+$90^{\circ},180^{\circ},270^{\circ},360^{\circ}$ all give $0$ as well, since one of $\sin\theta$,
+$\cos\theta$ vanishes.
+
+$$\boxed{89+89+4=182}$$
+
+**(c)** Two separate reasons pull away from a naive "half of $360$":
+
+$$\boxed{\text{the open quadrants hold }89\text{ integers, not }90\text{ — and the four axis values also work.}}$$
+
+*The expression vanishes exactly when $\sin\theta$ and $\cos\theta$ have **opposite** signs or one of them is
+zero. Listing the boundary cases separately is the whole question.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Sequences, invariants and pigeonholes
+
+For a recurrence, calculate only enough terms to guess what cannot change: parity, remainder, sign, gcd, or
+a bounded range. Then prove that property survives one recurrence step.
+
+$$\gcd(a,b)=\gcd(b,a+kb),\qquad \text{consecutive recurrence terms often carry the same gcd.}$$
+
+**Pigeonhole principle:** putting $N$ objects into $k$ boxes forces some box to contain at least
+$\lceil N/k\rceil$ objects. For “must occur”, choose boxes so one overfull box is exactly the desired pair.
+
+**Frequent type — which must be true?** Search for an invariant before testing long lists. For a claimed
+possibility, build one short example; for a necessity, try extremes and equality cases first.
+
+[example: residues mod $m$ are the $m$ boxes; $m+1$ integers force two equal residues]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+A large circular table has $40$ chairs around it.
+
+&nbsp;&nbsp;**(a)** Translate "the next person to sit down **must** sit next to someone" into a condition on
+the gaps between the people already seated.
+&nbsp;&nbsp;**(b)** Find the smallest number of people for which this is possible.
+&nbsp;&nbsp;**(c)** Answer the same question for $40$ chairs in a **row**, and explain why the two answers
+agree even though the gap structure differs.
+
+[Adapted from **2019 P2 Q9**, which asks only for the circular case.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** A newcomer can avoid everyone exactly when some empty chair has **both** neighbours empty — that is,
+when three consecutive chairs are free. So the requirement is
+
+$$\boxed{\text{every gap between consecutive occupied chairs contains at most }2\text{ empty chairs.}}$$
+
+**(b)** With $n$ people around the circle there are exactly $n$ gaps, holding $40-n$ empty chairs in total.
+Each gap holds at most $2$, so
+
+$$40-n\le2n\ \Longrightarrow\ n\ge\frac{40}{3}=13.\dot3 .$$
+
+$$\boxed{n=14}$$
+
+*And $14$ is attainable:* $26$ empty chairs over $14$ gaps, for instance twelve gaps of $2$ and two of $1$.
+With $13$ people the gaps could hold at most $26$ chairs but $27$ are empty, so some gap reaches $3$. ✓
+
+**(c)** In a row there are $n+1$ gaps, but the two **end** gaps may hold only $1$ chair each — the chair at
+the very end of the row has a single neighbour, so two free chairs there are already enough to hide in.
+Hence
+
+$$40-n\le\underbrace{1+1}_{\text{ends}}+\underbrace{2(n-1)}_{\text{interior}}=2n ,$$
+
+$$\boxed{n=14\text{ again}}$$
+
+*The two $1$s lost at the ends are exactly balanced by having one gap fewer in the interior — the bound
+$40-n\le2n$ comes out identical. (Checked by exhaustive search for $9$, $12$ and $15$ chairs, where circle
+and row both give $\lceil N/3\rceil$.)*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Integrals without full calculation
+
+$$\int_a^b(f(x)+c)\,dx=\int_a^b f(x)\,dx+c(b-a),$$
+$$\int_{-a}^{a}\!f(x)\,dx=0\text{ if $f$ is odd},\qquad
+\int_{-a}^{a}\!f(x)\,dx=2\int_0^a\!f(x)\,dx\text{ if $f$ is even}.$$
+
+If $f\le g$ throughout $[a,b]$, then $\int_a^b f\le\int_a^b g$. An integral is **signed area**: below
+the axis contributes negatively.
+
+**Frequent type — compare / infer without integrating.** Simplify the integrand first; look for symmetry,
+a constant vertical shift, or a pointwise inequality. For $f(|x|)$, mirror the right half; split at $0$.
+
+[example: replacing $f$ by $f+C$ adds the rectangle $C(b-a)$]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** Place these in increasing order **without evaluating any of them**, justifying each
+comparison:
+
+$$P=\int_0^1 2^{x^{2}}\,\mathrm dx,\qquad Q=\int_0^1 2^{x}\,\mathrm dx,\qquad R=\int_0^1\left(2^{x}\right)^{2}\mathrm dx .$$
+
+&nbsp;&nbsp;**(b)** Evaluate $Q$ and $R$ exactly, and confirm the order.
+&nbsp;&nbsp;**(c)** Show that $\displaystyle\int_0^1\sin x\,\mathrm dx<\tfrac12$ without evaluating the
+integral.
+
+[Adapted from **2022 P2 Q12**, which asks for three such integrals to be placed in order of size, and **2023 P2 Q20**.]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *Compare the integrands pointwise on the open interval; the integrals then inherit the order.*
+
+For $0<x<1$ we have $x^{2}<x<2x$, and $t\mapsto2^{t}$ is strictly increasing, so
+
+$$2^{x^{2}}<2^{x}<2^{2x}=\left(2^{x}\right)^{2}.$$
+
+Integrating over $[0,1]$ preserves strict inequality between continuous functions that differ somewhere:
+
+$$\boxed{P<Q<R}$$
+
+**(b)** $$Q=\left[\frac{2^{x}}{\ln2}\right]_0^1=\frac{1}{\ln2}\approx1.4427,$$
+$$R=\int_0^1 4^{x}\,\mathrm dx=\left[\frac{4^{x}}{\ln4}\right]_0^1=\frac{3}{2\ln2}\approx2.1640 .$$
+
+Numerically $P\approx1.2882$, so $1.2882<1.4427<2.1640$ ✓. *$P$ has no elementary antiderivative at all —
+which is exactly why the question asks for an ordering rather than a value.*
+
+**(c)** For $0<x\le1$, $\sin x<x$. *(The functions agree at $0$ and $\tfrac{\mathrm d}{\mathrm dx}\sin x=\cos
+x<1$ thereafter.)* Hence
+
+$$\int_0^1\sin x\,\mathrm dx<\int_0^1 x\,\mathrm dx=\boxed{\tfrac12}$$
+
+*Check:* the true value is $1-\cos1\approx0.4597$ ✓.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::: {.fs-card}
+### Lines and circles as conditions
+
+For $ax+by=c$ ($a,b\ne0$):
+
+$$m=-\frac ab,\qquad x\text{-intercept}=\frac ca,\qquad y\text{-intercept}=\frac cb.$$
+
+Perpendicular lines satisfy $m_1m_2=-1$. A circle tangent to an axis has
+**distance from centre to the axis = radius**.
+
+**Frequent type — necessary/sufficient data.** Convert each geometric statement to one algebraic equation,
+then ask whether it determines the target uniquely. If free variables remain, it is not sufficient.
+
+**Cyclic invariant:** for gradients $-a/b,-b/c,-c/a$, the product is $-1$ — simplify the whole cycle
+before testing cases.
+
+[sign trap: positive gradient tells the signs of $a,b$ are opposite, but not the sign of $c$]{.eg}
+
+#### Challenge &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">harder</span>
+&nbsp;&nbsp;**(a)** A circle has equation $(x-9)^{2}+(y+2)^{2}=4$, and a square has vertices $(1,0)$,
+$(1,2)$, $(-1,2)$, $(-1,0)$. A straight line bisects the area of **both**. Explain why the line is uniquely
+determined, and find where it crosses the $x$-axis.
+&nbsp;&nbsp;**(b)** The circle $x^{2}+ax+y^{2}+by+c=0$ has non-zero real constants $a,b,c$. Find a
+necessary and sufficient condition for it to be **tangent to the $y$-axis**.
+&nbsp;&nbsp;**(c)** State the corresponding condition for tangency to the $x$-axis, and the condition for
+the circle to touch **both** axes.
+
+[Adapted from **2021 P2 Q7** (the bisecting line) and **2021 P2 Q15** (the tangency condition).]{.eg}
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(a)** *A line bisects the area of a centrally symmetric region if and only if it passes through the
+centre* — reflecting in the centre swaps the two parts. The circle's centre is $(9,-2)$ and the square's is
+$(0,1)$, so the line must pass through both. Two distinct points determine one line, hence uniqueness.
+
+$$\text{gradient}=\frac{1-(-2)}{0-9}=-\frac13,\qquad y=-\frac{x}{3}+1 .$$
+
+Setting $y=0$:
+
+$$\boxed{x=3}$$
+
+**(b)** Completing the square, the centre is $\left(-\tfrac a2,-\tfrac b2\right)$ and
+
+$$r^{2}=\frac{a^{2}+b^{2}}{4}-c .$$
+
+Tangency to the $y$-axis means the distance from the centre to $x=0$ equals the radius, i.e.
+$\left\lvert\tfrac a2\right\rvert=r$:
+
+$$\frac{a^{2}}{4}=\frac{a^{2}+b^{2}}{4}-c\ \Longrightarrow\ \boxed{b^{2}=4c}$$
+
+*The $a^{2}$ cancels, which is the surprise — the condition involves only $b$ and $c$. Note $c>0$ follows,
+and $r=\left\lvert\tfrac a2\right\rvert>0$ since $a\ne0$, so it is a genuine circle.*
+
+**(c)** By symmetry, swapping the roles of $a$ and $b$:
+
+$$\boxed{\text{tangent to the }x\text{-axis}\iff a^{2}=4c}$$
+
+Touching both axes requires both, so $a^{2}=b^{2}=4c$, i.e.
+
+$$\boxed{a=\pm b\ \text{ with }\ c=\frac{a^{2}}{4}}$$
+
+*Then the centre is equidistant from the two axes and the circle sits in one quadrant, inscribed in the
+corner.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+:::
+
+::::
+
+:::::
+
+---
+
+# Part 5 · The exam-day card
+
+::: {.callout-important}
+## Before you read a single question
+
+Write these at the top of your rough paper:
+
+1. $\;$ **sufficient $\to$ forwards, necessary $\to$ backwards**
+2. $\;$ **contrapositive = equivalent; converse = trap**
+3. $\;$ $\lnot(P\Rightarrow Q)=P$ **and** $\lnot Q$
+4. $\;$ **rhombus · rectangle · isosceles trapezium** — the three counterexamples
+5. $\;$ $p$ divides $ab$ $\Rightarrow$ $p$ divides $a$ or $p$ divides $b$ — **only for prime $p$**
+6. $\;$ $\sqrt{u^2}=|u|$ · $f'(a)=0$ is not automatically a turn · check every domain
+:::
+
+::: {.callout-tip}
+## The thirty-second routine for any Paper 2 question
+
+**Name the reasoning type first, then do the mathematics.** Almost every lost mark comes from competent
+mathematics done on the wrong question.
+
+| The question says… | It is asking for… | So you… |
+|---|---|---|
+| "necessary", "sufficient" | set inclusion | find the **exact** set, then compare |
+| "must be true" | $\forall$ | find a counterexample, or prove it |
+| "possible", "can" | $\exists$ | **produce one witness** |
+| "which is equivalent" | contrapositive | negate both halves and reverse |
+| "first error", "best describes" | Err1/Err2 | read down, stop at the first failure |
+| "number of solutions" | intersections | sketch, transform the interval, count branches |
+| "same number of roots" | bijection | substitute; watch for $\pm$, squaring and domains |
+| recurrence / long list | invariant | test parity, remainder, sign, gcd, bounds |
+| no logical wording at all | Paper 1 technique | just calculate — about a quarter of the paper |
+:::
