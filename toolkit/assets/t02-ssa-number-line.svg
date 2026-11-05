@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="190" viewBox="0 0 900 190" role="img" aria-labelledby="title desc">
+  <title id="title">Number of triangles in the acute SSA ambiguous case</title>
+  <desc id="desc">For opposite side a, perpendicular height h, and fixed adjacent side b: zero triangles when a is less than h, one at a equals h, two between h and b, and one when a is at least b.</desc>
+  <style>
+    .axis { stroke:#30343b; stroke-width:3; }
+    .tick { stroke:#30343b; stroke-width:3; }
+    .label { font: 600 18px system-ui, sans-serif; fill:#25282d; }
+    .small { font: 15px system-ui, sans-serif; fill:#4b5563; }
+    .count { font: 700 20px system-ui, sans-serif; fill:#ffffff; }
+  </style>
+  <rect x="65" y="55" width="230" height="44" rx="7" fill="#c94c4c"/>
+  <rect x="295" y="55" width="300" height="44" rx="7" fill="#d08a24"/>
+  <rect x="595" y="55" width="240" height="44" rx="7" fill="#397a62"/>
+  <line class="axis" x1="65" y1="110" x2="850" y2="110"/>
+  <path d="M850 110 l-14 -8 v16 z" fill="#30343b"/>
+  <line class="tick" x1="295" y1="45" x2="295" y2="125"/>
+  <line class="tick" x1="595" y1="45" x2="595" y2="125"/>
+  <circle cx="295" cy="77" r="8" fill="#ffffff" stroke="#30343b" stroke-width="3"/>
+  <circle cx="595" cy="77" r="8" fill="#397a62" stroke="#30343b" stroke-width="3"/>
+  <text class="count" x="180" y="84" text-anchor="middle">0 triangles</text>
+  <text class="count" x="445" y="84" text-anchor="middle">2 triangles</text>
+  <text class="count" x="715" y="84" text-anchor="middle">1 triangle</text>
+  <text class="label" x="295" y="149" text-anchor="middle">a = h</text>
+  <text class="small" x="295" y="171" text-anchor="middle">1 right triangle</text>
+  <text class="label" x="595" y="149" text-anchor="middle">a = b</text>
+  <text class="small" x="180" y="132" text-anchor="middle">a &lt; h</text>
+  <text class="small" x="445" y="132" text-anchor="middle">h &lt; a &lt; b</text>
+  <text class="small" x="715" y="132" text-anchor="middle">a ≥ b</text>
+</svg>

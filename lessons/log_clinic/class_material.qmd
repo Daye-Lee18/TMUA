@@ -1,6 +1,6 @@
 ---
 title: "Logarithm Clinic"
-subtitle: "Laws & change of base, solving equations, exponential substitutions, inequalities, counting solutions, and log graphs"
+subtitle: "When a log exists, the four base/argument cases and their graphs, laws, equations, hidden quadratics, inequalities, systems, counting and linearisation (MM5)"
 format: html
 jupyter: python3
 execute:
@@ -11,63 +11,652 @@ execute:
 ::: {.solutions}
 
 Logarithms turn a hard equation (an unknown in the exponent, a product, a ratio) into an easy one — **as long
-as you obey the laws and watch the domain**. TMUA/MAT and their cousins (STEP, PAT, admissions mocks) rarely
-ask you to "evaluate a log"; they ask you to **rewrite** with the laws, **substitute** to expose a hidden
-quadratic, **solve** and reject the impossible root, handle a **base-flip** inequality, or decide **how many**
-solutions exist as a parameter moves. This clinic drills every one of those, hardest cases included.
+as you obey the laws and watch the domain**. TMUA rarely asks you to "evaluate a log". It asks you to decide
+**whether a log exists**, **which way a log graph bends** for a given base, **which of several logs is
+biggest**, to **rewrite** with the laws, to **substitute** so that a hidden quadratic appears, to **reject**
+the impossible root, to handle a **base-flip** inequality, or to count **how many** solutions there are.
+Nothing on this page uses $e$ or $\ln$ (both are outside the TMUA specification).
 
 ::::: {.formulasheet}
 
 :::: {.fs-head}
-<div class="fs-kicker">TMUA · Paper 1 · MM5 Logarithms</div>
+<div class="fs-kicker">TMUA · Paper 1 · MM5 Exponentials &amp; logarithms</div>
 <div class="fs-title">Logarithms — Exam Skim Sheet</div>
-<div class="fs-sub">Read this before you start; come back whenever a question stalls.</div>
+<div class="fs-sub">Read this before you start; come back whenever a question stalls. Two checks decide most log questions: <strong>is every log allowed to exist?</strong> and <strong>is the base above or below 1?</strong></div>
 ::::
+
+## When does $\log_a b$ exist?
 
 :::: {.fs-grid}
 
 ::: {.fs-card}
-### 1 · The domain trap
-$\log_a(\text{something})$ needs that something $>0$. Every root you find must be checked
-against **all** the log arguments — a value that makes any argument $\le0$ is **rejected** (extraneous).
+### 1 · Definition
+$$\log_a b=c\iff a^{c}=b$$
+A log is an **exponent**: "what power of $a$ gives $b$?"
+
+[$\log_2 8=3$, $\log_9 3=\tfrac12$, $\log_{1/2}8=-3$]{.eg}
 :::
 
 ::: {.fs-card}
-### 2 · The base-size trap
-$y=\log_a x$ **increases** if $a>1$ but **decreases** if $0<a<1$ — so when you take
-logs (or drop them) across an inequality with $0<a<1$, the inequality **flips**.
+### 2 · The three conditions
+$$a>0,\qquad a\ne1,\qquad b>0$$
+$a\le0$: powers are undefined or jump in sign. $a=1$: $1^{c}=1$ always. $b\le0$: $a^{c}>0$ can never reach it.
+
+[$\log_x(5-x)$ needs $x>0,\ x\ne1,\ x<5$]{.eg}
+:::
+
+::: {.fs-card}
+### 3 · The four sign cases
+$$\log_a b>0\iff (a-1)(b-1)>0$$
+
+| | $0<b<1$ | $b=1$ | $b>1$ |
+|---|:-:|:-:|:-:|
+| $a>1$ | $-$ | $0$ | $+$ |
+| $0<a<1$ | $+$ | $0$ | $-$ |
+
+[base and argument on the **same** side of $1$ $\Rightarrow$ positive]{.eg}
+:::
+
+::: {.fs-card}
+### 4 · Bigger than 1?
+$$\log_a b>1\iff\begin{cases}b>a & (a>1)\\ 0<b<a & (0<a<1)\end{cases}$$
+
+[$\log_2 3>1$ but $\log_3 2<1$; in fact $\log_3 2=\dfrac1{\log_2 3}$]{.eg}
+:::
+
+::::
+
+## Graphs
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 5 · $y=\log_a x$, base above or below 1
+Always: domain $x>0$, asymptote $x=0$, through $(1,0)$, $(a,1)$, $\left(\tfrac1a,-1\right)$.
+$$a>1:\ \text{increasing}\qquad 0<a<1:\ \text{decreasing}$$
+$$\log_{1/a}x=-\log_a x\quad(\text{reflect in the }x\text{-axis})$$
+:::
+
+::: {.fs-card}
+### 6 · Changing the base
+$a>1$: a **bigger** base gives a **flatter** curve — for $x>1$, $\log_3 x<\log_2 x$; for $0<x<1$ the order
+reverses. All the curves cross at $(1,0)$.
+
+$y=\log_a x$ is $y=a^{x}$ reflected in $y=x$.
+:::
+
+::: {.fs-card}
+### 7 · The base as the variable
+$$f(a)=\log_a b=\frac1{\log_b a}$$
+Vertical asymptote at $a=1$, and $f(b)=1$. For $b>1$: $f<0$ on $0<a<1$, $f>0$ on $a>1$, decreasing on each
+side. For $0<b<1$ every sign flips.
+:::
+
+::: {.fs-card}
+### 8 · Transformations
+$y=\log_a(x-p)+q$: asymptote $x=p$, domain $x>p$, through $(p+1,q)$ and $(p+a,q+1)$.
+
+[$\log_2(x^{2})=2\log_2\lvert x\rvert$ — an **even** curve on $x\ne0$]{.eg}
+:::
+
+::::
+
+## Laws and solving
+
+:::: {.fs-grid}
+
+::: {.fs-card}
+### 9 · Laws (all arguments $>0$)
+$$\log_a(xy)=\log_a x+\log_a y,\qquad \log_a\tfrac{x}{y}=\log_a x-\log_a y$$
+$$\log_a x^{k}=k\log_a x,\qquad a^{\log_a x}=x$$
+$$\log_a b=\frac{\log_c b}{\log_c a},\quad \log_a b\cdot\log_b c=\log_a c,\quad \log_{a^{n}}b^{m}=\tfrac{m}{n}\log_a b$$
+:::
+
+::: {.fs-card}
+### 10 · Equations and inequalities
+**Solve:** collect to one log → undo → solve → **check every argument $>0$** and every base $>0$, $\ne1$.
+
+**Inequalities:** base $>1$ keeps the sign; base $0<a<1$ **flips** it; an unknown base means **split into
+the cases** $0<x<1$ and $x>1$.
+:::
+
+::: {.fs-card}
+### 11 · Hidden quadratics
+$a^{2x}$ and $a^{x}$ together: let $u=a^{x}$ and **reject $u\le0$**. $(\log x)^2$ and $\log x$ together: let
+$L=\log_a x$.
+
+[sum of the $x$-roots $=\log_a(u_1u_2)=\log_a(\text{product of the }u\text{-roots})$]{.eg}
+:::
+
+::: {.fs-card}
+### 12 · Straight-line laws
+$$y=Ax^{n}\Rightarrow\log y=\log A+n\log x\quad(\log y\text{ vs }\log x)$$
+$$y=Ab^{x}\Rightarrow\log y=\log A+(\log b)\,x\quad(\log y\text{ vs }x)$$
+The gradient gives $n$ (or $\log b$); the intercept gives $\log A$.
 :::
 
 ::::
 
 :::::
 
-**On this page:** 1. Laws & change of base · 2. Solving equations (domain & extraneous) · 3. Exponential /
-substitution equations · 4. Inequalities · 5. Counting solutions with a parameter · 6. Log graphs
+**On this page:** Notes N1–N7 · then class problems in eleven groups: 1. Existence & domain · 2. Signs,
+comparing & ordering · 3. Log graphs · 4. Laws & change of base · 5. Solving log equations · 6. Quadratics in
+$a^x$ · 7. Quadratics in $\log x$ · 8. Simultaneous systems · 9. Inequalities · 10. Counting solutions ·
+11. Linearisation. Answers are in the **Solution** toggles; use the **Working** box and **state the exact
+value or form asked for**.
+
+:::: {.fpnotes}
+
+## Notes
+
+### N1 · A logarithm is an exponent
+
+$\log_a b$ answers one question: **"what power do I raise $a$ to, to get $b$?"** So
+$$\log_a b=c\quad\text{means exactly}\quad a^{c}=b.$$
+
+Read this way, most values are instant:
+
+- $\log_2 32=5$ because $2^{5}=32$.
+- $\log_9 3=\tfrac12$ because $9^{1/2}=3$.
+- $\log_2\tfrac18=-3$ because $2^{-3}=\tfrac18$.
+- $\log_{1/2}8=-3$ because $\left(\tfrac12\right)^{-3}=2^{3}=8$.
+- $\log_a 1=0$ and $\log_a a=1$ for **every** allowed base, because $a^{0}=1$ and $a^{1}=a$.
+
+Two facts follow straight from the definition and are used constantly:
+$$a^{\log_a b}=b\qquad\text{and}\qquad\log_a\!\left(a^{c}\right)=c.$$
+The log undoes the power and the power undoes the log — they are **inverse functions**.
+
+### N2 · When does $\log_a b$ exist? — $a>0$, $a\ne1$, $b>0$
+
+The definition asks for a power $c$ with $a^{c}=b$. Each condition rules out a case where that power either
+does not exist or is not unique.
+
+**Why the base must be positive, $a>0$.** A negative base cannot be raised to most real powers:
+$(-4)^{1/2}=\sqrt{-4}$ is not a real number. Even where powers of $-2$ exist, they jump between signs
+($-2,\ 4,\ -8,\ 16,\dots$), so there is no smooth curve $y=(-2)^{x}$ to invert. A zero base fails too:
+$0^{c}=0$ for every $c>0$ and is undefined for $c\le0$, so $0^{c}$ can never equal, say, $5$.
+
+**Why the base cannot be 1, $a\ne1$.** Every power of $1$ is $1$. So $\log_1 5$ asks for $1^{c}=5$, which has
+**no** answer, while $\log_1 1$ asks for $1^{c}=1$, where **every** $c$ is an answer. Either way the log has no
+single value.
+
+**Why the argument must be positive, $b>0$.** Once $a>0$, every power $a^{c}$ is **strictly positive**. So
+$a^{c}=0$ and $a^{c}=-4$ have no solution: $\log_2 0$ and $\log_2(-4)$ do not exist.
+
+The existence conditions deserve a box of their own, because every later method assumes them.
+
+::: {.callout-tip}
+## Concept — the existence conditions
+
+For $\log_a b$ to exist you need **all three**:
+$$a>0,\qquad a\ne1,\qquad b>0.$$
+When the base or the argument contains $x$, these three inequalities **are** the domain. Write them down
+before you solve anything.
+:::
+
+Here is how the conditions turn into a domain. For $f(x)=\log_{x-1}(5-x)$:
+
+- base positive: $x-1>0\Rightarrow x>1$;
+- base not $1$: $x-1\ne1\Rightarrow x\ne2$;
+- argument positive: $5-x>0\Rightarrow x<5$.
+
+All three together give $1<x<5$ with $x\ne2$, i.e. $(1,2)\cup(2,5)$.
+
+The same conditions also **reject roots**. Solving $\log_x 9=2$ gives $x^{2}=9$, so $x=\pm3$. A base must be
+positive, so $x=-3$ is **rejected** and only $x=3$ survives.
+
+#### Drill N2a — does it exist?
+
+Decide whether each expression is a real number. If it is, give its value; if it is not, name the condition
+that fails.
+
+| | Expression | Exists? | Value / failed condition |
+|---|---|---|---|
+| (a) | $\log_{-3}9$ | | |
+| (b) | $\log_1 1$ | | |
+| (c) | $\log_{1/2}4$ | | |
+| (d) | $\log_5 0$ | | |
+| (e) | $\log_4(-16)$ | | |
+| (f) | $\log_{0.3}0.09$ | | |
+| (g) | $\log_{\sqrt2}\tfrac12$ | | |
+| (h) | $\log_{8}2$ | | |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+| | Expression | Exists? | Value / failed condition |
+|---|---|---|---|
+| (a) | $\log_{-3}9$ | No | base $-3<0$ — even though $(-3)^2=9$, a negative base is never allowed |
+| (b) | $\log_1 1$ | No | base $=1$: every power of $1$ is $1$, so there is no single answer |
+| (c) | $\log_{1/2}4$ | Yes | $-2$, since $\left(\tfrac12\right)^{-2}=4$ |
+| (d) | $\log_5 0$ | No | argument $0$: no power of $5$ is $0$ |
+| (e) | $\log_4(-16)$ | No | argument negative: every power of $4$ is positive |
+| (f) | $\log_{0.3}0.09$ | Yes | $2$, since $0.3^{2}=0.09$ |
+| (g) | $\log_{\sqrt2}\tfrac12$ | Yes | $-2$, since $(\sqrt2)^{-2}=\tfrac12$ |
+| (h) | $\log_{8}2$ | Yes | $\tfrac13$, since $8^{1/3}=2$ |
+:::
+
+::: {.workbox}
+:::
+
+#### Drill N2b — domains and rejected roots
+
+(i) State the domain of $g(x)=\log_x\!\left(x^{2}-4\right)$ in interval notation.
+(ii) Solve $\log_x 4=-2$.
+(iii) Solve $\log_{x}(2x+3)=2$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(i) Answer: $(2,\infty)$.**
+
+*List the three conditions.*
+
+- base positive: $x>0$;
+- base not $1$: $x\ne1$;
+- argument positive: $x^{2}-4>0\Rightarrow x<-2$ or $x>2$.
+
+*Intersect them.* Only $x>2$ satisfies all three; $x=1$ is already outside that range.
+
+**(ii) Answer: $x=\tfrac12$.**
+
+$\log_x 4=-2$ means $x^{-2}=4$, i.e. $\dfrac1{x^{2}}=4$, so $x^{2}=\tfrac14$ and $x=\pm\tfrac12$.
+*A base must be positive*, so $x=-\tfrac12$ is rejected. Check: $\left(\tfrac12\right)^{-2}=4$ ✓.
+
+**(iii) Answer: $x=3$.**
+
+$\log_x(2x+3)=2$ means $x^{2}=2x+3$, so $x^{2}-2x-3=0$ and $(x-3)(x+1)=0$.
+
+- $x=-1$: the base would be negative — **rejected**.
+- $x=3$: base $3>0$ and $\ne1$ ✓; argument $2(3)+3=9>0$ ✓; and $3^{2}=9$ ✓.
+:::
+
+::: {.workbox}
+:::
+
+### N3 · Exponential and log graphs are reflections of each other
+
+Because $\log_a$ undoes $a^{x}$, the graph of $y=\log_a x$ is the graph of $y=a^{x}$ **reflected in the line
+$y=x$**. Every point $(p,q)$ on $y=a^{x}$ becomes $(q,p)$ on $y=\log_a x$:
+
+| On $y=a^{x}$ | On $y=\log_a x$ | Why |
+|---|---|---|
+| passes through $(0,1)$ | passes through $(1,0)$ | $a^{0}=1$ |
+| passes through $(1,a)$ | passes through $(a,1)$ | $a^{1}=a$ |
+| passes through $\left(-1,\tfrac1a\right)$ | passes through $\left(\tfrac1a,-1\right)$ | $a^{-1}=\tfrac1a$ |
+| horizontal asymptote $y=0$ | vertical asymptote $x=0$ | $a^{x}>0$ always |
+| domain all $x$, range $y>0$ | domain $x>0$, range all $y$ | the two swap |
+
+What changes the **shape** is whether the base is above or below $1$:
+
+- **$a>1$** (e.g. $a=2$): $a^{x}$ **grows**, so $\log_a x$ is **increasing**. It is negative for $0<x<1$, zero
+  at $x=1$, positive for $x>1$, and plunges to $-\infty$ as $x\to0^{+}$.
+- **$0<a<1$** (e.g. $a=\tfrac12$): $a^{x}$ **decays**, so $\log_a x$ is **decreasing**. It is positive for
+  $0<x<1$, zero at $x=1$, negative for $x>1$, and shoots up to $+\infty$ as $x\to0^{+}$.
+
+```{python}
+#| fig-cap: "Left: base 2 (above 1) — both curves increase. Right: base 1/2 (below 1) — both curves decrease. In each panel the log curve is the exponential reflected in y = x."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(7.4,3.7))
+x=np.linspace(-3,4,400); xp=np.linspace(0.02,4,400)
+for A,a,lab in [(ax[0],2,'2'),(ax[1],0.5,'1/2')]:
+    A.plot(x,a**x,color='#2b6cb0',lw=2,label=f'y = ({lab})^x')
+    A.plot(xp,np.log(xp)/np.log(a),color='crimson',lw=2,label=f'y = log_{lab} x')
+    A.plot(x,x,color='0.55',ls='--',lw=1,label='y = x')
+    for P in [(1,0),(a,1),(1/a,-1)]:
+        A.plot(*P,'o',color='crimson',ms=4)
+    A.annotate('(1, 0)',(1,0),textcoords='offset points',xytext=(4,-12),fontsize=7.5)
+    A.annotate(f'({lab}, 1)',(a,1),textcoords='offset points',xytext=(4,4),fontsize=7.5)
+    A.annotate(f'({1/a:g}, −1)',(1/a,-1),textcoords='offset points',xytext=(4,-12),fontsize=7.5)
+    A.axhline(0,color='k',lw=0.6); A.axvline(0,color='k',lw=0.6)
+    A.set_xlim(-3,4); A.set_ylim(-3,4); A.set_aspect('equal'); A.grid(alpha=0.25); A.legend(fontsize=7,loc='upper left')
+ax[0].set_title('a > 1: increasing',fontsize=9); ax[1].set_title('0 < a < 1: decreasing',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+A base below $1$ is really the reflection of a base above $1$. By change of base,
+$$\log_{1/a}x=\frac{\log_a x}{\log_a(1/a)}=\frac{\log_a x}{-1}=-\log_a x,$$
+so $y=\log_{1/2}x$ is $y=\log_2 x$ **reflected in the $x$-axis**. That single fact explains every "flip" on
+this page.
+
+### N4 · The four cases for the sign of $\log_a b$
+
+Read the sign straight off the two graphs in N3, at the point $x=b$:
+
+| Base | Argument | Where on the graph | Sign of $\log_a b$ | Example |
+|---|---|---|---|---|
+| $a>1$ | $b>1$ | right of $(1,0)$ on a rising curve | **positive** | $\log_2 8=3$ |
+| $a>1$ | $0<b<1$ | left of $(1,0)$ on a rising curve | **negative** | $\log_2\tfrac18=-3$ |
+| $0<a<1$ | $b>1$ | right of $(1,0)$ on a falling curve | **negative** | $\log_{1/2}8=-3$ |
+| $0<a<1$ | $0<b<1$ | left of $(1,0)$ on a falling curve | **positive** | $\log_{1/2}\tfrac18=3$ |
+
+The pattern: $\log_a b$ is **positive when $a$ and $b$ are on the same side of $1$**, negative when they are
+on opposite sides, and zero exactly when $b=1$. In one line,
+$$\log_a b>0\iff(a-1)(b-1)>0.$$
+
+```{python}
+#| fig-cap: "Left: the four cases read off y = log₂x (blue) and y = log_(1/2)x (red). Right: the sign of log_a b over the (a, b) plane — positive where a and b lie on the same side of 1."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(7.6,3.6))
+xp=np.linspace(0.03,4,400)
+A=ax[0]
+A.axvspan(0,1,color='#f3e8ff',alpha=0.6); A.axvspan(1,4,color='#e6f4ea',alpha=0.6)
+A.plot(xp,np.log2(xp),color='#2b6cb0',lw=2,label='a = 2  (a > 1)')
+A.plot(xp,-np.log2(xp),color='crimson',lw=2,label='a = 1/2  (0 < a < 1)')
+A.axhline(0,color='k',lw=0.6); A.axvline(0,color='k',lw=0.6); A.plot(1,0,'ko',ms=4)
+A.text(0.5,2.5,'0 < b < 1',ha='center',fontsize=8); A.text(2.5,2.5,'b > 1',ha='center',fontsize=8)
+A.text(3.2,1.25,'+',color='#2b6cb0',fontsize=14,fontweight='bold'); A.text(3.2,-2.0,'−',color='crimson',fontsize=14,fontweight='bold')
+A.text(0.3,-2.4,'−',color='#2b6cb0',fontsize=14,fontweight='bold'); A.text(0.3,1.7,'+',color='crimson',fontsize=14,fontweight='bold')
+A.set_xlim(0,4); A.set_ylim(-3,3); A.grid(alpha=0.25); A.legend(fontsize=7,loc='lower right'); A.set_xlabel('b',fontsize=8)
+A.set_title('value of log_a b at x = b',fontsize=9)
+B=ax[1]
+B.fill_between([0,1],0,1,color='#e6f4ea'); B.fill_between([1,3],1,3,color='#e6f4ea')
+B.fill_between([0,1],1,3,color='#fde8e8'); B.fill_between([1,3],0,1,color='#fde8e8')
+B.axvline(1,color='k',ls='--',lw=1); B.axhline(1,color='k',lw=1.2)
+for (u,v,s) in [(0.5,0.5,'+'),(2,2,'+'),(0.5,2,'−'),(2,0.5,'−')]:
+    B.text(u,v,s,ha='center',va='center',fontsize=18,fontweight='bold')
+B.text(1.05,2.75,'a = 1: no log',fontsize=7.5); B.text(2.0,1.07,'b = 1: log = 0',fontsize=7.5)
+B.set_xlim(0,3); B.set_ylim(0,3); B.set_xlabel('base a',fontsize=8); B.set_ylabel('argument b',fontsize=8)
+B.set_title('sign of log_a b',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+The same graphs tell you when a log is **bigger than 1**. The curve $y=\log_a x$ reaches height $1$ at $x=a$.
+So:
+
+- for $a>1$ (rising curve), $\log_a b>1\iff b>a$;
+- for $0<a<1$ (falling curve), $\log_a b>1\iff 0<b<a$.
+
+For example $\log_2 3>1$ (since $3>2$) but $\log_3 2<1$ (since $2<3$). These two are reciprocals:
+$\log_3 2=\dfrac1{\log_2 3}$.
+
+Size questions without a calculator all reduce to one comparison against three landmarks.
+
+::: {.callout-tip}
+## Concept — reading a log's size without a calculator
+
+Place the argument against the three landmarks of the curve: $x=\tfrac1a$ (height $-1$), $x=1$ (height $0$)
+and $x=a$ (height $1$). Whether the curve rises or falls between them is decided by the base alone.
+:::
+
+#### Drill N4 — sign and size
+
+For each log, decide its **sign** and whether it is **below $-1$, between $-1$ and $1$, or above $1$**. No
+calculator.
+
+| | Log | Sign | Size band |
+|---|---|---|---|
+| (a) | $\log_3 7$ | | |
+| (b) | $\log_3 0.2$ | | |
+| (c) | $\log_{0.5}7$ | | |
+| (d) | $\log_{0.5}0.2$ | | |
+| (e) | $\log_{0.2}0.5$ | | |
+| (f) | $\log_{7}3$ | | |
+| (g) | $\log_{0.4}1$ | | |
+| (h) | $\log_{5}0.9$ | | |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+| | Log | Sign | Size band | Reason |
+|---|---|---|---|---|
+| (a) | $\log_3 7$ | $+$ | above $1$ | rising curve and $7>3=a$ |
+| (b) | $\log_3 0.2$ | $-$ | below $-1$ | $0.2<\tfrac13$: left of the height $-1$ landmark on a rising curve |
+| (c) | $\log_{0.5}7$ | $-$ | below $-1$ | falling curve; $7>\tfrac1{0.5}=2$, past the height $-1$ landmark |
+| (d) | $\log_{0.5}0.2$ | $+$ | above $1$ | falling curve; $0.2<0.5=a$, so above height $1$ |
+| (e) | $\log_{0.2}0.5$ | $+$ | between $0$ and $1$ | falling curve; $0.2<0.5<1$, between the height $1$ and height $0$ landmarks |
+| (f) | $\log_{7}3$ | $+$ | between $0$ and $1$ | $1<3<7$ |
+| (g) | $\log_{0.4}1$ | $0$ | between $-1$ and $1$ | argument $1$ always gives $0$ |
+| (h) | $\log_{5}0.9$ | $-$ | between $-1$ and $0$ | $\tfrac15<0.9<1$ |
+
+*Check (d) and (e): they are reciprocals, $\log_{0.5}0.2=\dfrac1{\log_{0.2}0.5}$, so one is above $1$ exactly
+when the other is below $1$.*
+:::
+
+::: {.workbox}
+:::
+
+### N5 · How the curve changes as the base changes
+
+All log curves pass through $(1,0)$, so the base only controls **how steeply** the curve leaves that point.
+Change of base makes this exact:
+$$\log_a x=\frac{\log_2 x}{\log_2 a},$$
+so every log curve is $y=\log_2 x$ **stretched vertically by the factor $\dfrac1{\log_2 a}$**.
+
+- **$a>1$ and the base gets bigger** ($2\to3\to10$): the factor $\dfrac1{\log_2 a}$ shrinks, so the curve gets
+  **flatter**. For $x>1$ this means $\log_{10}x<\log_3 x<\log_2 x$. For $0<x<1$ all three are negative and the
+  **order reverses**, $\log_2 x<\log_3 x<\log_{10}x$, because the flatter curve stays closer to $0$.
+- **$a$ close to $1$**: $\log_2 a$ is close to $0$, the stretch factor is huge, and the curve is almost
+  vertical near $x=1$.
+- **$0<a<1$**: the factor is negative, so the curve is also reflected in the $x$-axis. Bases further from $1$
+  ($\tfrac1{10}$ rather than $\tfrac12$) again give **flatter** curves.
+
+```{python}
+#| fig-cap: "Left: bases above 1 — a bigger base gives a flatter curve, and the order of the curves swaps at x = 1. Right: bases below 1 — the same family reflected in the x-axis."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(7.4,3.4))
+xp=np.linspace(0.02,6,500)
+cols=['#2b6cb0','#2f855a','#c05621']
+for (a,lab),c in zip([(2,'2'),(3,'3'),(10,'10')],cols):
+    ax[0].plot(xp,np.log(xp)/np.log(a),color=c,lw=2,label=f'log_{lab} x')
+for (a,lab),c in zip([(0.5,'1/2'),(1/3,'1/3'),(0.1,'1/10')],cols):
+    ax[1].plot(xp,np.log(xp)/np.log(a),color=c,lw=2,label=f'log_{lab} x')
+for A in ax:
+    A.axhline(0,color='k',lw=0.6); A.axvline(0,color='k',lw=0.6); A.axvline(1,color='0.6',ls=':',lw=1)
+    A.plot(1,0,'ko',ms=4); A.set_xlim(0,6); A.set_ylim(-3.5,3.5); A.grid(alpha=0.25); A.legend(fontsize=7.5)
+ax[0].set_title('a > 1',fontsize=9); ax[1].set_title('0 < a < 1',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+**The base as the variable.** Sometimes the argument is fixed and the **base** moves — e.g. "which is larger,
+$\log_{0.2}3$ or $\log_{0.3}3$?". Then study $f(a)=\log_a b$ as a function of $a$, using
+$$f(a)=\log_a b=\frac1{\log_b a}.$$
+
+- **When $b>1$:** for $0<a<1$ we have $\log_b a<0$, so $f(a)<0$; for $a>1$, $f(a)>0$. There is a vertical
+  asymptote at $a=1$ (where $\log_b a=0$), $f(b)=1$, and $f(a)\to0$ as $a\to\infty$ or $a\to0^{+}$. On each side
+  of the asymptote $f$ is **decreasing**.
+- **When $0<b<1$:** $\log_a b=-\log_a\tfrac1b$ with $\tfrac1b>1$, so the graph is the $b>1$ graph reflected in
+  the $a$-axis: positive for $0<a<1$, negative for $a>1$, and **increasing** on each side of $a=1$.
+
+```{python}
+#| fig-cap: "The base as the variable. Left: f(a) = log_a 4 (argument above 1). Right: f(a) = log_a (1/4) (argument below 1), the reflection in the a-axis. Both have a vertical asymptote at a = 1."
+import numpy as np, matplotlib.pyplot as plt
+fig,ax=plt.subplots(1,2,figsize=(7.4,3.4))
+aL=np.linspace(0.02,0.97,300); aR=np.linspace(1.03,8,300)
+for A,b,lab,pt in [(ax[0],4,'4',(4,1)),(ax[1],0.25,'1/4',(0.25,1))]:
+    for aa in (aL,aR):
+        A.plot(aa,np.log(b)/np.log(aa),color='#2b6cb0',lw=2)
+    A.axvline(1,color='crimson',ls='--',lw=1); A.axhline(0,color='k',lw=0.6); A.axvline(0,color='k',lw=0.6)
+    A.plot(*pt,'o',color='crimson',ms=4); A.annotate(f'({lab}, 1)',pt,textcoords='offset points',xytext=(5,6),fontsize=7.5)
+    A.set_xlim(0,8); A.set_ylim(-5,5); A.grid(alpha=0.25); A.set_xlabel('base a',fontsize=8)
+    A.set_title(f'f(a) = log_a {lab}',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+
+So $\log_{0.2}3>\log_{0.3}3$: here $b=3>1$ and both bases are below $1$, where $f$ is decreasing, so the
+**smaller** base gives the **larger** value. (Check: $\log_{0.2}3\approx-0.68$ and $\log_{0.3}3\approx-0.91$.)
+
+#### Drill N5 — order without a calculator
+
+(i) Put in increasing order: $\log_2 5,\ \log_3 5,\ \log_{1/2}5,\ \log_5 2$.
+(ii) Which is larger, $\log_2\tfrac13$ or $\log_4\tfrac13$?
+(iii) Which is larger, $\log_{1/3}2$ or $\log_{1/2}2$?
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(i) Answer: $\log_{1/2}5<\log_5 2<\log_3 5<\log_2 5$.**
+
+- $\log_{1/2}5$: base below $1$, argument above $1$ — the only **negative** one.
+- $\log_5 2$: $1<2<5$, so it lies between $0$ and $1$.
+- $\log_3 5$ and $\log_2 5$: both above $1$ (since $5>3$ and $5>2$). For an argument above $1$ a **bigger base
+  gives a flatter curve**, so $\log_3 5<\log_2 5$. *(Also: $2^{2}<5<2^{3}$ gives $2<\log_2 5<3$, while
+  $3^{1}<5<3^{2}$ gives $1<\log_3 5<2$.)*
+
+**(ii) Answer: $\log_4\tfrac13$ is larger.**
+
+The argument $\tfrac13$ is below $1$, so both logs are negative, and for $0<x<1$ the flatter curve (bigger
+base) is **closer to $0$**. Exactly:
+$$\log_4\tfrac13=\frac{\log_2\frac13}{\log_2 4}=\tfrac12\log_2\tfrac13,$$
+which is half of a negative number, so it is larger.
+
+**(iii) Answer: $\log_{1/3}2$ is larger.**
+
+Use $\log_{1/a}x=-\log_a x$: $\log_{1/3}2=-\log_3 2$ and $\log_{1/2}2=-1$. Since $\log_3 2<1$, we get
+$-\log_3 2>-1$. So $\log_{1/3}2\approx-0.63$ beats $\log_{1/2}2=-1$.
+:::
+
+::: {.workbox}
+:::
+
+### N6 · The laws — and the conditions hiding inside them
+
+Every law comes from a law of indices. Let $x=a^{p}$ and $y=a^{q}$, so $p=\log_a x$ and $q=\log_a y$:
+
+| Index law | Log law |
+|---|---|
+| $a^{p}a^{q}=a^{p+q}$ | $\log_a(xy)=\log_a x+\log_a y$ |
+| $a^{p}/a^{q}=a^{p-q}$ | $\log_a\dfrac{x}{y}=\log_a x-\log_a y$ |
+| $(a^{p})^{k}=a^{kp}$ | $\log_a x^{k}=k\log_a x$ |
+
+**Change of base.** If $\log_a b=c$ then $a^{c}=b$. Take $\log_k$ of both sides: $c\log_k a=\log_k b$, so
+$$\log_a b=\frac{\log_k b}{\log_k a}\quad\text{for any allowed base }k.$$
+Three consequences come up again and again:
+$$\log_a b=\frac1{\log_b a},\qquad \log_a b\cdot\log_b c=\log_a c,\qquad \log_{a^{n}}b^{m}=\frac{m}{n}\log_a b.$$
+
+**The conditions matter.** Each law is only true when every log in it exists. The dangerous one is the power
+law with an even power:
+$$\log_2\!\left(x^{2}\right)=2\log_2\lvert x\rvert,\quad\text{not }2\log_2 x.$$
+The left side exists for every $x\ne0$ (because $x^{2}>0$), but $2\log_2 x$ exists only for $x>0$. Replacing
+one by the other **changes the domain** and can lose solutions. In the same way,
+$\log_a(xy)=\log_a x+\log_a y$ needs $x>0$ **and** $y>0$ separately: when $x=y=-2$ the left side is
+$\log_a 4$ but the right side does not exist.
+
+#### Drill N6 — true or false?
+
+Each statement is claimed for all $x$ (and $y$) in the stated range. Mark it true or false.
+
+| | Statement | True / False |
+|---|---|---|
+| (a) | $\log_3(x^{2})=2\log_3 x$ for all $x\ne0$ | |
+| (b) | $\log_3(x^{2})=2\log_3 x$ for all $x>0$ | |
+| (c) | $\log_2(x+y)=\log_2 x+\log_2 y$ for all $x,y>0$ | |
+| (d) | $\log_4 x=\tfrac12\log_2 x$ for all $x>0$ | |
+| (e) | $\log_x 8=3\log_x 2$ for all $x>0,\ x\ne1$ | |
+| (f) | $(\log_2 x)^{2}=\log_2(x^{2})$ for all $x>0$ | |
+| (g) | $\log_{1/3}x=-\log_3 x$ for all $x>0$ | |
+| (h) | $2^{\log_2 x}=x$ for all real $x$ | |
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+| | Statement | True / False | Why |
+|---|---|---|---|
+| (a) | $\log_3(x^{2})=2\log_3 x$, $x\ne0$ | **False** | at $x=-3$ the left side is $2$ and the right side does not exist; the correct law is $2\log_3\lvert x\rvert$ |
+| (b) | same, $x>0$ | **True** | for $x>0$, $\lvert x\rvert=x$ |
+| (c) | $\log_2(x+y)=\log_2 x+\log_2 y$ | **False** | there is no "sum law"; $x=y=1$ gives $1\ne0$ |
+| (d) | $\log_4 x=\tfrac12\log_2 x$ | **True** | $\log_4 x=\dfrac{\log_2 x}{\log_2 4}=\dfrac{\log_2 x}{2}$ |
+| (e) | $\log_x 8=3\log_x 2$ | **True** | $8=2^{3}$ and the power law |
+| (f) | $(\log_2 x)^{2}=\log_2(x^{2})$ | **False** | $x=8$: $9\ne6$; the square is **outside** on the left (they agree only at $x=1$ and $x=4$) |
+| (g) | $\log_{1/3}x=-\log_3 x$ | **True** | $\log_{1/3}x=\dfrac{\log_3 x}{\log_3\frac13}=\dfrac{\log_3 x}{-1}$ |
+| (h) | $2^{\log_2 x}=x$ for all real $x$ | **False** | only for $x>0$; $\log_2 x$ does not exist for $x\le0$ |
+:::
+
+::: {.workbox}
+:::
+
+### N7 · Inequalities: which way does the sign go?
+
+Undoing a log across an inequality is safe **only if you know whether the log is increasing or decreasing**.
+
+- **Base $a>1$:** $\log_a$ is increasing, so bigger inputs give bigger outputs and the inequality **keeps its
+  direction**: $\log_2 x<3\iff 0<x<8$.
+- **Base $0<a<1$:** $\log_a$ is decreasing, so the inequality **flips**: $\log_{1/2}x<3\iff x>\tfrac18$.
+- **Always** add the domain condition (argument $>0$). It often supplies one end of the answer, like the $0$ in
+  $0<x<8$.
+
+**Unknown base.** If the base contains $x$, you do not know which way to go — so **split into the two cases**
+$0<x<1$ and $x>1$, solve each, and combine.
+
+Worked example: solve $\log_x 2<1$.
+
+- **Case $x>1$.** The base is above $1$, so the sign keeps: $2<x^{1}$, i.e. $x>2$. Combined with $x>1$: $x>2$.
+- **Case $0<x<1$.** Here $\log_x 2<0$ (base below $1$, argument above $1$ — opposite sides of $1$), and every
+  negative number is less than $1$. So **every** $x$ in $(0,1)$ works.
+
+Answer: $(0,1)\cup(2,\infty)$. The common wrong answer is just $x>2$, from forgetting the second case.
+
+#### Drill N7
+
+Solve, giving each answer in interval notation:
+(i) $\log_{1/3}(x-1)\ge-2$; &nbsp; (ii) $\log_3(2x-1)>\log_3(x+4)$; &nbsp; (iii) $\log_x 9>2$.
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**(i) Answer: $(1,10]$.**
+
+*Domain:* $x-1>0\Rightarrow x>1$.
+*Base $\tfrac13<1$, so the sign flips:* $x-1\le\left(\tfrac13\right)^{-2}=9\Rightarrow x\le10$.
+Together: $1<x\le10$.
+
+**(ii) Answer: $(5,\infty)$.**
+
+*Domain:* $2x-1>0$ and $x+4>0$, i.e. $x>\tfrac12$.
+*Base $3>1$, so the sign keeps:* $2x-1>x+4\Rightarrow x>5$. This already satisfies the domain.
+
+**(iii) Answer: $(1,3)$.**
+
+- **Case $x>1$:** the sign keeps, so $9>x^{2}$, i.e. $-3<x<3$; with $x>1$: $1<x<3$.
+- **Case $0<x<1$:** $\log_x 9<0$ (opposite sides of $1$), which is never $>2$. No solutions.
+
+So $1<x<3$.
+:::
+
+::: {.workbox}
+:::
+
+::::
 
 ---
 
-## 1 · Laws & change of base
+# Class problems
+
+## 1 · Existence & domain
+
+::: {.callout-tip}
+## Method — the three conditions first
+
+Before touching the equation, write $\text{base}>0$, $\text{base}\ne1$ and $\text{argument}>0$ for **every**
+log. Intersect them to get the domain; any root outside it is rejected, **including a root that makes a base
+equal to $1$**.
+:::
 
 ### Question 1
 
 ::: {.question}
-Given that $\log_2 5=a$, write **(i)** $\log_2 40$ and **(ii)** $\log_2 0.16$ in terms of $a$.
+Find the domain of $f(x)=\log_{2x-1}\!\left(6+x-x^{2}\right)$. &nbsp;&nbsp;State your answer in interval
+notation.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(express one log in terms of another)*]{style="color:#7a5195"}
+[*(three conditions, one of them a quadratic inequality)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — break the argument into prime factors, then apply product/quotient/power
+Topic — base $>0$, base $\ne1$, argument $>0$; intersect
 :::
 
-**Answer: (i) $3+a$; (ii) $2-2a$.**
+**Answer: $\left(\tfrac12,1\right)\cup(1,3)$.**
 
-- **(i)** $40=2^{3}\times5$, so $\log_2 40=3+\log_2 5=3+a$.
-- **(ii)** $0.16=\dfrac{16}{100}=\dfrac{2^{2}}{5^{2}}$, so $\log_2 0.16=2-2\log_2 5=2-2a$.
+1. **Base positive:** $2x-1>0\Rightarrow x>\tfrac12$.
+2. **Base not $1$:** $2x-1\ne1\Rightarrow x\ne1$.
+3. **Argument positive:** $6+x-x^{2}>0$. Multiply by $-1$ (which flips the sign):
+   $$x^{2}-x-6<0\ \Rightarrow\ (x-3)(x+2)<0\ \Rightarrow\ -2<x<3.$$
+
+*Intersect.* Condition 1 cuts off everything up to $\tfrac12$; condition 3 cuts off everything from $3$; and
+condition 2 punches out the single point $x=1$. The domain is $\tfrac12<x<3$ with $x\ne1$.
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -79,6 +668,584 @@ Working
 ### Question 2
 
 ::: {.question}
+Solve $\;\log_{x-1}\!\left(x^{2}-5x+7\right)=1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a root that makes the base equal to 1)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — undo the log, then test each root against base $>0$, base $\ne1$, argument $>0$
+:::
+
+**Answer: $x=4$ only.**
+
+*Undo the log:* $\log_{x-1}(\dots)=1$ means $(x-1)^{1}=x^{2}-5x+7$. So
+$$x^{2}-6x+8=0\ \Rightarrow\ (x-2)(x-4)=0\ \Rightarrow\ x=2\text{ or }x=4.$$
+
+*Check each root.*
+
+- $x=2$: the base is $2-1=1$. **A base of $1$ is not allowed** — $\log_1 1$ has no single value — so $x=2$ is
+  **rejected**, even though $1^{1}=1$ looks fine.
+- $x=4$: base $3$ ($>0$, $\ne1$) ✓; argument $16-20+7=3>0$ ✓; and $\log_3 3=1$ ✓.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+## 2 · Signs, comparing & ordering
+
+::: {.callout-tip}
+## Method — compare without a calculator
+
+Decide the **sign** first (same side of $1$ or not), then the **size band** (compare the argument with $a$ and
+$\tfrac1a$). If two logs are still tied, raise both sides to a whole-number power: $\log_a b>\tfrac{p}{q}\iff
+b^{q}>a^{p}$ when $a>1$.
+:::
+
+### Question 3 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA specimen · P2 Q5</span>
+
+::: {.question}
+Using the observation that $2^{5}\approx3^{3}$, it is possible to deduce that $\log_3 2$ is approximately
+
+&nbsp;&nbsp;**A** $\tfrac35$ &nbsp; **B** $\tfrac23$ &nbsp; **C** $\tfrac32$ &nbsp; **D** $\tfrac53$ &nbsp;
+**E** $\tfrac12$ &nbsp; **F** $2$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(take $\log_3$ of both sides)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — power law turns $2^{5}\approx3^{3}$ into $5\log_3 2\approx3$
+:::
+
+**Answer: A, $\tfrac35$.**
+
+*Take $\log_3$ of both sides of $2^{5}\approx3^{3}$:*
+$$\log_3\!\left(2^{5}\right)\approx\log_3\!\left(3^{3}\right)\ \Rightarrow\ 5\log_3 2\approx3\ \Rightarrow\ \log_3 2\approx\tfrac35.$$
+
+*Sanity check with N4:* $1<2<3$, so $\log_3 2$ must lie between $0$ and $1$. That kills **C**, **D** and
+**F** straight away. ($\log_3 2\approx0.63$.)
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 4
+
+::: {.question}
+Put $\;\log_2 3,\ \log_3 4,\ \log_4 5\;$ in increasing order, without a calculator.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(compare each log with a fraction)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — for $a>1$, $\log_a b>\tfrac{p}{q}\iff b^{q}>a^{p}$
+:::
+
+**Answer: $\log_4 5<\log_3 4<\log_2 3$.**
+
+All three are above $1$, so find a fraction that separates each pair.
+
+**$\log_2 3$ against $\tfrac32$.** $\log_2 3>\tfrac32\iff 3^{2}>2^{3}\iff9>8$ ✓. So $\log_2 3>\tfrac32$.
+
+**$\log_3 4$ against $\tfrac32$.** $\log_3 4<\tfrac32\iff 4^{2}<3^{3}\iff16<27$ ✓. So $\log_3 4<\tfrac32$.
+
+**$\log_3 4$ against $\tfrac54$.** $\log_3 4>\tfrac54\iff 4^{4}>3^{5}\iff256>243$ ✓.
+
+**$\log_4 5$ against $\tfrac54$.** $\log_4 5<\tfrac54\iff 5^{4}<4^{5}\iff625<1024$ ✓.
+
+So $\log_4 5<\tfrac54<\log_3 4<\tfrac32<\log_2 3$.
+
+*The idea behind it:* $\log_n(n+1)$ gets closer to $1$ as $n$ grows, because $n+1$ is a smaller and smaller
+step above the base.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 5 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q8</span>
+
+::: {.question}
+Which one of the following numbers is smallest in value?
+
+&nbsp;&nbsp;**A** $\log_2 7$ &nbsp; **B** $\left(2^{-3}+2^{-2}\right)^{-1}$ &nbsp; **C** $2^{(\pi/3)}$ &nbsp;
+**D** $\dfrac{1}{4\left(\sqrt2-1\right)^{3}}$ &nbsp; **E** $4\sin^{2}\!\left(\dfrac{\pi}{4}\right)$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(compare everything with 2)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — find one option equal to a landmark, then show every other option beats it
+:::
+
+**Answer: E.**
+
+**E** is exactly $4\left(\tfrac{1}{\sqrt2}\right)^{2}=4\cdot\tfrac12=2$. Now show each other option is **above
+$2$**.
+
+- **A:** $\log_2$ is increasing and $7>4$, so $\log_2 7>\log_2 4=2$.
+- **B:** $2^{-3}+2^{-2}=\tfrac18+\tfrac28=\tfrac38$, so B $=\tfrac83>2$.
+- **C:** $\tfrac{\pi}{3}>1$ and $2^{x}$ is increasing, so $2^{\pi/3}>2^{1}=2$.
+- **D:** $\sqrt2-1<\tfrac12$ (since $\sqrt2<1.5$), so $\left(\sqrt2-1\right)^{3}<\tfrac18$, so
+  $4\left(\sqrt2-1\right)^{3}<\tfrac12$ and D $>2$.
+
+So E $=2$ is the smallest. *(For reference: A $\approx2.81$, B $\approx2.67$, C $\approx2.07$, D $\approx3.52$.)*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 6
+
+::: {.question}
+Given $0<a<1<b$, which of the following **must** be true?
+
+&nbsp;&nbsp;**I** $\log_a b<0$ &nbsp;&nbsp; **II** $\log_a b<\log_b a$ &nbsp;&nbsp; **III** $\log_a\dfrac1b>0$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the four sign cases, plus a reciprocal)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — sign rule $(a-1)(b-1)$; $\log_b a=\dfrac1{\log_a b}$
+:::
+
+**Answer: I and III only.**
+
+- **I — true.** $a<1<b$: base and argument are on **opposite** sides of $1$, so the log is negative.
+- **III — true.** $\log_a\tfrac1b=-\log_a b$, and $\log_a b<0$ by I, so this is positive. *(Or: $a<1$ and
+  $\tfrac1b<1$ are on the same side of $1$.)*
+- **II — not necessarily.** Let $t=\log_a b<0$. Then $\log_b a=\dfrac1t$. Is $t<\dfrac1t$? Multiply by $t^{2}>0$:
+  $t^{3}<t$, i.e. $t(t^{2}-1)<0$; with $t<0$ this needs $t^{2}>1$, i.e. $t<-1$. So it depends on the numbers:
+  - $a=\tfrac12,\ b=4$: $\log_a b=-2$, $\log_b a=-\tfrac12$, and $-2<-\tfrac12$ ✓;
+  - $a=\tfrac12,\ b=\sqrt2$: $\log_a b=-\tfrac12$, $\log_b a=-2$, and $-\tfrac12<-2$ ✗.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 7 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q17</span>
+
+::: {.question}
+Consider the following functions defined for $x>1$:
+$$\mathrm{f}(x)=\log_2\!\left(\log_2\sqrt{x}\right),\qquad \mathrm{g}(x)=\log_2\!\left(\sqrt{\log_2 x}\right).$$
+Which one of the following is true for **all** values of $x>1$?
+
+&nbsp;&nbsp;**A** $0\le\mathrm f(x)\le\mathrm g(x)$ or $\mathrm g(x)\le\mathrm f(x)\le0$
+&nbsp;&nbsp;**B** $0\le\mathrm g(x)\le\mathrm f(x)$ or $\mathrm f(x)\le\mathrm g(x)\le0$
+&nbsp;&nbsp;**C** $\tfrac12\le\mathrm f(x)\le\mathrm g(x)$ or $\mathrm g(x)\le\mathrm f(x)\le\tfrac12$
+&nbsp;&nbsp;**D** $\tfrac12\le\mathrm g(x)\le\mathrm f(x)$ or $\mathrm f(x)\le\mathrm g(x)\le\tfrac12$
+&nbsp;&nbsp;**E** $1\le\mathrm f(x)\le\mathrm g(x)$ or $\mathrm g(x)\le\mathrm f(x)\le1$
+&nbsp;&nbsp;**F** $1\le\mathrm g(x)\le\mathrm f(x)$ or $\mathrm f(x)\le\mathrm g(x)\le1$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(write both in terms of one quantity)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — power and product laws; let $L=\log_2(\log_2 x)$
+:::
+
+**Answer: F.**
+
+*Rewrite each with the laws.* Since $\log_2\sqrt x=\tfrac12\log_2 x$,
+$$\mathrm f(x)=\log_2\!\left(\tfrac12\log_2 x\right)=\log_2\tfrac12+\log_2(\log_2 x)=L-1.$$
+And the power law applied to the square root gives
+$$\mathrm g(x)=\tfrac12\log_2(\log_2 x)=\tfrac12L.$$
+*(Both exist because $x>1$ makes $\log_2 x>0$.)*
+
+*Compare.*
+$$\mathrm f-\mathrm g=\tfrac12L-1\qquad\text{and}\qquad \mathrm g-1=\tfrac12L-1.$$
+These are the **same number**. So:
+
+- if $L\ge2$: $\mathrm g\ge1$ and $\mathrm f-\mathrm g\ge0$, giving $1\le\mathrm g\le\mathrm f$;
+- if $L\le2$: $\mathrm g\le1$ and $\mathrm f\le\mathrm g$, giving $\mathrm f\le\mathrm g\le1$.
+
+That is option **F**. *(Check $x=16$: $L=2$, and $\mathrm f=\mathrm g=1$.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 3 · Log graphs
+
+::: {.callout-tip}
+## Method — sketch any log graph from four facts
+
+1. **Domain / asymptote:** argument $=0$ gives the vertical asymptote.
+2. **Direction:** base above $1$ rises, below $1$ falls (then apply any reflection).
+3. **Two easy points:** where the argument is $1$ (height $0$) and where it equals the base (height $1$).
+4. **For a variable base**, rewrite with change of base: $\log_x c=\dfrac{1}{\log_c x}$.
+:::
+
+### Question 8 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA specimen · P2 Q10</span>
+
+::: {.question}
+Which one of the following is a sketch of the graph of $y=\log_x 2$ for $x>1$?
+:::
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+fig,axs=plt.subplots(3,2,figsize=(7.0,7.6))
+x=np.linspace(1.02,10,400); xa=np.linspace(1,2.6,200)
+curves={'A':(xa,2**xa),'B':(xa,-(2**xa)),'C':(x,np.log2(x)),'D':(x,-np.log2(x)),
+        'E':(x,np.clip(1/np.log2(x),None,6)),'F':(x,np.clip(-1/np.log2(x),-6,None))}
+for A,(k,(xx,yy)) in zip(axs.flat,curves.items()):
+    A.plot(xx,yy,color='k',lw=1.6); A.axhline(0,color='k',lw=0.6); A.axvline(0,color='k',lw=0.6)
+    A.set_xlim(0,10.5); A.set_ylim(-5.5,5.5); A.set_xticks(range(0,11)); A.set_yticks(range(-5,6))
+    A.tick_params(labelsize=6.5); A.grid(alpha=0.2); A.set_title(k,fontsize=10,loc='left',fontweight='bold')
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the base is the variable — flip it to the argument)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log_x 2=\dfrac1{\log_2 x}$, then read off the graph of a reciprocal
+:::
+
+**Answer: E.**
+
+*Change of base:* $y=\log_x 2=\dfrac{1}{\log_2 x}$. For $x>1$:
+
+- $\log_2 x>0$, so $y>0$ — this removes **B**, **D** and **F**.
+- As $x\to1^{+}$, $\log_2 x\to0^{+}$, so $y\to+\infty$: a **vertical asymptote at $x=1$** — this removes **A**
+  and **C**, which start at a finite height.
+- As $x$ grows, $\log_2 x$ grows, so $y$ **decreases towards $0$**.
+- Check point: $x=2$ gives $y=\log_2 2=1$.
+
+This is exactly the "base as the variable" graph from N5 with $b=2>1$, on the side $a>1$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(1.03,10,400)
+plt.figure(figsize=(4.8,3.0)); plt.plot(x,1/np.log2(x),color='#2b6cb0',lw=2,label='y = log_x 2')
+plt.axvline(1,color='crimson',ls='--',lw=1); plt.plot(2,1,'o',color='crimson'); plt.annotate('(2, 1)',(2,1),textcoords='offset points',xytext=(6,4),fontsize=8)
+plt.axhline(0,color='k',lw=0.6); plt.ylim(0,6); plt.xlim(0,10); plt.grid(alpha=0.25); plt.legend(fontsize=8)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 9 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P1 Q18</span>
+
+::: {.question}
+The graph of $y=\log_{10}x$ is translated in the positive $y$-direction by $2$ units. This translation is
+equivalent to a stretch of factor $k$ parallel to the $x$-axis. What is the value of $k$?
+
+&nbsp;&nbsp;**A** $0.01$ &nbsp; **B** $\log_{10}2$ &nbsp; **C** $0.5$ &nbsp; **D** $2$ &nbsp;
+**E** $\log_2 10$ &nbsp; **F** $100$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(write the $+2$ as a log, then use the product law)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $2=\log_{10}100$, so $\log_{10}x+2=\log_{10}(100x)$
+:::
+
+**Answer: A, $0.01$.**
+
+*The translated graph is* $y=\log_{10}x+2$. Write $2=\log_{10}100$ and use the product law:
+$$y=\log_{10}x+\log_{10}100=\log_{10}(100x).$$
+*Replacing $x$ by $100x$* is a stretch parallel to the $x$-axis with factor $\tfrac1{100}=0.01$ ("inside does
+the opposite"). So $k=0.01$.
+
+*Check with a point:* $y=\log_{10}x$ has height $0$ at $x=1$; the new graph has height $0$ where $100x=1$,
+i.e. at $x=0.01$ — the point has moved from $x=1$ to $x=0.01$, a factor of $0.01$.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 10
+
+::: {.question}
+Sketch $y=\log_2(x-2)+1$: state its domain, its vertical asymptote, and where it crosses the line $y=1$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a shifted log, base above 1)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=\log_2(x-2)+1$: domain, asymptote, two easy points
+:::
+
+**Answer: domain $x>2$; asymptote $x=2$; crosses $y=1$ at $x=3$ (and passes through $(4,2)$).**
+
+- *Domain:* the argument $x-2>0$, so $x>2$; the asymptote is $x=2$.
+- *Height $1$:* $\log_2(x-2)=0$ when $x-2=1$, i.e. $x=3$, giving $(3,1)$.
+- *Second point:* $\log_2(x-2)=1$ when $x-2=2$, i.e. $x=4$, giving $(4,2)$.
+- *Direction:* base $2>1$, so the curve rises.
+
+It is the standard $\log_2$ curve slid $2$ right and $1$ up.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(2.02,10,500)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,np.log2(x-2)+1,color='#2b6cb0',lw=2)
+plt.axvline(2,color='crimson',ls=':',lw=1); plt.plot(3,1,'o',color='crimson'); plt.plot(4,2,'o',color='crimson')
+plt.annotate('(3, 1)',(3,1),textcoords='offset points',xytext=(6,-10),fontsize=8)
+plt.annotate('(4, 2)',(4,2),textcoords='offset points',xytext=(6,-10),fontsize=8)
+plt.axhline(0,color='0.6',lw=0.5); plt.grid(alpha=0.25); plt.ylim(-3,5)
+plt.title('y = log₂(x−2)+1: asymptote x = 2',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 11
+
+::: {.question}
+Sketch $y=\log_{1/3}(x+3)$. State its domain and asymptote, whether it is increasing or decreasing, and where
+it meets each axis.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a shifted log with base below 1)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — base $\tfrac13<1$: the curve **falls**; it is $-\log_3(x+3)$
+:::
+
+**Answer: domain $x>-3$; asymptote $x=-3$; decreasing; meets the $x$-axis at $(-2,0)$ and the $y$-axis at
+$(0,-1)$.**
+
+- *Domain:* $x+3>0\Rightarrow x>-3$, asymptote $x=-3$.
+- *Direction:* the base $\tfrac13$ is below $1$, so the curve **decreases**. As $x\to-3^{+}$ the argument
+  $\to0^{+}$ and $y\to+\infty$.
+- *$x$-axis:* $y=0$ when $x+3=1$, i.e. $x=-2$.
+- *$y$-axis:* $x=0$ gives $\log_{1/3}3=-1$ (since $\left(\tfrac13\right)^{-1}=3$).
+- *Extra point:* height $1$ where the argument equals the base: $x+3=\tfrac13$, i.e. $x=-\tfrac83$.
+
+By N3 it is also $y=-\log_3(x+3)$: the rising curve $\log_3(x+3)$ reflected in the $x$-axis.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(-2.98,6,500)
+plt.figure(figsize=(5.0,3.0))
+plt.plot(x,-np.log(x+3)/np.log(3),color='#2b6cb0',lw=2,label='y = log_(1/3)(x+3)')
+plt.plot(x,np.log(x+3)/np.log(3),color='0.6',ls='--',lw=1.2,label='y = log_3(x+3)')
+plt.axvline(-3,color='crimson',ls=':',lw=1)
+for P,t in [((-2,0),'(−2, 0)'),((0,-1),'(0, −1)'),((-8/3,1),'(−8/3, 1)')]:
+    plt.plot(*P,'o',color='crimson',ms=4); plt.annotate(t,P,textcoords='offset points',xytext=(6,4),fontsize=8)
+plt.axhline(0,color='k',lw=0.6); plt.axvline(0,color='k',lw=0.6); plt.ylim(-3,4); plt.grid(alpha=0.25); plt.legend(fontsize=7.5)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 12
+
+::: {.question}
+Contrast the graphs of $y=\log_2\!\big(x^{2}\big)$ and $y=2\log_2 x$. Are they the same curve? Give the domain
+and the symmetry of each.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*($\log x^{2}$ is not $2\log x$ — mind the domain)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log_2(x^{2})=2\log_2\lvert x\rvert$ is even; $2\log_2 x$ lives only on $x>0$
+:::
+
+**Answer: they agree only for $x>0$. $y=\log_2(x^{2})$ is defined for all $x\ne0$ and is even; $y=2\log_2 x$
+is defined only for $x>0$.**
+
+The power law carries a modulus: $\log_2(x^{2})=2\log_2\lvert x\rvert$.
+
+- For $x>0$, $\lvert x\rvert=x$, so the two agree.
+- For $x<0$, the left side still exists ($x^{2}>0$) but $2\log_2 x$ does not.
+
+So $y=\log_2(x^{2})$ is symmetric in the $y$-axis with a mirror branch on $x<0$, while $y=2\log_2 x$ is only its
+right half. Writing $\log_2(x^{2})=2\log_2 x$ silently **drops the left branch** — and with it any solutions
+that live there.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+xn=np.linspace(-8,-0.03,400); xp=np.linspace(0.03,8,400)
+fig,ax=plt.subplots(2,1,figsize=(5.0,5.6))
+ax[0].plot(xn,np.log2(xn**2),color='#2b6cb0',lw=2); ax[0].plot(xp,np.log2(xp**2),color='#2b6cb0',lw=2)
+ax[0].set_title('y = log₂(x²): even, x ≠ 0',fontsize=9)
+ax[1].plot(xp,2*np.log2(xp),color='#2b6cb0',lw=2); ax[1].set_title('y = 2 log₂x: only x > 0',fontsize=9)
+for a in ax: a.axvline(0,color='crimson',ls=':',lw=1); a.axhline(0,color='0.6',lw=0.5); a.grid(alpha=0.25); a.set_ylim(-6,7)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 13
+
+::: {.question}
+How many real solutions does the equation $\;\left(\tfrac1{16}\right)^{x}=\log_{1/16}x\;$ have? Find the
+solutions that are exact rational numbers.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a base below 1 — the curve and its reflection cross three times)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $y=a^{x}$ and $y=\log_a x$ are reflections in $y=x$; for $0<a<1$ they can meet **off** that line
+:::
+
+**Answer: three solutions; two of them are $x=\tfrac14$ and $x=\tfrac12$ (the third, $x\approx0.364$, lies on
+$y=x$).**
+
+**Try simple fractions.** With $a=\tfrac1{16}$:
+
+- $x=\tfrac12$: $\left(\tfrac1{16}\right)^{1/2}=\tfrac14$, and $\log_{1/16}\tfrac12=\tfrac14$ because
+  $\left(\tfrac1{16}\right)^{1/4}=\tfrac12$. **Equal** ✓.
+- $x=\tfrac14$: $\left(\tfrac1{16}\right)^{1/4}=\tfrac12$, and $\log_{1/16}\tfrac14=\tfrac12$ because
+  $\left(\tfrac1{16}\right)^{1/2}=\tfrac14$. **Equal** ✓.
+
+**Why they come in a pair.** The two curves are reflections of each other in $y=x$, so if $(p,q)$ is a crossing
+then so is $(q,p)$. Here $\left(\tfrac12,\tfrac14\right)$ and $\left(\tfrac14,\tfrac12\right)$ are that pair.
+
+**The third one.** $y=\left(\tfrac1{16}\right)^{x}$ is decreasing and $y=x$ is increasing, so they cross exactly
+once, at some $x=c$ with $c=\left(\tfrac1{16}\right)^{c}$. That point is on $y=x$, so it lies on **both**
+curves. Numerically $c\approx0.364$, which is different from $\tfrac14$ and $\tfrac12$.
+
+*The warning:* for a base **above** $1$ the two curves can only meet on $y=x$. With a base **below** $1$ they
+are both decreasing and can weave across each other — so do not assume "exponential $=$ log" has at most one
+solution.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+x=np.linspace(0.02,1.0,600); a=1/16
+fig,ax=plt.subplots(2,1,figsize=(5.2,6.4))
+for A,lim in [(ax[0],(0,1)),(ax[1],(0.2,0.55))]:
+    A.plot(x,a**x,color='#2b6cb0',lw=2,label='y = (1/16)^x')
+    A.plot(x,np.log(x)/np.log(a),color='crimson',lw=2,label='y = log_(1/16) x')
+    A.plot(x,x,color='0.6',ls='--',lw=1,label='y = x')
+    for p in [(0.25,0.5),(0.5,0.25),(0.36425,0.36425)]: A.plot(*p,'ko',ms=4)
+    A.set_xlim(*lim); A.set_ylim(*lim); A.set_aspect('equal'); A.grid(alpha=0.25); A.legend(fontsize=7.5)
+ax[0].set_title('three crossings',fontsize=9); ax[1].set_title('zoomed in',fontsize=9)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 4 · Laws & change of base
+
+::: {.callout-tip}
+## Method — one base, one letter
+
+Move every log to **one base** with change of base, then give each log a **letter** ($X=\log x$, $Y=\log y$).
+Products, quotients and powers inside the logs become sums, differences and multiples of the letters — a
+linear system you can solve.
+:::
+
+### Question 14
+
+::: {.question}
+Given that $\log_2 5=a$, write **(i)** $\log_2 40$ and **(ii)** $\log_2 0.16$ in terms of $a$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(express one log in terms of another)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — break the argument into prime factors, then apply product / quotient / power
+:::
+
+**Answer: (i) $3+a$; (ii) $2-2a$.**
+
+- **(i)** $40=2^{3}\times5$, so
+  $$\log_2 40=\log_2 2^{3}+\log_2 5=3+a.$$
+- **(ii)** $0.16=\dfrac{16}{100}=\dfrac{2^{2}}{5^{2}}$ (cancel $4$ from $\tfrac{16}{100}$ to get $\tfrac4{25}$), so
+  $$\log_2 0.16=\log_2 2^{2}-\log_2 5^{2}=2-2a.$$
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 15
+
+::: {.question}
 Solve $\;\log_2 x+\log_4 x+\log_{16}x=\dfrac74\;$ for $x>0$.
 :::
 
@@ -88,13 +1255,14 @@ Solve $\;\log_2 x+\log_4 x+\log_{16}x=\dfrac74\;$ for $x>0$.
 [*(a tower of bases — change of base first)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — write $\log_4,\log_{16}$ in base $2$; the coefficients form a neat sum
+Topic — write $\log_4$ and $\log_{16}$ in base $2$
 :::
 
 **Answer: $x=2$.**
 
-Put everything in base $2$: $\log_4 x=\tfrac12\log_2 x$ and $\log_{16}x=\tfrac14\log_2 x$. So
-$$\Big(1+\tfrac12+\tfrac14\Big)\log_2 x=\tfrac74\log_2 x=\tfrac74\ \Rightarrow\ \log_2 x=1\ \Rightarrow\ x=2.$$
+Change of base: $\log_4 x=\dfrac{\log_2 x}{\log_2 4}=\tfrac12\log_2 x$ and
+$\log_{16}x=\dfrac{\log_2 x}{\log_2 16}=\tfrac14\log_2 x$. So
+$$\Big(1+\tfrac12+\tfrac14\Big)\log_2 x=\tfrac74\ \Rightarrow\ \tfrac74\log_2 x=\tfrac74\ \Rightarrow\ \log_2 x=1\ \Rightarrow\ x=2.$$
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -103,46 +1271,95 @@ Working
 
 ---
 
-### Question 3
+### Question 16 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P2 Q15</span>
 
 ::: {.question}
-Given $\;\log_2 x+\log_2 y=5\;$ and $\;\log_2\!\dfrac{x}{y}=1$, find $x$ and $y$.
+The numbers $a$, $b$ and $c$ are each greater than $1$. The following logarithms are all to the same base:
+$$\log(ab^{2}c)=7,\qquad \log(a^{2}bc^{2})=11,\qquad \log(a^{2}b^{2}c^{3})=15.$$
+What is this base?
+
+&nbsp;&nbsp;**A** $a$ &nbsp; **B** $b$ &nbsp; **C** $c$ &nbsp; **D** It is possible to determine the base, but
+the base is not $a$, $b$ or $c$. &nbsp; **E** There is insufficient information given to determine the base.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(a simultaneous pair)*]{style="color:#7a5195"}
+[*(three logs, three letters, one linear system)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — treat $\log_2 x$ and $\log_2 y$ as the unknowns of a linear system
+Topic — let $A=\log a,\ B=\log b,\ C=\log c$; whichever letter equals $1$ is the base
 :::
 
-**Answer: $x=8,\ y=4$.**
+**Answer: B.**
 
-Let $X=\log_2 x,\ Y=\log_2 y$. The laws give $X+Y=5$ and $X-Y=1$, so $X=3,\ Y=2$. Hence $x=2^{3}=8$ and
-$y=2^{2}=4$. *(Check: $xy=32=2^{5}$ ✓, $x/y=2$ ✓.)*
+*Let $A=\log a$, $B=\log b$, $C=\log c$ (all to the unknown base).* The product and power laws give
+$$A+2B+C=7,\qquad 2A+B+2C=11,\qquad 2A+2B+3C=15.$$
+
+*Eliminate.* Double the first: $2A+4B+2C=14$. Subtract the second: $3B=3$, so $B=1$.
+Put $B=1$ into the first and third: $A+C=5$ and $2A+3C=13$. Then $2A+2C=10$, subtract: $C=3$, and $A=2$.
+
+*Read off the base.* $\log b=1$ means (base)$^{1}=b$, so **the base is $b$**.
+*(And it is an allowed base, since $b>1$.)* Check: $a=b^{2}$, $c=b^{3}$, so $ab^{2}c=b^{7}$ ✓.
 :::
 
-::: {.workspace style="min-height:3cm"}
+::: {.workspace style="min-height:4cm"}
 Working
 :::
 
 ---
 
-## 2 · Solving equations (domain & extraneous roots)
+### Question 17 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2022 · P2 Q15</span>
+
+::: {.question}
+The real numbers $x$, $y$ and $z$ are all greater than $1$, and satisfy the equations
+$$\log_x y=z\qquad\text{and}\qquad\log_y z=x.$$
+Which one of the following equations for $\log_z x$ **must** be true?
+
+&nbsp;&nbsp;**A** $\log_z x=y$ &nbsp; **B** $\log_z x=\dfrac1y$ &nbsp; **C** $\log_z x=xy$ &nbsp;
+**D** $\log_z x=\dfrac1{xy}$ &nbsp; **E** $\log_z x=xz$ &nbsp; **F** $\log_z x=\dfrac1{xz}$ &nbsp;
+**G** $\log_z x=yz$ &nbsp; **H** $\log_z x=\dfrac1{yz}$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(chain the logs, then flip)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log_x y\cdot\log_y z=\log_x z$ and $\log_z x=\dfrac1{\log_x z}$
+:::
+
+**Answer: F.**
+
+*Chain rule for logs:* $\log_x z=\log_x y\cdot\log_y z$ (change $\log_y z$ to base $x$:
+$\log_y z=\dfrac{\log_x z}{\log_x y}$ and multiply up). So
+$$\log_x z=z\cdot x=xz.$$
+*Flip it:* $\log_z x=\dfrac1{\log_x z}=\dfrac1{xz}$.
+
+*Why the flip is legal:* $x,z>1$ so both are allowed bases and $\log_x z>0$, never $0$.
+
+**Trap:** option **E** is $\log_x z$ itself — the right number with the base and argument the wrong way round.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 5 · Solving log equations (domain & extraneous roots)
 
 ::: {.callout-tip}
 ## Method — solve a log equation in four moves
 
-1. **Collect** every log onto one side with the laws until you have $\log_a(\text{expr})=\text{number}$ (or
-   $\log_a P=\log_a Q$).
+1. **Collect** every log with the laws until you have $\log_a(\text{expr})=\text{number}$ or $\log_a P=\log_a Q$.
 2. **Undo** the log: $\log_a P=\log_a Q\Rightarrow P=Q$; $\log_a P=c\Rightarrow P=a^{c}$.
 3. **Solve** the resulting (often quadratic) equation.
-4. **Check the domain** — throw away any root that makes an original log's argument $\le0$.
+4. **Check the domain** — throw away any root that makes an original argument $\le0$ or a base $\le0$ or $=1$.
 :::
 
-### Question 4
+### Question 18
 
 ::: {.question}
 Solve $\;\log_{10}x+\log_{10}(x-3)=1$.
@@ -160,7 +1377,8 @@ Topic — combine to one log, undo, then test each root in the original domain
 **Answer: $x=5$ only.**
 
 $$\log_{10}\big(x(x-3)\big)=1\ \Rightarrow\ x(x-3)=10\ \Rightarrow\ x^{2}-3x-10=0\ \Rightarrow\ (x-5)(x+2)=0.$$
-The original needs $x>0$ **and** $x-3>0$, i.e. $x>3$. So $x=-2$ is **rejected** and only $x=5$ survives.
+The original equation needs $x>0$ **and** $x-3>0$, i.e. $x>3$. So $x=-2$ is **rejected** and only $x=5$
+survives.
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -169,7 +1387,7 @@ Working
 
 ---
 
-### Question 5
+### Question 19
 
 ::: {.question}
 Solve $\;\log_2 x+\log_2(x+2)=3$.
@@ -181,13 +1399,13 @@ Solve $\;\log_2 x+\log_2(x+2)=3$.
 [*(same trap, base 2)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — one log per side isn't required; combine first, then reject
+Topic — combine first, then reject
 :::
 
 **Answer: $x=2$ only.**
 
-$\log_2\big(x(x+2)\big)=3\Rightarrow x(x+2)=8\Rightarrow x^{2}+2x-8=0\Rightarrow(x+4)(x-2)=0$. The domain needs
-$x>0$, so $x=-4$ is **rejected**; $x=2$.
+$$\log_2\big(x(x+2)\big)=3\ \Rightarrow\ x(x+2)=8\ \Rightarrow\ x^{2}+2x-8=0\ \Rightarrow\ (x+4)(x-2)=0.$$
+The domain needs $x>0$ (and $x+2>0$), so $x=-4$ is **rejected**; $x=2$.
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -196,35 +1414,7 @@ Working
 
 ---
 
-### Question 6
-
-::: {.question}
-Solve $\;(\log_2 x)^{2}-\log_2\!\big(x^{2}\big)=3$.
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon=false}
-## Solution
-
-[*(a hidden quadratic in $\log x$)*]{style="color:#7a5195"}
-
-::: {.topic}
-Topic — substitute $u=\log_2 x$; $\log_2(x^{2})=2u$, not $u^{2}$
-:::
-
-**Answer: $x=8$ or $x=\tfrac12$.**
-
-Beware $\log_2(x^{2})=2\log_2 x$ (power law), **not** $(\log_2 x)^{2}$. Let $u=\log_2 x$:
-$$u^{2}-2u-3=0\Rightarrow(u-3)(u+1)=0\Rightarrow u=3\text{ or }-1,$$
-so $x=8$ or $x=\tfrac12$. Both positive — **both valid**.
-:::
-
-::: {.workspace style="min-height:3cm"}
-Working
-:::
-
----
-
-### Question 7
+### Question 20
 
 ::: {.question}
 Solve $\;\log_3 x+\log_x 3=\dfrac52\;$ for $x>0,\ x\ne1$.
@@ -241,9 +1431,10 @@ Topic — $\log_x 3=\dfrac1{\log_3 x}$; substitute $u=\log_3 x$ to get $u+\tfrac
 
 **Answer: $x=9$ or $x=\sqrt3$.**
 
-By change of base $\log_x 3=\dfrac1{\log_3 x}$. Let $u=\log_3 x$:
+By change of base $\log_x 3=\dfrac1{\log_3 x}$. Let $u=\log_3 x$ (not $0$, because $x\ne1$):
 $$u+\frac1u=\frac52\ \Rightarrow\ 2u^{2}-5u+2=0\ \Rightarrow\ (2u-1)(u-2)=0\ \Rightarrow\ u=\tfrac12\text{ or }2.$$
-So $\log_3 x=\tfrac12\Rightarrow x=\sqrt3$, or $\log_3 x=2\Rightarrow x=9$. Both are in the domain.
+So $\log_3 x=\tfrac12\Rightarrow x=\sqrt3$, or $\log_3 x=2\Rightarrow x=9$. Both are positive and not $1$, so
+both are valid bases.
 :::
 
 ::: {.workspace style="min-height:4cm"}
@@ -252,16 +1443,115 @@ Working
 
 ---
 
-## 3 · Exponential / substitution equations
+### Question 21 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">MAT 2022 · Q1H</span>
 
-::: {.callout-tip}
-## Concept — when the unknown is in the exponent, substitute the power
-
-An equation like $2^{2x}-5\cdot2^{x}+4=0$ is a **quadratic in $t=2^{x}$**. Solve for $t$, then take logs to
-recover $x$ — but only for $t>0$ (a power is always positive, so a **negative or zero $t$ is rejected**).
+::: {.question}
+How many real solutions does the equation
+$$\log_2\!\left(2x^{3}+7x^{2}+2x+3\right)=3\log_2(x+1)+1$$
+have?
 :::
 
-### Question 8
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(collect the right side into one log)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $3\log_2(x+1)+1=\log_2\!\big(2(x+1)^{3}\big)$, valid only for $x>-1$
+:::
+
+**Answer: $2$.**
+
+*Collect the right side.* For $x+1>0$:
+$$3\log_2(x+1)+1=\log_2(x+1)^{3}+\log_2 2=\log_2\!\big(2(x+1)^{3}\big).$$
+
+*Drop the logs* (same base on both sides):
+$$2x^{3}+7x^{2}+2x+3=2(x+1)^{3}=2x^{3}+6x^{2}+6x+2.$$
+The cubes cancel, leaving $x^{2}-4x+1=0$, so $x=2\pm\sqrt3$.
+
+*Domain check.* Both roots must satisfy $x>-1$: $2+\sqrt3\approx3.73$ ✓ and $2-\sqrt3\approx0.27$ ✓. The left
+argument equals $2(x+1)^{3}>0$ automatically. So there are **two** solutions.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+### Question 22 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P1 Q20</span>
+
+::: {.question}
+Find the length of the curve with equation
+$$2\log_{10}(x-y)=\log_{10}(2-2x)+\log_{10}(y+5).$$
+
+&nbsp;&nbsp;**A** $5$ &nbsp; **B** $10$ &nbsp; **C** $15$ &nbsp; **D** $3\pi$ &nbsp; **E** $9\pi$ &nbsp;
+**F** $12\pi$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(the logs give a circle; the domain keeps only part of it)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — drop the logs, complete the square, then let the three domain conditions cut the circle
+:::
+
+**Answer: D, $3\pi$.**
+
+**Step 1 — the domain.** Every argument must be positive:
+$$x-y>0,\qquad 2-2x>0\ (x<1),\qquad y+5>0\ (y>-5).$$
+
+**Step 2 — drop the logs.** Because $x-y>0$, $2\log_{10}(x-y)=\log_{10}(x-y)^{2}$. The right side is
+$\log_{10}\big((2-2x)(y+5)\big)$. So
+$$(x-y)^{2}=(2-2x)(y+5).$$
+
+**Step 3 — recognise a circle.** Expand both sides:
+$x^{2}-2xy+y^{2}=2y+10-2xy-10x$. The $-2xy$ cancels:
+$$x^{2}+10x+y^{2}-2y-10=0\ \Rightarrow\ (x+5)^{2}+(y-1)^{2}=36.$$
+Centre $(-5,1)$, radius $6$.
+
+**Step 4 — which part survives?** The line $y=x$ meets the circle where $(x+5)^{2}+(x-1)^{2}=36$, i.e.
+$x^{2}+4x-5=0$, so at $(1,1)$ and $(-5,-5)$. From the centre these points are in the directions $(6,0)$ and
+$(0,-6)$ — at **right angles** — so the chord cuts off a **quarter** of the circle. The centre has $x<y$, so
+the side $x>y$ is the small quarter-arc. On that arc $x<1$ and $y>-5$ hold automatically (the endpoints, where
+they fail, are excluded anyway).
+
+**Length** $=\tfrac14\times2\pi\times6=3\pi$.
+
+```{python}
+#| fig-align: center
+import numpy as np, matplotlib.pyplot as plt
+t=np.linspace(0,2*np.pi,800); X=-5+6*np.cos(t); Y=1+6*np.sin(t)
+ok=(X-Y>0)&(X<1)&(Y>-5)
+plt.figure(figsize=(4.4,4.4)); plt.plot(X,Y,color='0.75',lw=1.2,label='whole circle')
+Xk=np.where(ok,X,np.nan); Yk=np.where(ok,Y,np.nan); plt.plot(Xk,Yk,color='crimson',lw=3,label='the curve (x > y)')
+s=np.linspace(-12,3,10); plt.plot(s,s,'k--',lw=1,label='y = x')
+plt.axvline(1,color='#2b6cb0',ls=':',lw=1); plt.axhline(-5,color='#2b6cb0',ls=':',lw=1)
+plt.plot([-5,1,-5],[1,1,-5],'ko',ms=4)
+plt.gca().set_aspect('equal'); plt.xlim(-12,3); plt.ylim(-6.5,8); plt.grid(alpha=0.25); plt.legend(fontsize=7,loc='upper left')
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## 6 · Quadratics in $a^{x}$
+
+::: {.callout-tip}
+## Method — spot the hidden quadratic in $a^{x}$
+
+Rewrite every term as a power of **one** base, so that $a^{2x}=(a^{x})^{2}$ appears. Let $u=a^{x}$, solve the
+quadratic, **reject $u\le0$** (a power is always positive), then $x=\log_a u$. If only the **sum** of the
+$x$-values is asked for, use $x_1+x_2=\log_a(u_1u_2)$ and the product of roots.
+:::
+
+### Question 23
 
 ::: {.question}
 Solve $\;2^{2x}-5\cdot2^{x}+4=0$.
@@ -273,13 +1563,14 @@ Solve $\;2^{2x}-5\cdot2^{x}+4=0$.
 [*(a quadratic in $2^{x}$)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — $t=2^{x}>0$; solve the quadratic, keep positive $t$, then log
+Topic — $u=2^{x}>0$; solve, keep positive $u$, then take logs
 :::
 
 **Answer: $x=0$ or $x=2$.**
 
-Let $t=2^{x}$ (so $2^{2x}=t^{2}$): $t^{2}-5t+4=0\Rightarrow(t-1)(t-4)=0\Rightarrow t=1$ or $4$. Both positive,
-so $2^{x}=1\Rightarrow x=0$, and $2^{x}=4\Rightarrow x=2$.
+Let $u=2^{x}$, so $2^{2x}=u^{2}$:
+$$u^{2}-5u+4=0\ \Rightarrow\ (u-1)(u-4)=0\ \Rightarrow\ u=1\text{ or }4.$$
+Both are positive, so $2^{x}=1\Rightarrow x=0$ and $2^{x}=4\Rightarrow x=2$.
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -288,7 +1579,180 @@ Working
 
 ---
 
-### Question 9
+### Question 24 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA specimen · P1 Q11</span>
+
+::: {.question}
+Find the sum of the roots of the equation $2^{2x}-8\cdot2^{x}+15=0$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute $u=2^{x}$ — the sum of $x$-roots is $\log_2$ of the product of $u$-roots)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $u=2^{x}$ turns it into a quadratic; $x_1+x_2=\log_2(u_1u_2)$
+:::
+
+**Answer: $\log_2 15$.**
+
+*Let $u=2^{x}$ ($u>0$). Since $2^{2x}=(2^{x})^{2}=u^{2}$,* the equation is $u^{2}-8u+15=0$, so $u=3$ or $u=5$.
+*Then $x=\log_2 3$ or $\log_2 5$, and the sum is*
+$$\log_2 3+\log_2 5=\log_2(3\cdot5)=\log_2 15.$$
+
+**Shortcut:** the product of the quadratic's roots is $15$, so the sum of the $x$-values is $\log_2 15$
+without finding either root.
+
+**Key move:** see $2^{2x}$ as $(2^{x})^{2}$. After that it is an ordinary quadratic.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 25 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P1 Q15</span>
+
+::: {.question}
+Find the sum of the real solutions of the equation $3^{x}-\bigl(\sqrt3\bigr)^{x+4}+20=0$. *(Give the exact
+value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(rewrite everything to one base, then substitute)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\sqrt3=3^{1/2}$, so set $u=3^{x/2}$
+:::
+
+**Answer: $2\log_3 20$.**
+
+*Write both terms with base $3$:*
+$$3^{x}=\bigl(3^{x/2}\bigr)^{2},\qquad \bigl(\sqrt3\bigr)^{x+4}=3^{(x+4)/2}=3^{x/2}\cdot3^{2}=9\cdot3^{x/2}.$$
+Let $u=3^{x/2}$ ($u>0$): $u^{2}-9u+20=0\Rightarrow u=4\text{ or }5$ (both positive).
+
+*Convert back:* $\tfrac{x}{2}=\log_3 u$, so $x=2\log_3 4$ or $2\log_3 5$, and
+$$\text{sum}=2\log_3 4+2\log_3 5=2\log_3 20.$$
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 26 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P1 Q15</span>
+
+::: {.question}
+Find the real non-zero solution to the equation
+$$\frac{2^{(9^{x})}}{8^{(3^{x})}}=\frac14.$$
+
+&nbsp;&nbsp;**A** $\log_3 2$ &nbsp; **B** $2\log_3 2$ &nbsp; **C** $1$ &nbsp; **D** $2$ &nbsp; **E** $\log_2 3$
+&nbsp; **F** $2\log_2 3$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a tower of powers — make everything a power of 2, compare exponents)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — equate exponents of $2$, then a quadratic in $u=3^{x}$
+:::
+
+**Answer: A, $\log_3 2$.**
+
+*Everything as a power of $2$:* $8^{(3^{x})}=\left(2^{3}\right)^{3^{x}}=2^{3\cdot3^{x}}$ and $\tfrac14=2^{-2}$. So
+$$2^{\,9^{x}-3\cdot3^{x}}=2^{-2}\ \Rightarrow\ 9^{x}-3\cdot3^{x}=-2.$$
+*Hidden quadratic:* $9^{x}=(3^{x})^{2}$. With $u=3^{x}>0$:
+$$u^{2}-3u+2=0\ \Rightarrow\ (u-1)(u-2)=0\ \Rightarrow\ u=1\text{ or }2.$$
+$u=1$ gives $x=0$, which the question excludes ("non-zero"). $u=2$ gives $x=\log_3 2$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 27 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P1 Q7</span>
+
+::: {.question}
+$\mathrm P(x)$ and $\mathrm Q(x)$ are defined as follows:
+$$\mathrm P(x)=2^{x}+4,\qquad \mathrm Q(x)=2^{(2x-2)}-2^{(x+2)}+16.$$
+Find the largest value of $x$ such that $\mathrm P(x)$ and $\mathrm Q(x)$ are in the ratio $4:1$, respectively.
+
+&nbsp;&nbsp;**A** $5$ &nbsp; **B** $12$ &nbsp; **C** $32$ &nbsp; **D** $\log_2 3$ &nbsp; **E** $\log_2 5$ &nbsp;
+**F** $\log_2 12$ &nbsp; **G** $\log_2 20$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(split the exponents, then a quadratic in $2^{x}$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $2^{2x-2}=\tfrac14(2^{x})^{2}$, $2^{x+2}=4\cdot2^{x}$
+:::
+
+**Answer: F, $\log_2 12$.**
+
+*Split the exponents.* With $u=2^{x}$:
+$$2^{2x-2}=\frac{2^{2x}}{4}=\frac{u^{2}}{4},\qquad 2^{x+2}=4u,\qquad\text{so}\quad \mathrm Q=\frac{u^{2}}{4}-4u+16.$$
+*Ratio $4:1$* means $\mathrm P=4\mathrm Q$:
+$$u+4=u^{2}-16u+64\ \Rightarrow\ u^{2}-17u+60=0\ \Rightarrow\ (u-5)(u-12)=0.$$
+Both $u$ values are positive, giving $x=\log_2 5$ or $x=\log_2 12$. The **largest** is $\log_2 12$.
+
+**Trap:** **B** ($12$) is the value of $u=2^{x}$, not of $x$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 7 · Quadratics in $\log x$
+
+::: {.callout-tip}
+## Method — let $L=\log_a x$
+
+First use the laws so that **only** $\log_a x$ appears: $\log_a\tfrac1x=-L$, $\log_a(x^{k})=kL$. Then solve the
+polynomial in $L$ and return with $x=a^{L}$. Beware: $(\log x)^{2}$ is $L^{2}$, but $\log(x^{2})$ is $2L$.
+:::
+
+### Question 28
+
+::: {.question}
+Solve $\;(\log_2 x)^{2}-\log_2\!\big(x^{2}\big)=3$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a hidden quadratic in $\log x$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — substitute $u=\log_2 x$; $\log_2(x^{2})=2u$, not $u^{2}$
+:::
+
+**Answer: $x=8$ or $x=\tfrac12$.**
+
+The domain is $x>0$, where $\log_2(x^{2})=2\log_2 x$ (power law), **not** $(\log_2 x)^{2}$. Let $u=\log_2 x$:
+$$u^{2}-2u-3=0\ \Rightarrow\ (u-3)(u+1)=0\ \Rightarrow\ u=3\text{ or }-1,$$
+so $x=2^{3}=8$ or $x=2^{-1}=\tfrac12$. Both are positive — **both valid**.
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 29
 
 ::: {.question}
 How many real solutions does $\;(\log_{10}x)^{2}=\log_{10}\!\big(x^{2}\big)$ have, and what are they?
@@ -297,18 +1761,19 @@ How many real solutions does $\;(\log_{10}x)^{2}=\log_{10}\!\big(x^{2}\big)$ hav
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(count the roots of a log equation)*]{style="color:#7a5195"}
+[*(never cancel a log)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — $\log(x^{2})=2\log x$ only for $x>0$; factor and count
+Topic — factor instead of dividing by $\log x$
 :::
 
 **Answer: two — $x=1$ and $x=100$.**
 
-The domain is $x>0$, where $\log_{10}(x^{2})=2\log_{10}x$. With $u=\log_{10}x$:
-$$u^{2}=2u\Rightarrow u(u-2)=0\Rightarrow u=0\text{ or }2,$$
-so $x=10^{0}=1$ or $x=10^{2}=100$. Two solutions. *(The trap: cancelling a "$\log x$" would lose the root
-$x=1$.)*
+The domain is $x>0$ (from the left side), where $\log_{10}(x^{2})=2\log_{10}x$. With $u=\log_{10}x$:
+$$u^{2}=2u\ \Rightarrow\ u(u-2)=0\ \Rightarrow\ u=0\text{ or }2,$$
+so $x=10^{0}=1$ or $x=10^{2}=100$.
+
+**The trap:** dividing both sides by $u$ (i.e. "cancelling a $\log x$") loses the root $u=0$, i.e. $x=1$.
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -317,9 +1782,229 @@ Working
 
 ---
 
-## 4 · Inequalities
+### Question 30 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2020 · P1 Q15</span>
 
-### Question 10
+::: {.question}
+Find the positive difference between the two real values of $x$ for which
+$$\bigl(\log_2 x\bigr)^{4}+12\left(\log_2\tfrac1x\right)^{2}-2^{6}=0.$$
+*(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a quartic that is really a quadratic in $L^{2}$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log_2\frac1x=-\log_2 x$, so everything is a power of $L=\log_2 x$
+:::
+
+**Answer: $\dfrac{15}{4}$.**
+
+*Let $L=\log_2 x$.* Since $\log_2\frac1x=-L$, we have $\left(\log_2\frac1x\right)^{2}=L^{2}$, and $2^{6}=64$:
+$$L^{4}+12L^{2}-64=0.$$
+*This is a quadratic in $w=L^{2}$:* $w^{2}+12w-64=0\Rightarrow(w-4)(w+16)=0$. Only $w=4$ is allowed, because
+$w=L^{2}\ge0$. So $L=\pm2$, i.e. $x=2^{2}=4$ or $x=2^{-2}=\tfrac14$.
+
+The positive difference is $4-\tfrac14=\dfrac{15}{4}$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 31 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2019 · P1 Q11</span>
+
+::: {.question}
+Find the sum of the real values of $x$ that satisfy the simultaneous equations
+$$\log_3\bigl(xy^{2}\bigr)=1,\qquad (\log_3 x)(\log_3 y)=-3.$$
+*(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute $a=\log_3 x,\ b=\log_3 y$ — a linear equation and a product equation)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — turn both equations into equations in $a=\log_3 x$ and $b=\log_3 y$
+:::
+
+**Answer: $\dfrac{244}{9}$** $\left(=27\tfrac19\right)$.
+
+*Let $a=\log_3 x$, $b=\log_3 y$. Then $\log_3(xy^{2})=a+2b=1$ and $ab=-3$.* Substituting $a=1-2b$:
+$$(1-2b)b=-3\ \Rightarrow\ 2b^{2}-b-3=0\ \Rightarrow\ (2b-3)(b+1)=0,$$
+so $b=\tfrac32$ (giving $a=-2$) or $b=-1$ (giving $a=3$).
+
+*Convert back:* $x=3^{a}=3^{-2}=\tfrac19$ or $x=3^{3}=27$, and the sum is $\tfrac19+27=\dfrac{244}{9}$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 8 · Simultaneous log / exponential systems
+
+::: {.callout-tip}
+## Method — clear the logs or name the powers
+
+For log equations, take them **out of log form** ($\log_a N=c\Rightarrow N=a^{c}$; $\log_a N=0\Rightarrow N=1$).
+For exponential equations, let $A=a^{x}$, $B=a^{y}$ (both **positive**) and look for a linear system or a
+difference of squares.
+:::
+
+### Question 32
+
+::: {.question}
+Given $\;\log_2 x+\log_2 y=5\;$ and $\;\log_2\!\dfrac{x}{y}=1$, find $x$ and $y$.
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(a linear system in disguise)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — treat $\log_2 x$ and $\log_2 y$ as the unknowns
+:::
+
+**Answer: $x=8,\ y=4$.**
+
+Let $X=\log_2 x$, $Y=\log_2 y$. The laws give $X+Y=5$ and $X-Y=1$. Adding: $2X=6$, so $X=3$; then $Y=2$.
+Hence $x=2^{3}=8$ and $y=2^{2}=4$. *(Check: $xy=32=2^{5}$ ✓, $x/y=2$ ✓.)*
+:::
+
+::: {.workspace style="min-height:3cm"}
+Working
+:::
+
+---
+
+### Question 33 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2016 · P1 Q16</span>
+
+::: {.question}
+Given the simultaneous equations
+$$\log_{10}2+\log_{10}(y-1)=2\log_{10}x,\qquad \log_{10}(y+3-3x)=0,$$
+find the values of $y$. *(Give the exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(clear the logs, substitute the linear one, solve a quadratic)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log N=0\Rightarrow N=1$; combine logs on each side, then eliminate
+:::
+
+**Answer: $y=7\pm3\sqrt3$.**
+
+*Combine the first equation:* $\log_{10}\!\bigl(2(y-1)\bigr)=\log_{10}(x^{2})$, so $2(y-1)=x^{2}$.
+*The second gives* $y+3-3x=1$ (since $\log_{10}N=0\Rightarrow N=1$), i.e. $y=3x-2$. Substitute:
+$$2(3x-2-1)=x^{2}\ \Rightarrow\ x^{2}-6x+6=0\ \Rightarrow\ x=3\pm\sqrt3.$$
+*Domain check:* both values of $x$ are positive, and $y-1=3x-3=3(x-1)>0$ for both, so both are valid. Then
+$$y=3x-2=3(3\pm\sqrt3)-2=7\pm3\sqrt3.$$
+
+**Key moves:** "$\log N=0\Rightarrow N=1$" for the second equation, and combining the first into a single log
+on each side so the $\log$ can be dropped.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 34 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P1 Q14</span>
+
+::: {.question}
+Given the simultaneous equations
+$$2^{x}+3\cdot2^{y}=3,\qquad 2^{2x}-9\cdot2^{2y}=6,$$
+with solution $x=p,\ y=q$, find the value of $p-q$. *(Give the exact value.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(substitute $A=2^{x},\ B=2^{y}$ and use the difference of two squares)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $A^{2}-9B^{2}=(A-3B)(A+3B)$ turns the second equation linear
+:::
+
+**Answer: $\log_2 15$.**
+
+*Let $A=2^{x}$, $B=2^{y}$:* $A+3B=3$ and $A^{2}-9B^{2}=6$. Factor the second:
+$$(A-3B)(A+3B)=6\ \Rightarrow\ (A-3B)\cdot3=6\ \Rightarrow\ A-3B=2.$$
+*Add to $A+3B=3$:* $2A=5$, so $A=\tfrac52$; then $3B=\tfrac12$, so $B=\tfrac16$. Both positive ✓.
+
+So $p=\log_2\tfrac52$ and $q=\log_2\tfrac16$, and by the quotient law
+$$p-q=\log_2\frac{5/2}{1/6}=\log_2 15.$$
+
+**Key move:** spot $A^{2}-9B^{2}$ as a difference of two squares — it turns a nasty second equation into
+the linear $A-3B=2$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 35 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2021 · P2 Q14</span>
+
+::: {.question}
+Consider the following simultaneous equations, where $p$ is a real number:
+$$p\,2^{x}+\log_2 y=2,\qquad 2^{x}+\log_2 y=1.$$
+What is the complete range of $p$ for which these simultaneous equations have a real solution $(x,y)$?
+
+&nbsp;&nbsp;**A** $p<1$ &nbsp; **B** $p\ne1$ &nbsp; **C** $p>1$ &nbsp; **D** $p<1$ or $p>2$ &nbsp;
+**E** $p\ne1$ and $p<2$ &nbsp; **F** $p>1$ and $p<2$ &nbsp; **G** $p>2$ &nbsp; **H** all real values of $p$
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(eliminate the log, then remember $2^{x}>0$)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — subtract to remove $\log_2 y$; the positivity of $2^{x}$ decides the range
+:::
+
+**Answer: C, $p>1$.**
+
+*Subtract the second equation from the first:* $(p-1)2^{x}=1$.
+
+- If $p=1$ this reads $0=1$ — **no solution**.
+- Otherwise $2^{x}=\dfrac1{p-1}$. A power of $2$ is **always positive**, so we need $\dfrac1{p-1}>0$, i.e. $p>1$.
+
+*Is $y$ then fine?* From the second equation $\log_2 y=1-2^{x}$, which is some real number, so
+$y=2^{\,1-2^{x}}>0$ exists. So every $p>1$ works, and nothing else does.
+
+**Trap:** **B** ($p\ne1$) forgets that $2^{x}$ can never be negative.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+## 9 · Inequalities
+
+::: {.callout-tip}
+## Method — keep or flip?
+
+Base $>1$: keep the sign. Base between $0$ and $1$: **flip** it. Unknown base: **split into $0<x<1$ and $x>1$**.
+Then intersect with the domain (argument $>0$). The same rule applies when you **take** logs of both sides of
+an inequality.
+:::
+
+### Question 36
 
 ::: {.question}
 Solve $\;\log_{1/2}x>3$. &nbsp;&nbsp;State your answer in interval notation.
@@ -331,12 +2016,12 @@ Solve $\;\log_{1/2}x>3$. &nbsp;&nbsp;State your answer in interval notation.
 [*(a base between 0 and 1 flips the sign)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — $0<a<1$: $\log_a$ is **decreasing**, so undoing the log reverses the inequality
+Topic — $0<a<1$: $\log_a$ is decreasing, so undoing it reverses the inequality
 :::
 
 **Answer: $\left(0,\tfrac18\right)$.**
 
-Base $\tfrac12<1$, so $\log_{1/2}$ is **decreasing** and removing it **reverses** the sign:
+The base $\tfrac12<1$, so $\log_{1/2}$ is **decreasing** and removing it **reverses** the sign:
 $x<\left(\tfrac12\right)^{3}=\tfrac18$. With the domain $x>0$: $0<x<\tfrac18$.
 :::
 
@@ -346,7 +2031,7 @@ Working
 
 ---
 
-### Question 11
+### Question 37
 
 ::: {.question}
 Solve $\;\log_2(x-1)<3$. &nbsp;&nbsp;State your answer in interval notation.
@@ -363,7 +2048,7 @@ Topic — an increasing-base inequality, but the argument must stay positive
 
 **Answer: $(1,9)$.**
 
-Base $2>1$ keeps the sign: $x-1<2^{3}=8\Rightarrow x<9$. The log needs $x-1>0\Rightarrow x>1$. So $1<x<9$ —
+The base $2>1$ keeps the sign: $x-1<2^{3}=8\Rightarrow x<9$. The log needs $x-1>0\Rightarrow x>1$. So $1<x<9$ —
 the lower end comes from the **domain**.
 :::
 
@@ -373,7 +2058,7 @@ Working
 
 ---
 
-### Question 12
+### Question 38
 
 ::: {.question}
 Solve $\;(\log_2 x)^{2}-3\log_2 x+2\le0$. &nbsp;&nbsp;State your answer in interval notation.
@@ -390,8 +2075,8 @@ Topic — substitute $u=\log_2 x$, solve the quadratic inequality, convert back
 
 **Answer: $[2,4]$.**
 
-With $u=\log_2 x$: $u^{2}-3u+2\le0\Rightarrow(u-1)(u-2)\le0\Rightarrow1\le u\le2$. Since $\log_2$ is
-increasing, $1\le\log_2 x\le2\Rightarrow2\le x\le4$.
+With $u=\log_2 x$: $u^{2}-3u+2\le0\Rightarrow(u-1)(u-2)\le0\Rightarrow1\le u\le2$. Since $\log_2$ is increasing,
+$$1\le\log_2 x\le2\ \Rightarrow\ 2^{1}\le x\le2^{2}\ \Rightarrow\ 2\le x\le4.$$
 :::
 
 ::: {.workspace style="min-height:3cm"}
@@ -400,23 +2085,101 @@ Working
 
 ---
 
-## 5 · Counting solutions with a parameter
+### Question 39
 
-::: {.callout-tip}
-## Concept — reduce to a simpler equation, then read the count off the parameters
-
-Rewrite the log equation with the laws until it is a **linear or quadratic** equation (or a line-meets-curve
-picture). The number of **valid** solutions is then decided by a **sign** or a **discriminant** in the
-parameters — always finishing with the domain check ($x>0$, arguments $>0$).
+::: {.question}
+Solve $\;\log_x(6-x)>1$. &nbsp;&nbsp;State your answer in interval notation.
 :::
 
-### Question 13
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(an unknown base — two cases)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — split into $x>1$ (keep) and $0<x<1$ (flip)
+:::
+
+**Answer: $(1,3)$.**
+
+*Domain:* $x>0$, $x\ne1$, and $6-x>0$, i.e. $0<x<6$ with $x\ne1$. Write $1=\log_x x$.
+
+- **Case $x>1$:** the sign keeps: $6-x>x\Rightarrow x<3$. With $x>1$: $1<x<3$.
+- **Case $0<x<1$:** the sign flips: $6-x<x\Rightarrow x>3$, which contradicts $x<1$. No solutions.
+
+So $1<x<3$. *(Check $x=2$: $\log_2 4=2>1$ ✓. Check $x=\tfrac12$: $\log_{1/2}5.5<0$, not $>1$ ✓.)*
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 40 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2017 · P2 Q18</span>
+
+::: {.question}
+Consider the following problem: *solve the inequality $\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}$,
+where $n$ is a positive integer.* A student produces the following argument:
+$$\left(\tfrac14\right)^{n}<\left(\tfrac1{32}\right)^{10}$$
+&nbsp;&nbsp;**(I)** $\Rightarrow\ \log_{\frac12}\left(\tfrac14\right)^{n}<\log_{\frac12}\left(\tfrac1{32}\right)^{10}$
+&nbsp;&nbsp;**(II)** $\Rightarrow\ n\log_{\frac12}\left(\tfrac14\right)<10\log_{\frac12}\left(\tfrac1{32}\right)$
+&nbsp;&nbsp;**(III)** $\Rightarrow\ n<\dfrac{10\log_{\frac12}\left(\frac1{32}\right)}{\log_{\frac12}\left(\frac14\right)}$
+&nbsp;&nbsp;**(IV)** $\Rightarrow\ n<\dfrac{10\times5}{2}=25$
+&nbsp;&nbsp;**(V)** $\Rightarrow\ 1\le n\le24$
+
+Which step (if any) in the argument is invalid?
+
+&nbsp;&nbsp;**A** There are no invalid steps; the argument is correct &nbsp; **B** Only step (I) is invalid
+&nbsp; **C** Only step (II) &nbsp; **D** Only step (III) &nbsp; **E** Only step (IV) &nbsp; **F** Only step (V)
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(taking a base-below-1 log must flip the sign)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log_{1/2}$ is decreasing, so applying it reverses an inequality
+:::
+
+**Answer: B — only step (I) is invalid.**
+
+- **(I)** applies $\log_{1/2}$ to both sides. Its base is below $1$, so it is a **decreasing** function: the
+  bigger input gets the smaller output. The sign must **flip** to $>$. **Invalid.**
+- **(II)** is the power law — fine.
+- **(III)** divides by $\log_{1/2}\tfrac14=2$, which is **positive**, so the sign is kept — fine.
+- **(IV)** uses $\log_{1/2}\tfrac1{32}=5$ and $\log_{1/2}\tfrac14=2$ — correct values.
+- **(V)** correctly lists the positive integers below $25$.
+
+*The true answer:* with the sign flipped, $n>25$, i.e. $n\ge26$. *Direct check:* $\left(\tfrac14\right)^{n}=2^{-2n}$
+and $\left(\tfrac1{32}\right)^{10}=2^{-50}$; $2^{-2n}<2^{-50}\iff-2n<-50\iff n>25$.
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 10 · Counting solutions
+
+::: {.callout-tip}
+## Method — reduce, then count
+
+Rewrite the equation until it is **linear or quadratic** (count with a sign or a discriminant), or until it is a
+**curve meets curve** picture (count crossings). Always finish with the domain check — a root that breaks a
+log's domain does not count.
+:::
+
+### Question 41
 
 ::: {.question}
 The number of **positive** solutions $x$ to $\;\log_2 x=\log_2(x+a)+b\;$ (with $a,b$ non-zero real) is
+
 &nbsp;&nbsp;**A** zero if $ab<1$, or one if $ab>1$ &nbsp; **B** one if $ab<1$, or two if $ab>1$ &nbsp;
-**C** one if $ab<0$, or zero if $ab>0$ &nbsp; **D** zero if $ab<0$, or one if $ab>0$ &nbsp; **E** one if
-$ab<1$, or zero if $ab>1$
+**C** one if $ab<0$, or zero if $ab>0$ &nbsp; **D** zero if $ab<0$, or one if $ab>0$ &nbsp;
+**E** one if $ab<1$, or zero if $ab>1$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
@@ -430,13 +2193,15 @@ Topic — quotient law $\to$ a linear equation; the sign of $ab$ decides the cou
 
 **Answer: C (one if $ab<0$, zero if $ab>0$).**
 
-**Collect the logs:** $\log_2\dfrac{x}{x+a}=b\Rightarrow\dfrac{x}{x+a}=2^{b}=:k$ ($k>0,\ k\ne1$). Solving,
-$x=\dfrac{ka}{1-k}$; note $x+a=\dfrac{x}{k}>0$ automatically once $x>0$, so the **only** constraint is $x>0$.
+**Collect the logs:** $\log_2\dfrac{x}{x+a}=b\Rightarrow\dfrac{x}{x+a}=2^{b}=:k$, where $k>0$ and $k\ne1$ (since
+$b\ne0$). Solving, $x=k(x+a)\Rightarrow x(1-k)=ka\Rightarrow x=\dfrac{ka}{1-k}$.
+
+*Domain:* once $x>0$, we get $x+a=\dfrac{x}{k}>0$ automatically, so the **only** condition is $x>0$.
 
 - $b>0\Rightarrow k>1\Rightarrow1-k<0$: need $ka<0$, i.e. $a<0$.
 - $b<0\Rightarrow0<k<1\Rightarrow1-k>0$: need $ka>0$, i.e. $a>0$.
 
-Both say $a,b$ have **opposite signs** ($ab<0$) $\to$ **one** solution; $ab>0\to$ **none**.
+Both say $a$ and $b$ have **opposite signs** ($ab<0$) $\to$ **one** solution; $ab>0\to$ **none**.
 :::
 
 ::: {.workspace style="min-height:4cm"}
@@ -445,10 +2210,10 @@ Working
 
 ---
 
-### Question 14
+### Question 42
 
 ::: {.question}
-For $c>0$, how many positive solutions does $\;\ln x=cx\;$ have, and at which $c$ does the count change?
+How many real solutions does $\;\log_2 x=x-2\;$ have? Find any that are integers.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
@@ -457,25 +2222,31 @@ For $c>0$, how many positive solutions does $\;\ln x=cx\;$ have, and at which $c
 [*(a line meets the log curve)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — solutions of $\ln x=cx$ are crossings of $y=\ln x$ and $y=cx$; the tangent value of $c$ is the border
+Topic — count crossings of $y=\log_2 x$ and $y=x-2$ using sign changes of the difference
 :::
 
-**Answer: two for $0<c<\tfrac1e$, one (tangent) at $c=\tfrac1e$, none for $c>\tfrac1e$.**
+**Answer: two solutions; $x=4$ is the integer one (the other lies between $\tfrac14$ and $\tfrac12$).**
 
-Solutions are crossings of the line $y=cx$ with $y=\ln x$. The border is **tangency**: at $x=t$ we need
-$\ln t=ct$ and $\dfrac1t=c$. Then $ct=1$, so $\ln t=1\Rightarrow t=e,\ c=\dfrac1e$. Hence $c=\tfrac1e$ gives
-one solution ($x=e$), $0<c<\tfrac1e$ two, and $c>\tfrac1e$ none.
+Let $d(x)=\log_2 x-(x-2)$ and look for sign changes.
+
+| $x$ | $\tfrac14$ | $\tfrac12$ | $1$ | $2$ | $4$ | $8$ |
+|---|---|---|---|---|---|---|
+| $\log_2 x$ | $-2$ | $-1$ | $0$ | $1$ | $2$ | $3$ |
+| $x-2$ | $-1.75$ | $-1.5$ | $-1$ | $0$ | $2$ | $6$ |
+| $d(x)$ | $-$ | $+$ | $+$ | $+$ | $0$ | $-$ |
+
+- Between $\tfrac14$ and $\tfrac12$, $d$ changes sign — one root there ($x\approx0.31$).
+- At $x=4$, $d=0$ exactly: $\log_2 4=2=4-2$ ✓.
+
+*Why no more:* the log curve bends downwards (concave), so a straight line can cross it **at most twice**.
 
 ```{python}
 #| fig-align: center
 import numpy as np, matplotlib.pyplot as plt
-x=np.linspace(0.05,12,600)
-plt.figure(figsize=(5.2,3.2)); plt.plot(x,np.log(x),color='#2b6cb0',lw=2,label='y=ln x')
-for c,col,ls,lab in [(1/np.e,'crimson','-','y=x/e (tangent, c=1/e)'),(0.15,'0.6','--','c<1/e: two'),(0.5,'green','--','c>1/e: none')]:
-    plt.plot(x,c*x,color=col,ls=ls,lw=1.3,label=lab)
-plt.plot(np.e,1,'ko',ms=4); plt.ylim(-2,3); plt.grid(alpha=0.25); plt.axhline(0,color='0.6',lw=0.5); plt.legend(fontsize=7.5)
-plt.title('ln x = cx: tangent at x=e, c=1/e',fontsize=9)
-plt.tight_layout(); plt.show()
+x=np.linspace(0.02,8,600)
+plt.figure(figsize=(5.0,3.0)); plt.plot(x,np.log2(x),color='#2b6cb0',lw=2,label='y = log₂x'); plt.plot(x,x-2,color='crimson',lw=1.6,label='y = x − 2')
+plt.plot([0.3099,4],[np.log2(0.3099),2],'ko',ms=4); plt.axhline(0,color='k',lw=0.6); plt.axvline(0,color='k',lw=0.6)
+plt.ylim(-4,5); plt.grid(alpha=0.25); plt.legend(fontsize=8); plt.tight_layout(); plt.show()
 ```
 :::
 
@@ -485,92 +2256,184 @@ Working
 
 ---
 
-## 6 · Log graphs
+### Question 43 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2023 · P2 Q6</span>
+
+::: {.question}
+Consider the following equation where $a$ is a real number and $a>1$:
+$$(*)\qquad a^{x}=x.$$
+Which of the following equations must have the same number of real solutions as $(*)$?
+
+&nbsp;&nbsp;**I** $\log_a x=x$ &nbsp;&nbsp; **II** $a^{2x}=x^{2}$ &nbsp;&nbsp; **III** $a^{2x}=2x$
+
+&nbsp;&nbsp;**A** none of them &nbsp; **B** I only &nbsp; **C** II only &nbsp; **D** III only &nbsp;
+**E** I and II only &nbsp; **F** I and III only &nbsp; **G** II and III only &nbsp; **H** I, II and III
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(same solutions, or same count after a substitution?)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — undo the log; substitute $t=2x$; square roots bring a $\pm$
+:::
+
+**Answer: F — I and III only.**
+
+- **I — same.** $\log_a x=x$ means exactly $a^{x}=x$ (with $x>0$, but every solution of $a^{x}=x$ is positive
+  anyway, because $a^{x}>0$). Identical solution sets.
+- **III — same count.** Put $t=2x$: the equation becomes $a^{t}=t$, which is $(*)$ in the letter $t$. Each
+  solution $t$ gives exactly one $x=\tfrac t2$.
+- **II — not the same.** $a^{2x}=x^{2}$ means $(a^{x})^{2}=x^{2}$, so $a^{x}=x$ **or** $a^{x}=-x$. The second
+  equation always has exactly one solution (for $x<0$, $a^{x}$ rises from $0$ to $1$ while $-x$ falls from
+  $\infty$ to $0$). So II has **one more** solution than $(*)$.
+
+*(E.g. $a=2$: $(*)$ has no solutions, but II has one.)*
+:::
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## 11 · Log–log linearisation
 
 ::: {.callout-tip}
-## Concept — read a log graph off its asymptote and one point
+## Method — take logs of the law
 
-$y=\log_a x$ ($a>1$) passes through $(1,0)$ and $(a,1)$, climbs slowly, and has the $y$-axis as a **vertical
-asymptote** ($y\to-\infty$). Transformations move it: $y=\log_a(x-p)+q$ shifts the asymptote to $x=p$ and the
-curve up by $q$. Always state the **domain** — the argument must stay positive.
+$y=Ax^{n}$ $\Rightarrow$ $\log y=\log A+n\log x$: straight line when $\log y$ is plotted against **$\log x$**.
+$y=Ab^{x}$ $\Rightarrow$ $\log y=\log A+(\log b)x$: straight line when $\log y$ is plotted against **$x$**.
+Gradient and intercept then give the constants.
 :::
 
-### Question 15
+### Question 44 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">TMUA specimen · P1 Q14</span>
 
 ::: {.question}
-Sketch $y=\log_2(x-2)+1$: state its domain, its vertical asymptote, and where it crosses the line $y=1$.
+$a$, $b$, $x$ and $y$ are real and positive; $a$ and $b$ are constants, and $x$ and $y$ are related. A graph of
+$\log y$ against $\log x$ is drawn. For which one of the following relationships is this graph a **straight
+line**?
+
+&nbsp;&nbsp;**A** $y^{b}=a^{x}$ &nbsp; **B** $y=ab^{x}$ &nbsp; **C** $y^{2}=a+x^{b}$ &nbsp; **D** $y=ax^{b}$ &nbsp;
+**E** $y^{x}=a^{b}$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*(a shifted log)*]{style="color:#7a5195"}
+[*(take logs — a power law is the one that linearises)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — $y=\log_2(x-2)+1$: domain, asymptote, two easy points
+Topic — $\log y$ vs $\log x$ is straight $\iff$ $y$ is a **power** of $x$
 :::
 
-**Answer: domain $x>2$; asymptote $x=2$; crosses $y=1$ at $x=3$ (and passes through $(4,2)$).**
+**Answer: D, $y=ax^{b}$.**
 
-Argument $x-2>0\Rightarrow$ domain $x>2$, asymptote $x=2$. Then $\log_2(x-2)=0$ at $x=3$ ($y=1$) and
-$\log_2(x-2)=1$ at $x=4$ ($y=2$). It is the standard $\log_2$ curve slid $2$ right and $1$ up.
+*Take $\log$ of $y=ax^{b}$:* $\log y=\log a+b\log x$. Writing $Y=\log y$ and $X=\log x$, this is
+$Y=(\log a)+bX$ — a straight line with gradient $b$ and intercept $\log a$.
+
+The others do **not** give a linear relation between $\log y$ and $\log x$: **B** ($y=ab^{x}$) is straight for
+$\log y$ against $x$, not against $\log x$; **A** gives $b\log y=x\log a$ (again $x$, not $\log x$); **C** and
+**E** mix the variables.
 
 ```{python}
 #| fig-align: center
 import numpy as np, matplotlib.pyplot as plt
-x=np.linspace(2.02,10,500)
-plt.figure(figsize=(5.0,3.0)); plt.plot(x,np.log2(x-2)+1,color='#2b6cb0',lw=2)
-plt.axvline(2,color='crimson',ls=':',lw=1); plt.plot(3,1,'o',color='crimson'); plt.plot(4,2,'o',color='crimson')
-plt.annotate('(3,1)',(3,1),textcoords='offset points',xytext=(6,-10),fontsize=8)
-plt.axhline(0,color='0.6',lw=0.5); plt.grid(alpha=0.25); plt.ylim(-3,5)
-plt.title('y = log₂(x−2)+1: asymptote x=2, through (3,1),(4,2)',fontsize=9)
+x=np.linspace(1,100,200); a,b=2.0,1.5; y=a*x**b
+fig,ax=plt.subplots(2,1,figsize=(4.8,5.0))
+ax[0].plot(x,y,'#2b6cb0',lw=1.6); ax[0].set_title('y = a·xᵇ  (curved)',fontsize=8)
+ax[0].set_xlabel('x',fontsize=8); ax[0].set_ylabel('y',fontsize=8)
+ax[1].plot(np.log10(x),np.log10(y),'crimson',lw=1.6)
+ax[1].set_title('log y vs log x  (straight, gradient b)',fontsize=8)
+ax[1].set_xlabel('log x',fontsize=8); ax[1].set_ylabel('log y',fontsize=8)
+for a_ in ax: a_.grid(alpha=0.25)
 plt.tight_layout(); plt.show()
 ```
 :::
 
-::: {.workspace style="min-height:4cm"}
+::: {.workspace style="min-height:3cm"}
 Working
 :::
 
 ---
 
-### Question 16
+### Question 45 &nbsp;<span style="font-size:0.72em;color:#8a8a8a;font-weight:400">2018 · P1 Q14</span>
 
 ::: {.question}
-Contrast the graphs of $y=\ln\!\big(x^{2}\big)$ and $y=2\ln x$. Are they the same curve? Give the domain and
-symmetry of each.
+The line $y=mx+4$ passes through the points $(3,\log_2 p)$ and $(\log_2 p,\,4)$. What are the possible values
+of $p$? *(Give the exact values.)*
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon=false}
 ## Solution
 
-[*($\ln x^{2}$ is not $2\ln x$ — mind the domain)*]{style="color:#7a5195"}
+[*(put both points on the line; let $L=\log_2 p$)*]{style="color:#7a5195"}
 
 ::: {.topic}
-Topic — $\ln(x^{2})$ is even (both signs of $x$); $2\ln x$ lives only on $x>0$
+Topic — substitute each point into $y=mx+4$, then $p=2^{L}$
 :::
 
-**Answer: they agree only for $x>0$. $\ln(x^{2})$ is defined for all $x\ne0$ and is **even**; $2\ln x$ is
-defined only for $x>0$.**
+**Answer: $p=1$ and $p=16$.**
 
-The power law carries a modulus: $\ln(x^{2})=2\ln|x|$. For $x>0$ this is $2\ln x$; for $x<0$ the left side is
-still defined ($x^{2}>0$) while $2\ln x$ is not. So $y=\ln(x^{2})$ is the even curve with a mirror branch on
-$x<0$; $y=2\ln x$ is only its right half. Writing $\ln(x^{2})=2\ln x$ silently **drops the left branch**.
+*Let $L=\log_2 p$. Both points satisfy $y=mx+4$:*
+
+- from $(3,L)$: $L=3m+4$;
+- from $(L,4)$: $4=mL+4\Rightarrow mL=0$, so $m=0$ or $L=0$.
+
+*Case $m=0$:* the first equation gives $L=4$, so $p=2^{4}=16$ (line $y=4$, through $(3,4)$ and $(4,4)$ ✓).
+*Case $L=0$:* then $p=2^{0}=1$, and $m=\tfrac{L-4}{3}=-\tfrac43$ (line through $(3,0)$ and $(0,4)$ ✓).
+
+So $p=1$ or $p=16$.
+:::
+
+::: {.workspace style="min-height:3.5cm"}
+Working
+:::
+
+---
+
+### Question 46
+
+::: {.question}
+Two positive variables $P$ and $t$ obey a law of the form $P=At^{n}$. When $\log_{10}P$ is plotted against
+$\log_{10}t$, the graph is a straight line through $(0,2)$ with gradient $3$. Find the constants $A$ and $n$.
+*(Give exact values.)*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+[*(read the gradient and intercept off the linear form)*]{style="color:#7a5195"}
+
+::: {.topic}
+Topic — $\log P=\log A+n\log t$: gradient $=n$, intercept $=\log A$
+:::
+
+**Answer: $A=100$, $n=3$.**
+
+*Take logs:* $\log_{10}P=\log_{10}A+n\log_{10}t$. Comparing with a straight line
+$Y=(\text{intercept})+(\text{gradient})X$, where $Y=\log_{10}P$ and $X=\log_{10}t$:
+
+- the **gradient** is $n=3$;
+- the **intercept** is $\log_{10}A=2$, so $A=10^{2}=100$.
+
+Hence $P=100\,t^{3}$.
 
 ```{python}
 #| fig-align: center
 import numpy as np, matplotlib.pyplot as plt
-xn=np.linspace(-8,-0.03,400); xp=np.linspace(0.03,8,400)
-fig,ax=plt.subplots(1,2,figsize=(6.8,2.9))
-ax[0].plot(xn,np.log(xn**2),color='#2b6cb0',lw=2); ax[0].plot(xp,np.log(xp**2),color='#2b6cb0',lw=2)
-ax[0].set_title('y = ln(x²): even, x≠0',fontsize=9)
-ax[1].plot(xp,2*np.log(xp),color='#2b6cb0',lw=2); ax[1].set_title('y = 2 ln x: only x>0',fontsize=9)
-for a in ax: a.axvline(0,color='crimson',ls=':',lw=1); a.axhline(0,color='0.6',lw=0.5); a.grid(alpha=0.25); a.set_ylim(-4,5)
+X=np.linspace(0,3,50); Y=2+3*X
+plt.figure(figsize=(4.2,2.6))
+plt.plot(X,Y,'crimson',lw=1.8)
+plt.plot(0,2,'ko',ms=5); plt.annotate('intercept (0, 2)\n→ log A = 2 → A = 100',(0,2),textcoords='offset points',xytext=(12,-6),fontsize=8)
+plt.annotate('gradient 3 → n = 3',(1.5,6.5),fontsize=8)
+plt.xlabel('log₁₀ t',fontsize=8); plt.ylabel('log₁₀ P',fontsize=8)
+plt.grid(alpha=0.25); plt.title('log P vs log t: a straight line',fontsize=8)
 plt.tight_layout(); plt.show()
 ```
 :::
 
-::: {.workspace style="min-height:4cm"}
+::: {.workspace style="min-height:3cm"}
 Working
 :::
 
@@ -579,18 +2442,19 @@ Working
 ::: {.callout-tip}
 ## Memorise — logarithms
 
-- **Laws:** product $\to$ sum, quotient $\to$ difference, power $\to$ front coefficient; change of base
-  $\log_a x=\dfrac{\log_b x}{\log_b a}=\dfrac1{\log_x a}$.
-- **Solve:** collect to one log $\to$ undo $\to$ solve $\to$ **check every argument is $>0$** (reject
-  extraneous roots).
-- **Hidden quadratics:** $u=\log_a x$ turns $(\log x)^2$-equations into quadratics; $t=a^{x}>0$ turns
-  exponential equations into quadratics (reject $t\le0$).
-- **$\log_2(x^{2})=2\log_2 x$** only for $x>0$; in general it is $2\log_2\lvert x\rvert$.
-- **Inequalities:** base $>1$ keeps the sign, base $0<a<1$ **flips** it; the argument $>0$ often supplies the
-  other boundary.
-- **Counting with a parameter:** rewrite to linear/quadratic (or line-meets-curve), then a **sign of $ab$** or
-  a **tangent** value fixes the number of valid solutions.
-- **Graphs:** $y=\log_a(x-p)+q$ — asymptote $x=p$, through $(p+1,q)$ and $(p+a,q+1)$; state the domain.
+- **Existence:** $\log_a b$ needs $a>0$, $a\ne1$, $b>0$ — these are the domain, and they reject roots
+  (including a root that makes a base equal to $1$).
+- **Four cases:** $\log_a b>0\iff$ $a$ and $b$ on the same side of $1$; $\log_a b>1\iff b$ is beyond $a$ on the
+  far side from $1$.
+- **Graphs:** $a>1$ rises, $0<a<1$ falls; through $(1,0)$, $(a,1)$, $\left(\tfrac1a,-1\right)$; bigger base
+  $\Rightarrow$ flatter; $\log_{1/a}x=-\log_a x$; $\log_a x$ is $a^{x}$ reflected in $y=x$.
+- **Laws:** product $\to$ sum, quotient $\to$ difference, power $\to$ coefficient; change of base
+  $\log_a x=\dfrac{\log_b x}{\log_b a}=\dfrac1{\log_x a}$; $\log_2(x^{2})=2\log_2\lvert x\rvert$.
+- **Solve:** collect to one log $\to$ undo $\to$ solve $\to$ **check every argument and base**.
+- **Hidden quadratics:** $u=a^{x}>0$ (reject $u\le0$); $L=\log_a x$.
+- **Inequalities:** base $>1$ keeps, $0<a<1$ **flips**, unknown base **splits into two cases**.
+- **Counting:** reduce to linear/quadratic or curve-meets-curve; the domain decides which roots count.
+- **Linearisation:** $y=Ax^{n}$ → $\log y$ vs $\log x$; $y=Ab^{x}$ → $\log y$ vs $x$.
 :::
 
 :::

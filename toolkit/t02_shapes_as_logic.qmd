@@ -290,6 +290,16 @@ point — the result is a valid counterexample to almost anything.
 | Perpendicular diagonals $\Rightarrow$ the side midpoints form a rectangle | **True** | *Varignon* |
 | …and that rectangle is a square | **False** | *only if the diagonals are also equal* |
 
+**What “Varignon” means.** Varignon's theorem says that joining the four side midpoints of **any**
+quadrilateral always produces a parallelogram. More precisely, its sides are parallel to the original
+quadrilateral's diagonals and have half their lengths.
+
+Therefore, if the original diagonals are perpendicular, adjacent sides of the midpoint parallelogram are
+also perpendicular, so it is a **rectangle**. It becomes a **square** only when the original diagonals are
+equal as well, because then the midpoint rectangle's adjacent sides also have equal length.
+
+[any quadrilateral $\to$ midpoint parallelogram; perpendicular diagonals $\to$ rectangle; perpendicular and equal diagonals $\to$ square]{.eg}
+
 [2018 Q5, answer **A** (neither statement is necessarily true)]{.eg}
 :::
 

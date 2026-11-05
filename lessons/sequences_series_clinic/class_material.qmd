@@ -21,7 +21,7 @@ from a formula or a recurrence, arithmetic series including $\sum k$, finite geo
 infinity of a **convergent** geometric series. That is the whole list. But $\sum k^{2}$, $\sum k\,2^{k}$ and
 $\sum\frac{1}{k(k+1)}$ are all set by the mocks and by the harder past papers, and none of them is on it. So
 sections 4–8 below cover [the three ways to build a sum you were never given]{.hl} — the **method of
-differences** (*부분급수* / telescoping), the shifted copy, and summing an identity.
+differences** (telescoping), the shifted copy, and summing an identity.
 
 ::::: {.formulasheet}
 
@@ -526,7 +526,7 @@ $$\sum_{k=1}^{n}\left(3k^{2}-2k+5\right)=3\cdot\frac{n(n+1)(2n+1)}{6}-2\cdot\fra
 
 A British A-level student meets $\sum$ **to infinity** only through the geometric series, so a sum like
 $\displaystyle\sum_{k=1}^{\infty}\frac{1}{k(k+1)}$ looks impossible — it is not geometric, and no formula
-applies. The technique below is standard in the Korean curriculum (*부분급수* / partial sums) and in
+applies. The technique below is standard in the Korean curriculum (as *partial sums*) and in
 Further Maths, and **JZ Mock A Paper 2 Q8 is exactly this**.
 
 It is not hard. It is one idea.

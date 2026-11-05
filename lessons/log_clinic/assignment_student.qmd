@@ -1,6 +1,6 @@
 ---
-title: "Logarithms — Extension Clinic — Assignment"
-subtitle: "Quadratics in aˣ and log x, simultaneous log/exp systems, and log–log linearisation (MM5)"
+title: "Logarithm Clinic — Assignment"
+subtitle: "Quadratics in aˣ and log x, simultaneous log/exp systems, linearisation, and existence, signs & base-below-1 inequalities (MM5)"
 format: html
 jupyter: python3
 execute:
@@ -10,7 +10,7 @@ execute:
 
 ::: {.solutions}
 
-**Show all your reasoning.** Total: **39 marks** · Suggested time: **55 minutes**. No calculator. Every question
+**Show all your reasoning.** Total: **52 marks** · Suggested time: **70 minutes**. No calculator. Every question
 is exam standard. (No $e$ or $\ln$ — all in-spec.)
 
 | Section | What it covers | Marks |
@@ -19,6 +19,7 @@ is exam standard. (No $e$ or $\ln$ — all in-spec.)
 | **B — Quadratic in $\log x$** | substitute $L=\log_a x$ | 7 |
 | **C — Simultaneous log/exp** | clear the logs / substitute $A=a^x,B=a^y$ | 12 |
 | **D — Linearisation** | read gradient & intercept of a log plot | 10 |
+| **E — Existence, signs & base below 1** | $a>0,\ a\ne1,\ b>0$; four sign cases; flip for $0<a<1$ | 13 |
 
 ::: {.callout-note appearance="simple"}
 **Answer form.** Solutions for $x$ → exact values (reject any that break a domain or give $u\le0$). Constants
@@ -142,6 +143,48 @@ Working
 Solve $\log_2 x=2+\log_4 x$.
 
 ::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+# Section E — Existence, signs & base below 1
+
+## Question 12 **[3]**
+
+State the domain of $f(x)=\log_x\!\left(4-x^{2}\right)$ in interval notation.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 13 **[3]**
+
+Solve $\log_{x-2}\!\left(x^{2}-6x+10\right)=1$.
+
+::: {.workspace style="min-height:4cm"}
+Working
+:::
+
+---
+
+## Question 14 **[4]**
+
+Without a calculator, put in increasing order: $\log_{0.5}3,\ \log_3 0.5,\ \log_3 5,\ \log_5 3$.
+
+::: {.workspace style="min-height:4.5cm"}
+Working
+:::
+
+---
+
+## Question 15 **[3]**
+
+Solve $\log_{1/2}(x+1)>\log_{1/2}(3-x)$. State your answer in interval notation.
+
+::: {.workspace style="min-height:4cm"}
 Working
 :::
 

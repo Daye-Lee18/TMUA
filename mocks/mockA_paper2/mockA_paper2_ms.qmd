@@ -34,6 +34,10 @@ execute:
 $P$: $n$ odd; $Q$: $n^{2}\equiv1\pmod{16}$.
 :::
 
+### Step-by-step explanation
+
+Start by testing the two implication directions separately; a condition can be necessary without being sufficient.
+
 **$Q\Rightarrow P$.** If $n$ were even, $n^{2}$ would be even, so it could not be $\equiv1$.
 
 **$P\not\Rightarrow Q$.** Write $n=2k+1$: $n^{2}=4k(k+1)+1$, and $k(k+1)$ is even, so $n^{2}\equiv1\pmod 8$ —
@@ -50,6 +54,10 @@ $1$ or $9$ modulo $16$.*
 Both roots of $x^{2}+bx+c=0$ real and in $(0,1)$. Which is **not** a necessary consequence?
 :::
 
+### Step-by-step explanation
+
+Name the two roots first. Vieta’s formula then turns every option into a simple statement about numbers in $(0,1)$.
+
 Let the roots be $\alpha,\beta\in(0,1)$. Then $c=\alpha\beta>0$ ✓ (**A**), and $b=-(\alpha+\beta)\in(-2,0)$ ✓
 (**B**). Real roots give $b^{2}\ge4c$ ✓ (**D**). And $f(1)=1+b+c=(1-\alpha)(1-\beta)>0$ ✓ (**C**).
 
@@ -63,6 +71,10 @@ $c=0.81>\tfrac14$, $b=-1.8$, and $b^{2}-4c=3.24-3.24=0$ — a genuine repeated r
 ::: {.question}
 Negate $\forall\varepsilon>0\ \exists N\ \forall n>N:\ \lvert a_n-L\rvert<\varepsilon$.
 :::
+
+### Step-by-step explanation
+
+Negate the statement from the outside in: switch each quantifier, keep its order, and negate the final inequality.
 
 Flip every quantifier in order and negate the final condition:
 
@@ -85,6 +97,10 @@ Which of **1** $\forall x\exists y\forall z:x+y>z$, **2** $\exists y\forall x:x+
 **3** $\forall x\forall y\exists z:z>x+y$, **4** $\exists x\forall y:xy=0$ are true?
 :::
 
+### Step-by-step explanation
+
+The order of the quantifiers tells us which variables may depend on earlier choices, so examine the statements one at a time.
+
 **1 is false.** Once $x$ and $y$ are chosen, $x+y$ is a fixed number, and $z$ may be any real — take
 $z=x+y+1$. *The $\forall z$ comes last, so $z$ may depend on both earlier choices.*
 
@@ -102,6 +118,10 @@ $z=x+y+1$. *The $\forall z$ comes last, so $z$ may depend on both earlier choice
 For which $m$ does "$m$ divides $n^{k}$ implies $m$ divides $n$" hold for every $k\ge2$ and every $n$?
 :::
 
+### Step-by-step explanation
+
+Prime factorisation reveals exactly what taking a power can hide, so write the exponent of every prime explicitly.
+
 Write $m=\prod p_i^{e_i}$. Raising $n$ to the power $k$ multiplies every exponent in $n$ by $k$, so $m\mid
 n^{k}$ only constrains $n$ to carry $\lceil e_i/k\rceil$ copies of each $p_i$.
 
@@ -112,14 +132,34 @@ n^{k}$ only constrains $n$ to carry $\lceil e_i/k\rceil$ copies of each $p_i$.
 
 Squarefree is exactly "a product of **distinct** primes". **B**
 
-*A is too narrow: $m=6$ works and is not prime. C is a different condition — $12$ is not a perfect power but
-fails at $n=6$.*
+**Why option A is too narrow.** Define
+
+$$R(m):\quad \text{for every }k\ge2\text{ and every positive integer }n,\quad
+m\mid n^k\Rightarrow m\mid n.$$
+
+Option A is claiming that
+
+$$R(m)\Longleftrightarrow m\text{ is prime}.$$
+
+To disprove that claim, we need a **non-prime value of $m$ for which $R(m)$ is still true**. Take $m=6$.
+If $6\mid n^k$, then $2\mid n^k$ and $3\mid n^k$. Since $2$ and $3$ are prime, both divide $n$, so
+$6\mid n$. Thus $R(6)$ is true even though $6$ is not prime.
+
+By contrast, $m=4$, $n=2$, $k=2$ gives $4\mid2^2$ but $4\nmid2$. This is a counterexample to the
+**inner implication** for $m=4$, but it does not disprove option A: option A already predicts failure when
+$m=4$ because $4$ is not prime. The counterexample to option A is $m=6$, not $m=4$.
+
+Option C is a different condition: $12$ is not a perfect power but fails at $n=6$.
 
 ## Question 6 — **A**
 
 ::: {.question}
 Smallest $n\ge0$ for which $n^{2}+n+41$ is not prime, and why.
 :::
+
+### Step-by-step explanation
+
+We need both a composite value and proof that no earlier input works; finding one later failure is not enough.
 
 $n^{2}+n+41=n(n+1)+41$. For $0\le n\le39$ the value is prime (this is the classic Euler polynomial). At
 
@@ -136,6 +176,10 @@ $\tfrac{1}{x-2}<1$ by $x-2$ gives $1<x-2$* **(2)**; *therefore $x>3$* **(3)**; *
 $\tfrac{1}{x-2}<1$ is $x>3$* **(4)**. Which is correct — valid; (1) wrong; (2) wrong because $x-2$ could be
 negative; (1)–(3) valid but (4) wrong; or (3) wrong?
 :::
+
+### Step-by-step explanation
+
+Check whether each line is valid under the assumptions currently in force, and then check whether the final conclusion has silently dropped an assumption.
 
 Steps (1), (2) and (3) are each **valid** — given $\lvert x-3\rvert<1$ we do have $2<x<4$, hence $x-2>0$, and
 multiplying by a positive number is legitimate.
@@ -158,6 +202,10 @@ A student solves $x^{3}=x$: **Step 1** $x^{3}-x=0$; **Step 2** $x\left(x^{2}-1\r
 **Step 3** dividing by $x$, $x^{2}-1=0$; **Step 4** $x=1$ or $x=-1$. Where is the first error, if any?
 :::
 
+### Step-by-step explanation
+
+The key issue is equivalence: every algebraic step must preserve all solutions, including any value by which we divide.
+
 **Step 3** divides by $x$ without excluding $x=0$. *Division is only reversible by a non-zero quantity, so the
 step throws away the root $x=0$* — the solution set shrinks, which is just as fatal as growing.
 
@@ -170,6 +218,10 @@ $x^{3}-x=x(x-1)(x+1)=0$ gives $x=0,\,1,\,-1$. **C**
 ::: {.question}
 Order the lines to prove $\log_b d=(\log_a b)^{2}(\log_a c)$ from $\log_c d=(\log_a b)^{3}$.
 :::
+
+### Step-by-step explanation
+
+Translate the logarithms into index form and follow the dependency of the lines; the hypothesis must come before the conclusion.
 
 With $x=\log_a b$, $y=\log_a c$ the hypothesis is $\log_c d=x^{3}$, i.e. $d=c^{(x^{3})}$ — **line (2)**, which
 is where the proof must start. Then one base change at a time:
@@ -190,6 +242,10 @@ to prove. C swaps (5) and (4), which would need $a^{(x^{3}y)}$ before $c$ had be
 The contrapositive of "if $n$ is prime **and** $n>2$ then $n$ is odd".
 :::
 
+### Step-by-step explanation
+
+Write the statement as $H\Rightarrow C$. Its contrapositive is $\neg C\Rightarrow\neg H$, with De Morgan’s law applied carefully.
+
 The hypothesis is a **conjunction**, so its negation is a **disjunction** (De Morgan):
 
 $$\lnot(\text{odd})\Rightarrow\lnot(\text{prime}\wedge n>2)
@@ -204,6 +260,10 @@ Check it on $n=2$: even, and indeed $n\le2$ holds, so the contrapositive is sati
 ::: {.question}
 Which is impossible for an integer $n$?
 :::
+
+### Step-by-step explanation
+
+A short residue table is enough: determine all possible square residues modulo $8$ and compare them with the options.
 
 Squares modulo $8$: writing $n=4q+r$ with $r\in\{0,1,2,3\}$ and squaring gives
 
@@ -220,6 +280,10 @@ $125=15\times8+5$.* A, B, C are achieved by $n=4,2,1$.
 $\gcd(a,b)=6$, $\operatorname{lcm}(a,b)=180$. How many **ordered** pairs?
 :::
 
+### Step-by-step explanation
+
+Remove the common gcd first. The remaining coprime factors must split the prime factors of $30$ without sharing any.
+
 Write $a=6\alpha$, $b=6\beta$ with $\gcd(\alpha,\beta)=1$. Then
 $\operatorname{lcm}(a,b)=6\alpha\beta=180$, so $\alpha\beta=30=2\times3\times5$.
 
@@ -235,6 +299,10 @@ $$(6,180),(12,90),(18,60),(30,36),(36,30),(60,18),(90,12),(180,6). \qquad\textbf
 ::: {.question}
 Replace two numbers $a,b$ by $a+b-1$ until one remains.
 :::
+
+### Step-by-step explanation
+
+Instead of following particular choices, look for a quantity that changes by the same amount at every move.
 
 Look for an **invariant**. Each move removes $a$ and $b$ and inserts $a+b-1$, so the total **drops by exactly
 $1$**, whatever the choice. Starting from
@@ -254,6 +322,10 @@ reduces how many numbers are on the board by one.*
 Necessary and sufficient for $\lvert x-1\rvert<2$.
 :::
 
+### Step-by-step explanation
+
+Convert every condition into an interval. Necessary and sufficient means that the two intervals are exactly equal.
+
 $\lvert x-1\rvert<2\iff-1<x<3$. Now test each:
 
 | | set | verdict |
@@ -271,6 +343,10 @@ $\lvert x-1\rvert<2\iff-1<x<3$. Now test each:
 ::: {.question}
 Diagonals of $ABCD$ equal **and** perpendicular; what must be true of $EFGH$?
 :::
+
+### Step-by-step explanation
+
+Join the midpoints using the midpoint theorem; the sides of $EFGH$ inherit the lengths and directions of the diagonals of $ABCD$.
 
 By the midpoint theorem $\overrightarrow{EF}=\tfrac12\overrightarrow{AC}$ and
 $\overrightarrow{FG}=\tfrac12\overrightarrow{BD}$, so $EFGH$ is always a parallelogram with sides parallel to
@@ -290,15 +366,63 @@ nor a rhombus — yet its $EFGH$ is a square.*
 $3$-element subsets of $\{1,\dots,9\}$ with every pair coprime.
 :::
 
-Group by the obstruction. The even numbers $\{2,4,6,8\}$ are pairwise non-coprime, so **at most one** even
-number may appear; likewise $\{3,6,9\}$ contributes at most one multiple of $3$.
+### 1. 원소 분석
 
-Counting systematically (by how many of $2,4,6,8$ and of $3,6,9$ are used) gives
+전체 집합 $\{1,2,3,4,5,6,7,8,9\}$을 공약수 충돌(obstruction)을 기준으로 나눕니다.
 
-$$\boxed{37}. \qquad\textbf{C}$$
+- **자유로운 원소(충돌 없음):** $\{1,5,7\}$ (3개)
+  - 이 수들은 집합 안의 다른 어떤 수와도 $1$ 이외의 공약수를 갖지 않으므로 제약 없이 선택할 수 있습니다.
+- **2의 배수 전용(짝수이면서 3의 배수가 아님):** $\{2,4,8\}$ (3개)
+- **3의 배수 전용(홀수이면서 3의 배수):** $\{3,9\}$ (2개)
+- **공통 충돌 원소(2와 3의 공배수):** $\{6\}$ (1개)
 
-*The quickest route in the exam is to count the complement badly and get $45-\text{(bad)}$; the reliable route
-is "at most one even, at most one multiple of 3", which also explains why the answer is not a round number.*
+> **핵심 규칙**
+>
+> - 짝수는 최대 1개까지만 선택할 수 있습니다.
+> - 3의 배수도 최대 1개까지만 선택할 수 있습니다.
+> - $6$은 짝수이자 3의 배수이므로, $6$을 선택하면 다른 짝수나 3의 배수는 선택할 수 없습니다.
+
+### 2. 경우의 수 분류 (총 3개 원소 선택)
+
+#### Case 1. 숫자 $6$을 포함하는 경우
+
+$6$을 고르면 짝수 $\{2,4,8\}$과 3의 배수 $\{3,9\}$는 모두 선택할 수 없습니다.
+
+따라서 남은 2개의 원소는 오직 **자유로운 원소 $\{1,5,7\}$** 중에서 골라야 합니다.
+
+$$\binom{3}{2}=3\text{가지}$$
+
+#### Case 2. 숫자 $6$을 포함하지 않는 경우
+
+$6$을 제외하면 선택 가능한 후보는 다음과 같습니다.
+
+- 자유로운 원소: $\{1,5,7\}$ (3개)
+- 짝수: $\{2,4,8\}$ (3개 중 최대 1개)
+- 3의 배수: $\{3,9\}$ (2개 중 최대 1개)
+
+짝수와 3의 배수를 각각 몇 개 뽑는지에 따라 네 가지로 나눕니다.
+
+1. **짝수 1개, 3의 배수 1개, 자유로운 원소 1개**
+
+   $$\binom{3}{1}\times\binom{2}{1}\times\binom{3}{1}=3\times2\times3=18\text{가지}$$
+
+2. **짝수 1개, 3의 배수 0개, 자유로운 원소 2개**
+
+   $$\binom{3}{1}\times\binom{3}{2}=3\times3=9\text{가지}$$
+
+3. **짝수 0개, 3의 배수 1개, 자유로운 원소 2개**
+
+   $$\binom{2}{1}\times\binom{3}{2}=2\times3=6\text{가지}$$
+
+4. **짝수 0개, 3의 배수 0개, 자유로운 원소 3개**
+
+   $$\binom{3}{3}=1\text{가지}$$
+
+### 3. 전체 개수 합산
+
+$$3+(18+9+6+1)=3+34=37$$
+
+따라서 조건을 만족하는 3개 원소의 부분집합은 **37개**이며, 정답은 **C**입니다.
 
 ## Question 17 — **B**
 
@@ -306,11 +430,51 @@ is "at most one even, at most one multiple of 3", which also explains why the an
 "$P$ or $Q$" is true for every $x$ and "$P$ and $Q$" is false for every $x$.
 :::
 
-For each $x$, exactly one of $P,Q$ holds: *the first condition rules out both being false, the second rules out
-both being true.* That is precisely the statement that $Q$ is the **negation** of $P$. **B**
+### Step-by-step explanation
 
-*A and D claim one of them is always true or always false, which neither condition gives. C fails: if $P$ holds
-then $Q$ does not, so $P\Rightarrow Q$ is false wherever $P$ is true.*
+Treat $P$ and $Q$ as the sets of real numbers for which the corresponding statements are true. The two
+conditions together give more than the one-way implication $Q\Rightarrow P^c$: they force the equivalence
+
+$$Q\iff P^c.$$
+
+### 1. Use the condition “$P$ and $Q$ is false for every $x$”
+
+No real number can make both statements true. In set language,
+
+$$P\cap Q=\varnothing.$$
+
+Therefore every element of $Q$ lies outside $P$:
+
+$$Q\subseteq P^c,$$
+
+or equivalently, $Q\Rightarrow\neg P$. On its own, this condition would still allow some values of $x$
+for which both $P$ and $Q$ are false.
+
+### 2. Use the condition “$P$ or $Q$ is true for every $x$”
+
+Every real number must satisfy at least one of the two statements. If the universal set is $U=\mathbb R$, then
+
+$$P\cup Q=U.$$
+
+So there is no region outside both sets. In particular, if $x\notin P$, the only remaining possibility is
+$x\in Q$. Hence
+
+$$P^c\subseteq Q,$$
+
+or equivalently, $\neg P\Rightarrow Q$.
+
+### 3. Combine the two inclusions
+
+We have both $Q\subseteq P^c$ and $P^c\subseteq Q$, so
+
+$$Q=P^c.$$
+
+Thus, for every $x$, exactly one of $P(x)$ and $Q(x)$ is true. A statement that always has the opposite truth
+value from $P$ is precisely the negation of $P$. Therefore the answer is **B**.
+
+Options **A** and **D** incorrectly claim that one statement has a fixed truth value for every $x$. Option
+**C** is also not forced: whenever $P$ is true, $Q$ must be false, so $P\Rightarrow Q$ does not hold in
+general.
 
 ## Question 18 — **B**
 
@@ -320,6 +484,10 @@ An attempted proof that $\sqrt2$ is irrational: **(1)** suppose $\sqrt2=\tfrac p
 $4r^{2}=2q^{2}$, so $q^{2}=2r^{2}$ and $q$ is even; **(5)** so $p$ and $q$ are both even, contradicting
 lowest terms. Which step uses a fact that itself requires proof, and which fact is it?
 :::
+
+### Step-by-step explanation
+
+Treat $P$ and $Q$ as their truth sets. The two verbal conditions become a union condition and an intersection condition.
 
 Step **(3)** uses "$p^{2}$ even $\Rightarrow$ $p$ even", which is the **converse direction** of the easy fact
 and needs its own argument — usually the contrapositive: *if $p$ is odd then $p=2m+1$ and
@@ -333,6 +501,10 @@ kind of converse that S2 warns is not free.*
 ::: {.question}
 How many $n$ with $1\le n\le100$ have $7\mid n^{2}+n+1$?
 :::
+
+### Step-by-step explanation
+
+Work modulo $7$ first, identify the successful residue classes, and only then count how often they occur from $1$ to $100$.
 
 Work modulo $7$. Testing $n\equiv0,\dots,6$:
 
@@ -355,6 +527,10 @@ where the mark is.*
 ::: {.question}
 $A\to B$, $B\to C$, $C\to A$, $A\to D$. What must follow?
 :::
+
+### Step-by-step explanation
+
+View each implication as a directed arrow. Chaining arrows around the cycle gives equivalence, while the arrow to $D$ remains one-way.
 
 The first three form a **cycle**, so $A$, $B$ and $C$ are all equivalent: from $B$ we reach $C$ then $A$, and
 from $A$ we reach $B$ directly.

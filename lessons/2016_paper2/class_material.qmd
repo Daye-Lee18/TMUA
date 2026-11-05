@@ -1,0 +1,1208 @@
+---
+title: "2016 Paper 2 — Worked Solutions"
+subtitle: "All 20 questions · topic-mapped to the toolkit"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.solutions}
+
+A TMUA Paper 2 is two halves in one paper: **Section 1** is applications (the same mathematics as Paper 1)
+and **Section 2** is mathematical reasoning (the Arg / Prf / Err codes — toolkit S1–S7). Work each question
+first, then open its **Solution**.
+
+2016 is the oldest sitting and reads slightly differently from 2019 onwards — the paper calls itself a
+*practice paper*. Two features are worth noticing before you start. First, the reasoning questions here are
+less often dressed as "necessary / sufficient" and more often as puzzles (Q4) or as orderings of a proof
+(Q7). Second, several application questions hide a reasoning step inside them: Q8, Q11 and Q12 all ask
+"which must be true", which is an Arg question wearing an algebra costume.
+
+## Topic map
+
+| Q | What it tests | Toolkit / topic |
+|---|---|---|
+| 1 | Definite integral of a squared bracket | *Application* — calculus |
+| 2 | Differentiating after splitting a fractional index | *Application* — indices / calculus |
+| 3 | Largest solution of a trigonometric equation | *Application* — trigonometry |
+| **4** | Exactly one statement is true — find which | **Arg — reading statements (S1)** |
+| **5** | Counting counterexamples to a primality claim | **Prf1 — counterexample (S5) + T1** |
+| 6 | An iterated derivative, then a geometric sum | *Application* — sequences & series |
+| **7** | Assembling a proof in the right order | **Prf3 — scrambled proof (S6)** |
+| **8** | Which statements hold for **every** point of a region | **Arg2 — must-be-true (S3)** |
+| **9** | Which extra conditions force congruence | **T2 — shapes as logical conditions** |
+| **10** | Which condition is **sufficient** for $x<y$ | **Arg2 — sufficient (S3)** |
+| **11** | Which statements about a polynomial **must** be true | **Arg2 — must-be-true (S3)** |
+| **12** | What can be deduced about two signs | **Arg2 — what follows (S3)** |
+| **13** | First error in a divisibility proof | **Err1 — spot the error (S7)** |
+| 14 | Which root-count pattern is impossible | *Application* — graphs of quartics |
+| **15** | An **if and only if** condition on a quadratic | **Arg3 — equivalence (S3)** |
+| 16 | A length inside a trapezium | *Application* — similar triangles |
+| 17 | A line meeting a sine curve | *Application* — graphs |
+| **18** | A counterexample to an integral claim | **Prf1 — counterexample (S5)** |
+| 19 | Reconstructing a solid from three views | *Application* — 3-D reasoning |
+| 20 | Pairs of regular polygons | *Application* — polygons / number |
+
+**Answers.** 1 A · 2 B · 3 D · 4 C · 5 C · 6 C · 7 C · 8 B · 9 D · 10 E · 11 D · 12 F · 13 E · 14 B ·
+15 D · 16 C · 17 H · 18 D · 19 F · 20 E
+
+---
+
+## Question 1
+
+Find the value of $\displaystyle\int_{1}^{2}\left(x^{2}-\frac{4}{x^{2}}\right)^{2}\mathrm{d}x$.
+
+&nbsp;&nbsp;**A** $\tfrac{43}{15}$ &nbsp; **B** $3$ &nbsp; **C** $\tfrac{97}{15}$ &nbsp;
+**D** $\tfrac{103}{15}$ &nbsp; **E** $\tfrac{163}{15}$ &nbsp; **F** $18$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**A.** *Expand before integrating — there is no rule for the square of a bracket.*
+
+$$\left(x^{2}-\frac{4}{x^{2}}\right)^{2}=x^{4}-8+\frac{16}{x^{4}}=x^{4}-8+16x^{-4}.$$
+
+The middle term is $-2\cdot x^{2}\cdot\dfrac{4}{x^{2}}=-8$, a **constant** — that cancellation is the whole
+point of the question. Integrating,
+
+$$\int\left(x^{4}-8+16x^{-4}\right)\mathrm dx=\frac{x^{5}}{5}-8x-\frac{16}{3x^{3}} .$$
+
+$$\left[\frac{x^{5}}{5}-8x-\frac{16}{3x^{3}}\right]_1^2
+=\left(\frac{32}{5}-16-\frac{2}{3}\right)-\left(\frac{1}{5}-8-\frac{16}{3}\right)
+=\frac{31}{5}-8+\frac{14}{3}=\boxed{\frac{43}{15}} .$$
+
+*The common slip is integrating $16x^{-4}$ to $16x^{-3}/(-3)$ and then losing the minus sign; note the
+antiderivative is $-\tfrac{16}{3}x^{-3}$, which **increases** as $x$ grows.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 2
+
+$$f(x)=\frac{\left(x^{2}+5\right)(2x)}{\sqrt[4]{x^{3}}},\qquad x>0$$
+
+Which one of the following is equal to $f'(x)$?
+
+&nbsp;&nbsp;**A** $8x^{9/4}+\tfrac{40}{3}x^{1/4}$ &nbsp; **B** $\tfrac92x^{5/4}+\tfrac52x^{-3/4}$ &nbsp;
+**C** $8x^{9/4}+\tfrac{40}{3}x^{-1/4}$ &nbsp; **D** $\tfrac{8}{13}x^{13/4}+8x^{5/4}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.** *Simplify into a sum of powers first. Nobody should use the quotient rule here.*
+
+The numerator is $2x^{3}+10x$ and the denominator is $x^{3/4}$, so
+
+$$f(x)=\frac{2x^{3}+10x}{x^{3/4}}=2x^{3-\frac34}+10x^{1-\frac34}=2x^{9/4}+10x^{1/4}.$$
+
+Now differentiate term by term, multiplying by the index and reducing it by $1$:
+
+$$f'(x)=2\cdot\frac94x^{5/4}+10\cdot\frac14x^{-3/4}=\boxed{\frac92x^{5/4}+\frac52x^{-3/4}} .$$
+
+*Options A and C are what you get by **integrating** instead of differentiating, or by forgetting to reduce
+the index; D integrates the first term and differentiates the second.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 3
+
+What is the value, in radians, of the largest angle $x$ in the range $0\le x\le2\pi$ that satisfies
+$8\sin^{2}x+4\cos^{2}x=7$?
+
+&nbsp;&nbsp;**A** $\tfrac{2\pi}{3}$ &nbsp; **B** $\tfrac{5\pi}{6}$ &nbsp; **C** $\tfrac{4\pi}{3}$ &nbsp;
+**D** $\tfrac{5\pi}{3}$ &nbsp; **E** $\tfrac{7\pi}{4}$ &nbsp; **F** $\tfrac{11\pi}{6}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.** *Reduce to a single trigonometric function using $\sin^{2}x+\cos^{2}x=1$.*
+
+$$8\sin^{2}x+4\left(1-\sin^{2}x\right)=7\ \Longrightarrow\ 4\sin^{2}x=3\ \Longrightarrow\
+\sin x=\pm\frac{\sqrt3}{2}.$$
+
+*Both signs are needed — squaring destroyed the sign information, so do not discard the negative root.*
+The related acute angle is $\tfrac{\pi}{3}$, so in $[0,2\pi]$ the solutions are
+
+$$x=\frac{\pi}{3},\ \frac{2\pi}{3},\ \frac{4\pi}{3},\ \frac{5\pi}{3}.$$
+
+The largest is $\boxed{\dfrac{5\pi}{3}}$.
+
+*Option C, $\tfrac{4\pi}{3}$, is the trap for anyone who finds only the solutions with $\sin x<0$ and stops
+at the third quadrant.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 4
+
+Five sealed urns, labelled $P$, $Q$, $R$, $S$ and $T$, each contain the **same** (non-zero) number of
+balls. The following statements are attached to the urns.
+
+| Urn | Statement |
+|---|---|
+| $P$ | This urn contains one or four balls. |
+| $Q$ | This urn contains two or four balls. |
+| $R$ | This urn contains more than two balls and fewer than five balls. |
+| $S$ | This urn contains one or two balls. |
+| $T$ | This urn contains fewer than three balls. |
+
+Exactly one of the urns has a true statement attached to it. Which urn is it?
+
+&nbsp;&nbsp;**A** Urn $P$ &nbsp; **B** Urn $Q$ &nbsp; **C** Urn $R$ &nbsp; **D** Urn $S$ &nbsp;
+**E** Urn $T$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** *Every urn holds the same number $n$, so the five statements are five claims about one unknown.
+Tabulate $n$ against the truth values — there are only a handful of cases.*
+
+| $n$ | $P$: $1$ or $4$ | $Q$: $2$ or $4$ | $R$: $2<n<5$ | $S$: $1$ or $2$ | $T$: $n<3$ | number true |
+|---|---|---|---|---|---|---|
+| $1$ | ✓ | ✗ | ✗ | ✓ | ✓ | $3$ |
+| $2$ | ✗ | ✓ | ✗ | ✓ | ✓ | $3$ |
+| $3$ | ✗ | ✗ | ✓ | ✗ | ✗ | **$1$** |
+| $4$ | ✓ | ✓ | ✓ | ✗ | ✗ | $3$ |
+| $5$ or more | ✗ | ✗ | ✗ | ✗ | ✗ | $0$ |
+
+Only $n=3$ gives exactly one true statement, and the true one is $R$'s.
+
+$$\boxed{\text{Urn }R}$$
+
+*The condition "exactly one is true" is what pins down $n$; the question is really solving for $n$ and only
+then reading off the urn. Note that $n=4$ makes three statements true and $n\ge5$ makes none, so both tails
+are ruled out quickly.*
+:::
+
+:::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Alternative solution — the set method, and what to do when the sets only overlap
+
+*Instead of tabulating $n$, turn each statement into the **set of values that make it true**. Relations
+between those sets then eliminate urns without testing anything.*
+
+**Step 1 — write the sets.** Each urn holds the same non-zero $n$, so:
+
+$$P=\{1,4\},\qquad Q=\{2,4\},\qquad R=\{3,4\},\qquad S=\{1,2\},\qquad T=\{1,2\}.$$
+
+**Step 2 — $S$ and $T$ are equivalent, so both are out.**
+
+::: {.callout-important}
+## Sufficient is not enough here — you need equality
+
+$S$ and $T$ are the **same set**, so $S\Leftrightarrow T$: they are true together and false together.
+Since exactly **one** statement is true, they cannot both be true, so **both are false**.
+
+Had $S$ only been *sufficient* for $T$ — that is, $S\subsetneq T$ — the argument would be weaker. It
+would give "$S$ true $\Rightarrow$ two true $\Rightarrow$ contradiction", so $S$ is false; but $T$ could
+still be the lone true statement. It is the **equality** $S=T$ that kills $T$ as well.
+:::
+
+So $n\notin\{1,2\}$.
+
+**Step 3 — the overlapping trio.** $P$, $Q$ and $R$ pairwise intersect, yet none contains another:
+
+$$P\cap Q=P\cap R=Q\cap R=\{4\},\qquad P\not\subseteq Q,\quad Q\not\subseteq R,\quad\text{and so on.}$$
+
+*This is the situation you asked about, and inclusion is the wrong tool for it. Look instead at what they
+**share**.*
+
+$$\boxed{P\cap Q\cap R=\{4\}}$$
+
+A value lying in several sets makes several statements true at once, which the question forbids. Here
+$n=4$ would make **all three** of $P$, $Q$, $R$ true, so
+
+$$n\ne4 .$$
+
+**Step 4 — with the shared element gone, the trio becomes disjoint.** Deleting $4$ leaves
+
+$$P=\{1\},\qquad Q=\{2\},\qquad R=\{3\},$$
+
+which are now **pairwise disjoint**, so at most one of them can be true — the condition "exactly one true"
+is finally within reach. Combining with Step 2 ($n\notin\{1,2\}$), the only survivor is $R$, requiring
+
+$$\boxed{n=3,\ \text{so the true statement is on urn }R}$$
+
+**Step 5 — check.** At $n=3$: $P$ ✗, $Q$ ✗, $R$ ✓, $S$ ✗, $T$ ✗ — exactly one. ✓
+*(And $n\ge5$ lies outside every set, giving none true, so nothing was missed above $4$.)*
+
+**The transferable move.** When several statements overlap without any containing another, do not hunt for
+inclusions. Ask instead:
+
+> *which values belong to **more than one** set?*
+
+Those are exactly the values that break a "exactly one is true" condition. Remove them, and what is left
+is usually disjoint — at which point counting becomes trivial.
+::::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 5
+
+Consider the statement:
+
+> $(*)$ A whole number $n$ is prime if it is $1$ less or $5$ less than a multiple of $6$.
+
+How many counterexamples to $(*)$ are there in the range $0<n<50$?
+
+&nbsp;&nbsp;**A** $2$ &nbsp; **B** $3$ &nbsp; **C** $4$ &nbsp; **D** $5$ &nbsp; **E** $6$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** *First read the direction of the "if".* The statement says
+
+$$\left(n=6k-1\ \text{ or }\ n=6k-5\right)\ \Longrightarrow\ n\text{ is prime},$$
+
+so a counterexample is a number **of that form** which is **not** prime. It is not enough to find a prime
+outside the form.
+
+The numbers of the two forms below $50$ are
+
+$$6k-1:\ 5,\,11,\,17,\,23,\,29,\,35,\,41,\,47 \qquad
+6k-5:\ 1,\,7,\,13,\,19,\,25,\,31,\,37,\,43,\,49 .$$
+
+Now strike out the primes and see what survives:
+
+$$\boxed{1,\quad 25=5^{2},\quad 35=5\times7,\quad 49=7^{2}}$$
+
+That is **four** counterexamples.
+
+*The one most often missed is $n=1$, which is of the form $6(1)-5$ and is **not prime** — $1$ has only one
+factor, not two. Forgetting it gives $3$, which is option B.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 6
+
+The sequence of functions $f_1(x),f_2(x),f_3(x),\dots$ is defined by
+
+$$f_1(x)=x^{10},\qquad f_{n+1}(x)=x\,f_n'(x)\ \text{ for } n\ge1 .$$
+
+Find the value of $\displaystyle\sum_{n=1}^{20}f_n(x)$.
+
+&nbsp;&nbsp;**A** $\dfrac{x^{10}\left(x^{20}-1\right)}{x-1}$ &nbsp;
+**B** $\dfrac{x^{10}\left(x^{21}-1\right)}{x-1}$ &nbsp;
+**C** $\left(\dfrac{10^{20}-1}{9}\right)x^{10}$ &nbsp;
+**D** $\left(\dfrac{10^{21}-1}{9}\right)x^{10}$ &nbsp;
+**E** $\left(\dfrac{(10x)^{20}-1}{10x-1}\right)x^{10}$ &nbsp;
+**F** $\left(\dfrac{(10x)^{21}-1}{10x-1}\right)x^{10}$ &nbsp;
+**G** $x^{10}+x^{9}+\cdots+x+1$ &nbsp;
+**H** $x^{10}+10x^{9}+(10\times9)x^{8}+\cdots$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** *Compute the first two or three terms and the pattern is immediate.*
+
+$$f_1=x^{10},\qquad f_2=x\cdot10x^{9}=10x^{10},\qquad f_3=x\cdot100x^{9}=100x^{10}.$$
+
+The operation $g\mapsto xg'$ leaves $x^{10}$ alone and multiplies the coefficient by $10$ every time, so
+
+$$f_n(x)=10^{\,n-1}x^{10}.$$
+
+*The power of $x$ never changes — differentiating drops it to $9$ and the factor $x$ puts it straight
+back.* Summing is then a geometric series with first term $1$ and ratio $10$:
+
+$$\sum_{n=1}^{20}f_n(x)=x^{10}\left(1+10+10^{2}+\cdots+10^{19}\right)
+=\boxed{\left(\frac{10^{20}-1}{9}\right)x^{10}} .$$
+
+*Option D uses $21$ terms instead of $20$; options A, B, E and F come from treating $x$ as the common
+ratio, which it is not.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 7
+
+The four real numbers $a,b,c,d$ are all greater than $1$ and satisfy $\log_c d=\left(\log_a b\right)^{2}$.
+Use some of the lines given to construct a proof that
+
+$$(*)\quad \log_b d=\left(\log_a b\right)\left(\log_a c\right).$$
+
+&nbsp;&nbsp;**(1)** Let $x=\log_a b$ and $y=\log_a c$ &nbsp;&nbsp;
+**(2)** $d=\left(c^{x}\right)^{2}$ &nbsp;&nbsp; **(3)** $d=c^{\left(x^{2}\right)}$ &nbsp;&nbsp;
+**(4)** $d=b^{xy}$ &nbsp;&nbsp; **(5)** $d=\left(a^{y}\right)^{\left(x^{2}\right)}$ &nbsp;&nbsp;
+**(6)** $d=\left(\left(a^{y}\right)^{x}\right)^{2}$ &nbsp;&nbsp; **(7)** $d=\left(a^{x}\right)^{xy}$
+&nbsp;&nbsp; **(8)** $d=a^{\left(y^{2x}\right)}$ &nbsp;&nbsp; **(9)** $d=a^{\left(x^{2}y\right)}$
+
+&nbsp;&nbsp;**A** (1), (2), (6), (8), (7), (4) &nbsp; **B** (1), (2), (7), (8), (6), (4) &nbsp;
+**C** (1), (3), (5), (9), (7), (4) &nbsp; **D** (1), (3), (7), (9), (5), (4)
+
+&nbsp;&nbsp;**E** (1), (4), (5), (9), (7), (3) &nbsp; **F** (1), (4), (6), (8), (7), (2) &nbsp;
+**G** (1), (4), (7), (8), (6), (2) &nbsp; **H** (1), (4), (7), (9), (5), (3)
+
+:::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** *Translate the logarithms into indices immediately: with $x=\log_a b$ and $y=\log_a c$ we have
+$b=a^{x}$ and $c=a^{y}$, and the target is $\log_b d=xy$, i.e. $d=b^{xy}$.*
+
+::: {.callout-important}
+## The rule that decides this question
+
+In a proof of **"hypothesis $\Rightarrow$ conclusion"**, every line must be **derived from the
+hypothesis** and from lines already established.
+
+**You may never start at the conclusion, and you may never use any part of the conclusion to justify a
+step.** The conclusion is the destination, not a resource.
+
+Here the hypothesis is $\log_c d=\left(\log_a b\right)^{2}$ and the conclusion $(*)$ is
+$\log_b d=xy$ — which is exactly what line **(4)**, $d=b^{xy}$, says. So **any route that places (4)
+early has assumed what it was asked to prove**. Such a route does not prove $(*)$; running it as written
+derives the *hypothesis* from the *conclusion*, which is the **converse**.
+
+Four of the eight options — **E, F, G and H** — all begin $(1)\to(4)$. Half the paper's options are
+eliminated by this one observation, before any algebra.
+:::
+
+Start from the hypothesis. $\log_c d=x^{2}$ means
+
+$$\textbf{(3)}\quad d=c^{\left(x^{2}\right)} .$$
+
+Replace $c$ by $a^{y}$:
+
+$$\textbf{(5)}\quad d=\left(a^{y}\right)^{\left(x^{2}\right)}
+\qquad\Longrightarrow\qquad \textbf{(9)}\quad d=a^{\left(x^{2}y\right)} .$$
+
+Now regroup the exponent as $x\cdot xy$ so that $a^{x}$ appears:
+
+$$\textbf{(7)}\quad d=\left(a^{x}\right)^{xy}
+\qquad\Longrightarrow\qquad \textbf{(4)}\quad d=b^{xy},$$
+
+and taking $\log_b$ of both sides gives $\log_b d=xy=\left(\log_a b\right)\left(\log_a c\right)$, which is
+$(*)$. $\blacksquare$
+
+$$\boxed{(1)\to(3)\to(5)\to(9)\to(7)\to(4)}$$
+
+Note that **(4) arrives last**, as the final consequence — never as a premise.
+
+**Eliminating the rest.**
+
+| route | starts | verdict |
+|---|---|---|
+| **E, F, G, H** | $(1)\to(4)$ | **assume the conclusion** — ruled out by the rule above |
+| **A, B** | $(1)\to(2)$ | line (2) reads $d=\left(c^{x}\right)^{2}=c^{2x}$, which is **not** $c^{\left(x^{2}\right)}$ |
+| **D** | $(1)\to(3)\to(7)$ | jumps from $d=c^{\left(x^{2}\right)}$ straight to a statement about $a^{x}$, with $c$ never replaced |
+| **C** | $(1)\to(3)\to(5)$ | ✓ each line follows from the one before |
+
+*The $(1)\to(2)$ trap is worth naming separately: $\left(c^{x}\right)^{2}=c^{2x}$, whereas the hypothesis
+gives $c^{\left(x^{2}\right)}$. Squaring the exponent and doubling it are different things, and the paper
+offers both.*
+::::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 8
+
+A region is defined by the inequalities $x+y>6$ and $x-y>-4$. Consider the three statements:
+
+&nbsp;&nbsp;**1** $x>1$ &nbsp;&nbsp; **2** $y>5$ &nbsp;&nbsp; **3** $(x+y)(x-y)>-24$
+
+Which of the above statements is/are true for **every** point in the region?
+
+&nbsp;&nbsp;**A** none &nbsp; **B** 1 only &nbsp; **C** 2 only &nbsp; **D** 3 only &nbsp;
+**E** 1 and 2 only &nbsp; **F** 1 and 3 only &nbsp; **G** 2 and 3 only &nbsp; **H** 1, 2 and 3
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.** *The region is an unbounded wedge, so anything that can be made large by going far out along it will
+break.*
+
+**Statement 1 is true.** Add the two given inequalities:
+
+$$(x+y)+(x-y)>6+(-4)\ \Longrightarrow\ 2x>2\ \Longrightarrow\ x>1 .$$
+
+*Adding is legitimate because both are strict inequalities in the same direction.*
+
+**Statement 2 is false.** Subtracting gives $2y=(x+y)-(x-y)$, but we only have a **lower** bound for
+$x-y$, and subtracting a lower bound tells us nothing. Travelling far to the right along the wedge makes
+$y$ as negative as we like:
+
+$$\boxed{(x,y)=(97,-51):\quad x+y=46>6\ ✓,\quad x-y=148>-4\ ✓,\quad y=-51\not>5 }$$
+
+**Statement 3 is false.** Here $x+y$ is positive and unbounded while $x-y$ may sit just above $-4$, so the
+product can be hugely negative:
+
+$$\boxed{(x,y)=(48.5,\,51.5):\quad x+y=100,\quad x-y=-3,\quad (x+y)(x-y)=-300<-24 }$$
+
+![](){#fig-q8}
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The wedge is unbounded to the right. Statement 1 holds on all of it, but travelling along the wedge breaks statements 2 and 3."
+import numpy as np, matplotlib.pyplot as plt
+BL, RD, GR = '#2b6cb0', '#c53030', '#2f855a'
+fig, ax = plt.subplots(figsize=(6.4, 4.2))
+xs = np.linspace(-5, 120, 800)
+ax.plot(xs, 6-xs, color=BL, lw=1.8, label=r"$x+y=6$")
+ax.plot(xs, xs+4, color=GR, lw=1.8, label=r"$x-y=-4$")
+X, Y = np.meshgrid(np.linspace(-5,120,600), np.linspace(-70,130,600))
+ax.contourf(X, Y, ((X+Y>6) & (X-Y>-4)).astype(float), levels=[0.5,1.5], colors=[BL], alpha=0.14)
+ax.plot(1, 5, 'o', color='0.25', ms=6); ax.annotate(r"$(1,5)$", (1,5), textcoords="offset points", xytext=(8,6), fontsize=10)
+ax.plot(97, -51, 'o', color=RD, ms=7); ax.annotate(r"$(97,-51)$: $y<5$", (97,-51), textcoords="offset points", xytext=(-108,-4), fontsize=10, color=RD)
+ax.plot(48.5, 51.5, 'o', color=RD, ms=7); ax.annotate(r"$(48.5,51.5)$: product $=-300$", (48.5,51.5), textcoords="offset points", xytext=(-40,16), fontsize=10, color=RD)
+ax.axhline(0, color='0.75', lw=0.8); ax.axvline(0, color='0.75', lw=0.8)
+ax.set_xlim(-5,120); ax.set_ylim(-70,130); ax.set_xlabel("$x$"); ax.set_ylabel("$y$")
+ax.legend(loc="upper left", fontsize=9, frameon=False)
+plt.tight_layout(); plt.show()
+```
+
+*The vertex of the wedge is $(1,5)$ — which is exactly why statement 1 is sharp, and why it is tempting to
+believe statement 2 as well. But the vertex is excluded and the region opens to the right, not upwards.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 9
+
+Triangles $ABC$ and $XYZ$ have the **same area**. Which of these extra conditions, taken independently,
+would **imply** that they are congruent?
+
+&nbsp;&nbsp;**(1)** $AB=XY$ and $BC=YZ$
+&nbsp;&nbsp;**(2)** $AB=XY$ and $\angle ABC=\angle XYZ$
+&nbsp;&nbsp;**(3)** $\angle ABC=\angle XYZ$ and $\angle BCA=\angle YZX$
+
+The options run from **A** (none of the three imply congruence) through to **H** (all three do).
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D** — condition (1) does **not** imply congruence, while (2) and (3) do.
+
+*The area formula $K=\tfrac12\,ab\sin C$ is the bridge in every part: it turns "same area" into a statement
+about a sine.*
+
+**(1) does not imply congruence.** With $AB=XY$ and $BC=YZ$, equal areas give
+
+$$\tfrac12\,AB\cdot BC\sin B=\tfrac12\,XY\cdot YZ\sin Y\ \Longrightarrow\ \sin B=\sin Y .$$
+
+But $\sin B=\sin Y$ allows $B=180^{\circ}-Y$ as well as $B=Y$. Take both triangles with sides $1$ and $1$
+about the included angle, one with $B=30^{\circ}$ and the other with $Y=150^{\circ}$: both have area
+$\tfrac14$, yet the third sides are
+
+$$\sqrt{2-2\cos30^{\circ}}\approx0.518 \qquad\text{and}\qquad \sqrt{2-2\cos150^{\circ}}\approx1.932 .$$
+
+$$\boxed{\text{Same area, two equal sides, and still not congruent.}}$$
+
+**(2) implies congruence.** Now $B=Y$ is **given**, so $\sin B=\sin Y$ and the area equation reduces to
+$AB\cdot BC=XY\cdot YZ$. Since $AB=XY$, we get $BC=YZ$, and two sides with the included angle is **SAS**.
+
+**(3) implies congruence.** Two equal angles force the third to match, so the triangles are **similar**.
+Similar triangles with ratio $k$ have areas in the ratio $k^{2}$; equal areas give $k^{2}=1$, so $k=1$ and
+similarity becomes congruence.
+
+*Note how (1) fails for exactly the reason the ambiguous case of the sine rule exists — a sine does not
+determine its angle.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 10
+
+In this question $x$ and $y$ are non-zero real numbers. Which one of the following is **sufficient** to
+conclude that $x<y$?
+
+&nbsp;&nbsp;**A** $x^{4}<y^{4}$ &nbsp; **B** $y^{4}<x^{4}$ &nbsp; **C** $x^{-1}<y^{-1}$ &nbsp;
+**D** $y^{-1}<x^{-1}$ &nbsp; **E** $x^{3/5}<y^{3/5}$ &nbsp; **F** $y^{3/5}<x^{3/5}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.** *A condition is sufficient only if it forces $x<y$ for **every** admissible pair — one bad pair
+kills an option.*
+
+The function $t\mapsto t^{3/5}$ is defined for all real $t$ and is **strictly increasing**: the fifth root
+is defined for negatives (an odd root), and cubing preserves order. A strictly increasing function can be
+undone without reversing the inequality, so
+
+$$x^{3/5}<y^{3/5}\iff x<y .$$
+
+$$\boxed{\textbf{E}}$$
+
+Each of the others fails on a pair of negatives, where the operation is not order-preserving:
+
+| option | counterexample | why it fails |
+|---|---|---|
+| **A** $x^{4}<y^{4}$ | $x=-1,\ y=-2$ | $1<16$ ✓ but $-1>-2$ — the fourth power only compares $\lvert x\rvert$ |
+| **C** $x^{-1}<y^{-1}$ | $x=-1,\ y=-2$ | $-1<-0.5$ ✓ but $-1>-2$ — reciprocating reverses order on same-sign pairs |
+| **B**, **D**, **F** | — | these are the reversed versions, and fail on the positives |
+
+*Fourth powers lose the sign and reciprocals reverse the order, so neither is safe across zero. An **odd**
+index is what makes E work.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 11
+
+$f(x)$ is a polynomial with real coefficients. The equation $f(x)=0$ has exactly two real roots, $x=-p$ and
+$x=p$, where $p>0$. Consider:
+
+&nbsp;&nbsp;**1** $f'(x)=0$ for exactly one value of $x$ between $-p$ and $p$.
+&nbsp;&nbsp;**2** The area between the curve $y=f(x)$, the $x$-axis and the lines $x=-p$ and $x=p$ is
+given by $2\displaystyle\int_0^p f(x)\,\mathrm dx$.
+&nbsp;&nbsp;**3** The graph of $y=-f(-x)$ intersects the $x$-axis at the points $x=-p$ and $x=p$ only.
+
+Which of the above statements **must** be true?
+
+&nbsp;&nbsp;**A** none &nbsp; **B** 1 only &nbsp; **C** 2 only &nbsp; **D** 3 only &nbsp;
+**E** 1 and 2 only &nbsp; **F** 1 and 3 only &nbsp; **G** 2 and 3 only &nbsp; **H** 1, 2 and 3
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.** *"Exactly two real roots" says nothing about what the curve does between them, and a single
+polynomial refutes the first two statements at once.*
+
+Take
+
+$$\boxed{f(x)=\left(x^{2}-1\right)\left(x^{2}+1\right)^{2}=x^{6}+x^{4}-x^{2}-1,\qquad p=1 .}$$
+
+Since $\left(x^{2}+1\right)^{2}>0$ for every real $x$, the only real roots are $x=\pm1$ — exactly two, as
+required.
+
+**Statement 1 is false.** Differentiating and factorising,
+
+$$f'(x)=2x\left(x^{2}+1\right)\left(3x^{2}-1\right),$$
+
+whose real zeros are $x=0$ and $x=\pm\tfrac{1}{\sqrt3}\approx\pm0.577$ — **three** of them, all strictly
+between $-1$ and $1$. Rolle's theorem guarantees *at least* one; nothing guarantees only one.
+
+**Statement 2 is false.** Area needs $\lvert f\rvert$, and on $(-1,1)$ this $f$ is **negative**. The true
+area is $\tfrac{208}{105}$, whereas $2\int_0^1f\,\mathrm dx=-\tfrac{208}{105}$ — the wrong sign. *Even
+though this $f$ happens to be even, the formula still fails, because $\int f$ measures signed area.*
+
+**Statement 3 is true.** $y=-f(-x)$ vanishes exactly where $f(-x)=0$, i.e. where $-x=\pm p$, i.e. at
+$x=\mp p$ — the same two points. *Rotating a graph by $180^{\circ}$ about the origin moves each root to its
+negative, and $\{-p,p\}$ is unchanged by that.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The counterexample. Two real roots, but three stationary points between them — and the curve lies below the axis, so the signed integral is not the area."
+import numpy as np, matplotlib.pyplot as plt
+BL, RD = '#2b6cb0', '#c53030'
+fig, ax = plt.subplots(figsize=(6.2, 3.8))
+xs = np.linspace(-1.25, 1.25, 800)
+ys = xs**6 + xs**4 - xs**2 - 1
+ax.plot(xs, ys, color=BL, lw=2)
+ax.axhline(0, color='0.6', lw=0.9); ax.axvline(0, color='0.85', lw=0.8)
+for r in (-1, 1):
+    ax.plot(r, 0, 'o', color='0.2', ms=6)
+for s in (-1/np.sqrt(3), 0.0, 1/np.sqrt(3)):
+    ax.plot(s, s**6+s**4-s**2-1, 'o', color=RD, ms=7)
+ax.annotate("three stationary points", (0, -1), textcoords="offset points", xytext=(8,14), color=RD, fontsize=10)
+ax.set_xlabel("$x$"); ax.set_ylabel("$y$"); ax.set_ylim(-1.35, 0.6)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 12
+
+The first term of an arithmetic sequence is $a$ and the common difference is $d$. The sum of the first $n$
+terms is $S_n$. If $S_8>3S_6$, what can be deduced about the sign of $a$ and the sign of $d$?
+
+&nbsp;&nbsp;**A** both $a$ and $d$ are negative &nbsp; **B** $a$ positive, $d$ negative &nbsp;
+**C** $a$ negative, $d$ positive &nbsp; **D** $a$ negative, sign of $d$ not determined
+
+&nbsp;&nbsp;**E** $d$ negative, sign of $a$ not determined &nbsp; **F** neither sign can be deduced
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**F.** *Turn the condition into a single inequality first; only then ask what it forces.*
+
+With $S_n=\tfrac{n}{2}\left(2a+(n-1)d\right)$,
+
+$$S_8=4(2a+7d)=8a+28d,\qquad 3S_6=3\cdot3(2a+5d)=18a+45d .$$
+
+$$S_8>3S_6\ \Longrightarrow\ 8a+28d>18a+45d\ \Longrightarrow\ \boxed{10a+17d<0}$$
+
+That is a single half-plane, and a half-plane whose boundary passes through the origin contains points of
+every sign combination except the one it excludes. Concretely:
+
+| $a$ | $d$ | $10a+17d$ | condition holds? |
+|---|---|---|---|
+| $1$ | $-1$ | $-7$ | ✓ — so $a$ may be **positive** |
+| $-1$ | $0$ | $-10$ | ✓ — so $a$ may be **negative** |
+| $-2$ | $1$ | $-3$ | ✓ — so $d$ may be **positive** |
+| $1$ | $-1$ | $-7$ | ✓ — so $d$ may be **negative** |
+
+Neither sign is forced.
+
+*The tempting wrong move is to read $10a+17d<0$ as "both negative". It is only a weighted sum: either one
+may be positive provided the other is negative enough to outweigh it.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 13
+
+In this question $a$, $b$ and $c$ are positive integers. The following is an attempted proof of the **false**
+statement: *if $a$ divides $bc$, then $a$ divides $b$ or $a$ divides $c$.*
+
+&nbsp;&nbsp;**1.** The statement is equivalent to "if $a$ does not divide $b$ and $a$ does not divide $c$
+then $a$ does not divide $bc$".
+&nbsp;&nbsp;**2.** Suppose $a$ does not divide $b$ and $a$ does not divide $c$. Then the remainder when
+dividing $b$ by $a$ is $r$, where $0<r<a$, and the remainder when dividing $c$ by $a$ is $s$, where
+$0<s<a$.
+&nbsp;&nbsp;**3.** So $b=ax+r$ and $c=ay+s$ for some integers $x$ and $y$.
+&nbsp;&nbsp;**4.** Thus $bc=a(axy+xs+yr)+rs$.
+&nbsp;&nbsp;**5.** So the remainder when dividing $bc$ by $a$ is $rs$.
+&nbsp;&nbsp;**6.** Since $r>0$ and $s>0$, it follows that $rs>0$.
+&nbsp;&nbsp;**7.** Hence $a$ does not divide $bc$.
+
+Which line contains the error in this proof?
+
+&nbsp;&nbsp;**A** Line 1 &nbsp; **B** Line 2 &nbsp; **C** Line 3 &nbsp; **D** Line 4 &nbsp;
+**E** Line 5 &nbsp; **F** Line 6
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.** *Lines 1 to 4 are all correct — line 1 is the contrapositive, and line 4 is honest algebra. The
+failure is a definition being misapplied.*
+
+A remainder must satisfy $0\le\text{remainder}<a$. Line 4 correctly writes
+
+$$bc=a\left(axy+xs+yr\right)+rs,$$
+
+but $rs$ can be **as large as** $(a-1)^{2}$, which is usually bigger than $a$. So $rs$ is not the
+remainder; the remainder is $rs$ reduced modulo $a$, and that reduction may well give $0$.
+
+$$\boxed{\text{Line 5}}$$
+
+*The cleanest illustration is the standard counterexample to the whole claim.* Take $a=4$, $b=2$, $c=2$:
+
+$$r=2,\quad s=2,\quad rs=4,\qquad\text{but}\qquad bc=4\ \text{and}\ 4\div4\ \text{leaves remainder }0 .$$
+
+So $a$ **does** divide $bc$ while dividing neither $b$ nor $c$ — exactly why the statement is false, and
+exactly the case line 5 overlooks.
+
+*The claim becomes a theorem when $a$ is **prime** (Euclid's lemma); with a prime modulus, $rs\equiv0$ would
+force $r\equiv0$ or $s\equiv0$.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 14
+
+$f(x)=ax^{4}+bx^{3}+cx^{2}+dx+e$, where $a,b,c,d,e$ are real numbers. Suppose $f(x)=1$ has $p$ distinct
+real solutions, $f(x)=2$ has $q$, $f(x)=3$ has $r$, and $f(x)=4$ has $s$. Which one of the following is
+**not** possible?
+
+&nbsp;&nbsp;**A** $p=1,q=2,r=4,s=3$ &nbsp; **B** $p=1,q=3,r=2,s=4$ &nbsp; **C** $p=1,q=4,r=3,s=2$
+
+&nbsp;&nbsp;**D** $p=2,q=4,r=3,s=1$ &nbsp; **E** $p=4,q=3,r=2,s=1$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**B.** *Think of a horizontal line $y=k$ sweeping upwards across the graph of the quartic, and count
+crossings.*
+
+A quartic with positive leading coefficient is a "W": two local minima at heights $m_1,m_2$ and one local
+maximum at height $M$ between them. As $k$ increases the crossing count goes
+
+$$0\ \to\ 1\ \to\ 2\ \to\ 3\ \to\ 4\ \to\ 3\ \to\ 2 ,$$
+
+rising while the line is below the local maximum and falling once it is above, after which it stays at $2$
+forever. (If the leading coefficient is negative, the same thing happens upside down.) In every case:
+
+$$\boxed{\text{the sequence of counts rises, then falls — it never rises again.}}$$
+
+Checking the five options against that shape:
+
+| | $(p,q,r,s)$ | pattern | possible? |
+|---|---|---|---|
+| A | $(1,2,4,3)$ | up, up, down | ✓ |
+| **B** | $(1,3,2,4)$ | up, **down**, **up** | ✗ |
+| C | $(1,4,3,2)$ | up, down, down | ✓ |
+| D | $(2,4,3,1)$ | up, down, down | ✓ |
+| E | $(4,3,2,1)$ | down, down, down | ✓ |
+
+Only B falls and then rises again, which would need the line to re-enter a part of the curve it has already
+passed.
+
+*The underlying fact is that a quartic has at most three turning points, so at most two "levels" at which
+the count can change direction — one rise and one fall.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 15
+
+Consider the quadratic $f(x)=x^{2}-2px+q$ and the statement:
+
+> $(*)$ $f(x)=0$ has two real roots whose difference is greater than $2$ and less than $4$.
+
+Which one of the following statements is true **if and only if** $(*)$ is true?
+
+&nbsp;&nbsp;**A** $q<p^{2}<q+4$ &nbsp; **B** $\sqrt{q+1}<p<\sqrt{q+4}$ &nbsp;
+**C** $q-3\le p^{2}-4\le q$ &nbsp; **D** $q<p^{2}-1<q+3$ &nbsp; **E** $q-2<p^{2}-3<q+2$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.** *Get the difference of the roots in closed form; everything else is rearrangement.*
+
+Completing the square, $f(x)=(x-p)^{2}-\left(p^{2}-q\right)$, so the roots are
+
+$$x=p\pm\sqrt{p^{2}-q},\qquad\text{difference}=2\sqrt{p^{2}-q}.$$
+
+*The difference is automatically non-negative, so no modulus signs are needed.* The condition $(*)$ is
+
+$$2<2\sqrt{p^{2}-q}<4\ \Longrightarrow\ 1<\sqrt{p^{2}-q}<2\ \Longrightarrow\ 1<p^{2}-q<4 .$$
+
+*Squaring is safe here because all three quantities are positive.* Now compare with option D:
+
+$$q<p^{2}-1<q+3\ \Longleftrightarrow\ 0<p^{2}-1-q<3\ \Longleftrightarrow\ \boxed{1<p^{2}-q<4}$$
+
+— exactly the condition, so D is the equivalence.
+
+*Option A gives $0<p^{2}-q<4$, which also admits a difference of $0$ to $2$: it is **necessary** but not
+sufficient, the classic near-miss. Option B additionally assumes $p>0$, which $(*)$ never states.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 16
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The given configuration (not to scale): $PQ \\parallel SR$, the diagonals meet at $X$, and $UT$ passes through $X$ parallel to $PQ$."
+import numpy as np, matplotlib.pyplot as plt
+BL, RD, GR = '#2b6cb0', '#c53030', '#2f855a'
+P, Q = np.array([0.0, 0.0]), np.array([12.0, 0.0])
+S, R = np.array([3.6, 6.0]), np.array([6.6, 6.0])
+fig, ax = plt.subplots(figsize=(6.0, 4.0))
+for A, B in [(P,Q),(Q,R),(R,S),(S,P)]:
+    ax.plot([A[0],B[0]], [A[1],B[1]], color='0.25', lw=1.8)
+ax.plot([P[0],R[0]], [P[1],R[1]], color='0.55', lw=1.2)
+ax.plot([S[0],Q[0]], [S[1],Q[1]], color='0.55', lw=1.2)
+def inter(a, b, c, d):
+    """Intersection of segment a-b with segment c-d."""
+    M = np.array([b-a, c-d]).T
+    return a + np.linalg.solve(M, c-a)[0] * (b-a)
+X = inter(P, R, S, Q)
+ax.plot(*X, 'o', color=RD, ms=6)
+U = P + (S-P)*(X[1]/S[1]); T = Q + (R-Q)*(X[1]/R[1])
+ax.plot([U[0],T[0]], [U[1],T[1]], color=RD, lw=2.2)
+for pt, lab, off in [(P,"$P$",(-14,-12)),(Q,"$Q$",(6,-12)),(S,"$S$",(-14,6)),(R,"$R$",(6,6)),
+                     (X,"$X$",(4,-16)),(U,"$U$",(-16,-2)),(T,"$T$",(7,-2))]:
+    ax.annotate(lab, pt, textcoords="offset points", xytext=off, fontsize=12)
+ax.annotate("", xy=(R[0],6.5), xytext=(S[0],6.5), arrowprops=dict(arrowstyle="<->", color=GR))
+ax.text((S[0]+R[0])/2, 6.75, "3 cm", ha="center", color=GR, fontsize=10)
+ax.annotate("", xy=(12,-0.7), xytext=(0,-0.7), arrowprops=dict(arrowstyle="<->", color=GR))
+ax.text(6, -1.5, "12 cm", ha="center", color=GR, fontsize=10)
+ax.set_aspect("equal"); ax.axis("off"); ax.set_ylim(-2.4, 7.6)
+plt.tight_layout(); plt.show()
+```
+
+In the figure, $PQRS$ is a trapezium with $PQ$ parallel to $SR$. The diagonals meet at $X$. $U$ lies on
+$SP$ and $T$ lies on $RQ$ such that $UT$ is a line segment through $X$ parallel to $PQ$. The length of $PQ$
+is $12$ cm and the length of $SR$ is $3$ cm. What, in centimetres, is the length of $UT$?
+
+&nbsp;&nbsp;**A** $4.2$ &nbsp; **B** $4.5$ &nbsp; **C** $4.8$ &nbsp; **D** $5.25$ &nbsp; **E** $6$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**C.** *Two pairs of similar triangles, joined at $X$.*
+
+Because $SR\parallel PQ$, triangles $SXR$ and $QXP$ are similar (alternate angles at the diagonals), with
+ratio
+
+$$\frac{XR}{XP}=\frac{SR}{PQ}=\frac{3}{12}=\frac14 .$$
+
+Write $h$ for the distance from $X$ down to $PQ$ and $H$ for the full height of the trapezium. The same
+similarity gives $\dfrac{H-h}{h}=\dfrac14$, so $h=\dfrac{4H}{5}$.
+
+Now use $UX\parallel PQ$ in triangle $SPQ$: triangles $SUX$ and $SPQ$ are similar, so
+
+$$\frac{UX}{PQ}=\frac{H-h}{H}=\frac15\ \Longrightarrow\ UX=\frac{12}{5}.$$
+
+By the identical argument on the other side, $XT=\dfrac{12}{5}$, and therefore
+
+$$UT=\frac{12}{5}+\frac{12}{5}=\boxed{4.8\ \text{cm}} .$$
+
+*The result is worth memorising: $UT$ is the **harmonic mean** of the two parallel sides,*
+
+$$UT=\frac{2\cdot PQ\cdot SR}{PQ+SR}=\frac{2\times12\times3}{15}=4.8 .$$
+
+*Option E, $6$, is the trap — that is the **arithmetic** mean $\tfrac12(12+3)=7.5$ misremembered, or the
+midline of the trapezium, which is a different segment. The line through $X$ is always shorter than the
+midline.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 17
+
+Consider these simultaneous equations, where $c$ is a constant:
+
+$$y=3\sin x+2,\qquad y=x+c .$$
+
+Which of the following statements is/are true?
+
+&nbsp;&nbsp;**1** For some value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there is
+at least one solution with $-\pi<x<0$.
+&nbsp;&nbsp;**2** For some value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there
+are no solutions with $-\pi<x<0$.
+&nbsp;&nbsp;**3** For some value of $c$: there is exactly one solution with $0\le x\le\pi$ **and** there
+are no solutions with $x>\pi$.
+
+&nbsp;&nbsp;**A** none &nbsp; **B** 1 only &nbsp; **C** 2 only &nbsp; **D** 3 only &nbsp;
+**E** 1 and 2 only &nbsp; **F** 1 and 3 only &nbsp; **G** 2 and 3 only &nbsp; **H** 1, 2 and 3
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**H** — all three.
+
+*Each statement only asks for **some** $c$, so a single witness settles each one. Sliding $c$ moves the line
+$y=x+c$ vertically across the fixed wave $y=3\sin x+2$.*
+
+```{python}
+#| fig-align: center
+#| fig-cap: "Three positions of the line. Each is a witness for one statement; crossings are marked."
+import numpy as np, matplotlib.pyplot as plt
+BL, RD, GR, PU = '#2b6cb0', '#c53030', '#2f855a', '#6b46c1'
+def roots(c, lo, hi, n=400001):
+    xs = np.linspace(lo, hi, n); h = 3*np.sin(xs)+2-xs-c
+    idx = np.where(np.sign(h[:-1])*np.sign(h[1:]) < 0)[0]
+    out = []
+    for i in idx:
+        a, b = xs[i], xs[i+1]
+        for _ in range(60):
+            m = (a+b)/2
+            if (3*np.sin(a)+2-a-c)*(3*np.sin(m)+2-m-c) <= 0: b = m
+            else: a = m
+        out.append((a+b)/2)
+    return out
+fig, axes = plt.subplots(3, 1, figsize=(6.6, 9.6), sharex=True)
+xs = np.linspace(-np.pi, 12, 1400)
+for ax, (c, lab) in zip(axes, [(0.41, "statement 1"), (-1.14, "statement 2"), (-1.14, "statement 3")]):
+    ax.plot(xs, 3*np.sin(xs)+2, color=BL, lw=2, label=r"$y=3\sin x+2$")
+    ax.plot(xs, xs+c, color=RD, lw=1.8, label=rf"$y=x+({c})$")
+    for r in roots(c, -np.pi, 12):
+        ax.plot(r, r+c, 'o', color=PU, ms=6)
+    ax.axvline(0, color='0.8', lw=0.8); ax.axvline(np.pi, color='0.8', lw=0.8)
+    ax.axhline(0, color='0.8', lw=0.8)
+    ax.set_title(lab, fontsize=11, color=GR)
+    ax.set_ylim(-3, 9); ax.legend(loc="upper left", fontsize=9, frameon=False)
+axes[-1].set_xlabel("$x$")
+plt.tight_layout(); plt.show()
+```
+
+**Statement 1 is true.** Take $c=0.41$. In $[0,\pi]$ the line crosses the curve once, at
+$x\approx2.75$; and in $(-\pi,0)$ it crosses twice, near $x\approx-1.30$ and $x\approx-1.16$. *The line is
+nearly tangent to the steep descending part of the wave on the left, so it can pick up crossings there
+while meeting the hump only once.*
+
+**Statement 2 is true.** Take $c=-1.14$. Now the line is low enough that it misses the curve entirely on
+$(-\pi,0)$ — there $3\sin x+2$ dips to $-1$ while the line is near $-2$ — yet it still crosses once inside
+$[0,\pi]$, at $x\approx3.14$.
+
+**Statement 3 is true.** The same $c=-1.14$ works. For $x>\pi$ the line $y=x-1.14$ climbs without bound
+while the wave never exceeds $5$, so beyond $x\approx6.14$ no crossing is possible; and in between, the
+line already sits above the curve.
+
+$$\boxed{\text{All three} }$$
+
+*The key observation for statement 3 is that $3\sin x+2\le5$ always, so once $x+c>5$ the line has escaped
+for good — an unbounded line can only meet a bounded wave finitely often.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 18
+
+Consider this statement about a function $f(x)$:
+
+> $(*)$ If $\left(f(x)\right)^{2}\le1$ for all $-1\le x\le1$ then
+> $\displaystyle\int_{-1}^{1}\left(f(x)\right)^{2}\mathrm dx\le\int_{-1}^{1}f(x)\,\mathrm dx$.
+
+Which one of the following functions provides a **counterexample** to $(*)$?
+
+&nbsp;&nbsp;**A** $f(x)=x+\tfrac12$ &nbsp; **B** $f(x)=x-\tfrac12$ &nbsp; **C** $f(x)=x+x^{3}$ &nbsp;
+**D** $f(x)=x-x^{3}$ &nbsp; **E** $f(x)=x^{2}+x^{4}$ &nbsp; **F** $f(x)=x^{2}-x^{4}$
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**D.** *A counterexample must satisfy the hypothesis and break the conclusion — check both halves, every
+time.*
+
+First discard the options that fail the hypothesis $\left(f(x)\right)^{2}\le1$ on $[-1,1]$:
+
+| | $f$ | largest $f^{2}$ on $[-1,1]$ | hypothesis? |
+|---|---|---|---|
+| A | $x+\tfrac12$ | $2.25$ at $x=1$ | ✗ |
+| B | $x-\tfrac12$ | $2.25$ at $x=-1$ | ✗ |
+| C | $x+x^{3}$ | $4$ at $x=1$ | ✗ |
+| E | $x^{2}+x^{4}$ | $4$ at $x=\pm1$ | ✗ |
+
+Only D and F survive, and they are separated by the conclusion.
+
+**D works.** The maximum of $\lvert x-x^{3}\rvert$ on $[-1,1]$ is $\tfrac{2}{3\sqrt3}\approx0.385$, so
+$f^{2}\le0.148\le1$ ✓. But $x-x^{3}$ is **odd**, so
+
+$$\int_{-1}^{1}\left(x-x^{3}\right)\mathrm dx=0,\qquad
+\int_{-1}^{1}\left(x-x^{3}\right)^{2}\mathrm dx=\frac{16}{105}>0 .$$
+
+$$\boxed{\frac{16}{105}>0\ \text{— the conclusion fails}}$$
+
+**F does not.** $x^{2}-x^{4}$ satisfies the hypothesis too, but it is non-negative, and
+$\int_{-1}^{1}\left(x^{2}-x^{4}\right)^{2}=\tfrac{16}{315}$ while $\int_{-1}^{1}\left(x^{2}-x^{4}\right)=
+\tfrac{4}{15}=\tfrac{84}{315}$, so the conclusion holds.
+
+*The idea behind $(*)$ is that squaring shrinks numbers in $[-1,1]$ — true pointwise for **non-negative**
+$f$, but an odd function contributes negatively to $\int f$ and positively to $\int f^{2}$. Oddness is the
+whole trick.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 19
+
+Some identical unit cubes are glued face to face to make a solid. Its side elevation (from the right),
+front elevation and plan view are shown below.
+
+```{python}
+#| fig-align: center
+#| fig-cap: "The three given views. Each small square is one unit."
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+views = [("Side elevation", {(1,1),(2,1),(3,1),(1,2),(2,2),(2,3)}),
+         ("Front elevation", {(1,1),(2,1),(3,1),(1,2),(3,2),(3,3)}),
+         ("Plan view",       {(1,1),(2,1),(3,1),(3,2),(3,3)})]
+fig, axes = plt.subplots(3, 1, figsize=(3.2, 9.0))
+for ax, (title, cells) in zip(axes, views):
+    for (cx, cy) in cells:
+        ax.add_patch(Rectangle((cx-1, cy-1), 1, 1, facecolor='#eef2f7', edgecolor='0.15', lw=1.6))
+    ax.set_xlim(-0.4, 3.4); ax.set_ylim(-0.4, 3.4); ax.set_aspect("equal"); ax.axis("off")
+    ax.set_title(title, fontsize=11)
+plt.tight_layout(); plt.show()
+```
+
+How many cubes were used to construct the object?
+
+&nbsp;&nbsp;**A** exactly 6 &nbsp; **B** either 6 or 7 &nbsp; **C** exactly 7 &nbsp; **D** either 7 or 8
+&nbsp; **E** exactly 8 &nbsp; **F** either 8 or 9 &nbsp; **G** exactly 9
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**F.** *Three views rarely determine a solid. Build the only possible footprint first, then ask which cubes
+are forced and which are optional.*
+
+Use coordinates $(x,y,z)$ with $x$ across, $y$ back from the front, $z$ up.
+
+**Step 1 — the footprint.** The plan view gives the occupied columns directly: $(1,1)$, $(2,1)$, $(3,1)$,
+$(3,2)$, $(3,3)$ — an L of five columns.
+
+**Step 2 — the heights.** The front elevation (projection onto $x,z$) is $3$ wide and reaches height $3$
+only above $x=3$; it reaches height $2$ above $x=1$. The side elevation (projection onto $y,z$) reaches
+height $3$ only at $y=2$. Together these force:
+
+- column $(3,2)$ to be filled to height $3$ — it is the only column that is both at $x=3$ and $y=2$;
+- column $(1,1)$ to reach height $2$;
+- all five columns to be occupied at $z=1$.
+
+That accounts for $5+1+2=8$ cubes.
+
+**Step 3 — the free cube.** The cell $(3,1,2)$ — above the front-right column — is projected onto $(3,2)$
+in the front view and $(1,2)$ in the side view, and **both are already lit** by cubes we are forced to
+place. So it may be present or absent without changing any of the three pictures.
+
+$$\boxed{8\text{ or }9\text{ cubes}}$$
+
+*Checked exhaustively: of all $2^{15}$ ways of filling the fifteen available cells, exactly those two
+totals produce all three views with the solid still glued face to face.*
+
+*The habit this question rewards is asking "which cube is hidden behind another in every view?" — that cube
+is always the ambiguous one.*
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+---
+
+## Question 20
+
+Each interior angle of a regular polygon with $n$ sides is $\tfrac34$ of each interior angle of a second
+regular polygon with $m$ sides. How many pairs of positive integers $n$ and $m$ are there for which this
+statement is true?
+
+&nbsp;&nbsp;**A** none &nbsp; **B** 1 &nbsp; **C** 2 &nbsp; **D** 3 &nbsp; **E** 4 &nbsp; **F** 5 &nbsp;
+**G** 6 &nbsp; **H** infinitely many
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Solution
+
+**E.** *Write the condition algebraically, then make one variable the subject — the arithmetic does the
+rest.*
+
+The interior angle of a regular $k$-gon is $\dfrac{180(k-2)}{k}$, so the condition is
+
+$$\frac{180(n-2)}{n}=\frac34\cdot\frac{180(m-2)}{m}
+\ \Longrightarrow\ 4m(n-2)=3n(m-2).$$
+
+Expanding, $4mn-8m=3mn-6n$, so $mn-8m+6n=0$ and
+
+$$m(n-8)=-6n\ \Longrightarrow\ \boxed{m=\frac{6n}{8-n}} .$$
+
+*A polygon needs at least three sides, so $n\ge3$ and $m\ge3$; and $m>0$ forces $n<8$.* That leaves five
+values of $n$ to test:
+
+| $n$ | $3$ | $4$ | $5$ | $6$ | $7$ |
+|---|---|---|---|---|---|
+| $m=\dfrac{6n}{8-n}$ | $\tfrac{18}{5}$ ✗ | $6$ ✓ | $10$ ✓ | $18$ ✓ | $42$ ✓ |
+
+$$\boxed{(n,m)=(4,6),\ (5,10),\ (6,18),\ (7,42)\ \text{— four pairs}}$$
+
+*Check one: a square's interior angle is $90^{\circ}$ and a hexagon's is $120^{\circ}$, and
+$90=\tfrac34\times120$ ✓.*
+
+*The constraint doing the real work is $n<8$: as $n$ grows the interior angle approaches $180^{\circ}$, and
+no angle can be $\tfrac43$ of that.*
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon=false}
+## Alternative solution — work with the angles, never form the equation
+
+*This route never rearranges anything. It bounds $n$ from the geometry, then recognises each candidate
+angle by sight.*
+
+**Step 1 — $n<m$.** Write $A_k$ for the interior angle of a regular $k$-gon. Then
+
+$$A_k=\frac{180(k-2)}{k}=180-\frac{360}{k},$$
+
+which is **strictly increasing** in $k$: a larger polygon has blunter corners. We are told
+$A_n=\tfrac34A_m$, so $A_n<A_m$, and therefore
+
+$$\boxed{n<m}$$
+
+*Useful as a sanity check at the end — every pair we find must have the smaller polygon first.*
+
+**Step 2 — $n<8$.** Turn the relation round: $A_m=\tfrac43A_n$. No interior angle can reach $180^{\circ}$,
+so
+
+$$\frac43\cdot\frac{180(n-2)}{n}<180\ \Longrightarrow\ \frac{4(n-2)}{3n}<1\ \Longrightarrow\ 4n-8<3n
+\ \Longrightarrow\ \boxed{n<8}$$
+
+*That leaves only $n=3,4,5,6,7$ to test — five cases, no algebra.* (At $n=8$ the target is exactly
+$180^{\circ}$, which no polygon attains.)
+
+**Step 3 — recognise each target angle.** For each $n$, compute $A_m=\tfrac43A_n$ and write it as
+$\dfrac{180k}{q}$ in **lowest terms**. A regular $q$-gon has angle $\dfrac{180(q-2)}{q}$, so the angle is
+attainable exactly when the denominator exceeds the numerator by $2$. If the gap is not $2$ yet, scale
+numerator and denominator by the same whole number $t$ and see whether the gap can be made $2$ — the gap
+scales too, so we need
+
+$$t\,(q-k)=2 .$$
+
+$$\boxed{q-k=2\Rightarrow m=q;\qquad q-k=1\Rightarrow t=2,\ m=2q;\qquad q-k\ge3\Rightarrow\text{impossible}}$$
+
+| $n$ | $A_n$ | $A_m=\tfrac43A_n$ | as $\tfrac{180k}{q}$ | gap $q-k$ | scale $t$ | $m$ |
+|---|---|---|---|---|---|---|
+| $3$ | $60^{\circ}$ | $80^{\circ}$ | $\tfrac{180\times4}{9}$ | $5$ | — | **none** |
+| $4$ | $90^{\circ}$ | $120^{\circ}$ | $\tfrac{180\times2}{3}$ | $1$ | $2$ | $6$ |
+| $5$ | $108^{\circ}$ | $144^{\circ}$ | $\tfrac{180\times4}{5}$ | $1$ | $2$ | $10$ |
+| $6$ | $120^{\circ}$ | $160^{\circ}$ | $\tfrac{180\times8}{9}$ | $1$ | $2$ | $18$ |
+| $7$ | $\tfrac{900}{7}^{\circ}$ | $\tfrac{1200}{7}^{\circ}$ | $\tfrac{180\times20}{21}$ | $1$ | $2$ | $42$ |
+
+*Only $n=3$ fails, and it fails for a reason you can see without dividing: a gap of $5$ can never be
+scaled down to $2$, since scaling only makes the gap bigger.*
+
+$$\boxed{(4,6),\ (5,10),\ (6,18),\ (7,42)\ \text{— four pairs}}$$
+
+Each satisfies $n<m$ from Step 1 ✓.
+:::
+
+::: {.workspace style="min-height:6cm"}
+Working
+:::
+
+:::
